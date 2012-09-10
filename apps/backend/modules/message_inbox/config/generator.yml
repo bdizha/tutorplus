@@ -1,0 +1,42 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           EmailMessage
+    theme:                 ecollegeplus2
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          message_inbox
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:               ~
+      form:
+        class:               EmailMessageForm
+        display:             [_from_email, _to_emails, _cc_emails, _bcc_emails, subject, body]
+      fields:
+        from_email:          { label: From }
+        from_emails:         { label: From }
+        created_at:          { label: Date }
+        _to_email:           { label: To }
+        cc_email:            { label: Cc }
+        bcc_email:           { label: Bcc }
+      filter:
+        class: false
+      list:
+        title:                Inbox
+        display:              [from_emails, subject, updated_at]
+        sort:                 [updated_at, desc]
+        object_actions:       []
+        batch_actions:        
+          _trash:             ~
+          _mark_as_read:      ~
+          _mark_as_unread:    ~
+        max_per_page:			    10
+      new:
+        actions:       
+          _save_draft:        ~
+          _send:              ~
+          _cancel:            ~

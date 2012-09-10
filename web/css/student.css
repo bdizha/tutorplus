@@ -1,0 +1,133 @@
+/* student fields */
+.sf_admin_form_field_first_name, .sf_admin_form_field_middle_name, .sf_admin_form_field_last_name, .sf_admin_form_field_number,
+.sf_admin_form_field_phone_mobile, .sf_admin_form_field_phone_work, .sf_admin_form_field_phone_home,
+.sf_admin_form_field_address_line_one, .sf_admin_form_field_address_line_two, .sf_admin_form_field_postcode,
+.sf_admin_form_field_city, .sf_admin_form_field_state_province_id, .sf_admin_form_field_date_of_birth,
+.sf_admin_form_field_program_id, .sf_admin_form_field_start_period, .sf_admin_form_field_country_id,
+.sf_admin_form_field_username, .sf_admin_form_field_password, .sf_admin_form_field_password_again,
+.sf_admin_form_field_email_address, .sf_admin_form_field_gender, .sf_admin_form_field_address_line_1,
+.sf_admin_form_field_address_line_1, .sf_admin_form_field_address_line_2, .sf_admin_form_field_postal_address_line_1,
+.sf_admin_form_field_postal_postcode, .sf_admin_form_field_postal_city,
+.sf_admin_form_field_postal_address_line_2, .sf_admin_form_field_postal_postcode, .sf_admin_text sf_admin_form_field_postal_city,
+.sf_admin_form_field_postal_country_id, .sf_admin_form_field_postal_state_province_id, .sf_admin_form_field_postal_postcode,
+.sf_admin_form_field_postal_postcode, .sf_admin_form_field_guardian_first_name, .sf_admin_form_field_guardian_last_name,
+.sf_admin_form_field_guardian_email_address, .sf_admin_form_field_guardian_phone_work, .sf_admin_form_field_guardian_phone_home,
+.sf_admin_form_field_guardian_phone_mobile, .sf_admin_form_field_guardian_address_line_1, .sf_admin_form_field_guardian_address_line_2,
+.sf_admin_form_field_guardian_postcode, .sf_admin_form_field_guardian_city, .sf_admin_form_field_guardian_country_id,
+.sf_admin_form_field_guardian_state_province_id, .sf_admin_form_field_high_school, .sf_admin_form_field_current_qualification,
+.sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_studied_at, .sf_admin_form_field_current_study{
+    width: 46%;
+    float: left;	
+}
+
+#sf_admin_container label{
+    color: #666666;
+    display: block;
+    float: left;
+    font-weight: normal !important;
+    padding: 0 1em 0 0;
+    text-align: left;
+    width: 240px !important;
+}
+
+.sf_admin_form_row{
+    clear: none !important;
+    font-size: 12px;
+}
+
+#tab_content{
+    margin-top: 15px;    
+}
+
+#sf_admin_container .error ol {
+    margin: 0 0 3px 0 !important;
+}
+
+#sf_admin_container .error div.title {
+    margin: 3px 0 0 !important;
+}
+
+.sf_admin_form h2 {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px 10px;
+    position: relative;
+}
+
+#same_as_physical_address{
+    left: 280px;
+    position: absolute;
+    top: 8px;
+}
+
+#choose_programes{
+    display: block;
+    padding: 10px;
+}
+
+#choose_programes li {
+    border-bottom: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    position: relative;
+    width: 455px;
+}
+
+.choose-input{
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+
+.student_form_row{
+    padding: 0 5px 0 10px !important;
+}
+
+.student_form_row label {
+    float: none !important;
+    color: #666666;
+    display: block;
+    font-weight: normal;
+    padding-bottom: 5px;
+    width: 140px;
+}
+
+#choose_courses{
+    display: block;
+    padding: 10px;
+}
+
+#choose_courses li {
+    border-bottom: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    position: relative;
+    width: 455px;
+}
+
+#choose_mailing_lists{
+    display: block;
+    padding: 10px;
+}
+
+#choose_mailing_lists li {
+    border-bottom: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    position: relative;
+    width: 455px;
+}
+

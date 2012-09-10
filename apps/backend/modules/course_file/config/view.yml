@@ -1,0 +1,10 @@
+indexSuccess: 
+  stylesheets: [jquery.treeview.css]
+  
+newFileSuccess:  
+  stylesheets: [/css/jquery-ui2.css, /css/jquery.fileupload-ui.css]
+  javascripts: [//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js, //ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js, /js/jquery.iframe-transport.js, /js/jquery.fileupload.js, /js/jquery.fileupload-ui.js, /js/application.js]
+  has_layout: false
+  
+uploadFileSuccess: 
+  has_layout: false

@@ -1,0 +1,38 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           StateProvince
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          state_province
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+      filter:
+        class: false
+      list:
+        title:             State Provinces
+        display:           [ name, country ]
+        sort:              [ name, asc ]
+        batch_actions:     []
+        max_per_page:			 25
+        actions:
+          _new:            ~
+      edit:
+        title:             Edit State Province
+        actions:
+          _delete:         []
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             New State Province
+        actions:
+          cancel:          []
+          _save:           []

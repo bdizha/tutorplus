@@ -1,0 +1,40 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ActivityTemplate
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          activity_template
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      form:
+        class:                  ActivityTemplateForm
+        display:                [ type, patterns, content ]
+      fields:
+      filter:
+        class: false
+      list:
+        title:                  Activity Templates
+        display:                [ _type, content ]
+        sort:                   [ type, asc ]
+        batch_actions:          []
+        max_per_page:			      25
+        actions:
+          _new:                 { label: "+ New Activity Template" }
+      edit:
+        title:                  Edit Activity Template
+        actions:
+          cancel:               []
+          done:                 []
+          _save:                []
+      new:
+        title:                  New Activity Template
+        actions:
+          cancel:               []
+          _save:                []

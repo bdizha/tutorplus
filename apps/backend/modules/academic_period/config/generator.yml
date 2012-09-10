@@ -1,0 +1,35 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           AcademicPeriod
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          academic_period
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields: ~
+      filter:
+        class: false
+      list:
+        title:             Academic Periods
+        display:           [ academic_year, name, start_date,  end_date, grades_due, max_credits]
+        sort:              [ name, start_date, end_date, asc ]
+        batch_actions:     [ ]
+        max_per_page:      10 
+        actions:
+          _new: ~
+      edit:
+        actions:
+          cancel:            []
+          done:              []
+          _save:             []
+      new:
+        actions:
+          cancel:            []
+          _save:             []

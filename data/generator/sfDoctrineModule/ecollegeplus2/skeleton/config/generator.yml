@@ -1,0 +1,20 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+##CONFIG##
+
+    config:
+      actions:                  ~
+      fields:                   ~
+      list:                     ~
+      filter:                   ~
+      form:                     ~
+      edit:
+        actions:
+          cancel:               []
+          done:                 []
+          _save:                []
+      new:
+        actions:
+          cancel:               []
+          save:                 []

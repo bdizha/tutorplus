@@ -1,0 +1,32 @@
+/* student fields */
+.sf_admin_form_field_first_name, .sf_admin_form_field_middle_name, .sf_admin_form_field_last_name, .sf_admin_form_field_number,
+.sf_admin_form_field_phone_mobile, .sf_admin_form_field_phone_work, .sf_admin_form_field_phone_home,
+.sf_admin_form_field_address_line_one, .sf_admin_form_field_address_line_two, .sf_admin_form_field_postcode,
+.sf_admin_form_field_city, .sf_admin_form_field_state_province_id, .sf_admin_form_field_date_of_birth,
+.sf_admin_form_field_program_id, .sf_admin_form_field_start_period, .sf_admin_form_field_country_id,
+.sf_admin_form_field_username, .sf_admin_form_field_password, .sf_admin_form_field_password_again,
+.sf_admin_form_field_email_address, .sf_admin_form_field_gender{
+	width: 50%;
+	float: left;	
+}
+
+#sf_admin_container label{
+    color: #666666;
+    display: block;
+    float: left;
+    font-weight: normal !important;
+    padding: 0 1em 3px 0;
+    text-align: left;
+    width: 10em !important;
+}
+
+.sf_admin_form_row{
+    clear: none !important;
+    font-size: 12px;
+    margin-top: 1em;
+    min-height: 20px;
+}
+
+#tab_content{
+    margin-top: 15px;    
+}

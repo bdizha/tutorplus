@@ -1,0 +1,31 @@
+/* course form elements */
+.sf_admin_form_field_name, .sf_admin_form_field_subject, .sf_admin_form_field_from_email,
+.sf_admin_form_field_to_email,  .sf_admin_form_field_cc_email, .sf_admin_form_field_bcc_email,
+.sf_admin_form_field_reply_to, .sf_admin_form_field_credits, .sf_admin_form_field_hours,
+.sf_admin_form_field_max_enrolled{
+    float: left;
+    width: 46%;
+}
+
+.sf_admin_form_field_description{
+    width: 100%;
+    float: left;
+}
+
+.sf_admin_form_row {
+    clear: none !important;
+}
+
+.sf_admin_form_row label {
+    float: none !important;
+}
+
+#email_template_description, #email_template_body{
+    width: 800px;
+    height: 130px;
+}
+
+select[size], select[multiple], select[size][multiple] {
+    -moz-appearance: listbox;
+    width: 378px !important;
+}

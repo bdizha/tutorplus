@@ -1,0 +1,1 @@
+<?php include_partial('account_settings/settings', array('profile' => $sf_user->getProfile())) ?>

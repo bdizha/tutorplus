@@ -1,0 +1,68 @@
+#course_announcements{
+    padding: 0;
+}
+
+.announcement h4 {
+    color: #8A8A8A;
+    font-size: 12px;
+    padding: 0;
+}
+
+#announcement-action{
+    display: block;
+    height: 40px;
+    position: relative;
+}
+
+.announcement-details{
+    padding: 0 0 10px 10px;
+    width: 760px;
+}
+
+#announcement-action .users-actions{
+    left: 5px;
+    position: absolute;
+    top: 5px;
+}
+
+.announcement .user-image{
+    float: left;
+    padding: 10px 10px 0 0;
+}
+
+.announcement a{
+    color: #3F7CB6;
+}
+
+.announcement .user-meta{
+    color: #666666;
+    padding: 5px 0;
+}
+
+.announcement-action .more-link{
+    margin-top: -30px
+}
+
+/* announcement fields */
+#announcement_subject{
+    width: 520px !important;
+}
+
+#announcement_message{
+    width: 520px !important;
+    max-height: 400px;
+    height: 150px
+}
+
+.announcement-row{
+    border-bottom: 1px dashed #C0C0C0;
+    padding: 5px 0;
+}
+
+.announcement{
+    padding: 10px 10px 0;
+    background-color: #F5F5F5;
+    margin-top: 10px;
+    border-radius: 5px;
+    position: relative;
+}

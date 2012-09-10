@@ -1,0 +1,9 @@
+all:
+  stylesheets: [discussion, profile, student, contact]
+  has_layout: true
+  
+inlineNewSuccess:
+  has_layout: false
+  
+inlineEditSuccess:
+  has_layout: false

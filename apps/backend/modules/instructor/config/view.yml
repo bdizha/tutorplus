@@ -1,0 +1,12 @@
+all:
+  stylesheets: [course, instructor]
+  has_layout: false
+ 
+indexSuccess:
+  has_layout: true
+ 
+editSuccess:
+  has_layout: true
+ 
+newSuccess:
+  has_layout: true

@@ -1,0 +1,42 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           EmailTemplate
+    theme:                 ecollegeplus2
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          email_template
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      form:
+        class:                  EmailTemplateForm
+        display:
+         "Template Headers Details": [name, subject, from_email, to_email, cc_email, bcc_email, reply_to, is_active]
+         "Template Body Details": [description, is_html, body]
+      fields:
+      filter:
+        class: false
+      list:
+        title:                  Email Templates
+        display:                [name, subject, from_email, is_active, is_html]
+        sort:                   [name, asc]
+        batch_actions:          []
+        max_per_page:			      25
+        actions:
+          _new: ~
+      edit:
+        title:                  Edit Email Template: %%name%%
+        actions:
+          cancel:               []
+          done:                 []
+          _save:                []
+      new:
+        title:                  New Email Template
+        actions:
+          cancel:               []
+          _save:                []

@@ -1,0 +1,7 @@
+all:
+  stylesheets: [bulletin_board.css, profile.css, jquery.jcrop.css]
+  javascripts: [jquery.jcrop.min.js, jquery.color.js]
+  has_layout: false
+  
+indexSuccess:
+  has_layout: true

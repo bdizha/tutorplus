@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * instructor_academic_settings module helper.
+ *
+ * @package    ecollegeplus
+ * @subpackage instructor_academic_settings
+ * @author     Batanayi Matuku
+ * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ */
+class instructor_academic_settingsGeneratorHelper extends BaseInstructor_academic_settingsGeneratorHelper
+{
+
+    public function linkToNew($params)
+    {
+        return '<li class="sf_admin_action_new">'.button_to(__($params['label'], array(), 'sf_admin'), "/backend.php/instructor_academic_settings", array()).'</li>';
+    }
+
+    public function linkToEdit($object, $params)
+    {
+        return '<li class="sf_admin_action_edit">'.link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/backend.php/instructor_academic_settings", array("popup_url" => "/backend.php/instructor_academic_settings/".$object->getId()."/edit")).'</li>';
+    }
+
+    public function linkToDelete($object, $params, $is_form_action = false)
+    {
+        if ($object->isNew())
+        {
+            return '';
+        }
+
+        if (!$is_form_action)
+        {
+            return '<li class="sf_admin_action_delete">'.link_to(__('<img src="/images/icons/14x14/delete.png" title="Delete" alt="Delete">', array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
+        }
+        else
+        {
+            return '<li class="sf_admin_action_delete">'.link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
+        }
+    }
+
+    public function linkTo_done($object, $params)
+    {
+        return '<li class="sf_admin_action_done">' . link_to(__($params['label'], array(), 'sf_admin'), $params['redirect_url'], array("popup_url" => "/backend.php/instructor_academic_settings" . $object->getId() . "/edit")) . '</li>';
+    }
+
+}

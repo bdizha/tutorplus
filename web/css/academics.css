@@ -1,0 +1,25 @@
+#heading_c_content{
+    float: left;
+    margin-right: 20px;
+    width: 680px;
+}
+
+#heading_r_content{
+    float: left;
+    width: 320px;
+}
+
+#heading_r_content select {
+    float: right !important;
+}
+
+#academic_c_content{
+    float: left;
+    margin-right: 20px;
+    width: 680px;
+}
+
+#academic_r_content{
+    float: left;
+    width: 320px;
+}

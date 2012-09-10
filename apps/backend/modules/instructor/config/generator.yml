@@ -1,0 +1,44 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Instructor
+    theme:                 ecollegeplus2
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          instructor
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      fields:
+        courses_list:             { label: Courses }
+        password_again:           { label: "Confirm password" }
+        permissions_list:         { lable: Roles }
+      actions: ~
+      form:
+        class:                    InstructorForm
+        display:            
+         "Instructor Details":    [first_name, middle_name, last_name, date_of_birth, gender, employment, employment_start_date, employment_end_date, is_student, current_study]
+         "Account Details":       [username, email_address, password, password_again, is_active]
+      filter:
+        class: false
+      list:
+        title:                    Instructors
+        display:                  [first_name, last_name, email_address, employment, gender, _is_active, is_student]
+        sort:                     [gender, asc]
+        batch_actions:            []
+        max_per_page:			        10
+        actions:
+          _new:                   { label: " + Add Instructor" }
+      edit:
+        title:                    Edit Instructor: %%first_name%% %%last_name%%
+        actions:
+          cancel:                 []
+          done:                   []
+          _save:                  []
+      new:
+        actions:
+          cancel:                 []
+          _save:                  []

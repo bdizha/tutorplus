@@ -1,0 +1,8 @@
+all:
+  stylesheets:    [profile.css]
+  
+newSuccess:
+  layout:         false
+  
+editSuccess:
+  layout:         false

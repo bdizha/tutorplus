@@ -1,0 +1,6 @@
+all:
+  stylesheets: [discussion, profile]
+  has_layout: false
+  
+showSuccess:
+  has_layout: true

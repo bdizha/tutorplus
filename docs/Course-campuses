@@ -1,0 +1,7 @@
+<select id="course_campuses_list" multiple="multiple" name="course[campuses_list][]" class="double_list_select-selected" size="10">
+<option value="1">Ascot</option>
+</select>
+
+<select id="unassociated_course_campuses_list" multiple="multiple" name="unassociated_course[campuses_list][]" class="double_list_select" size="10">
+
+</select>

@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ActivityFeed
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          activity_feed_activity_feed
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~      
+      edit:
+        actions:
+          _cancel:              []
+          _save:                []
+          _done:                []
+      new:
+        actions:
+          _cancel:              []
+          _save:                []

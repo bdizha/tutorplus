@@ -1,0 +1,8 @@
+all:  
+  layout:         other
+  
+homeSuccess:
+  layout:         landing
+  
+logInMiniSuccess:
+  has_layout:     false

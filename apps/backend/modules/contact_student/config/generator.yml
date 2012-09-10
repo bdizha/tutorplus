@@ -1,0 +1,60 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ContactStudent
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          contact_student
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      fields:
+        postal_address_line_1:      { label: "Home address 1" }
+        postal_address_line_2:      { label: "Home address 2" }
+        postal_postcode:            { label: Postcode }
+        postal_city:                { label: City }
+        postal_country_id:          { label: Country }
+        postal_state_province_id:   { label: "State province" }
+        guardian_email_address:     { label: "Email address" }
+        guardian_first_name:        { label: "First name" }
+        guardian_last_name:         { label: "Last name" }
+        guardian_phone_work:        { label: "Phone work" }
+        guardian_phone_home:        { label: "Phone home" }
+        guardian_phone_mobile:      { label: "Phone mobile" }
+        guardian_address_line_1:    { label: "Home address 1" }
+        guardian_address_line_2:    { label: "Home address 2" }
+        guardian_postcode:          { label: Postcode }
+        guardian_city:              { label: City }
+        guardian_country_id:        { label: Country }
+        guardian_state_province_id: { label: "State province" }
+      actions: ~
+      form:
+        class:               ContactStudentForm
+        display:            
+         "Physical Address": [email_address, phone_work, phone_home, phone_mobile, address_line_1, address_line_2, postcode, city, country_id, state_province_id]
+         "Postal Address":   [postal_address_line_1, postal_address_line_2, postal_postcode, postal_city, postal_country_id, postal_state_province_id]
+         "Guardian Details": [guardian_first_name, guardian_last_name, guardian_email_address, guardian_phone_work, guardian_phone_home, guardian_phone_mobile, guardian_address_line_1, guardian_address_line_2, guardian_postcode, guardian_city, guardian_country_id, guardian_state_province_id]
+      filter:
+        class: false
+      list:
+        title:               Student Contacts
+        display:             [email_address, address_line_1, address_line_2, postcode, city]
+        sort:                [email_address, asc]
+        batch_actions:       []
+        max_per_page:			   10
+        actions:
+          _new:               ~
+      edit:
+        title:               Edit Student Contact
+        actions:
+          _cancel:           []
+          _save:             []
+          _done:             []
+      new:
+        actions:
+          _cancel:           []
+          _save:             []

@@ -1,0 +1,165 @@
+/* course form elements */
+.sf_admin_form_field_name, .sf_admin_form_field_code, .sf_admin_form_field_department_id,
+.sf_admin_form_field_academic_period_id,  .sf_admin_form_field_start_date,.sf_admin_form_field_end_date,
+.sf_admin_form_field_is_finalized, .sf_admin_form_field_credits, .sf_admin_form_field_hours,
+.sf_admin_form_field_max_enrolled{
+    float: left;
+    width: 46%;
+}
+
+.sf_admin_form_field_description{
+    width: 100%;
+    float: left;
+}
+
+.sf_admin_form_row {
+    clear: none !important;
+}
+
+#course_form_holder .sf_admin_form_row label{
+    float: none !important;
+}
+
+#course_description{
+    width: 800px;
+    height: 130px;
+}
+
+select[size], select[multiple], select[size][multiple] {
+    -moz-appearance: listbox;
+    width: 378px !important;
+}
+
+.day-time, .course-link, .course-reading-item{
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.course-meeting-time .name{
+    width: 110px;
+    float: left;
+}
+
+.course-meeting-time .value{
+    color: #666666;
+    float: left;
+}
+
+.course-reading-item .author{
+    color: #666666;
+}
+
+.course-meeting-time .day{    
+    padding-right: 10px;
+}
+
+.course-meeting-time .time{
+    color: #666666;
+}
+
+.edit-link{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.edit-item{
+    float: right;
+}
+
+.venue{
+    display: block;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.course-meeting-time{
+    padding: 5px;
+}
+
+.course-row{
+    padding: 5px;
+}
+
+#campuses_list{
+    display: block;
+    padding: 10px;
+}
+
+#campuses_list li {
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 400px;
+}
+
+.campus-name{
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: 0;
+}
+
+.campus-image{
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    width: 10px;    
+}
+
+#course_students, #course_instructors{
+    padding: 0 10px 10px;
+}
+
+.course-student, .course-instructor {
+    margin: 10px 0 0;
+    display: inline-block;
+    clear: both !important;
+    width: 265px;
+}
+
+.participant-image {
+    float: left;
+}
+
+.participant-meta {
+    float: left;
+    width: 180px;
+    padding-left: 10px;
+}
+
+.choose-participants{
+    max-height: 300px;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.course-participant {
+    margin: 10px 0 0;
+    display: inline-block;
+    clear: both !important;
+    width: 280px;
+}
+
+.course-participant-name {
+    float: left;
+    width: 180px;
+    padding-left: 10px;
+}
+
+.course-participant-input {
+    float: left;
+}
+
+.course-participant-image {
+    float: left;
+}
+
+.course_info{
+    background-color: #F5F5F5;
+    border-radius: 5px;
+    margin-bottom: 20px
+}

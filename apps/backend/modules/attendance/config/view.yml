@@ -1,0 +1,12 @@
+all:
+  stylesheets: [course.css, calendar.css, attendance.css]
+  
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false
+  
+indexSuccess:  
+  stylesheets: [full_calendar_print, full_calendar, dashboard, -datepicker.css, calendar.css]
+  javascripts: [jquery/full_calendar.js]

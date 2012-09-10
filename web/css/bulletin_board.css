@@ -1,0 +1,148 @@
+#bulletin_prompt textarea{
+    border: 1px solid #C0C0C0;
+    max-width: 821px;
+    padding: 3px;
+    width: 821px;
+    height: 15px;
+}
+
+.poster-image{
+    float: left;
+    height: 48px;
+    margin-right: 10px;
+    width: 48px;
+}
+
+.post-owner{
+}
+
+.post-owner .datetime{
+    color: #666666;
+}
+
+.post-content{
+    margin-left: 60px;
+}
+
+.post-body{
+    min-height: 35px;
+}
+
+#bulletin-board-posts{
+
+}
+
+#bulletin-board-posts li{
+    display: inline;
+}
+
+.post-action{
+    display: table;
+    position: relative;
+}
+
+.comment-content{
+    border-radius: 0 0 5px 0;
+    background-color: #F5F5F5;
+    margin-left: 34px;
+    min-height: 33px;
+    padding: 5px 10px;
+}
+
+.dot-separater{
+    left: 30px;
+    position: absolute;
+    top: -3px;
+}
+
+.like-post{
+    position: absolute;
+}
+
+.comment-post{
+    left: 40px;
+    position: absolute;
+}
+
+.post-comments{
+    border-radius: 5px 5px 5px 5px;
+    position: relative;
+    background-color: #F5F5F5;
+}
+
+.bulletin-board-post{
+    padding: 5px 0;
+    border-bottom: 1px dashed #C0C0C0;
+}
+
+.comments{    
+    margin-top: 0;
+}
+
+.comment{
+/*    border-bottom: 1px dashed #DDDDDD;*/
+}
+
+.comment-prompt{
+    width: 100%;
+    background-color: #F5F5F5;
+    border-radius: 0 0 5px 5px;
+}
+
+.comment-prompt .comment-content{
+    padding-top: 10px !important;
+}
+
+.comment .user-image, .comment-prompt .user-image{
+    float: left;
+    padding: 10px 10px 0 5px !important;
+    height: 25px;
+}
+
+.no_of_comments{
+    border-radius: 5px 5px 0 0;
+    background-color: #F5F5F5;
+    padding-left: 5px;
+    position: relative;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.post_comments .expand{
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
+
+#bulletin-board-posts textarea{
+    width: 686px;
+    height: 15px;
+    max-width: 686px !important;
+}
+
+.show_hide_post_comments span.expand{
+    background-image: url("/images/icons/16x16/expand.png");
+    background-position: 0 5px;
+    background-repeat: no-repeat;
+    float: right;
+    height: 14px;
+    position: absolute;
+    right: 8px;
+    top: 0;
+    width: 8px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.show_hide_post_comments span.collapse{
+    background-image: url("/images/icons/16x16/collapse.png");
+    background-position: 0 5px;
+    background-repeat: no-repeat;
+    float: right;
+    height: 14px;
+    position: absolute;
+    right: 8px;
+    top: 0;
+    width: 8px;
+    cursor: pointer;
+    cursor: hand;
+}

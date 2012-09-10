@@ -1,0 +1,38 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Country
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          country
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+      filter:
+        class: false
+      list:
+        title:             Countries
+        display:           [ name, code ]
+        sort:              [ name, asc ]
+        batch_actions:     [ ]
+        max_per_page:			 25
+        actions:
+          _new:            ~
+      edit:
+        title:             Edit Country
+        actions:
+          _delete:         []
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             New Country
+        actions:
+          cancel:          []
+          _save:           []

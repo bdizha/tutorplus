@@ -1,0 +1,632 @@
+/* 
+    Document   : menu_items
+    Created on : 18 Jul 2011, 11:27:43 PM
+    Author     : graphifox
+    Description:
+*/
+
+
+#navigation{
+    clear: both;
+}
+
+#nav-horizontal{
+    padding: 1px;
+}
+
+#nav-vertical{
+    float: left;
+    left: 10px;
+    min-height: 50px;
+    width: 200px;
+}
+
+.horizontal-menu{
+    background-color: #E0E0E0;
+    width: 100%;
+}
+
+.secondary-menu{
+    background-image: url("../images/ecp-main-horizontal-bar.png");
+    background-repeat: repeat-x;
+    height: 16px;
+    width: 100%;
+}
+
+.horizontal-menu ul{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #8A8A8A;
+    font-size: 11px !important;
+    float: left;
+}
+
+.horizontal-menu ul li.right-blue a{
+    color: #0F5A91 !important;
+}
+
+.horizontal-menu ul li.active{
+    border-left: 1px solid #E0E0E0;
+    display: inline;
+    float: left;
+    height: 30px;
+    position: relative;
+}
+
+.horizontal-menu ul li.active{
+    background-color: #4B7092 !important;
+}
+
+.horizontal-menu ul li:hover{
+    background-color: #4B7092 !important;
+    color: #FFFFFF;
+    cursor: hand;
+    cursor: pointer;
+}   
+
+.horizontal-menu ul li.first{
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+    border-left: none !important;
+    display: inline;
+    float: left;
+    height: 30px;
+}  
+
+.horizontal-menu ul li.last{
+    border-left: 1px solid #E0E0E0;
+    display: inline;
+    float: left;
+    height: 30px;
+}
+
+.horizontal-menu ul li.normal{
+    border-left: 1px solid #E0E0E0;
+    display: inline;
+    float: left;
+    height: 30px;
+}
+
+.horizontal-menu ul li.right-grey{
+    background-color: #8A8A8A;
+    float: left;
+    padding-right: 10px;
+    position: relative;
+    position: relative;
+}
+
+.horizontal-menu ul li.right-blue{
+    background-color: #FFFFFF;
+    float: left;
+    padding-right: 10px;
+    position: relative;
+}
+
+.first-left{
+    background-image: url("../images/ecp-btn-bg.gif") !important;
+    background-repeat: no-repeat;
+    background-position: right -48px !important;
+    padding: 0px !important;
+    display: inline;
+    width: 14px;
+    height: 40px;
+    position: relative;
+}
+
+.first-left a{
+    background-repeat: no-repeat;
+    background-position: right 0px;
+    padding-right: 0px !important;
+    display: inline;
+    float: left;
+    position: relative;
+}
+
+.last-right{
+    background-image: url("../images/ecp-horizontal-header-tabs.png") !important;
+    background-position: right 0 !important;
+    height: 40px;
+    padding-right: 13px !important;
+}
+
+.last-right a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li#nav-selected{
+    background-image: url("../images/ecp-horizontal-header-tabs.png");
+    background-repeat: no-repeat;
+    background-position: right 1px;
+    padding-right: 27px;
+    display: inline;
+    float: left;
+    position: relative;
+    border-left: none;
+}
+
+.horizontal-menu ul li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    height: 20px;
+    padding: 6px;
+}
+
+.more_link a{
+    color: #0088CC;
+    font-size: 12px;
+}
+
+.more_link a:hover{
+    text-decoration: underline !important;
+}
+
+.more_link{
+    padding-top: 5px;
+    text-align: right;
+}
+
+.horizontal-menu ul li span{
+    text-decoration: underline;
+}
+
+.horizontal-menu ul li a img{
+    margin-left: -4px;
+    padding-right: 4px;
+}
+
+.horizontal-menu ul li.home a{
+    background-image: url("../images/ecp-blue-bg.png") !important;
+    background-repeat: repeat;
+    padding-left: 30px;
+    padding: 10px 0px;
+    height: 20px;
+}
+
+.horizontal-menu ul li.profile a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li.administration a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li.documents a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li.academics a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li.journal a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li.academics a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li.assignments a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li.communications a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li.admissions a{
+    background-image: url("../images/ecp-grey-bg.png");
+    background-repeat: repeat;
+}
+
+.horizontal-menu ul li a#nav-selected{
+    color: #FFFFFF;
+}
+
+* html .horizontal-menu ul li a{
+    display: inline-block;
+}
+
+.horizontal-menu ul li a:link, .horizontal-menu ul li a:visited{
+}
+
+.horizontal-menu ul li ul{
+    display: block;
+    font-size: 1em;
+    left: 0;
+    position: absolute;
+    visibility: hidden;
+}
+
+.horizontal-menu ul li ul li{
+    display: list-item;
+    float: none;
+    width: 183px;
+}
+
+.horizontal-menu ul li ul li ul{
+    top: 0;
+}
+
+.horizontal-menu ul li ul li a{
+    border-top-width: 0;
+    font: 13px Verdana;
+    height: 18px;
+    margin: 0;
+    padding: 6px 10px;
+}
+
+.horizontal-menu ul li ul li a:hover{
+    background: none repeat scroll 0 0 #6DBE5E;
+    color: white;
+}
+
+.vertical-menu{
+    font-size: 1em;
+    height: 25px;
+    width: 100%;
+}
+
+.vertical-menu ul{
+    float: left;
+    list-style-type: none;
+    padding: 0;
+    font-size: 11px !important;
+    width: 100%;
+}
+
+.vertical-menu ul div.menu-item-children ul{
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+.vertical-menu ul div.menu-item{
+    background-color: #F3F3F3;
+    border-bottom: 1px solid #CCCCCC;
+    position: relative;
+}
+
+.vertical-menu ul li#nav-selected div.menu-item{
+    background-color: #E0E0E0;
+    position: relative;
+}
+
+.vertical-menu #child-item-1, .vertical-menu #child-item-2{
+    background-color: #FFFFFF;
+}
+
+.vertical-menu #child-item-1 a, .vertical-menu #child-item-2 a{
+    color: #0088CC;
+}
+
+.vertical-menu ul li div.menu-item-children li{
+    background-color: #FFFFFF;
+    border-right: 1px solid #CCCCCC;
+    position: relative;
+    margin-left: 5px;
+}
+
+.vertical-menu ul li div.menu-item-children li#selected{
+    border-color: #CCCCCC -moz-use-text-color #CCCCCC #CCCCCC;
+    border-radius: 5px 0 0 5px;
+    border-right: medium none;
+    border-style: solid none solid solid;
+    border-width: 1px medium 1px 1px;
+    margin-left: 5px;
+    margin-top: -1px;
+    position: relative;
+}
+
+.vertical-menu ul li div.menu-item-children{
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.vertical-menu ul li#nav-selected div.menu-item-children li#selected a:hover{
+    color: #888888 !important;
+}
+
+.vertical-menu ul li#nav-selected div.menu-item-children li#selected a{
+    background-position: -425px -78px !important;
+    color: #888888 !important;
+    text-shadow: none !important;
+}
+
+.vertical-menu ul li#nav-selected div.menu-item-children a{
+    background-position: -425px -4px !important;
+    color: #0088CC !important;
+}
+
+.vertical-menu ul li#nav-selected div.menu-item-children a:hover{
+    color: #0088CC !important;
+    background-position: -425px -78px !important;
+}
+
+.vertical-menu ul a{
+    background: url("../images/ecp-nav-arrows.png") no-repeat scroll -425px -78px transparent;
+    color: #787C80;
+    display: block;
+    padding: 5px 0 10px 5px;
+    font-size: 12px;
+}
+
+.vertical-menu ul li#selected a {
+    background:none !important;
+    color: #888888 !important;
+    font-size: 12px;
+}
+
+.vertical-menu ul li#selected a:hover {
+    color: #888888 !important;
+    font-size: 12px;
+}
+
+.vertical-menu ul a:hover{
+    color: #888888 !important;
+    background-position: -425px -4px !important;
+}
+
+li#nav-selected div.menu-item a.menu-link{
+    background-position: -124px -36px !important;
+}
+
+li div.menu-item a.menu-link{
+    background-position: 170px -4px !important;
+}
+
+.vertical-menu ul li#nav-selected div.menu-item a.menu-link:hover{
+    color: #0088CC !important;
+    background-position: 170px -36px !important;
+}
+
+.vertical-menu li div.menu-item a.menu-link:hover{
+    color: #0088CC !important;
+    background-position: -124px -4px !important;
+}
+
+.vertical-menu ul li div#menu-item a.menu-link:hover{
+    color: #0088CC !important;
+    background-position: -425px -36px !important;
+}
+
+.vertical-menu ul li ul li{
+    display: list-item;
+    float: none;
+    width: 183px;
+}
+
+.vertical-menu ul li ul li ul{
+    top: 0;
+}
+.vertical-menu ul li ul li a{
+    border-top-width: 0;
+    font: 13px Verdana;
+    height: 18px;
+    margin: 0;
+    padding: 6px 10px;
+}
+
+.vertical-menu ul li ul li a:hover{
+    background: none repeat scroll 0 0 #6DBE5E;
+    color: white;
+}
+
+.panel-tabs ul{
+    float: left;
+    list-style-type: none;
+    margin: 0 40px;
+    padding: 0;
+    font-size: 12px !important;    
+}
+
+.panel-tabs ul li{
+    border-left: 1px solid #DEDEDE;
+    display: inline;
+    float: left;
+    position: relative;
+}
+
+.panel-tabs ul li#nav-selected{
+    border-left: none;
+}
+
+.panel-tabs ul li a{
+    background: none repeat scroll 0 0 #B7B7B7;
+    display: block;
+    padding: 5px;
+    height: 20px;
+    text-decoration: none;
+}
+
+.panel-tabs ul li a#nav-selected{
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #888686;
+}
+
+* html .panel-tabs ul li a{
+    display: inline-block;
+}
+.panel-tabs ul li a:hover{
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #888686;
+}
+
+.panel-tabs ul li ul{
+    display: block;
+    font-size: 1em;
+    left: 0;
+    position: absolute;
+    visibility: hidden;
+}
+
+.panel-tabs ul li ul li{
+    display: list-item;
+    float: none;
+    width: 183px;
+}
+.panel-tabs ul li ul li ul{
+    top: 0;
+}
+
+.panel-tabs ul li ul li a{
+    border-top-width: 0;
+    font: 13px Verdana;
+    height: 18px;
+    margin: 0;
+    padding: 6px 10px;
+}
+
+.panel-tabsul li ul li a:hover{
+    background: none repeat scroll 0 0 #6DBE5E;
+    color: white;
+}
+
+.top-menu{
+    color: #FFFFFF;
+    float: right;
+    margin: 0;
+    padding: 8px 0;
+    width: 50%;
+}
+
+.top-menu ul{
+    clear: both;
+    display: block;
+    font-family: UbuntuBeta,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.top-menu ul li{
+    display: inline;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0 2px;
+}
+
+.top-menu a{
+    color: #FFFFFF;
+    padding: 0 0 0 4px;
+    text-decoration: none;
+}
+
+.top-menu ul li.salute{
+    border-left: medium none;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 0 8px;
+}
+
+.top-menu ul li.logout{
+    color: #03235E;
+    font-size: 10px;
+}
+
+.top-menu ul li span{
+    text-decoration: underline;
+}
+
+.top-menu ul li.password{
+    background-image: url("../images/icons/16/key16.png");
+    background-position: 8px center;
+    background-repeat: no-repeat;
+    border-left: 1px dotted #6BAED6;
+    padding-left: 16px;
+}
+
+.top-menu ul li.login a:hover{
+    background-image: none;
+    color: #03235E !important;
+}
+
+.top-menu ul li.help{
+    background-image: url("../images/icons/16/help.png");
+    background-position: 8px center;
+    background-repeat: no-repeat;
+    color: #03235E;
+    font-size: 10px;
+    padding-left: 16px;
+    padding-right: 20px;
+}
+
+.top-menu ul li.help a{
+    padding: 0 0 0 10px;
+}
+
+.top-menu ul li a:hover{
+    background-image: none;
+    color: #03235E; 
+}
+
+.top-left-menu{
+    background-image: url("../images/ecp-head-tools.png");
+    background-repeat: no-repeat;
+    height: 90px;
+    left: 280px;
+    position: absolute;
+    width: 480px;
+}
+
+/* message styles */
+
+#message_inbox {
+    background: url("../images/all-icons2.png") no-repeat scroll 0 -100% transparent;
+    padding: 1px 0 1px 20px;
+    background-position: 0 -89px;
+}
+
+#message_draft{
+    background: url("../images/all-icons2.png") no-repeat scroll 0 -100% transparent;
+    padding: 1px 0 1px 20px;
+    background-position: 0 -119px;
+}
+
+#message_sent {
+    background: url("../images/all-icons2.png") no-repeat scroll 0 -100% transparent;
+    padding: 1px 0 1px 20px;
+    background-position: 0 -149px;
+}
+
+#message_trash{
+    background: url("../images/all-icons2.png") no-repeat scroll 0 -100% transparent;
+    padding: 1px 0 1px 20px;
+    background-position: 0 -209px;
+}
+
+#message_contact {
+    background: url("../images/icons/16/contacts.png") no-repeat scroll 0 0 transparent;
+    padding: 1px 0 1px 20px;
+}
+
+.breadcrumb {
+    font-size: 12px;
+    height: 20px;
+    padding-top: 10px;
+}
+
+.breadcrumb a {
+    background: url("../images/icons/16/crumb.png") no-repeat scroll 3px center transparent;
+    padding-left: 15px;
+}
+
+.breadcrumb a#first {
+    background: none !important;
+    padding-left: 0px;
+}

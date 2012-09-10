@@ -1,0 +1,8 @@
+all:
+  stylesheets: [assignment.css]
+  
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false

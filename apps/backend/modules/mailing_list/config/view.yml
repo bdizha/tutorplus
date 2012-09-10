@@ -1,0 +1,23 @@
+all:
+  stylesheets: [mailing_list]
+
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false
+  
+chooseStudentRecipientsSuccess:
+  layout: false
+  
+chooseInstuctorRecipientsSuccess:
+  layout: false
+  
+  
+  

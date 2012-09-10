@@ -1,0 +1,220 @@
+.row{
+    clear: both;
+    color: #666666;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+textarea{
+    padding: 3px;
+    border: 1px solid #C0C0C0;    
+    font-size: 12px;
+    resize: none !important;
+}
+
+input[type=button], input[type=submit] {
+    moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    outline: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 4px 20px;
+    cursor: hand;
+    cursor: pointer;
+}
+
+.cancel, .done{
+    color: #666666 !important;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+    border: 1px solid #CCCDCE !important;
+    background: #F9F9F9;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #F7F8F8), color-stop(100%, #F1F2F3));
+    background: -webkit-linear-gradient(#F7F8F8,#F1F2F3);
+    background: -moz-linear-gradient(#F7F8F8,#F1F2F3);
+    background: -o-linear-gradient(#F7F8F8,#F1F2F3);
+    background: -ms-linear-gradient(#F7F8F8,#F1F2F3);
+    background: linear-gradient(#F7F8F8,#F1F2F3);
+    -moz-background-origin: border;
+    -webkit-background-origin: border;
+    -o-background-origin: border-box;
+    -ms-background-origin: border-box;
+    -khtml-background-origin: border-box;
+    background-origin: border-box;
+    -moz-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2),0 1px rgba(255,255,255,0.18),inset 0 1px #fff;
+    -webkit-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2),0 1px rgba(255,255,255,0.18),inset 0 1px #fff;
+    -o-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2),0 1px rgba(255,255,255,0.18),inset 0 1px #fff;
+    margin-bottom: 0;
+    font-size: 13px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.cancel:hover, .done:hover{
+    background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f6f7f8), color-stop(100%, #e8eaec));
+    background:-webkit-linear-gradient(#f6f7f8,#e8eaec);
+    background:-moz-linear-gradient(#f6f7f8,#e8eaec);
+    background:-o-linear-gradient(#f6f7f8,#e8eaec);
+    background:-ms-linear-gradient(#f6f7f8,#e8eaec);
+    background:linear-gradient(#f6f7f8,#e8eaec)
+}
+
+input[type="text"], input[type="password"]{
+    font-size: 13px;
+    line-height: 1;
+    padding: 5px;
+    min-width: 375px;
+    border: 1px solid #DFDFDF;
+    background: white;
+    outline: 0;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
+    border: 1px solid #4D90FE;
+    outline: medium none;
+}
+
+.errors input, .errors textarea{
+    border: 1px solid #CD0A0A !important;
+    outline: medium none;
+}
+
+.save, #add_files, .new, .button, .choose-recipient{
+    color: white;
+    border-color: #347FC6;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #77C2FD), color-stop(50%, #5EAEF5), color-stop(51%, #57A8F1), color-stop(100%, #4296E7));
+    background: -webkit-linear-gradient(#77C2FD,#5EAEF5 50%,#57A8F1 51%,#4296E7);
+    background: -moz-linear-gradient(#77C2FD,#5EAEF5 50%,#57A8F1 51%,#4296E7);
+    background: -o-linear-gradient(#77C2FD,#5EAEF5 50%,#57A8F1 51%,#4296E7);
+    background: -ms-linear-gradient(#77C2FD,#5EAEF5 50%,#57A8F1 51%,#4296E7);
+    background: linear-gradient(#77C2FD,#5EAEF5 50%,#57A8F1 51%,#4296E7);
+    -moz-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1),0 1px rgba(255,255,255,0.18),inset 0 1px #a2dffe;
+    -webkit-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1),0 1px rgba(255,255,255,0.18),inset 0 1px #a2dffe;
+    -o-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1),0 1px rgba(255,255,255,0.18),inset 0 1px #a2dffe;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1),0 1px rgba(255,255,255,0.18),inset 0 1px #a2dffe;
+    border: 1px solid #347FC6 !important;
+    text-shadow: 0 -1px rgba(15, 89, 153, 0.5);
+    margin-bottom: 0;
+    font-size: 13px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.save:hover, #add_files:hover, .new:hover, .button:hover, choose-recipient:hover{
+    background:#53a5ef;
+    background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #82c8fd), color-stop(50%, #6bbafc), color-stop(51%, #65b4f7), color-stop(100%, #53a5ef));
+    background:-webkit-linear-gradient(#82c8fd,#6bbafc 50%,#65b4f7 51%,#53a5ef);
+    background:-moz-linear-gradient(#82c8fd,#6bbafc 50%,#65b4f7 51%,#53a5ef);
+    background:-o-linear-gradient(#82c8fd,#6bbafc 50%,#65b4f7 51%,#53a5ef);
+    background:-ms-linear-gradient(#82c8fd,#6bbafc 50%,#65b4f7 51%,#53a5ef);
+    background:linear-gradient(#82c8fd,#6bbafc 50%,#65b4f7 51%,#53a5ef)
+}
+
+select{
+    width: 388px;
+    height: 27px;
+}
+
+select[size], select[multiple], select[size][multiple] {
+    -moz-appearance: listbox;
+    appearance: listbox;
+    width: 240px;
+    height: 150px !important;
+}
+
+select > option{
+    padding: 3px;
+}
+
+.row label{
+    font-size: 13px;
+}
+
+#login-container{
+    top: -4px;
+    right: 0;
+    position: absolute;
+}
+
+#login-container-inner{
+    position: relative;
+}
+
+#login-box, #admin-box {
+    background: #F5F5F5;
+    position: absolute;
+    top: 41px;
+    right: 0;
+    display: none;
+    z-index: 999999;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 5px 15px 15px 20px;
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+#login-form, .my-account-menu {
+    width:266px; 
+    border-radius:2px;
+    padding:0.75em;	
+}
+
+#login-in-btn{
+    width: 315px
+}
+
+#login-box::after, #admin-box::after {
+    position: absolute;
+    top: -10px;
+    left: 310px;
+    display: inline-block;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #F5F5F5;
+    border-left: 10px solid transparent;
+    content: '';
+}
+
+#login-options{
+    text-align: center;
+    padding-top: 5px;
+}
+
+#other_container_inner{
+    min-height: 308px;
+    background-color: #FFFFFF;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 20px;    
+}
+
+#other_container_inner h1{
+    font-size: 20px;
+    line-height: 1em;
+    margin: 0 0 25px;
+}
+
+#other-wrapper {
+    margin: 0 auto;
+    width: 920px;
+}
+
+.other-label{
+    width: 160px;
+    display: block;
+    float: left;
+    line-height: 19px;
+    font-size: 13px;
+    padding: 6px 0;
+}
+
+#cboxLoadedContentInner textarea{
+    min-width: 375px;
+}

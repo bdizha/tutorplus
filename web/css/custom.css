@@ -1,0 +1,112 @@
+#sf_admin_container{
+  background-color: #FFFFFF;
+  color: #333333;
+  border: 1px solid #CCCCCC;
+  margin: 90px 20px 0 !important;
+  min-height: 450px;
+}
+#inner-content{
+	margin: -80px 0 0;
+}
+#profile-links{
+	float: left;
+}
+#profile-details div.fullname span{
+	font-weight: bold;
+	color: #3F7CB6;
+	font-size:12px;
+}
+#profile-details div.fullname a{
+	color: #3F7CB6;
+	font-size:12px;
+}
+.fullname{
+	height: 20px;
+}
+#profile-photo{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#profile-details{
+	float: left;
+	height: 80px;
+}
+#profile-menu{
+    margin-top: 14px !important;
+}
+#profile-menu ul {
+    float: left;
+    font-size: 13px !important;
+    list-style-type: none;
+    padding: 0;
+}
+#profile-menu ul li.normal {
+    display: inline;
+    float: left;
+    margin-left: 1px;
+    position: relative;
+    height: 28px;
+}
+#activity-stream div#new-post textarea{	
+	width: 300px;
+	color: #8A8A8A;	
+	height: 20px;
+}
+#activity-stream div#latest-post{
+	padding: 5px 0 10px;
+	font-size: 11px;	
+}
+.post div.details .poster-photo{
+	display: block;
+	padding: 5px 5px 5px 0;
+	float: left;
+}
+#posts{
+	width: 700px;
+}
+.post{
+	clear: both;
+}
+.poster-photo img{
+	width: 50px;
+	height: 50px;
+}
+.post div.details div.poster{
+	display: block;
+}
+.post div.details div.poster a{
+	color: #3F7CB6;
+	font-size:11px;
+}
+.post div.details div.post-body{
+	display: block;
+	font-size: 10px;
+	color: #8A8A8A;
+	padding-right: 5px;
+}
+#profile-menu ul li.active {
+    display: inline;
+    float: left;
+    height: 33px;
+    margin-left: 1px;
+    position: relative;
+}
+#profile-menu ul li a {
+    background-color: #BBBBBB;
+    color: #FFFFFF;
+    display: block;
+    font-size: 11px;
+    padding: 5px 4px !important;
+    height: 16px;
+    -moz-border-radius: 5px 5px 0 0;
+}
+#profile-menu ul li.active a {
+    color: #3F7CB6 !important;
+    background-color: #FFFFFF !important;
+}
+#profile-menu ul li.normal a:hover {
+    color: #3F7CB6 !important;
+    background-color: #FFFFFF !important;
+    cursor: hand;
+    cursor: pointer;
+}

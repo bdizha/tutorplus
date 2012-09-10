@@ -1,0 +1,22 @@
+#sf_admin_content .sf_admin_list table {
+    width: 100% !important;
+}
+
+input.grade {
+    width: 40px;
+}
+
+select.grade {
+    width: 50px !important;
+}
+
+#gradebook_c_content {
+    float: left;
+    margin-right: 20px;
+    width: 680px;
+}
+
+#gradebook_r_content {
+    float: left;
+    width: 320px;
+}

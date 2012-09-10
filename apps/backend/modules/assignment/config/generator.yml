@@ -1,0 +1,43 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Assignment
+    theme:                 ecollegeplus2
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          assignment
+    with_doctrine_route:   true
+
+    config:
+      actions: ~
+      fields:
+        assignment_group:       { label: Type }    
+        points:                 { label: Marks }
+        weight:                 { label: Weight (%) }
+      form:
+        class:                  AssignmentForm
+        display:            
+         "Assignment Details":  [title, course_id, assignment_group_id, description]
+         "Assignment Settings": [submission, due_date, points, weight, lock_until, lock_after, is_graded, notify_users, graded_by, allow_late_submission ]
+      filter:
+        class: false
+      list:
+        title:                  Assignments
+        display:                [=title, assignment_group, submission, due_date, weight]
+        sort:                   [title, asc]
+        batch_actions:          []
+        max_per_page:			      10
+        actions:
+          _new:                 { label: "+ New Assignment" }
+          myCourse:             { label: "< My Course", action: myCourse }
+      edit:
+        actions:
+          cancel:               []
+          done:                 []
+          _save:                []
+      new:
+        actions:
+          cancel:               []
+          _save:                []

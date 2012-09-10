@@ -1,0 +1,36 @@
+.ui-datepicker table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    margin: 0 !important;
+    width: 100%;
+}
+
+.ui-datepicker {
+    background-color: #FFFFFF;
+    width: 246px !important;
+    z-index: 2000;
+    display: none;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    display: table;
+    line-height: 20px;
+    padding: 0 30px !important;
+    text-align: center;
+    width: 196px !important;
+}
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+    background: url("/images/icons/sprite.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -1px !important;
+    position: absolute;
+    top: 50%;
+}
+
+.ui-datepicker td.ui-datepicker-week-end {
+    border-right: medium none !important;
+    border-left: medium none !important;
+}

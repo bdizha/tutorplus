@@ -1,0 +1,85 @@
+#sf_admin_content .sf_admin_list table {
+    width: 100% !important;
+}
+
+#sf_admin_content .sf_admin_list {
+    width: 100% !important;
+}
+
+#sf_admin_content .attendance_list td {
+    font-size: 12px;
+    padding: 0 !important;
+    height: 50px;
+    width: 14%
+}
+
+td .top {
+	text-align: right;
+	width: 100%;
+	height: 40%
+}
+
+td .top span{
+	padding: 3px;
+	font-size: 11px;
+}
+
+.bottom_unrecorded {
+	background-color:#508EFF;
+	width: 100%;
+	height: 60%;
+	color: #FFF;
+	font-size: 11px;
+}
+
+.bottom_recorded{
+	background-color:#B077D7;
+	width:100%;
+	height:60%;
+	color: #FFF;
+	font-size: 11px;
+}
+
+.bottom_recorded span{
+	display: block;
+	padding: 3px;
+}
+
+.bottom_unrecorded span{
+	display: block;
+	padding: 3px;
+}
+
+.fc-event-skin {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+#attendance_c_content {
+    float: left;
+    margin-right: 20px;
+    width: 680px;
+}
+
+#attendance_r_content {
+    float: left;
+    width: 320px;
+}
+
+#attendance_info .name {
+    display: block;
+    float: left;
+    font-size: 12px;
+    font-weight: normal !important;
+    padding-top: 10px !important;
+    text-align: left;
+    width: 8em;
+}
+
+#attendance_info .value {
+    color: #666666;
+    float: left;
+    font-size: 12px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}

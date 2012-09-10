@@ -1,0 +1,40 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Room
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          room
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields: ~
+      filter:
+        class: false
+      list:
+        title:             Rooms
+        display:           [ name, abbreviation, building ]
+        sort:              [ name, asc ]
+        batch_actions:     [ ]
+        max_per_page:      10 
+        actions:
+          _new: ~
+      form:
+        display:           [ name, abbreviation, building_id ]
+      edit:
+        title:             Edit Room
+        actions:
+          _delete:         []
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             New Room
+        actions:
+          cancel:          []
+          _save:           []

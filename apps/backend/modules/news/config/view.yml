@@ -1,0 +1,8 @@
+all:
+  stylesheets: [news.css]
+  
+newSuccess:
+  has_layout: false
+  
+editSuccess:
+  has_layout: false

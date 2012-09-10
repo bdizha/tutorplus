@@ -1,0 +1,118 @@
+#mailing_list_recipients{
+    padding: 10px;
+    font-size: 12px;
+}
+
+#mailing_list_recipients li {
+    display: block;
+    float: left;
+    line-height: 18px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+#mailing_list_recipients .recipient-image{
+    float: left;    
+}
+
+#mailing_list_recipients .recipient-meta{
+    float: left;  
+    margin: 3px 10px;
+}
+
+#mailing_list_students{
+    font-size: 11px;
+    height: 280px;
+    overflow: auto;
+}
+
+#mailing_list_students li {
+    border-top: 1px dashed #DDDDDD;
+    clear: both;
+    display: block;
+    overflow: auto;
+    padding: 10px;
+    position: relative;
+}
+
+#mailing_list_students .student-image{
+    float: left;    
+}
+
+#mailing_list_students .student-meta{
+    float: left;  
+    margin: 3px 10px;
+}
+
+#mailing_list_students .include-student{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+
+#mailing_list_instructors{
+    font-size: 11px;
+    height: 280px;
+    overflow: auto;
+}
+
+#mailing_list_instructors li {
+    clear: both;
+    display: block;
+    padding: 10px;
+    position: relative;
+    border-top: 1px dashed #DDDDDD;
+    overflow: auto;
+}
+
+#mailing_list_instructors .instructor-image{
+    float: left;    
+}
+
+#mailing_list_instructors .instructor-meta{
+    float: left;  
+    margin: 3px 10px;
+}
+
+#mailing_list_instructors .include-instructor{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#sf_student_recipients, #sf_instructor_recipients{
+    width: 100%;
+    position: relative;    
+    min-height: 35px;
+}
+
+#student_recipients, #instructor_recipients{
+    padding: 0 10px;
+}
+
+#add_student_recipients, #add_instructor_recipients{
+    right: 0;
+    top: 10px;
+    position: absolute;     
+}
+
+.mailing-list-student, .mailing-list-instructor{
+    margin: 10px 0 0;
+    display: inline-block;
+    clear: both !important;
+    width: 280px
+}
+
+.student-image, .instructor-image{
+    float: left;
+}
+
+.student-name, .instructor-name{
+    float: left;
+    width: 180px;
+    padding-left: 10px;
+}
+
+.student-input, .instructor-input{
+    float: left;
+}

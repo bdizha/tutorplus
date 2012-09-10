@@ -1,0 +1,11 @@
+newSuccess:
+  layout: false
+  
+indexSuccess: 
+  stylesheets: [*, jquery.treeview.css]
+  
+editSuccess:
+  layout: false
+  
+fileSystemSuccess:
+  layout: false

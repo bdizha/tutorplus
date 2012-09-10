@@ -1,0 +1,40 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           DiscussionTopic
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             true
+    singular:              ~
+    plural:                ~
+    route_prefix:          discussion_topic
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:             ~
+      form:
+        display:           [subject, message]
+      filter:
+        class: false
+      list:
+        title:             My Discussion Topics
+        display:           [=subject, message]
+        sort:              [subject, asc]
+        batch_actions:     []
+        max_per_page:			 2
+        actions:
+          _new:            ~
+      edit:
+        title:             Edit Discussion Topic
+        actions:
+          _delete:         []
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             New Discussion Topic
+        actions:
+          _delete:         []
+          cancel:          []
+          _save:           []

@@ -1,0 +1,52 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           DiscussionMember
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          discussion_member
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        user:                             { label: Member }
+        is_removed:                       { label: Is Unsubscribed }
+        subscription_type:                { label: Subscription }
+        membership_type:                  { label: Membership }
+        posting_permission_type:          { label: Posting Permission }
+        subscription_type_display:        { label: Subscription }
+        membership_type_display:          { label: Membership }
+        posting_permission_type_display:  { label: Posting Permission }
+        status_display:                   { label: Status }
+
+      form:
+        display:          [ nickname, subscription_type, membership_type, posting_permission_type, status, is_removed ]
+      filter:
+        class: false
+      list:
+        title:             Discussion Members
+        display:           [ =user, nickname, subscription_type_display, membership_type_display, posting_permission_type_display, status_display, is_removed ]
+        sort:              [ nickname, asc ]
+        batch_actions:     []
+        max_per_page:			 10
+        object_actions:
+          _edit:           []
+        actions:
+          listDiscussion:  { label: < My Discussion }
+          _new:            { label: + Invite Participants }
+      edit:
+        title:             Edit Participant
+        actions:
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             Add Participants
+        actions:
+          cancel:          []
+          _save:           []

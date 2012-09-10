@@ -1,0 +1,40 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           CourseMeetingTime
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          course_meeting_time
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        from_time:         { label: Start Time }
+        to_time:           { label: End Time }
+      filter:
+        class: false
+      list:
+        title:             Courses Meeting Times
+        display:           [_day, _time, _venue]
+        sort:              [day, asc]
+        batch_actions:     []
+        max_per_page:			 5
+        actions:
+          _new:            { label: "+ Add Meeting Time" }
+      edit:
+        title:             Edit Course Meeting Time
+        actions:
+          _delete:         []
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             New Course Meeting Time
+        actions:
+          cancel:          []
+          _save:           []

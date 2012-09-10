@@ -1,0 +1,10 @@
+all:
+  stylesheets: [course.css]
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false
+  
+linksSuccess:
+  layout: false

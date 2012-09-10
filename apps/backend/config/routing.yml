@@ -1,0 +1,1577 @@
+profile_profile:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               profile
+    prefix_path:          /profile
+    column:               id
+    with_wildcard_routes: true
+
+peer:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Peer
+    module:               peer
+    prefix_path:          /peer
+    column:               id
+    with_wildcard_routes: true
+
+staff_contact:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                StaffContact
+    module:               staff_contact
+    prefix_path:          /staff_contact
+    column:               id
+    with_wildcard_routes: true
+
+instructor_contact:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                InstructorContact
+    module:               instructor_contact
+    prefix_path:          /instructor_contact
+    column:               idacademic_settings
+    with_wildcard_routes: true
+    
+student_contact:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                StudentContact
+    module:               student_contact
+    prefix_path:          /student_contact
+    column:               id
+    with_wildcard_routes: true
+
+student_academic_settings:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Student
+    module:               student_academic_settings
+    prefix_path:          /student_academic_settings
+    column:               id
+    with_wildcard_routes: true
+
+instructor_academic_settings:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Instructor
+    module:               instructor_academic_settings
+    prefix_path:          /instructor_academic_settings
+    column:               id
+    with_wildcard_routes: true
+
+staff:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Staff
+    module:               staff
+    prefix_path:          /staff
+    column:               id
+    with_wildcard_routes: true
+
+activity_template:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ActivityTemplate
+    module:               activity_template
+    prefix_path:          /activity_template
+    column:               id
+    with_wildcard_routes: true
+
+activity_feed:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ActivityFeed
+    module:               activity_feed
+    prefix_path:          /activity_feed
+    column:               id
+    with_wildcard_routes: true
+
+course_discussion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Discussion
+    module:               course_discussion
+    prefix_path:          /course_discussion
+    column:               id
+    with_wildcard_routes: true
+
+assignment_submission:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AssignmentSubmission
+    module:               assignment_submission
+    prefix_path:          /assignment_submission
+    column:               id
+    with_wildcard_routes: true
+
+course_announcement:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Announcement
+    module:               course_announcement
+    prefix_path:          /course_announcement
+    column:               id
+    with_wildcard_routes: true
+
+discussion_topic_message:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionTopicMessage
+    module:               discussion_topic_message
+    prefix_path:          /discussion_topic_message
+    column:               id
+    with_wildcard_routes: true
+
+profile_award:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileAward
+    module:               profile_award
+    prefix_path:          /profile_award
+    column:               id
+    with_wildcard_routes: true
+
+profile_qualification:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileQualification
+    module:               profile_qualification
+    prefix_path:          /profile_qualification
+    column:               id
+    with_wildcard_routes: true
+
+bulletin_board_post_comment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                BulletinBoardPostComment
+    module:               bulletin_board_post_comment
+    prefix_path:          /bulletin_board_post_comment
+    column:               id
+    with_wildcard_routes: true
+
+bulletin_board_post:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                BulletinBoardPost
+    module:               bulletin_board_post
+    prefix_path:          /bulletin_board_post
+    column:               id
+    with_wildcard_routes: true
+
+email_message_draft:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               message_draft
+    prefix_path:          /message_draft
+    column:               id
+    with_wildcard_routes: true
+
+correspondence:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Correspondence
+    module:               correspondence
+    prefix_path:          /correspondence
+    column:               id
+    with_wildcard_routes: true
+
+notification_settings:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NotificationSettings
+    module:               notification_settings
+    prefix_path:          /notification_settings
+    column:               id
+    with_wildcard_routes: true
+
+attendance:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Attendance
+    module:               attendance
+    prefix_path:          /attendance
+    column:               id
+    with_wildcard_routes: true
+
+gradebook_scale:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                GradebookScale
+    module:               gradebook_scale
+    prefix_path:          /gradebook_scale
+    column:               id
+    with_wildcard_routes: true
+
+gradebook_grade:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                GradebookGrade
+    module:               gradebook_grade
+    prefix_path:          /gradebook_grade
+    column:               id
+    with_wildcard_routes: true
+
+gradebook_item:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                GradebookItem
+    module:               gradebook_item
+    prefix_path:          /gradebook_item
+    column:               id
+    with_wildcard_routes: true
+
+gradebook:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Gradebook
+    module:               gradebook
+    prefix_path:          /gradebook
+    column:               id
+    with_wildcard_routes: true
+
+bulletin_board_comment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                BulletinBoardComment
+    module:               bulletin_board_comment
+    prefix_path:          /bulletin_board_comment
+    column:               id
+    with_wildcard_routes: true
+
+course_reading_item:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CourseReadingItem
+    module:               course_reading_item
+    prefix_path:          /course_reading_item
+    column:               id
+    with_wildcard_routes: true
+
+file:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                File
+    module:               file
+    prefix_path:          /file
+    column:               id
+    with_wildcard_routes: true
+
+discussion_topic_reply:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionTopicReply
+    module:               discussion_topic_reply
+    prefix_path:          /discussion_topic_reply
+    column:               id
+    with_wildcard_routes: true
+
+folder:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Folder
+    module:               folder
+    prefix_path:          /folder
+    column:               id
+    with_wildcard_routes: true
+
+news:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                News
+    module:               news
+    prefix_path:          /news
+    column:               id
+    with_wildcard_routes: true
+
+announcement:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Announcement
+    module:               announcement
+    prefix_path:          /announcement
+    column:               id
+    with_wildcard_routes: true
+
+contact_instructor:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ContactInstructor
+    module:               contact_instructor
+    prefix_path:          /contact_instructor
+    column:               id
+    with_wildcard_routes: true
+
+instructor:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Instructor
+    module:               instructor
+    prefix_path:          /instructor
+    column:               id
+    with_wildcard_routes: true
+    
+student_contact_inline_new:
+  url:     /student_contact_inline/new/:fieldset
+  param:   { module: student_contact, action: inlineNew }
+  
+student_contact_inline_edit:
+  url:     /student_contact_inline/edit/:fieldset
+  param:   { module: student_contact, action: inlineEdit }
+  
+student_contact_inline_create:
+  url:     /student_contact_inline/create
+  param:   { module: student_contact, action: inlineUpdate }
+  requirements: { sf_method: put } 
+  
+student_contact_inline_update:
+  url:     /student_contact_inline/update
+  param:   { module: student_contact, action: inlineUpdate }
+  requirements: { sf_method: put } 
+
+student_contact:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                StudentContact
+    module:               student_contact
+    prefix_path:          /student_contact
+    column:               id
+    with_wildcard_routes: true
+
+enrollment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Enrollment
+    module:               enrollment
+    prefix_path:          /enrollment
+    column:               id
+    with_wildcard_routes: true
+
+contact:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Contact
+    module:               contact
+    prefix_path:          /contact
+    column:               id
+    with_wildcard_routes: true
+
+message_trash:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               message_trash
+    prefix_path:          /message_trash
+    column:               id
+    with_wildcard_routes: true
+
+message_draft:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               message_draft
+    prefix_path:          /message_draft
+    column:               id
+    with_wildcard_routes: true
+
+message_sent:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               message_sent
+    prefix_path:          /message_sent
+    column:               id
+    with_wildcard_routes: true
+
+message_inbox:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               message_inbox
+    prefix_path:          /message_inbox
+    column:               id
+    with_wildcard_routes: true
+
+email_message:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               message
+    prefix_path:          /email_message
+    column:               id
+    with_wildcard_routes: true
+
+discussion_member:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionMember
+    module:               discussion_member
+    prefix_path:          /discussion_member
+    column:               id
+    with_wildcard_routes: true
+
+discussion_reply:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionReply
+    module:               discussion_reply
+    prefix_path:          /discussion_reply
+    column:               id
+    with_wildcard_routes: true
+
+discussion_topic:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionTopic
+    module:               discussion_topic
+    prefix_path:          /discussion_topic
+    column:               id
+    with_wildcard_routes: true
+
+discussion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Discussion
+    module:               discussion
+    prefix_path:          /discussion
+    column:               id
+    with_wildcard_routes: true
+
+group_member:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                GroupMember
+    module:               group_member
+    prefix_path:          /group_member
+    column:               id
+    with_wildcard_routes: true
+
+group_reply:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                GroupReply
+    module:               group_reply
+    prefix_path:          /group_reply
+    column:               id
+    with_wildcard_routes: true
+
+group_topic:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                GroupTopic
+    module:               group_topic
+    prefix_path:          /group_topic
+    column:               id
+    with_wildcard_routes: true
+
+group:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Group
+    module:               group
+    prefix_path:          /group
+    column:               id
+    with_wildcard_routes: true
+
+course_link:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CourseLink
+    module:               course_link
+    prefix_path:          /course_link
+    column:               id
+    with_wildcard_routes: true
+
+assignment_group:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AssignmentGroup
+    module:               assignment_group
+    prefix_path:          /assignment_group
+    column:               id
+    with_wildcard_routes: true
+
+application:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Application
+    module:               application
+    prefix_path:          /application
+    column:               id
+    with_wildcard_routes: true
+
+mailing_list:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MailingList
+    module:               mailing_list
+    prefix_path:          /mailing_list
+    column:               id
+    with_wildcard_routes: true
+
+faculty:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Faculty
+    module:               faculty
+    prefix_path:          /faculty
+    column:               id
+    with_wildcard_routes: true
+
+calendar_event_attendee:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CalendarEventAttendee
+    module:               calendar_event_attendee
+    prefix_path:          /calendar_event_attendee
+    column:               id
+    with_wildcard_routes: true
+
+calendar_event:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CalendarEvent
+    module:               calendar_event
+    prefix_path:          /calendar_event
+    column:               id
+    with_wildcard_routes: true
+
+calendar:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Calendar
+    module:               calendar
+    prefix_path:          /calendar
+    column:               id
+    with_wildcard_routes: true
+    
+document:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Document
+    module:               document
+    prefix_path:          /document
+    column:               id
+    with_wildcard_routes: true
+
+sfGuardPermission:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardPermission
+    module:               sfGuardPermission
+    prefix_path:          /sfGuardPermission
+    column:               id
+    with_wildcard_routes: true
+
+sfGuardGroup:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardGroup
+    module:               sfGuardGroup
+    prefix_path:          /sfGuardGroup
+    column:               id
+    with_wildcard_routes: true
+
+sfGuardUser:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                sfGuardUser
+    module:               sfGuardUser
+    prefix_path:          /sfGuardUser
+    column:               id
+    with_wildcard_routes: true
+
+menu_item:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ioDoctrineMenuItem
+    module:               menu_item
+    prefix_path:          /menu_item
+    column:               id
+    with_wildcard_routes: true
+
+io_doctrine_menu_item:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ioDoctrineMenuItem
+    module:               menu_item
+    prefix_path:          /menu_item
+    column:               id
+    with_wildcard_routes: true
+
+course_meeting_time:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CourseMeetingTime
+    module:               course_meeting_time
+    prefix_path:          /course_meeting_time
+    column:               id
+    with_wildcard_routes: true
+
+room:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Room
+    module:               room
+    prefix_path:          /room
+    column:               id
+    with_wildcard_routes: true
+
+building:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Building
+    module:               building
+    prefix_path:          /building
+    column:               id
+    with_wildcard_routes: true
+
+course:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Course
+    module:               course
+    prefix_path:          /course
+    column:               id
+    with_wildcard_routes: true
+
+department:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Department
+    module:               department
+    prefix_path:          /department
+    column:               id
+    with_wildcard_routes: true
+
+email_template:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailTemplate
+    module:               email_template
+    prefix_path:          /email_template
+    column:               id
+    with_wildcard_routes: true
+
+academic_period:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AcademicPeriod
+    module:               academic_period
+    prefix_path:          /academic_period
+    column:               id
+    with_wildcard_routes: true
+
+academic_info:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AcademicPeriod
+    module:               academic_info
+    prefix_path:          /academic_info
+    column:               id
+    with_wildcard_routes: true
+
+academic_year:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AcademicYear
+    module:               academic_year
+    prefix_path:          /academic_year
+    column:               id
+    with_wildcard_routes: true
+
+program:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Program
+    module:               program
+    prefix_path:          /program
+    column:               id
+    with_wildcard_routes: true
+
+program_level:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProgramLevel
+    module:               program_level
+    prefix_path:          /program_level
+    column:               id
+    with_wildcard_routes: true
+
+campus:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Campus
+    module:               campus
+    prefix_path:          /campus
+    column:               id
+    with_wildcard_routes: true
+
+assignment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Assignment
+    module:               assignment
+    prefix_path:          /assignment
+    column:               id
+    with_wildcard_routes: true                                         
+
+student:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Student
+    module:               student
+    prefix_path:          /student
+    column:               id
+    with_wildcard_routes: true
+    
+student_inline_update:
+  url:     /student_inline/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Student, type: object }
+  param:   { module: student, action: inlineUpdate, sf_format: html }
+  requirements: { sf_method: put } 
+  
+student_inline_edit:
+  url:     /student_inline/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Student, type: object }
+  param:   { module: student, action: inlineEdit, sf_format: html }
+  requirements: { sf_method: get }
+
+system_role:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                SystemRole  
+    module:               system_role
+    prefix_path:          /system_role
+    column:               id
+    with_wildcard_routes: true
+
+state_province:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                StateProvince
+    module:               state_province
+    prefix_path:          /state_province
+    column:               id
+    with_wildcard_routes: true
+
+country:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Country
+    module:               country
+    prefix_path:          /country
+    column:               id
+    with_wildcard_routes: true
+
+system_user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                SystemUser
+    module:               system_user
+    prefix_path:          /system_user
+    column:               id
+    with_wildcard_routes: true
+    
+invite_correspondence:
+  url: /invite_correspondence
+  param: { module: correspondence, action: autocomplete }
+    
+correspondence_correspond:
+  url: /correspondence_correspond/:correspondent_id
+  param: { module: correspondence, action: correspond }
+    
+correspondence_decline:
+  url: /correspondence_decline/:correspondent_id
+  param: { module: correspondence, action: decline }
+    
+correspondence_accept:
+  url: /correspondence_accept/:correspondent_id
+  param: { module: correspondence, action: accept }
+    
+programmes_student:
+  url: /programmes_student
+  param: { module: program, action: studentProgrammes } 
+  
+student_contact_details_edit:
+  url:     /student_contact_details/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: StudentContact, type: object }
+  param:   { module: student_contact, action: editContactDetails, sf_format: html }
+  requirements: { sf_method: get }
+  
+student_contact_details_new:
+  url:     /student_contact_details/new.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: StudentContact, type: object }
+  param:   { module: student_contact, action: newContactDetails, sf_format: html }
+  requirements: { sf_method: get }
+  
+notification_settings_details:
+  url: /notification_settings_details
+  param: { module: notification_settings, action: profileDetails }
+  
+account_settings_details:
+  url: /account_settings_details
+  param: { module: account_settings, action: details }
+    
+profile_account_settings_update:
+  url:     /profile_account_settings/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: profile, action: updateAccountSettings, sf_format: html }
+  requirements: { sf_method: put } 
+  
+profile_account_settings_edit:
+  url:     /profile_account_settings/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: profile, action: editAccountSettings, sf_format: html }
+  requirements: { sf_method: get }
+  
+student_details:
+  url: /student_details
+  param: { module: student, action: details }
+  
+instructor_details:
+  url: /instructor_details
+  param: { module: instructor, action: details }
+  
+student_contact_details:
+  url: /student_details
+  param: { module: student, action: details }
+  
+instructor_contact_details:
+  url: /instructor_details
+  param: { module: instructor, action: details }
+  
+student_academic_details:
+  url: /student_details
+  param: { module: student, action: details }
+  
+instructor_academic_details:
+  url: /instructor_details
+  param: { module: instructor, action: details }
+  
+academics_student:
+  url: /student_details
+  param: { module: student, action: details }
+  
+academics_instructor:
+  url: /instructor_details
+  param: { module: instructor, action: details }
+  
+profile_student_details:
+  url: /profile_student_details
+  param: { module: personal_info, action: studentDetails }
+  
+profile_instructor_details:
+  url: /profile_instructor_details
+  param: { module: personal_info, action: instructorDetails }
+  
+profile_photo:
+  url:   /profile_photo
+  param: { module: personal_info, action: profilePhoto }
+  
+profile_upload_photo:
+  url:   /profile_upload_photo
+  param: { module: personal_info, action: uploadPhoto }
+  
+profile_crop_photo:
+  url:   /profile_crop_photo
+  param: { module: personal_info, action: cropPhoto }
+  
+profile_delete_photo:
+  url:   /profile_delete_photo
+  param: { module: profile, action: deletePhoto } 
+  
+profile_show_photo:
+  url:   /profile_show_photo/:user_id/:size/:timestamp
+  param: { module: profile, action: showPhoto } 
+  
+profile_qualifications:
+  url: /profile_qualifications
+  param: { module: achievement, action: qualifications }
+  
+profile_discussions:
+  url: /profile_discussions
+  param: { module: profile, action: discussions }
+  
+profile_peers:
+  url: /profile_peers
+  param: { module: profile, action: peers }
+  
+profile_account_settings:
+  url: /profile_account_settings
+  param: { module: profile, action: accountSettings }
+  
+profile_contact_details:
+  url: /profile_contact_details
+  param: { module: profile, action: contactDetails }
+  
+profile_award_ajax:
+  url: /profile_award_ajax
+  param: { module: profile_award, action: ajax }
+  
+profile_qualification_ajax:
+  url: /profile_qualification_ajax
+  param: { module: profile_qualification, action: ajax }
+  
+profile_account_settings_ajax:
+  url: /profile_account_settings_ajax
+  param: { module: account_settings, action: ajax }
+  
+profile_peer:
+  url: /profile_peer
+  param: { module: profile, action: index } 
+  
+peer_profile:
+  url: /peer_profile/:peer_id
+  param: { module: profile, action: peer }
+  
+student_programmes:
+  url: /student_programmes
+  param: { module: student_academic_settings, action: programmes }  
+  
+instructor_programmes:
+  url: /instructor_programmes
+  param: { module: instructor_academic_settings, action: programmes }
+  
+program_choose:
+  url: /program_choose
+  param: { module: program, action: choose }
+    
+courses_student:
+  url: /courses_student
+  param: { module: course, action: studentCourses }
+    
+courses_instructor:
+  url: /courses_instructor
+  param: { module: course, action: instructorCourses }  
+  
+student_courses:
+  url: /student_courses
+  param: { module: student_academic_settings, action: courses }
+  
+instructor_courses:
+  url: /instructor_courses
+  param: { module: instructor_academic_settings, action: courses }
+  
+course_choose:
+  url: /course_choose
+  param: { module: course, action: choose }
+    
+mailing_lists_student:
+  url: /mailing_lists_student
+  param: { module: mailing_list, action: studentMailingLists }
+    
+mailing_lists_instructor:
+  url: /mailing_lists_instructor
+  param: { module: mailing_list, action: instructorMailingLists }  
+  
+student_mailing_lists:
+  url: /student_mailing_lists
+  param: { module: student_academic_settings, action: mailingLists } 
+  
+instructor_mailing_lists:
+  url: /instructor_mailing_lists
+  param: { module: instructor_academic_settings, action: mailingLists }
+  
+mailing_list_choose:
+  url: /mailing_list_choose
+  param: { module: mailing_list, action: choose }
+  
+mailing_list_choose_student_recepients:
+  url: /mailing_list_choose_student_recipients
+  param: { module: mailing_list, action: chooseStudentRecipients }
+  
+mailing_list_choose_instructor_recepients:
+  url: /mailing_list_choose_instructor_recipients
+  param: { module: mailing_list, action: chooseInstructorRecipients }
+  
+department_choose:
+  url: /department_choose
+  param: { module: department, action: choose }
+  
+contact_instructor_edit:
+  url:   /contact_instructor_edit/:fieldset
+  param: { module: contact_instructor, action: edit } 
+  
+instructor_academic_details_create:
+  url:     /instructor_academic_details.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Instructor, type: object }
+  param:   { module: instructor, action: editAcademicDetails, sf_format: html }
+  requirements: { sf_method: post } 
+  
+instructor_academic_details_update:
+  url:     /instructor_academic_details/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Instructor, type: object }
+  param:   { module: instructor, action: updateAcademicDetails, sf_format: html }
+  requirements: { sf_method: put }  
+  
+instructor_academic_details_show:
+  url:     /instructor_academic_details/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Instructor, type: object }
+  param:   { module: instructor, action: showAcademicDetails, sf_format: html }
+  requirements: { sf_method: get } 
+  
+instructor_academic_details_edit:
+  url:     /instructor_academic_details/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Instructor, type: object }
+  param:   { module: instructor, action: editAcademicDetails, sf_format: html }
+  requirements: { sf_method: get }
+  
+instructor_contact_details_create:
+  url:     /instructor_contact_details.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: ContactInstructor, type: object }
+  param:   { module: contact_instructor, action: createContactDetails, sf_format: html }
+  requirements: { sf_method: post } 
+  
+instructor_contact_details_update:
+  url:     /instructor_contact_details/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: ContactInstructor, type: object }
+  param:   { module: contact_instructor, action: updateContactDetails, sf_format: html }
+  requirements: { sf_method: put } 
+  
+instructor_contact_details_edit:
+  url:     /instructor_contact_details/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: ContactInstructor, type: object }
+  param:   { module: contact_instructor, action: editContactDetails, sf_format: html }
+  requirements: { sf_method: get }
+  
+instructor_contact_details_new:
+  url:     /instructor_contact_details/new.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: ContactInstructor, type: object }
+  param:   { module: contact_instructor, action: newContactDetails, sf_format: html }
+  requirements: { sf_method: get }
+    
+#correspondents routes
+correspondents:
+  url: /correspondents
+  param: { module: correspondence, action: correspondents }
+  
+correspondent:
+  url: /correspondent
+  param: { module: correspondent, action: index }
+    
+studies:
+  url: /correspondent_studies
+  param: { module: correspondent, action: studies }
+  
+peers:
+  url: /peers
+  param: { module: peer, action: index }
+  
+peer_home:
+  url: /peer_home
+  param: { module: peer, action: home }
+  
+peer_peers:
+  url: /peers
+  param: { module: peer, action: index }
+  
+correspondent_profile:
+  url: /correspondent_profile/:id
+  param: { module: correspondent, action: profile }
+  
+correspondent_correspond:
+  url:   /correspondent_correspond
+  param: { module: correspondent, action: correspond }
+  
+correspondent_students:
+  url:   /correspondent_students
+  param: { module: correspondent, action: students }
+  
+correspondent_instructors:
+  url:   /correspondent_instructors
+  param: { module: correspondent, action: instructors }
+  
+my_document:
+  url:   /folder
+  param: { module: folder, action: index }    
+  
+folder_section:
+  url:   /folder_section/:section
+  param: { module: folder, action: section }  
+  
+gradebook_grades:
+  url:   /gradebook
+  param: { module: gradebook, action: grades }
+
+folder_browser:
+  url:   /folder/browser
+  param: { module: folder, action: browser }
+
+folder_descendants:
+  url:   /folder/descendants/:parent_id
+  param: { module: folder, action: descendants }
+  
+assignment_detail:
+  url:   /assignment_detail
+  param: { module: assignment, action: detail }
+  
+assignment_course:
+  url:   /assignment/course
+  param: { module: assignment, action: myCourse }
+  
+course_bulletin_board_post:
+  url:   /course/bulletin_board_post
+  param: { module: course, action: bulletinBoardPost }  
+  
+course_extra:
+  url:   /course_extra
+  param: { module: course_extra, action: index }
+  
+course_file:
+  url:   /course_file
+  param: { module: course_file, action: index }
+  
+course_files:
+  url:   /course_files
+  param: { module: course_file, action: files }
+  
+profile_settings:
+  url:   /profile_settings
+  param: { module: profile, action: settings }
+  
+achievement:
+  url:   /achievement
+  param: { module: achievement, action: index }
+  
+profile_course:
+  url:   /achievement
+  param: { module: achievement, action: index }
+  
+remove_post:
+  url:   /remove_post/:id
+  param: { module: bulletin_board, action: remove }
+  
+undo_remove_post:
+  url:   /undo_remove_post/:id
+  param: { module: bulletin_board, action: undoRemove }
+  
+news_detail:
+  url:   /course/announcement
+  param: { module: course, action: announcements }
+  
+event:
+  url:   /course/announcement
+  param: { module: course, action: announcements }  
+
+admissions:
+  url:   /application
+  param: { module: application, action: index }
+
+my_messages:
+  url:   /message_inbox
+  param: { module: message_inbox, action: index }
+  
+my_discussions:
+  url:   /my_discussions
+  param: { module: discussion, action: index }  
+
+my_courses:
+  url:   /my_courses
+  param: { module: course, action: myCourses }
+  
+courses:
+  url:   /courses
+  param: { module: course, action: explorer }
+  
+archived_courses:
+  url:   /archived_courses
+  param: { module: course, action: archived }
+
+message:
+  url:   /message_inbox
+  param: { module: message_inbox, action: index }
+
+message_reply:
+  url:   /message_reply
+  param: { module: message_inbox, action: reply }
+  
+message_inbox_tab:
+  url:   /message_inbox_tab
+  param: { module: message_inbox, action: inboxTab }
+  
+message_new_tab:
+  url:   /message_new_tab
+  param: { module: message_inbox, action: newTab }
+  
+message_auto_email_to:
+  url:   /message_email_to
+  param: { module: message_inbox, action: autoEmailTo }  
+  
+message_read_tab:
+  url:     /message_read_tab/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: EmailMessage, type: object }
+  param:   { module: message_inbox, action: readTab, sf_format: html }
+  requirements: { sf_method: get }
+  
+message_choose_recipients:
+  url: /message_choose_recipients/:type
+  param: { module: message_inbox, action: chooseRecipients }
+  
+message_sent_tab:
+  url:   /message_sent_tab
+  param: { module: message_sent, action: sentTab }
+  
+message_trash_tab:
+  url:   /message_trash_tab
+  param: { module: message_trash, action: trashTab }
+  
+message_draft_tab:
+  url:   /message_draft_tab
+  param: { module: message_draft, action: draftTab }
+  
+message_draft_edit_tab:
+  url:     /message_draft_tab/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: EmailMessage, type: object }
+  param:   { module: message_draft, action: editTab, sf_format: html }
+  requirements: { sf_method: get }
+  
+message_contacts_tab:
+  url:   /message_contacts_tab
+  param: { module: message_inbox, action: readTab }
+  
+contact_list_tab:
+  url:   /contact_list_tab
+  param: { module: contact, action: listTab }
+  
+contact_new_tab:
+  url:   /contact_new_tab
+  param: { module: contact, action: newTab }
+  
+contact_instructor_details:
+  url:   /contact_instructor_details
+  param: { module: contact_instructor, action: index }
+  
+student_contact_details:
+  url:   /student_contact_details
+  param: { module: student_contact, action: new } 
+    
+settings:
+  url:   /country
+  param: { module: country, action: index }
+  
+communication:
+  url:   /mailing_list
+  param: { module: mailing_list, action: index }
+  
+messaging_settings:
+  url:   /messaging_setting
+  param: { module: mailing_list, action: index }
+  
+mailing_list_recipients:
+  url:   /mailinglistrecipients
+  param: { module: mailing_list, action: recipients }
+  
+mailing_list_students:
+  url:   /mailingliststudents/:id
+  param: { module: mailing_list, action: students }
+  
+mailing_list_instructors:
+  url:   /mailinglistinstructors/:id
+  param: { module: mailing_list, action: instructors }
+  
+my_calendar:
+  url:   /my_calendar
+  param: { module: calendar, action: myCalendar }
+  
+calendar_home:
+  url:   /calendar_home
+  param: { module: calendar, action: index }  
+  
+calendar_events:
+  url:   /events
+  param: { module: calendar_event, action: calendarEvents }
+  
+course_info:
+  url:   /assignment
+  param: { module: assignment, action: index }
+  
+course_home:
+  url:   /course_detail
+  param: { module: course, action: detail }
+    
+course_calendar:
+  url:   /course
+  param: { module: course, action: index }
+    
+course_participant:
+  url:   /course_participant
+  param: { module: course_participant, action: index }
+  
+course_student:
+  url:   /course_student
+  param: { module: course_participant, action: students }
+  
+course_instructor:
+  url:   /course_instructor
+  param: { module: course_participant, action: instructors }
+  
+choose_course:
+  url:   /choose_course/:module_name/:object_id
+  param: { module: course, action: choose }
+  
+choose_program:
+  url:   /choose_program/:module_name/:object_id
+  param: { module: program, action: choose }
+  
+choose_mailing_list:
+  url:   /choose_mailing_list/:module_name/:object_id
+  param: { module: mailing_list, action: choose }
+  
+choose_course_instructors:
+  url:   /choose_course_instructors
+  param: { module: course_participant, action: chooseInstructors }
+    
+academics:
+  url:   /student
+  param: { module: student, action: index }  
+    
+documents:
+  url:   /folder
+  param: { module: folder, action: index }
+    
+file_system:
+  url:   /folder
+  param: { module: folder, action: index }
+    
+course_home:
+  url:   /course/info
+  param: { module: course, action: info }
+  
+discussion_home:
+  url: /discussion
+  param: { module: discusion, action: index }
+  
+discussion_topics:
+  url:   /discussion_topics
+  param: { module: discussion_topic, action: topics }
+  
+discussion_members:
+  url:   /discussion_members
+  param: { module: discussion, action: members }
+  
+discussion_invite:
+  url:   /discussion_invite
+  param: { module: discussion_member, action: invite }
+  
+discussion_topic_message_show_mini:
+  url:   /discussion_topic_message_show_mini
+  param: { module: discussion_topic_message, action: show }
+  
+recent_announcement:
+  url:   /announcement/recent
+  param: { module: announcement, action: recent }
+  
+recent_news:
+  url:   /news/recent
+  param: { module: news, action: recent }
+  
+dashboard_events:
+  url:   /dashboard_events
+  param: { module: dashboard, action: news }
+  
+dashboard_assignment:
+  url:   /assignment
+  param: { module: assignment, action: index }  
+    
+course_info:
+  url:   /course/info
+  param: { module: course, action: info }
+  
+schedule:
+  url:   /schedule
+  param: { module: schedule, action: index }
+  
+home:
+  url:   /dashboard
+  param: { module: dashboard, action: index }
+  
+academic_personnel:
+  url:   /academic_personnel
+  param: { module: student, action: index }
+  
+upload_photo:
+  url:     /upload_photo
+  param:   { module: personal_info, action: uploadPhoto}
+  
+create_photo:
+  url:     /create_photo
+  param:   { module: personal_info, action: createPhoto}
+  requirements: { sf_method: post }
+  
+delete_photo:
+  url:     /delete_photo
+  param:   { module: personal_info, action: deletePhoto}
+  requirements: { sf_method: delete }
+  
+notification_tab:
+  url:   /notification_tab
+  param: { module: notification, action: tab }
+  
+bulletin_board_tab:
+  url:   /bulletin_board_tab
+  param: { module: bulletin_board, action: tab }
+  
+personal_info_tab:
+  url:   /personal_info_tab
+  param: { module: personal_info, action: tab }
+  
+registration_tab:
+  url:   /registration_tab
+  param: { module: registration, action: tab }
+  
+financial_tab:
+  url:   /financial_tab
+  param: { module: financial, action: tab }
+  
+student_course:
+  url:   /student_course
+  param: { module: course, action: index }
+  
+personal_info:
+  url:   /personal_info
+  param: { module: personal_info, action: index }
+  
+correspondence_suggestions:  
+  url:   /correspondence_suggestions/:id/:status
+  param: { module: correspondence, action: suggestions }
+  
+correspondence_requests:  
+  url:   /correspondence_requests/:id/:status
+  param: { module: correspondence, action: requests }
+  
+performance:
+  url:   /performance
+  param: { module: performance, action: index }
+  
+prospect:
+  url:   /prospect
+  param: { module: prospect, action: index }
+  
+dashboard:
+  url:   /dashboard
+  param: { module: dashboard, action: index }
+  
+my_dashboard:
+  url:   /dashboard
+  param: { module: dashboard, action: index }
+  
+message_contact:
+  url:   /message
+  param: { module: message, action: contact }
+  
+financial_records:
+  url:   /financial_records
+  param: { module: financial, action: index }
+  
+profile:
+  url:   /profile
+  param: { module: profile, action: index }
+  
+my_profile:
+  url:   /my_profile
+  param: { module: profile, action: index }
+  
+reporting:
+  url:   /reporting
+  param: { module: reporting, action: index }
+  
+academic_settings:
+  url:   /academic_settings
+  param: { module: course, action: index }
+  
+general_tools:
+  url:   /academic_info
+  param: { module: academic_info, action: index }
+  
+academic_staff:
+  url:   /academic_staff
+  param: { module: academic_staff, action: index }
+  
+general_settings:
+  url:   /program
+  param: { module: program, action: index }
+  
+system_settings:
+  url:   /menu_item
+  param: { module: sfGuardPermission, action: index }
+  
+email_settings:
+  url:   /email_template
+  param: { module: email_template, action: index }
+  
+academic_report:
+  url:   /report/financial
+  param: { module: report, action: financial }
+  
+report_performance:
+  url:   /report/performance
+  param: { module: report, action: performance }
+  
+report_finance:
+  url:   /report/financial
+  param: { module: report, action: financial }
+  
+settings:
+  url:   /menu_item
+  param: { module: menu_item, action: index }
+  
+Admissions:
+  url:   /admission_statistics
+  param: { module: admission_statistics, action: index }
+  
+admission_statistics:
+  url:   /admission_statistics
+  param: { module: admission_statistics, action: index }
+  
+location_settings:
+  url:   /country
+  param: { module: country, action: index }
+  
+dropout:
+  url:   /admission_statistics/dropout
+  param: { module: admission_statistics, action: dropout }  
+  
+# default rules
+homepage:
+  url:   /
+  param: { module: course, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules  
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: logIn }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_forgot_password:
+  url:   /request_password
+  param: { module: sfGuardForgotPassword, action: index }
+  
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

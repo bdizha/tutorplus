@@ -1,0 +1,11 @@
+all:
+  stylesheets: [course, assignment]
+  
+chooseSuccess:
+  has_layout: false
+  
+bulletinBoardPostSuccess:
+  stylesheets: [bulletin_board.css]
+
+currentSuccess:
+  stylesheets: [profile.css, student.css]

@@ -1,0 +1,1 @@
+<?php include_partial('course/courses', array('courses' => $student->getCourses())) ?>

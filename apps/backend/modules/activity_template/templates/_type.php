@@ -1,0 +1,1 @@
+<?php echo $activity_template->getDisplayType() ?>

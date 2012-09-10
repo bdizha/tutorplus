@@ -1,0 +1,167 @@
+/* assignment fields */
+#assignment_task_description{
+    height: 130px;
+    width: 800px;
+}
+
+.sf_admin_list_th_title{
+    width: 300px;
+}
+
+#course_form_holder .sf_admin_form_row label, #assignment_form_holder .sf_admin_form_row label {
+    float: none !important;
+}
+
+.sf_admin_form_field_title, .sf_admin_form_field_assignment_group_id,
+.sf_admin_form_field_submission, .sf_admin_form_field_due_date,
+.sf_admin_form_field_points, .sf_admin_form_field_weight,
+.sf_admin_form_field_lock_until, .sf_admin_form_field_lock_after,
+.sf_admin_form_field_is_graded, .sf_admin_form_field_notify_users,
+.sf_admin_form_field_graded_by, .sf_admin_form_field_allow_late_submission{
+    float: left;
+    width: 46%;
+}
+
+.sf_admin_form_field_task_description{
+    float: left;
+    width: 100%;
+}
+
+.sf_admin_form_row {
+    clear: none !important;
+}
+
+.assignment-row {
+    padding: 5px;
+}
+
+select{
+    color: #3C3C3C;
+    height: 22px !important;    
+    padding: 0 !important;
+}
+
+#sf_admin_content .sf_admin_form fieldset{
+    margin: 0 0 20px;
+    min-width: 300px;
+    padding: 0;
+}
+
+#sf_admin_content .sf_admin_list table {
+    width: 100% !important;
+}
+
+#assignment_c_content {
+    float: left;
+    margin-right: 20px;
+    width: 680px;
+}
+
+#assignment_r_content {
+    float: left;
+    width: 320px;
+}
+
+
+
+.feed {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #C0C0C0;
+    margin-bottom: 20px;
+    padding: 10px 5px 10px 10px;
+}
+
+.feed span.datetime {
+    display: inline;
+    color: #999999;
+}
+
+.feed_content {
+    display: table;
+    padding: 10px 0;
+}
+
+.feed_meta {
+    display: table;
+}
+
+#bulletin_feeds {
+    font-size: 11px;
+    display: block;
+    width: 100%;
+}
+
+#bulletin_feeds .user_image {
+    float: left;
+    padding: 0 10px 0 0;
+}
+
+#bulletin_feeds h4 {
+    color: #8A8A8A;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+#bulletin_feeds .user_meta {
+    padding: 10px 0;
+}
+
+#bulletin_feeds .feed {
+    display: block;
+}
+
+.comment-action{
+    padding: 0 5px 5px 0;
+}
+
+.comments{
+    display: table;
+    width: 100%;
+}
+
+.comment-content{
+    display: block;
+}
+
+.comment{
+    border-top: 1px dotted #CCCCCC;
+    clear: both;
+    display: table;
+    margin: 5px 0;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.comments div.user-image{
+    display: block;
+    float: left;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+#bulletin_feeds span.owner{
+    color: #3F7CB6;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.assignment_info{
+    background-color: #F5F5F5;
+    border-radius: 5px;
+}
+
+.assignment-details {
+    padding: 0 5px 10px 10px;
+    width: 740px;
+}
+
+.assignment {
+    padding: 10px 10px 0;
+    background-color: #F5F5F5;
+    margin-top: 10px;
+    border-radius: 5px;
+    position: relative;
+}

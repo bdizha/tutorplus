@@ -1,0 +1,7 @@
+Student mailing lists
+
+Solution:
+-- the student academic tab to display the current mailings lists
+-- the edit link should allow the administrator to choose a mailing list
+-- they should be able to search for a particular one
+-- they should be able to remove one of the existing ones

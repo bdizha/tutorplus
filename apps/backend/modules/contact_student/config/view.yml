@@ -1,0 +1,8 @@
+all:
+  stylesheets: [bulletin_board.css, profile.css, contact.css]
+  
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false

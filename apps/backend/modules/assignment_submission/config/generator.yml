@@ -1,0 +1,43 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           AssignmentSubmission
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          assignment_submission
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:             ~
+      fields:
+        updated_at:        { label: "Submission At" }
+        generated_file:    { label: "Submitted File" }
+      filter:
+        class: false
+      list:
+        title:             Assignment Submission
+        display:           [ generated_file, updated_at ]
+        sort:              [ generated_file, asc ]
+        batch_actions:     []
+        max_per_page:      2 
+        actions:           []
+        object_actions:
+          _delete:         []
+      form:
+        display:           [ generated_file, original_file ]
+      edit:
+        title:             Edit Assignment Submission
+        actions:
+          _delete:         []
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             New Assignment Submission
+        actions:
+          cancel:          []
+          _save:           []

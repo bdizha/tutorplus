@@ -1,0 +1,6745 @@
+CourseMeetingTime:
+  CourseMeetingTime_2:
+    day: '1'
+    from_time: '12:12pm'
+    to_time: '14:15pm'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_1:
+    day: '6'
+    from_time: '8:30AM'
+    to_time: '9:45AM'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_3:
+    day: '3'
+    from_time: '8:16AM'
+    to_time: '9:23AM'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_4:
+    day: '1'
+    from_time: d
+    to_time: s
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_5:
+    day: '1'
+    from_time: '9:00am'
+    to_time: '10:am'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_6:
+    day: '1'
+    from_time: '9:00am'
+    to_time: '10:00am'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_7:
+    day: '1'
+    from_time: '9:00AM'
+    to_time: '10:00AM'
+    Course: Course_2
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_8:
+    day: '4'
+    from_time: '11:00AM'
+    to_time: '12:30AM'
+    Course: Course_2
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_9:
+    day: '1'
+    from_time: '434'
+    to_time: '343'
+    Course: Course_2
+    Building: Building_1
+    Room: Room_1
+DiscussionMember:
+  DiscussionMember_1:
+    nickname: Dodo
+    subscription_type: '2'
+    membership_type: '1'
+    posting_permission_type: '2'
+    status: '2'
+    Discussion: Discussion_2
+    User: sfGuardUser_3
+    is_removed: true
+    created_at: '2011-08-27 13:56:40'
+    updated_at: '2011-08-27 20:47:17'
+  DiscussionMember_9:
+    nickname: 'batanayi matuku'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_1
+    User: sfGuardUser_3
+    is_removed: true
+    created_at: '2011-08-28 12:11:59'
+    updated_at: '2011-08-28 12:17:32'
+  DiscussionMember_10:
+    nickname: 'batanayi matuku'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_2
+    User: sfGuardUser_3
+    is_removed: false
+    created_at: '2011-08-28 12:22:28'
+    updated_at: '2011-08-28 12:22:28'
+  DiscussionMember_11:
+    nickname: 'batanayi matuku'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_5
+    User: sfGuardUser_3
+    is_removed: false
+    created_at: '2011-08-28 14:20:07'
+    updated_at: '2011-08-28 14:20:07'
+  DiscussionMember_12:
+    nickname: 'batanayi matuku'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_1
+    User: sfGuardUser_3
+    is_removed: false
+    created_at: '2011-09-01 02:32:54'
+    updated_at: '2011-09-01 02:32:54'
+  DiscussionMember_13:
+    nickname: 'batanayi matuku'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_6
+    User: sfGuardUser_3
+    is_removed: false
+    created_at: '2011-09-04 13:29:30'
+    updated_at: '2011-09-04 13:29:30'
+  DiscussionMember_14:
+    nickname: 'brian b'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_1
+    User: sfGuardUser_10
+    is_removed: false
+    created_at: '2011-09-15 07:40:47'
+    updated_at: '2011-09-15 07:40:47'
+  DiscussionMember_15:
+    nickname: 'brian b'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_1
+    User: sfGuardUser_10
+    is_removed: false
+    created_at: '2011-09-15 07:41:24'
+    updated_at: '2011-09-15 07:41:24'
+  DiscussionMember_16:
+    nickname: 'precious mugaragumbo'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_2
+    User: sfGuardUser_21
+    is_removed: false
+    created_at: '2011-09-18 18:30:01'
+    updated_at: '2011-09-18 18:30:01'
+StudentMailingList:
+  StudentMailingList_1:
+    Student: Student_3
+    MailingList: MailingList_1
+  StudentMailingList_4:
+    Student: Student_7
+    MailingList: MailingList_1
+  StudentMailingList_8:
+    Student: Student_1
+    MailingList: MailingList_1
+  StudentMailingList_10:
+    Student: Student_6
+    MailingList: MailingList_1
+  StudentMailingList_11:
+    Student: Student_8
+    MailingList: MailingList_1
+  StudentMailingList_12:
+    Student: Student_4
+    MailingList: MailingList_1
+AcademicYear:
+  AcademicYear_1:
+    year_start: '2010'
+    year_end: '2011'
+  AcademicYear_2:
+    year_start: '2011'
+    year_end: '2012'
+  AcademicYear_3:
+    year_start: '2012'
+    year_end: '2013'
+InstructorMailingList:
+  InstructorMailingList_5:
+    Instructor: Instructor_1
+    MailingList: MailingList_1
+  InstructorMailingList_6:
+    Instructor: Instructor_2
+    MailingList: MailingList_1
+ProgramLevel:
+  ProgramLevel_2:
+    name: Diploma
+  ProgramLevel_3:
+    name: 'Postgraduate Diploma'
+  ProgramLevel_4:
+    name: Certificate
+  ProgramLevel_5:
+    name: 'Higher National Diploma'
+  ProgramLevel_6:
+    name: 'Doctrate Degree'
+  ProgramLevel_7:
+    name: 'Masters Degree'
+  ProgramLevel_8:
+    name: 'Honors Degree'
+  ProgramLevel_1:
+    name: 'Bachelors Degree'
+  ProgramLevel_9:
+    name: 'National Certificate'
+Country:
+  Country_2:
+    name: Zimbabwe
+    code: ZW
+  Country_3:
+    name: 'South Africa'
+    code: ZA
+  Country_4:
+    name: 'United Kingdom'
+    code: UK
+  Country_5:
+    name: 'United States'
+    code: US
+  Country_1:
+    name: Other
+    code: OT
+StateProvince:
+  StateProvince_1:
+    name: Other
+    Country: Country_2
+  StateProvince_2:
+    name: 'Mashonaland East'
+    Country: Country_2
+Announcement:
+  Announcement_2:
+    User: sfGuardUser_3
+    subject: 'All the students of this course are being notified that there won''t be a lecture this week'
+    message: 'Please you''re all being required to know that there won''t be our lectures this week. The lecture date will then be announced in due course. We apologize for all the inconvenience caused.'
+    is_published: true
+    lock_until: '2011-08-29 00:00:00'
+    lock_after: '2011-08-29 00:00:00'
+    created_at: '2011-08-29 06:56:53'
+    updated_at: '2011-08-29 06:56:53'
+  Announcement_3:
+    User: sfGuardUser_21
+    subject: '123'
+    message: '123456'
+    is_published: true
+    lock_until: '2011-09-10 00:00:00'
+    lock_after: '2011-09-10 00:00:00'
+    created_at: '2011-09-10 11:15:55'
+    updated_at: '2011-09-10 11:15:55'
+  Announcement_1:
+    User: sfGuardUser_3
+    subject: 'Final week for course registrations...'
+    message: 'All the students are expected to have completed their course registrations by the end of this week, and failure to do so by then, we will not guarantee you any extended period to do so. Hence all the stipulated dates should be adhered to.'
+    is_published: true
+    lock_until: '2011-08-29 00:00:00'
+    lock_after: '2011-08-29 00:00:00'
+    created_at: '2011-08-29 06:18:19'
+    updated_at: '2011-09-24 19:10:00'
+Correspondence:
+  Correspondence_23:
+    Innitiator: sfGuardUser_10
+    Correspondent: sfGuardUser_3
+    status: '0'
+    type: '2'
+  Correspondence_31:
+    Innitiator: sfGuardUser_3
+    Correspondent: sfGuardUser_3
+    status: '0'
+    type: '0'
+  Correspondence_32:
+    Innitiator: sfGuardUser_21
+    Correspondent: sfGuardUser_3
+    status: '0'
+    type: '0'
+  Correspondence_33:
+    Innitiator: sfGuardUser_21
+    Correspondent: sfGuardUser_10
+    status: '0'
+    type: '1'
+  Correspondence_38:
+    Innitiator: sfGuardUser_21
+    Correspondent: sfGuardUser_13
+    status: '0'
+    type: '0'
+  Correspondence_41:
+    Innitiator: sfGuardUser_21
+    Correspondent: sfGuardUser_6
+    status: '0'
+    type: '0'
+  Correspondence_42:
+    Innitiator: sfGuardUser_21
+    Correspondent: sfGuardUser_7
+    status: '0'
+    type: '0'
+EmailMessageReply:
+  EmailMessageReply_40:
+    SendingUser: sfGuardUser_21
+    RespondingUser: sfGuardUser_6
+    EmailMessage: EmailMessage_129
+    EmailMessageReply: EmailMessage_130
+  EmailMessageReply_41:
+    SendingUser: sfGuardUser_21
+    RespondingUser: sfGuardUser_6
+    EmailMessage: EmailMessage_128
+    EmailMessageReply: EmailMessage_131
+  EmailMessageReply_42:
+    SendingUser: sfGuardUser_21
+    RespondingUser: sfGuardUser_21
+    EmailMessage: EmailMessage_128
+    EmailMessageReply: EmailMessage_132
+  EmailMessageReply_43:
+    SendingUser: sfGuardUser_21
+    RespondingUser: sfGuardUser_21
+    EmailMessage: EmailMessage_129
+    EmailMessageReply: EmailMessage_133
+Discussion:
+  Discussion_6:
+    name: 'Let''s be well organized'
+    User: sfGuardUser_3
+    description: 'In this group will be talking about how to be well organized in your life.'
+    access_level: '1'
+    last_visit: '2011-08-28 00:00:00'
+    nb_topics: '5'
+    nb_members: '1'
+    nb_replies: '0'
+    created_at: '2011-08-28 04:59:01'
+    updated_at: '2011-08-28 14:14:05'
+  Discussion_1:
+    name: 'The Computer Geeks'
+    User: sfGuardUser_3
+    description: 'Here we generously share all our experiences with the computer. Anyone who''s keen to participate is more than welcome to do so. Will be conducting regular discussions to add value to one another. See you there ;)'
+    access_level: '1'
+    last_visit: '2011-08-25 00:00:00'
+    nb_topics: '2'
+    nb_members: '1'
+    nb_replies: '0'
+    created_at: '2011-08-25 04:37:59'
+    updated_at: '2011-09-23 02:45:52'
+  Discussion_3:
+    name: 'This a group about learning how to talk'
+    User: sfGuardUser_3
+    description: 'In this group will be discussion all the important habits needed to keep in winning form in all of your talks at any level.'
+    access_level: '0'
+    last_visit: '2011-08-28 00:00:00'
+    nb_topics: '0'
+    nb_members: '1'
+    nb_replies: '0'
+    created_at: '2011-08-28 04:52:31'
+    updated_at: '2011-08-28 04:52:31'
+  Discussion_5:
+    name: 'Learning how to talk'
+    User: sfGuardUser_3
+    description: 'In this group will be discussion all the important habits needed to keep us in winning form in all of our talks at any level.'
+    access_level: '1'
+    last_visit: '2011-08-28 00:00:00'
+    nb_topics: '0'
+    nb_members: '1'
+    nb_replies: '0'
+    created_at: '2011-08-28 04:54:50'
+    updated_at: '2011-08-28 14:20:06'
+  Discussion_2:
+    name: 'Data Communications Sessions'
+    User: sfGuardUser_3
+    description: 'Here will be talking about the data communications course stuff. We urge everyone of us to do much research and bring back to the group whatever our findings.'
+    access_level: '1'
+    last_visit: '2011-08-25 00:00:00'
+    nb_topics: '0'
+    nb_members: '1'
+    nb_replies: '0'
+    created_at: '2011-08-25 04:54:44'
+    updated_at: '2011-09-18 18:30:01'
+StudentCourse:
+  StudentCourse_21:
+    Student: Student_4
+    Course: Course_1
+  StudentCourse_25:
+    Student: Student_8
+    Course: Course_1
+  StudentCourse_28:
+    Student: Student_2
+    Course: Course_1
+  StudentCourse_29:
+    Student: Student_2
+    Course: Course_2
+Program:
+  Program_3:
+    name: 'Beng Chemical Engineering [Hons]'
+    abbreviation: CHEE
+    code: CHEE
+    description: 'The study of Chemical Engineering'
+    type: '0'
+    Department: Department_4
+    ProgramLevel: ProgramLevel_8
+  Program_1:
+    name: 'Bsc Computer Science [Hons]'
+    abbreviation: CSC
+    code: CSC
+    description: 'The study of computer science'
+    type: '0'
+    Department: Department_1
+    ProgramLevel: ProgramLevel_8
+  Program_2:
+    name: 'Bsc Applied Chemistry [Hons]'
+    abbreviation: CHEM
+    code: CHEM
+    description: 'The study of Applied Chemistry'
+    type: '0'
+    Department: Department_2
+    ProgramLevel: ProgramLevel_8
+CampusCourse:
+  CampusCourse_3:
+    Campus: Campus_1
+    Course: Course_2
+ioDoctrineMenuItem:
+  ioDoctrineMenuItem_97:
+    name: 'My courses'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: course
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 6
+    rgt: 7
+    level: 3
+  ioDoctrineMenuItem_100:
+    name: 'My Groups'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: discussion
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:49'
+    updated_at: '2011-08-23 06:26:49'
+    lft: 12
+    rgt: 13
+    level: 3
+  ioDoctrineMenuItem_103:
+    name: 'Personal Info'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: personal_info
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:49'
+    updated_at: '2011-08-23 06:26:49'
+    lft: 20
+    rgt: 21
+    level: 3
+  ioDoctrineMenuItem_120:
+    name: Departments
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: department
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 58
+    rgt: 59
+    level: 3
+  ioDoctrineMenuItem_125:
+    name: 'Academic Staff'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: academic_staff
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 68
+    rgt: 69
+    level: 3
+  ioDoctrineMenuItem_106:
+    name: 'My Documents'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: my_document
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:50'
+    updated_at: '2011-08-23 06:26:50'
+    lft: 29
+    rgt: 32
+    level: 2
+  ioDoctrineMenuItem_127:
+    name: Performance
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: report_performance
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 72
+    rgt: 73
+    level: 3
+  ioDoctrineMenuItem_110:
+    name: Courses
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: course
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:50'
+    updated_at: '2011-08-23 06:26:50'
+    lft: 38
+    rgt: 39
+    level: 3
+  ioDoctrineMenuItem_114:
+    name: Announcements
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: announcement
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 46
+    rgt: 47
+    level: 3
+  ioDoctrineMenuItem_98:
+    name: 'My Messages'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: message
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 8
+    rgt: 9
+    level: 3
+  ioDoctrineMenuItem_94:
+    name: Academics2
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: academics2
+    attributes: ''
+    requires_auth: true
+    requires_no_auth: false
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-27 11:04:20'
+    lft: 2
+    rgt: 21
+    level: 1
+  ioDoctrineMenuItem_104:
+    name: Registration
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: registration
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:49'
+    updated_at: '2011-08-23 06:26:49'
+    lft: 22
+    rgt: 23
+    level: 3
+  ioDoctrineMenuItem_107:
+    name: 'File System'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: file_system
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:50'
+    updated_at: '2011-08-23 06:26:50'
+    lft: 30
+    rgt: 31
+    level: 3
+  ioDoctrineMenuItem_131:
+    name: 'Email Templates'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: email_template
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 82
+    rgt: 83
+    level: 3
+  ioDoctrineMenuItem_123:
+    name: 'Academic Periods'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: academic_period
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 64
+    rgt: 65
+    level: 3
+  ioDoctrineMenuItem_88:
+    name: Profile
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: profile
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 16
+    rgt: 27
+    level: 1
+  ioDoctrineMenuItem_101:
+    name: 'My Profile'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: my_profile
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:49'
+    updated_at: '2011-08-23 06:26:49'
+    lft: 17
+    rgt: 26
+    level: 2
+  ioDoctrineMenuItem_118:
+    name: Programs
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: program
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 54
+    rgt: 55
+    level: 3
+  ioDoctrineMenuItem_111:
+    name: Students
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: student
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:50'
+    updated_at: '2011-08-23 06:26:50'
+    lft: 40
+    rgt: 41
+    level: 3
+  ioDoctrineMenuItem_121:
+    name: Faculties
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: faculty
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 60
+    rgt: 61
+    level: 3
+  ioDoctrineMenuItem_115:
+    name: News
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: news
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 48
+    rgt: 49
+    level: 3
+  ioDoctrineMenuItem_102:
+    name: 'Bulletin Board'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: bulletin_board
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:49'
+    updated_at: '2011-08-23 06:26:49'
+    lft: 18
+    rgt: 19
+    level: 3
+  ioDoctrineMenuItem_96:
+    name: 'My Dashboard'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: my_dashboard
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 4
+    rgt: 5
+    level: 3
+  ioDoctrineMenuItem_136:
+    name: Buildings
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: building
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 94
+    rgt: 95
+    level: 3
+  ioDoctrineMenuItem_140:
+    name: 'User Groups'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: sfGuardGroup
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 102
+    rgt: 103
+    level: 3
+  ioDoctrineMenuItem_108:
+    name: 'General Info'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: general_info
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:50'
+    updated_at: '2011-08-23 06:26:50'
+    lft: 35
+    rgt: 52
+    level: 2
+  ioDoctrineMenuItem_134:
+    name: Provinces/States
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: state_province
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 90
+    rgt: 91
+    level: 3
+  ioDoctrineMenuItem_143:
+    name: Applications
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: application
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 110
+    rgt: 111
+    level: 3
+  ioDoctrineMenuItem_109:
+    name: 'Academic Info'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: academic_info
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:50'
+    updated_at: '2011-08-23 06:26:50'
+    lft: 36
+    rgt: 37
+    level: 3
+  ioDoctrineMenuItem_116:
+    name: Events
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: calendar_event
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 50
+    rgt: 51
+    level: 3
+  ioDoctrineMenuItem_130:
+    name: 'Mailing Lists'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: mailing_list
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 80
+    rgt: 81
+    level: 3
+  ioDoctrineMenuItem_105:
+    name: Financial
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: financial
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:49'
+    updated_at: '2011-08-23 06:26:49'
+    lft: 24
+    rgt: 25
+    level: 3
+  ioDoctrineMenuItem_112:
+    name: Instructors
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: instructor
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 42
+    rgt: 43
+    level: 3
+  ioDoctrineMenuItem_87:
+    name: Dashboard
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: dashboard
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 2
+    rgt: 15
+    level: 1
+  ioDoctrineMenuItem_95:
+    name: Home
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: home
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 3
+    rgt: 14
+    level: 2
+  ioDoctrineMenuItem_122:
+    name: 'Academic Years'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: academic_year
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 62
+    rgt: 63
+    level: 3
+  ioDoctrineMenuItem_90:
+    name: Academics
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: academics
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 34
+    rgt: 77
+    level: 1
+  ioDoctrineMenuItem_124:
+    name: 'Academic Settings'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: academic_settings
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 66
+    rgt: 67
+    level: 3
+  ioDoctrineMenuItem_119:
+    name: 'Program Levels'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: program_level
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 56
+    rgt: 57
+    level: 3
+  ioDoctrineMenuItem_113:
+    name: Attendance
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: attendance
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 44
+    rgt: 45
+    level: 3
+  ioDoctrineMenuItem_147:
+    name: Announcements
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: null
+    image: null
+    route: course_announcement
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:54'
+    updated_at: '2011-08-23 06:26:54'
+    lft: 6
+    rgt: 7
+    level: 3
+  ioDoctrineMenuItem_126:
+    name: 'Academic Reports'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: academic_report
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 71
+    rgt: 76
+    level: 2
+  ioDoctrineMenuItem_135:
+    name: Campuses
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: campus
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 92
+    rgt: 93
+    level: 3
+  ioDoctrineMenuItem_129:
+    name: 'Messaging Settings'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: messaging_settings
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 79
+    rgt: 84
+    level: 2
+  ioDoctrineMenuItem_128:
+    name: 'Financial Reports'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: report_finance
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 74
+    rgt: 75
+    level: 3
+  ioDoctrineMenuItem_117:
+    name: 'General Settings'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: general_settings
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:51'
+    updated_at: '2011-08-23 06:26:51'
+    lft: 53
+    rgt: 70
+    level: 2
+  ioDoctrineMenuItem_138:
+    name: 'System Settings'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: system_settings
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 99
+    rgt: 106
+    level: 2
+  ioDoctrineMenuItem_91:
+    name: Communications
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: communication
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 78
+    rgt: 85
+    level: 1
+  ioDoctrineMenuItem_132:
+    name: 'Location Settings'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: location_settings
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:52'
+    updated_at: '2011-08-23 06:26:52'
+    lft: 87
+    rgt: 98
+    level: 2
+  ioDoctrineMenuItem_139:
+    name: 'Menu Items'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: menu_item
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 100
+    rgt: 101
+    level: 3
+  ioDoctrineMenuItem_137:
+    name: Rooms
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: room
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 96
+    rgt: 97
+    level: 3
+  ioDoctrineMenuItem_133:
+    name: Countries
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: country
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 88
+    rgt: 89
+    level: 3
+  ioDoctrineMenuItem_93:
+    name: Admissions
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: admissions
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 108
+    rgt: 115
+    level: 1
+  ioDoctrineMenuItem_92:
+    name: Settings
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: settings
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 86
+    rgt: 107
+    level: 1
+  ioDoctrineMenuItem_141:
+    name: 'User Permissions'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: sfGuardPermission
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 104
+    rgt: 105
+    level: 3
+  ioDoctrineMenuItem_85:
+    name: root
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: null
+    attributes: 'class="root"'
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 1
+    rgt: 116
+    level: 0
+  ioDoctrineMenuItem_142:
+    name: 'Admission Statistics'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: admission_statistics
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 109
+    rgt: 114
+    level: 2
+  ioDoctrineMenuItem_144:
+    name: Dropouts
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: null
+    image: null
+    route: dropout
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 112
+    rgt: 113
+    level: 3
+  ioDoctrineMenuItem_148:
+    name: Assignments
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: null
+    image: null
+    route: assignment
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:54'
+    updated_at: '2011-08-23 06:26:54'
+    lft: 8
+    rgt: 9
+    level: 3
+  ioDoctrineMenuItem_146:
+    name: 'My course'
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: null
+    image: null
+    route: course_details
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:54'
+    updated_at: '2011-08-23 06:26:54'
+    lft: 4
+    rgt: 5
+    level: 3
+  ioDoctrineMenuItem_149:
+    name: 'Assignment Groups'
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: null
+    image: null
+    route: assignment_group
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:54'
+    updated_at: '2011-08-23 06:26:54'
+    lft: 10
+    rgt: 11
+    level: 3
+  ioDoctrineMenuItem_89:
+    name: Documents
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: ''
+    image: ''
+    route: folder
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-24 07:28:01'
+    lft: 28
+    rgt: 33
+    level: 1
+  ioDoctrineMenuItem_153:
+    name: Gradebook
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: gradebook
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-08-23 06:26:54'
+    updated_at: '2011-09-02 04:07:27'
+    lft: 18
+    rgt: 19
+    level: 3
+  ioDoctrineMenuItem_150:
+    name: Discussions
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: null
+    image: null
+    route: course_discussion
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:54'
+    updated_at: '2011-08-23 06:26:54'
+    lft: 12
+    rgt: 13
+    level: 3
+  ioDoctrineMenuItem_151:
+    name: Attendance
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: attendance
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-08-23 06:26:54'
+    updated_at: '2011-09-07 06:13:05'
+    lft: 14
+    rgt: 15
+    level: 3
+  ioDoctrineMenuItem_99:
+    name: 'My calendar'
+    RootMenuItem: ioDoctrineMenuItem_85
+    class: null
+    label: ''
+    image: ''
+    route: my_calendar
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-09-07 06:24:08'
+    lft: 10
+    rgt: 11
+    level: 3
+  ioDoctrineMenuItem_152:
+    name: Members
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: null
+    image: null
+    route: course_member
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:54'
+    updated_at: '2011-08-23 06:26:54'
+    lft: 16
+    rgt: 17
+    level: 3
+  ioDoctrineMenuItem_145:
+    name: 'Course Home'
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: null
+    image: null
+    route: course_home
+    attributes: null
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:53'
+    updated_at: '2011-08-23 06:26:53'
+    lft: 3
+    rgt: 20
+    level: 2
+  ioDoctrineMenuItem_156:
+    name: Inbox
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: message_inbox
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-09-20 00:56:20'
+    updated_at: '2011-09-20 00:56:20'
+    lft: 24
+    rgt: 25
+    level: 3
+  ioDoctrineMenuItem_86:
+    name: root2
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: null
+    image: null
+    route: null
+    attributes: 'class="root"'
+    requires_auth: null
+    requires_no_auth: null
+    created_at: '2011-08-23 06:26:48'
+    updated_at: '2011-08-23 06:26:48'
+    lft: 1
+    rgt: 36
+    level: 0
+  ioDoctrineMenuItem_158:
+    name: Drafts
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: message_draft
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-09-20 00:57:12'
+    updated_at: '2011-09-20 00:57:12'
+    lft: 28
+    rgt: 29
+    level: 3
+  ioDoctrineMenuItem_154:
+    name: Dashboard2
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: dashboard2
+    attributes: ''
+    requires_auth: true
+    requires_no_auth: false
+    created_at: '2011-09-20 00:54:44'
+    updated_at: '2011-09-20 00:54:45'
+    lft: 22
+    rgt: 35
+    level: 1
+  ioDoctrineMenuItem_157:
+    name: Sent
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: message_sent
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-09-20 00:56:48'
+    updated_at: '2011-09-20 00:56:48'
+    lft: 26
+    rgt: 27
+    level: 3
+  ioDoctrineMenuItem_159:
+    name: Trash
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: message_trash
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-09-20 00:57:38'
+    updated_at: '2011-09-20 00:57:38'
+    lft: 30
+    rgt: 31
+    level: 3
+  ioDoctrineMenuItem_155:
+    name: 'My Messages'
+    RootMenuItem: ioDoctrineMenuItem_86
+    class: null
+    label: ''
+    image: ''
+    route: message
+    attributes: ''
+    requires_auth: false
+    requires_no_auth: false
+    created_at: '2011-09-20 00:55:58'
+    updated_at: '2011-09-20 00:55:58'
+    lft: 23
+    rgt: 34
+    level: 2
+News:
+  News_1:
+    User: sfGuardUser_3
+    heading: 'New Vice Chancellor joing this institution at the beginning of next year'
+    blurb: 'This institution is proud to announce that by beginning of next year this institution will be joined by a new Vice Chancellor.'
+    description: 'A new Vice Chancellor, Prof Batanayi Matuku, will be joining this institution first semester next year. He''s worked at a couple of American Universities for over a period of 10 years. He certainly has the qualities of a first world Professor. Let''s all prepare to welcome him warmly when he finally comes.'
+    is_published: true
+    lock_until: '2011-08-29 00:00:00'
+    lock_after: '2011-08-29 00:00:00'
+    created_at: '2011-08-29 06:47:04'
+    updated_at: '2011-08-29 06:47:04'
+Instructor:
+  Instructor_2:
+    User: sfGuardUser_9
+    middle_name: ''
+    date_of_birth: 11-08-1982
+    gender: '0'
+    employment: 'Full time'
+    is_student: false
+    employment_start_date: null
+    employment_end_date: null
+    created_at: '2011-08-21 13:20:41'
+    updated_at: '2011-09-13 05:30:22'
+  Instructor_3:
+    User: sfGuardUser_10
+    middle_name: ''
+    date_of_birth: 02-03-1943
+    gender: '0'
+    employment: 'Full time'
+    is_student: false
+    employment_start_date: null
+    employment_end_date: null
+    created_at: '2011-08-21 13:43:17'
+    updated_at: '2011-09-15 19:15:27'
+  Instructor_1:
+    User: sfGuardUser_8
+    middle_name: ''
+    date_of_birth: 07-08-1984
+    gender: '0'
+    employment: 'Full time'
+    is_student: false
+    employment_start_date: null
+    employment_end_date: null
+    created_at: '2011-08-21 12:54:33'
+    updated_at: '2011-09-15 19:15:55'
+BulletinBoardTrash:
+  BulletinBoardTrash_5:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_11
+    created_at: '2011-09-17 21:15:44'
+    updated_at: '2011-09-17 21:15:44'
+  BulletinBoardTrash_6:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_10
+    created_at: '2011-09-17 21:15:51'
+    updated_at: '2011-09-17 21:15:51'
+  BulletinBoardTrash_7:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-17 21:15:58'
+    updated_at: '2011-09-17 21:15:58'
+  BulletinBoardTrash_9:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_2
+    created_at: '2011-09-17 21:25:04'
+    updated_at: '2011-09-17 21:25:04'
+  BulletinBoardTrash_10:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_3
+    created_at: '2011-09-17 21:25:05'
+    updated_at: '2011-09-17 21:25:05'
+  BulletinBoardTrash_11:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_4
+    created_at: '2011-09-17 21:25:06'
+    updated_at: '2011-09-17 21:25:06'
+  BulletinBoardTrash_12:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_5
+    created_at: '2011-09-17 21:25:08'
+    updated_at: '2011-09-17 21:25:08'
+  BulletinBoardTrash_14:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_7
+    created_at: '2011-09-17 21:25:11'
+    updated_at: '2011-09-17 21:25:11'
+  BulletinBoardTrash_15:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_8
+    created_at: '2011-09-17 21:25:15'
+    updated_at: '2011-09-17 21:25:15'
+  BulletinBoardTrash_16:
+    User: sfGuardUser_21
+    BulletinBoard: BulletinBoard_1
+    created_at: '2011-09-17 21:37:03'
+    updated_at: '2011-09-17 21:37:03'
+  BulletinBoardTrash_17:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_11
+    created_at: '2011-09-17 21:39:26'
+    updated_at: '2011-09-17 21:39:26'
+  BulletinBoardTrash_18:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_10
+    created_at: '2011-09-17 21:39:27'
+    updated_at: '2011-09-17 21:39:27'
+  BulletinBoardTrash_19:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-17 21:39:28'
+    updated_at: '2011-09-17 21:39:28'
+  BulletinBoardTrash_20:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_8
+    created_at: '2011-09-17 21:39:29'
+    updated_at: '2011-09-17 21:39:29'
+  BulletinBoardTrash_21:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_6
+    created_at: '2011-09-17 21:39:32'
+    updated_at: '2011-09-17 21:39:32'
+  BulletinBoardTrash_22:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_4
+    created_at: '2011-09-17 21:39:33'
+    updated_at: '2011-09-17 21:39:33'
+  BulletinBoardTrash_23:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_3
+    created_at: '2011-09-17 21:39:34'
+    updated_at: '2011-09-17 21:39:34'
+  BulletinBoardTrash_24:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_2
+    created_at: '2011-09-17 21:39:44'
+    updated_at: '2011-09-17 21:39:44'
+  BulletinBoardTrash_25:
+    User: sfGuardUser_3
+    BulletinBoard: BulletinBoard_1
+    created_at: '2011-09-17 21:39:45'
+    updated_at: '2011-09-17 21:39:45'
+Department:
+  Department_1:
+    name: 'Computer Science'
+    abbreviation: CSC
+    Faculty: Faculty_1
+  Department_3:
+    name: Accounting
+    abbreviation: Acc
+    Faculty: Faculty_2
+  Department_5:
+    name: 'Electronical Engineering'
+    abbreviation: ELE
+    Faculty: Faculty_3
+  Department_4:
+    name: 'Chemical Engineering'
+    abbreviation: CHEE
+    Faculty: Faculty_3
+  Department_2:
+    name: 'Applied Chemistry'
+    abbreviation: CHEM
+    Faculty: Faculty_1
+EmailMessage:
+  EmailMessage_130:
+    from_email: blessing@gmail.com
+    to_email: precious@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    subject: 'Re: Hi there, big bro!'
+    Sender: sfGuardUser_6
+    reply_to: precious@gmail.com
+    sender_email: blessing@gmail.com
+    body: 'All good, otherwise how is school?'
+    status: '0'
+    is_read: false
+    is_trashed: false
+    created_at: '2011-09-27 20:27:06'
+    updated_at: '2011-09-27 20:27:06'
+  EmailMessage_131:
+    from_email: blessing@gmail.com
+    to_email: precious@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    subject: 'Re: Hi there, big bro!'
+    Sender: sfGuardUser_6
+    reply_to: precious@gmail.com
+    sender_email: blessing@gmail.com
+    body: 'All good, otherwise how is school?'
+    status: '1'
+    is_read: false
+    is_trashed: false
+    created_at: '2011-09-27 20:27:06'
+    updated_at: '2011-09-27 20:27:06'
+  EmailMessage_128:
+    from_email: precious@gmail.com
+    to_email: 'Blessing Mugaragumbo <blessing@gmail.com>; '
+    cc_email: ''
+    bcc_email: ''
+    subject: 'Hi there, big bro!'
+    Sender: sfGuardUser_21
+    reply_to: ''
+    sender_email: ''
+    body: "Hi big bro. It's been days without a word between us.\n\nRegards,\nPatie"
+    status: '0'
+    is_read: true
+    is_trashed: false
+    created_at: '2011-09-27 20:26:39'
+    updated_at: '2011-09-27 20:28:06'
+  EmailMessage_132:
+    from_email: precious@gmail.com
+    to_email: blessing@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    subject: 'Re: Hi there, big bro!'
+    Sender: sfGuardUser_21
+    reply_to: blessing@gmail.com
+    sender_email: precious@gmail.com
+    body: 'School is all right. Just the exams around the corner... When are you going to pay us a visit?'
+    status: '0'
+    is_read: false
+    is_trashed: false
+    created_at: '2011-09-27 20:29:29'
+    updated_at: '2011-09-27 20:29:29'
+  EmailMessage_133:
+    from_email: precious@gmail.com
+    to_email: blessing@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    subject: 'Re: Hi there, big bro!'
+    Sender: sfGuardUser_21
+    reply_to: blessing@gmail.com
+    sender_email: precious@gmail.com
+    body: 'School is all right. Just the exams around the corner... When are you going to pay us a visit?'
+    status: '1'
+    is_read: false
+    is_trashed: false
+    created_at: '2011-09-27 20:29:29'
+    updated_at: '2011-09-27 20:29:29'
+Student:
+  Student_3:
+    User: sfGuardUser_6
+    middle_name: B
+    date_of_birth: 21-08-2011
+    gender: '0'
+    number: N005254V
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-08-21 12:16:48'
+    updated_at: '2011-08-21 12:17:02'
+  Student_1:
+    User: sfGuardUser_4
+    middle_name: ''
+    date_of_birth: 19-08-2011
+    gender: '0'
+    number: N0041395A
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-08-18 07:46:58'
+    updated_at: '2011-09-05 06:14:48'
+  Student_6:
+    User: sfGuardUser_12
+    middle_name: K
+    date_of_birth: 19-10-1983
+    gender: '0'
+    number: N004138B
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-08-21 14:32:23'
+    updated_at: '2011-09-03 15:35:51'
+  Student_5:
+    User: sfGuardUser_11
+    middle_name: ''
+    date_of_birth: 17-04-1985
+    gender: '0'
+    number: N003154B
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-08-21 14:30:44'
+    updated_at: '2011-09-11 18:27:30'
+  Student_8:
+    User: sfGuardUser_20
+    middle_name: ''
+    date_of_birth: 02-09-1982
+    gender: '0'
+    number: N0091566F
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-09-03 15:37:06'
+    updated_at: '2011-09-15 19:14:24'
+  Student_7:
+    User: sfGuardUser_13
+    middle_name: ''
+    date_of_birth: 21-08-2011
+    gender: '0'
+    number: N004215S
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-08-21 14:37:46'
+    updated_at: '2011-09-15 19:14:43'
+  Student_4:
+    User: sfGuardUser_7
+    middle_name: ''
+    date_of_birth: 03-08-1982
+    gender: '0'
+    number: N0024587D
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-08-21 12:34:31'
+    updated_at: '2011-09-18 09:12:21'
+  Student_9:
+    User: sfGuardUser_21
+    middle_name: ''
+    date_of_birth: 16-09-1982
+    gender: '1'
+    number: N0022345D
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-09-03 15:39:26'
+    updated_at: '2011-09-24 12:00:13'
+  Student_2:
+    User: sfGuardUser_5
+    middle_name: ''
+    date_of_birth: 22-08-1984
+    gender: '0'
+    number: N0031689C
+    enrollment: 'Full time'
+    status: '0'
+    created_at: '2011-08-21 12:14:26'
+    updated_at: '2011-09-24 19:15:16'
+NotificationSettings:
+  NotificationSettings_2:
+    can_receive_email: false
+    can_receive_reply: false
+    can_receive_request: false
+    can_receive_bulletin_post_comment: false
+    can_receive_group_updates: false
+    can_receive_course_updates: false
+    can_receive_assignment_due: false
+    can_receive_system_updates: false
+    can_receive_system_maintenance: false
+    User: sfGuardUser_7
+  NotificationSettings_3:
+    can_receive_email: false
+    can_receive_reply: false
+    can_receive_request: false
+    can_receive_bulletin_post_comment: false
+    can_receive_group_updates: false
+    can_receive_course_updates: false
+    can_receive_assignment_due: false
+    can_receive_system_updates: false
+    can_receive_system_maintenance: false
+    User: sfGuardUser_11
+  NotificationSettings_4:
+    can_receive_email: false
+    can_receive_reply: false
+    can_receive_request: true
+    can_receive_bulletin_post_comment: false
+    can_receive_group_updates: false
+    can_receive_course_updates: true
+    can_receive_assignment_due: false
+    can_receive_system_updates: false
+    can_receive_system_maintenance: false
+    User: sfGuardUser_3
+  NotificationSettings_5:
+    can_receive_email: true
+    can_receive_reply: true
+    can_receive_request: false
+    can_receive_bulletin_post_comment: false
+    can_receive_group_updates: false
+    can_receive_course_updates: false
+    can_receive_assignment_due: false
+    can_receive_system_updates: false
+    can_receive_system_maintenance: false
+    User: sfGuardUser_10
+  NotificationSettings_1:
+    can_receive_email: true
+    can_receive_reply: true
+    can_receive_request: true
+    can_receive_bulletin_post_comment: true
+    can_receive_group_updates: true
+    can_receive_course_updates: true
+    can_receive_assignment_due: true
+    can_receive_system_updates: false
+    can_receive_system_maintenance: false
+    User: sfGuardUser_21
+Campus:
+  Campus_1:
+    name: Ascot
+    is_primary: true
+    address: '09 Ascot, Esigodini Rd'
+    city: Bulawayo
+    postcode: '7708'
+    Country: Country_2
+CourseLink:
+  CourseLink_1:
+    name: 'Study Human Computer Interaction'
+    url: 'http://www.hci.ac.zw'
+    Course: Course_1
+  CourseLink_2:
+    name: 'HCI Principles'
+    url: 'http://www.hciprinciples.com'
+    Course: Course_1
+Folder:
+  Folder_14:
+    name: Users
+    rel_path: users
+    type: '1'
+    parent_id: '13'
+    created_at: '2011-08-24 03:36:12'
+    updated_at: '2011-08-24 03:36:12'
+    lft: 2
+    rgt: 13
+    level: 1
+  Folder_15:
+    name: 'Batanayi Matuku'
+    rel_path: '3'
+    type: '4'
+    parent_id: '14'
+    created_at: '2011-08-24 03:36:12'
+    updated_at: '2011-08-24 03:36:12'
+    lft: 3
+    rgt: 12
+    level: 2
+  Folder_13:
+    name: 'File System'
+    rel_path: ''
+    type: '0'
+    parent_id: '1'
+    created_at: '2011-08-24 03:36:12'
+    updated_at: '2011-08-24 03:36:12'
+    lft: 1
+    rgt: 18
+    level: 0
+  Folder_21:
+    name: Batanayi
+    rel_path: blank
+    type: '0'
+    parent_id: '15'
+    created_at: '2011-08-24 07:11:17'
+    updated_at: '2011-08-24 07:11:17'
+    lft: 6
+    rgt: 11
+    level: 3
+  Folder_22:
+    name: Notes
+    rel_path: '1314162748'
+    type: '0'
+    parent_id: '21'
+    created_at: '2011-08-24 07:12:39'
+    updated_at: '2011-08-24 07:12:39'
+    lft: 7
+    rgt: 10
+    level: 4
+  Folder_17:
+    name: Courses
+    rel_path: courses
+    type: '2'
+    parent_id: '13'
+    created_at: '2011-08-24 03:36:12'
+    updated_at: '2011-08-24 03:36:12'
+    lft: 14
+    rgt: 15
+    level: 1
+  Folder_18:
+    name: Assignments
+    rel_path: assignments
+    type: '3'
+    parent_id: '13'
+    created_at: '2011-08-24 03:36:12'
+    updated_at: '2011-08-24 03:36:12'
+    lft: 16
+    rgt: 17
+    level: 1
+  Folder_23:
+    name: 'Artificial Intelligence'
+    rel_path: '1314162764'
+    type: '0'
+    parent_id: '22'
+    created_at: '2011-08-24 07:13:15'
+    updated_at: '2011-08-24 07:13:15'
+    lft: 8
+    rgt: 9
+    level: 5
+  Folder_16:
+    name: 'My Documents'
+    rel_path: my_documents
+    type: '0'
+    parent_id: '15'
+    created_at: '2011-08-24 03:36:12'
+    updated_at: '2011-08-24 03:36:12'
+    lft: 4
+    rgt: 5
+    level: 3
+GradebookScale:
+  GradebookScale_1:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_1
+    created_at: '2011-09-02 05:17:11'
+    updated_at: '2011-09-02 05:17:11'
+  GradebookScale_2:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_1
+    created_at: '2011-09-02 05:17:11'
+    updated_at: '2011-09-02 05:17:11'
+  GradebookScale_3:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_1
+    created_at: '2011-09-02 05:17:11'
+    updated_at: '2011-09-02 05:17:11'
+  GradebookScale_4:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_1
+    created_at: '2011-09-02 05:17:11'
+    updated_at: '2011-09-02 05:17:11'
+  GradebookScale_5:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_1
+    created_at: '2011-09-02 05:17:11'
+    updated_at: '2011-09-02 05:17:11'
+  GradebookScale_88:
+    min_points: '75'
+    max_points: '100'
+    code: '1'
+    Gradebook: Gradebook_12
+    created_at: '2011-09-05 06:17:54'
+    updated_at: '2011-09-05 06:17:54'
+  GradebookScale_8:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_1
+    created_at: '2011-09-03 11:31:47'
+    updated_at: '2011-09-03 11:31:47'
+  GradebookScale_52:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_13
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_53:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_13
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_54:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_13
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_55:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_13
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_56:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_13
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_57:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_13
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_58:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_14
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_59:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_14
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_60:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_14
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_61:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_14
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_62:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_14
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_63:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_14
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  GradebookScale_64:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_15
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_65:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_15
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_66:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_15
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_67:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_15
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_68:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_15
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_69:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_15
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_70:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_16
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_71:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_16
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_72:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_16
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_73:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_16
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_74:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_16
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_75:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_16
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  GradebookScale_76:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_17
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_77:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_17
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_78:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_17
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_79:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_17
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_80:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_17
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_81:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_17
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_82:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_18
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_83:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_18
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_84:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_18
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  GradebookScale_85:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_18
+    created_at: '2011-09-05 06:15:02'
+    updated_at: '2011-09-05 06:15:02'
+  GradebookScale_86:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_18
+    created_at: '2011-09-05 06:15:02'
+    updated_at: '2011-09-05 06:15:02'
+  GradebookScale_87:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_18
+    created_at: '2011-09-05 06:15:02'
+    updated_at: '2011-09-05 06:15:02'
+  GradebookScale_89:
+    min_points: '65'
+    max_points: '74'
+    code: '2.1'
+    Gradebook: Gradebook_12
+    created_at: '2011-09-05 06:18:17'
+    updated_at: '2011-09-05 06:18:17'
+  GradebookScale_90:
+    min_points: '55'
+    max_points: '64'
+    code: '2.2'
+    Gradebook: Gradebook_12
+    created_at: '2011-09-05 06:18:52'
+    updated_at: '2011-09-05 06:18:52'
+  GradebookScale_91:
+    min_points: '45'
+    max_points: '54'
+    code: P
+    Gradebook: Gradebook_12
+    created_at: '2011-09-05 06:19:09'
+    updated_at: '2011-09-05 06:19:09'
+  GradebookScale_92:
+    min_points: '0'
+    max_points: '44'
+    code: F
+    Gradebook: Gradebook_12
+    created_at: '2011-09-05 06:19:41'
+    updated_at: '2011-09-05 06:19:41'
+  GradebookScale_93:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_19
+    created_at: '2011-09-08 00:44:32'
+    updated_at: '2011-09-08 00:44:32'
+  GradebookScale_94:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_19
+    created_at: '2011-09-08 00:44:32'
+    updated_at: '2011-09-08 00:44:32'
+  GradebookScale_95:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_19
+    created_at: '2011-09-08 00:44:32'
+    updated_at: '2011-09-08 00:44:32'
+  GradebookScale_96:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_19
+    created_at: '2011-09-08 00:44:32'
+    updated_at: '2011-09-08 00:44:32'
+  GradebookScale_97:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_19
+    created_at: '2011-09-08 00:44:32'
+    updated_at: '2011-09-08 00:44:32'
+  GradebookScale_98:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_19
+    created_at: '2011-09-08 00:44:32'
+    updated_at: '2011-09-08 00:44:32'
+  GradebookScale_99:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_20
+    created_at: '2011-09-08 01:52:01'
+    updated_at: '2011-09-08 01:52:01'
+  GradebookScale_100:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_20
+    created_at: '2011-09-08 01:52:01'
+    updated_at: '2011-09-08 01:52:01'
+  GradebookScale_101:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_20
+    created_at: '2011-09-08 01:52:01'
+    updated_at: '2011-09-08 01:52:01'
+  GradebookScale_102:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_20
+    created_at: '2011-09-08 01:52:01'
+    updated_at: '2011-09-08 01:52:01'
+  GradebookScale_103:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_20
+    created_at: '2011-09-08 01:52:01'
+    updated_at: '2011-09-08 01:52:01'
+  GradebookScale_104:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_20
+    created_at: '2011-09-08 01:52:01'
+    updated_at: '2011-09-08 01:52:01'
+  GradebookScale_105:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_21
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_106:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_21
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_107:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_21
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_108:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_21
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_109:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_21
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_110:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_21
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_111:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_22
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_112:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_22
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_113:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_22
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_114:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_22
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_115:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_22
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_116:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_22
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  GradebookScale_117:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_23
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_118:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_23
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_119:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_23
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_120:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_23
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_121:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_23
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_122:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_23
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_123:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_24
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_124:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_24
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_125:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_24
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_126:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_24
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_127:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_24
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_128:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_24
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  GradebookScale_129:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_25
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_130:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_25
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_131:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_25
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_132:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_25
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_133:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_25
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_134:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_25
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_135:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_26
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_136:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_26
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_137:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_26
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_138:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_26
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_139:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_26
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_140:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_26
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  GradebookScale_141:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_27
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_142:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_27
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_143:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_27
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_144:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_27
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_145:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_27
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_146:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_27
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_147:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_28
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_148:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_28
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_149:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_28
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_150:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_28
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_151:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_28
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_152:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_28
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  GradebookScale_153:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_29
+    created_at: '2011-09-10 07:20:39'
+    updated_at: '2011-09-10 07:20:39'
+  GradebookScale_154:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_29
+    created_at: '2011-09-10 07:20:39'
+    updated_at: '2011-09-10 07:20:39'
+  GradebookScale_155:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_29
+    created_at: '2011-09-10 07:20:40'
+    updated_at: '2011-09-10 07:20:40'
+  GradebookScale_156:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_29
+    created_at: '2011-09-10 07:20:40'
+    updated_at: '2011-09-10 07:20:40'
+  GradebookScale_157:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_29
+    created_at: '2011-09-10 07:20:40'
+    updated_at: '2011-09-10 07:20:40'
+  GradebookScale_158:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_29
+    created_at: '2011-09-10 07:20:40'
+    updated_at: '2011-09-10 07:20:40'
+  GradebookScale_159:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_30
+    created_at: '2011-09-11 15:04:12'
+    updated_at: '2011-09-11 15:04:12'
+  GradebookScale_160:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_30
+    created_at: '2011-09-11 15:04:12'
+    updated_at: '2011-09-11 15:04:12'
+  GradebookScale_161:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_30
+    created_at: '2011-09-11 15:04:12'
+    updated_at: '2011-09-11 15:04:12'
+  GradebookScale_162:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_30
+    created_at: '2011-09-11 15:04:12'
+    updated_at: '2011-09-11 15:04:12'
+  GradebookScale_163:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_30
+    created_at: '2011-09-11 15:04:12'
+    updated_at: '2011-09-11 15:04:12'
+  GradebookScale_164:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_30
+    created_at: '2011-09-11 15:04:12'
+    updated_at: '2011-09-11 15:04:12'
+  GradebookScale_165:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_31
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_166:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_31
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_167:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_31
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_168:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_31
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_169:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_31
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_170:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_31
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_171:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_32
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_172:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_32
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_173:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_32
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_174:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_32
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_175:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_32
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_176:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_32
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  GradebookScale_177:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_33
+    created_at: '2011-09-13 04:01:07'
+    updated_at: '2011-09-13 04:01:07'
+  GradebookScale_178:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_33
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_179:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_33
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_180:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_33
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_181:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_33
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_182:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_33
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_183:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_34
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_184:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_34
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_185:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_34
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_186:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_34
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_187:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_34
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_188:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_34
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  GradebookScale_189:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_35
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_190:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_35
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_191:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_35
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_192:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_35
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_193:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_35
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_194:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_35
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_195:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_36
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_196:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_36
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_197:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_36
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_198:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_36
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_199:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_36
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_200:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_36
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  GradebookScale_201:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_37
+    created_at: '2011-09-13 05:24:52'
+    updated_at: '2011-09-13 05:24:52'
+  GradebookScale_202:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_37
+    created_at: '2011-09-13 05:24:52'
+    updated_at: '2011-09-13 05:24:52'
+  GradebookScale_203:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_37
+    created_at: '2011-09-13 05:24:52'
+    updated_at: '2011-09-13 05:24:52'
+  GradebookScale_204:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_37
+    created_at: '2011-09-13 05:24:52'
+    updated_at: '2011-09-13 05:24:52'
+  GradebookScale_205:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_37
+    created_at: '2011-09-13 05:24:52'
+    updated_at: '2011-09-13 05:24:52'
+  GradebookScale_206:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_37
+    created_at: '2011-09-13 05:24:52'
+    updated_at: '2011-09-13 05:24:52'
+  GradebookScale_207:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_38
+    created_at: '2011-09-13 05:24:56'
+    updated_at: '2011-09-13 05:24:56'
+  GradebookScale_208:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_38
+    created_at: '2011-09-13 05:24:56'
+    updated_at: '2011-09-13 05:24:56'
+  GradebookScale_209:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_38
+    created_at: '2011-09-13 05:24:56'
+    updated_at: '2011-09-13 05:24:56'
+  GradebookScale_210:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_38
+    created_at: '2011-09-13 05:24:56'
+    updated_at: '2011-09-13 05:24:56'
+  GradebookScale_211:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_38
+    created_at: '2011-09-13 05:24:56'
+    updated_at: '2011-09-13 05:24:56'
+  GradebookScale_212:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_38
+    created_at: '2011-09-13 05:24:56'
+    updated_at: '2011-09-13 05:24:56'
+  GradebookScale_213:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_39
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_214:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_39
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_215:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_39
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_216:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_39
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_217:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_39
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_218:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_39
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_219:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_40
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_220:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_40
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_221:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_40
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_222:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_40
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_223:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_40
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_224:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_40
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  GradebookScale_225:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_41
+    created_at: '2011-09-13 05:25:20'
+    updated_at: '2011-09-13 05:25:20'
+  GradebookScale_226:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_41
+    created_at: '2011-09-13 05:25:20'
+    updated_at: '2011-09-13 05:25:20'
+  GradebookScale_227:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_41
+    created_at: '2011-09-13 05:25:20'
+    updated_at: '2011-09-13 05:25:20'
+  GradebookScale_228:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_41
+    created_at: '2011-09-13 05:25:20'
+    updated_at: '2011-09-13 05:25:20'
+  GradebookScale_229:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_41
+    created_at: '2011-09-13 05:25:20'
+    updated_at: '2011-09-13 05:25:20'
+  GradebookScale_230:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_41
+    created_at: '2011-09-13 05:25:21'
+    updated_at: '2011-09-13 05:25:21'
+  GradebookScale_231:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_42
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_232:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_42
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_233:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_42
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_234:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_42
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_235:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_42
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_236:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_42
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_237:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_43
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_238:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_43
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_239:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_43
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_240:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_43
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_241:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_43
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_242:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_43
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  GradebookScale_243:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_44
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_244:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_44
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_245:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_44
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_246:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_44
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_247:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_44
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_248:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_44
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_249:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_45
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_250:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_45
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_251:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_45
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_252:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_45
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_253:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_45
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_254:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_45
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  GradebookScale_255:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_46
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_256:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_46
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_257:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_46
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_258:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_46
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_259:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_46
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_260:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_46
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_261:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_47
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_262:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_47
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_263:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_47
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_264:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_47
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_265:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_47
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_266:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_47
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  GradebookScale_267:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_48
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_268:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_48
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_269:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_48
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_270:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_48
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_271:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_48
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_272:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_48
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_273:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_49
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_274:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_49
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_275:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_49
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_276:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_49
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_277:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_49
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_278:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_49
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  GradebookScale_279:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_50
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_280:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_50
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_281:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_50
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_282:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_50
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_283:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_50
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_284:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_50
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_285:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_51
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_286:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_51
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_287:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_51
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_288:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_51
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_289:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_51
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_290:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_51
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  GradebookScale_291:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_52
+    created_at: '2011-09-13 05:30:55'
+    updated_at: '2011-09-13 05:30:55'
+  GradebookScale_292:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_52
+    created_at: '2011-09-13 05:30:55'
+    updated_at: '2011-09-13 05:30:55'
+  GradebookScale_293:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_52
+    created_at: '2011-09-13 05:30:55'
+    updated_at: '2011-09-13 05:30:55'
+  GradebookScale_294:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_52
+    created_at: '2011-09-13 05:30:55'
+    updated_at: '2011-09-13 05:30:55'
+  GradebookScale_295:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_52
+    created_at: '2011-09-13 05:30:55'
+    updated_at: '2011-09-13 05:30:55'
+  GradebookScale_296:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_52
+    created_at: '2011-09-13 05:30:55'
+    updated_at: '2011-09-13 05:30:55'
+  GradebookScale_297:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_53
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_298:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_53
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_299:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_53
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_300:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_53
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_301:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_53
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_302:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_53
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_303:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_54
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_304:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_54
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_305:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_54
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_306:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_54
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_307:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_54
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_308:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_54
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  GradebookScale_309:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_55
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_310:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_55
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_311:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_55
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_312:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_55
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_313:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_55
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_314:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_55
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_315:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_56
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_316:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_56
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_317:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_56
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_318:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_56
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_319:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_56
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_320:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_56
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  GradebookScale_321:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_57
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_322:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_57
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_323:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_57
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_324:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_57
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_325:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_57
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_326:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_57
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_327:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_58
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_328:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_58
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_329:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_58
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_330:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_58
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_331:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_58
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_332:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_58
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  GradebookScale_333:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_59
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_334:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_59
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_335:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_59
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_336:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_59
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_337:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_59
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_338:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_59
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_339:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_60
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_340:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_60
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_341:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_60
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_342:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_60
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_343:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_60
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_344:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_60
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  GradebookScale_345:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_61
+    created_at: '2011-09-15 19:14:43'
+    updated_at: '2011-09-15 19:14:43'
+  GradebookScale_346:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_61
+    created_at: '2011-09-15 19:14:43'
+    updated_at: '2011-09-15 19:14:43'
+  GradebookScale_347:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_61
+    created_at: '2011-09-15 19:14:44'
+    updated_at: '2011-09-15 19:14:44'
+  GradebookScale_348:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_61
+    created_at: '2011-09-15 19:14:44'
+    updated_at: '2011-09-15 19:14:44'
+  GradebookScale_349:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_61
+    created_at: '2011-09-15 19:14:44'
+    updated_at: '2011-09-15 19:14:44'
+  GradebookScale_350:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_61
+    created_at: '2011-09-15 19:14:44'
+    updated_at: '2011-09-15 19:14:44'
+  GradebookScale_351:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_62
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_352:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_62
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_353:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_62
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_354:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_62
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_355:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_62
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_356:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_62
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_357:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_63
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_358:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_63
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_359:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_63
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_360:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_63
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_361:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_63
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_362:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_63
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  GradebookScale_363:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_64
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_364:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_64
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_365:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_64
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_366:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_64
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_367:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_64
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_368:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_64
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_369:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_65
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_370:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_65
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_371:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_65
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_372:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_65
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_373:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_65
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_374:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_65
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  GradebookScale_375:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_66
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_376:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_66
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_377:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_66
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_378:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_66
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_379:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_66
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_380:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_66
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_381:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_67
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_382:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_67
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_383:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_67
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_384:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_67
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_385:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_67
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_386:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_67
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  GradebookScale_387:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_68
+    created_at: '2011-09-23 07:04:48'
+    updated_at: '2011-09-23 07:04:48'
+  GradebookScale_388:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_68
+    created_at: '2011-09-23 07:04:48'
+    updated_at: '2011-09-23 07:04:48'
+  GradebookScale_389:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_68
+    created_at: '2011-09-23 07:04:48'
+    updated_at: '2011-09-23 07:04:48'
+  GradebookScale_390:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_68
+    created_at: '2011-09-23 07:04:48'
+    updated_at: '2011-09-23 07:04:48'
+  GradebookScale_391:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_68
+    created_at: '2011-09-23 07:04:48'
+    updated_at: '2011-09-23 07:04:48'
+  GradebookScale_392:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_68
+    created_at: '2011-09-23 07:04:48'
+    updated_at: '2011-09-23 07:04:48'
+  GradebookScale_393:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_69
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_394:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_69
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_395:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_69
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_396:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_69
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_397:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_69
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_398:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_69
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_399:
+    min_points: '75'
+    max_points: '100'
+    code: A
+    Gradebook: Gradebook_70
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_400:
+    min_points: '65'
+    max_points: '74'
+    code: B
+    Gradebook: Gradebook_70
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_401:
+    min_points: '55'
+    max_points: '64'
+    code: C
+    Gradebook: Gradebook_70
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_402:
+    min_points: '45'
+    max_points: '54'
+    code: D
+    Gradebook: Gradebook_70
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_403:
+    min_points: '35'
+    max_points: '44'
+    code: E
+    Gradebook: Gradebook_70
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  GradebookScale_404:
+    min_points: '0'
+    max_points: '34'
+    code: F
+    Gradebook: Gradebook_70
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+File:
+  File_1:
+    Folder: Folder_15
+    filename: 6a81983b36cf447ef11b692ef9bf69f4f2a79c87.jpg
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 19:51:01'
+    updated_at: '2011-08-29 19:51:01'
+  File_2:
+    Folder: Folder_15
+    filename: bbd9e4daaaab78edc6a1fa7a174c017ad267f5bc.jpg
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 20:26:08'
+    updated_at: '2011-08-29 20:26:08'
+  File_3:
+    Folder: Folder_15
+    filename: 78af51176c15fab760ff65c69d04642d2cf33ba7.jpg
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 20:47:32'
+    updated_at: '2011-08-29 20:47:32'
+  File_4:
+    Folder: Folder_15
+    filename: f8f8e05e06d6a750fd37d2aed9a7b9acae91dfc5.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 21:16:35'
+    updated_at: '2011-08-29 21:16:35'
+  File_5:
+    Folder: Folder_21
+    filename: 91b24e56efe644c0ed1c840f1d8b591dc13ae879.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 21:27:23'
+    updated_at: '2011-08-29 21:27:23'
+  File_6:
+    Folder: Folder_21
+    filename: 5a3476c35056ed57e22c58fc9ae6eefccfe4b19c.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 21:27:52'
+    updated_at: '2011-08-29 21:27:52'
+  File_7:
+    Folder: Folder_23
+    filename: 303018c08a379c27a47ff79cae245a5640b4e376.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 21:28:21'
+    updated_at: '2011-08-29 21:28:21'
+  File_8:
+    Folder: Folder_23
+    filename: 27c47b0c6b90f07c7a33160a44ccf4c75e14e13c.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 21:28:37'
+    updated_at: '2011-08-29 21:28:37'
+  File_9:
+    Folder: Folder_22
+    filename: 2bdea5f441e2a9b1967635b4b6b2c61d2af68373.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 21:29:10'
+    updated_at: '2011-08-29 21:29:10'
+  File_10:
+    Folder: Folder_23
+    filename: e62f8a67a3269b1236495076e0324d81b94056f5.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 21:29:24'
+    updated_at: '2011-08-29 21:29:24'
+  File_11:
+    Folder: Folder_22
+    filename: b50349782a3d9c6de8ee15b7c79418c21cdfa1ec.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-08-29 21:29:40'
+    updated_at: '2011-08-29 21:29:40'
+  File_12:
+    Folder: Folder_15
+    filename: beb19610f6e6ea9b37406de40b09075d82dc9635.png
+    mime_type: ''
+    size: null
+    dimensions: ''
+    created_at: '2011-09-01 12:35:32'
+    updated_at: '2011-09-01 12:35:32'
+Assignment:
+  Assignment_1:
+    title: 'Research about how artificial intelligence has impacted the computer industry'
+    AssignmentGroup: AssignmentGroup_2
+    task_description: 'In this assignment we would like you to investigate how artificial intelligence has impacted our computer industry. We all know that AI is a recent branch of computing and still has more room for researchers to research about. So we''re encouraging you to engage with your fellow students and come up with 1000 words essay about your view of this new field.'
+    submission: '3'
+    due_date: '2013-08-29 00:00:00'
+    points: '20'
+    weight: '23.00'
+    lock_until: '2011-08-29 00:00:00'
+    lock_after: '2011-08-29 00:00:00'
+    notify_users: true
+    is_graded: true
+    graded_by: '3'
+    Course: Course_1
+    created_at: '2011-08-29 07:28:43'
+    updated_at: '2011-09-10 11:59:07'
+Course:
+  Course_1:
+    name: 'Human Computer Interaction'
+    code: SCS145
+    Department: Department_1
+    description: '<p>Through lectures and a project, learn the fundamentals of human-computer interaction &amp; design thinking. Work together in teams of three on a quarter-long project. Each week, in small design studios, present and discuss work with peers. The setting for the course is mobile web applications. The constraints of this small form factor make this an exciting challenge. At the end of the course, present to a jury of IT and design leaders. CS147L, an optional 1-unit lab teaches web programming. Projects should address one of the following three brief.</p>'
+    is_finalized: true
+    start_date: '2011-09-04 00:00:00'
+    end_date: '2011-12-15 00:00:00'
+    credits: '0.00'
+    hours: '25'
+    max_enrolled: '56'
+  Course_2:
+    name: 'Data communications'
+    code: CSC34
+    Department: Department_3
+    description: "<p>Data communications course outline:</p>\n<p>--1</p>\n<p>--2</p>\n<p>--3</p>"
+    is_finalized: true
+    start_date: '2011-08-01 00:00:00'
+    end_date: '2011-11-10 00:00:00'
+    credits: '0.00'
+    hours: '2'
+    max_enrolled: '23'
+Gradebook:
+  Gradebook_1:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-02 04:44:06'
+    updated_at: '2011-09-02 04:44:06'
+  Gradebook_12:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-05 06:12:22'
+    updated_at: '2011-09-05 06:12:22'
+  Gradebook_13:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  Gradebook_14:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-05 06:14:35'
+    updated_at: '2011-09-05 06:14:35'
+  Gradebook_15:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  Gradebook_16:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-05 06:14:48'
+    updated_at: '2011-09-05 06:14:48'
+  Gradebook_17:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  Gradebook_18:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-05 06:15:01'
+    updated_at: '2011-09-05 06:15:01'
+  Gradebook_19:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-08 00:44:31'
+    updated_at: '2011-09-08 00:44:31'
+  Gradebook_20:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-08 01:52:01'
+    updated_at: '2011-09-08 01:52:01'
+  Gradebook_21:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  Gradebook_22:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-08 07:09:35'
+    updated_at: '2011-09-08 07:09:35'
+  Gradebook_23:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  Gradebook_24:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-08 07:09:52'
+    updated_at: '2011-09-08 07:09:52'
+  Gradebook_25:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  Gradebook_26:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-08 07:10:06'
+    updated_at: '2011-09-08 07:10:06'
+  Gradebook_27:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  Gradebook_28:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-09 06:36:35'
+    updated_at: '2011-09-09 06:36:35'
+  Gradebook_29:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-10 07:20:39'
+    updated_at: '2011-09-10 07:20:39'
+  Gradebook_30:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-11 15:04:12'
+    updated_at: '2011-09-11 15:04:12'
+  Gradebook_31:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  Gradebook_32:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-11 15:04:25'
+    updated_at: '2011-09-11 15:04:25'
+  Gradebook_33:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 04:01:07'
+    updated_at: '2011-09-13 04:01:07'
+  Gradebook_34:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 04:01:08'
+    updated_at: '2011-09-13 04:01:08'
+  Gradebook_35:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  Gradebook_36:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 04:12:00'
+    updated_at: '2011-09-13 04:12:00'
+  Gradebook_37:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:24:52'
+    updated_at: '2011-09-13 05:24:52'
+  Gradebook_38:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:24:56'
+    updated_at: '2011-09-13 05:24:56'
+  Gradebook_39:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  Gradebook_40:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 05:24:59'
+    updated_at: '2011-09-13 05:24:59'
+  Gradebook_41:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:25:20'
+    updated_at: '2011-09-13 05:25:20'
+  Gradebook_42:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  Gradebook_43:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 05:25:30'
+    updated_at: '2011-09-13 05:25:30'
+  Gradebook_44:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  Gradebook_45:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 05:25:50'
+    updated_at: '2011-09-13 05:25:50'
+  Gradebook_46:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  Gradebook_47:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 05:26:00'
+    updated_at: '2011-09-13 05:26:00'
+  Gradebook_48:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  Gradebook_49:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 05:30:18'
+    updated_at: '2011-09-13 05:30:18'
+  Gradebook_50:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  Gradebook_51:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 05:30:22'
+    updated_at: '2011-09-13 05:30:22'
+  Gradebook_52:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 05:30:55'
+    updated_at: '2011-09-13 05:30:55'
+  Gradebook_53:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  Gradebook_54:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-13 20:18:46'
+    updated_at: '2011-09-13 20:18:46'
+  Gradebook_55:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  Gradebook_56:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-15 19:10:49'
+    updated_at: '2011-09-15 19:10:49'
+  Gradebook_57:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  Gradebook_58:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-15 19:11:11'
+    updated_at: '2011-09-15 19:11:11'
+  Gradebook_59:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  Gradebook_60:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-15 19:14:24'
+    updated_at: '2011-09-15 19:14:24'
+  Gradebook_61:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-15 19:14:43'
+    updated_at: '2011-09-15 19:14:43'
+  Gradebook_62:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  Gradebook_63:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-15 19:15:27'
+    updated_at: '2011-09-15 19:15:27'
+  Gradebook_64:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  Gradebook_65:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-15 19:15:55'
+    updated_at: '2011-09-15 19:15:55'
+  Gradebook_66:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  Gradebook_67:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-18 09:12:21'
+    updated_at: '2011-09-18 09:12:21'
+  Gradebook_68:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-23 07:04:48'
+    updated_at: '2011-09-23 07:04:48'
+  Gradebook_69:
+    items: '0'
+    Course: Course_1
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+  Gradebook_70:
+    items: '0'
+    Course: Course_2
+    created_at: '2011-09-24 19:15:16'
+    updated_at: '2011-09-24 19:15:16'
+Faculty:
+  Faculty_1:
+    name: 'Applied Sciences'
+    abbreviation: ASCI
+  Faculty_2:
+    name: Commerce
+    abbreviation: COM
+  Faculty_3:
+    name: Engineering
+    abbreviation: ENG
+  Faculty_4:
+    name: Arts
+    abbreviation: ART
+Attendance:
+  Attendance_41:
+    date: '2011-08-01 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_7
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_42:
+    date: '2011-08-08 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_7
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_43:
+    date: '2011-08-22 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_7
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_44:
+    date: '2011-09-12 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_7
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_45:
+    date: '2011-10-10 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_7
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_46:
+    date: '2011-08-04 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_8
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_47:
+    date: '2011-08-11 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_8
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_48:
+    date: '2011-08-25 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_8
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_49:
+    date: '2011-09-15 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_8
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_50:
+    date: '2011-10-13 00:00:00'
+    Course: Course_2
+    CourseMeetingTime: CourseMeetingTime_8
+    created_at: '2011-09-08 01:48:18'
+    updated_at: '2011-09-08 01:48:18'
+  Attendance_51:
+    date: '2011-09-05 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_2
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_52:
+    date: '2011-09-26 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_2
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_53:
+    date: '2011-10-17 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_2
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_54:
+    date: '2011-11-14 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_2
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_55:
+    date: '2011-09-10 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_1
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_56:
+    date: '2011-09-17 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_1
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_57:
+    date: '2011-10-01 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_1
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_58:
+    date: '2011-10-22 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_1
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_59:
+    date: '2011-11-19 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_1
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_60:
+    date: '2011-09-07 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_3
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_61:
+    date: '2011-09-14 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_3
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_62:
+    date: '2011-09-28 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_3
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_63:
+    date: '2011-10-19 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_3
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+  Attendance_64:
+    date: '2011-11-16 00:00:00'
+    Course: Course_1
+    CourseMeetingTime: CourseMeetingTime_3
+    created_at: '2011-09-08 01:52:04'
+    updated_at: '2011-09-08 01:52:04'
+DiscussionTopic:
+  DiscussionTopic_1:
+    subject: 'Congestion control mechanisms'
+    message: 'In this discussion will be discussing the mechanics of congestion control in data communications infrastructures. Will also look ways on which to improve the flow of data from one node to another.'
+    Discussion: Discussion_1
+    User: sfGuardUser_3
+    DiscussionTopicReply: DiscussionTopicReply_37
+    nb_replies: '37'
+    nb_views: '123'
+    created_at: '2011-08-25 05:02:10'
+    updated_at: '2011-09-08 20:20:23'
+  DiscussionTopic_8:
+    subject: 'It''s crucial for us to be what we talk about'
+    message: 'I would rather be that talk about something that I can''t possibly be.'
+    Discussion: Discussion_6
+    User: sfGuardUser_3
+    DiscussionTopicReply: DiscussionTopicReply_39
+    nb_replies: '2'
+    nb_views: '13'
+    created_at: '2011-08-28 14:14:05'
+    updated_at: '2011-09-18 18:30:28'
+  DiscussionTopic_2:
+    subject: 'It''s always about speech'
+    message: 'We should all avoid slanderous speech, and refraining from tail bearing or any form of gossip'
+    Discussion: Discussion_1
+    User: sfGuardUser_3
+    nb_replies: '0'
+    nb_views: '35'
+    created_at: '2011-08-25 07:33:51'
+    updated_at: '2011-09-23 02:45:52'
+MailingList:
+  MailingList_1:
+    name: 'CSC146 - Course participants'
+    User: sfGuardUser_3
+    created_at: '2011-08-27 10:34:45'
+    updated_at: '2011-08-27 10:34:45'
+CourseReadingItem:
+  CourseReadingItem_1:
+    title: 'Human Computer Interaction'
+    author: 'Thomas Choek'
+    Course: Course_1
+  CourseReadingItem_2:
+    title: 'HCI Fourth Edition'
+    author: 'Alan Turing'
+    Course: Course_1
+GradebookItem:
+  GradebookItem_2:
+    name: 'Ungrade assignment'
+    weight: '0.00'
+    Gradebook: Gradebook_1
+    created_at: '2011-09-08 18:56:33'
+    updated_at: '2011-09-08 18:56:33'
+  GradebookItem_1:
+    name: 'Test 1'
+    weight: '50.00'
+    Gradebook: Gradebook_12
+    created_at: '2011-09-08 02:21:03'
+    updated_at: '2011-09-10 06:32:07'
+  GradebookItem_3:
+    name: 'Final Exam'
+    weight: '40.00'
+    Gradebook: Gradebook_12
+    created_at: '2011-09-10 06:56:11'
+    updated_at: '2011-09-10 06:56:11'
+  GradebookItem_4:
+    name: Assignment
+    weight: '10.00'
+    Gradebook: Gradebook_12
+    created_at: '2011-09-10 06:56:22'
+    updated_at: '2011-09-10 06:56:22'
+  GradebookItem_5:
+    name: Test1
+    weight: '20.00'
+    Gradebook: Gradebook_1
+    created_at: '2011-09-18 18:27:42'
+    updated_at: '2011-09-18 18:27:42'
+ContactInstructor:
+  ContactInstructor_1:
+    email_address: brian@gmail.com
+    phone_work: '0214528745'
+    phone_home: '0216859856'
+    phone_mobile: '0873695284'
+    address_line_1: '145 Greydon st, Birmingham'
+    address_line_2: ''
+    postcode: ''
+    city: ''
+    Country: Country_2
+    StateProvince: StateProvince_1
+    Instructor: Instructor_3
+    postal_address_line_1: '145 Greydon st, Birmingham'
+    postal_address_line_2: ''
+    postal_postcode: ''
+    postal_city: ''
+    PostalCountry: Country_2
+    PostalStateProvince: StateProvince_1
+    created_at: '2011-09-13 04:23:05'
+    updated_at: '2011-09-13 07:58:27'
+  ContactInstructor_2:
+    email_address: bush@gmail.com
+    phone_work: '0219852654'
+    phone_home: ''
+    phone_mobile: ''
+    address_line_1: '24 Oval palace, Whitehouse'
+    address_line_2: ''
+    postcode: '85858'
+    city: ''
+    Country: Country_5
+    StateProvince: StateProvince_2
+    Instructor: Instructor_1
+    postal_address_line_1: '24 Oval palace, Whitehouse'
+    postal_address_line_2: ''
+    postal_postcode: ''
+    postal_city: ''
+    PostalCountry: Country_2
+    PostalStateProvince: StateProvince_2
+    created_at: '2011-09-13 04:39:45'
+    updated_at: '2011-09-13 20:18:51'
+StudentAttendance:
+  StudentAttendance_1:
+    status: '0'
+    Attendance: Attendance_41
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_2:
+    status: '0'
+    Attendance: Attendance_42
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_3:
+    status: '0'
+    Attendance: Attendance_43
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_5:
+    status: '0'
+    Attendance: Attendance_45
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_6:
+    status: '0'
+    Attendance: Attendance_46
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_7:
+    status: '0'
+    Attendance: Attendance_47
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_8:
+    status: '0'
+    Attendance: Attendance_48
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_10:
+    status: '0'
+    Attendance: Attendance_50
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_11:
+    status: '0'
+    Attendance: Attendance_41
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_12:
+    status: '0'
+    Attendance: Attendance_42
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_13:
+    status: '0'
+    Attendance: Attendance_43
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_15:
+    status: '0'
+    Attendance: Attendance_45
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_16:
+    status: '0'
+    Attendance: Attendance_46
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_17:
+    status: '0'
+    Attendance: Attendance_47
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_18:
+    status: '0'
+    Attendance: Attendance_48
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_19:
+    status: '0'
+    Attendance: Attendance_49
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_20:
+    status: '0'
+    Attendance: Attendance_50
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_21:
+    status: '0'
+    Attendance: Attendance_41
+    Student: Student_5
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_22:
+    status: '0'
+    Attendance: Attendance_42
+    Student: Student_5
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_23:
+    status: '0'
+    Attendance: Attendance_43
+    Student: Student_5
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_25:
+    status: '0'
+    Attendance: Attendance_45
+    Student: Student_5
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_26:
+    status: '0'
+    Attendance: Attendance_46
+    Student: Student_5
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-08 07:15:00'
+  StudentAttendance_27:
+    status: '0'
+    Attendance: Attendance_47
+    Student: Student_5
+    created_at: '2011-09-08 07:15:01'
+    updated_at: '2011-09-08 07:15:01'
+  StudentAttendance_28:
+    status: '0'
+    Attendance: Attendance_48
+    Student: Student_5
+    created_at: '2011-09-08 07:15:01'
+    updated_at: '2011-09-08 07:15:01'
+  StudentAttendance_29:
+    status: '0'
+    Attendance: Attendance_49
+    Student: Student_5
+    created_at: '2011-09-08 07:15:01'
+    updated_at: '2011-09-08 07:15:01'
+  StudentAttendance_30:
+    status: '0'
+    Attendance: Attendance_50
+    Student: Student_5
+    created_at: '2011-09-08 07:15:01'
+    updated_at: '2011-09-08 07:15:01'
+  StudentAttendance_33:
+    status: '0'
+    Attendance: Attendance_53
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_34:
+    status: '0'
+    Attendance: Attendance_54
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_35:
+    status: '0'
+    Attendance: Attendance_55
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_36:
+    status: '0'
+    Attendance: Attendance_56
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_38:
+    status: '0'
+    Attendance: Attendance_58
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_39:
+    status: '0'
+    Attendance: Attendance_59
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_41:
+    status: '0'
+    Attendance: Attendance_61
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_42:
+    status: '0'
+    Attendance: Attendance_62
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_43:
+    status: '0'
+    Attendance: Attendance_63
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_44:
+    status: '0'
+    Attendance: Attendance_64
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_47:
+    status: '0'
+    Attendance: Attendance_53
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_48:
+    status: '0'
+    Attendance: Attendance_54
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_49:
+    status: '0'
+    Attendance: Attendance_55
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_50:
+    status: '0'
+    Attendance: Attendance_56
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_51:
+    status: '0'
+    Attendance: Attendance_57
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_52:
+    status: '0'
+    Attendance: Attendance_58
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_53:
+    status: '0'
+    Attendance: Attendance_59
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_55:
+    status: '0'
+    Attendance: Attendance_61
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 18:55:15'
+  StudentAttendance_56:
+    status: '0'
+    Attendance: Attendance_62
+    Student: Student_4
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_57:
+    status: '0'
+    Attendance: Attendance_63
+    Student: Student_4
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_58:
+    status: '0'
+    Attendance: Attendance_64
+    Student: Student_4
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_61:
+    status: '0'
+    Attendance: Attendance_53
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_62:
+    status: '0'
+    Attendance: Attendance_54
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_63:
+    status: '0'
+    Attendance: Attendance_55
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_64:
+    status: '0'
+    Attendance: Attendance_56
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_65:
+    status: '0'
+    Attendance: Attendance_57
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_66:
+    status: '0'
+    Attendance: Attendance_58
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_67:
+    status: '0'
+    Attendance: Attendance_59
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_69:
+    status: '0'
+    Attendance: Attendance_61
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_70:
+    status: '0'
+    Attendance: Attendance_62
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_71:
+    status: '0'
+    Attendance: Attendance_63
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_72:
+    status: '0'
+    Attendance: Attendance_64
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 18:55:16'
+  StudentAttendance_40:
+    status: '3'
+    Attendance: Attendance_60
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 19:34:56'
+  StudentAttendance_54:
+    status: '4'
+    Attendance: Attendance_60
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 19:35:09'
+  StudentAttendance_31:
+    status: '1'
+    Attendance: Attendance_51
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 19:35:21'
+  StudentAttendance_32:
+    status: '2'
+    Attendance: Attendance_52
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 19:35:33'
+  StudentAttendance_46:
+    status: '3'
+    Attendance: Attendance_52
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 19:35:33'
+  StudentAttendance_60:
+    status: '4'
+    Attendance: Attendance_52
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 19:35:33'
+  StudentAttendance_68:
+    status: '0'
+    Attendance: Attendance_60
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 19:35:46'
+  StudentAttendance_45:
+    status: '1'
+    Attendance: Attendance_51
+    Student: Student_4
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 20:06:55'
+  StudentAttendance_59:
+    status: '1'
+    Attendance: Attendance_51
+    Student: Student_5
+    created_at: '2011-09-08 18:55:16'
+    updated_at: '2011-09-08 20:15:01'
+  StudentAttendance_37:
+    status: '1'
+    Attendance: Attendance_57
+    Student: Student_9
+    created_at: '2011-09-08 18:55:15'
+    updated_at: '2011-09-08 20:15:33'
+  StudentAttendance_14:
+    status: '1'
+    Attendance: Attendance_44
+    Student: Student_4
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-09 03:00:22'
+  StudentAttendance_24:
+    status: '1'
+    Attendance: Attendance_44
+    Student: Student_5
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-10 06:58:13'
+  StudentAttendance_4:
+    status: '4'
+    Attendance: Attendance_44
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-10 06:58:38'
+  StudentAttendance_9:
+    status: '1'
+    Attendance: Attendance_49
+    Student: Student_9
+    created_at: '2011-09-08 07:15:00'
+    updated_at: '2011-09-11 15:04:54'
+InstructorCourse:
+  InstructorCourse_4:
+    Instructor: Instructor_2
+    Course: Course_1
+  InstructorCourse_6:
+    Instructor: Instructor_1
+    Course: Course_1
+  InstructorCourse_8:
+    Instructor: Instructor_3
+    Course: Course_1
+Room:
+  Room_1:
+    name: SLT1
+    abbreviation: SLT1
+    Building: Building_1
+AssignmentGroup:
+  AssignmentGroup_3:
+    name: 'Quiz 2'
+    weight: '0.00'
+    Course: Course_1
+    created_at: '2011-08-19 06:48:25'
+    updated_at: '2011-08-19 06:48:25'
+  AssignmentGroup_2:
+    name: Homework
+    weight: '25.00'
+    Course: Course_1
+    created_at: '2011-08-19 06:48:01'
+    updated_at: '2011-09-10 12:06:35'
+  AssignmentGroup_1:
+    name: 'Quiz 1'
+    weight: '35.00'
+    Course: Course_1
+    created_at: '2011-08-17 07:11:24'
+    updated_at: '2011-09-10 12:06:47'
+StudentGradebookItem:
+  StudentGradebookItem_1:
+    points: '0.00'
+    GradebookItem: GradebookItem_2
+    Student: Student_9
+    created_at: '2011-09-08 18:56:37'
+    updated_at: '2011-09-08 18:56:37'
+  StudentGradebookItem_3:
+    points: '0.00'
+    GradebookItem: GradebookItem_2
+    Student: Student_5
+    created_at: '2011-09-08 18:56:37'
+    updated_at: '2011-09-08 18:56:37'
+  StudentGradebookItem_6:
+    points: '76.00'
+    GradebookItem: GradebookItem_1
+    Student: Student_9
+    created_at: '2011-09-10 06:24:00'
+    updated_at: '2011-09-11 15:06:51'
+  StudentGradebookItem_14:
+    points: '0.00'
+    GradebookItem: GradebookItem_5
+    Student: Student_9
+    created_at: '2011-09-18 18:28:10'
+    updated_at: '2011-09-18 18:28:10'
+  StudentGradebookItem_15:
+    points: '0.00'
+    GradebookItem: GradebookItem_2
+    Student: Student_8
+    created_at: '2011-09-18 18:28:10'
+    updated_at: '2011-09-18 18:28:10'
+  StudentGradebookItem_16:
+    points: '0.00'
+    GradebookItem: GradebookItem_5
+    Student: Student_8
+    created_at: '2011-09-18 18:28:10'
+    updated_at: '2011-09-18 18:28:10'
+  StudentGradebookItem_2:
+    points: '24.00'
+    GradebookItem: GradebookItem_2
+    Student: Student_4
+    created_at: '2011-09-08 18:56:37'
+    updated_at: '2011-09-18 18:28:44'
+  StudentGradebookItem_13:
+    points: '45.00'
+    GradebookItem: GradebookItem_5
+    Student: Student_4
+    created_at: '2011-09-18 18:28:10'
+    updated_at: '2011-09-18 18:28:44'
+  StudentGradebookItem_4:
+    points: '37.00'
+    GradebookItem: GradebookItem_1
+    Student: Student_4
+    created_at: '2011-09-10 06:24:00'
+    updated_at: '2011-09-10 06:50:14'
+  StudentGradebookItem_8:
+    points: '0.00'
+    GradebookItem: GradebookItem_4
+    Student: Student_4
+    created_at: '2011-09-10 06:56:25'
+    updated_at: '2011-09-10 06:56:25'
+  StudentGradebookItem_9:
+    points: '0.00'
+    GradebookItem: GradebookItem_3
+    Student: Student_5
+    created_at: '2011-09-10 06:56:25'
+    updated_at: '2011-09-10 06:56:25'
+  StudentGradebookItem_10:
+    points: '0.00'
+    GradebookItem: GradebookItem_4
+    Student: Student_5
+    created_at: '2011-09-10 06:56:25'
+    updated_at: '2011-09-10 06:56:25'
+  StudentGradebookItem_7:
+    points: '100.00'
+    GradebookItem: GradebookItem_3
+    Student: Student_4
+    created_at: '2011-09-10 06:56:24'
+    updated_at: '2011-09-10 06:56:56'
+  StudentGradebookItem_5:
+    points: '28.00'
+    GradebookItem: GradebookItem_1
+    Student: Student_5
+    created_at: '2011-09-10 06:24:00'
+    updated_at: '2011-09-10 06:57:05'
+  StudentGradebookItem_12:
+    points: '24.00'
+    GradebookItem: GradebookItem_4
+    Student: Student_9
+    created_at: '2011-09-10 06:56:25'
+    updated_at: '2011-09-10 06:57:16'
+  StudentGradebookItem_11:
+    points: '89.00'
+    GradebookItem: GradebookItem_3
+    Student: Student_9
+    created_at: '2011-09-10 06:56:25'
+    updated_at: '2011-09-10 06:57:27'
+BulletinBoardComment:
+  BulletinBoardComment_4:
+    User: sfGuardUser_3
+    content: 'I would like to say this is a perfect comment and please keep posting stuff here'
+    BulletinBoard: BulletinBoard_3
+    created_at: '2011-09-01 15:29:13.497124'
+    updated_at: '2011-09-01 15:29:13.497124'
+  BulletinBoardComment_5:
+    User: sfGuardUser_3
+    content: 'Last time when I was visiting the Europe I can accross a guy from Virginia who went on to teach me a who range of interesting tricks'
+    BulletinBoard: BulletinBoard_3
+    created_at: '2011-09-01 15:31:44.569181'
+    updated_at: '2011-09-01 15:31:44.569181'
+  BulletinBoardComment_6:
+    User: sfGuardUser_3
+    content: 'This is the best of all my life...'
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-01 17:15:10'
+    updated_at: '2011-09-01 17:15:10'
+  BulletinBoardComment_7:
+    User: sfGuardUser_3
+    content: 'Basa takabata nesimba chaizvo...'
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-01 17:15:32'
+    updated_at: '2011-09-01 17:15:32'
+  BulletinBoardComment_8:
+    User: sfGuardUser_3
+    content: 'This is what it says to...'
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-01 17:15:52'
+    updated_at: '2011-09-01 17:15:52'
+  BulletinBoardComment_9:
+    User: sfGuardUser_3
+    content: 'It''s never easy and never easy...'
+    BulletinBoard: BulletinBoard_8
+    created_at: '2011-09-01 17:16:34'
+    updated_at: '2011-09-01 17:16:34'
+  BulletinBoardComment_10:
+    User: sfGuardUser_3
+    content: 'We shall be doing the same things till we die, the thing of innovating...'
+    BulletinBoard: BulletinBoard_8
+    created_at: '2011-09-01 17:16:57'
+    updated_at: '2011-09-01 17:16:57'
+  BulletinBoardComment_11:
+    User: sfGuardUser_3
+    content: 'I still want to comment this form again and again...'
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-01 17:19:05'
+    updated_at: '2011-09-01 17:19:05'
+  BulletinBoardComment_12:
+    User: sfGuardUser_3
+    content: 'Mr Dodo, how is it?'
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-01 17:37:28'
+    updated_at: '2011-09-01 17:37:28'
+  BulletinBoardComment_13:
+    User: sfGuardUser_3
+    content: 'Yes Mr Dodo, how is the going?'
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-01 17:39:28'
+    updated_at: '2011-09-01 17:39:28'
+  BulletinBoardComment_14:
+    User: sfGuardUser_3
+    content: 'this is test'
+    BulletinBoard: BulletinBoard_9
+    created_at: '2011-09-04 13:27:56'
+    updated_at: '2011-09-04 13:27:56'
+  BulletinBoardComment_15:
+    User: sfGuardUser_3
+    content: 'this is another test'
+    BulletinBoard: BulletinBoard_8
+    created_at: '2011-09-04 13:28:12'
+    updated_at: '2011-09-04 13:28:12'
+  BulletinBoardComment_16:
+    User: sfGuardUser_3
+    content: 'Just a matter of testing...'
+    BulletinBoard: BulletinBoard_10
+    created_at: '2011-09-05 01:56:44'
+    updated_at: '2011-09-05 01:56:44'
+  BulletinBoardComment_17:
+    User: sfGuardUser_3
+    content: hhhh
+    BulletinBoard: BulletinBoard_11
+    created_at: '2011-09-11 15:02:57'
+    updated_at: '2011-09-11 15:02:57'
+  BulletinBoardComment_18:
+    User: sfGuardUser_3
+    content: 'A simple answer is the word fact is just a name for truth makers. So a statement is true if and only it correspondents to some content.'
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-17 21:42:30'
+    updated_at: '2011-09-17 21:42:30'
+  BulletinBoardComment_19:
+    User: sfGuardUser_3
+    content: 'A fact is satisfied condition of the truth of something. For example every true statement, there should be a perfect match for the facts themselves, which satisfied representation of the world.'
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-17 21:45:09'
+    updated_at: '2011-09-17 21:45:09'
+  BulletinBoardComment_20:
+    User: sfGuardUser_3
+    content: 'Wow, Batanayi you''re such done being. You''re the most intelligent person in this world. The world needs you to show it what you''re capable of doing.'
+    BulletinBoard: BulletinBoard_6
+    created_at: '2011-09-17 21:46:35'
+    updated_at: '2011-09-17 21:46:35'
+  BulletinBoardComment_21:
+    User: sfGuardUser_3
+    content: 'There''s no way we can ever get outside of the realm of language. We''re helplessly stuck in it.'
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-17 21:47:32'
+    updated_at: '2011-09-17 21:47:32'
+  BulletinBoardComment_22:
+    User: sfGuardUser_3
+    content: 'This will obviously help those other people who''re finding it too easy not to under this...'
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-17 22:41:33'
+    updated_at: '2011-09-17 22:41:33'
+  BulletinBoardComment_23:
+    User: sfGuardUser_3
+    content: 'Ok Dr Matuku tell us more about your assessment of the state of the world please.'
+    BulletinBoard: BulletinBoard_12
+    created_at: '2011-09-18 18:07:37'
+    updated_at: '2011-09-18 18:07:37'
+  BulletinBoardComment_24:
+    User: sfGuardUser_3
+    content: '17 Magaya Village Murewa'
+    BulletinBoard: BulletinBoard_12
+    created_at: '2011-09-18 18:07:50'
+    updated_at: '2011-09-18 18:07:50'
+  BulletinBoardComment_25:
+    User: sfGuardUser_3
+    content: '17 Magaya Village Murewa'
+    BulletinBoard: BulletinBoard_12
+    created_at: '2011-09-18 18:07:58'
+    updated_at: '2011-09-18 18:07:58'
+  BulletinBoardComment_26:
+    User: sfGuardUser_3
+    content: vcxbc
+    BulletinBoard: BulletinBoard_12
+    created_at: '2011-09-18 18:08:14'
+    updated_at: '2011-09-18 18:08:14'
+  BulletinBoardComment_27:
+    User: sfGuardUser_3
+    content: fdsfd
+    BulletinBoard: BulletinBoard_12
+    created_at: '2011-09-18 18:08:18'
+    updated_at: '2011-09-18 18:08:18'
+  BulletinBoardComment_28:
+    User: sfGuardUser_3
+    content: fdsfdf
+    BulletinBoard: BulletinBoard_12
+    created_at: '2011-09-18 18:08:22'
+    updated_at: '2011-09-18 18:08:22'
+  BulletinBoardComment_29:
+    User: sfGuardUser_3
+    content: fdsafd
+    BulletinBoard: BulletinBoard_12
+    created_at: '2011-09-18 18:08:24'
+    updated_at: '2011-09-18 18:08:24'
+  BulletinBoardComment_30:
+    User: sfGuardUser_3
+    content: fdsfdfd
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-18 18:12:29'
+    updated_at: '2011-09-18 18:12:29'
+  BulletinBoardComment_31:
+    User: sfGuardUser_3
+    content: dfds
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-18 18:14:23'
+    updated_at: '2011-09-18 18:14:23'
+  BulletinBoardComment_32:
+    User: sfGuardUser_3
+    content: bbb
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-18 18:14:28'
+    updated_at: '2011-09-18 18:14:28'
+  BulletinBoardComment_33:
+    User: sfGuardUser_3
+    content: ddd
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-18 18:14:47'
+    updated_at: '2011-09-18 18:14:47'
+  BulletinBoardComment_34:
+    User: sfGuardUser_3
+    content: dd
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-18 18:15:11'
+    updated_at: '2011-09-18 18:15:11'
+  BulletinBoardComment_35:
+    User: sfGuardUser_3
+    content: 'Yes, facts are not objects, but rather conditions to which all the true statements must meet.'
+    BulletinBoard: BulletinBoard_13
+    created_at: '2011-09-18 18:19:55'
+    updated_at: '2011-09-18 18:19:55'
+sfGuardUserGroup:
+  sfGuardUserGroup_10_1:
+    User: sfGuardUser_10
+    Group: sfGuardGroup_1
+    created_at: '2011-08-27 10:55:39'
+    updated_at: '2011-08-27 10:55:39'
+  sfGuardUserGroup_4_1:
+    User: sfGuardUser_4
+    Group: sfGuardGroup_1
+    created_at: '2011-08-27 10:55:39'
+    updated_at: '2011-08-27 10:55:39'
+  sfGuardUserGroup_3_1:
+    User: sfGuardUser_3
+    Group: sfGuardGroup_1
+    created_at: '2011-09-11 18:47:38'
+    updated_at: '2011-09-11 18:47:38'
+sfGuardUserPermission:
+  sfGuardUserPermission_5_1:
+    User: sfGuardUser_5
+    Permission: sfGuardPermission_1
+    created_at: '2011-08-21 13:52:46'
+    updated_at: '2011-08-21 13:52:46'
+  sfGuardUserPermission_7_1:
+    User: sfGuardUser_7
+    Permission: sfGuardPermission_1
+    created_at: '2011-08-24 07:33:01'
+    updated_at: '2011-08-24 07:33:01'
+  sfGuardUserPermission_8_1:
+    User: sfGuardUser_8
+    Permission: sfGuardPermission_1
+    created_at: '2011-08-24 07:33:01'
+    updated_at: '2011-08-24 07:33:01'
+  sfGuardUserPermission_9_1:
+    User: sfGuardUser_9
+    Permission: sfGuardPermission_1
+    created_at: '2011-08-24 07:33:01'
+    updated_at: '2011-08-24 07:33:01'
+  sfGuardUserPermission_5_2:
+    User: sfGuardUser_5
+    Permission: sfGuardPermission_2
+    created_at: '2011-08-27 10:52:06'
+    updated_at: '2011-08-27 10:52:06'
+  sfGuardUserPermission_6_2:
+    User: sfGuardUser_6
+    Permission: sfGuardPermission_2
+    created_at: '2011-08-27 10:52:06'
+    updated_at: '2011-08-27 10:52:06'
+  sfGuardUserPermission_8_2:
+    User: sfGuardUser_8
+    Permission: sfGuardPermission_2
+    created_at: '2011-08-27 10:52:06'
+    updated_at: '2011-08-27 10:52:06'
+  sfGuardUserPermission_10_3:
+    User: sfGuardUser_10
+    Permission: sfGuardPermission_3
+    created_at: '2011-08-27 10:53:08'
+    updated_at: '2011-08-27 10:53:08'
+  sfGuardUserPermission_12_3:
+    User: sfGuardUser_12
+    Permission: sfGuardPermission_3
+    created_at: '2011-08-27 10:53:08'
+    updated_at: '2011-08-27 10:53:08'
+  sfGuardUserPermission_3_1:
+    User: sfGuardUser_3
+    Permission: sfGuardPermission_1
+    created_at: '2011-09-11 18:47:38'
+    updated_at: '2011-09-11 18:47:38'
+sfGuardGroup:
+  sfGuardGroup_1:
+    name: Lectures
+    description: 'All lectures belong to this group automatically'
+    created_at: '2011-08-27 10:54:13'
+    updated_at: '2011-08-27 10:55:39'
+sfGuardGroupPermission:
+  sfGuardGroupPermission_1_3:
+    Group: sfGuardGroup_1
+    Permission: sfGuardPermission_3
+    created_at: '2011-08-27 10:55:39'
+    updated_at: '2011-08-27 10:55:39'
+sfGuardPermission:
+  sfGuardPermission_1:
+    name: Student
+    description: 'Default student permission'
+    created_at: '2011-08-21 13:52:46'
+    updated_at: '2011-08-27 10:51:20'
+  sfGuardPermission_2:
+    name: 'Super Administrator (su)'
+    description: 'The overall system permission'
+    created_at: '2011-08-27 10:52:06'
+    updated_at: '2011-08-27 10:52:06'
+  sfGuardPermission_3:
+    name: Lecturer
+    description: 'Lecturer permission'
+    created_at: '2011-08-27 10:53:08'
+    updated_at: '2011-08-27 10:53:08'
+sfGuardUser:
+  sfGuardUser_5:
+    first_name: Tafadzwa
+    last_name: Mungwazi
+    email_address: tafadzwa@gmail.com
+    username: tafadzwa
+    algorithm: sha1
+    salt: d06ff3d117d4c3ec87101b8542ef85ef
+    password: 4f6781339c071848443c4012c843c9d15fd22ae7
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2011-08-21 12:14:26'
+    updated_at: '2011-08-21 12:14:26'
+  sfGuardUser_8:
+    first_name: George
+    last_name: Bush
+    email_address: george@gmail.com
+    username: george
+    algorithm: sha1
+    salt: 1b7fc3e830b64340bbc8817c66596ae8
+    password: 26ab2c6546e01d78c81d2b38276c7a5d0d262438
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2011-08-21 12:54:32'
+    updated_at: '2011-08-21 12:54:32'
+  sfGuardUser_9:
+    first_name: Enerst
+    last_name: Muzambi
+    email_address: enerst@gmail.com
+    username: enerst
+    algorithm: sha1
+    salt: 63b9247721fa7ac16c9007cb901b0d22
+    password: 34256a40940cd55f781e4b1b77f540eb7e5a5957
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2011-08-21 13:20:41'
+    updated_at: '2011-08-21 13:20:41'
+  sfGuardUser_12:
+    first_name: Kudakwashe
+    last_name: Madzora
+    email_address: kuda@gmail.com
+    username: kuda
+    algorithm: sha1
+    salt: ca30167390b51383e8cb5a66d1bce8b9
+    password: 3de0e70d72100a8bb3a1810d1b168acfed45df37
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2011-08-21 14:32:23'
+    updated_at: '2011-08-21 14:32:23'
+  sfGuardUser_13:
+    first_name: Daniel
+    last_name: Makoni
+    email_address: daniel@gmail.com
+    username: daniel
+    algorithm: sha1
+    salt: 84d35b6f96969048c3a46e6058a0c08b
+    password: 2429c33bd99bde7a3e443af09e0f07ffa8a2af44
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2011-08-21 14:37:46'
+    updated_at: '2011-08-21 14:37:46'
+  sfGuardUser_4:
+    first_name: David
+    last_name: Cameron
+    email_address: david@gmail.com
+    username: david
+    algorithm: sha1
+    salt: 2f71e20fcd252916c36bc2ca436b0a40
+    password: d8944e8b2db058b212ae3cfd23db2848e1d066e1
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2011-08-18 07:46:58'
+    updated_at: '2011-08-18 08:07:40'
+  sfGuardUser_7:
+    first_name: Emmanuel
+    last_name: Mugaragumbo
+    email_address: emmanuel@gmail.com
+    username: emmanuel
+    algorithm: sha1
+    salt: d6e0a1a30cbcb03309cd7c05bdf0e8a2
+    password: d380b6b79aeed5f5502b510421cf622936ce7907
+    is_active: true
+    is_super_admin: false
+    last_login: '2011-09-11 18:25:36'
+    created_at: '2011-08-21 12:34:31'
+    updated_at: '2011-09-11 18:25:36'
+  sfGuardUser_10:
+    first_name: Brian
+    last_name: B
+    email_address: brian@gmail.com
+    username: brian
+    algorithm: sha1
+    salt: 35ffe88fd4b7d6a4ba563d265b5d7ec7
+    password: 78654c8d4bb469084846c094b4cfee4145230a2b
+    is_active: true
+    is_super_admin: false
+    last_login: '2011-09-27 03:55:46'
+    created_at: '2011-08-21 13:43:17'
+    updated_at: '2011-09-27 03:55:46'
+  sfGuardUser_6:
+    first_name: Blessing
+    last_name: Mugaragumbo
+    email_address: blessing@gmail.com
+    username: blessing
+    algorithm: sha1
+    salt: fc12026931c4b64e2a48a85573dbc510
+    password: 6e73b381048cd8dd37d32a032885e7fcb704c6cf
+    is_active: true
+    is_super_admin: false
+    last_login: '2011-09-27 19:51:29'
+    created_at: '2011-08-21 12:16:48'
+    updated_at: '2011-09-27 19:51:29'
+  sfGuardUser_20:
+    first_name: Innocent
+    last_name: Puraze
+    email_address: innocent@gmail.com
+    username: innocent
+    algorithm: sha1
+    salt: dbf4a2b10f36faace39a3d06cc8a1b5b
+    password: 75350cab1caa0a92cdf8b93b1d48bd13722db129
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2011-09-03 15:37:06'
+    updated_at: '2011-09-03 15:37:06'
+  sfGuardUser_3:
+    first_name: Batanayi
+    last_name: Matuku
+    email_address: batanayi@graphifox.com
+    username: batanayi
+    algorithm: sha1
+    salt: 36c312f67b0b4121d0b2e2c52312f723
+    password: dabe16e956f05a8b58a229e4157bdb25984bf3b3
+    is_active: true
+    is_super_admin: true
+    last_login: '2011-09-28 02:26:46'
+    created_at: '2011-08-16 03:48:40'
+    updated_at: '2011-09-28 02:26:46'
+  sfGuardUser_21:
+    first_name: Precious
+    last_name: Mugaragumbo
+    email_address: precious@gmail.com
+    username: precious
+    algorithm: sha1
+    salt: 9b687c2da641d9778423b7a70dcbf4ef
+    password: d5e6cd40068408889ceffae41d7d3434c8127e58
+    is_active: true
+    is_super_admin: false
+    last_login: '2011-09-28 02:27:27'
+    created_at: '2011-09-03 15:39:26'
+    updated_at: '2011-09-28 02:27:27'
+  sfGuardUser_11:
+    first_name: Kinah
+    last_name: Muzvidziwa
+    email_address: kinah@gmail.com
+    username: kinah
+    algorithm: sha1
+    salt: 5bf20f74e50007631e6758ffa1554043
+    password: 95c2fc380208c806725c5d384063180aa87ef10b
+    is_active: true
+    is_super_admin: false
+    last_login: '2011-09-14 08:00:04'
+    created_at: '2011-08-21 14:30:44'
+    updated_at: '2011-09-14 08:00:04'
+sfGuardRememberKey:
+  sfGuardRememberKey_3:
+    User: sfGuardUser_3
+    remember_key: oeazph8v3y840sw0sssk0gs4okcwcws
+    ip_address: 127.0.0.1
+    created_at: '2011-09-03 07:00:20'
+    updated_at: '2011-09-03 07:00:20'
+  sfGuardRememberKey_4:
+    User: sfGuardUser_21
+    remember_key: i8h00u5hg7sc0ccggcs08ck848000wc
+    ip_address: 127.0.0.1
+    created_at: '2011-09-09 10:40:20'
+    updated_at: '2011-09-09 10:40:20'
+DiscussionTopicReply:
+  DiscussionTopicReply_1:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'In this discussion will be discussing the mechanics of congestion control in data communications infrastructures. Will also look ways on which to improve the flow of data from one node to another.'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 04:29:18'
+    updated_at: '2011-08-26 04:29:18'
+  DiscussionTopicReply_2:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'In this discussion will be discussing the mechanics of congestion control in data communications infrastructures. Will also look ways on which to improve the flow of data from one node to another.'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 04:29:24'
+    updated_at: '2011-08-26 04:29:24'
+  DiscussionTopicReply_3:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'In this discussion will be discussing the mechanics of congestion control in data communications infrastructures. Will also look ways on which to improve the flow of data from one node to another.'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 04:29:56'
+    updated_at: '2011-08-26 04:29:56'
+  DiscussionTopicReply_4:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'In this discussion will be discussing the mechanics of congestion control in data communications infrastructures. Will also look ways on which to improve the flow of data from one node to another.'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 04:30:06'
+    updated_at: '2011-08-26 04:30:06'
+  DiscussionTopicReply_5:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'In this discussion will be discussing the mechanics of congestion control in data communications infrastructures. Will also look ways on which to improve the flow of data from one node to another.'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 04:30:38'
+    updated_at: '2011-08-26 04:30:38'
+  DiscussionTopicReply_6:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'In this discussion will be discussing the mechanics of congestion control in data communications infrastructures. Will also look ways on which to improve the flow of data from one node to another.'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 05:06:47'
+    updated_at: '2011-08-26 05:06:47'
+  DiscussionTopicReply_7:
+    subject: 'Re: Congestion control mechanisms'
+    message: ....
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 05:49:29'
+    updated_at: '2011-08-26 05:49:29'
+  DiscussionTopicReply_8:
+    subject: 'Re: Congestion control mechanisms'
+    message: ....
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 05:50:43'
+    updated_at: '2011-08-26 05:50:43'
+  DiscussionTopicReply_9:
+    subject: 'Re: Congestion control mechanisms'
+    message: ....
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 05:51:20'
+    updated_at: '2011-08-26 05:51:20'
+  DiscussionTopicReply_10:
+    subject: 'Re: Congestion control mechanisms'
+    message: ....
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 05:51:46'
+    updated_at: '2011-08-26 05:51:46'
+  DiscussionTopicReply_11:
+    subject: 'Re: Congestion control mechanisms'
+    message: ....
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 05:55:04'
+    updated_at: '2011-08-26 05:55:04'
+  DiscussionTopicReply_12:
+    subject: 'Re: Congestion control mechanisms'
+    message: ....
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 05:56:02'
+    updated_at: '2011-08-26 05:56:02'
+  DiscussionTopicReply_13:
+    subject: 'Re: Congestion control mechanisms'
+    message: ....
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:00:58'
+    updated_at: '2011-08-26 06:00:58'
+  DiscussionTopicReply_14:
+    subject: 'Re: Congestion control mechanisms'
+    message: ....
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:07:01'
+    updated_at: '2011-08-26 06:07:01'
+  DiscussionTopicReply_15:
+    subject: 'Re: Congestion control mechanisms'
+    message: .........
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:07:09'
+    updated_at: '2011-08-26 06:07:09'
+  DiscussionTopicReply_16:
+    subject: 'Re: Congestion control mechanisms'
+    message: .........
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:07:37'
+    updated_at: '2011-08-26 06:07:37'
+  DiscussionTopicReply_17:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'This is a test'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:15:59'
+    updated_at: '2011-08-26 06:15:59'
+  DiscussionTopicReply_18:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'This is a test more more'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:16:14'
+    updated_at: '2011-08-26 06:16:14'
+  DiscussionTopicReply_19:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'This is a test more more'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:18:35'
+    updated_at: '2011-08-26 06:18:35'
+  DiscussionTopicReply_20:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'still testing...'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:19:25'
+    updated_at: '2011-08-26 06:19:25'
+  DiscussionTopicReply_21:
+    subject: 'Re: Congestion control mechanisms'
+    message: vvv
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:26:31'
+    updated_at: '2011-08-26 06:26:31'
+  DiscussionTopicReply_22:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'Quite skillful'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:27:30'
+    updated_at: '2011-08-26 06:27:30'
+  DiscussionTopicReply_23:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'Unskillful speech'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:29:14'
+    updated_at: '2011-08-26 06:29:14'
+  DiscussionTopicReply_24:
+    subject: 'Re: Congestion control mechanisms'
+    message: ',,,'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:34:23'
+    updated_at: '2011-08-26 06:34:23'
+  DiscussionTopicReply_25:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'Quite neutral'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:34:48'
+    updated_at: '2011-08-26 06:34:48'
+  DiscussionTopicReply_26:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'More more'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:39:16'
+    updated_at: '2011-08-26 06:39:16'
+  DiscussionTopicReply_27:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'Beautiful qualities of the mind...'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:40:48'
+    updated_at: '2011-08-26 06:40:48'
+  DiscussionTopicReply_28:
+    subject: 'Re: Congestion control mechanisms'
+    message: ...
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:41:16'
+    updated_at: '2011-08-26 06:41:16'
+  DiscussionTopicReply_29:
+    subject: 'Re: Congestion control mechanisms'
+    message: kkk
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:41:28'
+    updated_at: '2011-08-26 06:41:28'
+  DiscussionTopicReply_30:
+    subject: 'Re: Congestion control mechanisms'
+    message: ...
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:41:48'
+    updated_at: '2011-08-26 06:41:48'
+  DiscussionTopicReply_31:
+    subject: 'Re: Congestion control mechanisms'
+    message: ...
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:41:48'
+    updated_at: '2011-08-26 06:41:48'
+  DiscussionTopicReply_32:
+    subject: 'Re: Congestion control mechanisms'
+    message: ...
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 06:41:49'
+    updated_at: '2011-08-26 06:41:49'
+  DiscussionTopicReply_33:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'Whose''s doing the right thing?'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 07:00:07'
+    updated_at: '2011-08-26 07:00:07'
+  DiscussionTopicReply_34:
+    subject: 'Re: Congestion control mechanisms'
+    message: hhhh
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 07:00:39'
+    updated_at: '2011-08-26 07:00:39'
+  DiscussionTopicReply_35:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'You may also have the right thing to say next.'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 07:02:47'
+    updated_at: '2011-08-26 07:02:47'
+  DiscussionTopicReply_36:
+    subject: 'Re: Congestion control mechanisms'
+    message: 'So we don''t just to things at a whim we all need more attention.'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-26 07:03:31'
+    updated_at: '2011-08-26 07:03:31'
+  DiscussionTopicReply_37:
+    subject: 'Re: Congestion control mechanisms'
+    message: testing
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_1
+    created_at: '2011-08-28 09:43:54'
+    updated_at: '2011-08-28 09:43:54'
+  DiscussionTopicReply_38:
+    subject: 'Re: It''s crucial for us to be what we talk about'
+    message: 'This a test...'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_8
+    created_at: '2011-09-01 17:45:03'
+    updated_at: '2011-09-01 17:45:03'
+  DiscussionTopicReply_39:
+    subject: 'Re: It''s crucial for us to be what we talk about'
+    message: 'Mr Baties are you telling me you''re the one who created this little thing?'
+    User: sfGuardUser_3
+    DiscussionTopic: DiscussionTopic_8
+    created_at: '2011-09-01 17:47:57'
+    updated_at: '2011-09-01 17:47:57'
+EmailTemplate:
+  EmailTemplate_1:
+    name: 'New student registration email'
+    subject: 'Welcome to the ecollege+ LME'
+    description: 'This is the template used to send the first students welcome email.'
+    body: "Hi ##STUDENT##,\n\nWe're more than pleased to welcome you to the new ec+ learning management enterprise. Below, please your login credentials. You're also being advised to retain and keep them safely.\n\nUsername: ##USERNAME##\nPassword: ##PASSWORD##\n\nHappy learning!\nThe eCollegePlus team"
+    vars: '##STUDENT##, ##USERNAME##, ##PASSWORD##'
+    from_email: registrar@ecp.ac.za
+    to_email: '##TO_EMAIL##'
+    cc_email: '##CC_EMAIL##'
+    bcc_email: '##BCC_EMAIL##'
+    reply_to: registrar@ecp.ac.za
+    is_html: true
+    is_active: true
+    created_at: '2011-08-27 09:47:59'
+    updated_at: '2011-09-15 07:44:52'
+    slug: new-student-registration-email
+BulletinBoard:
+  BulletinBoard_1:
+    User: sfGuardUser_3
+    post: 'The representative board is being reshuffled again so make sure you contribute your say about whom you want to represent you at this institution. '
+    created_at: '2011-09-01 13:53:04'
+    updated_at: '2011-09-01 13:53:04'
+  BulletinBoard_2:
+    User: sfGuardUser_3
+    post: 'What''s new?'
+    created_at: '2011-09-01 14:12:42'
+    updated_at: '2011-09-01 14:12:42'
+  BulletinBoard_3:
+    User: sfGuardUser_3
+    post: 'This is a test'
+    created_at: '2011-09-01 14:44:09'
+    updated_at: '2011-09-01 14:44:09'
+  BulletinBoard_4:
+    User: sfGuardUser_3
+    post: 'More testing'
+    created_at: '2011-09-01 14:45:44'
+    updated_at: '2011-09-01 14:45:44'
+  BulletinBoard_5:
+    User: sfGuardUser_3
+    post: 'The representative board is being reshuffled again so make sure you contribute your say about whom you want to represent you at this institution.'
+    created_at: '2011-09-01 14:47:47'
+    updated_at: '2011-09-01 14:47:47'
+  BulletinBoard_6:
+    User: sfGuardUser_3
+    post: 'Here''s the last post to be posted here...'
+    created_at: '2011-09-01 14:48:14'
+    updated_at: '2011-09-01 14:48:14'
+  BulletinBoard_7:
+    User: sfGuardUser_3
+    post: 'Relationships are sometimes interfering (infringing to be exact), maybe it''s to do with their very nature. But still anyone can easily abuse them, nonetheless you can''t wash away a relation by a soap.'
+    created_at: '2011-09-01 14:56:51'
+    updated_at: '2011-09-01 14:56:51'
+  BulletinBoard_8:
+    User: sfGuardUser_3
+    post: 'What''s new?'
+    created_at: '2011-09-01 15:01:00'
+    updated_at: '2011-09-01 15:01:00'
+  BulletinBoard_9:
+    User: sfGuardUser_3
+    post: 'Oct 20, 2011 9:00am File from Tendai Ndhlovu Information_about_Batanayi.doc'
+    created_at: '2011-09-01 15:06:08'
+    updated_at: '2011-09-01 15:06:08'
+  BulletinBoard_10:
+    User: sfGuardUser_3
+    post: 'Simply on this page doing some...'
+    created_at: '2011-09-05 01:56:25'
+    updated_at: '2011-09-05 01:56:25'
+  BulletinBoard_11:
+    User: sfGuardUser_3
+    post: 'Sweetly done module...'
+    created_at: '2011-09-08 18:53:22'
+    updated_at: '2011-09-08 18:53:22'
+  BulletinBoard_12:
+    User: sfGuardUser_3
+    post: 'Here we''re listening to some philosophical problems that we''re indeed solving tonight. For example truth is a term we need to access the the representation of the world.'
+    created_at: '2011-09-17 21:38:19'
+    updated_at: '2011-09-17 21:38:19'
+  BulletinBoard_13:
+    User: sfGuardUser_3
+    post: 'Statements are made in virtue of something that''s true. That, what''s true is the truth maker. But still there are some objections to this correspondence theory of truth.'
+    created_at: '2011-09-17 21:41:07'
+    updated_at: '2011-09-17 21:41:07'
+Building:
+  Building_1:
+    name: Commerse
+    abbreviation: COM
+ContactStudent:
+  ContactStudent_1:
+    email_address: ''
+    phone_work: ''
+    phone_home: ''
+    phone_mobile: '0730430646'
+    address_line_1: '17 Magaya Village Murewa'
+    address_line_2: '107 Greyville Flats 1st ave'
+    postcode: ''
+    city: Mrewa
+    Country: Country_3
+    StateProvince: StateProvince_2
+    Student: Student_9
+    postal_address_line_1: '17 Magaya Village Murewa'
+    postal_address_line_2: '107 Greyville Flats 1st ave'
+    postal_postcode: '128'
+    postal_city: Mrewa
+    PostalCountry: Country_5
+    PostalStateProvince: StateProvince_2
+    guardian_first_name: ''
+    guardian_last_name: ''
+    guardian_email_address: ''
+    guardian_phone_work: ''
+    guardian_phone_home: ''
+    guardian_phone_mobile: '091264525'
+    guardian_address_line_1: 'No. 7 Central Street st Newtown'
+    guardian_address_line_2: ''
+    guardian_postcode: '7708'
+    guardian_city: Kwekwe
+    GuardianCountry: Country_5
+    GuardianStateProvince: StateProvince_1
+    created_at: '2011-09-03 15:42:24'
+    updated_at: '2011-09-18 18:03:22'
+  ContactStudent_2:
+    email_address: d
+    phone_work: ''
+    phone_home: ''
+    phone_mobile: ''
+    address_line_1: c
+    address_line_2: ''
+    postcode: ''
+    city: ''
+    Country: Country_2
+    StateProvince: StateProvince_1
+    Student: Student_4
+    postal_address_line_1: c
+    postal_address_line_2: ''
+    postal_postcode: ''
+    postal_city: ''
+    PostalCountry: Country_2
+    PostalStateProvince: StateProvince_1
+    guardian_first_name: ''
+    guardian_last_name: ''
+    guardian_email_address: ''
+    guardian_phone_work: ''
+    guardian_phone_home: ''
+    guardian_phone_mobile: ''
+    guardian_address_line_1: ''
+    guardian_address_line_2: ''
+    guardian_postcode: ''
+    guardian_city: ''
+    created_at: '2011-09-18 12:30:54'
+    updated_at: '2011-09-18 12:30:54'
+AcademicPeriod:
+  AcademicPeriod_2:
+    name: Summer
+    start_date: 16-08-2011
+    end_date: 16-08-2011
+    grades_due: 16-08-2011
+    max_credits: '12'
+    AcademicYear: AcademicYear_2
+  AcademicPeriod_1:
+    name: Fall
+    start_date: 03-08-2011
+    end_date: 04-05-2012
+    grades_due: 29-04-2011
+    max_credits: '23'
+    AcademicYear: AcademicYear_1

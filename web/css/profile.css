@@ -1,0 +1,572 @@
+.profile-photo{
+    padding: 15px 0 0 19px;
+    margin-bottom: -6px;
+}
+
+#profile-info{
+    margin-bottom: 10px;
+    height: 105px;
+}
+#profile-left
+{
+    float: left;
+    padding: 0 10px 0 0;
+    height: 93px;
+}
+
+#profile-right
+{
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 309px;    
+}
+
+#photo-left
+{
+    float: left;
+    height: 153px;
+}
+
+#photo-right
+{
+    float: left;
+    padding-left: 10px;     
+}
+
+#profile-photo
+{
+    padding: 0 10px 0 0;
+}
+
+#profile-center
+{
+    float: left;
+    padding: 0 10px 0 0;
+    width: 432px;    
+}
+
+#mini-correspondents{
+    height: 87px;    
+    background-color: #F5F5F5;
+}
+
+#profile-edit{
+}
+
+#profile-name{
+    padding-top: 0 !important;
+}
+
+#profile-name h4{
+    float: left;
+}
+
+.profile-value{
+    color: #3F7CB6;
+}
+
+.profile-attribute{
+    color: #8A8A8A;
+}
+
+.spotlight{
+    background: url("/images/spotlight.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 10px;
+    margin-left: -2px;
+    width: 14px;    
+}
+
+#profile-attributes{
+    padding-top: 0 !important;
+}
+
+.profile-row{
+    clear: both;
+    font-size: 12px;
+    min-height: 20px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.profile-column{
+    display: inline-block;
+    padding: 0;
+    width: 403px;
+}
+.profile-row label{
+    display: inline-block;
+    color: #666666;
+    width: 140px;
+}
+
+.profile-row .content{
+    display: inline-block;
+}
+
+#personal_details_container, #notification_settings_container, #account_Settings_container{
+    margin-top: -10px;
+}
+
+#qualifications_list {
+    display: block;
+    padding: 10px;
+}
+
+#qualifications_list li {
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 400px;
+}
+
+.qualification-name{
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: 0;
+}
+
+.qualification-image{
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    width: 10px;    
+}
+
+#awards_list {
+    display: block;
+    padding: 10px;
+}
+
+#awards_list li {
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 400px;
+}
+
+.award-name{
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: 0;
+}
+
+.award-image{
+    height: 20px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    width: 10px;    
+}
+
+.inline-actions{
+    position: relative;
+}
+
+.odd .edit-qualification, .odd .edit-award{
+    position: absolute;
+    top: 2px;
+    right: 10px;
+}
+
+.even .edit-qualification, .even .edit-award{
+    position: absolute;
+    top: 2px;
+    right: 45px;
+}
+
+.odd .delete-qualification, .odd .delete-award{
+    position: absolute;
+    top: 2px;
+    right: -10px;
+}
+
+.even .delete-qualification, .even .delete-award{
+    position: absolute;
+    top: 2px;
+    right: 25px;
+}
+
+.inline-actions img{
+    height: 14px;
+    width: 14px;    
+}
+
+span.red{
+    color: #CD0A0A;
+}
+
+span.green{
+    color: #38B44A;
+}
+
+#chat-correspondents {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 170px;
+}
+
+#chat-correspondents span {
+    color: #3F7CB6;
+    font-size: 15px;
+    font-weight: normal;
+    margin-left: 20px;
+}
+
+#chat-correspondents ul.chat {
+    margin-left: 10px;
+}
+
+#chat-correspondents .icon{
+    display: block;
+    float: left;
+    height: 10px;
+    margin-left: -2px;
+    margin-right: 3px;
+    margin-top: 6px;
+    width: 10px;
+}
+
+#chat-correspondents .online .icon{
+    background: url("/images/chat-icons.png") no-repeat scroll 0 -66px transparent;
+}
+
+#chat-correspondents .idle .icon{
+    background: url("/images/chat-icons.png") no-repeat scroll 0 -150px transparent;
+}
+
+#chat-correspondents .offline .icon{
+    background: url("/images/chat-icons.png") no-repeat scroll 0 -86px transparent;
+}
+
+#mini-correspondents li{
+    float: left;
+    height: 36px;
+    padding: 5px 0 0;
+    width: 40px;
+}
+
+#mini-correspondents .first{
+    padding-left: 4px;
+}
+
+#profile-correspondents-view-all{
+    text-align: right;
+}
+
+#student_correspondents_list{
+    clear: both;
+    padding-bottom: 10px;
+}
+
+#instructor_correspondents_list{
+    clear: both;
+    padding-bottom: 10px;
+}
+
+#suggested_correspondents_list{
+    padding-bottom: 10px;    
+}
+
+#requesting_correspondents_list{
+    padding-bottom: 10px;
+}
+
+#correspondents_list{
+    padding-left: 10px;
+}
+
+#instructor_correspondents_list ul,
+#student_correspondents_list ul,
+#requesting_correspondents_list ul,
+#requesting_correspondents_list ul{
+    clear: both;
+}
+
+#student_correspondents_list li,
+#instructor_correspondents_list li,
+#suggested_correspondents_list li,
+#requesting_correspondents_list li{
+    width: 260px;
+    float: left;
+    padding: 5px 0 0 5px;    
+}
+
+#correspondents_list li{
+    width: 270px;
+    float: left;
+    padding: 5px 0 0 0;    
+}
+
+#student_correspondents_list .correspondent-image, 
+#instructor_correspondents_list .correspondent-image, 
+#correspondents_list .correspondent-image, 
+#suggested_correspondents_list .correspondent-image, 
+#requesting_correspondents_list .correspondent-image{
+    float: left;
+}
+
+#student_correspondents_list .inline-actions,
+#instructor_correspondents_list .inline-actions,
+#correspondents_list .inline-actions{
+    margin-left: 10px;
+    width: 135px;
+    height: 20px;
+}
+
+#student_correspondents_list .correspond,
+#instructor_correspondents_list .correspond,
+#correspondents_list .correspond{
+    background: url("/images/correspondent-icons.png") no-repeat scroll 0 -19px transparent;
+    color: #0A8FFE !important;
+    font-weight: normal;
+    left: 14px;
+    padding-left: 17px;
+    position: absolute;
+    top: 18px;
+    width: 135px;
+}
+
+#correspondents_list .accept,
+#suggested_correspondents_list .accept,
+#requesting_correspondents_list .accept{
+    background: url("/images/correspondent-icons.png") no-repeat scroll 0 -38px transparent;
+    color: #0A8FFE !important;
+    font-weight: normal;
+    left: 14px;
+    padding-left: 17px;
+    position: absolute;
+    top: 18px;
+    width: 110px;
+}
+
+#correspondents_list .decline,
+#suggested_correspondents_list .decline,
+#requesting_correspondents_list .decline{
+    background: url("/images/correspondent-icons.png") no-repeat scroll 0 -97px transparent;
+    color: #0A8FFE !important;
+    font-weight: normal;
+    left: 141px;
+    padding-left: 17px;
+    position: absolute;
+    top: 18px;
+    width: 57px;
+}
+
+#student_correspondents_list .corresponded,
+#instructor_correspondents_list .corresponded,
+#correspondents_list .corresponded,
+#requesting_correspondents_list .corresponded{
+    background: url("/images/correspondent-icons.png") no-repeat scroll 0 -179px transparent;
+    color: #B2B2B2 !important;
+    font-weight: normal;
+    left: 14px;
+    padding-left: 17px;
+    position: absolute;
+    top: 18px;
+    width: 135px;
+}
+
+#student_correspondents_list .declined,
+#instructor_correspondents_list .declined,
+#correspondents_list .declined{
+    background: url("/images/correspondent-icons.png") no-repeat scroll 0 -57px transparent;
+    color: #CD0A0A !important;
+    font-weight: normal;
+    left: 14px;
+    padding-left: 17px;
+    position: absolute;
+    top: 18px;
+    width: 135px;
+}
+
+#student_correspondents_list .invited,
+#instructor_correspondents_list .invited,
+#correspondents_list .invited{
+    background: url("/images/correspondent-icons.png") no-repeat scroll 0 2px transparent;
+    color: orange !important;
+    font-weight: normal;
+    left: 14px;
+    padding-left: 17px;
+    position: absolute;
+    top: 18px;
+    width: 135px;
+}
+
+#student_correspondents_list .correspondent-name,
+#instructor_correspondents_list .correspondent-name,
+#suggested_correspondents_list .correspondent-name,
+#requesting_correspondents_list .correspondent-name{
+    margin-left: 14px;
+    width: 205px;
+}
+
+#correspondents_list .correspondent-name{
+    margin-left: 14px;
+    width: 205px;
+}
+
+#student_correspondents_list .correspondent-show, 
+#instructor_correspondents_list .correspondent-show, 
+#correspondents_list .correspondent-show, 
+#suggested_correspondents_list .correspondent-show, 
+#requesting_correspondents_list .correspondent-show{
+    float: left;
+    height: 20px;
+    position: relative;
+    width: 205px;
+}
+
+#invite_correspondents label{
+    color: #666666;
+    display: block;
+    float: left;
+    font-weight: normal;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    width: 130px;
+}
+
+#invite_correspondents #find_correspondents{
+    width: 355px !important;
+}
+
+#invite_correspondents #find_correspondents_left_column{
+    float: left;
+}
+
+#invite_correspondents #find_correspondents_right_column{
+    float: left;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+#chat-correspondents ul.chat a{
+    padding: 0 !important;
+}
+
+#sf_admin_container .correspond-left-block{
+    float: left;
+    margin-right: 10px;
+}
+
+#sf_admin_container .correspond-right-block{
+    float: left;
+}
+
+#crop_area{
+    padding: 10px;
+    height: 420px;
+}
+
+.half-block{
+    background-color: #F6F6F6;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.full-block{
+    background-color: #F6F6F6;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.award, .qualification {
+    clear: both;
+    height: 80px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.award .image, .qualification .image {
+    float: left;
+    width: 150px;
+}
+
+.award .image img, .qualification .image img {
+    padding: 10px;
+    width: 100px;
+}
+
+.award .info, .qualification .info {
+    float: left;
+    height: 60px;
+    padding: 10px;
+    position: relative;
+    width: 510px;
+}
+
+.award .schedule, .qualification .schedule {
+    float: left;
+    padding: 10px;
+    width: 130px;
+}
+
+.award .institution, .qualification .institution{
+    color: #90959A;
+    bottom: 10px;
+    font-size: 11px;
+    left: 10px;
+    position: absolute;
+    text-transform: uppercase;
+}
+
+.award-year, .qualification-year{
+    padding: 10px;
+}
+
+.peer{
+    background-color: #F9F9F9;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    height: 48px;
+    margin: 5px 5px 0 0;
+    padding: 10px 0 10px 10px;
+    width: 190px;
+    word-break: break-all;
+}
+
+.last{
+    margin-right: 0 !important;
+    width: 195px !important;
+}
+
+.peer-filters{
+    border-bottom: 1px solid #CCCCCC;
+    height: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.peer-filter{
+    border-radius: 3px;
+    background-color: #F9F9F9;
+    border: 1px solid #CCCCCC;
+    display: inline-block;
+    height: 19px;
+    margin-left: 1px;
+    margin-right: -1px;
+    padding: 5px;
+}
+
+.peer .type, .author{
+    color: #90959A;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.peer-filters .current{
+    background-color: #F1F1F1;
+}

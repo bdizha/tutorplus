@@ -1,0 +1,5 @@
+all:
+  stylesheets: [bulletin_board.css, profile.css]
+  
+tabSuccess:
+  layout: false

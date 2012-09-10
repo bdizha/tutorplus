@@ -1,0 +1,15 @@
+all:
+  stylesheets: [/sfFormExtraPlugin/css/jquery.autocompleter.css, email_message.css]
+  javascripts: [/sfFormExtraPlugin/js/jquery.autocompleter.js]
+
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false
+  
+replySuccess:
+  layout: false
+  
+chooseRecipientSuccess:
+  layout: false

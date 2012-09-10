@@ -1,0 +1,8 @@
+all:
+  stylesheets: [email_template.css]
+  
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false

@@ -1,0 +1,204 @@
+input[type="text"], input[type="password"] {
+    /*    width: 600px !important;*/
+}
+
+#email_message_body {
+    height: 300px !important;
+}
+
+#sf_admin_container label{
+    width: 150px !important;
+}
+
+#sf_admin_container textarea, input[type=text]{
+    width: 100%;
+    height: 19px;
+    resize: none;
+}
+
+#top-actions{
+    display: table;
+    padding-top: 0;
+    width: 100%;
+}
+
+#bottom-actions{
+    display: table;
+    padding-top: 0;
+    width: 100%;
+}
+
+#email_message_body_parent, #email_message_body_tbl {
+    width: 845px;
+}
+
+.sf_admin_form {
+    margin-top: 10px;
+}
+
+#cc_controller{
+    display: none;
+}
+
+#top_actions {
+    height: 29px;
+    padding-top: 5px;
+}
+
+#tab_content{
+    margin-top: 0px;    
+}
+
+.sf_admin_form_field_email_body_email{
+    border: 1px solid #C0C0C0;
+    line-height: 20px;
+    margin: 10px 10px 0 0;
+    padding: 10px; 
+}
+
+.sf_admin_list_td_from_emails, .sf_admin_list_td_to_email, .sf_admin_list_td_subject, .sf_admin_list_td_created_at{
+    cursor: hand;
+    cursor: pointer;
+}
+
+.message_stream{
+    border: 1px solid #C0C0C0;
+    font-size: 12px;
+    margin-top: -1px;
+    position: relative;
+    background-color: #F5F5F5;
+}
+
+.message_stream p{
+    padding-top: 5px;
+}
+
+.current{
+    background-color: #FFF !important;
+}
+
+.message_table{
+    width: 100%;
+    display: table;
+}
+
+.message_row input[type=text]{
+    width: 100% !important;
+}
+
+.message_row td{
+    padding: 0 20px 5px 10px;
+}
+
+.message_row td.first{
+    padding-left: 10px;
+    width: 150px;
+}
+
+#add_cc, #add_bcc{
+    font-size: 11px;
+}
+.datetime{
+    color: #999999;
+    padding-top: 10px;
+    position: absolute;
+    right: 15px;
+    top: -5px;
+}
+.head{
+    /*    background-color: #EEEEEE;*/
+    padding: 5px 0 0 10px;
+}
+.from{
+    padding: 0px 0 5px;
+}
+.subject{
+    padding: 0px 0 5px;
+    cursor: hand;
+    cursor: pointer;
+}
+
+.body{
+    padding: 0 10px 10px;
+}
+
+.message_actions {
+    text-align: right;
+    padding: 0 15px;
+}
+
+span.separator {
+    color: #0088CC;
+    font-size: 14px;
+}
+
+.message_reply{
+    background-color: #FFFFFF;
+}
+
+.message_reply ul.sf_admin_actions{
+    margin: 10px 15px 10px 10px !important;
+}
+
+.message_reply textarea{
+    width: 100% !important;
+    height: 300px !important;
+    min-width: 600px;
+}
+
+.read{
+    font-weight: bold;
+}
+
+.message_stream .from, .message_stream .message_actions, .message_stream .body{
+    display: none;
+}
+
+.current .from, .current .message_actions, .current .body{
+    display: block;
+}
+
+.email_from{
+    color: #666666;
+    font-weight: normal !important;
+}
+
+.message-recipient{
+    margin: 10px 0 0;
+    display: inline-block;
+    clear: both !important;
+    width: 280px
+}
+
+.message-recipient-image{
+    float: left;
+}
+
+.message-recipient-name{
+    float: left;
+    width: 180px;
+    padding-left: 10px;
+}
+
+.recipient-field{
+    position: relative;
+}
+
+.message-recipient-input{
+    float: left;
+}
+
+#to_email_recipients, #cc_email_recipients, #bcc_email_recipients{
+    display: inline-block;
+    width: 645px;
+    padding: 5px;
+    border: 1px solid #C0C0C0;
+    max-height: 60px;
+    overflow: auto;
+}
+
+.choose-recipient{
+    position: absolute;
+    left: 110px;
+    top: 0;
+}

@@ -1,0 +1,44 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MailingList
+    theme:                 ecollegeplus2
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          mailing_list
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      form:
+        class:                     MailingListForm
+        display:
+         "Mailing List Details":   [ name ]
+         "Student Recipients":     [ _student_recipients ]
+         "Instructor Recipients":  [ _instructor_recipients ]
+      fields:
+      filter:
+        class: false
+      list:
+        title:                      Mailings Lists
+        display:                    [ name ]
+        sort:                       [ name, asc ]
+        batch_actions:              []
+        max_per_page:			          25
+        actions:
+          _new:                     { label: "+ Add New List" }
+      edit:
+        title:                      Edit Mailing List: %%name%%
+        actions:
+          _delete:                  []
+          cancel:                   []
+          done:                     []
+          _save:                    []
+      new:
+        title:                      New Mailing List
+        actions:
+          cancel:                   []
+          _save:                    [ label: Proceed ]

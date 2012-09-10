@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Calendar
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          calendar
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+      filter:
+        class: false
+      list:
+        title:             Calendars
+        display:           [ name, color, description, is_public ]
+        sort:              [ name, asc ]
+        batch_actions:     [ ]
+        max_per_page:			 10
+        actions:
+          _new: ~
+      edit:
+      new:

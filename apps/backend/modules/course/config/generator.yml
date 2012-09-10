@@ -1,0 +1,45 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Course
+    theme:                 ecollegeplus2
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          course
+    with_doctrine_route:   true
+
+    config:
+      actions:                  ~      
+      fields:
+        lecturers_list:         { label: "Instructors" }
+        students_list:          { label: Students }
+        campuses_list:          { label: Campuses }
+        
+      form:
+        display:            
+         "Course Details":      [name, code, department_id, academic_period_id, start_date, end_date, credits, hours, max_enrolled, is_finalized, description]
+         "Campuses":            [_campuses_list]
+      filter:
+        class: false
+      list:
+        title:                  Current Courses
+        display:                [=name, code, department, is_finalized, academic_period, max_enrolled]
+        sort:                   [name, asc]
+        batch_actions:          []
+        object_actions:        
+          _edit: ~
+          _delete: ~
+        max_per_page:			      10
+        actions:
+          _new:                 { label: "+ Add Course" }
+      edit:
+        actions:
+          cancel:               []
+          done:                 []
+          _save:                []
+      new:
+        actions:
+          cancel:               []
+          _save:                []

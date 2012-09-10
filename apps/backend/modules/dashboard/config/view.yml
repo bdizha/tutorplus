@@ -1,0 +1,14 @@
+all:
+  stylesheets: [dashboard, announcement, news]
+
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false
+  
+detailSuccess:
+  layout: false
+  
+tabSuccess:
+  layout: false

@@ -1,0 +1,1 @@
+<?php include_partial('file/list', array('fileSystem' => $fileSystem, 'folderPath' => $folderPath, 'addedFolderId' => $addedFolderId, 'addedFileId' => $addedFileId)) ?>

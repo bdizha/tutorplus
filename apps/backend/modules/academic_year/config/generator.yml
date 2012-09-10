@@ -1,0 +1,37 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           AcademicYear
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          academic_year
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields: ~
+      filter:
+        class: false
+      list:
+        title:             Academic Years
+        display:           [ year_start, year_end ]
+        sort:              [ year_start, year_end, asc ]
+        batch_actions:     [ ]
+        max_per_page:      10 
+        actions:
+          _new: ~
+      form:
+        display:           [ year_start, year_end ]
+      edit:
+        actions:
+          cancel:            []
+          done:              []
+          _save:             []
+      new:
+        actions:
+          cancel:            []
+          _save:             []

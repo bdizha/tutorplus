@@ -1,0 +1,25 @@
+
+.details-row {
+    padding: 5px 5px 5px 0;
+    height: 30px;
+}
+
+.contact_form_row{
+    padding: 0 5px 0 10px !important;
+}
+
+.contact_form_row label {
+    color: #666666;
+    display: block;
+    font-weight: normal;
+    padding-bottom: 5px;
+    width: 140px;
+}
+
+#guardian_details_container{
+    overflow: hidden;
+}
+
+#contact-details .content-block h2 {
+    clear: left !important;
+}

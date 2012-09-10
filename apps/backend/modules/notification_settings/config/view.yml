@@ -1,0 +1,5 @@
+all:
+  stylesheets: [notifications.css, profile.css]
+  
+editSuccess:
+  has_layout:  true

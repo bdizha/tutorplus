@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Document
+    theme:                 ecollegeplus2
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          document
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      fields:
+        created_at: { label: "Date Created" }
+        updated_at: { label: "Date Modified" }
+        
+      actions: ~
+      filter: ~
+      list:
+        title:             Documents
+        display:           [ name, size, type, created_at, updated_at ]
+        sort:              [ name, size, type, asc ]
+        batch_actions:     [ ]
+        max_per_page:			 10
+        actions:
+          _new: ~
+      edit:
+      new:

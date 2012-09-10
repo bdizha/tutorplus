@@ -1,0 +1,9 @@
+all:
+  stylesheets: [gradebook.css]
+  javascripts: []
+  
+newSuccess:
+  layout: false
+  
+editSuccess:
+  layout: false

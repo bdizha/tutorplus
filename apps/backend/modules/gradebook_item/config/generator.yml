@@ -1,0 +1,37 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           GradebookItem
+    theme:                 ecollegeplus
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          gradebook_item
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:                ~
+      fields:
+        weight:               { label: Weight (%) }
+      filter:
+        class:                false
+      list:
+        title:                Gradebook Items
+        display:              [ name, weight ]
+        sort:                 [ name, asc ] 
+        object_actions:
+        batch_actions:        []
+        max_per_page:         10
+        actions:
+          _new:               { label: "+ Add Gradebook Item" }
+      edit:
+        actions:
+          cancel:             []
+          done:               []
+          _save:              []
+      new:
+        actions:
+          cancel:             []
+          _save:              []

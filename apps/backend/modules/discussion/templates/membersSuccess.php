@@ -1,0 +1,1 @@
+<?php include_partial('discussion_member/members', array('discussion' => $discussion)) ?>

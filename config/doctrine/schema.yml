@@ -1,0 +1,951 @@
+options:
+  type:                         InnoDB
+  collate:                      utf8_bin
+  charset:                      utf8
+  connection:                   doctrine
+        
+Country:
+  actAs:
+  tableName:                    country
+  columns:
+    name:                       { type: string(255), notnull: true }
+    code:                       { type: string(10), notnull: true }
+    
+StateProvince:
+  actAs:
+  tableName:                    state_province
+  columns:
+    name:                       { type: string(255), notnull: true }
+    country_id:                 { type: integer, notnull: true }
+  relations:
+    Country:                    { local: country_id, foreign: id, type: one, foreignType: one }
+      
+Profile:
+  actAs:
+    Timestampable:              ~
+  columns:
+    user_id:                    { type: integer, notnull: true }
+    middle_name:                { type: string(200) }
+    date_of_birth:              { type: timestamp, notnull: false }
+    gender:                     { type: enum, values: [Male, Female] }    
+  relations:
+    User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+      
+ProfileAward:
+  columns:
+    user_id:                    { type: integer }
+    institution:                { type: string(255) }
+    description:                { type: string(500) }
+    year:                       { type: string(255) }
+  relations:
+    User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: Awards, onDelete: CASCADE }
+      
+ProfileQualification:
+  columns:
+    user_id:                    { type: integer }
+    institution:                { type: string(255) }
+    description:                { type: string(500) }
+    year:                       { type: string(255) }
+  relations:
+    User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: Qualifications, onDelete: CASCADE }
+      
+Student:
+  inheritance:
+    type:                       concrete
+    extends:                    Profile
+  actAs:
+    Timestampable:              ~
+  columns:
+    number:                     { type: string(255) }
+    high_school:                { type: string(255) }
+    studied_at:                 { type: string(255) }
+    current_study:              { type: string(255) }
+    enrollment:                 { type: enum, values: [Full time, Part time] }
+    status:                     { type: enum, values: [Application received, Application accepted, but not registered, Application rejected, Not registered, Registered, Expelled, Alumin, Withdrawn, Dropped out] }
+  
+Instructor:
+  inheritance:
+    type:                       concrete
+    extends:                    Profile
+  actAs:
+    Timestampable:              ~
+  columns:
+    employment:                 { type: enum, values: [Full time, Part time] }
+    is_student:                 { type: boolean, default: 0 }
+    current_study:              { type: string(255) }
+    studied_at:                 { type: string(255) }
+    employment_start_date:      { type: timestamp, notnull: false }
+    employment_end_date:        { type: timestamp, notnull: false }
+      
+Staff:
+  inheritance:
+    type:                       concrete
+    extends:                    Profile
+  actAs:
+    Timestampable:              ~
+  columns:
+    employment:                 { type: integer, default: 0, notnull: true } #[Full time, Part time]
+    is_student:                 { type: boolean, default: 0 }
+    employment_start_date:      { type: timestamp, notnull: false }
+    employment_end_date:        { type: timestamp, notnull: false }
+         
+Contact:
+  actAs:
+    Timestampable:              ~
+  columns:
+    email_address:              { type: string(255) }
+    phone_work:                 { type: string(200) }
+    phone_home:                 { type: string(200) }
+    phone_mobile:               { type: string(200) }
+    address_line_1:             { type: string(300), notnull: true }
+    address_line_2:             { type: string(300), notnull: false }
+    postcode:                   { type: string(10) }
+    city:                       { type: string(255) }
+    country_id:                 { type: integer, notnull: true }
+    state_province_id:          { type: integer, notnull: true }
+  relations:
+    Country:                    { local: country_id, foreign: id, type: one, foreignType: one }
+    StateProvince:              { local: state_province_id, foreign: id, type: one, foreignType: one } 
+    
+StudentContact:
+  inheritance:
+    type:                       concrete
+    extends:                    Contact
+  actAs:
+    Timestampable:              ~
+  columns:
+    student_id:                 { type: integer, notnull: true }
+    postal_address_line_1:      { type: string(300), notnull: true }
+    postal_address_line_2:      { type: string(300), notnull: false }
+    postal_postcode:            { type: string(10) }
+    postal_city:                { type: string(255) }
+    postal_country_id:          { type: integer, notnull: true }
+    postal_state_province_id:   { type: integer, notnull: true }
+    guardian_first_name:        { type: string(255) }
+    guardian_last_name:         { type: string(255) }
+    guardian_email_address:     { type: string(255) }
+    guardian_phone_work:        { type: string(200) }
+    guardian_phone_home:        { type: string(200) }
+    guardian_phone_mobile:      { type: string(200) }
+    guardian_address_line_1:    { type: string(300), notnull: false }
+    guardian_address_line_2:    { type: string(300), notnull: false }
+    guardian_postcode:          { type: string(10) }
+    guardian_city:              { type: string(255) }
+    guardian_country_id:        { type: integer, notnull: false }
+    guardian_state_province_id: { type: integer, notnull: false }
+  relations:
+    Student:                    { local: student_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+    PostalCountry:              { class: Country,  local: postal_country_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+    PostalStateProvince:        { class: StateProvince, local: postal_state_province_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE } 
+    GuardianCountry:            { class: Country,  local: guardian_country_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+    GuardianStateProvince:      { class: StateProvince, local: guardian_state_province_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }  
+    
+InstructorContact:
+  inheritance:
+    type:                       concrete
+    extends:                    Contact
+  actAs:
+    Timestampable:              ~
+  columns:
+    instructor_id:              { type: integer, notnull: true }
+    postal_address_line_1:      { type: string(300), notnull: true }
+    postal_address_line_2:      { type: string(300), notnull: false }
+    postal_postcode:            { type: string(10) }
+    postal_city:                { type: string(255) }
+    postal_country_id:          { type: integer, notnull: true }
+    postal_state_province_id:   { type: integer, notnull: true }
+  relations:
+    Instructor:                 { local: instructor_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+    PostalCountry:              { class: Country,  local: postal_country_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+    PostalStateProvince:        { class: StateProvince, local: postal_state_province_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+    
+StaffContact:
+  inheritance:
+    type:                       concrete
+    extends:                    Contact
+  actAs:
+    Timestampable:              ~
+  columns:
+    staff_id:                   { type: integer, notnull: true }
+    postal_address_line_1:      { type: string(300), notnull: true }
+    postal_address_line_2:      { type: string(300), notnull: false }
+    postal_postcode:            { type: string(10) }
+    postal_city:                { type: string(255) }
+    postal_country_id:          { type: integer, notnull: true }
+    postal_state_province_id:   { type: integer, notnull: true }
+  relations:
+    Staff:                      { local: staff_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+    PostalCountry:              { class: Country, local: postal_country_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+    PostalStateProvince:        { class: StateProvince, local: postal_state_province_id, foreign: id, type: one, foreignType: one, onDelete: CASCADE }
+
+ActivityTemplate:
+  actAs:
+    Timestampable:              ~
+  tableName:                    activity_template
+  columns:
+    patterns:                   { type: string(500) }
+    content:                    { type: clob, notnull: true }
+    type:                       { type: integer, default: 0, notnull: true } #[Global, Email, Event, News, Assignment, Discussion, Document]
+    
+ActivityFeed:
+  actAs:
+    Timestampable:              ~
+  tableName:                    activity_feed
+  columns:
+    replacements:        				{ type: clob, notnull: true }
+    activity_template_id:       { type: integer, notnull: true }
+  relations:
+    ActivityTemplate:           { class: ActivityTemplate, local: activity_template_id, foreign: id, onDelete: CASCADE, foreignAlias: ActivityFeeds }
+    
+UserActivityFeed:
+  actAs:
+  tableName:                   user_activity
+  columns:
+    user_id:                   { type: integer, notnull: true }
+    activity_feed_id:          { type: integer, notnull: true }
+  relations:
+    User:                      { class: sfGuardUser, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: UserActivityFeeds }
+    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: UserActivityFeeds }
+    
+CourseActivityFeed:
+  actAs:
+  tableName:                   course_activity
+  columns:
+    user_id:                   { type: integer, notnull: true }
+    activity_feed_id:          { type: integer, notnull: true }
+  relations:
+    Course:                    { class: Course, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseActivityFeeds }
+    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: CourseActivityFeeds }
+    
+DiscussionActivityFeed:
+  actAs:
+  tableName:                   discussion_activity
+  columns:
+    user_id:                   { type: integer, notnull: true }
+    activity_feed_id:          { type: integer, notnull: true }
+  relations:
+    Discussion:                { class: Discussion, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: DiscussionActivityFeeds }
+    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: DiscussionActivityFeeds }
+    
+Peer:
+  actAs:
+  tableName:                   peer
+  columns:  
+    inviter_id:                { type: integer, notnull: true }
+    invitee_id:                { type: integer, notnull: true }
+    status:                    { type: integer, default: 0, notnull: true } #[Open, Requested, Peered, Rejected]
+    type:                      { type: integer, default: 0, notnull: true } #[Student Instructor, Student Student, Instructor Student, Instructor Instructor, Instructor Student, Instructor Staff, Staff Instructor, Staff Staff]
+  relations:
+    Inviter:                   { class: sfGuardUser, local: inviter_id, foreign: id, foreignAlias: MyPeers, onDelete: CASCADE }
+    Invitee:                   { class: sfGuardUser, local: invitee_id, foreign: id, foreignAlias: OtherPeers, onDelete: CASCADE }   
+    
+StudentProgram:
+  actAs:
+  tableName:                   student_program
+  columns:
+    student_id:                { type: integer, notnull: true }
+    program_id:                { type: integer, notnull: true }
+  relations:
+    Student:                   { class: Student, local: student_id, onDelete: CASCADE, foreignAlias: StudentProgrammes }
+    Program:                   { class: Program, local: program_id, onDelete: CASCADE, foreignAlias: ProgramStudents }
+      
+StudentCourse:
+  actAs:
+  tableName:                   student_course
+  columns:
+    student_id:                { type: integer, notnull: true }
+    course_id:                 { type: integer, notnull: true }
+  relations:
+    Student:                   { class: Student, local: student_id, onDelete: CASCADE, foreignAlias: StudentCourses }
+    Course:                    { class: Course, local: course_id, onDelete: CASCADE, foreignAlias: CourseStudents }
+      
+InstructorCourse:
+  actAs:
+  tableName:                   instructor_course
+  columns:
+    instructor_id:             { type: integer, notnull: true }
+    course_id:                 { type: integer, notnull: true }
+  relations:
+    Instructor:                { class: Instructor, local: instructor_id, onDelete: CASCADE, foreignAlias: InstrustorCourses }
+    Course:                    { class: Course, local: course_id, onDelete: CASCADE, foreignAlias: CourseInstructors }
+      
+StaffCourse:
+  actAs:
+  tableName:                   staff_course
+  columns:
+    staff_id:                  { type: integer, notnull: true }
+    course_id:                 { type: integer, notnull: true }
+  relations:
+    Staff:                     { class: Staff, local: staff_id, onDelete: CASCADE, foreignAlias: StaffCourses }
+    Course:                    { class: Course, local: course_id, onDelete: CASCADE, foreignAlias: CourseStaff }
+    
+MailingListCourse:
+  actAs:
+  tableName:                   mailing_list_course
+  columns:
+    mailing_list_id:           { type: integer, notnull: true }
+    course_id:                 { type: integer, notnull: true }
+  relations:
+    MailingList:               { class: MailingList, local: mailing_list_id, onDelete: CASCADE, foreignAlias: MailingListCourses }
+    Course:                    { class: Course, local: course_id, onDelete: CASCADE, foreignAlias: CourseMailingLists }
+    
+Application:
+  actAs:
+  tableName:                   application
+  columns:
+    number:                    { type: string(255) }
+    first_name:                { type: string(255), notnull: true }
+    last_name:                 { type: string(255), notnull: true }
+    middle_name:               { type: string(200) }
+    email:                     { type: string(255), notnull: true }
+    program_id:                { type: integer, notnull: true }
+    academic_period_id:        { type: integer, notnull: true }
+    status:                    { type: integer, default: 0, notnull: true } #[None, Pending, Accepted, Rejected]
+    enquiry_date:              { type: timestamp, notnull: false }
+    last_activity:             { type: timestamp, notnull: false }
+    completed:                 { type: integer, default: 0, notnull: true }
+    phone_work:                { type: string(200) }
+    phone_home:                { type: string(200) }
+    phone_mobile:              { type: string(200) }
+    gender:                    { type: integer, default: 0, notnull: true } #[Male, Female]
+    phone_mobile:              { type: string(255), notnull: true }
+    phone_home:                { type: string(255), notnull: true }
+    address_line_one:          { type: string(300), notnull: true }
+    address_line_two:          { type: string(300), notnull: false }
+    city:                      { type: string(300), notnull: false }
+    postcode:                  { type: string(10) }
+    state_province_id:         { type: integer, notnull: false }
+    country_id:                { type: integer, notnull: false }
+  relations:
+    Program:                   { local: program_id, foreign: id, type: one, foreignType: one }
+    AcademicPeriod:            { local: academic_period_id, foreign: id, type: one, foreignType: one }
+    Country:                   { local: country_id, foreign: id, type: one, foreignType: one }
+    
+Faculty: 
+  actAs:
+  tableName:                   faculty
+  columns:
+    name:                      { type: string(255), notnull: true }
+    abbreviation:              { type: string(10), notnull: true }
+    
+Department: 
+  actAs:
+  tableName:                   department
+  columns:
+    name:                      { type: string(255), notnull: true }
+    abbreviation:              { type: string(10), notnull: true }
+    faculty_id:                { type: integer, notnull: true }
+  relations:
+    Faculty:                   { local: faculty_id, foreign: id, foreignAlias: Departments }
+    
+Discussion:
+  actAs:                       [Timestampable]
+  tableName:                   discussion
+  columns:
+    name:                      { type: string(255), notnull: true }
+    user_id:        				   { type: integer, notnull: true }
+    description:               { type: clob, notnull: true }
+    access_level:              { type: integer, notnull: true }
+    last_visit:                { type: timestamp, notnull: false }
+    latest_topic_reply_id:     { type: integer, notnull: false }
+    nb_topics:                 { type: integer, notnull: false, default: 0 }
+    nb_members:                { type: integer, notnull: false, default: 1 }
+    nb_replies:                { type: integer, notnull: false, default: 0 }
+  relations:
+    User:                      { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    DiscussionTopicReply:      { class: DiscussionTopicReply, local: latest_topic_reply_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    
+DiscussionMember:
+  actAs:                       [Timestampable]
+  tableName:                   discussion_member
+  columns:
+    nickname:                  { type: string(255), notnull: true }
+    subscription_type:         { type: integer, notnull: true, default: 0 } #[Prompt Email, Summary Email, Digest Email]
+    membership_type:           { type: integer, notnull: true, default: 0 } #[Regular Member, Manager, Owner]
+    posting_permission_type:   { type: integer, notnull: true, default: 0 } #[Default, Owner, Co-owner, Restricted, Guest]
+    status:                    { type: integer, notnull: true, default: 0 } #[Joined, Waiting, Ignored, Unscribed]
+    discussion_id:             { type: integer, notnull: true }
+    user_id:                   { type: integer, notnull: true }
+    is_removed:                { type: boolean, default: 0 }
+  relations:
+    User:                      { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    Discussion:                { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: Members }
+    
+DiscussionTopic:
+  actAs:                       [Timestampable]
+  tableName:                   discussion_topic
+  columns:
+    subject:                   { type: string(255), notnull: true }
+    message:        				   { type: clob, notnull: true }
+    discussion_id:             { type: integer, notnull: true }
+    user_id:                   { type: integer, notnull: true }
+    latest_topic_reply_id:     { type: integer, notnull: false }
+    nb_replies:                { type: integer, notnull: false, default: 0 }
+    nb_views:                  { type: integer, notnull: false, default: 0 }
+  relations:
+    User:                      { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    Discussion:                { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: Topics }
+    
+DiscussionTopicMessage:
+  actAs:                       [Timestampable]
+  tableName:                   discussion_topic_message
+  columns:
+    message:        				   { type: clob, notnull: true }
+    user_id:                   { type: integer, notnull: true }
+    discussion_topic_id:       { type: integer, notnull: true }
+  relations:
+    User:                      { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    DiscussionTopic:           { class: DiscussionTopic, local: discussion_topic_id, foreign: id, onDelete: CASCADE, foreignAlias: Messages }
+    
+DiscussionTopicReply:
+  actAs:                         [Timestampable]
+  tableName:                     discussion_topic_reply
+  columns:
+    reply:        				       { type: clob, notnull: true }
+    user_id:                     { type: integer, notnull: true }
+    discussion_topic_message_id: { type: integer, notnull: true }
+  relations:
+    User:                        { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    DiscussionTopicMessage:      { class: DiscussionTopicMessage, local: discussion_topic_message_id, foreign: id, onDelete: CASCADE, foreignAlias: Replies }
+    
+CourseDiscussion:
+  tableName:                     course_discussion
+  columns:
+    course_id:                   { type: integer, notnull: true }
+    discussion_id:               { type: integer, notnull: true }
+  relations:      
+    Course:                      { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussions }          
+    Discussion:                  { class: Discussion, local: discussion_id, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussion }
+    
+AssignmentDiscussion:
+  tableName:                     assignment_discussion
+  columns:
+    assignment_id:               { type: integer, notnull: true }
+    discussion_id:               { type: integer, notnull: true }
+  relations:      
+    Assisgnment:                 { class: Assisgnment, local: assignment_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: AssignmentDiscussions }          
+    Discussion:                  { class: Discussion, local: discussion_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: AssignmentDiscussion }
+    
+Attendance:
+  actAs:                         [Timestampable]
+  tableName:                     attendance
+  columns:
+    date:                        { type: timestamp, notnull: false }
+    course_id:                   { type: integer, notnull: true }
+    course_meeting_time_id:      { type: integer, notnull: true }
+  relations:
+    Course:                      { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: Attendances }    
+    CourseMeetingTime:           { class: CourseMeetingTime, local: course_meeting_time_id, foreign: id, onDelete: CASCADE, foreignAlias: Attendances }   
+    
+StudentAttendance:
+  actAs:                       [Timestampable]
+  tableName:                   student_attendance
+  columns:
+    status:                    { type: integer, default: 0, notnull: true } #[Unrecorded, Present, Absent, Tardy, Excused]
+    attendance_id:             { type: integer, notnull: true }
+    student_id:                { type: integer, notnull: true }
+  relations:
+    Attendance:                { class: Attendance, local: attendance_id, foreign: id, onDelete: CASCADE, foreignAlias: Students }
+    Student:                   { class: Student, local: student_id, foreign: id, onDelete: CASCADE, foreignAlias: Attendances }
+    
+Gradebook:
+  actAs:                       [Timestampable]
+  tableName:                   gradebook
+  columns:
+    items:                     { type: integer, default: 0, notnull: true }
+    course_id:                 { type: integer, notnull: true }
+  relations:
+    Course:                    { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
+    
+GradebookScale:
+  actAs:                       [Timestampable]
+  tableName:                   gradebook_scale
+  columns:
+    min_points:                { type: decimal, default: 0, notnull: true }
+    max_points:                { type: decimal, default: 0, notnull: true }
+    code:                      { type: string(255), notnull: true }
+    gradebook_id:              { type: integer, notnull: true }
+  relations:
+    Gradebook:                 { class: Gradebook, local: gradebook_id, foreign: id, onDelete: CASCADE, foreignAlias: GradebookScales }
+    
+GradebookItem:
+  actAs:                       [Timestampable]
+  tableName:                   gradebook_item
+  columns:
+    name:                      { type: string(255), notnull: true }
+    weight:                    { type: decimal, default: 0, notnull: true }
+    gradebook_id:              { type: integer, notnull: true }
+  relations:
+    Gradebook:                 { class: Gradebook, local: gradebook_id, foreign: id, onDelete: CASCADE, foreignAlias: GradebookItems }
+    
+StudentGradebookItem:
+  actAs:                       [Timestampable]
+  tableName:                   student_gradebook_item
+  columns:
+    points:                    { type: decimal, default: 0, notnull: true }
+    gradebook_item_id:         { type: integer, notnull: true }
+    student_id:                { type: integer, notnull: true }
+  relations:
+    GradebookItem:             { class: GradebookItem, local: gradebook_item_id, foreign: id, onDelete: CASCADE, foreignAlias: StudentGradebookItems }
+    Student:                   { class: Student, local: student_id, foreign: id, onDelete: CASCADE, foreignAlias: StudentGradebookItems }
+    
+NotificationSettings:
+  actAs:
+  tableName:                            notification_settings
+  columns:  
+    can_receive_email:                  { type: boolean, default: 0 }
+    can_receive_reply:                  { type: boolean, default: 0 }
+    can_receive_peer_activities:        { type: boolean, default: 0 }
+    can_receive_news_alerts:            { type: boolean, default: 0 }
+    can_receive_announcement_alerts:    { type: boolean, default: 0 }
+    can_receive_event_alerts:           { type: boolean, default: 0 }
+    can_receive_discussion_updates:     { type: boolean, default: 0 }
+    can_receive_course_updates:         { type: boolean, default: 0 }
+    can_receive_assignment_due:         { type: boolean, default: 0 }
+    can_receive_system_updates:         { type: boolean, default: 0 }
+    can_receive_system_maintenance:     { type: boolean, default: 0 }
+    user_id:                            { type: integer, notnull: true }
+  relations:
+    User:                               { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE, foreignAlias: NotificationSettings }
+    
+AssignmentGroup:
+  actAs:                    [Timestampable]
+  tableName:                assignment_group
+  columns:
+    name:                   { type: string(255), notnull: true }
+    weight:                 { type: decimal, default: 0, notnull: true }
+    course_id:              { type: integer, notnull: true }
+  relations:
+    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
+    
+Assignment:
+  actAs:                    [Timestampable]
+  tableName:                assignment
+  columns:
+    title:                  { type: string(255), notnull: true }
+    assignment_group_id:    { type: integer, notnull: true }
+    description:            { type: clob, notnull: true }
+    submission:             { type: integer, notnull: true }
+    due_date:               { type: timestamp, notnull: false }
+    points:                 { type: integer, notnull: true }
+    weight:                 { type: decimal, default: 0, notnull: true }
+    lock_until:             { type: timestamp, notnull: false }
+    lock_after:             { type: timestamp, notnull: false }
+    notify_users:           { type: boolean, default: 0 }
+    is_graded:              { type: boolean, default: 0 }
+    allow_late_submission:  { type: boolean, default: 0 }
+    is_graded:              { type: boolean, default: 0 }
+    graded_by:              { type: integer, notnull: true }
+    course_id:              { type: integer, notnull: true }
+  relations:
+    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
+    AssignmentGroup:        { local: assignment_group_id, foreign: id, type: one, foreignType: one }
+    
+AssignmentFile:
+  tableName:                assignment_file
+  columns:
+    assignment_id:          { type: integer, notnull: true }
+    file_id:                { type: integer, notnull: true }
+  relations:      
+    Assignment:             { class: Assignment, local: assignment_id, foreign: id, onDelete: CASCADE }          
+    File:                   { class: File, local: file_id, foreign: id, onDelete: CASCADE }
+    
+AssignmentSubmission:
+  actAs:                    [Timestampable]
+  tableName:                assignment_submission
+  columns:
+    assignment_id:          { type: integer, notnull: true }
+    generated_file:         { type: string(255), notnull: true }
+    original_file:          { type: string(255), notnull: true }
+    user_id:                { type: integer, notnull: true }
+    status:                 { type: integer, default: 0, notnull: true } #[Timely, Late, Resubmission]
+  relations:      
+    Assignment:             { class: Assignment, local: assignment_id, foreign: id, foreignAlias: Submissions, onDelete: CASCADE }
+    User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: AssignmentSubmissions, onDelete: CASCADE }
+    
+Announcement:
+  actAs:                    [Timestampable]
+  tableName:                announcement
+  columns:
+    user_id:                { type: integer, notnull: true }
+    subject:                { type: string(255), notnull: true }
+    message:                { type: clob, notnull: true }
+    is_published:           { type: boolean, default: 0, notnull: true }
+    lock_until:             { type: timestamp, notnull: false }
+    lock_after:             { type: timestamp, notnull: false }
+  relations:
+    User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+     
+CourseAnnouncement:
+  tableName:                course_announcement
+  columns:
+    course_id:              { type: integer, notnull: true }
+    announcement_id:        { type: integer, notnull: true }
+  relations:      
+    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }          
+    Announcement:           { class: Announcement, local: announcement_id, foreign: id, onDelete: CASCADE }
+    
+Campus:
+  actAs:
+  tableName:                campus
+  columns:
+    name:                   { type: string(255), notnull: true }
+    is_primary:             { type: boolean, default: 0 }
+    address:                { type: string(255), notnull: true }
+    city:                   { type: string(255), notnull: true }
+    postcode:               { type: string(10), notnull: true }
+    country_id:             { type: integer, notnull: true }
+  relations:
+    Country:                { local: country_id, foreign: id, type: one, foreignType: one }
+    Courses:                { class: Course, local: campus_id, foreign: course_id, refClass: CampusCourse, foreignAlias: Campuses }
+    
+Building:
+  actAs:
+  tableName:                building
+  columns:
+    name:                   { type: string(255), notnull: true }
+    abbreviation:           { type: string(10), notnull: true }
+    
+Room:
+  actAs:
+  tableName:                room
+  columns:
+    name:                   { type: string(255), notnull: true }
+    abbreviation:           { type: string(10), notnull: true }
+    building_id:            { type: integer, notnull: true }
+  relations:
+    Building:               { local: building_id, foreign: id, type: one, foreignType: one }
+    
+AcademicYear:
+  actAs:
+  tableName:                academic_year
+  columns:
+    year_start:             { type: integer, notnull: true }
+    year_end:               { type: integer, notnull: true }
+    
+AcademicPeriod:
+  actAs:
+  tableName:                academic_period
+  columns:
+    name:                   { type: string(255), notnull: true }    
+    start_date:             { type: timestamp, notnull: true }
+    end_date:               { type: timestamp, notnull: true }
+    grades_due:             { type: timestamp, notnull: true }
+    max_credits:            { type: string(10), notnull: true }
+    academic_year_id:       { type: integer, notnull: true }
+  relations:
+    AcademicYear:           { local: academic_year_id, foreign: id, type: one, foreignType: one }
+    
+Course:
+  actAs:
+  tableName:                course
+  columns:
+    name:                   { type: string(255), notnull: true }
+    code:                   { type: string(10), notnull: true }
+    department_id:          { type: integer, notnull: true } 
+    description:            { type: clob, notnull: true }
+    is_finalized:           { type: boolean, default: 0, notnull: true }
+    academic_period_id:     { type: integer, notnull: true }
+    start_date:             { type: timestamp, notnull: true }
+    end_date:               { type: timestamp, notnull: true }
+    credits:                { type: decimal, scale: 2, default: 0 }
+    hours:                  { type: integer, notnull: true }   
+    max_enrolled:           { type: integer, notnull: true }
+  relations:
+    Department:             { local: department_id, foreign: id, foreignAlias: Courses }
+    AcademicPeriod:         { local: academic_period_id, foreign: id, type: one, foreignType: one }
+
+CourseMeetingTime: 
+  actAs:
+  tableName:                course_meeting_time
+  columns:
+    day:                    { type: integer, notnull: true } # sun - sat
+    from_time:              { type: string(255), notnull: true }
+    to_time:                { type: string(255), notnull: true }
+    course_id:              { type: integer, notnull: true }
+    building_id:            { type: integer, notnull: true }
+    room_id:                { type: integer, notnull: true }
+  relations:
+    Building:               { local: building_id, foreign: id, type: one, foreignType: one }
+    Room:                   { local: room_id, foreign: id, type: one, foreignType: one }
+    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseMeetingTimes }
+
+CourseLink: 
+  actAs:
+  tableName:                course_link
+  columns:
+    name:                   { type: string(255), notnull: true }
+    url:                    { type: string(255), notnull: true }
+    course_id:              { type: integer, notnull: true }
+  relations:
+    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
+
+CourseReadingItem: 
+  actAs:
+  tableName:                course_reading_item
+  columns:
+    title:                  { type: string(255), notnull: true }
+    author:                 { type: string(255), notnull: true }
+    course_id:              { type: integer, notnull: true }
+  relations:
+    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
+      
+CampusCourse:
+  actAs:
+  tableName:                campus_course
+  columns:
+    campus_id:              { type: integer, notnull: true }
+    course_id:              { type: integer, notnull: true }
+  relations:                
+    Campus:                 { class: Campus, local: campus_id, foreign: id, onDelete: CASCADE }
+    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
+    
+ProgramLevel: 
+  actAs:
+  tableName:                program_level
+  columns:
+    name:                   { type: string(255), notnull: true }
+
+Program:
+  actAs:
+  tableName:                program
+  columns:
+    name:                   { type: string(255), notnull: true }
+    abbreviation:           { type: string(10), notnull: true }
+    code:                   { type: string(255), notnull: true }
+    description:            { type: clob, notnull: true }
+    type:                   { type: integer, default: 0, notnull: true } #[Degree, Diploma, Certificate]
+    department_id:          { type: integer, notnull: true }
+    program_level_id:       { type: integer, notnull: true }
+  relations:
+    Department:             { local: department_id, foreign: id, foreignAlias: Programmes }
+    ProgramLevel:           { local: program_level_id, foreign: id, foreignAlias: Programmes }
+    
+EmailTemplate:
+  actAs:       
+    Timestampable:          ~
+    Sluggable:
+      fields:               [name]
+      uniqueBy:             [name]
+      unique:               true
+      canUpdate:            true
+  tableName:                email_template
+  columns:
+    name:                   { type: string(255), notnull: true, unique: true }
+    subject:                { type: string(5000), notnull: true }
+    description:            { type: string(5000) }
+    body:                   { type: clob, notnull: true }
+    body:                   { type: clob, notnull: true }
+    from_email:             { type: string(5000), notnull: true }
+    to_email:               { type: string(5000) }
+    cc_email:               { type: string(5000) }
+    bcc_email:              { type: string(5000) }
+    reply_to:               { type: string(5000), notnull: true }
+    is_html:                { type: boolean, notnull: true, default: false }
+    is_active:              { type: boolean, notnull: true, default: true }
+    
+EmailMessage:
+  actAs:   
+    Timestampable:          ~
+  tableName:                email_message
+  columns:
+    from_email:             { type: string(255), notnull: true }
+    to_email:               { type: clob }
+    cc_email:               { type: clob }
+    bcc_email:              { type: clob }
+    email_template_id:      { type: integer }
+    sender_id:              { type: integer, notnull: true }
+    reply_to:               { type: string(255), notnull: true }
+    subject:                { type: string(255), notnull: true }
+    body:                   { type: clob, notnull: true }
+    status:                 { type: integer, default: 0, notnull: true } #[Sent, Received]
+    is_read:                { type: boolean, notnull: true, default: false }
+    is_trashed:             { type: boolean, notnull: true, default: false }
+  relations:
+    EmailTemplate:          { class: EmailTemplate, local: email_template_id, foreign: id, onDelete: CASCADE }
+    Sender:                 { class: sfGuardUser, local: sender_id, foreignAlias: EmailMessages, foreignType: many, type: one, foreign: id, onDelete: CASCADE }
+    
+MailingListEmailMessage:
+  actAs:
+  tableName:                  mailing_list_email_message
+  columns:
+    mailing_list_id:          { type: integer, notnull: true }
+    email_message_id:         { type: integer, notnull: true }
+  relations: 
+    MailingList:              { class: MailingList, local: mailing_list_id, foreign: id, onDelete: CASCADE, foreignAlias: EmailMessages }
+    EmailMessage:             { class: EmailMessage, local: email_message_id, foreign: id, onDelete: CASCADE , foreignAlias: MailingLists }
+    
+EmailMessageCorrespondence:
+  actAs:   
+    Timestampable:            ~
+  tableName:                  email_message_correspondence
+  columns:
+    initiator_id:             { type: integer, notnull: true }
+    invitee_id:         { type: integer, notnull: true }
+  relations:
+    InitiatorMessage:         { class: EmailMessage, local: initiator_id, foreignAlias: EmailMessageInitiator, foreignType: one, type: one, foreign: id, onDelete: CASCADE }
+    inviteeMessage:     { class: EmailMessage, local: invitee_id, foreignAlias: EmailMessageinvitee, foreignType: one, type: one, foreign: id, onDelete: CASCADE }
+  
+EmailMessageReply:
+  columns:
+    sender_id:                { type: integer, notnull: true }
+    responder_id:             { type: integer, notnull: true }
+    email_message_id:         { type: integer, notnull: true }
+    email_message_reply_id:   { type: integer, notnull: true }
+  relations:                
+    SendingUser:              { class: sfGuardUser, local: sender_id, foreignAlias: MyEmailMessageReplys, foreign: id, onDelete: CASCADE }          
+    RespondingUser:           { class: sfGuardUser, local: responder_id, foreignAlias: OtherEmailMessageReplys, foreign: id, onDelete: CASCADE }
+    EmailMessage:             { class: EmailMessage, local: email_message_id, foreignAlias: EmailMessageReplys, foreignType: many, type: one, foreign: id, onDelete: CASCADE }
+    EmailMessageReply:        { class: EmailMessage, local: email_message_reply_id, foreignType: one, type: one, foreign: id, onDelete: CASCADE }   
+   
+MailingList:
+  actAs:                      [Timestampable]
+  tableName:                  mailing_list
+  columns:
+    name:                     { type: string(255), notnull: true }
+    user_id:                  { type: integer, notnull: true }
+  relations:                
+    User:                     { class: sfGuardUser, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: MailingLists }
+      
+StudentMailingList:
+  actAs:
+  tableName:                  student_mailing_list
+  columns:
+    student_id:               { type: integer, notnull: true }
+    mailing_list_id:          { type: integer, notnull: true }
+  relations:                
+    Student:                  { class: Student, local: student_id, foreign: id, onDelete: CASCADE, foreignAlias: StudentMailingLists }
+    MailingList:              { class: MailingList, local: mailing_list_id, foreign: id, onDelete: CASCADE, foreignAlias: MailingListStudents }
+      
+InstructorMailingList:
+  actAs:
+  tableName:                instructor_mailing_list
+  columns:
+    instructor_id:          { type: integer, notnull: true }
+    mailing_list_id:        { type: integer, notnull: true }
+  relations:                
+    Instructor:             { class: Instructor, local: instructor_id, foreign: id, onDelete: CASCADE, foreignAlias: InstructorMailingLists }
+    MailingList:            { class: MailingList, local: mailing_list_id, foreign: id, onDelete: CASCADE, foreignAlias: MailingListInstructors }
+      
+StaffMailingList:
+  actAs:
+  tableName:                staff_mailing_list
+  columns:
+    staff_id:               { type: integer, notnull: true }
+    mailing_list_id:        { type: integer, notnull: true }
+  relations:                
+    Staff:                  { class: Staff, local: staff_id, foreign: id, onDelete: CASCADE, foreignAlias: StaffMailingLists }
+    MailingList:            { class: MailingList, local: mailing_list_id, foreign: id, onDelete: CASCADE, foreignAlias: MailingListStaff }
+    
+Calendar:
+  actAs:
+  columns:
+    name:                   { type: string(255), notnull: true }
+    description:            { type: clob, notnull: true }
+    is_public:              { type: boolean, default: 0, notnull: true }
+    type:                   { type: integer, default: 0, notnull: true } #[Personal Calendar, Public Calendar, Academic Calendar, Social Calendar, Exams Calendar]
+    color:                  { type: string(255), notnull: true }
+    
+UserCalendar:
+  actAs:
+  tableName:                user_calendar
+  columns:
+    owner_id:               { type: integer, notnull: true }
+    calendar_id:            { type: integer, notnull: true }
+  relations:  
+    Calendar:               { local: calendar_id, foreign: id, type: one, foreignType: one, foreignAlias: Owner }
+    Owner:                  { class: sfGuardUser, local: owner_id, foreign: id, foreignType: many, foreignAlias: Owner, type: one, onDelete: CASCADE }  
+    
+CalendarEvent:
+  actAs:                    [Timestampable]
+  columns:
+    calendar_id:            { type: integer, notnull: true }
+    user_id:                { type: integer, notnull: true }
+    name:                   { type: string(255), notnull: true }
+    location:               { type: string(255), notnull: true }
+    from_date:              { type: timestamp, notnull: true }
+    to_date:                { type: timestamp, notnull: true }
+    reminder:               { type: integer, default: 0, notnull: true } #[Never, On time, 5 min, 10 min, 30 min, 1 hour, 5 hour, 2 days, 5 days, 1 week]
+    description:            { type: clob, notnull: true }
+    is_personal:            { type: boolean, default: 0, notnull: true }
+    notify_changes:         { type: boolean, default: 0, notnull: true }
+  relations:
+    Calendar:               { local: calendar_id, foreign: id, type: one, foreignType: one }
+    User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    
+CalendarEventAttendee:
+  actAs:                    [Timestampable]
+  columns:
+    calendar_event_id:      { type: integer, notnull: true }
+    user_id:                { type: integer, notnull: true }
+    status:                 { type: integer, default: 0, notnull: true } #[Sent, Accepted, Rejected, Ignored]
+    comment:                { type: clob, notnull: true }
+  relations:
+    CalendarEvent:          { local: calendar_event_id, foreign: id, type: one, foreignType: one }
+    User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    
+News:
+  actAs:                    [Timestampable]
+  columns:
+    user_id:                { type: integer, notnull: true }
+    heading:                { type: string(255), notnull: true }
+    blurb:                  { type: clob, notnull: true }
+    description:            { type: clob, notnull: true }
+    is_published:           { type: boolean, default: 0, notnull: true }
+    lock_until:             { type: timestamp, notnull: false }
+    lock_after:             { type: timestamp, notnull: false }
+  relations:
+    User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+    
+Folder:
+  options:
+    symfony:
+  actAs:
+    Timestampable:          ~
+    NestedSet:
+      hasManyRoots:         false
+  columns:
+    name:                   { type: string(255), notnull: true }
+    type:                   { type: integer, default: 0, notnull: true } #[Other=0, Users=1, Courses=2, Assignments=3, User=4]
+    parent_id:              { type: integer, default: 1, notnull: true }    
+    
+UserFolder:
+  actAs:
+  tableName:                user_folder
+  columns:
+    user_id:                { type: integer, notnull: true }
+    folder_id:              { type: integer, notnull: true }
+  relations:  
+    Folder:                 { local: folder_id, foreign: id, type: one, foreignType: one, foreignAlias: User, onDelete: CASCADE }
+    User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, foreignAlias: Folder, type: one, onDelete: CASCADE }  
+    
+CourseFolder:
+  actAs:
+  tableName:                course_folder
+  columns:
+    course_id:              { type: integer, notnull: true }
+    folder_id:              { type: integer, notnull: true }
+  relations:  
+    Folder:                 { local: folder_id, foreign: id, type: one, foreignType: one, foreignAlias: Course, onDelete: CASCADE }
+    Course:                 { class: Course, local: course_id, foreign: id, foreignType: one, foreignAlias: Folder, type: one, onDelete: CASCADE }
+
+File:
+  options:
+    symfony:
+  actAs:
+    Timestampable:          ~
+  columns:
+    folder_id:              { type: integer, notnull: true }
+    original_name:          { type: string(255), notnull: true }
+    generated_name:         { type: string(255), notnull: true }
+    mime_type:              { type: string(128), notnull: true }
+    size:                   { type: integer, notnull: true }
+  relations:
+    Folder:
+      class:                Folder
+      onDelete:             CASCADE
+      foreignAlias:         Files
+  indexes:
+    folderFile:
+      fields:               [folder_id, original_name]
+      type:                 unique

@@ -1,0 +1,1 @@
+<?php echo get_partial('student/list_field_boolean', array('value' => $student->getIsActive())) ?>

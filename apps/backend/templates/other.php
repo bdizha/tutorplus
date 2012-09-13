@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head> 	
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
-        <title>ecollege+ Collaborative learning platform</title>
-        <meta name="description" content="eCollege+ Collaborative learning platform"/>
+        <title>Tutorplus collaborative learning platform</title>
+        <meta name="description" content="Tutorplus collaborative learning platform"/>
         <meta name="robots" content="follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <?php include_http_metas() ?>
@@ -28,7 +28,7 @@
             </div>
             <div id="main-footer">
                 <div id="bottom-menu">
-                    <div id="copyright">eCollegePlus.com &copy; <?php echo date("Y") ?>. All rights reserved.</div>
+                    <div id="copyright">TutorPlus.com &copy; <?php echo date("Y") ?>. All rights reserved.</div>
                     <div id="footer-links">
                         <ul>
                             <li><a href="http://www.ecollegeplus/support" class="first" target="_blank">Support</a></li>

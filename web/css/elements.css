@@ -12,7 +12,7 @@ html{
 }
 
 body{
-    background-color: #F5F5F5;
+    background: url("/images/bg_content.jpg") repeat;
     font-family: UbuntuBeta,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,sans-serif;
     font-size: 12px;
     height: 100%;

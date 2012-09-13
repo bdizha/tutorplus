@@ -12,7 +12,7 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [elements.css, ecollegeplus.css, left-menu.css, form.css, symfony.css, jquery.simple-modal.css, jquery-ui.css, jquery-date-picker.css, /tiny_mce/themes/simple/skins/default/ui.css, jquery.simple-modal.css, colorbox/jquery.colorbox.css]
+  stylesheets:    [elements.css, tp.css, left-menu.css, form.css, symfony.css, jquery.simple-modal.css, jquery-ui.css, jquery-date-picker.css, /tiny_mce/themes/simple/skins/default/ui.css, jquery.simple-modal.css, colorbox/jquery.colorbox.css]
 
   javascripts:    [jquery-1.6.2.min.js, jquery.form.js, jquery.validate.min.js, /sfFormExtraPlugin/js/double_list.js, /tiny_mce/tiny_mce.js, ecollegeplus.js, jquery.treeview.js, jquery.number_format.js, jquery.validate.numeric.js, jquery-ui.min.js, jquery.simplemodal.1.4.1.min.js, jquery.elastic.source.js, jquery.colorbox-min.js]
 

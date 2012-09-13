@@ -4,6 +4,7 @@
 <div id="top-menu">
     <ul>
         <?php foreach ($menu as $key => $menuItem): ?>
+            <li class="separator"></li>
             <li class="<?php echo ($i == 1 || $i == $menuItemsCount) ? ($i == 1) ? "first " : "last "  : "" ?><?php echo (!empty($current_parent) && $current_parent == $key) ? "active" : "normal" ?>">
                 <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"]) ?>
             </li>
@@ -18,17 +19,15 @@
 <div id="left-column">
     <ul>	
         <?php foreach ($currentParentMenu["children"] as $child => $childItem): ?>	
-            <?php // myToolkit::debug($currentParentMenu["children"]); ?>
             <?php $i++; ?>
             <?php $id = ($child == $current_child) ? "id='nav-selected'" : "" ?>
-            <div class="menu-item" style="display:none" <?php //echo $linkItem . ":" . $item_level_2      ?>></div>	
-            <?php //myToolkit::debug($current_child); ?>
+            <div class="menu-item" style="display:none"></div>
             <?php if ($currentParentMenu["type"] == "Many" || ($currentParentMenu["type"] == "One" && $child == $current_child)): ?>
                 <li <?php echo $id ?>>
                     <div class="menu-item">
-                        <?php echo link_to(__($childItem["details"]["label"]), '@' . $childItem["details"]["route"], array("class" => "menu-link")) ?>
+                        <div class="menu-heading"><span><?php echo __($childItem["details"]["label"]) ?></span></div>
                     </div>
-                    <?php if (isset($is_profile) && $is_profile && $i == 1): ?>
+                    <?php if (isset($is_profile) && $is_profile && $i == 1 && false): ?>
                         <div class="profile-photo">
                             <img width="151" alt="Batanayi Matuku" src="https://lh5.googleusercontent.com/-J4chDl4M2ZI/AAAAAAAAAAI/AAAAAAAAAAA/ylxejGmnnkM/s77-c-k/photo.jpg?fb=s">
                         </div>
@@ -60,6 +59,13 @@
             var child_item_id = $(this).next().attr("id");
             hideMenuItemsChildren(child_item_id);				
             $(this).next().toggle();
+            
+            if($(this).parent().attr("id") == "nav-selected"){
+                $(this).parent().attr("id", "");
+            }
+            else{
+                $(this).parent().attr("id", "nav-selected");
+            }
             return false;
         });
 
@@ -67,6 +73,7 @@
             $(".menu-item-children").each(function(){
                 if(child_item_id != this.id){
                     $(this).hide();
+                    $(this).parent().attr("id", "");
                 }
             });
             

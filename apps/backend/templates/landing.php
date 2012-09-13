@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
-        <title>ecollege+ Collaborative learning</title>
-        <meta name="description" content="eCollege+ Collaborative learning"/>
+        <title>Tutorplus collaborative learning</title>
+        <meta name="description" content="Tutorplus collaborative learning platform"/>
         <meta name="robots" content="follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="/css/elements.css" />
-        <link rel="stylesheet" type="text/css" href="/css/ecollegeplus.css" />
+        <link rel="stylesheet" type="text/css" href="/css/tp.css" />
         <link rel="stylesheet" type="text/css" href="/css/left-menu.css" />
         <link rel="stylesheet" type="text/css" href="/css/top-menu.css" />
         <link rel="stylesheet" type="text/css" href="/css/course.css" />

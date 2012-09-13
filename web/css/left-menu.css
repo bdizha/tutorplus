@@ -1,4 +1,6 @@
 #left-column .menu-item{  
+    cursor: hand;
+    cursor: pointer;
 }
 
 #left-column .menu-item span{
@@ -15,23 +17,35 @@
     width: 10px;  
 }
 
-#left-column .menu-item a{
-    background-image: url("/images/select-menu-first.png");
-    background-position: 100% 0;
-    background-repeat: no-repeat;
-    height: 19px;
-    margin-right: -12px;
-    margin-top: -1px;
-    color: #3F7CB6 !important;
-    padding-left: 20px !important;
+#nav-selected .menu-heading{
+    background: url("/images/bg_menu_left_selected.png") no-repeat 0px 2px transparent !important;
+}
+
+#left-column .menu-item .menu-heading{
+    background: url("/images/bg_menu_left.png") no-repeat 0 transparent;
+    height: 66px;
+    color: #7E7E7E !important;
+    width: 208px;
+    display: block;
+    position: relative;
+    z-index: 99;
+    margin-top: -8px;
+}
+
+.menu-heading span{
+    font-size: 14px;
+    font-family: arial;
+    position: absolute;
+    left: 16px;
+    top: 23px
 }
 
 #left-column #child-item-1, #left-column #child-item-2{
-    background-color: #FFFFFF;
+    
 }
 
 #left-column .menu-item-children{
-    border-bottom: 1px solid #CCCCCC;
+    margin-top: -8px;
 }
 
 #left-column .first{
@@ -39,174 +53,31 @@
 }
 
 #left-column .menu-item-children li {
-    border-right: 1px solid #CCCCCC;
-    margin-left: 15px;
+    background: url("/images/bg_menu_item.png") no-repeat 0 transparent;
     position: relative;
+    width: 204px;
+    height: 45px
 }
 
-#left-column .menu-item-children li.selected{
-    background-color: #FFFFFF;
-    border-color: #CCCCCC;
-    border-radius: 5px 0 0 5px;
-    border-style: solid none solid solid;
-    border-width: 1px medium 1px 1px;
+#left-column li a{
+    color: #363636 important;
 }
 
 #left-column li.selected a{
-    color: #3F7CB6 !important;
+    color: #134D58 !important;
+}
+
+fdfd{
+    
 }
 
 #left-column ul a{
-    /*    background: url("../images/ecp-nav-arrows.png") no-repeat scroll -425px -78px transparent;*/
-    color: #393939;
+    color: #363636;
     display: block;
-    font-size: 12px;
-    padding: 5px;
+    padding-left: 20px;
+    padding-top: 13px;
 }
 
 #left-column ol{
-    background-color: #F5F5F5;
     list-style: none outside none;
-}
-
-.home_icon{
-    background: url("/images/icons/14x14/home.png") no-repeat scroll 0 0 transparent;
-}
-
-.my_dashboard_icon{
-    background: url("/images/icons/14x14/dashboard.png") no-repeat scroll 0 0 transparent;
-}
-
-.my_courses_icon{
-    background: url("/images/icons/14x14/my_courses.png") no-repeat scroll 0 0 transparent;
-}
-
-.my_messages_icon{
-    background: url("/images/icons/14x14/my_messages.png") no-repeat scroll 0 0 transparent;
-}
-
-.my_calendar_icon{
-    background: url("/images/icons/14x14/my_calendar.png") no-repeat scroll 0 0 transparent;
-}
-
-.my_groups_icon{
-    background: url("/images/icons/14x14/my_groups.png") no-repeat scroll 0 0 transparent;
-}
-
-.general_info_icon{
-    background: url("/images/icons/14x14/general_info.png") no-repeat scroll 0 0 transparent;
-}
-
-.academic_info_icon{
-    background: url("/images/icons/14x14/academic_info.png") no-repeat scroll 0 0 transparent;
-}
-
-.courses_icon, .course_icon{
-    background: url("/images/icons/14x14/courses.png") no-repeat scroll 0 0 transparent;
-}
-
-.assignments_icon{
-    background: url("/images/icons/14x14/assignments.png") no-repeat scroll 0 0 transparent;
-}
-
-.bulletin_board_icon{
-    background: url("/images/icons/14x14/bulletin_board.png") no-repeat scroll 0 0 transparent;    
-}
-
-.assignment_groups_icon{
-    background: url("/images/icons/14x14/assignment_groups.png") no-repeat scroll 0 0 transparent;
-}
-
-.dashboard_icon{
-    background: url("/images/icons/14x14/dashboard.png") no-repeat scroll 0 0 transparent;    
-}
-
-.notification_settings_icon{
-    background: url("/images/icons/14x14/notification_settings.png") no-repeat scroll 0 0 transparent;    
-}
-
-.registration_icon{
-    background: url("/images/icons/14x14/registration.png") no-repeat scroll 0 0 transparent;
-}
-
-.contact_details_icon{
-    background: url("/images/icons/14x14/contact_details.png") no-repeat scroll 0 0 transparent;    
-}
-
-.my_profile_icon{
-    background: url("/images/icons/14x14/my_profile.png") no-repeat scroll 0 0 transparent;    
-}
-
-.account_settings_icon{
-    background: url("/images/icons/14x14/account_settings.png") no-repeat scroll 0 0 transparent;
-}
-
-.personal_info_icon{
-    background: url("/images/icons/14x14/personal_info.png") no-repeat scroll 0 0 transparent;
-}
-
-.correspondents_icon{
-    background: url("/images/icons/14x14/correspondents.png") no-repeat scroll 0 0 transparent;
-}
-
-.students_icon, .members_icon{
-    background: url("/images/icons/14x14/students.png") no-repeat scroll 0 0 transparent;
-}
-
-.instructors_icon{
-    background: url("/images/icons/14x14/instructors.png") no-repeat scroll 0 0 transparent;
-}
-
-.achievements_icon{
-    background: url("/images/icons/14x14/achievements.png") no-repeat scroll 0 0 transparent;    
-}
-
-.attendance_icon{
-    background: url("/images/icons/14x14/attendance.png") no-repeat scroll 0 0 transparent;
-}
-
-.announcements_icon{
-    background: url("/images/icons/14x14/announcements.png") no-repeat scroll 0 0 transparent;
-}
-
-.news_icon{
-    background: url("/images/icons/14x14/news.png") no-repeat scroll 0 0 transparent;
-}
-
-.general_settings_icon{
-    background: url("/images/icons/14x14/general_settings.png") no-repeat scroll 0 0 transparent;
-}
-
-.academic_reports_icon{
-    background: url("/images/icons/14x14/academic_reports.png") no-repeat scroll 0 0 transparent;
-}
-
-.gradebook_icon{
-    background: url("/images/icons/14x14/gradebook.png") no-repeat scroll 0 0 transparent;
-}
-
-.discussions_icon{
-    background: url("/images/icons/14x14/discussions.png") no-repeat scroll 0 0 transparent;
-}
-
-.academic_reports_icon{
-    background: url("/images/icons/14x14/academic_reports.png") no-repeat scroll 0 0 transparent;
-}
-
-.course_extras_icon{
-    background: url("/images/icons/14x14/course_extras.png") no-repeat scroll 0 0 transparent;
-}
-
-.files_icon{
-    background: url("/images/icons/14x14/files.png") no-repeat scroll 0 0 transparent;
-}
-
-.menu-icon{
-    display: block;
-    float: left;
-    height: 16px;
-    margin-left: 5px;
-    margin-right: 3px;
-    margin-top: 7px;
-    width: 16px;
 }

@@ -1,46 +1,12 @@
 #logo-small{
-    background: url("/images/ecollegeplus-40.png") no-repeat scroll 10px 5px transparent;
-    height: 45px;
+    background: url("/images/logo.png") no-repeat 15px -32px transparent;
+    margin-left: -124px;
 }
 
-#logo-small a, #logo-big a{
-    color: #FFFFFF !important;
-    font-weight: bold;
-    font-size: 30px;
-    padding-top: 15px;
-    text-shadow:0 2px 2px rgba(0, 116, 162, 0.7);
-    text-rendering: optimizeLegibility;
-}
-
-#ecollegeplus{
-    padding-top: 122px;
-}
-
-#logo-small{
-    height: 66px;    
-}
-
-#logo-big{
-    width: 200px;
-    float: left;
-}
-
-#top-header-big .intro{
-    float: left;
-    width: 38em;
-    clear: left;
-}
-
-.datetime{
-    color: #999999;
-    display: inline;
-}
-
-#main-header{
-    color: #FFFFFF;
-    height: 95px;
-    position: relative;
-    width: 100%;
+#logo-small-wrapper{
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #header-small{
@@ -76,18 +42,50 @@
 }
 
 #top-header-small{
-    height: 58px;    
+    height: 69px; 
+    background: url("/images/bg_header.png") repeat-x transparent;
 }
 
 #header-big, #header-small{
-    background-color: #1e8cbe;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#2ea2cc), to(#1e8cbe));
-    background-image: -webkit-linear-gradient(top, #2ea2cc, #1e8cbe);
-    background-image:    -moz-linear-gradient(top, #2ea2cc, #1e8cbe);
-    background-image:      -o-linear-gradient(top, #2ea2cc, #1e8cbe);
-    background-image:         linear-gradient(to bottom, #2ea2cc, #1e8cbe);
+    background-color: #134D58;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#2ea2cc), to(#134D58));
+    background-image: -webkit-linear-gradient(top, #2ea2cc, #134D58);
+    background-image:    -moz-linear-gradient(top, #2ea2cc, #134D58);
+    background-image:      -o-linear-gradient(top, #2ea2cc, #134D58);
+    background-image:         linear-gradient(to bottom, #2ea2cc, #134D58);
     color:#fff;
     text-shadow:0 2px 2px #0074A2;
+}
+
+#ecollegeplus{
+    padding-top: 114px;
+}
+
+#logo-small{
+    height: 68px;    
+}
+
+#logo-big{
+    width: 200px;
+    float: left;
+}
+
+#top-header-big .intro{
+    float: left;
+    width: 38em;
+    clear: left;
+}
+
+.datetime{
+    color: #999999;
+    display: inline;
+}
+
+#main-header{
+    color: #FFFFFF;
+    height: 95px;
+    position: relative;
+    width: 100%;
 }
 
 #top-header-big h1 a{
@@ -117,7 +115,6 @@
 }
 
 #main-container{
-    background-color: transparent;
     clear: both;
     color: #3D3D3D;
     padding-bottom: 55px;
@@ -129,13 +126,12 @@
 }
 
 #main-container a, #login-container{
-    color: #1E8CBE;
+    color: #134D58;
 }
 
 #container-wrapper, #main-container-wrapper{
     clear: both;
     position: relative;
-    background-color: #FFFFFF;
 }
 
 #main-container-wrapper{
@@ -143,7 +139,6 @@
     -webkit-border-radius: 0 0 10px 10px;
     -moz-border-radius: 0 0 10px 10px;
     -o-border-radius: 0 0 10px 10px;
-    margin-right: 20px;
 }
 
 #container-wrapper{
@@ -152,102 +147,47 @@
 }
 
 #main-menu{    
-    background-color: #F5F5F5;
-    height: 35px;
-    border-bottom: 1px solid #CCCCCC;
+    background: url("/images/bg_menu.jpg") repeat-x 0 -8px transparent !important;
+    height: 45px;
 }
 
-#top-menu{
-    margin: 0;
-}
-
-#top-menu ul{
-    margin-left: 10px;
-}
-
-#bottom-menu{    
-    margin: 0 auto;
-    width: 920px;
-}
-
-#left-column{
-    float: left;
-    width: 170px;
-    margin-bottom: 20px;
-    position: fixed;
-    z-index: 99;
-    top: 94px;
-    left: 0;
-}
-
-#middle-column{
-    margin-left: 190px;
-    margin-right: 20px;
-    padding-bottom: 10px;
-    width: 830px
-}
-
-#right-column{
-    float: left;
-    margin: 0 10px 10px 0;
-    width: 200px
-}
-
-#main-footer{
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: #FFFFFF !important;
-    bottom: 0;
-    color: #1E8CBE;
-    height: 37px;
-    position: fixed;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.clear{
-    clear: both;
-}
-
-.hide{
-    display: none !important;
-}
-
-.show{
-    display: block !important;;
+#top-menu .separator{
+    background: url("/images/bg_menu_separator.jpg") no-repeat -3px -8px transparent;
+    height: 45px;
+    width: 3px;
 }
 
 #top-menu ul li{
-    padding: 5px 10px 10px;
-    font-size: 14px;
-    color: #333;
     display: inline;
     float: left;
     height: 20px;
 }
 
 #top-menu ul li.normal{
+    height: 45px;
 }
 
 #top-menu ul li.first{
 }
 
 #top-menu ul li.active{
-    background-color: #FFFFFF;
-    border-left: 1px solid #CCCCCC;
-    border-right: 1px solid #CCCCCC;
+    background: url("/images/bg_menu_selected.jpg") repeat-x 0 -8px transparent !important;
+    height: 45px;
 }
 
 #top-menu a{
-    font-size: 13px;
-    text-transform: uppercase;
+    padding: 10px;
+    font-size: 14px;
+    display: block;
+    height: 25px;
 }
 
 #top-menu ul li.active a{
-    color: #1E8CBE !important;
+    color: #FFFFFF !important;
 }
 
 #top-menu ul li.normal a{
-    color: #393939 !important;
+    color: #FFFFFF !important;
 }
 
 #quick-links ul li{
@@ -267,10 +207,8 @@
 }
 
 #quick-settings{
-    padding: 0;
-    position: absolute;
-    right: 30px;
-    top: 5px;
+    float: right;
+    margin-top: 20px;
 }
 
 #quick-settings ul li{
@@ -280,7 +218,64 @@
 }
 
 #quick-settings ul li a{
-    color: #FFF !important;
+    color: #134D58 !important;
+}
+
+#top-menu, #inner-container-wrapper{
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#top-menu ul{
+    margin: 0;
+}
+
+#bottom-menu{    
+    margin: 0 auto;
+    width: 940px;
+}
+
+#left-column{
+    float: left;
+    width: 208px;
+    margin: 20px 0 10px -5px;
+}
+
+#middle-column{
+    margin-left: 190px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    width: 830px
+}
+
+#right-column{
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 200px
+}
+
+#main-footer{
+    border-top: 1px solid #CCCCCC;
+    background-color: #FFFFFF !important;
+    bottom: 0;
+    color: #134D58;
+    height: 37px;
+    position: fixed;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.clear{
+    clear: both;
+}
+
+.hide{
+    display: none !important;
+}
+
+.show{
+    display: block !important;;
 }
 
 #bottom-menu{
@@ -317,39 +312,47 @@
 }
 
 #main-footer ul li a{
-    color: #1E8CBE !important;
+    color: #134D58 !important;
 }
 
-/* breadcrums are here */
+#breadcrumbs-container-wrapper{
+    background: url("/images/bg_breadcrum.jpg") repeat-x transparent;
+}
+
 #breadcrumbs{
-    border-bottom: 1px solid #CCCCCC;
-    margin-left: -21px;
-    position: fixed;
-    z-index: 99;
-    top: 94px;
-    background-color: #F5F5F5;
-    left: 177px;
-    width: 100%;
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
 }
 
 #breadcrumbs ol{
     color: #4B7092 !important;
-    margin: 0 0 0 10px;
+    margin: 0;
     overflow: hidden;
     padding: 0;
 }
 
-#breadcrumbs ol li{
-    background: url("/images/breadcrumb-right.png") no-repeat scroll left 50% transparent;
-    float: left;
-    height: 27px;
-    line-height: 2.1em;
-    margin: 0 0 0 1px;
+#breadcrumbs ol li.first{
+    background: url("/images/bg_breadcrum_left_border.jpg") no-repeat scroll -2px 2px transparent;
+    height: 33px;
     padding-left: 10px;
 }
 
+#breadcrumbs ol li{
+    float: left;
+    height: 33px;
+    line-height: 2.5em;
+}
+
+#breadcrumbs ol li.after{
+    background: url("/images/bg_breadcrum_arrow.jpg") no-repeat scroll left 0 transparent;
+    float: left;
+    padding-left: 25px;
+}
+
 #breadcrumbs li a{
-    color: #4B7092 !important;
+    color: #7E7E7E !important;
     margin: 0 0 0 5px;
     overflow: hidden;
     padding: 0;
@@ -372,7 +375,7 @@
 }
 
 #sf_admin_container .content-heading h3{
-    color: #1E8CBE;
+    color: #134D58;
     font-size: 14px;
     font-weight: normal;
 }
@@ -408,13 +411,13 @@
 }
 
 #sf_admin_container .content-block h2 .actions, #sf_admin_form_container h2 .actions{
-    color: #1E8CBE;
+    color: #134D58;
     float: right;
     display: block;
 }
 
 #sf_admin_container .content-block h2 a, #sf_admin_form_container h2 a {
-    color: #1E8CBE;
+    color: #134D58;
 }
 
 #sf_admin_container .content-row{
@@ -441,7 +444,7 @@
 }
 
 .more-link a{
-    color: #1E8CBE;
+    color: #134D58;
 }
 
 #left-panel{

@@ -1,15 +1,15 @@
-#logo-small{
+#logo-wrapper{
     background: url("/images/logo.png") no-repeat 15px -32px transparent;
     margin-left: -124px;
 }
 
-#logo-small-wrapper{
+#logo-container{
     width: 940px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#header-small{
+#main-header{
     height: 65px;    
 }
 
@@ -18,7 +18,7 @@
     padding-top: 2em;
 }
 
-#header-small, #header-big{
+#main-header, #header-big{
     position: fixed;
     width: 100%;
     z-index: 100;
@@ -41,12 +41,17 @@
     position: relative;
 }
 
-#top-header-small{
+#inner-header-wrapper{
     height: 69px; 
     background: url("/images/bg_header.png") repeat-x transparent;
 }
 
-#header-big, #header-small{
+#inner-header-landing-wrapper{
+    height: 122px; 
+    background: url("/images/bg_header_landing.jpg") repeat-x transparent;
+}
+
+#main-header{
     background-color: #134D58;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#2ea2cc), to(#134D58));
     background-image: -webkit-linear-gradient(top, #2ea2cc, #134D58);
@@ -57,11 +62,11 @@
     text-shadow:0 2px 2px #0074A2;
 }
 
-#ecollegeplus{
+#tutorplus{
     padding-top: 114px;
 }
 
-#logo-small{
+#logo-wrapper{
     height: 68px;    
 }
 
@@ -79,13 +84,6 @@
 .datetime{
     color: #999999;
     display: inline;
-}
-
-#main-header{
-    color: #FFFFFF;
-    height: 95px;
-    position: relative;
-    width: 100%;
 }
 
 #top-header-big h1 a{
@@ -206,18 +204,18 @@
     top: 5px;
 }
 
-#quick-settings{
+#header-links{
     float: right;
     margin-top: 20px;
 }
 
-#quick-settings ul li{
+#header-links ul li{
     color: #FFFFFF;
     display: inline;
     padding: 0 0 0 20px;
 }
 
-#quick-settings ul li a{
+#header-links ul li a{
     color: #134D58 !important;
 }
 
@@ -238,21 +236,19 @@
 
 #left-column{
     float: left;
-    width: 208px;
+    width: 218px;
     margin: 20px 0 10px -5px;
 }
 
 #middle-column{
-    margin-left: 190px;
-    margin-right: 20px;
+    margin-left: 218px;
     padding-bottom: 10px;
-    width: 830px
+    width: 722px
 }
 
-#right-column{
-    float: left;
-    margin: 0 10px 10px 0;
-    width: 200px
+#middle-landing-column{
+    padding-bottom: 10px;
+    width: 940px;
 }
 
 #main-footer{
@@ -353,14 +349,14 @@
 
 #breadcrumbs li a{
     color: #7E7E7E !important;
-    margin: 0 0 0 5px;
+    margin: 0 0 0 4px;
     overflow: hidden;
     padding: 0;
 }
 
 #sf_admin_container{
     margin: 0;
-    padding: 10px 0 0;
+    padding: 13px 0 0;
 }
 
 #sf_admin_container .content-block h4{
@@ -380,26 +376,35 @@
     font-weight: normal;
 }
 
+.sf_admin_form fieldset{
+    background-color: #FFFFFF;
+}
+
 #sf_admin_container .content-block{
     padding: 0;
     overflow: hidden;
     position: relative;
+    border-radius: 3px
 }
 
 #sf_admin_container .left-block{
     float: left;
     margin-right: 10px;
-    width: 410px;
+    width: 356px;
     margin-bottom: 10px;
+    background-color: #FFFFFF;
+    border-radius: 3px
 }
 
 #sf_admin_container .right-block{
     float: left;
-    width: 410px;
-    margin-bottom: 10px;    
+    width: 356px;
+    margin-bottom: 10px; 
+    background-color: #FFFFFF;
+    border-radius: 3px   
 }
 
-#sf_admin_container .content-block h2{
+#sf_admin_container .content-block h2, .sf_admin_form fieldset h2{
     background-color: #F1F1F1;
     border-radius: 3px 3px 0 0;
     clear: both;
@@ -979,4 +984,110 @@
 
 .no-padding{
     padding: 0 !important;
+}
+
+.half-block{
+    background-color: #F6F6F6;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.full-block{
+    background-color: #F6F6F6;
+    position: relative;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.white-background{
+    background-color: #FFFFFF;   
+    margin-bottom: 10px; 
+}
+
+.landing-row{
+    margin-top: 40px;
+    width: 940px;
+    clear: both;
+    height: 289px;
+}
+
+.landing-image{
+    background: url("/images/img_students.jpg") 0 0 no-repeat;
+    display: inline-block;
+    width: 590px;
+    height: 266px;
+    margin: 10px
+}
+
+.images-container{
+    background-color: #FFFFFF;
+    display: inline-block;
+    width: 612px;
+    height: 289px;
+}
+
+.instructor-of-the-week{
+}
+
+.landing-right-column{
+    background-color: #FFFFFF;
+    float: left;
+    width: 310px;
+    height: 289px;
+    margin-left: 15px;
+}
+
+.landing-left-column{   
+    background-color: #FFFFFF;
+    float: left;
+    width: 612px;
+    height: 289px;
+}
+
+.welcome-message{
+    padding: 10px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.welcome-message span{
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.instructor-testimonial{
+    padding: 10px;
+    float: left;
+    width: 286px;
+}
+
+.instructor-testimonial .name{
+
+}
+
+.instructor-testimonial .institution{
+    color: #90959A;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.says{
+    text-align: justify;
+    color: #7E7E7E;
+}
+
+.column-row{
+    border-bottom: 1px solid #F1F1F1;
+    height: 144px;
+}
+
+.landing-button{
+    margin: 40px 40px 40px 83px !important;
+    padding: 18px !important;
+    width: 146px;
+    font-weight: bold;
+    font-size: 11px;
+    text-align: center;
+    text-transform: uppercase;
 }

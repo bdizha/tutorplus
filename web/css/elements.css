@@ -13,7 +13,7 @@ html{
 
 body{
     background: url("/images/bg_content.jpg") repeat;
-    font-family: UbuntuBeta,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 12px;
     height: 100%;
     width: 100%;
@@ -35,5 +35,5 @@ fieldset, img{
 }
 
 a{
-    color: #1E8CBE;
+    color: #134D58;
 }

@@ -1,5 +1,5 @@
 all:
-  stylesheets: [course, assignment]
+  stylesheets: [course]
   
 chooseSuccess:
   has_layout: false

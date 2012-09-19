@@ -40,9 +40,63 @@ class instructorGeneratorHelper extends BaseInstructorGeneratorHelper
         return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/backend.php/instructor\'"/>';
     }
 
-    public function linkToSave($object, $params)
-    {
+    
+
+    public function linkToSave($object, $params) {
         return '<li class="sf_admin_action_save"><input class="save" type="submit" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
 
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "student",
+                "Instructors" => "instructor"
+            )
+        );
+    }
+
+    public function indexLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "instructors",
+            "is_profile" => false
+        );
+    }
+
+    public function newBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "student",
+                "Instructors" => "instructor"
+            )
+        );
+    }
+
+    public function newLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "instructors",
+            "is_profile" => false
+        );
+    }
+
+    public function editBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "student",
+                "Instructors" => "instructor"
+            )
+        );
+    }
+
+    public function editLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "instructors",
+            "is_profile" => false
+        );
+    }
 }

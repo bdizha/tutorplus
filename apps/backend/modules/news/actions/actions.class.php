@@ -17,6 +17,8 @@ class newsActions extends autoNewsActions
     public function executeIndex(sfWebRequest $request)
     {
         $this->newsItems = NewsTable::getInstance()->retrieveOrdered();
+        
+        //myToolkit::debug($this->newsItems->toArray());
     }
 
     public function executeRecent(sfWebRequest $request)

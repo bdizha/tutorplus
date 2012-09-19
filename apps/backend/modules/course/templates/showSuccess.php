@@ -1,12 +1,13 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_partial('common/nav_vertical_secondary', array("item_level_1" => "dashboard_course", "item_level_2" => "course_home", "Course Home", "current_route" => "course_show")) ?>
+<?php include_component('common', 'menu', $helper->showLinks()) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("Dashboard" => "dashboard", "My Courses" => "my_courses",  "Course ~ "  . $course->getCode() => "course/" . $course->getId()))) ?>
+<?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs()) ?>
 <?php end_slot() ?>
+
 <div class="sf_admin_heading">
     <h3><?php echo __('%%code%% - %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?></h3>
 </div>

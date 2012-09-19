@@ -1,23 +1,8 @@
 all:
   stylesheets: [mailing_list]
-
-newSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false
   
 chooseStudentRecipientsSuccess:
-  layout: false
+  has_layout: false
   
 chooseInstuctorRecipientsSuccess:
-  layout: false
-  
-  
-  
+  has_layout: false

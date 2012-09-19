@@ -123,6 +123,8 @@ menu:
         details:                      { route: email_template, label: "Communication Settings" }
         credentials:                  [ administrator ]
         children:
+          news:                       { route: news, label: "News" }
+          announcements:              { route: announcement, label: "Announcements" }
           email_templates:            { route: email_template, label: "Email Templates" }
           mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
           activity_templates:         { route: activity_template, label: "Activity Templates" }

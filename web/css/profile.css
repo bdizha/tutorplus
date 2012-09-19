@@ -94,7 +94,7 @@
 .profile-column{
     display: inline-block;
     padding: 0;
-    width: 403px;
+    width: 349px;
 }
 .profile-row label{
     display: inline-block;
@@ -468,19 +468,6 @@ span.green{
 #crop_area{
     padding: 10px;
     height: 420px;
-}
-
-.half-block{
-    background-color: #F6F6F6;
-    padding: 10px;
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.full-block{
-    background-color: #F6F6F6;
-    position: relative;
-    margin-bottom: 10px;
 }
 
 .award, .qualification {

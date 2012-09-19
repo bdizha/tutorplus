@@ -1,5 +1,2 @@
-newSuccess:
-  has_layout: false
-  
-editSuccess:
-  has_layout: false
+all:
+  stylesheets: [ staff.css ]

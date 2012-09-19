@@ -1,34 +1,31 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('announcement/flashes') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_partial('common/nav_vertical', array("item_level_1" => "dashboard", "item_level_2" => "my_dashboard", "current_route" => "announcement")) ?>
+<?php include_component('common', 'menu', $helper->indexLinks()) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-    <?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("My Dashboard" => "dashboard", "Notice Board" => "announcement"))) ?>
+<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <?php end_slot() ?>
 
 <div class="sf_admin_heading">
-    <h3><?php echo __('Notice Board', array(), 'messages') ?></h3>
+    <h3><?php echo __('Announcements', array(), 'messages') ?></h3>
 </div>
 <div class="content-block">    
     <div class="announcement-action">
         <ul class="sf_admin_actions" class="clear">
-            <li class="sf_admin_action_announce">
-                <input type="button" class="button" value="+ Announce"/>
-            </li>
+            <?php echo $helper->linkToAnnounce() ?>
         </ul>
     </div>
-    <h2>Announcements</h2>
-    <div id="announcements">
-        <?php include_partial('announcement/list', array("announcements" => $announcements, "helper" => $helper, "showActions" => true)) ?>
+    <div class="white-background">
+        <h2>Announcements</h2>
+        <div id="announcements">
+            <?php include_partial('announcement/list', array("announcements" => $announcements, "helper" => $helper, "showActions" => true)) ?>
+        </div>
     </div>
     <div class="announcement-action">
         <ul class="sf_admin_actions" class="clear">
-            <li class="sf_admin_action_announce">
-                <input type="button" class="button" value="+ Announce"/>
-            </li>
+            <?php echo $helper->linkToAnnounce() ?>
         </ul>
     </div>
 </div>

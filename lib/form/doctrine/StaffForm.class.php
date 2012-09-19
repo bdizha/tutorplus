@@ -10,11 +10,17 @@
  */
 class StaffForm extends BaseStaffForm
 {
-  /**
-   * @see ProfileForm
-   */
-  public function configure()
-  {
-    parent::configure();
-  }
+  protected function setupInheritance() {
+        parent::setupInheritance();
+
+        $this->widgetSchema->setNameFormat('staff[%s]');
+
+        $this->widgetSchema['employment_start_date'] = new sfWidgetFormJQueryDate(array("change_month" => true, "change_year" => true));
+        $this->widgetSchema['employment_end_date'] = new sfWidgetFormJQueryDate(array("change_month" => true, "change_year" => true));
+        $this->widgetSchema['is_active'] = new sfWidgetFormInputCheckbox();
+        $this->widgetSchema['is_student'] = new sfWidgetFormInputCheckbox();
+
+        $this->validatorSchema['is_active'] = new sfValidatorBoolean(array('required' => false));
+        $this->validatorSchema['employment']->setMessage('required', 'The <b>Employment</b> field is required.');
+    }
 }

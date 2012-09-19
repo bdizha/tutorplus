@@ -17,8 +17,8 @@
 .sf_admin_form_field_guardian_state_province_id, .sf_admin_form_field_high_school, .sf_admin_form_field_current_qualification,
 .sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_employment,
 .sf_admin_form_field_is_student, .sf_admin_form_field_employment_start_date, .sf_admin_form_field_employment_end_date,
-.sf_admin_form_field_is_active{
-    width: 46%;
+.sf_admin_form_field_is_active, .sf_admin_form_field_current_study{
+    width: 45%;
     float: left;	
 }
 

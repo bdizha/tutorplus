@@ -30,7 +30,7 @@ generator:
         actions:
           _new: ~
       edit:
-        title:                  Edit Email Template: %%name%%
+        title:                  Edit Email Template ~ %%name%%
         actions:
           cancel:               []
           done:                 []

@@ -28,14 +28,14 @@ class ProfileForm extends BaseProfileForm
         $this->widgetSchema['is_active'] = new sfWidgetFormInputCheckbox();
         $this->widgetSchema->moveField('password_again', 'after', 'password');
 
-        $this->validatorSchema['first_name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>first name</b> field is required.'));
-        $this->validatorSchema['last_name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>last name</b> field is required.'));
-        $this->validatorSchema['email_address'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>email address</b> field is required.'));
+        $this->validatorSchema['first_name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>First name</b> field is required.'));
+        $this->validatorSchema['last_name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Last name</b> field is required.'));
+        $this->validatorSchema['email_address'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Email address</b> field is required.'));
         $this->validatorSchema['user_id'] = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'required' => false));
-        $this->validatorSchema['username'] = new sfValidatorString(array('max_length' => 128, 'required' => true), array('required' => 'The <b>username</b> field is required.'));
-        $this->validatorSchema['password'] = new sfValidatorString(array('max_length' => 128, 'required' => $this->getObject()->isNew()), array('required' => 'The <b>password</b> field is required.'));
+        $this->validatorSchema['username'] = new sfValidatorString(array('max_length' => 128, 'required' => true), array('required' => 'The <b>Username</b> field is required.'));
+        $this->validatorSchema['password'] = new sfValidatorString(array('max_length' => 128, 'required' => $this->getObject()->isNew()), array('required' => 'The <b>Password</b> field is required.'));
         $this->validatorSchema['password_again'] = clone $this->validatorSchema['password'];
-        $this->validatorSchema['password_again']->setMessage('required', 'The <b>confirm password</b> field is required.');
+        $this->validatorSchema['password_again']->setMessage('required', 'The <b>Confirm password</b> field is required.');
         $this->validatorSchema['is_active'] = new sfValidatorBoolean(array('required' => false));
         $this->validatorSchema['permissions_list'] = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardPermission', 'required' => false));
         $this->mergePostValidator(new sfValidatorSchemaCompare('password', sfValidatorSchemaCompare::EQUAL, 'password_again', array(), array('invalid' => 'The two passwords must be the same.')));

@@ -1,11 +1,11 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array("current_parent" => "settings", "current_child" => "academic_settings", "current_link" => "courses")) ?>
+<?php include_component('common', 'menu', $helper->indexLinks()) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("Academics" => "academic", "Academic Settings" => "academic_settings", "Courses" => "course"))) ?>
+<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <?php end_slot() ?>
 
 <?php include_partial('course/flashes') ?>

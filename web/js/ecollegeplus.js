@@ -90,33 +90,33 @@ function myModal(title, url, minHeight, minWidth){
 }
 
 function resizeWidths(){
-    var bodyWidth = $("body").width();
-    
-    // calculate the main body's width
-    if($("body").width() <= 1060)
-    {
-        bodyWidth = 1060;  
-    }
-    
-    bodyWidth = 1060;
-    
-    $("#main-container").width("100%");
-    $("#middle-column").width(bodyWidth - 230);   
-    
-    // cater for the main welcome page
-    if($("#sf_admin_container").val() != undefined)
-    {   
-        // set the content sub block's width
-        var content_width = $("#sf_admin_container").width();
-        
-        $(".left-block, .right-block").each(function(){
-            $(this).width(content_width / 2 - 5);            
-        });
-    }
-    if($("#sf_admin_content").val() != undefined)
-    {         
-        $("#sf_admin_content").width($("#sf_admin_content").width());
-    }
+//    var bodyWidth = $("body").width();
+//    
+//    // calculate the main body's width
+//    if($("body").width() <= 1060)
+//    {
+//        bodyWidth = 1060;  
+//    }
+//    
+//    bodyWidth = 1060;
+//    
+//    $("#main-container").width("100%");
+//    $("#middle-column").width(bodyWidth - 230);   
+//    
+//    // cater for the main welcome page
+//    if($("#sf_admin_container").val() != undefined)
+//    {   
+//        // set the content sub block's width
+//        var content_width = $("#sf_admin_container").width();
+//        
+//        $(".left-block, .right-block").each(function(){
+//            $(this).width(content_width / 2 - 5);            
+//        });
+//    }
+//    if($("#sf_admin_content").val() != undefined)
+//    {         
+//        $("#sf_admin_content").width($("#sf_admin_content").width());
+//    }
 }
 
 function resizeHeights(){

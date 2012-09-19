@@ -16,7 +16,7 @@
 .sf_admin_form_field_guardian_postcode, .sf_admin_form_field_guardian_city, .sf_admin_form_field_guardian_country_id,
 .sf_admin_form_field_guardian_state_province_id, .sf_admin_form_field_high_school, .sf_admin_form_field_current_qualification,
 .sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_studied_at, .sf_admin_form_field_current_study{
-    width: 46%;
+    width: 45%;
     float: left;	
 }
 

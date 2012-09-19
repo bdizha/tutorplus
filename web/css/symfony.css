@@ -1,6 +1,6 @@
 #sf_admin_content{
     padding: 10px 0 0;
-    width: 830px;
+    width: 722px;
 }
 
 .sf_admin_pagination ul li{
@@ -17,7 +17,7 @@
     height: 18px;
 }
 #sf_admin_heading h3, .sf_admin_heading h3{
-    color: #3F7CB6;
+    color: #134D58;
     font-size: 15px;
     font-weight: normal;
 }
@@ -44,9 +44,11 @@
 }
 .sf_admin_list table{
     width: 100%;
+    background-color: white;
 }
 .sf_admin_list th, #discussion_topics_footer{
-    color: #FFFFFF;
+    background-color: #F1F1F1;
+    color: #7E7E7E;
     font-size: 12px;
     font-weight: normal;
     padding: 5px;
@@ -55,17 +57,17 @@
 .sf_admin_list th a{
     font-size: 12px;
     font-weight: normal;
-    color: #FFFFFF !important;
+    color: #7E7E7E !important;
 }
 .sf_admin_list th a:hover{
     text-decoration: underline !important;
 }
 tr.sf_admin_row.even{
-    background-color: #E9E9E9;
+    background-color: #F9F9F9;
     border-bottom: 1px solid #FFFFFF;
 }
 tr.sf_admin_row.odd{
-    background-color: #F3F3F3;
+    background-color: #F8F8F8;
     border-bottom: 1px solid #FFFFFF;
 }
 .sf_admin_list td a{
@@ -100,15 +102,15 @@ tr.sf_admin_row.odd{
     border-radius: 5px 5px 0 0;
 }
 .sf_admin_form h2, .sf_admin_show h2{
-/*    background-color: #8A8A8A;
-    border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: normal;
-    padding: 5px 10px;*/
+    /*    background-color: #8A8A8A;
+        border-radius: 5px 5px 5px 5px;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: normal;
+        padding: 5px 10px;*/
 }
 .sf_admin_form fieldset .sf_admin_form_row{
-    padding: 10px 10px !important;
+    padding: 10px 15px !important;
 }
 .sf_admin_form_row{
     font-size: 12px;
@@ -128,7 +130,6 @@ tr.sf_admin_row.odd{
     width: 140px;
 }
 ul.sf_admin_actions{
-    background-color: #FFFFFF;
     height: 30px;
     margin: 10px 0 10px;
     text-align: right;
@@ -214,7 +215,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     font-size: 12px;
     padding: 5px 0 4px 30px;
     text-align: center;
-    border: 1px solid #A3DB67;
+    border: 1px solid #134D58;
     margin-bottom: 10px;
 }
 

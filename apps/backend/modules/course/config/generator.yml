@@ -20,7 +20,7 @@ generator:
       form:
         display:            
          "Course Details":      [name, code, department_id, academic_period_id, start_date, end_date, credits, hours, max_enrolled, is_finalized, description]
-         "Campuses":            [_campuses_list]
+         #"Campuses":            [_campuses_list]
       filter:
         class: false
       list:

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head> 	
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
-        <title> Tutorplus collaborative learning platform</title>
+        <title>Tutorplus collaborative learning platform</title>
         <meta name="description" content="Tutorplus collaborative learning platform"/>
         <meta name="robots" content="follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -13,13 +13,13 @@
         <?php include_javascripts() ?>
     </head>
     <body>
-        <div id="ecollegeplus">
-            <div id="header-small">
+        <div id="tutorplus">
+            <div id="main-header">
                 <div id="header-wrapper">   
-                    <div id="top-header-small">
-                        <div id="logo-small-wrapper">
-                            <div id="logo-small">
-                                <div id="quick-settings">                        
+                    <div id="inner-header-wrapper">
+                        <div id="logo-container">
+                            <div id="logo-wrapper">
+                                <div id="header-links">                        
                                     <ul>
                                         <li>
                                             <a href="/backend.php/profile">Batanayi Matuku</a>    
@@ -31,7 +31,10 @@
                                             <a href="#">Announcements</a>        
                                         </li>
                                         <li>
-                                            <a href="#">Help</a>        
+                                            <a href="#">Support</a>        
+                                        </li>
+                                        <li>
+                                            <input class="button" value="Logout" type="button" onclick="document.location.href='/backend.php/logout';" />
                                         </li>
                                     </ul>
                                 </div>

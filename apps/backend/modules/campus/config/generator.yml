@@ -12,7 +12,7 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions:             ~
       fields:
       filter:
         class: false
@@ -20,14 +20,13 @@ generator:
         title:             Campuses
         display:           [ name, is_primary, address, city, postcode, country ]
         sort:              [ name, country_id, asc ]
-        batch_actions:     [ ]
+        batch_actions:     []
         max_per_page:			 25
         actions:
           _new:            ~
       edit:
         title:             Edit Campus
         actions:
-          _delete:         []
           cancel:          []
           done:            []
           _save:           []

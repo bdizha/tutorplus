@@ -19,7 +19,8 @@ generator:
       form:
         class:                  AssignmentForm
         display:            
-         "Assignment Details":  [title, course_id, assignment_group_id, description]
+         "Assignment Details":  [title, course_id, assignment_group_id]
+         "Assignment Description":  [description]
          "Assignment Settings": [submission, due_date, points, weight, lock_until, lock_after, is_graded, notify_users, graded_by, allow_late_submission ]
       filter:
         class: false

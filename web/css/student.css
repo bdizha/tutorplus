@@ -56,7 +56,7 @@
 }
 
 #same_as_physical_address{
-    left: 280px;
+    left: 290px;
     position: absolute;
     top: 8px;
 }
@@ -131,3 +131,45 @@
     width: 455px;
 }
 
+.student-item {
+    clear: both;
+    height: 80px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.student-item .image {
+    float: left;
+    width: 150px;
+}
+
+.student-item .image img {
+    padding: 10px;
+    width: 100px;
+}
+
+.student-item .info {
+    float: left;
+    height: 60px;
+    padding: 10px;
+    position: relative;
+    width: 510px;
+}
+
+.student-item .schedule {
+    float: left;
+    padding: 10px;
+    width: 130px;
+}
+
+.student-item .institution{
+    color: #90959A;
+    bottom: 10px;
+    font-size: 11px;
+    left: 10px;
+    position: absolute;
+    text-transform: uppercase;
+}
+
+.student-item-year{
+    padding: 10px;
+}

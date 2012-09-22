@@ -1,91 +1,92 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->showLinks()) ?>
+<?php include_component('common', 'menu', $helper->showLinks($course)) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs()) ?>
+<?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs($course)) ?>
 <?php end_slot() ?>
 
 <div class="sf_admin_heading">
-    <h3><?php echo __('%%code%% - %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?></h3>
+    <h3><?php echo __('%%code%% ~ %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?></h3>
 </div>
 <div id="sf_admin_form_container">
     <div id="sf_admin_content">
-        <div class="section_description">
-            <p><?php echo $course->getDescription() ?></p>
-        </div>
-        <ul class="sf_admin_actions" style="clear:both">
-            <li class="sf_admin_actions_my_courses">
-                <input type="button" class="button" onclick="document.location.href='/backend.php/course';" value="< My Courses"/>
-            </li>
-            <li class="sf_admin_actions_course_assignments">
-                <input type="button" class="button" onclick="document.location.href='/backend.php/assignment';" value="Course Assignments"/>
-            </li>
-        </ul>
         <div class="content-block">
-            <div class="left-block">
-                <h2>Course Info</h2>
+            <h2>Course Info</h2>
+            <div class="full-block">
                 <div class="course_info">
-                    <div class="course-row">
-                        <div class="attribute-label">
-                            Department
+                    <div class="even-row">
+                        <div class="row-column">
+                            <div class="row-label">
+                                Department:
+                            </div>
+                            <div class="row-value">
+                                <?php echo $course->getDepartment() ?>                 
+                            </div>
                         </div>
-                        <div class="attribute-value">
-                            <?php echo $course->getDepartment() ?>                 
-                        </div>
-                    </div>
-                    <div class="course-row">
-                        <div class="attribute-label">
-                            Course dates
-                        </div>
-                        <div class="attribute-value">
-                            <?php echo $course->getDateTimeObject('start_date')->format('d/m/Y') ?> - <?php echo $course->getDateTimeObject('end_date')->format('d/m/Y') ?>                  
-                        </div>
-                    </div>
-                    <div class="course-row">
-                        <div class="attribute-label">
-                            Is finalized
-                        </div>
-                        <div class="attribute-value">
-                            <?php echo $course->getIsFinalized() ?>                 
+                        <div class="row-column">
+                            <div class="row-label">
+                                Course dates:
+                            </div>
+                            <div class="row-value">
+                                <?php echo $course->getDateTimeObject('start_date')->format('d/m/Y') ?> - <?php echo $course->getDateTimeObject('end_date')->format('d/m/Y') ?>                          
+                            </div>
                         </div>
                     </div>
-                    <div class="course-row">
-                        <div class="attribute-label">
-                            Credits
+                    <div class="even-row">
+                        <div class="row-column">
+                            <div class="row-label">
+                                Is finalized:
+                            </div>
+                            <div class="row-value">
+                                <?php echo $course->getIsFinalized() ? "Yes" : "No" ?>                 
+                            </div>
                         </div>
-                        <div class="attribute-value">
-                            <?php echo $course->getCredits() ?>                 
-                        </div>
+                        <div class="row-column">
+                            <div class="row-label">
+                                Credits:
+                            </div>
+                            <div class="row-value">
+                                <?php echo $course->getCredits() ?>                 
+                            </div>
+                        </div>                        
                     </div>
-                    <div class="course-row">
-                        <div class="attribute-label">
-                            Duration
+                    <div class="even-row">
+                        <div class="row-column">
+                            <div class="row-label">
+                                Duration:
+                            </div>
+                            <div class="row-value">
+                                <?php echo $course->getHours() ?> hrs             
+                            </div>
                         </div>
-                        <div class="attribute-value">
-                            <?php echo $course->getHours() ?> hrs             
-                        </div>
-                    </div>
-                    <div class="course-row">
-                        <div class="attribute-label">
-                            Max enrolled
-                        </div>
-                        <div class="attribute-value">
-                            <?php echo $course->getMaxEnrolled() ?> students              
-                        </div>
-                    </div>                    
+                        <div class="row-column">
+                            <div class="row-label">
+                                Max enrolled:
+                            </div>
+                            <div class="row-value">
+                                <?php echo $course->getMaxEnrolled() ?> students              
+                            </div>
+                        </div>    
+                    </div>                
                 </div>
             </div>
-            <div class="right-block">
-                <h2>Meeting Times</h2>
-                <div id="course_meeting_times"></div>
+        </div>
+        <div class="content-block">
+            <h2>Course Description</h2>
+            <div class="full-block padding-10 plain-row">
+                <?php echo $course->getDescription() ?>
             </div>
+        </div>
+        <div class="content-block">
+            <h2>Course Meeting Times</h2>
+            <div class="full-block" id="course_meeting_times"></div>
         </div>
         <div class="content-block">
             <h2>Upcoming Assignments</h2>
-            <div id="upcoming_assigments">
+            <div id="upcoming_assigments" class="full-block padding-10 plain-row">
                 <?php $upcomingAssignments = $course->retrieveUpcomingAssignments() ?>
                 <?php if ($upcomingAssignments->count() > 0): ?>                            
                     <?php foreach ($upcomingAssignments as $assignment): ?>
@@ -105,7 +106,7 @@
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    There's no upcoming assignments
+                    There's no upcoming assignments currently
                 <?php endif; ?>
             </div>
         </div>

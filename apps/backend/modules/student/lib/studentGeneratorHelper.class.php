@@ -37,6 +37,14 @@ class studentGeneratorHelper extends BaseStudentGeneratorHelper {
         return '<li class="sf_admin_action_save"><input class="save" type="submit" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
 
+    public function linkToAcademic($object, $params) {
+        return '<input class="save" type="button" value="Manage Academic Details" onclick="document.location.href=\'/backend.php/student_academic_settings\'"/>';
+    }
+
+    public function linkToContact($object, $params) {
+        return '<input class="save" type="button" value="Manage Contact Details" onclick="document.location.href=\'/backend.php/student_contact/new\'"/>';
+    }
+
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Settings" => "course",

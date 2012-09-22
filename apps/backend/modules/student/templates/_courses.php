@@ -1,9 +1,16 @@
-<ul>
-    <?php foreach ($courses as $course): ?>
-        <li>
-            <div class="course-image"><img src="/images/icons/14x14/my_courses.png" alt="<?php echo $course["name"] ?>"/></div>
-            <div class="course-name"><?php echo $course["name"] ?></div>
-        </li> 
-    <?php endforeach; ?>      
-</ul>
-<div class="clear"></div>
+<?php if (count($courses) == 0): ?>
+    <div class="no-result">There's currently no courses assigned.</div>
+<?php endif; ?>
+<?php foreach ($courses as $course): ?>
+    <div class="student-item even-background">
+        <div class="image">
+            <img alt="<?php echo $course["name"] ?>" src="/images/small-icon.hover.png">
+        </div>
+        <div class="info">
+            <div class="name"><?php echo $course["name"] ?></div>
+        </div>
+        <div class="student-item-year">
+            <span>2012</span>
+        </div>
+    </div>
+<?php endforeach; ?> 

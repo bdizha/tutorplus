@@ -1,11 +1,11 @@
 [?php use_helper('I18N', 'Date') ?]
 
 [?php slot('nav_vertical') ?]
-[?php include_component('common', 'menu', $helper->editLinks()) ?]
+[?php include_component('common', 'menu', $helper->editLinks($<?php echo $this->getSingularName() ?>)) ?]
 [?php end_slot() ?]
 
 [?php slot('breadcrumbs') ?]
-[?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs()) ?]
+[?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs($<?php echo $this->getSingularName() ?>)) ?]
 [?php end_slot() ?]
 
 <div class="sf_admin_heading">

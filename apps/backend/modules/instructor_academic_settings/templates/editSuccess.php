@@ -1,13 +1,15 @@
 <?php use_helper('I18N', 'Date') ?>
+
 <?php slot('nav_vertical') ?>
-<?php include_partial('common/nav_vertical_secondary', array("item_level_1" => "academics_instructor", "item_level_2" => "instructor_details", "current_route" => "instructor_academic_settings")) ?>
+<?php include_component('common', 'menu', $helper->editLinks()) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("Academics" => "instructor", "Instructors" => "instructor", __('Edit Academic Details ~ %%first_name%% %%last_name%%', array('%%first_name%%' => $instructor->getFirstName(), '%%last_name%%' => $instructor->getLastName()), 'messages') => "instructor_academic_settings/" . $instructor->getId() . "/"))) ?>
+<?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs($instructor)) ?>
 <?php end_slot() ?>
 
 <?php include_partial('instructor_academic_settings/flashes', array('form' => $form)) ?>
+
 <div class="sf_admin_heading">
     <h3><?php echo __('Edit Academic Details ~ %%first_name%% %%last_name%%', array('%%first_name%%' => $instructor->getFirstName(), '%%last_name%%' => $instructor->getLastName()), 'messages') ?></h3>
 </div>
@@ -21,14 +23,16 @@
                 <input type="button" class="button" title="Manage Instructor Mailing Lists" popupurl="<?php echo url_for2('choose_mailing_list', array("module_name" => "instructor", "object_id" => $instructor->getId())) ?>" value="Manage Mailing Lists" />
             </li>
         </ul>
-        <div class="sf_admin_show">
+        <div class="content-block">
             <h2>Courses</h2>
-            <div id="courses_list">
-                <?php include_partial('course/courses', array('courses' => $instructor->getCourses())) ?>
+            <div class="full-block" id="courses_list">   
+                <?php include_partial('instructor/courses', array('courses' => $instructor->getCourses())) ?>
             </div>
+        </div>
+        <div class="content-block">
             <h2>Mailing Lists</h2>
-            <div id="mailing_lists_list">
-                <?php include_partial('mailing_list/mailing_lists', array('mailingLists' => $instructor->getMailingLists())) ?>
+            <div class="full-block" id="mailing_lists_list">    
+                <?php include_partial('instructor/mailing_lists', array('mailingLists' => $instructor->getMailingLists())) ?>
             </div>
         </div>
     </div>

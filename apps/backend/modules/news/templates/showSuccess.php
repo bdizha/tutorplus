@@ -19,7 +19,7 @@
     </div> 
     <div class="white-background">
         <h2><?php echo $news->getHeading() ?></h2>   
-        <div class="description full-block">
+        <div class="description padding-10 full-block">
             <?php echo $news->getDescription() ?>
         </div>         
     </div>

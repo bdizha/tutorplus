@@ -25,9 +25,9 @@ class ProfileAccountSettingsForm extends BasesfGuardUserForm
 
         $this->validatorSchema['email_address'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>email address</b> field is required.'));
         $this->validatorSchema['username'] = new sfValidatorString(array('max_length' => 128, 'required' => true), array('required' => 'The <b>username</b> field is required.'));
-        $this->validatorSchema['password'] = new sfValidatorString(array('max_length' => 128, 'required' => $this->getObject()->isNew()), array('required' => 'The <b>password</b> field is required.'));
+        $this->validatorSchema['password'] = new sfValidatorString(array('max_length' => 128, 'required' => $this->getObject()->isNew()), array('required' => 'The <b>Password</b> field is required.'));
         $this->validatorSchema['password_again'] = clone $this->validatorSchema['password'];
-        $this->validatorSchema['password_again']->setMessage('required', 'The <b>confirm password</b> field is required.');
+        $this->validatorSchema['password_again']->setMessage('required', 'The <b>Confirm password</b> field is required.');
         $this->mergePostValidator(new sfValidatorSchemaCompare('password', sfValidatorSchemaCompare::EQUAL, 'password_again', array(), array('invalid' => 'The two passwords must be the same.')));
     }
 

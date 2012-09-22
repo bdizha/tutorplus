@@ -15,32 +15,8 @@
     <body>
         <div id="tutorplus">
             <div id="main-header">
-                <div id="header-wrapper">   
-                    <div id="inner-header-wrapper">
-                        <div id="logo-container">
-                            <div id="logo-wrapper">
-                                <div id="header-links">                        
-                                    <ul>
-                                        <li>
-                                            <a href="/backend.php/profile">Batanayi Matuku</a>    
-                                        </li>
-                                        <li>
-                                            <a href="#">Inbox</a>            
-                                        </li>
-                                        <li>
-                                            <a href="#">Announcements</a>        
-                                        </li>
-                                        <li>
-                                            <a href="#">Support</a>        
-                                        </li>
-                                        <li>
-                                            <input class="button" value="Logout" type="button" onclick="document.location.href='/backend.php/logout';" />
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="header-wrapper"> 
+                    <?php include_partial('common/header') ?>
                     <div id="main-menu">
                         <?php include_slot('nav_horizontal') ?>
                     </div>                 
@@ -69,19 +45,7 @@
                 <div id="modal-body" class="modal-body"></div>
             </div>
             <div id="main-footer">
-                <div id="bottom-menu">
-                    <div id="copyright">TutorPlus.org &copy; <?php echo date("Y") ?>. All rights reserved.</div>
-                    <div id="footer-links">
-                        <ul>
-                            <li><a href="http://tutorplus.org/support" class="first" target="_blank">Support</a></li>
-                            <li><a href="http://tutorplus.org/terms" target="_blank">Terms of service</a></li>
-                            <li><a href="http://tutorplus.org/privacy-policy" target="_blank">Privacy policy</a></li>
-                            <li><a href="http://www.facebook.com/tutorplus" target="_blank">Facebook</a></li>
-                            <li><a href="http://www.twitter.com/tutorplus" target="_blank">Twitter</a></li>
-                        </ul>                        
-                    </div>
-                    <div id="ownership">Powered by <a target="_blank" href="http://www.graphifox.com">www.graphifox.com</a></div>
-                </div>
+                <?php include_partial('common/footer') ?>
             </div>
         </div>        
     </body>

@@ -19,7 +19,7 @@ class AssignmentForm extends BaseAssignmentForm
             $this['created_at'], $this['updated_at']
         );
 
-        $course_id = sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null);
+        $courseId = sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null);
         $this->widgetSchema['course_id'] = new sfWidgetFormInputHidden();
 
         $this->widgetSchema['due_date'] = new sfWidgetFormJQueryDate(array("change_month" => true, "change_year" => true));
@@ -55,7 +55,7 @@ class AssignmentForm extends BaseAssignmentForm
         $this->validatorSchema['points']->setMessage('required', 'The <b>Points</b> field is required.');
 
         $this->setDefaults(array(
-            'course_id' => $course_id
+            'course_id' => $courseId
             )
         );
     }

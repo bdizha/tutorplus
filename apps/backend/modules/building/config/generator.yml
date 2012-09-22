@@ -15,21 +15,20 @@ generator:
       actions: ~
       fields: ~
       filter:
-        class: false
+        class:             false
       list:
         title:             Buildings
         display:           [ name, abbreviation ]
         sort:              [ name, asc ]
-        batch_actions:     [ ]
+        batch_actions:     []
         max_per_page:      10 
         actions:
-          _new: ~
+          _new:            ~
       form:
         display:           [ name, abbreviation ]
       edit:
         title:             Edit Building
         actions:
-          _delete:         []
           cancel:          []
           done:            []
           _save:           []

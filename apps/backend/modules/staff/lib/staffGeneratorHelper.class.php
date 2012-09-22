@@ -86,7 +86,7 @@ class staffGeneratorHelper extends BaseStaffGeneratorHelper {
         return array(
             "current_parent" => "settings",
             "current_child" => "access_settings",
-            "current_link" => "stuff",
+            "current_link" => "staff",
             "is_profile" => false
         );
     }

@@ -20,10 +20,10 @@
     <ul>	
         <?php foreach ($currentParentMenu["children"] as $child => $childItem): ?>	
             <?php $i++; ?>
-            <?php $id = ($child == $current_child) ? "id='nav-selected'" : "" ?>
+            <?php $itemId = ($child == $current_child) ? "id='nav-selected'" : "" ?>
             <div class="menu-item" style="display:none"></div>
             <?php if ($currentParentMenu["type"] == "Many" || ($currentParentMenu["type"] == "One" && $child == $current_child)): ?>
-                <li <?php echo $id ?>>
+                <li <?php echo $itemId ?>>
                     <div class="menu-item">
                         <div class="menu-heading"><span><?php echo __($childItem["details"]["label"]) ?></span></div>
                     </div>
@@ -32,14 +32,15 @@
                             <img width="151" alt="Batanayi Matuku" src="https://lh5.googleusercontent.com/-J4chDl4M2ZI/AAAAAAAAAAI/AAAAAAAAAAA/ylxejGmnnkM/s77-c-k/photo.jpg?fb=s">
                         </div>
                     <?php endif; ?>
-                    <div id="child-item-<?php echo $i ?>" class="menu-item-children" style="display: <?php echo empty($id) ? "none" : "block" ?>;">
+                    <div id="child-item-<?php echo $i ?>" class="menu-item-children" style="display: <?php echo empty($itemId) ? "none" : "block" ?>;">
                         <ol>
                             <?php $counter = 0; ?>                                    
                             <?php foreach ($childItem["children"] as $link => $linkItem): ?>
                                 <?php $counter++ ?>
-                                <?php $id2 = ($link == $current_link) ? "selected" : "" ?>
-                                <li id="<?php echo $linkItem["route"] ?>_item" <?php echo $counter == count($childItem["children"]) ? "style='border-bottom:none;'" : "" ?> class="<?php echo $counter == 1 ? "first " : "" ?><?php echo $id2 ?>">
-                                    <?php echo link_to(__($linkItem["label"]), '@' . $linkItem["route"]) ?>
+                                <?php $itemId2 = ($link == $current_link) ? "selected" : "" ?>
+                                <?php $params = (isset($linkItem["param"])) ? "?" . $linkItem["param"] . "=" . $$linkItem["param"] : "" ?>
+                                <li id="<?php echo $linkItem["route"] ?>_item" <?php echo $counter == count($childItem["children"]) ? "style='border-bottom:none;'" : "" ?> class="<?php echo $counter == 1 ? "first " : "" ?><?php echo $itemId2 ?>">
+                                    <?php echo link_to(__($linkItem["label"]), '@' . $linkItem["route"] . $params) ?>
                                 </li>
                             <?php endforeach; ?>
                         </ol>

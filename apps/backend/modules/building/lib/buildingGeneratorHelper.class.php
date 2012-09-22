@@ -42,4 +42,22 @@ class buildingGeneratorHelper extends BaseBuildingGeneratorHelper {
         return '<li class="sf_admin_action_save"><input class="save" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
 
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Location Settings" => "room",
+                "Buildings" => "building"
+            )
+        );
+    }
+
+    public function indexLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "location_settings",
+            "current_link" => "buildings",
+            "is_profile" => false
+        );
+    }
+
 }

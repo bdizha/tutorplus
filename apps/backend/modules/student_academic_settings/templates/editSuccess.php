@@ -1,14 +1,15 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_partial('common/nav_vertical_secondary', array("item_level_1" => "academics_student", "item_level_2" => "student_details", "current_route" => "student_academic_settings")) ?>
+<?php include_component('common', 'menu', $helper->editLinks()) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("Academics" => "student", "Students" => "student", __('Edit Academic Details ~ %%first_name%% %%last_name%%', array('%%first_name%%' => $student->getFirstName(), '%%last_name%%' => $student->getLastName()), 'messages') => "student_academic_settings/" . $student->getId() . "/"))) ?>
+<?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs($student)) ?>
 <?php end_slot() ?>
 
 <?php include_partial('student_academic_settings/flashes', array('form' => $form)) ?>
+
 <div class="sf_admin_heading">
     <h3><?php echo __('Edit Academic Details ~ %%first_name%% %%last_name%%', array('%%first_name%%' => $student->getFirstName(), '%%last_name%%' => $student->getLastName()), 'messages') ?></h3>
 </div>
@@ -25,18 +26,22 @@
                 <input type="button" class="button" title="Manage Student Mailing Lists" popupurl="<?php echo url_for2('choose_mailing_list', array("module_name" => "student", "object_id" => $student->getId())) ?>" value="Manage Mailing Lists" />
             </li>
         </ul>
-        <div class="sf_admin_show">
+        <div class="content-block">
             <h2>Programmes</h2>
-            <div id="programmes_list">
-                <?php include_partial('program/programmes', array('programmes' => $student->getProgrammes())) ?>
-            </div>                
-            <h2>Courses</h2>
-            <div id="courses_list">
-                <?php include_partial('course/courses', array('courses' => $student->getCourses())) ?>
+            <div class="full-block" id="programmes_list">    
+                <?php include_partial('student/programmes', array('programmes' => $student->getProgrammes())) ?>
             </div>
+        </div>
+        <div class="content-block">
+            <h2>Courses</h2>
+            <div class="full-block" id="courses_list">   
+                <?php include_partial('student/courses', array('courses' => $student->getCourses())) ?>
+            </div>
+        </div>
+        <div class="content-block">
             <h2>Mailing Lists</h2>
-            <div id="mailing_lists_list">
-                <?php include_partial('mailing_list/mailing_lists', array('mailingLists' => $student->getMailingLists())) ?>
+            <div class="full-block" id="mailing_lists_list">    
+                <?php include_partial('student/mailing_lists', array('mailingLists' => $student->getMailingLists())) ?>
             </div>
         </div>
     </div>

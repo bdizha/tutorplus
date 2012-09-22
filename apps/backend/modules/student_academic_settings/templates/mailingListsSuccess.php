@@ -1,1 +1,1 @@
-<?php include_partial('mailing_list/mailing_lists', array('mailingLists' => $student->getMailingLists())) ?>
+<?php include_partial('student/mailing_lists', array('mailingLists' => $student->getMailingLists())) ?>

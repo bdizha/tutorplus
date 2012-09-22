@@ -35,6 +35,8 @@ generator:
       edit:
         title:               Edit Student ~ %%first_name%% %%last_name%%
         actions:
+          _academic:         []
+          _contact:          []
           cancel:            []
           done:              []
           _save:             []

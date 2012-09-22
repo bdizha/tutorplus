@@ -1,5 +1,2 @@
 all:  
   layout:         landing
-  
-logInMiniSuccess:
-  has_layout:     false

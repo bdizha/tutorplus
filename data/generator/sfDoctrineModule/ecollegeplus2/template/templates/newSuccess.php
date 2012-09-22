@@ -1,11 +1,11 @@
 [?php use_helper('I18N', 'Date') ?]
 
 [?php slot('nav_vertical') ?]
-[?php include_component('common', 'menu', $helper->newLinks()) ?]
+[?php include_component('common', 'menu', $helper->newLinks($form)) ?]
 [?php end_slot() ?]
 
 [?php slot('breadcrumbs') ?]
-[?php include_partial('common/breadcrumbs', $helper->newBreadcrumbs()) ?]
+[?php include_partial('common/breadcrumbs', $helper->newBreadcrumbs($form)) ?]
 [?php end_slot() ?]
 
 <div class="sf_admin_heading">

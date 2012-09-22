@@ -52,4 +52,22 @@ class roomGeneratorHelper extends BaseRoomGeneratorHelper
     {
         return '<li class="sf_admin_action_save"><input class="save" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
+
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Location Settings" => "country",
+                "Rooms" => "room"
+            )
+        );
+    }
+
+    public function indexLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "location_settings",
+            "current_link" => "rooms",
+            "is_profile" => false
+        );
+    }
 }

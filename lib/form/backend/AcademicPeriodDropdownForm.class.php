@@ -1,21 +1,21 @@
 <?php
 
-class AcademicPeriodDropdownForm extends BaseStudentProgramForm
-{
-  public function configure()
-  {  	
-  	$this->useFields(array());
-    $this->setWidgets(array(
-      'academic_info_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('StartAcademicPeriod'), 'add_empty' => false)),
-    ));
+class AcademicPeriodDropdownForm extends BaseStudentProgramForm {
 
-    $this->setValidators(array(
-      'academic_info_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('StartAcademicPeriod'))),
-    ));
+    public function configure() {
+        $this->useFields(array());
+        $this->setWidgets(array(
+            'academic_info_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('StartAcademicPeriod'), 'add_empty' => false)),
+        ));
 
-    $this->widgetSchema->setNameFormat('academic_period[%s]');
+        $this->setValidators(array(
+            'academic_info_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('StartAcademicPeriod'))),
+        ));
 
-    $this->disableLocalCSRFProtection();
-    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
-  }
+        $this->widgetSchema->setNameFormat('academic_period[%s]');
+
+        $this->disableLocalCSRFProtection();
+        $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+    }
+
 }

@@ -24,7 +24,7 @@ generator:
         class:                      ~
         display:            
          "Physical Address":        [ email_address, phone_work, phone_home, phone_mobile, address_line_1, address_line_2, postcode, city, country_id, state_province_id ]
-         "Postal Address [Same as home address ]": [ postal_address_line_1, postal_address_line_2, postal_postcode, postal_city, postal_country_id, postal_state_province_id ]
+         "Postal Address [Same as physical address]": [ postal_address_line_1, postal_address_line_2, postal_postcode, postal_city, postal_country_id, postal_state_province_id ]
       filter:
         class:                      false
       list:

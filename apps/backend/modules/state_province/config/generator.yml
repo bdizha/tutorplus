@@ -27,7 +27,6 @@ generator:
       edit:
         title:             Edit State Province
         actions:
-          _delete:         []
           cancel:          []
           done:            []
           _save:           []

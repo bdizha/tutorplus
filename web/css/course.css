@@ -159,7 +159,4 @@ select[size], select[multiple], select[size][multiple] {
 }
 
 .course_info{
-    background-color: #F5F5F5;
-    border-radius: 5px;
-    margin-bottom: 20px
 }

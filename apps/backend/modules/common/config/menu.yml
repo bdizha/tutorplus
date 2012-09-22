@@ -42,10 +42,12 @@ menu:
         details:                      { route: course_show, label: "Course Home" }
         credentials:                  [ student, instructor, staff ]
         children:
-          course_info:                { route: course_show, label: "Course Info" }
+          course_info:                { route: course_show, param: id,  label: "Course Info" }
           assignments:                { route: assignment, label: "Assignments" }
+          assignment_groups:          { route: assignment_group, label: "Assignments Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
-          course_files:               { route: course_file, label: "Course Docs" }
+          course_files:               { route: course_file, label: "Course Files" }
+          course_videos:              { route: course_file, label: "Course Videos" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ student, instructor, staff ]
@@ -110,8 +112,6 @@ menu:
           academic_periods:           { route: academic_period, label: "Academic Periods" }
           program_levels:             { route: program_level, label: "Program Levels" }
           faculties:                  { route: faculty, label: "Faculties" }
-          buildings:                  { route: building, label: "Buildings" }
-          campuses:                   { route: campus, label: "Campuses" }
       access_settings:                    
         details:                      { route: student, label: "Access Settings" }
         credentials:                  [ administrator ]
@@ -128,3 +128,12 @@ menu:
           email_templates:            { route: email_template, label: "Email Templates" }
           mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
           activity_templates:         { route: activity_template, label: "Activity Templates" }
+      location_settings:                    
+        details:                      { route: country, label: "Location Settings" }
+        credentials:                  [ administrator ]
+        children:
+          countries:                  { route: country, label: "Countries" }
+          state_provincies:           { route: state_province, label: "State Provinces" }
+          buildings:                  { route: building, label: "Buildings" }
+          campuses:                   { route: campus, label: "Campuses" }
+          rooms:                      { route: room, label: "Rooms" }

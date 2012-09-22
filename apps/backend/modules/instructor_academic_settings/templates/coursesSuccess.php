@@ -1,1 +1,1 @@
-<?php include_partial('course/courses', array('courses' => $instructor->getCourses())) ?>
+<?php include_partial('instructor/courses', array('courses' => $instructor->getCourses())) ?>

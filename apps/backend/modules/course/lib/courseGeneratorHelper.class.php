@@ -45,7 +45,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Setting" => "course",
-                "Communication Settings" => "academic_settings",
+                "Academic Settings" => "academic_settings",
                 "Courses" => "course"
             )
         );
@@ -96,21 +96,21 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function showBreadcrumbs() {
+    public function showBreadcrumbs($course) {
         return array('breadcrumbs' => array(
-                "Setting" => "course",
-                "Academic Settings" => "academic_settings",
-                "Courses" => "course"
+                "Courses" => "course",
+                "My Course" => "my_course"
             )
         );
     }
 
-    public function showLinks() {
+    public function showLinks($course) {
         return array(
-            "current_parent" => "settings",
-            "current_child" => "academic_settings",
-            "current_link" => "courses",
-            "is_profile" => true
+            "current_parent" => "courses",
+            "current_child" => "my_course",
+            "current_link" => "course_info",
+            "is_profile" => true,
+            "id" => $course->getId()
         );
     }
 

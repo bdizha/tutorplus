@@ -1,11 +1,5 @@
 chooseSuccess:
-  layout: false
+  has_layout: false
 
 programmesSuccess:
-  layout: false
-
-newSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false
+  has_layout: false

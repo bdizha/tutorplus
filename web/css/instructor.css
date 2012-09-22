@@ -16,7 +16,7 @@
 .sf_admin_form_field_guardian_postcode, .sf_admin_form_field_guardian_city, .sf_admin_form_field_guardian_country_id,
 .sf_admin_form_field_guardian_state_province_id, .sf_admin_form_field_high_school, .sf_admin_form_field_current_qualification,
 .sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_employment,
-.sf_admin_form_field_is_student, .sf_admin_form_field_employment_start_date, .sf_admin_form_field_employment_end_date,
+.sf_admin_form_field_is_instructor, .sf_admin_form_field_employment_start_date, .sf_admin_form_field_employment_end_date,
 .sf_admin_form_field_is_active, .sf_admin_form_field_current_study{
     width: 45%;
     float: left;	
@@ -100,39 +100,8 @@
     font-weight: normal;
 }
 
-#programes_list{
+#mailing_lists_list, #courses_list{
     display: block;
-    padding: 10px;
-}
-
-#programes_list li {
-    display: block;
-    float: left;
-    height: 20px;
-    line-height: 18px;
-    margin-bottom: 10px;
-    position: relative;
-    width: 400px;
-}
-
-.program-name{
-    height: 20px;
-    left: 20px;
-    position: absolute;
-    top: 0;
-}
-
-.program-image{
-    height: 20px;
-    left: 0;
-    position: absolute;
-    top: 2px;
-    width: 10px;    
-}
-
-#courses_list{
-    display: block;
-    padding: 10px;
 }
 
 #courses_list li {
@@ -158,11 +127,6 @@
     position: absolute;
     top: 2px;
     width: 10px;    
-}
-
-#mailing_lists_list{
-    display: block;
-    padding: 10px;
 }
 
 #mailing_lists_list li {
@@ -258,4 +222,47 @@
     padding-bottom: 5px;
     position: relative;
     width: 455px;
+}
+
+.instructor-item {
+    clear: both;
+    height: 80px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.instructor-item .image {
+    float: left;
+    width: 150px;
+}
+
+.instructor-item .image img {
+    padding: 10px;
+    width: 100px;
+}
+
+.instructor-item .info {
+    float: left;
+    height: 60px;
+    padding: 10px;
+    position: relative;
+    width: 510px;
+}
+
+.instructor-item .schedule {
+    float: left;
+    padding: 10px;
+    width: 130px;
+}
+
+.instructor-item .institution{
+    color: #90959A;
+    bottom: 10px;
+    font-size: 11px;
+    left: 10px;
+    position: absolute;
+    text-transform: uppercase;
+}
+
+.instructor-item-year{
+    padding: 10px;
 }

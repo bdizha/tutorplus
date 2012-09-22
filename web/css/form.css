@@ -3,6 +3,7 @@
     color: #666666;
     font-size: 12px;
     margin-top: 10px;
+    padding-left: 10px;
 }
 
 textarea{
@@ -70,8 +71,6 @@ input[type="text"], input[type="password"]{
     border: 1px solid #DFDFDF;
     background: white;
     outline: 0;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
 }
 
 input[type="password"]:focus, input[type="text"]:focus, textarea:focus{

@@ -24,9 +24,9 @@ class ProfileChangePasswordForm extends BasesfGuardUserForm
     $this->validatorSchema['password_current'] = clone $this->validatorSchema['password'];    
     $this->validatorSchema['password_again'] = clone $this->validatorSchema['password'];
     
-    $this->validatorSchema['password']->setMessage("required", "The <b>new password</b> is required");
-    $this->validatorSchema['password_current']->setMessage("required", "The <b>current password</b> is required");
-    $this->validatorSchema['password_again']->setMessage("required", "The <b>new password confirmation</b> is required");    
+    $this->validatorSchema['password']->setMessage("required", "The <b>New password</b> is required");
+    $this->validatorSchema['password_current']->setMessage("required", "The <b>Current password</b> is required");
+    $this->validatorSchema['password_again']->setMessage("required", "The <b>New password confirmation</b> is required");    
 
     $this->mergePostValidator(new sfValidatorSchemaCompare('password', sfValidatorSchemaCompare::EQUAL, 'password_again', array(), array('invalid' => 'The <b>two passwords</b> must be the same.')));
   }

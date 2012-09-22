@@ -72,7 +72,6 @@ tr.sf_admin_row.odd{
 }
 .sf_admin_list td a{
     color: #0088CC;
-    font-size: 11px !important;
 }
 .sf_admin_list td a:hover{
     color: #0088CC;

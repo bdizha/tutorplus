@@ -31,7 +31,7 @@ instructor_contact:
     model:                InstructorContact
     module:               instructor_contact
     prefix_path:          /instructor_contact
-    column:               idacademic_settings
+    column:               id
     with_wildcard_routes: true
     
 student_contact:
@@ -330,15 +330,6 @@ student_contact_inline_update:
   url:     /student_contact_inline/update
   param:   { module: student_contact, action: inlineUpdate }
   requirements: { sf_method: put } 
-
-student_contact:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                StudentContact
-    module:               student_contact
-    prefix_path:          /student_contact
-    column:               id
-    with_wildcard_routes: true
 
 enrollment:
   class: sfDoctrineRouteCollection
@@ -801,14 +792,14 @@ student_contact_details_edit:
   url:     /student_contact_details/:id/edit.:sf_format
   class:   sfDoctrineRoute
   options: { model: StudentContact, type: object }
-  param:   { module: student_contact, action: editContactDetails, sf_format: html }
+  param:   { module: student_contact, action: edit, sf_format: html }
   requirements: { sf_method: get }
   
 student_contact_details_new:
   url:     /student_contact_details/new.:sf_format
   class:   sfDoctrineRoute
   options: { model: StudentContact, type: object }
-  param:   { module: student_contact, action: newContactDetails, sf_format: html }
+  param:   { module: student_contact, action: new, sf_format: html }
   requirements: { sf_method: get }
   
 notification_settings_details:

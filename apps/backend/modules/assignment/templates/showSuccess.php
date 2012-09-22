@@ -1,10 +1,11 @@
 <?php use_helper('I18N', 'Date') ?>
+
 <?php slot('nav_vertical') ?>
-<?php include_partial('common/nav_vertical_secondary', array("item_level_1" => "dashboard_course", "item_level_2" => "course_home", "Course Home", "current_route" => "assignment")) ?>
+<?php include_component('common', 'menu', $helper->showLinks($assignment)) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("Dashboard" => "dashboard", "My Courses" => "my_courses", "Course ~ "  . $course->getCode() => "course/" . $course->getId(), "Assignments" => "assignment", "Assignment ~ " . myToolkit::shortenString($assignment->getTitle(), 50) => "assignment/" . $assignment->getId()))) ?>
+<?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs($assignment)) ?>
 <?php end_slot() ?>
 
 <div class="sf_admin_heading">

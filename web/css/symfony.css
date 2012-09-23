@@ -4,8 +4,8 @@
 }
 
 .sf_admin_pagination ul li{
-    background-color: #F5F5F5;
-    border: 1px solid #CCC;
+    background-color: #F9F9F9;
+    border: 1px solid #FFFFFF;
     display: inline;
     float: left;
     height: 20px;
@@ -22,7 +22,8 @@
     font-weight: normal;
 }
 .pager-current{
-    background-color: #0088CC !important;
+    background-color: #134D58 !important;
+    color: #FFFFFF;
 }
 .sf_admin_pagination ul li a:hover{
     color: #4B7092;
@@ -32,7 +33,7 @@
     cursor: pointer;
 }
 .sf_admin_pagination ul li a{
-    color: #0088CC !important;
+    color: #134D58 !important;
 }
 #sf_admin_form_container{
     display: table;
@@ -51,8 +52,9 @@
     color: #7E7E7E;
     font-size: 12px;
     font-weight: normal;
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
     text-align: left;
+    border-radius: 0 0 3px 3px;
 }
 .sf_admin_list th a{
     font-size: 12px;
@@ -80,7 +82,7 @@ tr.sf_admin_row.odd{
 }
 .sf_admin_list td{
     font-size: 12px;
-    padding: 5px;
+    padding: 5px 5px 5px 10px;
 }
 .sf_admin_heading{
     color: #555555;
@@ -101,15 +103,9 @@ tr.sf_admin_row.odd{
     border-radius: 5px 5px 0 0;
 }
 .sf_admin_form h2, .sf_admin_show h2{
-    /*    background-color: #8A8A8A;
-        border-radius: 5px 5px 5px 5px;
-        color: #FFFFFF;
-        font-size: 12px;
-        font-weight: normal;
-        padding: 5px 10px;*/
 }
 .sf_admin_form fieldset .sf_admin_form_row{
-    padding: 10px 15px !important;
+    padding: 10px 10px !important;
 }
 .sf_admin_form_row{
     font-size: 12px;
@@ -130,7 +126,7 @@ tr.sf_admin_row.odd{
 }
 ul.sf_admin_actions{
     height: 30px;
-    margin: 10px 0 10px;
+    margin: 10px 0 0;
     text-align: right;
 }
 #sf_admin_documents ul.sf_admin_actions{

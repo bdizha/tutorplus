@@ -38,10 +38,10 @@ class discussion_topicActions extends autoDiscussion_topicActions
 
     public function executeShow(sfWebRequest $request)
     {
-        $this->forward404Unless($this->discussion_topic = $this->getRoute()->getObject());
-        $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussion_topic->getId());
+        $this->forward404Unless($this->discussionTopic = $this->getRoute()->getObject());
+        $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussionTopic->getId());
 
-        $course = $this->discussion_topic->getDiscussion()->getCourseDiscussion()->getCourse();
+        $course = $this->discussionTopic->getDiscussion()->getCourseDiscussion()->getCourse();
         if ($course->getId())
         {
             $this->course = $course;

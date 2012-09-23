@@ -160,3 +160,48 @@ select[size], select[multiple], select[size][multiple] {
 
 .course_info{
 }
+
+
+
+.course-item {
+    clear: both;
+    height: 80px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.course-item .image {
+    float: left;
+    width: 150px;
+}
+
+.course-item .image img {
+    padding: 10px;
+    width: 100px;
+}
+
+.course-item .info {
+    float: left;
+    height: 60px;
+    padding: 10px;
+    position: relative;
+    width: 510px;
+}
+
+.course-item .schedule {
+    float: left;
+    padding: 10px;
+    width: 130px;
+}
+
+.course-item .institution{
+    color: #90959A;
+    bottom: 10px;
+    font-size: 11px;
+    left: 10px;
+    position: absolute;
+    text-transform: uppercase;
+}
+
+.course-item-year{
+    padding: 10px;
+}

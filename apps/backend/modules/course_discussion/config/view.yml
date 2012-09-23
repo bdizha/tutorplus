@@ -1,5 +1,5 @@
 all:
-  stylesheets: [discussion]
+  stylesheets: [discussion, profile]
   
 newSuccess:
   has_layout: false

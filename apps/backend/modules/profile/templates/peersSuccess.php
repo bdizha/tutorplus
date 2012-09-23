@@ -15,7 +15,7 @@
             <span class="peer-filter current">Instructor peers (16)</span>
             <span class="peer-filter">Find peers</span>
         </div>
-        <div class="peer-block">        
+        <div class="peer-block plain-row padding-10">        
             <div class="peer"> 
                 <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
                 <div class="name">Batanayi Matuku</div>

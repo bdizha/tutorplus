@@ -1,7 +1,7 @@
-<div class="sf_admin_list">
-    <h2>Discussion Topics - <?php echo $pager->getNbResults(); ?> topic(s)</h2> 
+<h2>Discussion Topics - <?php echo $pager->getNbResults(); ?> topic(s)</h2>
+<div class="full-block">
     <?php if (!$pager->getNbResults()): ?>
-        <div class="sf_admin_form_row">
+        <div class="sf_admin_form_row even-row">
             <p><?php echo __('No posts', array(), 'sf_admin') ?></p>
         </div>
     <?php else: ?>  
@@ -10,10 +10,10 @@
                 <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussion_topic, "helper" => $helper)) ?>
             <?php endforeach; ?>
         </div>
-        <?php if ($pager->haveToPaginate()): ?>
-            <div id="discussion_topics_footer">
-                <?php include_partial('discussion_topic/pagination', array('pager' => $pager)) ?>
-            </div>
-        <?php endif; ?>
     <?php endif; ?>
 </div>
+<?php if ($pager->haveToPaginate()): ?>
+    <div id="discussion_topics_footer">
+        <?php include_partial('discussion_topic/pagination', array('pager' => $pager)) ?>
+    </div>
+<?php endif; ?>

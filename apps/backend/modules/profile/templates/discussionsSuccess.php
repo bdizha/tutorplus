@@ -30,7 +30,7 @@
     </div>
     <div class="content-block">
         <h2>Discussions Thread</h2>
-        <div class="full-block">    
+        <div class="full-block plain-row">    
             <div class="thread">
                 <a class="image" href="/backend.php/profile"><img height="48px" width="48px" alt="Batanayi Matuku" src="/avatars/48.png"></a>
                 <div class="message">

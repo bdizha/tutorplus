@@ -114,4 +114,36 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
+    public function myCoursesBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Courses" => "courses",
+                "My Courses" => "my_courses"
+            )
+        );
+    }
+
+    public function myCoursesLinks() {
+        return array(
+            "current_parent" => "courses",
+            "current_child" => "courses",
+            "current_link" => "my_courses"
+        );
+    }
+
+    public function exploreCoursesBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Courses" => "courses",
+                "Course Explorer" => "course_explorer"
+            )
+        );
+    }
+
+    public function courseExplorerLinks() {
+        return array(
+            "current_parent" => "courses",
+            "current_child" => "courses",
+            "current_link" => "course_explorer"
+        );
+    }
+
 }

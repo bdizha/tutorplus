@@ -8,47 +8,56 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHelper
-{
-public function linkToNew($params)
-    {
+class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHelper {
+
+    public function linkToNew($params) {
         return '<li class="sf_admin_action_new"><input class="new" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
 
-    public function linkToEdit($object, $params)
-    {
+    public function linkToEdit($object, $params) {
         return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/backend.php/course_discussion#", array("popup_url" => "/backend.php/course_discussion/" . $object->getId() . "/edit")) . '</li>';
     }
 
-    public function linkToDelete($object, $params, $is_form_action = false)
-    {
-        if ($object->isNew())
-        {
+    public function linkToDelete($object, $params, $is_form_action = false) {
+        if ($object->isNew()) {
             return '';
         }
 
-        if (!$is_form_action)
-        {
+        if (!$is_form_action) {
             return '<li class="sf_admin_action_delete">' . link_to(__('<img src="/images/icons/14x14/delete.png" title="Delete" alt="Delete">', array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
-        }
-        else
-        {
+        } else {
             return '<li class="sf_admin_form_action_delete">' . button_to(__($params['label'], array(), 'sf_admin'), "/backend.php/course_discussion#", array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
         }
     }
 
-    public function linkToCancel($object, $params)
-    {
+    public function linkToCancel($object, $params) {
         return '<input class="cancel" onclick="document.location.href=\'/backend.php/course_discussion\';" type="button" ' . '" value="Cancel"/>';
     }
 
-    public function linkToDone($object, $params)
-    {
+    public function linkToDone($object, $params) {
         return '<input class="done" onclick="document.location.href=\'/backend.php/course_discussion\';" type="button" ' . '" value="Done"/>';
     }
 
-    public function linkToSave($object, $params)
-    {
+    public function linkToSave($object, $params) {
         return '<li class="sf_admin_action_save"><input class="save" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
+
+    public function indexBreadcrumbs($course) {
+        return array('breadcrumbs' => array(
+                "Courses" => "course",
+                "My Courses" => "my_courses",
+                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getId(),
+                "Discussions" => "course_discussion",
+            )
+        );
+    }
+
+    public function indexLinks($course) {
+        return array(
+            "current_parent" => "courses",
+            "current_child" => "my_course",
+            "current_link" => "course_discussion"
+        );
+    }
+
 }

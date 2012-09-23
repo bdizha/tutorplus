@@ -10,63 +10,59 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Course extends BaseCourse
-{
+class Course extends BaseCourse {
 
-    public function retrieveAnnouncements($limit = 2)
-    {
+    public function retrieveAnnouncements($limit = 2) {
         $q = Doctrine_Query::create()
-            ->from('Announcement a');
+                ->from('Announcement a');
 
         return Doctrine_Core::getTable('Announcement')->retrieveOrdered($q, $limit);
     }
 
-    public function save(Doctrine_Connection $conn = null)
-    {
+    public function save(Doctrine_Connection $conn = null) {
         parent::save($conn);
 
-        if (!$this->isNew())
-        {
+        if (!$this->isNew()) {
             $gradebook = new Gradebook();
             $gradebook->setCourseId($this->get("id"));
             $gradebook->setItems(0);
             $gradebook->save();
-            
+
             $gradebook_scale = new GradebookScale();
             $gradebook_scale->setGradebookId($gradebook->get("id"));
             $gradebook_scale->setMinPoints(75);
             $gradebook_scale->setMaxPoints(100);
             $gradebook_scale->setCode("A");
             $gradebook_scale->save();
-            
+
             $gradebook_scale = new GradebookScale();
             $gradebook_scale->setGradebookId($gradebook->get("id"));
             $gradebook_scale->setMinPoints(65);
             $gradebook_scale->setMaxPoints(74);
             $gradebook_scale->setCode("B");
             $gradebook_scale->save();
-            
+
             $gradebook_scale = new GradebookScale();
             $gradebook_scale->setGradebookId($gradebook->get("id"));
             $gradebook_scale->setMinPoints(55);
             $gradebook_scale->setMaxPoints(64);
             $gradebook_scale->setCode("C");
             $gradebook_scale->save();
-            
+
             $gradebook_scale = new GradebookScale();
             $gradebook_scale->setGradebookId($gradebook->get("id"));
             $gradebook_scale->setMinPoints(45);
             $gradebook_scale->setMaxPoints(54);
             $gradebook_scale->setCode("D");
             $gradebook_scale->save();
-            
+
             $gradebook_scale = new GradebookScale();
             $gradebook_scale->setGradebookId($gradebook->get("id"));
             $gradebook_scale->setMinPoints(35);
             $gradebook_scale->setMaxPoints(44);
             $gradebook_scale->setCode("E");
             $gradebook_scale->save();
-            
+
             $gradebook_scale = new GradebookScale();
             $gradebook_scale->setGradebookId($gradebook->get("id"));
             $gradebook_scale->setMinPoints(0);
@@ -76,15 +72,22 @@ class Course extends BaseCourse
         }
     }
 
-    public function retrieveUpcomingAssignments()
-    {
+    public function retrieveUpcomingAssignments() {
         $q = Doctrine_Query::create()
-            ->from('Assignment a')
-            ->addWhere("a.course_id = ?", $this->get("id"))
-            ->addWhere('a.due_date > ?', date('d-m-y H:i:s', strtotime("NOW")))
-            ->limit(1);
+                ->from('Assignment a')
+                ->addWhere("a.course_id = ?", $this->get("id"))
+                ->addWhere('a.due_date > ?', date('d-m-y H:i:s', strtotime("NOW")))
+                ->limit(1);
 
         return AssignmentTable::getInstance()->retrieveUpcomingAssignments($q);
+    }
+
+    public function getDiscussion() {
+        $courseDiscussion = CourseDiscussionTable::getInstance()->findOneByCourseId($this->getId());
+        if (is_object($courseDiscussion)) {
+            return $courseDiscussion->getDiscussion();
+        }
+        return null;
     }
 
 }

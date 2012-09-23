@@ -58,7 +58,7 @@ class Staff extends BaseStaff
         $staffCourses = $this->getInstrustorCourses();
         foreach ($staffCourses as $staffCourse)
         {
-            $courses[$staffCourse->getCourse()->getId()] = $staffCourse->getCourse()->toArray();
+            $courses[$staffCourse->getCourse()->getId()] = $staffCourse->getCourse();
         }
 
         return $courses;
@@ -70,7 +70,7 @@ class Staff extends BaseStaff
         $staffMailingLists = parent::getStaffMailingLists();
         foreach ($staffMailingLists as $staffMailingList)
         {
-            $mailingLists[$staffMailingList->getMailingList()->getId()] = $staffMailingList->getMailingList()->toArray();
+            $mailingLists[$staffMailingList->getMailingList()->getId()] = $staffMailingList->getMailingList();
         }
 
         return $mailingLists;

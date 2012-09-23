@@ -1,8 +1,6 @@
-<div class="sf_admin_show">
-    <h2>Discussion Participants</h2>
-    <div id="discussion_members">
-        <?php include_partial('discussion_member/members', array('discussion' => $discussion)) ?>            
-    </div> 
+<h2>Discussion Participants</h2>
+<div id="discussion_members" class="peer-block plain-row padding-10">
+    <?php include_partial('discussion_member/members', array('discussion' => $discussion)) ?>            
 </div> 
 <ul class="sf_admin_actions" style="clear:both">
     <li class="sf_admin_action_my_discussions">
@@ -28,12 +26,12 @@
 <script type='text/javascript'>
     $(document).ready(function(){
         $(".sf_admin_action_new input").click(function(){           
-            openPopup("/backend.php/discussion_topic/new", "600px", "600px", "New Discussion Topic");
+            openPopup("/backend.php/discussion_topic/new", "605px", "605px", "New Discussion Topic");
             return false;
         });
         
         $(".discussion_topic .edit").click(function(){            
-            openPopup($(this).attr("href"), "600px", "600px", "Edit Discussion Topic");
+            openPopup($(this).attr("href"), "605px", "605px", "Edit Discussion Topic");
             return false;
         });
         

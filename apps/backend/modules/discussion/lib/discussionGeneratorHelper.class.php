@@ -52,4 +52,37 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper
     {
         return '<li class="sf_admin_action_save"><input class="save" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
+
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Discussions" => "discussion",
+                "Discussion Explorer" => "discussion"
+            )
+        );
+    }
+
+    public function indexLinks() {
+        return array(
+            "current_parent" => "discussions",
+            "current_child" => "discussions",
+            "current_link" => "discussion_explorer"
+        );
+    }
+
+    public function showBreadcrumbs($discussion) {
+        return array('breadcrumbs' => array(
+                "Discussions" => "discussion",
+                "Discussion Explorer" => "discussion",
+                $discussion->getName() => "discussion/" . $discussion->getId()
+            )
+        );
+    }
+
+    public function showLinks() {
+        return array(
+            "current_parent" => "discussions",
+            "current_child" => "discussions",
+            "current_link" => "discussion_explorer"
+        );
+    }
 }

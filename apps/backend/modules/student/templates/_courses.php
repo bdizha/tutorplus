@@ -4,13 +4,13 @@
 <?php foreach ($courses as $course): ?>
     <div class="student-item even-background">
         <div class="image">
-            <img alt="<?php echo $course["name"] ?>" src="/images/small-icon.hover.png">
+            <img alt="<?php echo $course->getName() ?>" src="/images/small-icon.hover.png">
         </div>
         <div class="info">
-            <div class="name"><?php echo $course["name"] ?></div>
+            <div class="name"><?php echo link_to($course->getName(), 'course_show', $course) ?></div>
         </div>
         <div class="student-item-year">
-            <span>2012</span>
+            <span><?php echo date("M jS Y", strtotime($course["start_date"])) ?> - <?php echo date("M jS Y", strtotime($course["end_date"])) ?></span>
         </div>
     </div>
 <?php endforeach; ?> 

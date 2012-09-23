@@ -112,19 +112,25 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
     }
 
     public function showBreadcrumbs($assignment) {
+        $course = $assignment->getCourse();
         return array('breadcrumbs' => array(
-                "Courses" => "assignment",
-                "My Course" => "my_assignment"
+                "Courses" => "course",
+                "My Course" => "my_course",
+                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getId(),
+                "Assignments" => "assignment",
+                $assignment->getTitle() => "assignment/" . $assignment->getId()
             )
         );
     }
 
     public function showLinks($assignment) {
+        $course = $assignment->getCourse();
         return array(
-            "current_parent" => "assignments",
-            "current_child" => "my_assignment",
-            "current_link" => "assignment_info",
-            "id" => $assignment->getId()
+            "current_parent" => "courses",
+            "current_child" => "my_course",
+            "current_link" => "assignments",
+            "is_profile" => true,
+            "id" => $course->getId()
         );
     }
 

@@ -1,7 +1,8 @@
 <?php use_helper('I18N', 'Date') ?>
-<div class="discussion">
-    <p class="discussion_desc"><?php echo $discussion->getDescription() ?></p>
-    <div class="user_meta">By <?php echo link_to($discussion->getUser(), "profile") ?>  - <span class="datetime"><?php echo false !== strtotime($discussion->getUpdatedAt()) ? distance_of_time_in_words(strtotime($discussion->getUpdatedAt())) . " ago" : '&nbsp;' ?></span></div>
+<div class="full-block padding-10 plain-row"> 
+    <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
+    <div class="value"><?php echo $discussion->getDescription() ?></div>
+    <div class="user">By <?php echo link_to($discussion->getUser(), "profile") ?>  - <span class="datetime"><?php echo false !== strtotime($discussion->getUpdatedAt()) ? distance_of_time_in_words(strtotime($discussion->getUpdatedAt())) . " ago" : '&nbsp;' ?></span></div>
 </div>
 <ul class="sf_admin_actions" style="clear:both">
     <li class="sf_admin_action_my_discussions">

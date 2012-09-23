@@ -74,7 +74,7 @@ class Student extends BaseStudent
         $studentCourses = parent::getStudentCourses();
         foreach ($studentCourses as $studentCourse)
         {
-            $courses[$studentCourse->getCourse()->getId()] = $studentCourse->getCourse()->toArray();
+            $courses[$studentCourse->getCourse()->getId()] = $studentCourse->getCourse();
         }
 
         return $courses;
@@ -86,7 +86,7 @@ class Student extends BaseStudent
         $studentProgrammes = parent::getStudentProgrammes();
         foreach ($studentProgrammes as $studentProgram)
         {
-            $programmes[$studentProgram->getProgram()->getId()] = $studentProgram->getProgram()->toArray();
+            $programmes[$studentProgram->getProgram()->getId()] = $studentProgram->getProgram();
         }
 
         return $programmes;
@@ -98,7 +98,7 @@ class Student extends BaseStudent
         $studentMailingLists = parent::getStudentMailingLists();
         foreach ($studentMailingLists as $studentMailingList)
         {
-            $mailingLists[$studentMailingList->getMailingList()->getId()] = $studentMailingList->getMailingList()->toArray();
+            $mailingLists[$studentMailingList->getMailingList()->getId()] = $studentMailingList->getMailingList();
         }
 
         return $mailingLists;

@@ -59,7 +59,7 @@ class Instructor extends BaseInstructor
         $instructorCourses = $this->getInstrustorCourses();
         foreach ($instructorCourses as $instructorCourse)
         {
-            $courses[$instructorCourse->getCourse()->getId()] = $instructorCourse->getCourse()->toArray();
+            $courses[$instructorCourse->getCourse()->getId()] = $instructorCourse->getCourse();
         }
 
         return $courses;
@@ -71,7 +71,7 @@ class Instructor extends BaseInstructor
         $instructorMailingLists = parent::getInstructorMailingLists();
         foreach ($instructorMailingLists as $instructorMailingList)
         {
-            $mailingLists[$instructorMailingList->getMailingList()->getId()] = $instructorMailingList->getMailingList()->toArray();
+            $mailingLists[$instructorMailingList->getMailingList()->getId()] = $instructorMailingList->getMailingList();
         }
 
         return $mailingLists;

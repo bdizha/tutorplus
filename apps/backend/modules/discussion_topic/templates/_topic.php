@@ -1,5 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
-<div class="discussion_topic">
+<div class="even-row discussion_topic">
     <a href="/backend.php/discussion_topic/<?php echo $discussion_topic->getId() ?>"><?php echo $discussion_topic->getSubject() ?></a>
     <p class="discussion_desc"><?php echo $discussion_topic->getMessage() ?></p>
     <div class="user_meta">By <?php echo link_to($discussion_topic->getUser(), "profile") ?> - <span class="datetime"><?php echo false !== strtotime($discussion_topic->getUpdatedAt()) ? distance_of_time_in_words(strtotime($discussion_topic->getUpdatedAt())) . " ago" : '&nbsp;' ?></span> - <a href="/backend.php/discussion_topic/<?php echo $discussion_topic->getId() ?>"><?php echo $discussion_topic->getNbReplies($sf_user->getId()) ?> new replies of <?php echo $discussion_topic->getNbMessages() ?> messages</a></div>

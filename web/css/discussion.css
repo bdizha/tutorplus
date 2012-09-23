@@ -152,12 +152,6 @@ span.separator{
     padding: 5px 0;
 }
 
-.pager-current{
-    background-color: #0088CC !important;
-    color: #FFFFFF !important;
-    font-size: 12px !important;
-}
-
 .sf_admin_list p{
     /*    margin-left: 10px;*/
 }
@@ -310,7 +304,6 @@ span.separator{
 
 #discussion_topics_footer{
     height: 25px;
-    margin-top: 2px;
 }
 
 #discussion_topic_message_form_holder{

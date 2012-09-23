@@ -52,14 +52,6 @@
 }
 
 #main-header{
-    background-color: #134D58;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#2ea2cc), to(#134D58));
-    background-image: -webkit-linear-gradient(top, #2ea2cc, #134D58);
-    background-image:    -moz-linear-gradient(top, #2ea2cc, #134D58);
-    background-image:      -o-linear-gradient(top, #2ea2cc, #134D58);
-    background-image:         linear-gradient(to bottom, #2ea2cc, #134D58);
-    color:#fff;
-    text-shadow:0 2px 2px #0074A2;
 }
 
 #tutorplus{
@@ -242,7 +234,7 @@
 
 #middle-column{
     margin-left: 218px;
-    padding-bottom: 10px;
+    padding-bottom: 40px;
     width: 722px
 }
 
@@ -701,10 +693,6 @@
 }
 
 .discussion, .discussion_topic, .section_description{
-    padding: 10px 10px 10px;
-    background-color: #F5F5F5;
-    margin-top: 10px;
-    border-radius: 5px;
     position: relative;
 }
 
@@ -1124,4 +1112,8 @@
     display: inline-block;
     padding: 0;
     width: 349px;
+}
+
+.peer-block{
+    overflow: hidden;
 }

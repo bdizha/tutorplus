@@ -10,23 +10,17 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Discussion extends BaseDiscussion
-{
+class Discussion extends BaseDiscussion {
 
-    public function getAccessType()
-    {
+    public function getAccessType() {
         $accessLevels = "";
 
-        if (isset(DiscussionTable::$access_levels[parent::_get("access_level")]))
-        {
+        if (isset(DiscussionTable::$access_levels[parent::_get("access_level")])) {
             $accessLevels = DiscussionTable::$access_levels[parent::_get("access_level")];
         }
-        if (is_array($accessLevel = explode(" - ", $accessLevels)))
-        {
+        if (is_array($accessLevel = explode(" - ", $accessLevels))) {
             return $accessLevel[0];
-        }
-        else
-        {
+        } else {
             return $accessLevels;
         }
     }
@@ -34,8 +28,7 @@ class Discussion extends BaseDiscussion
     /**
      * Save the group member
      */
-    public function saveGroupOwner($user_id = null, $username = "")
-    {
+    public function saveGroupOwner($user_id = null, $username = "") {
         $discussionMember = new DiscussionMember();
         $discussionMember->setNickname(strtolower($username));
         $discussionMember->setUserId($user_id);
@@ -45,35 +38,38 @@ class Discussion extends BaseDiscussion
         $discussionMember->save();
     }
 
-    public function retrieveMembers($isRemoved = 0)
-    {
+    public function retrieveMembers($isRemoved = 0) {
         return DiscussionMemberTable::getInstance()->retrieveMembers($isRemoved);
     }
 
-    public function getNbNewTopics()
-    {
+    public function getNbNewTopics() {
         $q = Doctrine_Query::create()
-            ->from('DiscussionTopic d');
+                ->from('DiscussionTopic d');
         return DiscussionTopicTable::getInstance()->getNbNewTopics($q);
     }
 
-    public function getNbNewReplies()
-    {
+    public function getNbNewReplies() {
         $q = Doctrine_Query::create()
-            ->from('DiscussionTopicReply d');
+                ->from('DiscussionTopicReply d');
         return DiscussionTopicReply::getInstance()->getNbNewReplies($q);
     }
 
-    public function getNbNewMembersJoined()
-    {
+    public function getNbNewMembersJoined() {
         $q = Doctrine_Query::create()
-            ->from('DiscussionMember dm');
+                ->from('DiscussionMember dm');
         return DiscussionMemberTable::getInstance()->getNbNewMembersJoined($q);
     }
 
-    public function getMemberByUserId($userId)
-    {
+    public function getMemberByUserId($userId) {
         return DiscussionMemberTable::getInstance()->getMembersByDiscussionIdAndUserId($this->getId(), $userId);
+    }
+
+    public function getCourse() {
+        $courseDiscussion = CourseDiscussionTable::getInstance()->findOneByDiscussionId($this->getId());
+        if (is_object($courseDiscussion)) {
+            return $courseDiscussion->getCourse();
+        }
+        return null;
     }
 
 }

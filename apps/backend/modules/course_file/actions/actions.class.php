@@ -18,6 +18,8 @@ class course_fileActions extends sfActions
             $this->redirect("@course");
         }
         $this->forward404Unless($this->course = Doctrine_Core::getTable('Course')->find(array($courseId)), sprintf('Object Course does not exist (%s).', $courseId));
+        
+        $this->helper = new course_fileGeneratorHelper();
 
         $fileSystem = FolderTable::getInstance()->findOrCreateOneByNameAndParent(FolderTable::ROOT_FOLDER);
 

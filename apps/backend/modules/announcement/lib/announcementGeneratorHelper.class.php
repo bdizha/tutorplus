@@ -40,7 +40,7 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "profile_discussions",
+                "Setting" => "email_template",
                 "Communication Settings" => "communication_settings",
                 "Announcements" => "announcement"
             )

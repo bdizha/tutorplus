@@ -42,17 +42,17 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         return '<li class="sf_admin_action_save"><input class="save" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
 
-    public function indexBreadcrumbs($course) {
+    public function indexBreadcrumbs($discussion) {
+        $course = $discussion->getCourse();
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                "My Courses" => "my_courses",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getId(),
-                "Discussions" => "course_discussion",
+                "Course Discussions" => "course_discussion"
             )
         );
     }
 
-    public function indexLinks($course) {
+    public function indexLinks() {
         return array(
             "current_parent" => "courses",
             "current_child" => "my_course",

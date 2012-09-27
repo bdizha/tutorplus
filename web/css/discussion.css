@@ -7,6 +7,12 @@
 
 #sf_admin_container ul.radio_list li input[type=radio]{
     position: absolute;
+    left: 150px;
+    top: 2px;
+}
+
+#cboxLoadedContentInner ul.radio_list li input[type=radio]{
+    position: absolute;
     left: 140px;
     top: 2px;
 }
@@ -26,9 +32,7 @@
     position: relative;
 }
 
-.sf_admin_form_field_access_level label, .sf_admin_form_field_subscription_type label,
-.sf_admin_form_field_membership_type label, .sf_admin_form_field_posting_permission_type label,
-.sf_admin_form_field_status label{
+.sf_admin_form_field_access_level label{
     float: none !important;
 }
 
@@ -157,12 +161,16 @@ span.separator{
 }
 
 #discussion_topic_message_message{
-    width: 791px;
+    width: 689px;
 }
 
 #discussion_members_message{
     width: 645px;
     height: 100px;
+}
+
+.sf_admin_form_field_message label{
+    display: none;
 }
 
 #discussion_name, #discussion_topic_subject{
@@ -238,10 +246,6 @@ span.separator{
 }
 
 .discussion-reply{
-    padding: 10px 10px 0;
-    background-color: #F5F5F5;
-    margin-top: 10px;
-    border-radius: 5px;
 }
 
 .message .image {
@@ -294,9 +298,17 @@ span.separator{
 }
 
 .discussion_topic_actions{
-    color: #999999 !important;
-    padding: 0 0px 10px;
     text-align: right;
+    margin-right: 12px;
+    padding-bottom: 10px;
+}
+
+#discussion_topic_message_form_holder .discussion_topic_actions{
+    margin-top: -5px;
+}
+
+.comments .discussion_topic_actions{
+    margin-top: 5px;
 }
 
 #discussion_topics{
@@ -307,10 +319,12 @@ span.separator{
 }
 
 #discussion_topic_message_form_holder{
-    background-color: #F5F5F5;
-    border-radius: 5px;
-    padding: 5px 15px 5px 5px;
-    width: 810px;
+    width: 722px;
+    background-color: #F9F9F9;
+}
+
+#discussion_topic_message_form_holder fieldset{
+    background-color: transparent !important;    
 }
 
 .topic-message-details{
@@ -332,7 +346,7 @@ span.separator{
     padding: 10px 0 10px 10px;
 }
 
-.message .value{
+.message{
     background-color: #F1F1F1;
     border: 1px solid #FFFFFF;
     margin-left: 65px;
@@ -354,10 +368,19 @@ span.separator{
     margin: -1px 0 0 65px;
     clear: both;
     background-color: #F9F9F9;
-    padding: 10px;
     border: 1px solid #FFFFFF;
+    border-bottom: none !important;
 }
 
 .comment{
-    margin-bottom: 5px;
+    padding: 10px 0 0 10px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+#discussion_topic_reply_reply{
+    width: 565px;
+}
+
+.replies-count{
+    color: #134D58;
 }

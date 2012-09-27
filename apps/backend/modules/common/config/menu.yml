@@ -23,7 +23,7 @@ menu:
         children:
           course_explorer:            { route: courses, label: "Course Explorer" }
           my_courses:                 { route: my_courses, label: "My Courses" }
-          #other_courses:              { route: other_course, label: "Other Courses" }
+#          other_courses:              { route: other_course, label: "Other Courses" }
       my_calendar:                                        
         details:                      { route: calendar, label: "Calendar" }
         children:
@@ -47,7 +47,7 @@ menu:
           assignment_groups:          { route: assignment_group, label: "Assignments Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
           course_files:               { route: course_file, label: "Course Files" }
-          course_videos:              { route: course_file, label: "Course Videos" }
+#          course_videos:              { route: course_file, label: "Course Videos" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ student, instructor, staff ]
@@ -63,19 +63,19 @@ menu:
         credentials:                  [ student, instructor, staff ]
         children:
           discussion_explorer:        { route: discussion, label: "Discussion Explorer" }
-          my_discussions:             { route: discussion, label: "My Discussions" }
-          #other_discussions:          { route: other_discussion, label: "Other Discussions" }
+#          my_discussions:             { route: discussion, label: "My Discussions" }
+#          other_discussions:          { route: other_discussion, label: "Other Discussions" }
   profile:                          
-    details:                          { route: profile_discussions, label: Profile }
+    details:                          { route: profile_wall, label: Profile }
     type:                             One
     children:
       my_profile:                   
-        details:                      { route: profile_discussions, label: "Profile" }
+        details:                      { route: profile_wall, label: "Profile" }
         credentials:                  [ student, instructor, staff ]
         children:                    
           my_info:                    { route: profile, label: "About" }
           my_peers:                   { route: profile_peers, label: "Peers" }
-          my_discussions:             { route: profile_discussions, label: "Discussions" }
+          my_discussions:             { route: profile_wall, label: "Discussion Wall" }
           my_awards:                  { route: profile_award, label: "Awards" }
           my_qualifications:          { route: profile_qualification, label: "Qualifications" }
           my_account_settings:        { route: profile_account_settings, label: "Account Settings" }

@@ -44,7 +44,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "profile_discussions",
+                "Setting" => "email_template",
                 "Communication Settings" => "communication_settings",
                 "Email Templates" => "email_template"
             )

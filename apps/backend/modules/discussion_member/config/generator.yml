@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           DiscussionMember
-    theme:                 ecollegeplus
+    theme:                 ecollegeplus2
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -25,28 +25,30 @@ generator:
         status_display:                   { label: Status }
 
       form:
-        display:          [ nickname, subscription_type, membership_type, posting_permission_type, status, is_removed ]
+        display:            
+         "Parcipant Details":          [ nickname, status, is_removed ]
+         "Membership Settings":        [ subscription_type, membership_type, posting_permission_type ]
       filter:
-        class: false
+        class:                         false
       list:
-        title:             Discussion Members
-        display:           [ =user, nickname, subscription_type_display, membership_type_display, posting_permission_type_display, status_display, is_removed ]
-        sort:              [ nickname, asc ]
-        batch_actions:     []
-        max_per_page:			 10
+        title:                         Discussion Members
+        display:                       [ =user, nickname, subscription_type_display, membership_type_display, posting_permission_type_display, status_display, is_removed ]
+        sort:                          [ nickname, asc ]
+        batch_actions:                 []
+        max_per_page:			             10
         object_actions:
-          _edit:           []
+          _edit:                       []
         actions:
-          listDiscussion:  { label: < My Discussion }
-          _new:            { label: + Invite Participants }
+          listDiscussion:              { label: < My Discussion }
+          _new:                        { label: + Invite Participants }
       edit:
-        title:             Edit Participant
+        title:                         Edit Participant ~ %%nickname%%
         actions:
-          cancel:          []
-          done:            []
-          _save:           []
+          cancel:                      []
+          done:                        []
+          _save:                       []
       new:
-        title:             Add Participants
+        title:                         Add Participants
         actions:
-          cancel:          []
-          _save:           []
+          cancel:                      []
+          _save:                       []

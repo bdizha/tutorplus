@@ -1,17 +1,17 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->indexLinks($course)) ?>
+<?php include_component('common', 'menu', $helper->indexLinks()) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs($course)) ?>
+<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs($discussion)) ?>
 <?php end_slot() ?>
 
 <?php include_partial('course_discussion/flashes') ?>
 
 <div class="sf_admin_heading">
-    <h3><?php echo __('Discussions', array(), 'messages') ?></h3>
+    <h3><?php echo __('Course Discussions', array(), 'messages') ?></h3>
 </div>
 <div id="sf_admin_content">
     <div class="content-block">

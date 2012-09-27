@@ -4,3 +4,6 @@ all:
   
 showSuccess:
   has_layout: true
+  
+wallSuccess:
+  has_layout: true

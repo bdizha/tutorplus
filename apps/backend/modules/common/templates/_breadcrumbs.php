@@ -2,10 +2,10 @@
     <?php $counter = 0; ?>
     <div id="breadcrumbs">
         <ol>
-            <?php foreach ($breadcrumbs as $title => $route_suffix): ?>
+            <?php foreach ($breadcrumbs as $title => $routeSuffix): ?>
                 <?php $counter++; ?>
                 <li class="<?php echo ($counter == 1) ? 'first' : 'after'; ?>">
-                    <a id="<?php echo ($counter == 1) ? 'first' : ''; ?>" href="/backend.php/<?php echo $route_suffix; ?>"><?php echo $title; ?></a>          
+                    <a id="<?php echo ($counter == 1) ? 'first' : ''; ?>" href="/backend.php/<?php echo $routeSuffix; ?>"><?php echo myToolkit::shortenString($title, 50); ?></a>          
                 </li>
             <?php endforeach; ?>
         </ol>

@@ -44,7 +44,7 @@ class mailing_listGeneratorHelper extends BaseMailing_listGeneratorHelper {
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "profile_discussions",
+                "Setting" => "email_template",
                 "Communication Settings" => "communication_settings",
                 "Email Templates" => "mailing_list"
             )
@@ -62,7 +62,7 @@ class mailing_listGeneratorHelper extends BaseMailing_listGeneratorHelper {
 
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "profile_discussions",
+                "Setting" => "email_template",
                 "Communication Settings" => "communication_settings",
                 "Email Templates" => "mailing_list"
             )

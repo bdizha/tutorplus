@@ -99,7 +99,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
     public function showBreadcrumbs($course) {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                "My Course" => "my_course"
+                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getId()
             )
         );
     }

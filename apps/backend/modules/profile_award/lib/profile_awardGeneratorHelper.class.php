@@ -55,7 +55,7 @@ class profile_awardGeneratorHelper extends BaseProfile_awardGeneratorHelper
 
     public function awardBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_discussions",
+                "Profile" => "profile_wall",
                 "Awards" => "profile_award"
             )
         );

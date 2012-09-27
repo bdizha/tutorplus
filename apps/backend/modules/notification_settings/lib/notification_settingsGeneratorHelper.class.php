@@ -24,7 +24,7 @@ class notification_settingsGeneratorHelper extends BaseNotification_settingsGene
 
     public function editBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_discussions",
+                "Profile" => "profile_wall",
                 "Notification Settings" => "my_notification_settings"
             )
         );

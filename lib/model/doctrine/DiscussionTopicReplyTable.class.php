@@ -32,7 +32,9 @@ class DiscussionTopicReplyTable extends Doctrine_Table
     public function getNbNewReplies($courseId = null)
     {
         $q = $this->createQuery('dtr')
-            ->innerJoin('dtr.Discussion d');
+            ->innerJoin('dtr.DiscussionTopicMessage dtm')
+            ->innerJoin('dtm.DiscussionTopic dt')
+            ->innerJoin('dt.Discussion d');
         if ($courseId)
         {
             $q->innerJoin('d.CourseDiscussion cd')

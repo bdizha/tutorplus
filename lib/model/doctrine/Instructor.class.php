@@ -76,5 +76,4 @@ class Instructor extends BaseInstructor
 
         return $mailingLists;
     }
-
 }

@@ -44,7 +44,7 @@ class profile_qualificationGeneratorHelper extends BaseProfile_qualificationGene
 
     public function qualificationBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_discussions",
+                "Profile" => "profile_wall",
                 "Qualifications" => "profile_qualification"
             )
         );

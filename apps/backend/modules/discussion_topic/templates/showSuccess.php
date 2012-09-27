@@ -23,22 +23,20 @@
 </div>
 <div id="sf_admin_form_container">
     <div id="sf_admin_content">
-        <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "helper" => $helper)) ?>
-        <ul class="sf_admin_actions" style="clear:both">
-            <li class="sf_admin_action_list_discussion">
-                <input class="button" type="button" value="&lt; My Discussion" onclick="document.location.href='/backend.php/discussion/<?php echo $discussionTopic->getDiscussionId() ?>';return false">                            
-            </li>
-            <li class="sf_admin_action_manage_member">
-                <input type="button" class="button" onclick="document.location.href='/backend.php/discussion_member';" value="Manage Participants" />
-            </li>
-        </ul>
-        <div class="sf_admin_show">
+        <div class="content-block">
+            <h2><?php echo $discussionTopic->getSubject() ?></h2>
+            <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "helper" => $helper)) ?>
+            <?php include_partial('common/content_actions', array('actions' => $helper->showContentActions($discussionTopic))) ?>
+        </div>
+        <div class="content-block">
             <h2><span id="replies-count"><?php echo $discussionTopic->getNbReplies() ?></span> replies  of <span id="messages-count"><?php echo $discussionTopic->getNbMessages() ?></span> message(s)</h2>
             <div id="discussion_topic_message_form_container"></div>
-            <div id="discussion-topic-replies">
-                <?php foreach ($discussionTopic->retrieveMessages() as $discussionTopicMessage): ?>
-                    <?php include_partial('discussion_topic_message/message', array('discussionTopicMessage' => $discussionTopicMessage, "form" => $replyForm)) ?>
-                <?php endforeach; ?>
+            <div class="full-block plain-row">
+                <div id="discussion-topic-replies">
+                    <?php foreach ($discussionTopic->retrieveMessages() as $discussionTopicMessage): ?>
+                        <?php include_partial('discussion_topic_message/message', array('discussionTopicMessage' => $discussionTopicMessage, "form" => $replyForm)) ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </div>

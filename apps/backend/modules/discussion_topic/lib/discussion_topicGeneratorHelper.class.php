@@ -92,4 +92,28 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         );
     }
 
+    public function showContentActions($discussionTopic) {
+        return array(
+            "my_discussion" => array("title" => "&lt; My Discussion", "url" => "discussion/" . $discussionTopic->getDiscussionId()),
+            "manage_participants" => array("title" => "Manage Participants", "url" => "discussion_member"),
+        );
+    }
+
+    public function wallBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Profile" => "profile_wall",
+                "Discussion Wall" => "email_template"
+            )
+        );
+    }
+
+    public function wallLinks() {
+        return array(
+            "current_parent" => "profile",
+            "current_child" => "my_profile",
+            "current_link" => "my_discussions",
+            "is_profile" => true
+        );
+    }
+
 }

@@ -888,9 +888,9 @@ profile_qualifications:
   url: /profile_qualifications
   param: { module: achievement, action: qualifications }
   
-profile_discussions:
-  url: /profile_discussions
-  param: { module: profile, action: discussions }
+profile_wall:
+  url: /profile_wall
+  param: { module: discussion_topic, action: wall }
   
 profile_peers:
   url: /profile_peers

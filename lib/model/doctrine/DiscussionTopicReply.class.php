@@ -10,11 +10,9 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class DiscussionTopicReply extends BaseDiscussionTopicReply
-{
+class DiscussionTopicReply extends BaseDiscussionTopicReply {
 
-    public function updateCounts()
-    {
+    public function updateCounts() {
         $this->getDiscussionTopicMessage()->getDiscussionTopic()->setNbReplies($this->getDiscussionTopicMessage()->getDiscussionTopic()->getNbReplies() + 1);
         $this->getDiscussionTopicMessage()->getDiscussionTopic()->setLatestTopicReplyId($this->getId());
         $this->getDiscussionTopicMessage()->getDiscussionTopic()->setUpdatedAt($this->getCreatedAt());
@@ -27,17 +25,21 @@ class DiscussionTopicReply extends BaseDiscussionTopicReply
         $this->getDiscussionTopicMessage()->getDiscussionTopic()->getDiscussion()->save();
     }
 
-    public function postSave($event)
-    {
+    public function postSave($event) {
         // update counts
         $this->updateCounts();
 
         // save this activity
-        $replacements = array($this->getDiscussionTopicMessage()->getDiscussionTopicId(), myToolkit::shortenString($this->getReply()));
+        $replacements = array(
+            $this->getDiscussionTopicMessage()->getUser()->getName(),
+            $this->getDiscussionTopicMessage()->getUserId(),
+            $this->getDiscussionTopicMessage()->getDiscussionTopic()->getSubject(),
+            $this->getDiscussionTopicMessage()->getDiscussionTopicId(),
+            myToolkit::shortenString($this->getReply())
+        );
         $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_DISCUSSION_REPLY);
 
-        if ($activityTemplate)
-        {
+        if ($activityTemplate) {
             $activityFeed = new ActivityFeed();
             $activityFeed->setActivityTemplate($activityTemplate);
             $activityFeed->setReplacements(json_encode($replacements));

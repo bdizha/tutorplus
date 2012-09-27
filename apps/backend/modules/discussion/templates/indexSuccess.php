@@ -8,7 +8,7 @@
 <?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <?php end_slot() ?>
 
-<?php include_partial('course/flashes') ?>
+<?php include_partial('discussion/flashes') ?>
 
 <div class="sf_admin_heading">
     <h3><?php echo __('Discussion Explorer', array(), 'messages') ?></h3>
@@ -24,7 +24,7 @@
     </div>
     <div class="content-block">
         <div class="left-block">
-            <h2>Weekly course discussions activity overview</h2>
+            <h2>Weekly Discussion Activities</h2>
             <div id="discussion_stats" class="section_description">
                 <div class="even-row"><?php echo $discussionActivity["new_topics"] ?> discussion topic(s) started</div>
                 <div class="even-row"><?php echo $discussionActivity["new_messages"] ?> discussion message(s)</div>
@@ -33,13 +33,11 @@
             </div>
         </div>
         <div class="right-block">
-            <h2>The most recent topic with fresh and interesting activities</h2>
+            <h2>Recent Posting</h2>
             <?php if ($discussionTopic): ?>
                 <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false)) ?>
             <?php else: ?>
-                <div class="even-row">
-                    Currently there're no discussion topics started.                    
-                </div>
+                <div class="even-row">There're no discussion topics started currently.</div>
             <?php endif; ?>
         </div>
     </div>

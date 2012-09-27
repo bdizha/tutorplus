@@ -32,7 +32,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
 
     public function aboutBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_discussions",
+                "Profile" => "profile_wall",
                 "About" => "my_info"
             )
         );
@@ -49,8 +49,8 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
 
     public function discussionBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_discussions",
-                "Discussions" => "profile_discussions"
+                "Profile" => "profile_wall",
+                "Discussions" => "profile_wall"
             )
         );
     }
@@ -66,7 +66,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
 
     public function accountSettingsBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_discussions",
+                "Profile" => "profile_wall",
                 "Account Settings" => "profile_settings"
             )
         );
@@ -83,7 +83,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
 
     public function contactDetailsBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_discussions",
+                "Profile" => "profile_wall",
                 "Contact Details" => "my_contact_details"
             )
         );
@@ -100,7 +100,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
 
     public function peersBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_discussions",
+                "Profile" => "profile_wall",
                 "Peers" => "my_peers"
             )
         );

@@ -8,7 +8,7 @@
                     <li class="tabs active"><a id="student_members" href="#">Students</a></li>
                     <li class="tabs normal"><a id="instructor_members" href="#">Instructors</a></li>
                 </ul>
-                <div class="members_tab" id="student_members_tab">
+                <div class="members_tab peer-block plain-row padding-10" id="student_members_tab">
                     <?php foreach ($students as $student): ?>
                         <div class="discussion-potential-member">
                             <div class="image">
@@ -21,7 +21,7 @@
                         </div> 
                     <?php endforeach; ?>
                 </div>
-                <div class="members_tab hide" id="instructor_members_tab">
+                <div class="members_tab hide peer-block plain-row padding-10" id="instructor_members_tab">
                     <?php foreach ($instructors as $instructor): ?>
                         <div class="discussion-potential-member">
                             <div class="image">

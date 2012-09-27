@@ -350,7 +350,8 @@ Discussion:
     latest_topic_reply_id:     { type: integer, notnull: false }
     nb_topics:                 { type: integer, notnull: false, default: 0 }
     nb_members:                { type: integer, notnull: false, default: 1 }
-    nb_replies:                { type: integer, notnull: false, default: 0 }
+    nb_replies:                { type: integer, notnull: false, default: 1 }
+    is_primary:                { type: boolean, default: 0 }
   relations:
     User:                      { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
     DiscussionTopicReply:      { class: DiscussionTopicReply, local: latest_topic_reply_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }

@@ -595,10 +595,6 @@
     width: 315px !important;
 }
 
-#folder_parent_id{
-    width: 325px !important;
-}
-
 #heading-tabs{
     margin-top: 20px;
 }
@@ -650,11 +646,11 @@
 }
 
 .heading-tabs{
-    padding: 10px 10px 0 10px;
-    background-color: #B9B9B9;
-    border-radius: 5px 5px 0 0;
-    height: 25px;
-    margin-bottom: 5px;
+    height: 27px;
+}
+
+.members_tab{
+    border: 1px solid #CCCCCC;
 }
 
 .heading-tabs li.tabs {
@@ -662,15 +658,12 @@
 }
 
 .heading-tabs li.tabs a {
-    border-radius: 4px 4px 0 0;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
     margin: 0;
     float: left;
     overflow: hidden;
     padding: 3px 5px;
-}
-
-.heading-tabs li.normal a{
-    color: #FFFFFF !important;
 }
 
 .heading-tabs li.normal a:hover{
@@ -678,8 +671,8 @@
 }
 
 .heading-tabs li.active a{
-    background: none repeat scroll 0 0 #FFFFFF !important;
-    border-bottom: none;
+    background: none repeat scroll 0 0 #F9F9F9 !important;
+    border-bottom: 1px solid #F9F9F9 !important;
 }
 
 .instruction{

@@ -44,7 +44,7 @@ class newsGeneratorHelper extends BaseNewsGeneratorHelper {
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "profile_discussions",
+                "Setting" => "email_template",
                 "Communication Settings" => "communication_settings",
                 "News" => "news"
             )
@@ -62,7 +62,7 @@ class newsGeneratorHelper extends BaseNewsGeneratorHelper {
 
     public function showBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "profile_discussions",
+                "Setting" => "email_template",
                 "Communication Settings" => "communication_settings",
                 "News" => "news"
             )

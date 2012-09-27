@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <div class="sf_admin_heading">
-    <h3>Discussion Topic ~ <?php echo $discussion->getName() ?></h3>
+    <h3>Discussion ~ <?php echo $discussion->getName() ?></h3>
 </div>
 <div id="sf_admin_content">
     <div class="content-block">

@@ -1,10 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php $showProfileMenu = ($sf_user->getMyAttribute('discussion_module_id', DiscussionTable::MODULE_DISCUSSION) == DiscussionTable::MODULE_PROFILE) ?>
-<?php if ($showProfileMenu): ?>
-    <div class="content-block" id="profile-info">
-        <?php include_component("profile", "info") ?>
-    </div>
-<?php endif; ?>
+
 <div class="sf_admin_heading">
     <h3>Discussion ~  <?php echo $discussion->getName() ?></h3>
 </div> 

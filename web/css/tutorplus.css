@@ -1124,3 +1124,7 @@
     padding: 5px;
     z-index: 12;
 }
+
+.email-recipient{
+    color: #134D58;
+}

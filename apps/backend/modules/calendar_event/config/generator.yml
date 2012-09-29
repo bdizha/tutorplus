@@ -20,20 +20,27 @@ generator:
         to_date:           { label: To }
         user:              { label: Event Owner }
       filter:
-        class: false        
+        class:              false        
       form:
         display:            
-         "Event Details": [ name, calendar_id, from_date, to_date, location, description, is_personal ]
+         "Event Details":   [ name, calendar_id, from_date, to_date, location, description, is_personal ]
          "Event Attendees": [ notify_changes ]
       list:
-        title:             Calendar Events
-        display:           [ name, user, calendar, when, location, is_personal, notify_changes ]
-        sort:              [ name, asc ]
-        batch_actions:     [ ]
-        max_per_page:			 10
+        title:              Calendar Events
+        display:            [ name, user, calendar, when, location, is_personal, notify_changes ]
+        sort:               [ name, asc ]
+        batch_actions:      [ ]
+        max_per_page:			  10
         actions:
-          _new:            ~
+          _new:             ~
       edit:
-        title:             Edit Calendar Event - %%name%%
+        title:              Edit Calendar Event - %%name%%
+        actions:
+          cancel:           []
+          done:             []
+          _save:            []
       new:
-        title:             New Calendar Event
+        title:              New Calendar Event
+        actions:
+          cancel:           []
+          _save:            []

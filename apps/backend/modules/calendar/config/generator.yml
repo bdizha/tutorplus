@@ -20,9 +20,18 @@ generator:
         title:             Calendars
         display:           [ name, color, description, is_public ]
         sort:              [ name, asc ]
-        batch_actions:     [ ]
+        batch_actions:     []
         max_per_page:			 10
         actions:
           _new: ~
       edit:
+        title:             Edit Calendar
+        actions:
+          cancel:          []
+          done:            []
+          _save:           []
       new:
+        title:             New Calendar
+        actions:
+          cancel:          []
+          _save:           []

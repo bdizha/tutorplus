@@ -13,14 +13,14 @@ require_once dirname(__FILE__) . '/../lib/calendarGeneratorHelper.class.php';
  */
 class calendarActions extends autoCalendarActions
 {
-    public function executeMyCalendar(sfWebRequest $request)
+    public function executeMySchedule(sfWebRequest $request)
     {        
         $ids = array();
-        $calendar_ids = CalendarTable::getInstance()->retrieveByIdsUserIdAndVisibility($this->getUser()->getId());
+        $calendarIds = CalendarTable::getInstance()->retrieveByIdsUserIdAndVisibility($this->getUser()->getId());
         
-        foreach($calendar_ids as $key => $calendar_id)
+        foreach($calendarIds as $key => $calendarId)
         {
-            $ids[] = $calendar_id["id"];
+            $ids[] = $calendarId["id"];
         }
         
         $this->getUser()->setMyAttribute('calendar_ids', array_values($ids));

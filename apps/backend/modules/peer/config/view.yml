@@ -1,3 +1,6 @@
+all:
+  stylesheets:    [profile.css]
+  
 newSuccess:
   has_layout: true
   

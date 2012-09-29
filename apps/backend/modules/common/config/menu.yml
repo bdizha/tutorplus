@@ -27,7 +27,9 @@ menu:
       my_calendar:                                        
         details:                      { route: calendar, label: "Calendar" }
         children:
-          my_calendar:                { route: calendar, label: "My Calendar" }
+          my_schedule:                { route: my_schedule, label: "My Schedule" }
+          calendar_events:            { route: calendar_event, label: "Calendar Events" }
+          calendars:                  { route: calendar, label: "Calendars" }
   courses:                          
     details:                          { route: courses, label: Courses }
     type:                             One
@@ -89,14 +91,10 @@ menu:
         details:                      { route: peer, label: "Peers" }
         credentials:                  [ student, instructor, staff ]
         children:                    
-          my_peers:                   { route: my_peers, label: "My Peers" }
-          other_peers:                { route: other_peers, label: "Other Peers" }      
-      my_peer:                   
-        details:                      { route: peer, label: "Peers" }
-        credentials:                  [ student, instructor, staff ]
-        children:                    
-          peer_explorer:              { route: peer, label: "Peer Explorer" }
-          my_peers:                   { route: my_peers, label: "My Peers" }
+          student_peers:              { route: peer, label: "Student Peers" }
+          instructor_peers:           { route: peer, label: "Instructor Peers" }
+          suggested_peers:            { route: peer, label: "Suggested Peers" }
+          find_peers:                 { route: peer, label: "Find Peers" }
   settings:    
     details:                          { route: course, label: Settings }
     type:                             Many

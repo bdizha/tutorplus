@@ -11,7 +11,7 @@
     <?php foreach ($students as $student): ?>
         <?php if (in_array($student["id"], $recipient[$type]['student'])): ?>
             <?php $recipientEmails .= $student->getUser()->getEmail() . ";" ?>
-            "<span style="color:#4B7092"><?php echo $student["name"] ?></span>";
+            "<span class="email-recipient"><?php echo $student["name"] ?></span>";
         <?php endif; ?>
     <?php endforeach; ?>
 <?php endif; ?>
@@ -19,14 +19,14 @@
     <?php foreach ($instructors as $instructor): ?>
         <?php if (in_array($instructor["id"], $recipient[$type]['instructor'])): ?>
             <?php $recipientEmails .= $instructor->getUser()->getEmail() . ";" ?>
-            "<span style="color:#4B7092"><?php echo $instructor["name"] ?></span>";
+            "<span class="email-recipient"><?php echo $instructor["name"] ?></span>";
         <?php endif; ?>
     <?php endforeach; ?>
 <?php endif; ?>
 <?php if (isset($recipient[$type]['mailing_list']) && is_array($recipient[$type]['mailing_list'])): ?>
     <?php foreach ($mailingLists as $mailingList): ?>
         <?php if (in_array($mailingList["id"], $recipient[$type]['mailing_list'])): ?>
-            "<span style="color:#4B7092"><?php echo $mailingList["name"] ?></span>";
+            "<span class="email-recipient"><?php echo $mailingList["name"] ?></span>";
         <?php endif; ?>
     <?php endforeach; ?>
 <?php endif; ?>

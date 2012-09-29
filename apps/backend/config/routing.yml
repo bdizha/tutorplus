@@ -1306,9 +1306,9 @@ mailing_list_instructors:
   url:   /mailinglistinstructors/:id
   param: { module: mailing_list, action: instructors }
   
-my_calendar:
-  url:   /my_calendar
-  param: { module: calendar, action: myCalendar }
+my_schedule:
+  url:   /my_schedule
+  param: { module: calendar, action: mySchedule }
   
 calendar_home:
   url:   /calendar_home

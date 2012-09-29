@@ -114,5 +114,4 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
             "is_profile" => true
         );
     }
-
 }

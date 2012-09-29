@@ -20,7 +20,7 @@
     //<![DATA[
     $(document).ready(function(){
         $("#edit_account_settings").click(function(){
-            openPopup($(this).attr("href"), '460px', "480px", "Edit Account Settings");
+            openPopup($(this).attr("href"), '410px', "480px", "Edit Account Settings");
             return false;
         });
     });

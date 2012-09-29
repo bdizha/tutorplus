@@ -20,8 +20,8 @@ class ProfileQualificationForm extends BaseProfileQualificationForm
                 'choices' => array_combine(ProfileQualificationTable::getInstance()->getYears(), ProfileQualificationTable::getInstance()->getYears()),
             ));
 
-        $this->validatorSchema['institution'] = new sfValidatorString(array('required' => true), array('required' => 'The <b>institution</b> field is required.'));
-        $this->validatorSchema['description'] = new sfValidatorString(array('required' => true), array('required' => 'The <b>description</b> field is required.'));
+        $this->validatorSchema['institution'] = new sfValidatorString(array('required' => true), array('required' => 'The <b>Institution</b> field is required.'));
+        $this->validatorSchema['description'] = new sfValidatorString(array('required' => true), array('required' => 'The <b>Description</b> field is required.'));
 
         $this->setDefaults(array(
             'user_id' => $user_id,

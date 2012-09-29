@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * ProfileAbout form.
+ *
+ * @package    ecollegeplus
+ * @subpackage form
+ * @author     Batanayi Matuku
+ * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ */
+class ProfileAboutForm extends ProfileForm {
+
+    public function setup() {
+        parent::setup();
+        $this->useFields(array('about'));
+        $this->validatorSchema['about']->setMessage('max_length', 'Please specify the max length message here');
+    }
+
+}

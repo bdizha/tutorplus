@@ -59,6 +59,7 @@ class student_contactActions extends autoStudent_contactActions
         $this->student_contact = StudentContactTable::getInstance()->findOneByStudentId($studentId);
         $this->form = new StudentContactForm($this->student_contact);
         $this->processInlineForm($request, $this->form, "@student_contact_inline_edit?fieldset=" . $this->fieldset);
+        $this->setTemplate('inlineEdit');
     }
 
     protected function processInlineForm(sfWebRequest $request, sfForm $form, $route = null)
@@ -83,7 +84,6 @@ class student_contactActions extends autoStudent_contactActions
                 $message = trim($message, ', ');
 
                 $this->getUser()->setFlash('error', $message);
-                return sfView::SUCCESS;
             }
 
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $student_contact)));

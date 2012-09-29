@@ -38,6 +38,7 @@ class ProfileForm extends BaseProfileForm
         $this->validatorSchema['password_again']->setMessage('required', 'The <b>Confirm password</b> field is required.');
         $this->validatorSchema['is_active'] = new sfValidatorBoolean(array('required' => false));
         $this->validatorSchema['permissions_list'] = new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardPermission', 'required' => false));
+        $this->validatorSchema['about']->setMessage('max_length', 'Please specify the max length message here');
         $this->mergePostValidator(new sfValidatorSchemaCompare('password', sfValidatorSchemaCompare::EQUAL, 'password_again', array(), array('invalid' => 'The two passwords must be the same.')));
 
         $user = $this->getObject()->getUser() ? sfGuardUserTable::getInstance()->find($this->getObject()->getUser()->get('id')) : new sfGuardUser();

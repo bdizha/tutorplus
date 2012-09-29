@@ -85,4 +85,22 @@ class Student extends BaseStudent {
 
         return $mailingLists;
     }
+
+    public function saveDefaultContact() {
+        
+        $studentContact = $this->getStudentContact();
+        if (!$studentContact->getId()) {
+            $studentContact = new StudentContact();
+            $studentContact->setStudentId($this->getId());
+            $studentContact->setCountryId(1);
+            $studentContact->setStateProvinceId(1);
+            $studentContact->setPostalStateProvinceId(1);
+            $studentContact->setPostalCountryId(1);
+            $studentContact->setGuardianStateProvinceId(1);
+            $studentContact->setGuardianCountryId(1);
+            $studentContact->setGuardianStateProvinceId(1);
+            $studentContact->save();
+        }
+    }
+
 }

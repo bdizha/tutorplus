@@ -37,7 +37,7 @@
             <?php if ($discussionTopic): ?>
                 <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false)) ?>
             <?php else: ?>
-                <div class="even-row">There're no discussion topics started currently.</div>
+                <div class="even-row">There're currently no discussion topics started.</div>
             <?php endif; ?>
         </div>
     </div>

@@ -554,3 +554,35 @@ span.green{
 .peer-filters .current{
     background-color: #F1F1F1;
 }
+
+.sf_admin_form_field_email_address,
+.sf_admin_form_field_phone_work,
+.sf_admin_form_field_phone_home,
+.sf_admin_form_field_phone_mobile,
+.sf_admin_form_field_address_line_1,
+.sf_admin_form_field_address_line_2,
+.sf_admin_form_field_postcode,
+.sf_admin_form_field_city,
+.sf_admin_form_field_country_id,
+.sf_admin_form_field_state_province_id,
+.sf_admin_form_field_postal_address_line_1,
+.sf_admin_form_field_postal_address_line_2,
+.sf_admin_form_field_postal_postcode,
+.sf_admin_form_field_postal_city,
+.sf_admin_form_field_postal_country_id,
+.sf_admin_form_field_postal_state_province_id,
+.sf_admin_form_field_guardian_first_name,
+.sf_admin_form_field_guardian_last_name,
+.sf_admin_form_field_guardian_email_address,
+.sf_admin_form_field_guardian_phone_work,
+.sf_admin_form_field_guardian_phone_home,
+.sf_admin_form_field_guardian_phone_mobile,
+.sf_admin_form_field_guardian_address_line_1,
+.sf_admin_form_field_guardian_address_line_2,
+.sf_admin_form_field_guardian_postcode,
+.sf_admin_form_field_guardian_city,
+.sf_admin_form_field_guardian_country_id,
+.sf_admin_form_field_guardian_state_province_id{
+    width: 340px;
+    float: left;
+}

@@ -27,7 +27,8 @@ Profile:
     user_id:                    { type: integer, notnull: true }
     middle_name:                { type: string(200) }
     date_of_birth:              { type: timestamp, notnull: false }
-    gender:                     { type: enum, values: [Male, Female] }    
+    gender:                     { type: enum, values: [Male, Female] }
+    about:                      { type: string(500) }
   relations:
     User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
       
@@ -48,6 +49,30 @@ ProfileQualification:
     year:                       { type: string(255) }
   relations:
     User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: Qualifications, onDelete: CASCADE }
+    
+ProfilePublication:
+  columns:
+    user_id:                    { type: integer }
+    title:                      { type: string(255), notnull: true }
+    link:                       { type: string(500) }
+    year:                       { type: string(255) }
+  relations:
+    User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: Publications, onDelete: CASCADE }
+    
+ProfileBook:
+  columns:
+    user_id:                    { type: integer }
+    title:                      { type: string(255), notnull: true }
+    author:                     { type: string(255) }
+  relations:
+    User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: FavouriteBooks, onDelete: CASCADE }
+    
+ProfileInterest:
+  columns:
+    user_id:                    { type: integer }
+    name:                       { type: string(500), notnull: true }
+  relations:
+    User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: Interests, onDelete: CASCADE }
       
 Student:
   inheritance:
@@ -97,7 +122,7 @@ Contact:
     phone_work:                 { type: string(200) }
     phone_home:                 { type: string(200) }
     phone_mobile:               { type: string(200) }
-    address_line_1:             { type: string(300), notnull: true }
+    address_line_1:             { type: string(300), notnull: false }
     address_line_2:             { type: string(300), notnull: false }
     postcode:                   { type: string(10) }
     city:                       { type: string(255) }
@@ -115,7 +140,7 @@ StudentContact:
     Timestampable:              ~
   columns:
     student_id:                 { type: integer, notnull: true }
-    postal_address_line_1:      { type: string(300), notnull: true }
+    postal_address_line_1:      { type: string(300), notnull: false }
     postal_address_line_2:      { type: string(300), notnull: false }
     postal_postcode:            { type: string(10) }
     postal_city:                { type: string(255) }
@@ -148,7 +173,7 @@ InstructorContact:
     Timestampable:              ~
   columns:
     instructor_id:              { type: integer, notnull: true }
-    postal_address_line_1:      { type: string(300), notnull: true }
+    postal_address_line_1:      { type: string(300), notnull: false }
     postal_address_line_2:      { type: string(300), notnull: false }
     postal_postcode:            { type: string(10) }
     postal_city:                { type: string(255) }
@@ -167,7 +192,7 @@ StaffContact:
     Timestampable:              ~
   columns:
     staff_id:                   { type: integer, notnull: true }
-    postal_address_line_1:      { type: string(300), notnull: true }
+    postal_address_line_1:      { type: string(300), notnull: false }
     postal_address_line_2:      { type: string(300), notnull: false }
     postal_postcode:            { type: string(10) }
     postal_city:                { type: string(255) }

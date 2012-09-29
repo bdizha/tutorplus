@@ -20,7 +20,7 @@
     //<![DATA[
     $(document).ready(function(){
         $("#add_profile_qualification").click(function(){
-            openPopup($(this).attr("href"), '460px', "480px", "Add A Qualification");
+            openPopup($(this).attr("href"), '410px', "480px", "Add A Qualification");
             return false;
         });
     });

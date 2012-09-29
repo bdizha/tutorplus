@@ -1,0 +1,1 @@
+<?php include_partial('profile_publication/list', array('publications' => $profile->getPublications())) ?>

@@ -22,7 +22,8 @@ class activity_feedActions extends autoActivity_feedActions
         foreach ($activityFeeds as $activityFeed)
         {
             $activity = $activityFeed->toArray();
-            $patterns = json_decode($activityFeed->getActivityTemplate()->getPatterns());
+            $patterns = explode(",", $activityFeed->getActivityTemplate()->getPatterns());
+            
             $patterns = array_map(array($this, "padPatterns"), $patterns);
 
             $replacements = json_decode($activityFeed->getReplacements());

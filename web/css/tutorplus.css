@@ -689,18 +689,6 @@
     position: relative;
 }
 
-#my_courses, #recent_activities{
-    margin-bottom: 10px;
-}
-
-.my_course, .recent_activity, .activity_feed{
-    padding: 5px;
-    background-color: #F5F5F5;
-    margin-top: 10px;
-    border-radius: 5px;
-    position: relative;
-}
-
 .item-actions{
     position: absolute;
     right: 5px;
@@ -1083,12 +1071,14 @@
     background-color: #F9F9F9;
     border-bottom: 1px solid #FFFFFF;
     padding: 5px 10px;
+    position: relative;
 }
 
 .odd-row{
     background-color: #F6F6F6;
     border-bottom: 1px solid #FFFFFF;
     padding: 5px 10px;
+    position: relative;
 }
 
 .row-label{
@@ -1109,4 +1099,28 @@
 
 .peer-block{
     overflow: hidden;
+}
+
+.label{
+    color: #666666;
+}
+
+.about-me{
+    height: 155px;
+}
+
+.about-me-photo{
+    right: 50px;
+    position: absolute;
+    top: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    background-color: white;
+    border: 1px solid #CCC;
+    padding: 5px;
+    z-index: 12;
 }

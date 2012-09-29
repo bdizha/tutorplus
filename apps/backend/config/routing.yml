@@ -1,3 +1,30 @@
+profile_book:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileBook
+    module:               profile_book
+    prefix_path:          /profile_book
+    column:               id
+    with_wildcard_routes: true
+
+profile_publication:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfilePublication
+    module:               profile_publication
+    prefix_path:          /profile_publication
+    column:               id
+    with_wildcard_routes: true
+
+profile_interest:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileInterest
+    module:               profile_interest
+    prefix_path:          /profile_interest
+    column:               id
+    with_wildcard_routes: true
+
 profile_profile:
   class: sfDoctrineRouteCollection
   options:

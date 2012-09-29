@@ -20,7 +20,7 @@
     //<![DATA[
     $(document).ready(function(){
         $("#add_profile_award").click(function(){
-            openPopup($(this).attr("href"), '460px', "480px", "Add An Award");
+            openPopup($(this).attr("href"), '410px', "480px", "Add An Award");
             return false;
         });
     });

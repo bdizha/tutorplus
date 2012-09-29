@@ -24,7 +24,7 @@
     </div>
     <div class="content-block">
         <div class="left-block">
-            <h2>Weekly course discussions activity overview</h2>
+            <h2>Weekly Discussion Activities</h2>
             <div id="discussion_stats" class="section_description">
                 <div class="even-row"><?php echo $discussionActivity["new_topics"] ?> discussion topic(s) started</div>
                 <div class="even-row"><?php echo $discussionActivity["new_messages"] ?> discussion message(s)</div>
@@ -38,7 +38,7 @@
                 <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false)) ?>
             <?php else: ?>
                 <div class="even-row">
-                    Currently there're no discussion topics started.                    
+                    There're currently no discussion topics started.                    
                 </div>
             <?php endif; ?>
         </div>

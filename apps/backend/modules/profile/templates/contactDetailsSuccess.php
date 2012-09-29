@@ -10,8 +10,3 @@
 <div id="sf_admin_content">
     <?php include_partial('student_contact/settings'); ?>
 </div>
-<script type='text/javascript'>
-    //<![DATA[
-    $(document).ready(function(){ 
-    //]]
-</script>

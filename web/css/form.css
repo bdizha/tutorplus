@@ -208,5 +208,10 @@ select > option{
 }
 
 #cboxLoadedContentInner textarea{
-    min-width: 375px;
+    min-width: 325px;
+}
+
+#cboxLoadedContentInner input[type="text"], input[type="password"]{
+    min-width: 325px !important;
+    width: 325px;
 }

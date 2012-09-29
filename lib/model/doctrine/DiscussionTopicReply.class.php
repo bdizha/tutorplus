@@ -33,10 +33,12 @@ class DiscussionTopicReply extends BaseDiscussionTopicReply {
         $replacements = array(
             $this->getDiscussionTopicMessage()->getUser()->getName(),
             $this->getDiscussionTopicMessage()->getUserId(),
-            $this->getDiscussionTopicMessage()->getDiscussionTopic()->getSubject(),
+            myToolkit::shortenString($this->getDiscussionTopicMessage()->getDiscussionTopic()->getSubject(), 50),
             $this->getDiscussionTopicMessage()->getDiscussionTopicId(),
             myToolkit::shortenString($this->getReply())
         );
+
+        // find the activity template for this logging
         $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_DISCUSSION_REPLY);
 
         if ($activityTemplate) {

@@ -128,7 +128,7 @@
 </div>
 <script type="text/javascript">
     $(".student_contact_inline_edit a").click(function(){
-        openPopup($(this).attr("href"), "585px", "600px", $(this).attr('title'));
+        openPopup($(this).attr("href"), "772px", "600px", $(this).attr('title'));
         return false;
     });
 </script>

@@ -9,110 +9,104 @@
 <?php end_slot() ?>
 
 <div id="sf_admin_heading">
-    <h3><?php echo __('Batanayi Matuku', array(), 'messages') ?></h3>
+    <h3><?php echo $sf_user->getProfile()->getName() ?></h3>
 </div>
 <div id="sf_admin_content">
-    <div class="content-block">
-        <div class="left-block">        
-            <h2>About Me</h2>
-            <div class="profile-row odd-background" style="height: 134px">
-                <div class="profile-column">    
-                    <div class="content">I love reading anything I find in my hands as well as playing pool and foolsbal games.</div>
+    <div class="content-block">      
+        <h2>About Me <span class="actions"><a id="edit_profile_about" href="/backend.php/profile_about">Edit</a></span></h2>
+        <div class="full-block"> 
+            <div class="even-row about-me">
+                <div class="row-column">
+                    I love reading anything I find in my hands as well as playing pool and foolsbal games.
+                </div>
+                <div class="row-column">
+                    <div class="about-me-photo">
+                        <img height="128px" width="128px" alt="Tutorplus Student" src="/avatars/128.png" />
+                    </div>
                 </div>
             </div>
-        </div>    
-        <div class="right-block">      
-            <h2>Academic Info</h2>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    <label>Current study:</label>
-                    <div class="content">Masters of Education</div>
-                </div>
-            </div>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    <label>Department:</label>
-                    <div class="content">Education</div>
-                </div>
-            </div>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    <label>Institution:</label>
-                    <div class="content">UCT</div>
-                </div>
-            </div>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    <label>Qualification:</label>
-                    <div class="content">Phd in Information Systems (Harvard college, 2007)</div>
-                </div>
-            </div>
-        </div>
-        <br style="clear:both"/>
+        </div>  
     </div>
-    <div class="content-block">
-        <div class="full-block">        
-            <h2>Publications</h2>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    <div class="content">Collective intentionality in CSCL environments - 2013</div>
+    <div class="content-block">     
+        <h2>Academic Info <span class="actions"><a id="edit_profile_about" href="/backend.php/profile_about">Edit</a></span></h2>
+        <div class="full-block">
+            <div class="course_info">
+                <div class="even-row">
+                    <div class="row-column">
+                        <span class="label">Current study:</span> <?php echo $sf_user->getProfile()->getCurrentStudy() ?>
+                    </div>
+                    <div class="row-column">
+                        <span class="label">Department:</span> Education
+                    </div>
                 </div>
-            </div>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    <div class="content">Adoption of Health 2.0 in South Africa - 2012</div>
+                <div class="even-row">
+                    <div class="row-column">
+                        <span class="label">Institution:</span> University of Cape Town (UCT)
+                    </div>
+                    <div class="row-column">
+                        <span class="label">Studied at:</span> <?php echo $sf_user->getProfile()->getStudiedAt() ?>
+                    </div>
                 </div>
+                <?php if ($sf_user->getUserType() == sfGuardUserTable::TYPE_STUDENT): ?>
+                    <div class="even-row">
+                        <div class="row-column">
+                            <span class="label">High School:</span> <?php echo $sf_user->getProfile()->getHighSchool() ?>
+                        </div>
+                        <div class="row-column">
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
+        </div>  
+    </div>
+    <div class="content-block">      
+        <h2>Publications  <span class="actions"><?php echo link_to(__("+ Add"), "@profile_publication_new", array("id" => "add_profile_publication")) ?></span></h2>
+        <div class="full-block" id="profile_publications">  
+            <?php include_partial('profile_publication/list', array('publications' => $profile->getPublications())) ?>
         </div>
     </div>
-    <div class="content-block">
-        <div class="left-block">        
-            <h2>Books Read</h2>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    Philosophy of Money by <span class="author">George Simmel</span>
-                </div>
-            </div>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    Philosophy of Money by <span class="author">George Simmel</span>
-                </div>
-            </div>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    Pride and Prejudice by <span class="author">Jane Austine</span>
-                </div>
-            </div>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    A turning screw <span class="author">Henry James</span>
-                </div>
-            </div>
-        </div>    
-        <div class="right-block">        
-            <h2>Interests</h2>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    <div class="content">Playing pool and foolsbal games</div>
-                </div>
-            </div>
-            <div class="profile-row odd-background">
-                <div class="profile-column">    
-                    <div class="content">Reading novels</div>
-                </div>
-            </div>
+    <div class="content-block">      
+        <h2>Favourite Books  <span class="actions"><?php echo link_to(__("+ Add"), "@profile_book_new", array("id" => "add_profile_book")) ?></span></h2>
+        <div class="full-block" id="profile_books">  
+            <?php include_partial('profile_book/list', array('books' => $profile->getFavouriteBooks())) ?>
         </div>
-        <br style="clear:both"/>
+    </div>
+    <div class="content-block">      
+        <h2>Interests  <span class="actions"><?php echo link_to(__("+ Add"), "@profile_interest_new", array("id" => "add_profile_interest")) ?></span></h2>
+        <div class="full-block" id="profile_interests">  
+            <?php include_partial('profile_interest/list', array('interests' => $profile->getInterests())) ?>  
+        </div>
     </div>
 </div>
 <script type='text/javascript'>
     //<![DATA[
     $(document).ready(function(){        
+        $("#add_profile_publication").click(function(){
+            openPopup($(this).attr("href"), '410px', "480px", "Add A Publication");
+            return false;
+        });
         
+        $("#add_profile_book").click(function(){
+            openPopup($(this).attr("href"), '410px', "480px", "Add A Favourite Book");
+            return false;
+        });
+        
+        $("#add_profile_interest").click(function(){
+            openPopup($(this).attr("href"), '410px', "480px", "Add An Interest");
+            return false;
+        });
     });
 
-    function fetchUpcommingEvents(){
-        $.get('/backend.php/course_meeting_time/meetingTimes', showUpcommingEvents);
+    function fetchPublications(){
+        $('#profile_publications').load('/backend.php/profile_publication');
+    }
+    
+    function fetchFavouriteBooks(){
+        $('#profile_books').load('/backend.php/profile_book');
+    }
+    
+    function fetchInterests(){
+        $('#profile_interests').load('/backend.php/profile_interest');
     }
     //]]
 </script>

@@ -76,4 +76,18 @@ class Instructor extends BaseInstructor
 
         return $mailingLists;
     }
+    
+    public function saveDefaultContact()
+    {
+        $instructorContact = $this->getInstructorContact();
+        if(!is_object($instructorContact)){
+            $instructorContact = new InstructorContact();
+            $instructorContact->setCountryId(1);
+            $instructorContact->setStateProvinceId(1);
+            $instructorContact->setInstructorId($this->getId());
+            $instructorContact->setPostalCountryId(1);
+            $instructorContact->setPostalStateProvinceId(1);
+            $instructorContact->save();
+        }
+    }
 }

@@ -84,17 +84,17 @@ menu:
           my_contact_details:         { route: profile_contact_details, label: "Contact Details" }
           my_notification_settings:   { route: notification_settings, label: "Notification Settings" }
   peers:   
-    details:                          { route:  peer, label: Peers }
+    details:                          { route:  peer_students, label: Peers }
     type:                             One
     children:
       peers:                   
-        details:                      { route: peer, label: "Peers" }
+        details:                      { route: peer_students, label: "Peers" }
         credentials:                  [ student, instructor, staff ]
         children:                    
-          student_peers:              { route: peer, label: "Student Peers" }
-          instructor_peers:           { route: peer, label: "Instructor Peers" }
-          suggested_peers:            { route: peer, label: "Suggested Peers" }
-          find_peers:                 { route: peer, label: "Find Peers" }
+          student_peers:              { route: peer_students, label: "Student Peers" }
+          instructor_peers:           { route: peer_instructors, label: "Instructor Peers" }
+          suggested_peers:            { route: peer_suggested, label: "Suggested Peers" }
+          find_peers:                 { route: peer_find, label: "Find Peers" }
   settings:    
     details:                          { route: course, label: Settings }
     type:                             Many

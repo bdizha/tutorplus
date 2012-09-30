@@ -1,8 +1,8 @@
 all:
   stylesheets:    [profile.css]
   
-newSuccess:
-  has_layout: true
+resultSuccess:
+  has_layout:     false
   
-editSuccess:
-  has_layout: true
+inviteSuccess:
+  has_layout:     false

@@ -27,7 +27,7 @@ class correspondenceActions extends autoCorrespondenceActions
         $this->correspondence_status = $request['status'];
         if (($correspondent_id != "") && ($this->correspondence_status != "") && $this->correspondence_status != "none")
         {
-            $innitiator_type = $this->getUser()->getUserType();
+            $innitiator_type = $this->getUser()->getType();
             if (!is_object($correspondence = CorrespondenceTable::getInstance()->findByInnitiatorAndCorrespondent($correspondent_id, $this->getUser()->getId())))
             {
                 $c = new Correspondence();
@@ -76,7 +76,7 @@ class correspondenceActions extends autoCorrespondenceActions
     public function executeCorrespond(sfWebRequest $request)
     {
         $correspondent_id = $request->getParameter("correspondent_id");
-        $innitiator_type = $this->getUser()->getUserType();
+        $innitiator_type = $this->getUser()->getType();
 
         if (!is_object($this->correspondence = CorrespondenceTable::getInstance()->findByInnitiatorAndCorrespondent($correspondent_id, $this->getUser()->getId())))
         {

@@ -47,7 +47,7 @@
                         <span class="label">Studied at:</span> <?php echo $sf_user->getProfile()->getStudiedAt() ?>
                     </div>
                 </div>
-                <?php if ($sf_user->getUserType() == sfGuardUserTable::TYPE_STUDENT): ?>
+                <?php if ($sf_user->getType() == sfGuardUserTable::TYPE_STUDENT): ?>
                     <div class="even-row">
                         <div class="row-column">
                             <span class="label">High School:</span> <?php echo $sf_user->getProfile()->getHighSchool() ?>

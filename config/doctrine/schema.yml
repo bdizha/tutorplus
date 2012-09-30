@@ -258,7 +258,7 @@ Peer:
   columns:  
     inviter_id:                { type: integer, notnull: true }
     invitee_id:                { type: integer, notnull: true }
-    status:                    { type: integer, default: 0, notnull: true } #[Open, Requested, Peered, Rejected]
+    status:                    { type: integer, default: 0, notnull: true } #[Open, Suggested, Inivited, Peered, Declined]
     type:                      { type: integer, default: 0, notnull: true } #[Student Instructor, Student Student, Instructor Student, Instructor Instructor, Instructor Student, Instructor Staff, Staff Instructor, Staff Staff]
   relations:
     Inviter:                   { class: sfGuardUser, local: inviter_id, foreign: id, foreignAlias: MyPeers, onDelete: CASCADE }

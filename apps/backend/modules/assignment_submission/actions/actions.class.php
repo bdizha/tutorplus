@@ -56,7 +56,7 @@ class assignment_submissionActions extends autoAssignment_submissionActions
             ->addWhere("a.assignment_id = ?", $this->assignment_id)
             ->addOrderBy("a.updated_at Desc");
 
-        if ($this->getUser()->getUserType() == "Student")
+        if ($this->getUser()->getType() == "Student")
         {
             $query->addWhere("a.user_id = ?", $this->getUser()->getId());
         }

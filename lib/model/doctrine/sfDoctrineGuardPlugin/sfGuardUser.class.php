@@ -10,16 +10,33 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class sfGuardUser extends PluginsfGuardUser
-{
+class sfGuardUser extends PluginsfGuardUser {
 
-    public function __toString()
-    {
+    public function __toString() {
         return (string) $this->getName();
     }
-    
-    public function getEmail()
-    {
+
+    public function getEmail() {
         return (string) $this->getEmailAddress();
     }
+
+    public function getType() {
+        $student = StudentTable::getInstance()->findOneBy("user_id", $this->getId());
+        if (is_object($student)) {
+            return sfGuardUserTable::TYPE_STUDENT;
+        }
+
+        $instructor = InstructorTable::getInstance()->findOneBy("user_id", $this->getId());
+        if (is_object($instructor)) {
+            return sfGuardUserTable::TYPE_INSTRUCTOR;
+        }
+
+        $staff = StaffTable::getInstance()->findOneBy("user_id", $this->getId());
+        if (is_object($staff)) {
+            return sfGuardUserTable::TYPE_STAFF;
+        }
+
+        return null;
+    }
+
 }

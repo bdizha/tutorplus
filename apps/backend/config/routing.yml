@@ -600,25 +600,7 @@ sfGuardUser:
     prefix_path:          /sfGuardUser
     column:               id
     with_wildcard_routes: true
-
-menu_item:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                ioDoctrineMenuItem
-    module:               menu_item
-    prefix_path:          /menu_item
-    column:               id
-    with_wildcard_routes: true
-
-io_doctrine_menu_item:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                ioDoctrineMenuItem
-    module:               menu_item
-    prefix_path:          /menu_item
-    column:               id
-    with_wildcard_routes: true
-
+    
 course_meeting_time:
   class: sfDoctrineRouteCollection
   options:
@@ -795,21 +777,33 @@ system_user:
     column:               id
     with_wildcard_routes: true
     
-invite_correspondence:
-  url: /invite_correspondence
-  param: { module: correspondence, action: autocomplete }
+peer_students:
+  url: /peer_students
+  param: { module: peer, action: students }
     
-correspondence_correspond:
-  url: /correspondence_correspond/:correspondent_id
-  param: { module: correspondence, action: correspond }
+peer_instructors:
+  url: /peer_instructors
+  param: { module: peer, action: instructors }
     
-correspondence_decline:
-  url: /correspondence_decline/:correspondent_id
-  param: { module: correspondence, action: decline }
+peer_find:
+  url: /peer_find
+  param: { module: peer, action: find }
     
-correspondence_accept:
-  url: /correspondence_accept/:correspondent_id
-  param: { module: correspondence, action: accept }
+peer_suggested:
+  url: /peer_suggested
+  param: { module: peer, action: suggested }
+    
+peer_invite:
+  url: /peer_invite/:invitee_id
+  param: { module: peer, action: invite }
+    
+peer_accept:
+  url: /peer_accept/:inviter_id
+  param: { module: peer, action: accept }
+  
+peer_result:
+  url: /peer_result
+  param: { module: peer, action: result }
     
 programmes_student:
   url: /programmes_student

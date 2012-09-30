@@ -162,7 +162,7 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getUserType()
+    public function getType()
     {
         if ($this->getStudentId())
             return sfGuardUserTable::TYPE_STUDENT;

@@ -49,7 +49,7 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
         return '<input class="cancel" type="button" onclick="document.location.href=\'/backend.php/peer\' value="Cancel"/>';
     }
 
-    public function indexBreadcrumbs() {
+    public function studentsBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Peers" => "peer",
                 "Student Peers" => "peer"
@@ -57,11 +57,65 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
         );
     }
 
-    public function indexLinks() {
+    public function studentsLinks() {
         return array(
             "current_parent" => "peers",
             "current_child" => "peers",
             "current_link" => "student_peers"
+        );
+    }
+
+    public function instructorsBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Peers" => "peer",
+                "Instructor Peers" => "peer"
+            )
+        );
+    }
+
+    public function instructorsLinks() {
+        return array(
+            "current_parent" => "peers",
+            "current_child" => "peers",
+            "current_link" => "instructor_peers"
+        );
+    }
+
+    public function findBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Peers" => "peer",
+                "Find Peers" => "peer"
+            )
+        );
+    }
+
+    public function findLinks() {
+        return array(
+            "current_parent" => "peers",
+            "current_child" => "peers",
+            "current_link" => "find_peers"
+        );
+    }
+
+    public function suggestedBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Peers" => "peer",
+                "Suggested Peers" => "peer"
+            )
+        );
+    }
+
+    public function suggestedLinks() {
+        return array(
+            "current_parent" => "peers",
+            "current_child" => "peers",
+            "current_link" => "suggested_peers"
+        );
+    }
+
+    public function findPeersContentActions() {
+        return array(
+            "find_peers" => array("title" => "+ Find Peers", "url" => "peer_find")
         );
     }
 

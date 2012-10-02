@@ -25,10 +25,10 @@ Profile:
     Timestampable:              ~
   columns:
     user_id:                    { type: integer, notnull: true }
+    about:                      { type: string(500) }
     middle_name:                { type: string(200) }
     date_of_birth:              { type: timestamp, notnull: false }
     gender:                     { type: enum, values: [Male, Female] }
-    about:                      { type: string(500) }
   relations:
     User:                       { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
       
@@ -364,7 +364,10 @@ Department:
     Faculty:                   { local: faculty_id, foreign: id, foreignAlias: Departments }
     
 Discussion:
-  actAs:                       [Timestampable]
+  actAs:       
+    Timestampable:             ~
+    Sluggable:
+      fields:                  [name]
   tableName:                   discussion
   columns:
     name:                      { type: string(255), notnull: true }
@@ -398,7 +401,10 @@ DiscussionMember:
     Discussion:                { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: Members }
     
 DiscussionTopic:
-  actAs:                       [Timestampable]
+  actAs:       
+    Timestampable:             ~
+    Sluggable:
+      fields:                  [subject]
   tableName:                   discussion_topic
   columns:
     subject:                   { type: string(255), notnull: true }
@@ -534,9 +540,9 @@ NotificationSettings:
   relations:
     User:                               { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE, foreignAlias: NotificationSettings }
     
-AssignmentGroup:
+AssignmentType:
   actAs:                    [Timestampable]
-  tableName:                assignment_group
+  tableName:                assignment_type
   columns:
     name:                   { type: string(255), notnull: true }
     weight:                 { type: decimal, default: 0, notnull: true }
@@ -545,7 +551,10 @@ AssignmentGroup:
     Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
     
 Assignment:
-  actAs:                    [Timestampable]
+  actAs:       
+    Timestampable:          ~
+    Sluggable:
+      fields:               [title]
   tableName:                assignment
   columns:
     title:                  { type: string(255), notnull: true }
@@ -565,7 +574,7 @@ Assignment:
     course_id:              { type: integer, notnull: true }
   relations:
     Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
-    AssignmentGroup:        { local: assignment_group_id, foreign: id, type: one, foreignType: one }
+    AssignmentType:         { local: assignment_type_id, foreign: id, type: one, foreignType: one }
     
 AssignmentFile:
   tableName:                assignment_file
@@ -590,7 +599,10 @@ AssignmentSubmission:
     User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: AssignmentSubmissions, onDelete: CASCADE }
     
 Announcement:
-  actAs:                    [Timestampable]
+  actAs:       
+    Timestampable:          ~
+    Sluggable:
+      fields:               [subject]
   tableName:                announcement
   columns:
     user_id:                { type: integer, notnull: true }
@@ -663,7 +675,11 @@ AcademicPeriod:
     AcademicYear:           { local: academic_year_id, foreign: id, type: one, foreignType: one }
     
 Course:
-  actAs:
+  actAs:      
+    Timestampable:          ~
+    Sluggable:
+      fields:               [name]
+      uniqueBy:             [code, name]
   tableName:                course
   columns:
     name:                   { type: string(255), notnull: true }
@@ -911,7 +927,10 @@ CalendarEventAttendee:
     User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
     
 News:
-  actAs:                    [Timestampable]
+  actAs:       
+    Timestampable:          ~
+    Sluggable:
+      fields:               [heading]
   columns:
     user_id:                { type: integer, notnull: true }
     heading:                { type: string(255), notnull: true }

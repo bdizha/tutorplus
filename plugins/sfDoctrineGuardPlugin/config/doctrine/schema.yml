@@ -51,7 +51,11 @@ sfGuardGroupPermission:
       onDelete: CASCADE
 
 sfGuardUser:
-  actAs: [Timestampable]
+  actAs:       
+    Timestampable:          ~
+    Sluggable:
+      fields:               [first_name, last_name]
+      uniqueBy:             [first_name, last_name]
   columns:
     first_name: string(255)
     last_name: string(255)

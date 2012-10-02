@@ -23,6 +23,7 @@ class peerActions extends autoPeerActions {
 
     public function executeFind(sfWebRequest $request) {
         $this->peers = PeerTable::getInstance()->findByNotUserId($this->getUser()->getId());
+    }
 
     public function executeSuggested(sfWebRequest $request) {
         $this->peers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->getUser()->getId(), PeerTable::STATUS_SUGGESTED);
@@ -34,14 +35,14 @@ class peerActions extends autoPeerActions {
             $inviterId = $this->getUser()->getId();
 
             // make sure these peers are already linked
-            $peer = PeerTable::getInstance()->findByOnePeers($inviterId, $inviteeId);
+            $peer = PeerTable::getInstance()->findOneByPeers($inviterId, $inviteeId);
             if (!is_object($peer)) {
                 // get the invitee
                 $invitee = sfGuardUserTable::getInstance()->findOneById($inviteeId);
 
                 // get the peer type
                 $peerType = PeerTable::getInstance()->getType($this->getUser()->getType(), $invitee->getType());
-                if (!empty($peerType)) {
+                if (!is_null($peerType)) {
                     $peer = new Peer();
                     $peer->setInviteeId($inviteeId);
                     $peer->setInviterId($inviterId);
@@ -63,14 +64,14 @@ class peerActions extends autoPeerActions {
             $inviteeId = $this->getUser()->getId();
 
             // make sure these peers are already linked
-            $peer = PeerTable::getInstance()->findByOnePeers($inviterId, $inviteeId);
+            $peer = PeerTable::getInstance()->findOneByPeers($inviterId, $inviteeId);
             if (!is_object($peer)) {
                 // get the inviter
                 $inviter = sfGuardUserTable::getInstance()->findOneById($inviterId);
 
                 // get the peer type
                 $peerType = PeerTable::getInstance()->getType($inviter->getType(), $this->getUser()->getType());
-                if (!empty($peerType)) {
+                if (!is_null($peerType)) {
                     $peer = new Peer();
                     $peer->setInviteeId($inviteeId);
                     $peer->setInviterId($inviterId);

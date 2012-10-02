@@ -844,6 +844,34 @@ profile_account_settings_edit:
   options: { model: sfGuardUser, type: object }
   param:   { module: profile, action: editAccountSettings, sf_format: html }
   requirements: { sf_method: get }
+    
+personal_info_update:
+  url:     /personal_info/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: personal_info, action: update, sf_format: html }
+  requirements: { sf_method: put } 
+  
+personal_info_edit:
+  url:     /personal_info/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: personal_info, action: edit, sf_format: html }
+  requirements: { sf_method: get }
+  
+academic_info_update:
+  url:     /academic_info/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: academic_info, action: update, sf_format: html }
+  requirements: { sf_method: put } 
+  
+academic_info_edit:
+  url:     /academic_info/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: academic_info, action: edit, sf_format: html }
+  requirements: { sf_method: get }
   
 student_details:
   url: /student_details

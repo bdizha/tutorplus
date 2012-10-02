@@ -13,22 +13,30 @@
 </div>
 <div id="sf_admin_content">
     <div class="content-block">      
-        <h2>About Me <span class="actions"><a id="edit_profile_about" href="/backend.php/profile_about">Edit</a></span></h2>
+        <h2>Personal Info <span class="actions"><a id="edit_personal_info" href="/backend.php/personal_info/<?php echo $sf_user->getId() ?>/edit">Edit</a></span></h2>
         <div class="full-block"> 
             <div class="even-row about-me">
-                <div class="row-column">
-                    I love reading anything I find in my hands as well as playing pool and foolsbal games.
+                <div class="row-column" id="personal_info">
+                    <?php echo $sf_user->getGuardUser()->getProfile()->getAbout() ?>
                 </div>
                 <div class="row-column">
                     <div class="about-me-photo">
-                        <img height="128px" width="128px" alt="Tutorplus Student" src="/avatars/128.png" />
+                        <?php include_partial('personal_info/photo', array('user' => $sf_user->getGuardUser(), "dimension" => 128)) ?>
+                    </div>
+                    <div class="profile-photo-block">
+                        <?php if ($sf_user->hasPhoto()): ?>
+                            <input type="button" class="button" id="upload_photo" value="Change Photo"></input>
+                            <input type="button" class="button" id="crop_photo" value="Crop Photo"></input>
+                        <?php else: ?>
+                            <input type="button" class="button" id="upload_photo" value="Upload Photo"></input>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>  
     </div>
     <div class="content-block">     
-        <h2>Academic Info <span class="actions"><a id="edit_profile_about" href="/backend.php/profile_about">Edit</a></span></h2>
+        <h2>Academic Info <span class="actions"><a id="edit_academic_info" href="/backend.php/personal_info/<?php echo $sf_user->getId() ?>/edit">Edit</a></span></h2>
         <div class="full-block">
             <div class="course_info">
                 <div class="even-row">
@@ -80,7 +88,17 @@
 </div>
 <script type='text/javascript'>
     //<![DATA[
-    $(document).ready(function(){        
+    $(document).ready(function(){
+        $("#edit_personal_info").click(function(){
+            openPopup($(this).attr("href"), '410px', "600px", "Edit Personal Info");
+            return false;
+        });
+        
+        $("#edit_academic_info").click(function(){
+            openPopup($(this).attr("href"), '410px', "600px", "Edit Academic Info");
+            return false;
+        });
+        
         $("#add_profile_publication").click(function(){
             openPopup($(this).attr("href"), '410px', "480px", "Add A Publication");
             return false;
@@ -95,7 +113,25 @@
             openPopup($(this).attr("href"), '410px', "480px", "Add An Interest");
             return false;
         });
+        
+        $("#upload_photo").click(function(){      
+            openPopup("/backend.php/profile_upload_photo", "600px", "300px", $(this).attr("value"));
+            return false;
+        });
+        
+        $("#crop_photo").click(function(){      
+            openPopup("/backend.php/profile_crop_photo", "600px", "600px", $(this).attr("value"));
+            return false;
+        });
     });
+    
+    function fetchPersonalInfo(){
+        $('#personal_info').load('/backend.php/personal_info');
+    }
+    
+    function fetchAcademicInfo(){
+        $('#academic_info').load('/backend.php/academic_info');
+    }
 
     function fetchPublications(){
         $('#profile_publications').load('/backend.php/profile_publication');

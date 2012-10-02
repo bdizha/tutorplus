@@ -1,6 +1,8 @@
 <?php use_helper('I18N', 'Date') ?>
 <div class="full-block padding-10 plain-row"> 
-    <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
+    <a class="image" href="/backend.php/profile">
+        <?php include_partial('personal_info/photo', array('user' => $discussion->getUser(), "dimension" => 36)) ?>
+    </a>
     <div class="value"><?php echo $discussion->getDescription() ?></div>
     <div class="user">By <?php echo link_to($discussion->getUser(), "profile") ?>  - <span class="datetime"><?php echo false !== strtotime($discussion->getUpdatedAt()) ? distance_of_time_in_words(strtotime($discussion->getUpdatedAt())) . " ago" : '&nbsp;' ?></span></div>
 </div>

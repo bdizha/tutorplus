@@ -2,7 +2,7 @@
 <div class="landing-row">
     <div id="authenticate">
         <div id="sf_admin_heading">
-            <h3>Recover password:</h3>
+            <h3>Recover Password:</h3>
         </div>
         <?php include_partial('sfGuardForgotPassword/flashes', array('form' => $form)) ?>
         <div class="sf_admin_form" style="margin-top: 10px;">
@@ -24,7 +24,7 @@
                             <a href="<?php echo url_for('@sf_guard_signin') ?>">< Back to Sign In</a>
                         </div>
                         <div class="input-elm">
-                            <input type="submit" class="save" value="Recover&nbsp;password">      
+                            <input type="submit" class="save" value="Recover&nbsp;Password">      
                         </div>
                     </div>
                 </form>

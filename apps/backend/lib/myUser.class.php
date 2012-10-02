@@ -93,7 +93,7 @@ class myUser extends sfGuardSecurityUser
     }
 
     public function signIn($user, $remember = false, $con = null)
-    {
+    {        
         parent::signIn($user, $remember, $con);
 
         $student = StudentTable::getInstance()->findOneBy("user_id", $this->getId());

@@ -25,7 +25,7 @@
                                             <a href="#">You need technical support?</a>        
                                         </li>
                                         <li>
-                                            <input class="button" value="Sign in" type="button" onclick="document.location.href='/backend.php/login';" />
+                                            <input class="button" value="Sign In" type="button" onclick="document.location.href='/backend.php/login';" />
                                         </li>
                                     </ul>
                                 </div>

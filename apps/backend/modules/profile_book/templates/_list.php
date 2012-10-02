@@ -3,6 +3,6 @@
 <?php endif; ?>
 <?php foreach ($books as $book): ?>
     <div class="even-row">
-        <?php echo $book->getAuthor() ?> by <span class="author"><?php echo $book->getTitle() ?></span>
+        <?php echo $book->getTitle() ?> by <span class="author"><?php echo $book->getAuthor() ?></span>
     </div>
 <?php endforeach; ?>

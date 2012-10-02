@@ -65,8 +65,7 @@ menu:
         credentials:                  [ student, instructor, staff ]
         children:
           discussion_explorer:        { route: discussion, label: "Discussion Explorer" }
-#          my_discussions:             { route: discussion, label: "My Discussions" }
-#          other_discussions:          { route: other_discussion, label: "Other Discussions" }
+          my_discussions:             { route: discussion, label: "My Discussions" }
   profile:                          
     details:                          { route: profile_wall, label: Profile }
     type:                             One

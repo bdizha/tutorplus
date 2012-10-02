@@ -16,8 +16,10 @@
         <div class="peer-block plain-row padding-10" id="my_peers">  
             <?php foreach ($peers as $key => $peer): ?>
                 <?php $name = $peer["first_name"] . " " . $peer["last_name"] ?>
-                <div class="peer"> 
-                    <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="<?php echo $name ?>" src="/avatars/36.png"></a>
+                <div class="peer">
+                    <a class="image" href="/backend.php/profile">
+                        <?php include_partial('personal_info/photo', array('user' => $sf_user->getGuardUser(), "dimension" => 48)) ?>
+                    </a>
                     <div class="name"><?php echo $name ?></div>
                     <div class="peer-actions">
                         <input type="button" class="peer-open" inviteeid="<?php echo $peer["id"] ?>" value="+ Request">

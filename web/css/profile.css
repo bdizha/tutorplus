@@ -696,3 +696,7 @@ span.green{
     background-image: linear-gradient(top,#D7D7D7,#D2D2D2);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D7D7D7',EndColorStr='#D2D2D2');
 }
+
+#personal_info_about{
+    height: 100px;
+}

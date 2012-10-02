@@ -16,7 +16,7 @@
                         <a href="#">Support</a>        
                     </li>
                     <li>
-                        <input class="button" value="Sign out" type="button" onclick="document.location.href='/backend.php/logout';" />
+                        <input class="button" value="Sign Out" type="button" onclick="document.location.href='/backend.php/logout';" />
                     </li>
                 </ul>
             </div>

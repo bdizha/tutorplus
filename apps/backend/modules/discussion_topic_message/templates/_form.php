@@ -5,11 +5,9 @@
     <div id="<?php echo $this->getModuleName() ?>_form_holder">
         <?php echo form_tag_for($form, '@discussion_topic_message', array('id' => 'discussion_topic_message_form')) ?>
         <?php echo $form->renderHiddenFields(false) ?>
-
         <?php foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?>
             <?php include_partial('discussion_topic_message/form_fieldset', array('discussion_topic_message' => $discussion_topic_message, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset)) ?>
         <?php endforeach; ?>
-
         <div class="discussion_topic_actions">
             <input type="button" class="save" href="/backend.php/discussion_topic/8" value="Send" />
         </div>

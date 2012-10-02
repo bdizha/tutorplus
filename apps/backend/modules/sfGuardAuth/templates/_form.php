@@ -31,7 +31,7 @@
                 <div class="actions">       
                     <div class="other-label">&nbsp;</div>
                     <div id="sign-in">
-                        <input type="submit" class="button" value="Sign in" />
+                        <input type="submit" class="button" value="Sign In" />
                     </div>
                     <div id="request-password">
                         <?php $routes = $sf_context->getRouting()->getRoutes() ?>

@@ -12,7 +12,7 @@
                     <?php foreach ($students as $student): ?>
                         <div class="discussion-potential-member">
                             <div class="image">
-                                <img alt="<?php echo $student["name"] ?>" src="/uploads/users/6/avatar_24.png"/>
+                                <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 24)) ?>
                             </div>
                             <div class="name"><?php echo $student["name"] ?></div>
                             <div class="input">
@@ -25,7 +25,7 @@
                     <?php foreach ($instructors as $instructor): ?>
                         <div class="discussion-potential-member">
                             <div class="image">
-                                <img alt="<?php echo $instructor["name"] ?>" src="/uploads/users/6/avatar_24.png"/>
+                                <?php include_partial('personal_info/photo', array('user' => $instructor->getUser(), "dimension" => 24)) ?>
                             </div>
                             <div class="name"><?php echo $instructor["name"] ?></div>
                             <div class="input">

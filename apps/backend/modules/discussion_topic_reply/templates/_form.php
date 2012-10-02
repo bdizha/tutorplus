@@ -1,7 +1,9 @@
 <form id="discussion-topic-reply-form-<?php echo $discussionTopicMessageId ?>" action="<?php echo url_for('@discussion_topic_reply_new') ?>" method="post">
     <?php $form->setDefault("discussion_topic_message_id", $discussionTopicMessageId) ?>    
     <?php echo $form->renderHiddenFields(true) ?>
-    <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Tutorplus Student" src="/avatars/36.png"></a>
+    <a class="image" href="/backend.php/profile">
+        <?php include_partial('personal_info/photo', array('user' => $sf_user->getGuardUser(), "dimension" => 36)) ?>
+    </a>
     <div class="value">
         <div class="input">
             <?php echo $form["reply"] ?>

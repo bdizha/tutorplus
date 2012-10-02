@@ -16,8 +16,8 @@ class sfGuardFormSignin extends BasesfGuardFormSignin
      */
     public function configure()
     {
-        $this->validatorSchema['username'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>username</b> field is required.'));
-        $this->validatorSchema['password'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>password</b> field is required.'));
+        $this->validatorSchema['username'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Username</b> field is required.'));
+        $this->validatorSchema['password'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Password</b> field is required.'));
 
         $this->disableLocalCSRFProtection();
     }

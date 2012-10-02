@@ -1,34 +1,39 @@
 <?php use_helper('I18N', 'Date') ?>
-<div id="sf_admin_form_container">
-    <?php include_partial('common/flashes_modal') ?>
-    <div id="crop_area">
-        <img src="/backend.php/profile_show_photo/<?php echo $sf_user->getId() ?>/resized/<?php echo time() ?>" id="cropbox" />
-        <form action="/backend.php/profile_crop_photo" method="post" id="crop_photo_form">
-            <input type="hidden" id="x" name="x" />
-            <input type="hidden" id="y" name="y" />
-            <input type="hidden" id="w" name="w" />
-            <input type="hidden" id="h" name="h" />
-            <ul class="sf_admin_actions">
-                <li class="sf_admin_action_cancel">
-                    <input class="cancel" type="button" value="Cancel" />
-                </li>        
-                <li class="sf_admin_action_done">
-                    <input class="done" type="button" value="Done" />            
-                </li>
-                <li class="sf_admin_action_save">
-                    <input type="button" value="Crop & Save" class="save" />
-                </li>
-            </ul>
-        </form>
+<div id="cboxLoadedContentInner">
+    <div id="sf_admin_form_container">
+        <div id="sf_admin_form_content">
+            <?php include_partial('common/flashes') ?>
+            <div id="crop_area">
+                <img src="/backend.php/profile_show_photo/<?php echo $sf_user->getId() ?>/resized/<?php echo time() ?>" id="cropbox" />
+                <form action="/backend.php/profile_crop_photo" method="post" id="crop_photo_form">
+                    <input type="hidden" id="x" name="x" />
+                    <input type="hidden" id="y" name="y" />
+                    <input type="hidden" id="w" name="w" />
+                    <input type="hidden" id="h" name="h" />
+                    <ul class="sf_admin_actions">
+                        <li class="sf_admin_action_cancel">
+                            <input class="cancel" type="button" value="Cancel" />
+                        </li>        
+                        <li class="sf_admin_action_done">
+                            <input class="done" type="button" value="Done" />            
+                        </li>
+                        <li class="sf_admin_action_save">
+                            <input type="button" value="Crop & Save" class="save" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
+    //<![DATA[
     $(document).ready(function(){ 
         $(function(){
             $('#cropbox').Jcrop({
                 aspectRatio: 1,
                 minSize: [96, 96],
-                maxSize: [250, 250],
+                maxSize: [392, 392],
                 onSelect: updateCoords
             });
         });
@@ -60,15 +65,17 @@
                     $("#cboxLoadedContentInner").hide();
                     $("#cboxLoadedContent").append(loadingHtml);           
                     if(isSuccess(data)){ 
-                        window.location.href = "/backend.php/personal_info";              
+                        window.location.href = "/backend.php/profile";              
                     }
                     else
                     { 
-                        $("#cboxLoadedContent").html(data);                     
+                        $("#cboxLoadedContent").html(data);
+                        $.fn.colorbox.resize();                     
                     }
                 });            
                 return false;
             }
         });
     });
+    //]]
 </script>

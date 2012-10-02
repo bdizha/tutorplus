@@ -39,4 +39,23 @@ class sfGuardUser extends PluginsfGuardUser {
         return null;
     }
 
+    public function getProfile() {
+        $student = StudentTable::getInstance()->findOneBy("user_id", $this->getId());
+        if (is_object($student)) {
+            return $student;
+        }
+
+        $instructor = InstructorTable::getInstance()->findOneBy("user_id", $this->getId());
+        if (is_object($instructor)) {
+            return $instructor;
+        }
+
+        $staff = StaffTable::getInstance()->findOneBy("user_id", $this->getId());
+        if (is_object($staff)) {
+            return $staff;
+        }
+
+        return null;
+    }
+
 }

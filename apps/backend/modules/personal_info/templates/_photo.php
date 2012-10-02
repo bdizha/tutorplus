@@ -1,0 +1,1 @@
+<img src="/backend.php/profile_show_photo/<?php echo $user->getId() ?>/<?php echo $dimension ?>/<?php echo time() ?>" alt="<?php echo $user->getName() ?>" title="<?php echo $user->getName() ?>"/>

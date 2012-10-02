@@ -60,14 +60,14 @@ class PeerTable extends Doctrine_Table {
 
     public function getType($inviterType = "Student", $inviteeType = "Student") {
         if ($inviterType == "" || $inviteeType == "") {
-            return "";
+            return null;
         } else {
             $requestedType = $inviterType . " " . $inviteeType;
         }
         $peerTypes = self::$types;
         $flippedPeerTypes = array_flip($peerTypes);
 
-        return $flippedPeerTypes[$requestedType];
+        return isset($flippedPeerTypes[$requestedType]) ? $flippedPeerTypes[$requestedType] : null;
     }
 
     public function findByUserIdAndTypes($userId, $types) {
@@ -95,7 +95,7 @@ class PeerTable extends Doctrine_Table {
         return $q->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
     }
 
-    public function findByOnePeers($inviterId, $inviteeId) {
+    public function findOneByPeers($inviterId, $inviteeId) {
         $q = $this->createQuery('p')
                 ->where('(p.inviter_id = ? AND p.invitee_id = ?)', array($inviterId, $inviteeId))
                 ->orWhere('(p.inviter_id = ? AND p.invitee_id = ?)', array($inviteeId, $inviterId));

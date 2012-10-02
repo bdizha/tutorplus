@@ -1,135 +1,67 @@
-<?php use_helper('I18N', 'Date') ?>
+<?php use_stylesheets_for_form($form) ?>
+<?php use_javascripts_for_form($form) ?>
 
-<div id="sf_admin_content">
-    <div id="academic_c_content">
-        <div class="sf_admin_show">
-            <h2>Information <a href="#" onclick="openDialogBox('Edit Academic Period', '/backend.php/academic_period/<?php echo $academic_period->getId() ?>/edit');">Edit</a></h2>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Academic year</label>
-                    <div class="content ">
-                        <?php echo $academic_period->getAcademicYear()->getYearRange() ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Term name</label>
-                    <div class="content ">
-                        <?php echo $academic_period->getName() ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Start date</label>
-                    <div class="content ">
-                        <?php echo $academic_period->getStartDate() ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>End date</label>
-                    <div class="content ">
-                        <?php echo $academic_period->getEndDate() ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Grades due</label>
-                    <div class="content ">
-                        <?php echo $academic_period->getGradesDue() ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Max credits</label>
-                    <div class="content ">
-                        <?php echo $academic_period->getMaxCredits() ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="sf_admin_show">
-            <h2>Registration Details <a href="#">Edit</a></h2>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                 <div class="content">
-                    Registration will commence on 20/08/2011 for a period of a week.
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="academic_r_content">
-        <div class="sf_admin_show">
-            <h2>Statistics <a href="/backend.php/course_meeting_time">Edit</a></h2>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Enrolled</label>
-                    <div class="content ">
-                        <?php echo 564 ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Withdrawn</label>
-                    <div class="content ">
-                        <?php echo 45 ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Credits Attempted</label>
-                    <div class="content ">
-                        <?php echo 415.00 ?>
-                    </div>
-                </div>
-            </div>
-            <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_name">    
-                <div>
-                    <label>Courses</label>
-                    <div class="content ">
-                        <?php echo 78 ?>
-                    </div>
-                </div>
-            </div>
-        </div>		   
-    </div>
-</div>   
-<br style="clear:both"/>
-<div id="popup">&nbsp;</div>
-<script type="text/javascript">
-    function openDialogBox(title, popup_url){
-        openDialog(title);
-        $(".ui-dialog-content").load(popup_url);
-    }
-	
-    function openDialog(title){		
-        $("#popup").dialog({
-            modal:true,
-            title: title,
-            autoOpen:false,
-            buttons:{"Cancel":function(){
-                    $(this).dialog('close');
-                },
-                "Save":function(){					
-                    $("#form").ajaxSubmit(function(data){
-                        $(".ui-dialog-content").html(data);
-                    });
-                }
-            },
-            position:'center',
-            minHeight:200,
-            width:<?php echo sfConfig::get("app_popup_course_meeting_time_width") ?>,
-            resizable:true,
-            draggable:true
-        });
-		
-        $("#popup").html('<div style="margin-right:auto; margin-left:auto; width:32px; height:32px"><img alt="Loading..." src="/images/ajax-loader.gif"/></div>');
-        $("#popup").dialog("open");
-    }
-</script>
+<form action="<?php echo url_for('academic_info/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<?php if (!$form->getObject()->isNew()): ?>
+<input type="hidden" name="sf_method" value="put" />
+<?php endif; ?>
+  <table>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <?php echo $form->renderHiddenFields(false) ?>
+          &nbsp;<a href="<?php echo url_for('academic_info/index') ?>">Back to list</a>
+          <?php if (!$form->getObject()->isNew()): ?>
+            &nbsp;<?php echo link_to('Delete', 'academic_info/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+          <?php endif; ?>
+          <input type="submit" value="Save" />
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <?php echo $form->renderGlobalErrors() ?>
+      <tr>
+        <th><?php echo $form['name']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['name']->renderError() ?>
+          <?php echo $form['name'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['start_date']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['start_date']->renderError() ?>
+          <?php echo $form['start_date'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['end_date']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['end_date']->renderError() ?>
+          <?php echo $form['end_date'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['grades_due']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['grades_due']->renderError() ?>
+          <?php echo $form['grades_due'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['max_credits']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['max_credits']->renderError() ?>
+          <?php echo $form['max_credits'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th><?php echo $form['academic_year_id']->renderLabel() ?></th>
+        <td>
+          <?php echo $form['academic_year_id']->renderError() ?>
+          <?php echo $form['academic_year_id'] ?>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

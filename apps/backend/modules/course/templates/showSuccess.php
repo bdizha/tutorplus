@@ -121,11 +121,7 @@
     </div>
 </div>
 <script type='text/javascript'>
-    $(document).ready(function(){
-        $("#edit_course").click(function(){
-            $("#sf_admin_container").load($(this).attr("popup_url"));
-        });
-	
+    $(document).ready(function(){	
         fetchCourseMeetingTimes();
     });
 

@@ -10,7 +10,7 @@
 
 <div id="sf_admin_content">
     <div class="content-block">
-        <h2>Awards <span class="actions"><?php echo link_to(__("+ Add"), "@profile_award_new", array("id" => "add_profile_award")) ?></span></h2>
+        <h2>Awards <?php if($sf_user->isCurrent($profile->getUser()->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_award_new", array("id" => "add_profile_award")) ?></span><?php endif; ?></h2>
         <div class="full-block" id="profile_awards_list">    
             <?php include_partial('list', array("profile" => $profile)) ?>
         </div>

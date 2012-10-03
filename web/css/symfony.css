@@ -210,7 +210,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     font-size: 12px;
     padding: 5px 0 4px 30px;
     text-align: center;
-    border: 1px solid #134D58;
+    color: #134D58;
     margin-bottom: 10px;
 }
 

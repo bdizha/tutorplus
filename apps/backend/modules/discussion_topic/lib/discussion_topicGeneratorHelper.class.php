@@ -99,20 +99,23 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         );
     }
 
-    public function wallBreadcrumbs() {
+    public function timelineBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
-                "Discussion Wall" => "email_template"
+                "Profile" => "profile_timeline",
+                "Timeline" => "email_template"
             )
         );
     }
 
-    public function wallLinks() {
+    public function timelineLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_discussions",
-            "is_profile" => true
+            "slug" => $sfUser->getGuardUser()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($userId)
         );
     }
 

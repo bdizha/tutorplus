@@ -1,7 +1,7 @@
 <?php
 
-class myUser extends sfGuardSecurityUser
-{
+class myUser extends sfGuardSecurityUser {
+
     private $namespace = "sfGuardSecurityUser";
 
     /**
@@ -10,8 +10,7 @@ class myUser extends sfGuardSecurityUser
      * @param string $attribute key
      * @param string $attribute value
      */
-    public function setMyAttribute($key, $value)
-    {
+    public function setMyAttribute($key, $value) {
         $this->setAttribute($key, $value, $this->namespace);
     }
 
@@ -21,14 +20,12 @@ class myUser extends sfGuardSecurityUser
      * @param string $attribute key
      * @param string $attribute value
      */
-    public function getMyAttribute($key, $default)
-    {
+    public function getMyAttribute($key, $default) {
         $attribute = $this->getAttribute($key, $default, $this->namespace);
         return $attribute;
     }
 
-    public function getId()
-    {
+    public function getId() {
         return $this->getMyAttribute("user_id", null);
     }
 
@@ -37,8 +34,7 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getStudentId()
-    {
+    public function getStudentId() {
         return $this->getMyAttribute("student_show_id", null);
     }
 
@@ -47,8 +43,7 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getStudent($user_id = null)
-    {
+    public function getStudent($user_id = null) {
         return StudentTable::getInstance()->findOneBy("user_id", !is_null($user_id) ? $user_id : $this->getId());
     }
 
@@ -57,8 +52,7 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getInstructorId()
-    {
+    public function getInstructorId() {
         return $this->getMyAttribute("instructor_show_id", null);
     }
 
@@ -67,8 +61,7 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getInstructor($user_id = null)
-    {
+    public function getInstructor($user_id = null) {
         return InstructorTable::getInstance()->findOneBy("user_id", !is_null($user_id) ? $user_id : $this->getId());
     }
 
@@ -77,8 +70,7 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getStaffId()
-    {
+    public function getStaffId() {
         return $this->getMyAttribute("staff_show_id", null);
     }
 
@@ -87,30 +79,27 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getStaff($user_id = null)
-    {
+    public function getStaff($user_id = null) {
         return StaffTable::getInstance()->findOneBy("user_id", !is_null($user_id) ? $user_id : $this->getId());
     }
 
-    public function signIn($user, $remember = false, $con = null)
-    {        
+    public function signIn($user, $remember = false, $con = null) {
         parent::signIn($user, $remember, $con);
 
+        $this->setAttribute('profile_show_id', $this->getId(), 'sfGuardSecurityUser');
+
         $student = StudentTable::getInstance()->findOneBy("user_id", $this->getId());
-        if (is_object($student))
-        {
+        if (is_object($student)) {
             $this->setAttribute('student_show_id', $student->getId(), 'sfGuardSecurityUser');
         }
 
         $instructor = InstructorTable::getInstance()->findOneBy("user_id", $this->getId());
-        if (is_object($instructor))
-        {
+        if (is_object($instructor)) {
             $this->setAttribute('instructor_show_id', $instructor->getId(), 'sfGuardSecurityUser');
         }
 
         $staff = StaffTable::getInstance()->findOneBy("user_id", $this->getId());
-        if (is_object($staff))
-        {
+        if (is_object($staff)) {
             $this->setAttribute('staff_show_id', $staff->getId(), 'sfGuardSecurityUser');
         }
     }
@@ -120,22 +109,15 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getProfile()
-    {
-        if ($this->getStudentId())
-        {
-            return $this->getStudent();
+    public function getProfile() {
+        $userId = $this->getMyAttribute("profile_show_id", null);
+        $user = sfGuardUserTable::getInstance()->findOneById($userId);
+
+        try {
+            return $user->getProfile();
+        } catch (sfException $e) {
+            return null;
         }
-        else if ($this->getInstructorId())
-        {
-            return $this->getInstructor();
-        }
-        else if ($this->getStaffId())
-        {
-            echo "Oops, I'm a staff guy!, how could it possibly be possible?";
-            die;
-        }
-        return null;
     }
 
     /**
@@ -143,14 +125,10 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getCorrespondent($user_id = null)
-    {
-        if ($this->getStudent())
-        {
+    public function getCorrespondent($user_id = null) {
+        if ($this->getStudent()) {
             return $this->getStudent();
-        }
-        else if ($this->getInstructor())
-        {
+        } else if ($this->getInstructor()) {
             return $this->getInstructor();
         }
         echo "Oops, I'm a staff guy!, how could it possibly be possible?";
@@ -162,8 +140,7 @@ class myUser extends sfGuardSecurityUser
      *
      * @return Doctrine_Record
      */
-    public function getType()
-    {
+    public function getType() {
         if ($this->getStudentId())
             return sfGuardUserTable::TYPE_STUDENT;
         if ($this->getInstructorId())
@@ -173,9 +150,12 @@ class myUser extends sfGuardSecurityUser
         return null;
     }
 
-    public function hasPhoto()
-    {
+    public function hasPhoto() {
         return count(sfFinder::type('file')->in(sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getId())) > 0;
+    }
+
+    public function isCurrent($userId) {
+        return $userId == $this->getId();
     }
 
 }

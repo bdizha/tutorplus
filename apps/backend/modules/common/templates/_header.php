@@ -1,10 +1,12 @@
+<?php $user = $sf_user->getGuardUser()->getProfile()->getUser(); ?>
 <div id="inner-header-wrapper">
     <div id="logo-container">
         <div id="logo-wrapper">
             <div id="header-links">                        
                 <ul>
                     <li>
-                        <a href="/backend.php/profile">Batanayi Matuku</a>    
+                        <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 24)) ?>
+                        <?php echo link_to($user, 'profile_show', $user) ?>
                     </li>
                     <li>
                         <a href="#">Inbox</a>            

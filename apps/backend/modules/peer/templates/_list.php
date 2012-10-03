@@ -19,10 +19,8 @@
         <?php $myPeer = $peer->getInvitee(); ?>
     <?php endif; ?>
     <div class="peer"> 
-        <a class="image" href="/backend.php/profile">
-            <?php include_partial('personal_info/photo', array('user' => $myPeer, "dimension" => 48)) ?>
-        </a>
-        <div class="name"><?php echo $myPeer ?></div>
+        <?php include_partial('personal_info/photo', array('user' => $myPeer, "dimension" => 48)) ?>
+        <div class="name"><?php echo link_to($myPeer, 'profile_show', $myPeer) ?></div>
         <div class="peer-actions">
             <input type="button" class="peer-<?php echo $statusClass ?>" inviterid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
         </div>

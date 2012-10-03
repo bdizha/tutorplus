@@ -16,7 +16,6 @@ class StudentForm extends BaseStudentForm
 
         $this->widgetSchema ['number'] = new sfWidgetFormInputText();
         $this->validatorSchema['number'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-        $this->validatorSchema['enrollment']->setMessage('required', 'The <b>enrollment</b> field is required.');
         $this->widgetSchema->setNameFormat('student[%s]');
     }
 }

@@ -21,7 +21,7 @@
             <div class="correspond-left-block" style="width: 535px;">
                 <div id="heading-tabs">
                     <ul>
-                        <li class="first current" tab_content_id="profile_wall" id="tab_wall">
+                        <li class="first current" tab_content_id="profile_timeline" id="tab_wall">
                             <h4>Wall</h4>
                         </li>
                         <li id="tab_info" tab_content_id="profile_info">
@@ -35,7 +35,7 @@
                         </li>
                     </ul>    
                 </div>
-                <div class="profile_details" id="profile_wall" style="display:block"></div>
+                <div class="profile_details" id="profile_timeline" style="display:block"></div>
                 <div class="profile_details" id="profile_info" style="display:none">
                     <div class="profile_row">    
                         <div>

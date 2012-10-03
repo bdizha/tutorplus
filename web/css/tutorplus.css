@@ -1123,6 +1123,7 @@
     border: 1px solid #CCC;
     padding: 5px;
     z-index: 12;
+    width: 128px;
 }
 
 .profile-photo-block{
@@ -1140,4 +1141,9 @@
 
 .email-recipient{
     color: #134D58;
+}
+
+.photo-link{
+    display: block;
+    float: left;
 }

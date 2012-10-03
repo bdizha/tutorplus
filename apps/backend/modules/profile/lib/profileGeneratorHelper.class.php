@@ -30,88 +30,104 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
         }
     }
 
-    public function aboutBreadcrumbs() {
+    public function publicInfoBreadcrumbs() {
+        $sfUser = sfContext::getInstance()->getUser();
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
-                "About" => "my_info"
+                "Profile" => "profile_timeline",
+                "Public Info" => "profile/" . $sfUser->getProfile()->getUser()->getSlug()
             )
         );
     }
 
-    public function aboutLinks() {
+    public function publicInfoLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_info",
-            "is_profile" => true
+            "slug" => $sfUser->getProfile()->getUser()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($userId)
         );
     }
 
     public function discussionBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
-                "Discussions" => "profile_wall"
+                "Profile" => "profile_timeline",
+                "Discussions" => "profile_timeline"
             )
         );
     }
 
     public function discussionLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_discussions",
-            "is_profile" => true
+            "slug" => $sfUser->getProfile()->getUser()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($userId)
         );
     }
 
     public function accountSettingsBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
+                "Profile" => "profile_timeline",
                 "Account Settings" => "profile_settings"
             )
         );
     }
 
     public function accountSettingsLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_account_settings",
-            "is_profile" => true
+            "slug" => $sfUser->getGuardUser()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($userId)
         );
     }
 
     public function contactDetailsBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
+                "Profile" => "profile_timeline",
                 "Contact Details" => "my_contact_details"
             )
         );
     }
 
     public function contactDetailsLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_contact_details",
-            "is_profile" => true
+            "slug" => $sfUser->getGuardUser()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($userId)
         );
     }
 
     public function peersBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
+                "Profile" => "profile_timeline",
                 "Peers" => "my_peers"
             )
         );
     }
 
     public function peersLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_peers",
-            "is_profile" => true
+            "slug" => $sfUser->getGuardUser()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($userId)
         );
     }
 }

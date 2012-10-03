@@ -99,7 +99,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
     public function showBreadcrumbs($course) {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getId()
+                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
             )
         );
     }
@@ -110,7 +110,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
             "current_child" => "my_course",
             "current_link" => "course_info",
             "is_profile" => true,
-            "id" => $course->getId()
+            "slug" => $course->getSlug()
         );
     }
 

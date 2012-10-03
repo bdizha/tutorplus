@@ -5,5 +5,5 @@ all:
 showSuccess:
   has_layout: true
   
-wallSuccess:
+timelineSuccess:
   has_layout: true

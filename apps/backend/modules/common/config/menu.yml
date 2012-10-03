@@ -44,7 +44,7 @@ menu:
         details:                      { route: course_show, label: "Course Home" }
         credentials:                  [ student, instructor, staff ]
         children:
-          course_info:                { route: course_show, param: id,  label: "Course Info" }
+          course_info:                { route: course_show, param: slug,  label: "Course Info" }
           assignments:                { route: assignment, label: "Assignments" }
           assignment_groups:          { route: assignment_group, label: "Assignments Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
@@ -67,21 +67,23 @@ menu:
           discussion_explorer:        { route: discussion, label: "Discussion Explorer" }
           my_discussions:             { route: discussion, label: "My Discussions" }
   profile:                          
-    details:                          { route: profile_wall, label: Profile }
+    details:                          { route: profile_show, label: Profile }
     type:                             One
+    param:                            slug
     children:
       my_profile:                   
-        details:                      { route: profile_wall, label: "Profile" }
+        details:                      { route: profile_show, label: "Profile" }
         credentials:                  [ student, instructor, staff ]
+        param:                        slug
         children:                    
-          my_info:                    { route: profile, label: "About" }
+          my_info:                    { route: profile_show, param: slug, label: "Public Info" }
           my_peers:                   { route: profile_peers, label: "Peers" }
-          my_discussions:             { route: profile_wall, label: "Discussion Wall" }
+          my_discussions:             { route: profile_timeline, label: "Timeline" }
           my_awards:                  { route: profile_award, label: "Awards" }
           my_qualifications:          { route: profile_qualification, label: "Qualifications" }
-          my_account_settings:        { route: profile_account_settings, label: "Account Settings" }
-          my_contact_details:         { route: profile_contact_details, label: "Contact Details" }
-          my_notification_settings:   { route: notification_settings, label: "Notification Settings" }
+          my_account_settings:        { route: profile_account_settings, command: ignore, label: "Account Settings" }
+          my_contact_details:         { route: profile_contact_details, command: ignore, label: "Contact Details" }
+          my_notification_settings:   { route: notification_settings, command: ignore, label: "Notification Settings" }
   peers:   
     details:                          { route:  peer_students, label: Peers }
     type:                             One

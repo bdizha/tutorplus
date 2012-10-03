@@ -130,7 +130,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
             "current_child" => "my_course",
             "current_link" => "assignments",
             "is_profile" => true,
-            "id" => $course->getId()
+            "slug" => $course->getSlug()
         );
     }
 

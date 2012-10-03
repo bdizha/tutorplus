@@ -97,8 +97,9 @@ Instructor:
   columns:
     employment:                 { type: enum, values: [Full time, Part time] }
     is_student:                 { type: boolean, default: 0 }
-    current_study:              { type: string(255) }
+    high_school:                { type: string(255) }
     studied_at:                 { type: string(255) }
+    current_study:              { type: string(255) }
     employment_start_date:      { type: timestamp, notnull: false }
     employment_end_date:        { type: timestamp, notnull: false }
       

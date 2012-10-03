@@ -14,12 +14,14 @@ require_once dirname(__FILE__) . '/../lib/profileGeneratorHelper.class.php';
 class profileActions extends autoProfileActions {
 
     /**
-     * Executes index action
+     * Executes show action
      *
      * @param sfRequest $request A request object
      */
-    public function executeIndex(sfWebRequest $request) {
-        $this->profile = $this->getUser()->getGuardUser();
+    public function executeShow(sfWebRequest $request) {
+        $slug = $request->getParameter("slug");
+        $this->user = sfGuardUserTable::getInstance()->findOneBy("slug", $slug);
+        $this->getUser()->setMyAttribute('profile_show_id', $this->user->getId());
     }
 
     /**

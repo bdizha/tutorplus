@@ -65,7 +65,9 @@
                     $("#cboxLoadedContentInner").hide();
                     $("#cboxLoadedContent").append(loadingHtml);           
                     if(isSuccess(data)){ 
-                        window.location.href = "/backend.php/profile";              
+                        alert("testint...111");
+                        window.location.href = "/backend.php/profile/<?php echo $sf_user->getGuardUser()->getSlug() ?>";           
+                        alert("testint...222");   
                     }
                     else
                     { 

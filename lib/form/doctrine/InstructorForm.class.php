@@ -21,7 +21,7 @@ class InstructorForm extends BaseInstructorForm {
         $this->widgetSchema['is_student'] = new sfWidgetFormInputCheckbox();
 
         $this->validatorSchema['is_active'] = new sfValidatorBoolean(array('required' => false));
-        $this->validatorSchema['employment']->setMessage('required', 'The <b>employment</b> field is required.');
+        $this->validatorSchema['employment']->setMessage('required', 'The <b>Employment</b> field is required.');
     }
 
 }

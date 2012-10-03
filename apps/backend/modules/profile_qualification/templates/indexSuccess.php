@@ -10,7 +10,7 @@
 
 <div id="sf_admin_content">
     <div class="content-block">
-        <h2>Qualifications <span class="actions"><?php echo link_to(__("+ Add"), "@profile_qualification_new", array("id" => "add_profile_qualification")) ?></span></h2>
+        <h2>Qualifications <?php if($sf_user->isCurrent($profile->getUser()->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_qualification_new", array("id" => "add_profile_qualification")) ?></span><?php endif; ?></h2>
         <div class="full-block" id="profile_qualifications_list">    
             <?php include_partial('list', array("profile" => $profile)) ?>
         </div>

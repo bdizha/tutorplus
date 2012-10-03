@@ -5,8 +5,10 @@
     <ul>
         <?php foreach ($menu as $key => $menuItem): ?>
             <li class="separator"></li>
-            <li class="<?php echo ($i == 1 || $i == $menuItemsCount) ? ($i == 1) ? "first " : "last "  : "" ?><?php echo (!empty($current_parent) && $current_parent == $key) ? "active" : "normal" ?>">
-                <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"]) ?>
+            <li class="<?php echo ($i == 1 || $i == $menuItemsCount) ? ($i == 1) ? "first " : "last "  : "" ?>
+                <?php echo (!empty($current_parent) && $current_parent == $key) ? "active" : "normal" ?>">
+                <?php $params = (isset($menuItem["param"])) ? "?" . $menuItem["param"] . "=" . $sf_user->getGuardUser()->getSlug() : "" ?>
+                <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"] . $params) ?>
             </li>
         <?php endforeach; ?>
         <?php $i++ ?>
@@ -27,21 +29,18 @@
                     <div class="menu-item">
                         <div class="menu-heading"><span><?php echo __($childItem["details"]["label"]) ?></span></div>
                     </div>
-                    <?php if (isset($is_profile) && $is_profile && $i == 1 && false): ?>
-                        <div class="profile-photo">
-                            <img width="151" alt="Batanayi Matuku" src="https://lh5.googleusercontent.com/-J4chDl4M2ZI/AAAAAAAAAAI/AAAAAAAAAAA/ylxejGmnnkM/s77-c-k/photo.jpg?fb=s">
-                        </div>
-                    <?php endif; ?>
                     <div id="child-item-<?php echo $i ?>" class="menu-item-children" style="display: <?php echo empty($itemId) ? "none" : "block" ?>;">
                         <ol>
                             <?php $counter = 0; ?>                                    
                             <?php foreach ($childItem["children"] as $link => $linkItem): ?>
-                                <?php $counter++ ?>
-                                <?php $itemId2 = ($link == $current_link) ? "selected" : "" ?>
-                                <?php $params = (isset($linkItem["param"])) ? "?" . $linkItem["param"] . "=" . $$linkItem["param"] : "" ?>
-                                <li id="<?php echo $linkItem["route"] ?>_item" <?php echo $counter == count($childItem["children"]) ? "style='border-bottom:none;'" : "" ?> class="<?php echo $counter == 1 ? "first " : "" ?><?php echo $itemId2 ?>">
-                                    <?php echo link_to(__($linkItem["label"]), '@' . $linkItem["route"] . $params) ?>
-                                </li>
+                                <?php if (!isset($linkItem["command"]) || (isset($linkItem["command"]) && !(boolean)$$linkItem["command"])): ?>
+                                    <?php $counter++ ?>
+                                    <?php $itemId2 = ($link == $current_link) ? "selected" : "" ?>
+                                    <?php $params = (isset($linkItem["param"])) ? "?" . $linkItem["param"] . "=" . $$linkItem["param"] : "" ?>
+                                    <li id="<?php echo $linkItem["route"] ?>_item" <?php echo $counter == count($childItem["children"]) ? "style='border-bottom:none;'" : "" ?> class="<?php echo $counter == 1 ? "first " : "" ?><?php echo $itemId2 ?>">
+                                        <?php echo link_to(__($linkItem["label"]), '@' . $linkItem["route"] . $params) ?>
+                                    </li>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         </ol>
                     </div>				

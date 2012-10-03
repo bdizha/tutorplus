@@ -11,25 +11,25 @@
 class personal_infoActions extends sfActions {
 
     public function preExecute() {
-        $photo_extension = "png";
-        $resized_photo = sfFinder::type('any')->maxdepth(0)
+        $photoExtension = "png";
+        $$resizedPhoto = sfFinder::type('any')->maxdepth(0)
                 ->relative()
                 ->name('normal-resized.*')
                 ->in(sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getUser()->getId());
 
-        if (isset($resized_photo[0])) {
-            $photo_parts = explode(".", $resized_photo[0]);
+        if (isset($$resizedPhoto[0])) {
+            $photoParts = explode(".", $$resizedPhoto[0]);
 
-            if (count($photo_parts) == 2) {
-                $photo_extension = $photo_parts[1];
+            if (count($photoParts) == 2) {
+                $photoExtension = $photoParts[1];
             }
         }
 
         $this->profile = $this->getUser()->getProfile();
-        $this->resized_photo = sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getUser()->getId() . "/normal-resized." . $photo_extension;
-        $this->cropped_photo = sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getUser()->getId() . "/cropped." . $photo_extension;
+        $this->resized_photo = sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getUser()->getId() . "/normal-resized." . $photoExtension;
+        $this->cropped_photo = sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getUser()->getId() . "/cropped." . $photoExtension;
         $this->resized_photo_dir = sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getUser()->getId();
-        $this->resized_photo_src = "/uploads/users/" . $this->getUser()->getId() . "/resized." . $photo_extension;
+        $this->resized_photo_src = "/uploads/users/" . $this->getUser()->getId() . "/resized." . $photoExtension;
 
         $this->forward404Unless($this->profile);
     }
@@ -124,16 +124,27 @@ class personal_infoActions extends sfActions {
     }
 
     public function executeEdit(sfWebRequest $request) {
-        $this->form = new PersonalInfoForm($this->getUser()->getProfile());
+        $profile = $this->getUser()->getProfile();
+        $user = $this->getUser()->getProfile()->getUser();
+        
+        // construct the personal info form based on the user type
+        $personalInfoForm = $user->getType() . "PersonalInfoForm";
+        $this->form = new $personalInfoForm($profile);
     }
 
     public function executeUpdate(sfWebRequest $request) {
-        $this->form = new PersonalInfoForm($this->getUser()->getProfile());
-        $this->processInlineForm($request, $this->form, "@personal_info_edit?id=" . $this->getUser()->getId());
+        $profile = $this->getUser()->getProfile();
+        $user = $this->getUser()->getProfile()->getUser();
+        
+        // construct the personal info form based on the user type
+        $personalInfoForm = $user->getType() . "PersonalInfoForm";
+
+        $this->form = new $personalInfoForm($profile);
+        $this->processEditForm($request, $this->form, "@personal_info_edit?id=" . $user->getId());
         $this->setTemplate('edit');
     }
 
-    protected function processInlineForm(sfWebRequest $request, sfForm $form, $route) {
+    protected function processEditForm(sfWebRequest $request, sfForm $form, $route) {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         if ($form->isValid()) {
             $notice = 'Your personal info has been updated successfully.';

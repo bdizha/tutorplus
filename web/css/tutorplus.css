@@ -1126,6 +1126,16 @@
     width: 128px;
 }
 
+.menu-photo{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+    border: 1px solid #CCC;
+}
+
 .profile-photo-block{
     right: 10px;
     position: absolute;

@@ -5,7 +5,7 @@
             <div id="header-links">                        
                 <ul>
                     <li>
-                        <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 24)) ?>
+                        <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 24, "cssClass" => "menu-photo")) ?>
                         <?php echo link_to($user, 'profile_show', $user) ?>
                     </li>
                     <li>

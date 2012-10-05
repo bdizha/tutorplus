@@ -231,7 +231,7 @@ UserActivityFeed:
     activity_feed_id:          { type: integer, notnull: true }
   relations:
     User:                      { class: sfGuardUser, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: UserActivityFeeds }
-    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: UserActivityFeeds }
+    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, foreignType: one, type: one, onDelete: CASCADE, foreignAlias: UserActivityFeed }
     
 CourseActivityFeed:
   actAs:

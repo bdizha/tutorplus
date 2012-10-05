@@ -55,11 +55,6 @@
     display: table !important;
 }
 
-#sf_admin_content .sf_admin_list{
-    display: block;
-    padding-right: 20px;
-}
-
 textarea{
     max-height: 1000px;
     height: 16px;
@@ -67,7 +62,8 @@ textarea{
 }
 
 span.separator{
-    color:#0088CC;font-size:14px;
+    color: #0088CC;
+    font-size: 14px;
 }
 
 .discussion_message{

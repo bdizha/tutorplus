@@ -17,13 +17,14 @@ class activity_feedActions extends autoActivity_feedActions
     public function executeIndex(sfWebRequest $request)
     {
         $this->activityFeeds = array();
-        $activityFeeds = ActivityFeedTable::getInstance()->retrieveNotificationsByUser($this->getUser()->getId());
+        $activityFeeds = ActivityFeedTable::getInstance()->findByUser($this->getUser()->getId());
 
         foreach ($activityFeeds as $activityFeed)
         {
             $activity = $activityFeed->toArray();
-            $patterns = explode(",", $activityFeed->getActivityTemplate()->getPatterns());
+            $activity["user"] = $activityFeed->getUserActivityFeed()->getUser();
             
+            $patterns = explode(",", $activityFeed->getActivityTemplate()->getPatterns());            
             $patterns = array_map(array($this, "padPatterns"), $patterns);
 
             $replacements = json_decode($activityFeed->getReplacements());

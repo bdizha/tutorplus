@@ -11,58 +11,50 @@
 <div id="sf_admin_content">
     <div class="content-block">
         <div class="peer-filters">
-            <span class="peer-filter">Student peers (25)</span>
-            <span class="peer-filter current">Instructor peers (16)</span>
-            <span class="peer-filter">Find peers</span>
+            <ul class="nav-tabs">
+                <li class="active-tab">
+                    <a href="#" tab="student_peers" class="launch-tile">Student peers</a>
+                    <span class="list-count"><?php echo count($studentPeers) ?></span>
+                </li>
+                <li>
+                    <a href="#" tab="instructor_peers" class="launch-tile">Instructor peers</a>
+                    <span class="list-count"><?php echo count($instructorPeers) ?></span>
+                </li> 
+                <li>
+                    <a href="#" tab="find_peers" class="launch-tile">Find peers</a>
+                </li>
+            </ul>
         </div>
-        <div class="peer-block plain-row padding-10">        
-            <div class="peer"> 
-                <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
-                <div class="name">Batanayi Matuku</div>
-                <div class="type">Student</div>
+        <div class="peer-block plain-row padding-10">
+            <div id="student_peers" class="peers">
+                <?php include_partial('peer/list', array("peers" => $studentPeers)) ?>
+                <?php include_partial('peer/list', array("peers" => $studentPeers)) ?>
+                <?php include_partial('peer/list', array("peers" => $studentPeers)) ?>
+                <?php include_partial('peer/list', array("peers" => $studentPeers)) ?>
+                <?php include_partial('peer/list', array("peers" => $studentPeers)) ?>
+                <?php include_partial('peer/list', array("peers" => $studentPeers)) ?>
+                <?php include_partial('peer/list', array("peers" => $studentPeers)) ?>
             </div>
-            <div class="peer"> 
-                <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
-                <div class="name">Innocent Nyama</div>
-                <div class="type">Instructor</div>
+            <div id="instructor_peers" class="peers hide">
+                <?php include_partial('peer/list', array("peers" => $instructorPeers)) ?>
             </div>
-            <div class="peer"> 
-                <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
-                <div class="name">Braian Harvey</div>
-                <div class="type">Instructor</div>
-            </div>
-            <div class="peer  last"> 
-                <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
-                <div class="name">Warrent Mahomva</div>
-                <div class="type">Student</div>
-            </div>
-            <div class="peer"> 
-                <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
-                <div class="name">John Searle</div>
-                <div class="type">Instructor</div>
-            </div>
-            <div class="peer"> 
-                <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
-                <div class="name">Kudakwashe Madzora</div>
-                <div class="type">Student</div>
-            </div>
-            <div class="peer"> 
-                <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
-                <div class="name">Kudzai Gwenhamo</div>
-                <div class="type">Student</div>
+            <div id="find_peers" class="peers hide">
+                <?php include_partial('peer/list', array("peers" => $instructorPeers)) ?>
             </div>
         </div>
     </div>
 </div>
 <script type='text/javascript'>
     //<![DATA[
-    $(document).ready(function(){        
-        // load recent announcements
-        fetchRecentAnnouncements();
+    $(document).ready(function(){   
+        $(".nav-tabs a").click(function(){
+            $(".nav-tabs li").removeClass("active-tab");
+            $(this).parent().addClass("active-tab");
+            
+            $(".peers").removeClass("hide");            
+            $(".peers").addClass("hide");
+            $("#" + $(this).attr("tab")).removeClass("hide");
+        });
     });
-
-    function fetchUpcommingEvents(){
-        $.get('/backend.php/course_meeting_time/meetingTimes', showUpcommingEvents);
-    }
     //]]
 </script>

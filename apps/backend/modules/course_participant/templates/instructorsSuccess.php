@@ -1,13 +1,16 @@
 <?php $courseInstructors = $course->getCourseInstructors(); ?>
 <?php if ($courseInstructors->count() > 0): ?>
-    <?php foreach ($courseInstructors as $courseInstructor): ?>
-        <div class="course-instructor" id="course-instructor-<?php echo $courseInstructor->getInstructor()->getId() ?>">
-            <div class="participant-image">
-                <img alt="<?php echo $courseInstructor->getInstructor()->getName() ?>" src="/uploads/users/6/avatar_36.png">
+    <div class="peer-block plain-row padding-10">
+        <?php foreach ($courseInstructors as $courseInstructor): ?>
+            <?php $user = $courseInstructor->getInstructor()->getUser() ?>
+            <div class="peer" id="course-student-<?php echo $courseInstructor->getInstructor()->getId() ?>">
+                <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 36)) ?>
+                <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
+                <div class="type"><?php echo $user->getType() ?></h4>
+                </div>
             </div>
-            <div class="participant-meta"><?php echo $courseInstructor->getInstructor()->getName() ?></div>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
 <?php else: ?>
-    Currently there are no instructor participants on this course
+    <div class="no-result">There's no instructor participants added to this course currently</div>
 <?php endif; ?>

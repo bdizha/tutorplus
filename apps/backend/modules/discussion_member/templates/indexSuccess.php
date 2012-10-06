@@ -28,9 +28,6 @@
         <?php include_partial('discussion_member/list_actions', array('helper' => $helper)) ?>
     </ul>
 </div>
-<div id="sf_admin_footer">
-    <?php include_partial('discussion_member/list_footer', array('pager' => $pager)) ?>
-</div>
 <script type='text/javascript'>
     $(document).ready(function(){
     });

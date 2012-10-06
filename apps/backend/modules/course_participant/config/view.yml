@@ -1,2 +1,2 @@
 all:
-  stylesheets: [course.css]
+  stylesheets: [course.css, profile.css]

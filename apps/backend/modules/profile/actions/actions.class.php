@@ -39,7 +39,8 @@ class profileActions extends autoProfileActions {
      * @param sfRequest $request A request object
      */
     public function executePeers(sfWebRequest $request) {
-        
+        $this->studentPeers = PeerTable::getInstance()->findByUserIdAndTypes($this->getUser()->getId(), array(PeerTable::TYPE_STUDENT_STUDENT, PeerTable::TYPE_INSTRUCTOR_STUDENT));
+        $this->instructorPeers = PeerTable::getInstance()->findByUserIdAndTypes($this->getUser()->getId(), array(PeerTable::TYPE_STUDENT_INSTRUCTOR, PeerTable::TYPE_INSTRUCTOR_INSTRUCTOR));
     }
 
     /**

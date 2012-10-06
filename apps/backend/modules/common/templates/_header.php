@@ -9,13 +9,12 @@
                         <?php echo link_to($user, 'profile_show', $user) ?>
                     </li>
                     <li>
-                        <a href="#">Inbox</a>            
+                        <?php echo link_to2("Inbox", "message_inbox", array()) ?>
+                        <span class="list-count">4</span>
                     </li>
                     <li>
-                        <a href="#">Announcements</a>        
-                    </li>
-                    <li>
-                        <a href="#">Support</a>        
+                        <?php echo link_to2("Notifications", "activity_feed", array()) ?>
+                        <span class="list-count">26</span>
                     </li>
                     <li>
                         <input class="button" value="Sign Out" type="button" onclick="document.location.href='/backend.php/logout';" />

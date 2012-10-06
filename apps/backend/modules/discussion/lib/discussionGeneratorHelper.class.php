@@ -62,7 +62,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Discussions" => "discussion",
                 "Discussion Explorer" => "discussion",
-                $discussion->getName() => "discussion/" . $discussion->getId()
+                $discussion->getName() => "discussion/" . $discussion->getSlug()
             )
         );
     }

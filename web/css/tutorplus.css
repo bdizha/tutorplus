@@ -722,6 +722,15 @@
     position: relative;
 }
 
+.overlay-content {
+    margin: 10px 0 0;
+    display: inline-block;
+    clear: both !important;
+    width: 296px;
+    position: relative;
+    padding: 0 10px 10px;
+}
+
 .potential-list .image {
     float: left;
     padding-top: 3px;
@@ -961,7 +970,7 @@
 
 .no-result{
     background-color: #F9F9F9 !important;
-    padding: 10px;
+    padding: 5px 10px;
 }
 
 .no-padding{
@@ -1075,6 +1084,10 @@
     position: relative;
 }
 
+#activity_feeds .even-row{
+    padding: 5px 10px 10px !important;
+}
+
 .odd-row{
     background-color: #F6F6F6;
     border-bottom: 1px solid #FFFFFF;
@@ -1167,4 +1180,45 @@
     margin-right: 7px;
     border-radius: 5px;
     overflow: hidden;
+}
+
+ul.nav-tabs {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+ul.nav-tabs li {
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    list-style-type: none;
+    padding: 5px 10px;
+    font-weight: 500;
+    color: #00446A;
+    margin-bottom: -1px;
+}
+
+ul.nav-tabs li a{
+    font-size: 13px;
+}
+
+ul.nav-tabs li.active-tab {
+    background: #F9F9F9;
+    border-top: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #008FC5;
+}
+
+.list-count{
+    color: #FFFFFF;
+    background-color: #21616D;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 11px;
 }

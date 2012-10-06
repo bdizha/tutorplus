@@ -2,13 +2,11 @@
     <form id="choose_course_instructors_form" action="/backend.php/choose_course_instructors" method="post">
         <div class="choose-participants">
             <?php foreach ($instructors as $instructor): ?>
-                <div class="course-participant">
-                    <div class="course-participant-image">
-                        <img alt="<?php echo $instructor["name"] ?>" src="/uploads/users/6/avatar_24.png"/>
-                    </div>
-                    <div class="course-participant-name"><?php echo $instructor["name"] ?></div>
+                <div class="peer">
+                    <?php include_partial('personal_info/photo', array('user' => $instructor->getUser(), "dimension" => 36)) ?>
+                    <div class="name"><?php echo link_to($instructor->getUser(), 'profile_show', $instructor->getUser()) ?></div>
                     <div class="course-participant-input">
-                        <input type="checkbox" class="input-checkbox" name="instructor[]" value="<?php echo $instructor["id"] ?>" <?php echo (isset($currentInstructorIds) && is_array($currentInstructorIds) && in_array($instructor["id"], $currentInstructorIds)) ? "checked='checked'" : "" ?> id="instructor_<?php echo $instructor["id"] ?>" class="choose-input" />                
+                        <input type="checkbox" class="input-checkbox" name="instructor[]" value="<?php echo $instructor->getId() ?>" <?php echo (isset($currentInstructorIds) && is_array($currentInstructorIds) && in_array($instructor["id"], $currentInstructorIds)) ? "checked='checked'" : "" ?> id="instructor_<?php echo $instructor->getId() ?>" class="choose-input" />
                     </div>
                 </div> 
             <?php endforeach; ?>

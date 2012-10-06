@@ -8,7 +8,7 @@ menu:
         credentials:                  [ student, instructor, staff ]
         children:                    
           my_dashboard:               { route: dashboard, label: "My Dashboard" }
-          activity_feeds:             { route: activity_feed, label: "Activity Feeds" }
+          notifications:              { route: activity_feed, label: "Notifications" }
       my_messages:                    
         details:                      { route: dashboard, label: "Messaging" }
         credentials:                  [ student, instructor, staff ]
@@ -45,11 +45,13 @@ menu:
         credentials:                  [ student, instructor, staff ]
         children:
           course_info:                { route: course_show, param: slug,  label: "Course Info" }
+          course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
+          course_calendar:            { route: calendar, label: "Course Calendar" }
           assignments:                { route: assignment, label: "Assignments" }
-          assignment_groups:          { route: assignment_group, label: "Assignments Types" }
+#          assignment_groups:          { route: assignment_group, label: "Assignments Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
           course_files:               { route: course_file, label: "Course Files" }
-#          course_videos:              { route: course_file, label: "Course Videos" }
+          course_participants:        { route: course_participant, label: "Participants" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ student, instructor, staff ]

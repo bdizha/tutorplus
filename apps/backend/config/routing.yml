@@ -1403,6 +1403,10 @@ choose_mailing_list:
 choose_course_instructors:
   url:   /choose_course_instructors
   param: { module: course_participant, action: chooseInstructors }
+  
+choose_course_students:
+  url:   /choose_course_students
+  param: { module: course_participant, action: chooseStudents }
     
 academics:
   url:   /student
@@ -1421,17 +1425,25 @@ course_home:
   param: { module: course, action: info }
     
 discussion_show:
-  url:     /discusion/:slug
+  url:     /discussion/:slug
   class:   sfDoctrineRoute
-  options: { model: Discusion, type: object }
-  param:   { module: discusion, action: show }
+  options: { model: Discussion, type: object }
+  param:   { module: discussion, action: show }
+  requirements:
+    sf_method: [get]
+    
+course_discussion_show:
+  url:     /course_discussion/:slug
+  class:   sfDoctrineRoute
+  options: { model: Discussion, type: object }
+  param:   { module: course_discussion, action: show }
   requirements:
     sf_method: [get]
     
 discussion_topic_show:
   url:     /discussion_topic/:slug
   class:   sfDoctrineRoute
-  options: { model: DiscusionTopic, type: object }
+  options: { model: DiscussionTopic, type: object }
   param:   { module: discussion_topic, action: show }
   requirements:
     sf_method: [get]

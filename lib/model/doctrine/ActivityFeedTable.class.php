@@ -18,8 +18,9 @@ class ActivityFeedTable extends Doctrine_Table {
 
     public function findByUser($userId) {
         $q = Doctrine_Query::create()
-                ->from('ActivityFeed af');
-        //$q->where('id IN (SELECT bbpt.bulletin_board_post_id FROM BulletinBoardTrash bbpt WHERE bbpt.user_id = ? AND bbpt.bulletin_board_post_id = bbp.id)', $userId);
+                ->from('ActivityFeed af')
+                ->innerJoin('af.ActivityFeedUsers afu')
+                ->andWhere('afu.user_id = ?', $userId);
 
         $q->addOrderBy('af.created_at DESC');
         return $q->execute();

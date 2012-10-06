@@ -165,12 +165,8 @@ span.separator{
     height: 100px;
 }
 
-.sf_admin_form_field_message label{
-    display: none;
-}
-
 #discussion_name, #discussion_topic_subject{
-    width: 520px;
+    width: 520px !important;
 }
 
 #discussion_topic_message, #discussion_description{

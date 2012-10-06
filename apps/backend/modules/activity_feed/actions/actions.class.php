@@ -16,28 +16,7 @@ class activity_feedActions extends autoActivity_feedActions
 
     public function executeIndex(sfWebRequest $request)
     {
-        $this->activityFeeds = array();
-        $activityFeeds = ActivityFeedTable::getInstance()->findByUser($this->getUser()->getId());
-
-        foreach ($activityFeeds as $activityFeed)
-        {
-            $activity = $activityFeed->toArray();
-            $activity["user"] = $activityFeed->getUserActivityFeed()->getUser();
-            
-            $patterns = explode(",", $activityFeed->getActivityTemplate()->getPatterns());            
-            $patterns = array_map(array($this, "padPatterns"), $patterns);
-
-            $replacements = json_decode($activityFeed->getReplacements());
-            $content = $activityFeed->getActivityTemplate()->getContent();
-
-            $activity["content"] = preg_replace($patterns, $replacements, $content);
-            $this->activityFeeds[] = $activity;
-        }
-    }
-
-    public function padPatterns($pattern)
-    {
-        return "/" . $pattern . "/";
+        $this->activityFeeds = ActivityFeedTable::getInstance()->findByUser($this->getUser()->getId());
     }
 
 }

@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array("current_parent" => "dashboard", "current_child" => "my_dashboard", "current_link" => "activity_feeds")) ?>
+<?php include_component('common', 'menu', array("current_parent" => "dashboard", "current_child" => "my_dashboard", "current_link" => "notifications")) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
@@ -8,9 +8,6 @@
 <?php end_slot() ?>
 
 <?php include_partial('activity_feed/flashes') ?>
-<div class="sf_admin_heading">
-    <h3><?php echo __('Activity Feeds', array(), 'messages') ?></h3>
-</div>
 <div class="content-block" style="margin-top: 10px">
     <h2>Notifications</h2>
     <div class="full-block" id="activity_feeds">

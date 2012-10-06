@@ -63,6 +63,31 @@ input[type=button], input[type=submit] {
     background:linear-gradient(#f6f7f8,#e8eaec)
 }
 
+.sf_admin_form_action_delete input[type=button], .delete{
+    border-radius: 3px;
+    background-color: #D14836;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#DD4B39),to(#D14836));
+    background-image: -webkit-linear-gradient(top,#DD4B39,#D14836);
+    background-image: -moz-linear-gradient(top,#DD4B39,#D14836);
+    background-image: -ms-linear-gradient(top,#DD4B39,#D14836);
+    background-image: -o-linear-gradient(top,#DD4B39,#D14836);
+    background-image: linear-gradient(top,#DD4B39,#D14836);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#DD4B39',EndColorStr='#D14836');
+    border: 1px solid #DD4B39;
+    color: white !important;
+}
+
+.sf_admin_form_action_delete input[type=button]:hover, .delete:hover{
+    background-color: #DD4B39;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#D14836),to(#DD4B39));
+    background-image: -webkit-linear-gradient(top,#D14836,#DD4B39);
+    background-image: -moz-linear-gradient(top,#D14836,#DD4B39);
+    background-image: -ms-linear-gradient(top,#D14836,#DD4B39);
+    background-image: -o-linear-gradient(top,#D14836,#DD4B39);
+    background-image: linear-gradient(top,#D14836,#DD4B39);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D14836',EndColorStr='#DD4B39');
+}
+
 input[type="text"], input[type="password"]{
     font-size: 13px;
     line-height: 1;

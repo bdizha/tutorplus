@@ -1,13 +1,16 @@
-<?php $courseStudent = $course->getCourseStudents(); ?>
-<?php if ($courseStudent->count() > 0): ?>
-    <?php foreach ($courseStudent as $studentCourse): ?>
-        <div class="course-student" id="course-student-<?php echo $studentCourse->getStudent()->getId() ?>">
-            <div class="participant-image">
-                <img alt="<?php echo $studentCourse->getStudent()->getName() ?>" src="/uploads/users/6/avatar_36.png" />
+<?php $courseStudents = $course->getCourseStudents(); ?>
+<?php if ($courseStudents->count() > 0): ?>
+    <div class="peer-block plain-row padding-10">
+        <?php foreach ($courseStudents as $courseStudent): ?>
+            <?php $user = $courseStudent->getStudent()->getUser() ?>
+            <div class="peer" id="course-student-<?php echo $courseStudent->getStudent()->getId() ?>">
+                <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 36)) ?>
+                <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
+                <div class="type"><?php echo $user->getType() ?></h4>
+                </div>
             </div>
-            <div class="participant-meta"><?php echo $studentCourse->getStudent()->getName() ?></div>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
 <?php else: ?>
-    Currently there are no student participants on this course
+    <div class="no-result">There's no student participants added to this course currently</div>
 <?php endif; ?>

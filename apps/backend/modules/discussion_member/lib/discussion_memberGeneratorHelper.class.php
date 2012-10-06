@@ -39,11 +39,13 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
     }
     
     public function linkToMyDiscussion($object, $params) {
-        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/backend.php/discussion/' . $object->getDiscussionId() . '\';return false"/>';
+        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/backend.php/discussion/' . $object->getDiscussion()->getSlug() . '\';return false"/>';
     }
 
     public function linkToListDiscussion($params) {
-        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/backend.php/discussion/' . sfContext::getInstance()->getUser()->getMyAttribute('discussion_show_id', null) . '\';return false"/>';
+        $discussionId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_show_id', null);
+        $discussion = DiscussionTable::getInstance()->find($discussionId);
+        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/backend.php/discussion/' . $discussion->getSlug() . '\';return false"/>';
     }
 
     public function linkToSave($object, $params) {
@@ -59,16 +61,16 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
     }
 
     public function linkToShow($object, $params) {
-        return '<li class="sf_admin_action_show">' . link_to(__($params['label'], array(), 'sf_admin'), "/backend.php/discussion/" . $object->getId(), array("onclick" => "document.location.href='/backend.php/discussion/'" . $object->getId() . ";return false")) . '</li>';
+        return '<li class="sf_admin_action_show">' . link_to(__($params['label'], array(), 'sf_admin'), "/backend.php/discussion/" . $object->getId(), array("onclick" => "document.location.href='/backend.php/discussion/'" . $object->getSlug() . ";return false")) . '</li>';
     }
 
     public function courseBreadcrumbs($discussion) {
         $course = $discussion->getCourse();
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $course->getCode() . " ~ " . myToolkit::shortenString($course->getName(), 50) => "course/" . $course->getId(),
+                $course->getCode() . " ~ " . myToolkit::shortenString($course->getName(), 50) => "course/" . $course->getSlug(),
                 "Discussions" => "course_discussion",
-                myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getId(),
+                myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
                 "Participants" => "discussion_member"
             )
         );
@@ -86,7 +88,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
         return array('breadcrumbs' => array(
                 "Discussions" => "discussion",
                 "Discussion Explorer" => "discussion",
-                myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getId(),
+                myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
                 "Participants" => "discussion_member"
             )
         );
@@ -107,7 +109,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
         return array('breadcrumbs' => array(
                 "Discussions" => "discussion",
                 "Discussion Explorer" => "discussion",
-                myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getId(),
+                myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
                 "Participants" => "discussion_member",
                 $discussionMember->getUser()->getName() => "discussion_member/" . $discussionMember->getId() . "/edit"
             )

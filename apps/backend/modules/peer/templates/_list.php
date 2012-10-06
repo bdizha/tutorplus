@@ -1,3 +1,6 @@
+<?php if (count($peers) == 0): ?>
+    <div class="no-result">There's no peers linked currently.</div>
+<?php endif; ?>
 <?php foreach ($peers as $key => $peer): ?>
     <?php if ($peer->getInviteeId() == $sf_user->getId()): ?>
         <?php $myPeer = $peer->getInviter(); ?>

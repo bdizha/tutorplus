@@ -1,3 +1,2 @@
 all:
   stylesheets: [course.css]
-  layout: false

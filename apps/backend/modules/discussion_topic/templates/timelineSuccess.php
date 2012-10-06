@@ -32,7 +32,7 @@
             <br style="clear:both"/>
         </div>
         <div class="content-block">
-            <h2>Batanayi Matuku's Discussion Wall</h2>
+            <h2><?php echo $discussionTopic->getUser() ?>'s Discussion Wall</h2>
             <div id="discussion_topic_message_form_container"></div>
             <div class="full-block plain-row">
                 <div id="discussion-topic-replies">

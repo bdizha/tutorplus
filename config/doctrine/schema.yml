@@ -218,39 +218,41 @@ ActivityFeed:
     Timestampable:              ~
   tableName:                    activity_feed
   columns:
+    user_id:                    { type: integer, notnull: true }
     replacements:        				{ type: clob, notnull: true }
     activity_template_id:       { type: integer, notnull: true }
   relations:
     ActivityTemplate:           { class: ActivityTemplate, local: activity_template_id, foreign: id, onDelete: CASCADE, foreignAlias: ActivityFeeds }
+    Doer:                       { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: MyActivityFeeds, onDelete: CASCADE }
     
 UserActivityFeed:
   actAs:
-  tableName:                   user_activity
+  tableName:                   user_activity_feed
   columns:
     user_id:                   { type: integer, notnull: true }
     activity_feed_id:          { type: integer, notnull: true }
   relations:
     User:                      { class: sfGuardUser, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: UserActivityFeeds }
-    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, foreignType: one, type: one, onDelete: CASCADE, foreignAlias: UserActivityFeed }
+    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: ActivityFeedUsers }
     
 CourseActivityFeed:
   actAs:
-  tableName:                   course_activity
+  tableName:                   course_activity_feed
   columns:
-    user_id:                   { type: integer, notnull: true }
+    course_id:                 { type: integer, notnull: true }
     activity_feed_id:          { type: integer, notnull: true }
   relations:
-    Course:                    { class: Course, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseActivityFeeds }
+    Course:                    { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseActivityFeeds }
     ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: CourseActivityFeeds }
     
 DiscussionActivityFeed:
   actAs:
-  tableName:                   discussion_activity
+  tableName:                   discussion_activity_feed
   columns:
-    user_id:                   { type: integer, notnull: true }
+    discussion_id:             { type: integer, notnull: true }
     activity_feed_id:          { type: integer, notnull: true }
   relations:
-    Discussion:                { class: Discussion, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: DiscussionActivityFeeds }
+    Discussion:                { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: DiscussionActivityFeeds }
     ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: DiscussionActivityFeeds }
     
 Peer:

@@ -1,6 +1,6 @@
 CREATE TABLE academic_period (id BIGSERIAL, name VARCHAR(255) NOT NULL, start_date TIMESTAMP NOT NULL, end_date TIMESTAMP NOT NULL, grades_due TIMESTAMP NOT NULL, max_credits VARCHAR(10) NOT NULL, academic_year_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE academic_year (id BIGSERIAL, year_start BIGINT NOT NULL, year_end BIGINT NOT NULL, PRIMARY KEY(id));
-CREATE TABLE activity_feed (id BIGSERIAL, replacements TEXT NOT NULL, activity_template_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
+CREATE TABLE activity_feed (id BIGSERIAL, user_id BIGINT NOT NULL, replacements TEXT NOT NULL, activity_template_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE activity_template (id BIGSERIAL, patterns VARCHAR(500), content TEXT NOT NULL, type BIGINT DEFAULT 0 NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE announcement (id BIGSERIAL, user_id BIGINT NOT NULL, subject VARCHAR(255) NOT NULL, message TEXT NOT NULL, is_published BOOLEAN DEFAULT 'false' NOT NULL, lock_until TIMESTAMP, lock_after TIMESTAMP, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, slug VARCHAR(255), PRIMARY KEY(id));
 CREATE TABLE application (id BIGSERIAL, number VARCHAR(255), first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, middle_name VARCHAR(200), email VARCHAR(255) NOT NULL, program_id BIGINT NOT NULL, academic_period_id BIGINT NOT NULL, status BIGINT DEFAULT 0 NOT NULL, enquiry_date TIMESTAMP, last_activity TIMESTAMP, completed BIGINT DEFAULT 0 NOT NULL, phone_work VARCHAR(200), phone_home VARCHAR(255) NOT NULL, phone_mobile VARCHAR(255) NOT NULL, gender BIGINT DEFAULT 0 NOT NULL, address_line_one VARCHAR(300) NOT NULL, address_line_two VARCHAR(300), city VARCHAR(300), postcode VARCHAR(10), state_province_id BIGINT, country_id BIGINT, PRIMARY KEY(id));
@@ -21,7 +21,7 @@ CREATE TABLE campus_course (id BIGSERIAL, campus_id BIGINT NOT NULL, course_id B
 CREATE TABLE contact (id BIGSERIAL, email_address VARCHAR(255), phone_work VARCHAR(200), phone_home VARCHAR(200), phone_mobile VARCHAR(200), address_line_1 VARCHAR(300), address_line_2 VARCHAR(300), postcode VARCHAR(10), city VARCHAR(255), country_id BIGINT NOT NULL, state_province_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE country (id BIGSERIAL, name VARCHAR(255) NOT NULL, code VARCHAR(10) NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course (id BIGSERIAL, name VARCHAR(255) NOT NULL, code VARCHAR(10) NOT NULL, department_id BIGINT NOT NULL, description TEXT NOT NULL, is_finalized BOOLEAN DEFAULT 'false' NOT NULL, academic_period_id BIGINT NOT NULL, start_date TIMESTAMP NOT NULL, end_date TIMESTAMP NOT NULL, credits NUMERIC(18,2) DEFAULT 0, hours BIGINT NOT NULL, max_enrolled BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, slug VARCHAR(255), PRIMARY KEY(id));
-CREATE TABLE course_activity (id BIGSERIAL, user_id BIGINT NOT NULL, activity_feed_id BIGINT NOT NULL, PRIMARY KEY(id));
+CREATE TABLE course_activity_feed (id BIGSERIAL, course_id BIGINT NOT NULL, activity_feed_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course_announcement (id BIGSERIAL, course_id BIGINT NOT NULL, announcement_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course_discussion (id BIGSERIAL, course_id BIGINT NOT NULL, discussion_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course_folder (id BIGSERIAL, course_id BIGINT NOT NULL, folder_id BIGINT NOT NULL, PRIMARY KEY(id));
@@ -30,7 +30,7 @@ CREATE TABLE course_meeting_time (id BIGSERIAL, day BIGINT NOT NULL, from_time V
 CREATE TABLE course_reading_item (id BIGSERIAL, title VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, course_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE department (id BIGSERIAL, name VARCHAR(255) NOT NULL, abbreviation VARCHAR(10) NOT NULL, faculty_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE discussion (id BIGSERIAL, name VARCHAR(255) NOT NULL, user_id BIGINT NOT NULL, description TEXT NOT NULL, access_level BIGINT NOT NULL, last_visit TIMESTAMP, latest_topic_reply_id BIGINT, nb_topics BIGINT DEFAULT 0, nb_members BIGINT DEFAULT 1, nb_replies BIGINT DEFAULT 1, is_primary BOOLEAN DEFAULT 'false', created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, slug VARCHAR(255), PRIMARY KEY(id));
-CREATE TABLE discussion_activity (id BIGSERIAL, user_id BIGINT NOT NULL, activity_feed_id BIGINT NOT NULL, PRIMARY KEY(id));
+CREATE TABLE discussion_activity_feed (id BIGSERIAL, discussion_id BIGINT NOT NULL, activity_feed_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE discussion_member (id BIGSERIAL, nickname VARCHAR(255) NOT NULL, subscription_type BIGINT DEFAULT 0 NOT NULL, membership_type BIGINT DEFAULT 0 NOT NULL, posting_permission_type BIGINT DEFAULT 0 NOT NULL, status BIGINT DEFAULT 0 NOT NULL, discussion_id BIGINT NOT NULL, user_id BIGINT NOT NULL, is_removed BOOLEAN DEFAULT 'false', created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE discussion_topic (id BIGSERIAL, subject VARCHAR(255) NOT NULL, message TEXT NOT NULL, discussion_id BIGINT NOT NULL, user_id BIGINT NOT NULL, latest_topic_reply_id BIGINT, nb_replies BIGINT DEFAULT 0, nb_views BIGINT DEFAULT 0, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, slug VARCHAR(255), PRIMARY KEY(id));
 CREATE TABLE discussion_topic_message (id BIGSERIAL, message TEXT NOT NULL, user_id BIGINT NOT NULL, discussion_topic_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
@@ -76,7 +76,7 @@ CREATE TABLE student_course (id BIGSERIAL, student_id BIGINT NOT NULL, course_id
 CREATE TABLE student_gradebook_item (id BIGSERIAL, points NUMERIC(18,2) DEFAULT 0 NOT NULL, gradebook_item_id BIGINT NOT NULL, student_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE student_mailing_list (id BIGSERIAL, student_id BIGINT NOT NULL, mailing_list_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE student_program (id BIGSERIAL, student_id BIGINT NOT NULL, program_id BIGINT NOT NULL, PRIMARY KEY(id));
-CREATE TABLE user_activity (id BIGSERIAL, user_id BIGINT NOT NULL, activity_feed_id BIGINT NOT NULL, PRIMARY KEY(id));
+CREATE TABLE user_activity_feed (id BIGSERIAL, user_id BIGINT NOT NULL, activity_feed_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE user_calendar (id BIGSERIAL, owner_id BIGINT NOT NULL, calendar_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE user_folder (id BIGSERIAL, user_id BIGINT NOT NULL, folder_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE sf_guard_forgot_password (id BIGSERIAL, user_id BIGINT NOT NULL, unique_key VARCHAR(255), expires_at TIMESTAMP NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
@@ -97,6 +97,7 @@ CREATE UNIQUE INDEX news_sluggable ON news (slug);
 CREATE UNIQUE INDEX sf_guard_user_sluggable ON sf_guard_user (slug, first_name, last_name);
 CREATE INDEX is_active_idx ON sf_guard_user (is_active);
 ALTER TABLE academic_period ADD CONSTRAINT academic_period_academic_year_id_academic_year_id FOREIGN KEY (academic_year_id) REFERENCES academic_year(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE activity_feed ADD CONSTRAINT activity_feed_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE activity_feed ADD CONSTRAINT activity_feed_activity_template_id_activity_template_id FOREIGN KEY (activity_template_id) REFERENCES activity_template(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE announcement ADD CONSTRAINT announcement_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE application ADD CONSTRAINT application_program_id_program_id FOREIGN KEY (program_id) REFERENCES program(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
@@ -124,8 +125,8 @@ ALTER TABLE contact ADD CONSTRAINT contact_state_province_id_state_province_id F
 ALTER TABLE contact ADD CONSTRAINT contact_country_id_country_id FOREIGN KEY (country_id) REFERENCES country(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course ADD CONSTRAINT course_department_id_department_id FOREIGN KEY (department_id) REFERENCES department(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course ADD CONSTRAINT course_academic_period_id_academic_period_id FOREIGN KEY (academic_period_id) REFERENCES academic_period(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE course_activity ADD CONSTRAINT course_activity_user_id_course_id FOREIGN KEY (user_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE course_activity ADD CONSTRAINT course_activity_activity_feed_id_activity_feed_id FOREIGN KEY (activity_feed_id) REFERENCES activity_feed(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE course_activity_feed ADD CONSTRAINT course_activity_feed_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE course_activity_feed ADD CONSTRAINT course_activity_feed_activity_feed_id_activity_feed_id FOREIGN KEY (activity_feed_id) REFERENCES activity_feed(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course_announcement ADD CONSTRAINT course_announcement_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course_announcement ADD CONSTRAINT course_announcement_announcement_id_announcement_id FOREIGN KEY (announcement_id) REFERENCES announcement(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course_discussion ADD CONSTRAINT course_discussion_discussion_id_discussion_id FOREIGN KEY (discussion_id) REFERENCES discussion(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
@@ -140,8 +141,8 @@ ALTER TABLE course_reading_item ADD CONSTRAINT course_reading_item_course_id_cou
 ALTER TABLE department ADD CONSTRAINT department_faculty_id_faculty_id FOREIGN KEY (faculty_id) REFERENCES faculty(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE discussion ADD CONSTRAINT discussion_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE discussion ADD CONSTRAINT discussion_latest_topic_reply_id_discussion_topic_reply_id FOREIGN KEY (latest_topic_reply_id) REFERENCES discussion_topic_reply(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE discussion_activity ADD CONSTRAINT discussion_activity_user_id_discussion_id FOREIGN KEY (user_id) REFERENCES discussion(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE discussion_activity ADD CONSTRAINT discussion_activity_activity_feed_id_activity_feed_id FOREIGN KEY (activity_feed_id) REFERENCES activity_feed(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE discussion_activity_feed ADD CONSTRAINT discussion_activity_feed_discussion_id_discussion_id FOREIGN KEY (discussion_id) REFERENCES discussion(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE discussion_activity_feed ADD CONSTRAINT discussion_activity_feed_activity_feed_id_activity_feed_id FOREIGN KEY (activity_feed_id) REFERENCES activity_feed(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE discussion_member ADD CONSTRAINT discussion_member_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE discussion_member ADD CONSTRAINT discussion_member_discussion_id_discussion_id FOREIGN KEY (discussion_id) REFERENCES discussion(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE discussion_topic ADD CONSTRAINT discussion_topic_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
@@ -219,8 +220,8 @@ ALTER TABLE student_mailing_list ADD CONSTRAINT student_mailing_list_student_id_
 ALTER TABLE student_mailing_list ADD CONSTRAINT student_mailing_list_mailing_list_id_mailing_list_id FOREIGN KEY (mailing_list_id) REFERENCES mailing_list(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE student_program ADD CONSTRAINT student_program_student_id_student_id FOREIGN KEY (student_id) REFERENCES student(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE student_program ADD CONSTRAINT student_program_program_id_program_id FOREIGN KEY (program_id) REFERENCES program(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE user_activity ADD CONSTRAINT user_activity_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
-ALTER TABLE user_activity ADD CONSTRAINT user_activity_activity_feed_id_activity_feed_id FOREIGN KEY (activity_feed_id) REFERENCES activity_feed(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE user_activity_feed ADD CONSTRAINT user_activity_feed_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE user_activity_feed ADD CONSTRAINT user_activity_feed_activity_feed_id_activity_feed_id FOREIGN KEY (activity_feed_id) REFERENCES activity_feed(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE user_calendar ADD CONSTRAINT user_calendar_owner_id_sf_guard_user_id FOREIGN KEY (owner_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE user_calendar ADD CONSTRAINT user_calendar_calendar_id_calendar_id FOREIGN KEY (calendar_id) REFERENCES calendar(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE user_folder ADD CONSTRAINT user_folder_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;

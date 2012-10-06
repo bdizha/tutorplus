@@ -152,31 +152,6 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     float: left;
 }
 
-.sf_admin_form_action_delete input[type=button]{
-    color: #FFFFFF !important;
-    border: none !important;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #C43C35), color-stop(100%, #EE5F5B));
-    background: -webkit-linear-gradient(#C43C35,#EE5F5B);
-    background: -moz-linear-gradient(#C43C35,#EE5F5B);
-    background: -o-linear-gradient(#C43C35,#EE5F5B);
-    background: -ms-linear-gradient(#C43C35,#EE5F5B);
-    background: linear-gradient(#C43C35,#EE5F5B);
-    -moz-background-origin: border;
-    -webkit-background-origin: border;
-    -o-background-origin: border-box;
-    -ms-background-origin: border-box;
-    -khtml-background-origin: border-box;
-    background-origin: border-box;
-    -moz-box-shadow: inset 0 0 0 1px #EE5F5B,0 1px #C43C35,inset 0 1px #EE5F5B;
-    -webkit-box-shadow: inset 0 0 0 1px #EE5F5B,0 1px #C43C35,inset 0 1px #EE5F5B;
-    -o-box-shadow: inset 0 0 0 1px #EE5F5B,0 1px #C43C35,inset 0 1px #EE5F5B;
-    margin-bottom: 0;
-    font-size: 13px;
-}
-
-.sf_admin_actions li a{
-}
-
 .error .title{
     -moz-border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;

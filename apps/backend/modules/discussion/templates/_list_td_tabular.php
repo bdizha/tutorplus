@@ -11,7 +11,7 @@
   <?php echo $discussion->getNbTopics() ?>
 </td>
 <td class="sf_admin_text sf_admin_list_td_nb_members">
-  <?php echo $discussion->getNbMembers() ?>
+  <?php echo $discussion->getMembers()->count() ?>
 </td>
 <td class="sf_admin_date sf_admin_list_td_last_visit">
   <?php echo false !== strtotime($discussion->getLastVisit()) ? format_date($discussion->getLastVisit(), "d/M/yyyy") : '&nbsp;' ?>

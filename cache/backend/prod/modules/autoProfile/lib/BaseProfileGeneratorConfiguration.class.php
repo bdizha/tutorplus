@@ -47,7 +47,7 @@ abstract class BaseProfileGeneratorConfiguration extends sfModelGeneratorConfigu
 
   public function getListParams()
   {
-    return '%%id%% - %%first_name%% - %%last_name%% - %%email_address%% - %%username%% - %%algorithm%% - %%salt%% - %%password%% - %%is_active%% - %%is_super_admin%% - %%last_login%% - %%created_at%% - %%updated_at%%';
+    return '%%id%% - %%first_name%% - %%last_name%% - %%email_address%% - %%username%% - %%algorithm%% - %%salt%% - %%password%% - %%is_active%% - %%is_super_admin%% - %%last_login%% - %%created_at%% - %%updated_at%% - %%slug%%';
   }
 
   public function getListLayout()
@@ -92,7 +92,7 @@ abstract class BaseProfileGeneratorConfiguration extends sfModelGeneratorConfigu
 
   public function getListDisplay()
   {
-    return array(  0 => 'id',  1 => 'first_name',  2 => 'last_name',  3 => 'email_address',  4 => 'username',  5 => 'algorithm',  6 => 'salt',  7 => 'password',  8 => 'is_active',  9 => 'is_super_admin',  10 => 'last_login',  11 => 'created_at',  12 => 'updated_at',);
+    return array(  0 => 'id',  1 => 'first_name',  2 => 'last_name',  3 => 'email_address',  4 => 'username',  5 => 'algorithm',  6 => 'salt',  7 => 'password',  8 => 'is_active',  9 => 'is_super_admin',  10 => 'last_login',  11 => 'created_at',  12 => 'updated_at',  13 => 'slug',);
   }
 
   public function getFieldsDefault()
@@ -111,6 +111,7 @@ abstract class BaseProfileGeneratorConfiguration extends sfModelGeneratorConfigu
       'last_login' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',),
       'created_at' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',),
       'updated_at' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Date',),
+      'slug' => array(  'is_link' => false,  'is_real' => true,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'groups_list' => array(  'is_link' => false,  'is_real' => false,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
       'permissions_list' => array(  'is_link' => false,  'is_real' => false,  'is_partial' => false,  'is_component' => false,  'type' => 'Text',),
     );
@@ -132,6 +133,7 @@ abstract class BaseProfileGeneratorConfiguration extends sfModelGeneratorConfigu
       'last_login' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'slug' => array(),
       'groups_list' => array(),
       'permissions_list' => array(),
     );
@@ -153,6 +155,7 @@ abstract class BaseProfileGeneratorConfiguration extends sfModelGeneratorConfigu
       'last_login' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'slug' => array(),
       'groups_list' => array(),
       'permissions_list' => array(),
     );
@@ -174,6 +177,7 @@ abstract class BaseProfileGeneratorConfiguration extends sfModelGeneratorConfigu
       'last_login' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'slug' => array(),
       'groups_list' => array(),
       'permissions_list' => array(),
     );
@@ -195,6 +199,7 @@ abstract class BaseProfileGeneratorConfiguration extends sfModelGeneratorConfigu
       'last_login' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'slug' => array(),
       'groups_list' => array(),
       'permissions_list' => array(),
     );
@@ -216,6 +221,7 @@ abstract class BaseProfileGeneratorConfiguration extends sfModelGeneratorConfigu
       'last_login' => array(),
       'created_at' => array(),
       'updated_at' => array(),
+      'slug' => array(),
       'groups_list' => array(),
       'permissions_list' => array(),
     );

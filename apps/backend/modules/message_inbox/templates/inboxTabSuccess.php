@@ -3,16 +3,6 @@
 <?php include_partial('message_inbox/flashes') ?>
 
 <form action="<?php echo url_for('message_inbox_collection', array('action' => 'batch')) ?>" id="batch_form" method="post">
-    <?php if ($pager->getNbResults()): ?>
-        <div id="top-actions">
-            <ul class="sf_admin_actions">
-                <?php include_partial('message_inbox/list_batch_actions', array('helper' => $helper)) ?>
-                <?php include_partial('message_inbox/list_actions', array('helper' => $helper)) ?>
-            </ul>
-        </div>
-    <?php else: ?>
-        <div class="break">&nbsp;</div>
-    <?php endif; ?>
     <input type="hidden" name="batch_action" id="batch_action" value=""/>
     <?php include_partial('message_inbox/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
     <?php if ($pager->getNbResults()): ?>

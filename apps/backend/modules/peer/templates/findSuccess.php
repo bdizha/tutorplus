@@ -13,35 +13,16 @@
 </div>
 <div id="sf_admin_content">
     <div class="content-block">
+        <?php if (count($instructorPeers) == 0): ?>
+            <h2>It seems there's no new peers in this platform who might be available to peer up with you currently. Keep looking :)</h2>
+        <?php else: ?>    
+            <h2>Get ready to start peering up with your colleagues here! You may want to use their name to quickly find them below :)</h2>  
+            <div class="peer-block plain-row padding-10" id="my_peers">
+                <?php include_partial('list', array("peers" => $instructorPeers)) ?>
+            </div> 
+        <?php endif; ?>
         <div class="peer-block plain-row padding-10" id="my_peers">  
-            <?php foreach ($peers as $key => $peer): ?>
-                <?php $name = $peer["first_name"] . " " . $peer["last_name"] ?>
-                <div class="peer">
-                    <a class="image" href="/backend.php/profile">
-                        <?php include_partial('personal_info/photo', array('user' => $sf_user->getGuardUser(), "dimension" => 48)) ?>
-                    </a>
-                    <div class="name"><?php echo $name ?></div>
-                    <div class="peer-actions">
-                        <input type="button" class="peer-open" inviteeid="<?php echo $peer["id"] ?>" value="+ Request">
-                    </div>
-                </div>
-            <?php endforeach; ?>
+            <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
         </div>
     </div>
 </div>
-<script type='text/javascript'>
-    //<![DATA[
-    $(document).ready(function(){
-        $(".peer-open").live("click", function(){
-            var inviteeId = $(this).attr("inviteeid");
-            $(this).addClass("peer-invited");
-            $(this).removeClass("peer-open");
-            $(this).attr("value", "? Invited");
-            $.get('/backend.php/peer_invite/' + inviteeId, {}, function(response){   
-                if(response == "success"){
-                }
-            }, 'html'); 
-        });
-    });
-    //]]
-</script>

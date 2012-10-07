@@ -1,51 +1,49 @@
 <div id="cboxLoadedContentInner">
-    <form id="message_choose_recipients_form" action="/backend.php/message_choose_recipients/<?php echo $type ?>" method="post">
-        <ul class="heading-tabs">
-            <li class="tabs active"><a id="student_recipients" href="#">Students</a></li>
-            <li class="tabs normal"><a id="instructor_recipients" href="#">Instructors</a></li>
-            <li class="tabs normal"><a id="mailing_list_recipeints" href="#">Mailing Lists</a></li>
-        </ul>
-        <div class="recipients_tab" id="student_recipients_tab">
-            <?php foreach ($students as $student): ?>
-                <div class="message-recipient">
-                    <div class="message-recipient-image">
-                        <img alt="<?php echo $student["name"] ?>" src="/uploads/users/6/avatar_24.png"/>
-                    </div>
-                    <div class="message-recipient-name"><?php echo $student["name"] ?></div>
-                    <div class="message-recipient-input">
-                        <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][student][]" value="<?php echo $student["id"] ?>" <?php echo (isset($recipient[$type]['student']) && is_array($recipient[$type]['student']) && in_array($student["id"], $recipient[$type]['student'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $student["id"] ?>" class="choose-input" />                
-                    </div>
-                </div> 
-            <?php endforeach; ?>
-        </div>
-        <div class="recipients_tab hide" id="instructor_recipients_tab">
-            <?php foreach ($instructors as $instructor): ?>
-                <div class="message-recipient">
-                    <div class="message-recipient-image">
-                        <img alt="<?php echo $instructor["name"] ?>" src="/uploads/users/6/avatar_24.png"/>
-                    </div>
-                    <div class="message-recipient-name"><?php echo $instructor["name"] ?></div>
-                    <div class="message-recipient-input">
-                        <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][instructor][]" value="<?php echo $instructor["id"] ?>" <?php echo (isset($recipient[$type]['instructor']) && is_array($recipient[$type]['instructor']) && in_array($instructor["id"], $recipient[$type]['instructor'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $instructor["id"] ?>" class="choose-input" />                
-                    </div>
-                </div> 
-            <?php endforeach; ?>
-        </div>
-        <div class="recipients_tab hide" id="mailing_list_recipeints_tab">
-            <?php foreach ($mailingLists as $mailingList): ?>
-                <div class="message-recipient">
-                    <div class="message-recipient-image">
-                        <img alt="<?php echo $mailingList["name"] ?>" src="/uploads/users/6/avatar_24.png"/>
-                    </div>
-                    <div class="message-recipient-name"><?php echo $mailingList["name"] ?></div>
-                    <div class="message-recipient-input">
-                        <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][mailing_list][]" value="<?php echo $mailingList["id"] ?>" <?php echo (isset($recipient[$type]['mailing_list']) && is_array($recipient[$type]['mailing_list']) && in_array($mailingList["id"], $recipient[$type]['mailing_list'])) ? "checked='checked'" : "" ?> id="recipient_mailing_list_<?php echo $mailingList["id"] ?>" class="choose-input" />                
-                    </div>
-                </div> 
-            <?php endforeach; ?>
-        </div>
-        <div class="clear"></div>
-    </form>
+    <div class="choose-participants">
+        <form id="message_choose_recipients_form" action="/backend.php/message_choose_recipients/<?php echo $type ?>" method="post">
+            <ul class="nav-tabs" id="recipients-nav-tabs">
+                <li id="student_recipients" class="active-tab"><a href="#">Students</a></li>
+                <li id="instructor_recipients"><a href="#">Instructors</a></li>
+                <li id="mailing_list_recipeints"><a href="#">Mailing Lists</a></li>
+            </ul>
+            <div class="peer-block plain-row padding-10">
+                <div class="recipients_tab" id="student_recipients_tab">            
+                    <?php foreach ($students as $student): ?>
+                        <div class="peer">
+                            <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 36)) ?>
+                            <div class="name"><?php echo link_to($student->getUser(), 'profile_show', $student->getUser()) ?></div>
+                            <div class="message-recipient-input">
+                                <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][student][]" value="<?php echo $student["id"] ?>" <?php echo (isset($recipient[$type]['student']) && is_array($recipient[$type]['student']) && in_array($student["id"], $recipient[$type]['student'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $student->getId() ?>" class="choose-input" />                
+                            </div>
+                        </div> 
+                    <?php endforeach; ?>
+                </div>
+                <div class="recipients_tab hide" id="instructor_recipients_tab">
+                    <?php foreach ($instructors as $instructor): ?>
+                        <div class="peer">
+                            <?php include_partial('personal_info/photo', array('user' => $instructor->getUser(), "dimension" => 36)) ?>
+                            <div class="name"><?php echo link_to($instructor->getUser(), 'profile_show', $instructor->getUser()) ?></div>
+                            <div class="message-recipient-input">
+                                <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][instructor][]" value="<?php echo $instructor["id"] ?>" <?php echo (isset($recipient[$type]['instructor']) && is_array($recipient[$type]['instructor']) && in_array($instructor["id"], $recipient[$type]['instructor'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $instructor->getId() ?>" class="choose-input" />                
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="recipients_tab hide" id="mailing_list_recipeints_tab">
+                    <?php foreach ($mailingLists as $mailingList): ?>
+                        <div class="peer">
+                            <?php include_partial('personal_info/photo', array('user' => $mailingList->getUser(), "dimension" => 36)) ?>
+                            <div class="name"><?php echo $mailingList["name"] ?></div>
+                            <div class="message-recipient-input">
+                                <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][mailing_list][]" value="<?php echo $mailingList["id"] ?>" <?php echo (isset($recipient[$type]['mailing_list']) && is_array($recipient[$type]['mailing_list']) && in_array($mailingList["id"], $recipient[$type]['mailing_list'])) ? "checked='checked'" : "" ?> id="recipient_mailing_list_<?php echo $mailingList["id"] ?>" class="choose-input" />                
+                            </div>
+                        </div> 
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </form>        
+    </div>
 </div>
 <ul class="sf_admin_actions">
     <li class="sf_admin_action_cancel">
@@ -62,17 +60,16 @@
     <?php include_partial('email_recipients', array('type' => $type, 'students' => $students, 'instructors' => $instructors, 'mailingLists' => $mailingLists)) ?>
 </div>
 <script type='text/javascript'>
-    $(document).ready(function(){	
-        $(".tabs a").click(function(){
-            $("li.tabs").removeClass("active").addClass("normal");
-            $(this).parent().addClass("active").removeClass("normal");
-            
+    $(document).ready(function(){
+        $("#recipients-nav-tabs a").click(function(){
+            $("#recipients-nav-tabs li").removeClass("active-tab");
+            $(this).parent().addClass("active-tab");
             $(".recipients_tab").addClass("hide");
-            $("#" + $(this).attr("id") + "_tab").removeClass('hide');
+            $("#" + $(this).parent().attr("id") + "_tab").removeClass('hide');
             
             $.fn.colorbox.resize();            
             return false;
-        });
+        });	
         
         // push the newly added recipients to the message
         $("#<?php echo $type ?>_recipients").html($("#recipients-holder").html());

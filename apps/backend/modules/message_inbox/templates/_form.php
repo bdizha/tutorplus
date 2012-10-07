@@ -1,9 +1,5 @@
-<?php use_stylesheets_for_form($form) ?>
-<?php use_javascripts_for_form($form) ?>
-
 <div class="sf_admin_form">
-    <?php echo form_tag_for($form, '@message_inbox', array('id' => 'message_form')) ?>    
-    <?php include_partial('message_inbox/form_actions', array('email_message' => $email_message, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
+    <?php echo form_tag_for($form, '@message_inbox', array('id' => 'message_form')) ?>
     <?php echo $form->renderHiddenFields(false) ?>
     <?php foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?>
         <?php include_partial('message_inbox/form_fieldset', array('email_message' => $email_message, 'form' => $form, 'fields' => $fields, 'fieldset' => $fieldset)) ?>

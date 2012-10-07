@@ -39,7 +39,7 @@
                 <?php include_partial('peer/list', array("peers" => $instructorPeers)) ?>
             </div>
             <div id="find_peers" class="peers hide">
-                <?php include_partial('peer/list', array("peers" => $instructorPeers)) ?>
+                <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
             </div>
         </div>
     </div>

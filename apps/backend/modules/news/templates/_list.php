@@ -4,7 +4,7 @@
         <div class="value">
             <?php echo $newsItem->getHeading() ?>
             <?php echo $newsItem->getBlurb() ?>
-            <?php echo link_to2("Read More", "news_show", array("id" => $newsItem->getId()), array("class" => "read-more")) ?>
+            <?php echo link_to2("Read More", "news_show", array("slug" => "batanayi"), array("class" => "read-more")) ?>
         </div>
         <div class="user">By <?php echo link_to($newsItem->getUser(), "profile") ?>  - <span class="datetime"><?php echo false !== strtotime($newsItem->getUpdatedAt()) ? distance_of_time_in_words(strtotime($newsItem->getUpdatedAt())) . " ago" : '&nbsp;' ?></span></div>
         <?php if (isset($showActions) && $showActions && false): ?>

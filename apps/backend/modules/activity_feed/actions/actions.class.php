@@ -16,7 +16,7 @@ class activity_feedActions extends autoActivity_feedActions
 
     public function executeIndex(sfWebRequest $request)
     {
-        $this->activityFeeds = ActivityFeedTable::getInstance()->findByUser($this->getUser()->getId());
+        $this->activityFeeds = ActivityFeedTable::getInstance()->findByUserId($this->getUser()->getId());
     }
 
 }

@@ -28,11 +28,6 @@
             <input id="email_message_sender_id_<?php echo $email_message->getId() ?>" type="hidden" value="<?php echo $sf_user->getId() ?>" name="email_message[sender_id]">
             <input id="email_message_reply_to_<?php echo $email_message->getId() ?>" type="hidden" value="<?php echo $email_message->getFromEmail() ?>" name="email_message[reply_to]"/>
             <input id="email_message_status_<?php echo $email_message->getId() ?>" type="hidden" value="2" name="email_message[status]"/>
-            <ul class="sf_admin_actions">
-                <li class="sf_admin_action_save"><input type="button" id="message_top_save_<?php echo $email_message->getId() ?>" value="Save draft" class="save"></li>                    
-                <li class="sf_admin_action_save"><input type="button" id="message_top_send_<?php echo $email_message->getId() ?>" value="Send" class="save"></li>                    
-                <li class="sf_admin_action_save"><input type="button" id="message_top_cancel_<?php echo $email_message->getId() ?>" value="Cancel" class="save"></li>                    
-            </ul>
             <table class="message_table">
                 <tbody>
                     <tr class="message_row">

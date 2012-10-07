@@ -13,7 +13,7 @@
             var type = $(this).attr("id"); 
             var title = $(this).attr("title"); 
             var url = '/backend.php/message_choose_recipients/' + type;
-            openPopup(url, '623px', '480px', 'Add ' + title + ' message recipients');
+            openPopup(url, '623px', '480px', 'Add ' + title + ' Message Recipients');
             return false;
         });
     });

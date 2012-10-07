@@ -3,33 +3,6 @@ menu:
     details:                          { route: dashboard, label: Dashboard }
     type:                             Many
     children:
-      my_dashboard:                   
-        details:                      { route: dashboard, label: "Dashboard" }
-        credentials:                  [ student, instructor, staff ]
-        children:                    
-          my_dashboard:               { route: dashboard, label: "My Dashboard" }
-          notifications:              { route: activity_feed, label: "Notifications" }
-      my_messages:                    
-        details:                      { route: dashboard, label: "Messaging" }
-        credentials:                  [ student, instructor, staff ]
-        children:
-          message_inbox:              { route: message_inbox, label: "Inbox" }
-          message_sent:               { route: message_sent, label: "Sent" }
-          message_draft:              { route: message_draft, label: "Drafts" }
-          message_trash:              { route: message_trash, label: "Trash" }
-      my_courses:                                        
-        details:                      { route: dashboard, label: "Courses" }
-        credentials:                  [ student, instructor, staff ]
-        children:
-          course_explorer:            { route: courses, label: "Course Explorer" }
-          my_courses:                 { route: my_courses, label: "My Courses" }
-#          other_courses:              { route: other_course, label: "Other Courses" }
-      my_calendar:                                        
-        details:                      { route: calendar, label: "Calendar" }
-        children:
-          my_schedule:                { route: my_schedule, label: "My Schedule" }
-          calendar_events:            { route: calendar_event, label: "Calendar Events" }
-          calendars:                  { route: calendar, label: "Calendars" }
   courses:                          
     details:                          { route: courses, label: Courses }
     type:                             One
@@ -48,7 +21,6 @@ menu:
           course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
           course_calendar:            { route: calendar, label: "Course Calendar" }
           assignments:                { route: assignment, label: "Assignments" }
-#          assignment_groups:          { route: assignment_group, label: "Assignments Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
           course_files:               { route: course_file, label: "Course Files" }
           course_participants:        { route: course_participant, label: "Participants" }
@@ -68,6 +40,16 @@ menu:
         children:
           discussion_explorer:        { route: discussion, label: "Discussion Explorer" }
           my_discussions:             { route: discussion, label: "My Discussions" }
+  calendar:                          
+    details:                          { route: my_schedule, label: Calendar }
+    type:                             One
+    children:
+      my_calendar:                                        
+        details:                      { route: my_schedule, label: "Calendar" }
+        children:
+          my_schedule:                { route: my_schedule, label: "My Schedule" }
+          calendar_events:            { route: calendar_event, label: "Events" }
+          calendars:                  { route: calendar, label: "Calendars" }
   profile:                          
     details:                          { route: profile_show, label: Profile }
     type:                             One
@@ -98,6 +80,29 @@ menu:
           instructor_peers:           { route: peer_instructors, label: "Instructor Peers" }
           suggested_peers:            { route: peer_suggested, label: "Suggested Peers" }
           find_peers:                 { route: peer_find, label: "Find Peers" }
+  messaging:                          
+    details:                          { route: message_inbox, label: Messaging }
+    type:                             One
+    children:
+      my_messages:                    
+        details:                      { route: message_inbox, label: "Messaging" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          message_inbox:              { route: message_inbox, label: "Inbox" }
+          message_sent:               { route: message_sent, label: "Sent" }
+          message_draft:              { route: message_draft, label: "Drafts" }
+          message_trash:              { route: message_trash, label: "Trash" }
+  communication:                          
+    details:                          { route: activity_feed, label: Communication }
+    type:                             One
+    children:
+      channels:                                     
+        details:                      { route: activity_feed, label: "Channes" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          notifications:              { route: activity_feed, label: "Notifications" }
+          news:                       { route: news, label: "News" }
+          announcements:              { route: announcement, label: "Announcements" }
   settings:    
     details:                          { route: course, label: Settings }
     type:                             Many
@@ -124,8 +129,6 @@ menu:
         details:                      { route: email_template, label: "Communication Settings" }
         credentials:                  [ administrator ]
         children:
-          news:                       { route: news, label: "News" }
-          announcements:              { route: announcement, label: "Announcements" }
           email_templates:            { route: email_template, label: "Email Templates" }
           mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
           activity_templates:         { route: activity_template, label: "Activity Templates" }

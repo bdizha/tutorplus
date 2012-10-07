@@ -33,14 +33,13 @@
             // get the second td element
             var subject = $(this).attr('subject');
             $("#message_read").html(subject);
-            $("#message_read_tab").show();
             
             var emailIdParts = $(this).attr("id").split("_");
             
-            $("li.tabs").removeClass("active").addClass("normal");
-            $("#message_read_tab").addClass("active").removeClass("normal");
-            $("#tab_content").html(loadingHtml);
-            $("#tab_content").load('/backend.php/message_read_tab/' + emailIdParts[1]);
+            $("#sent_nav_tabs li").removeClass("active-tab");
+            $("#message_read_tab").addClass("active-tab")
+            $("#email_container").html(loadingHtml);
+            $("#email_container").load('/backend.php/message_read_tab/' + emailIdParts[1]);
         });
         
         $(".batch_selects").change(function(){

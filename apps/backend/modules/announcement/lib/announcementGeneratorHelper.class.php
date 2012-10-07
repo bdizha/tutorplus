@@ -37,23 +37,20 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
     public function linkToAnnounce() {
         return '<li class="sf_admin_action_announce"><input type="button" class="button" value="+ Announce"/></li>';
     }
-
+    
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "email_template",
-                "Communication Settings" => "communication_settings",
+               "Communication" => "activity_feed",
                 "Announcements" => "announcement"
             )
         );
     }
 
     public function indexLinks() {
-        return array(
-            "current_parent" => "settings",
-            "current_child" => "communication_settings",
-            "current_link" => "announcements",
-            "is_profile" => true
+        return array(            
+            "current_parent" => "communication",
+            "current_child" => "channels",
+            "current_link" => "announcements"
         );
     }
-
 }

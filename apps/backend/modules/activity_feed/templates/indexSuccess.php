@@ -12,6 +12,6 @@
 <div class="content-block" style="margin-top: 10px">
     <h2>Notifications</h2>
     <div class="full-block" id="activity_feeds">
-        <?php include_partial('activity_feed/list', array("activityFeeds" => $activityFeeds)) ?>
+        <?php include_partial('list', array("activityFeeds" => $activityFeeds)) ?>
     </div>
 </div>

@@ -16,11 +16,14 @@ class ActivityFeedTable extends Doctrine_Table {
         return Doctrine_Core::getTable('ActivityFeed');
     }
 
-    public function findByUser($userId) {
+    public function findByUserId($userId, $limit = null) {
         $q = Doctrine_Query::create()
                 ->from('ActivityFeed af')
                 ->innerJoin('af.ActivityFeedUsers afu')
                 ->andWhere('afu.user_id = ?', $userId);
+        if ($limit) {
+            $q->limit($limit);
+        }
 
         $q->addOrderBy('af.created_at DESC');
         return $q->execute();

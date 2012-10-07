@@ -167,7 +167,7 @@
 
 #top-menu a{
     padding: 10px;
-    font-size: 14px;
+    font-size: 15px;
     display: block;
     height: 25px;
 }
@@ -399,6 +399,8 @@
 
 .plain-row{
     background-color: #F9F9F9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .white-background{
@@ -425,9 +427,9 @@
     clear: both;
     color: #555A65;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 14px;
     border-bottom: 1px solid #FFFFFF;
-    padding: 5px 10px;
+    padding: 10px;
 }
 
 #sf_admin_container .content-block h2 .actions, #sf_admin_form_container h2 .actions{
@@ -970,7 +972,7 @@
 
 .no-result{
     background-color: #F9F9F9 !important;
-    padding: 5px 10px;
+    padding: 10px;
 }
 
 .no-padding{
@@ -1082,6 +1084,9 @@
     border-bottom: 1px solid #FFFFFF;
     padding: 5px 10px;
     position: relative;
+    display: block;
+    clear: both;
+    min-height: 40px;
 }
 
 #activity_feeds .even-row{
@@ -1191,7 +1196,7 @@ ul.nav-tabs li {
     vertical-align: top;
     zoom: 1;
     list-style-type: none;
-    padding: 5px 10px;
+    padding: 5px 20px;
     font-weight: 500;
     color: #00446A;
     margin-bottom: -1px;
@@ -1221,4 +1226,7 @@ ul.nav-tabs li.active-tab {
     padding: 3px 6px;
     border-radius: 5px;
     font-size: 11px;
+}
+.no-padding{
+    padding: 0 !important;
 }

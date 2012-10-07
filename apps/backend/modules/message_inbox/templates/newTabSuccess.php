@@ -7,10 +7,7 @@
         // set the counts of the email labels
         setListCounts();
         
-        $("#email_message_to_email, #email_message_subject, #email_message_cc_email, #email_message_bcc_email").width($(".sf_admin_form_row").width() - 160);
-        $("#email_message_body").width($(".sf_admin_form_row").width() - 10);
-        $(".sf_admin_form_field_body label").remove();
-        
+        $(".sf_admin_form_field_body label").remove();        
         $('.save').click(function(){  
             if($(this).val() == "Send")
             {                

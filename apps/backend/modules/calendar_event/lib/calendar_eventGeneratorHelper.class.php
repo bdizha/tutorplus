@@ -33,14 +33,14 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
-                "Calendar Events" => "calendar_event"
+                "Events" => "calendar_event"
             )
         );
     }
 
     public function indexLinks() {
         return array(
-            "current_parent" => "dashboard",
+            "current_parent" => "calendar",
             "current_child" => "my_calendar",
             "current_link" => "calendar_events"
         );

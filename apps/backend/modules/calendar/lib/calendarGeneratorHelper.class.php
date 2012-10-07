@@ -61,14 +61,14 @@ class calendarGeneratorHelper extends BaseCalendarGeneratorHelper {
     public function myScheduleBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
-                "My Schedules" => "calendar"
+                "My Schedule" => "calendar"
             )
         );
     }
 
     public function myScheduleLinks() {
         return array(
-            "current_parent" => "dashboard",
+            "current_parent" => "calendar",
             "current_child" => "my_calendar",
             "current_link" => "my_schedule"
         );

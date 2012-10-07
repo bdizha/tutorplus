@@ -86,13 +86,12 @@ class PeerTable extends Doctrine_Table {
 
     public function findByNotUserId($userId) {
         $q = Doctrine_Query::create()
-                ->select('u.id, u.first_name, u.last_name')
                 ->from("sfGuardUser u")
                 ->addWhere('(u.id NOT IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $userId)
                 ->addWhere('(u.id NOT IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $userId)
                 ->whereNotIn("u.id", array($userId));
 
-        return $q->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
+        return $q->execute();
     }
 
     public function findOneByPeers($inviterId, $inviteeId) {
@@ -100,6 +99,17 @@ class PeerTable extends Doctrine_Table {
                 ->where('(p.inviter_id = ? AND p.invitee_id = ?)', array($inviterId, $inviteeId))
                 ->orWhere('(p.inviter_id = ? AND p.invitee_id = ?)', array($inviteeId, $inviterId));
         return $q->fetchOne();
+    }
+
+    public function findByUserId($userId, $limit = 22) {
+        $q = Doctrine_Query::create()
+                ->from("sfGuardUser u")
+                ->addWhere('(u.id IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $userId)
+                ->orWhere('(u.id IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $userId)
+                ->whereNotIn("u.id", array($userId))
+                ->limit($limit);
+
+        return $q->execute();
     }
 
 }

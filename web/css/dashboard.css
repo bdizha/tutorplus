@@ -1,4 +1,54 @@
-.news-details{
-    padding: 0 5px 10px 10px;
-    width: 335px !important;
+.dashboard-block{
+    display: block;
+    width: 465px;
+    float: left;
+}
+
+.dashboard-row{
+    height: 140px;
+    background-color: #F9F9F9;
+    position: relative;
+    padding: 5px 10px;
+}
+
+#dashboard_container .left{
+    margin-right: 7px;
+}
+
+.my-peer {
+    height: 38px !important;
+    width: 41px !important;
+    display: inline-block;
+    float: none;
+}
+
+#notifications, #my_courses, #my_discussions, #news_items, #announcements{
+    padding: 0 0 12px 0 !important;
+}
+
+#my_messages{
+    text-align: center;
+    background-position: center -1293px;
+    background-image: url(https://dashboard.bostatic.com/assets/launchpad_sprite_tiles-10a6d4f6f8d2b7e4b3f6dee2157fce16.png);   
+    background-repeat: no-repeat;
+    height: 100px !important;
+    width: 465px;
+}
+
+#events{
+    text-align: center;
+    background-position: center -2445px;
+    background-image: url(https://dashboard.bostatic.com/assets/launchpad_sprite_tiles-10a6d4f6f8d2b7e4b3f6dee2157fce16.png);   
+    background-repeat: no-repeat;
+    height: 100px !important;
+    width: 465px;
+}
+
+.view-more{
+    background: url(https://dashboard.bostatic.com/assets/launchpad_sprite-791139d3f11784b8e716120c898a3323.png) no-repeat scroll -85px -2687px transparent;
+    height: 40px;
+    width: 22px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }

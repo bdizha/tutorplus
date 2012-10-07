@@ -20,16 +20,16 @@ class activity_feedGeneratorHelper extends BaseActivity_feedGeneratorHelper {
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Dashboard" => "dashboard",
-                "Notifications" => "activity_feed",
+                "Communication" => "activity_feed",
+                "Notifications" => "activity_feed"
             )
         );
     }
 
     public function indexLinks() {
         return array(
-            "current_parent" => "dashboard",
-            "current_child" => "my_dashboard",
+            "current_parent" => "communication",
+            "current_child" => "channels",
             "current_link" => "notifications"
         );
     }

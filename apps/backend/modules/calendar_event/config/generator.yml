@@ -26,7 +26,7 @@ generator:
          "Event Details":   [ name, calendar_id, from_date, to_date, location, description, is_personal ]
          "Event Attendees": [ notify_changes ]
       list:
-        title:              Calendar Events
+        title:              Events
         display:            [ name, user, calendar, when, location, is_personal, notify_changes ]
         sort:               [ name, asc ]
         batch_actions:      [ ]
@@ -34,13 +34,13 @@ generator:
         actions:
           _new:             ~
       edit:
-        title:              Edit Calendar Event - %%name%%
+        title:              Edit Event - %%name%%
         actions:
           cancel:           []
           done:             []
           _save:            []
       new:
-        title:              New Calendar Event
+        title:              New Event
         actions:
           cancel:           []
           _save:            []

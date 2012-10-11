@@ -19,7 +19,7 @@
 .sf_admin_form_field_is_graded, .sf_admin_form_field_notify_users,
 .sf_admin_form_field_graded_by, .sf_admin_form_field_allow_late_submission{
     float: left;
-    width: 45%;
+    width: 341px;
 }
 
 #assignment_description{

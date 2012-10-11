@@ -1,5 +1,5 @@
 <?php foreach ($newsItems as $i => $newsItem): ?>    
-    <div class="padding-10 full-block"> 
+    <div class="even-row"> 
         <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
         <div class="value">
             <?php echo $newsItem->getHeading() ?>

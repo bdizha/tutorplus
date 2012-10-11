@@ -28,7 +28,7 @@ input[type=button], input[type=submit] {
     cursor: pointer;
 }
 
-.cancel, .done{
+.cancel, .done, .fc-header .fc-button{
     color: #666666 !important;
     text-shadow: 0 1px rgba(255, 255, 255, 0.5);
     border: 1px solid #CCCDCE !important;

@@ -1,3 +1,9 @@
+<?php use_helper('I18N', 'Date') ?>
+
+<?php slot('nav_vertical') ?>
+<?php include_component('common', 'menu', array()) ?>
+<?php end_slot() ?>
+
 <div class="landing-row">
     <div class="landing-left-column">
         <div class="landing-image"></div>

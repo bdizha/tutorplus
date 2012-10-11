@@ -1,5 +1,5 @@
 newSuccess:
-  layout: false
+  has_layout: false
   
 editSuccess:
-  layout: false
+  has_layout: false

@@ -43,5 +43,11 @@
                 $.fn.colorbox.resize();
             });
         });
+        
+        $("#<?php echo $this->getModuleName() ?>_form_holder .cancel, #<?php echo $this->getModuleName() ?>_form_holder .done").click(function(){
+            fetch<?php echo ucfirst($this->getModuleName()) ?>s();
+            $.fn.colorbox.close();
+            return false;
+        });
     });
 </script>

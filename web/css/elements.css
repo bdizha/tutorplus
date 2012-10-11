@@ -13,7 +13,7 @@ html{
 
 body{
     background: url("/images/bg_content.jpg") repeat;
-    font-family: Arial, sans-serif;
+    font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
     font-size: 12px;
     height: 100%;
     width: 100%;
@@ -24,9 +24,6 @@ body{
 
 ol, ul{
     list-style: none outside none;
-}
-
-li {
 }
 
 fieldset, img{
@@ -40,4 +37,8 @@ a{
 
 a:hover{
     text-decoration: underline !important;
+}
+
+label{
+    font-weight: bold;
 }

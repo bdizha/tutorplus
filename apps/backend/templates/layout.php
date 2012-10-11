@@ -18,7 +18,7 @@
                 <div id="header-wrapper"> 
                     <?php include_partial('common/header') ?>
                     <div id="main-menu">
-                        <?php include_slot('nav_horizontal') ?>
+                        <?php include_slot('menu') ?>
                     </div>                 
                 </div>
             </div>
@@ -30,11 +30,17 @@
                     <div id="inner-container-wrapper">
                         <?php include_slot('nav_vertical') ?>
                         <?php include_slot('nav_vertical_bottom') ?>
+                        <?php if($sf_user->getId()): ?>
                         <div id="middle-column">
                             <div id="sf_admin_container">
                                 <?php echo $sf_content ?>
                             </div>
-                        </div>                        
+                        </div>  
+                        <?php else: ?>
+                        <div id="middle-landing-column">
+                            <?php echo $sf_content ?>
+                        </div> 
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="clear"></div>

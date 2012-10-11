@@ -58,8 +58,7 @@ class studentGeneratorHelper extends BaseStudentGeneratorHelper {
         return array(
             "current_parent" => "settings",
             "current_child" => "access_settings",
-            "current_link" => "students",
-            "is_profile" => false
+            "current_link" => "students"
         );
     }
 
@@ -76,8 +75,7 @@ class studentGeneratorHelper extends BaseStudentGeneratorHelper {
         return array(
             "current_parent" => "settings",
             "current_child" => "access_settings",
-            "current_link" => "students",
-            "is_profile" => false
+            "current_link" => "students"
         );
     }
 
@@ -94,8 +92,7 @@ class studentGeneratorHelper extends BaseStudentGeneratorHelper {
         return array(
             "current_parent" => "settings",
             "current_child" => "access_settings",
-            "current_link" => "students",
-            "is_profile" => false
+            "current_link" => "students"
         );
     }
 

@@ -141,3 +141,38 @@ menu:
           buildings:                  { route: building, label: "Buildings" }
           campuses:                   { route: campus, label: "Campuses" }
           rooms:                      { route: room, label: "Rooms" }
+  home:                          
+    details:                          { route: message_inbox, label: Home }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  about_us:                          
+    details:                          { route: message_inbox, label: "About Us" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  collaborative_learning:                          
+    details:                          { route: message_inbox, label: "CSCL" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  our_philosophy:                          
+    details:                          { route: message_inbox, label: "OUr Philosophy" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  our_team:                          
+    details:                          { route: message_inbox, label: "OUr Team" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  contact_us:                          
+    details:                          { route: message_inbox, label: "Contact Us" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  support:                          
+    details:                          { route: message_inbox, label: "Support" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }

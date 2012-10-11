@@ -18,23 +18,23 @@ generator:
         location:          { label: Where }
         from_date:         { label: From }
         to_date:           { label: To }
-        user:              { label: Event Owner }
+        user:              { label: Organiser }
       filter:
         class:              false        
       form:
         display:            
-         "Event Details":   [ name, calendar_id, from_date, to_date, location, description, is_personal ]
-         "Event Attendees": [ notify_changes ]
+         "Event Details":   [ name, calendar_id, from_date, to_date, location, description, is_personal, notify_changes ]
+         "Event Attendees": [ _attendees ]
       list:
         title:              Events
-        display:            [ name, user, calendar, when, location, is_personal, notify_changes ]
+        display:            [ name, user, when, location ]
         sort:               [ name, asc ]
         batch_actions:      [ ]
         max_per_page:			  10
         actions:
-          _new:             ~
+          _new:             { label: "+ Add Event" }
       edit:
-        title:              Edit Event - %%name%%
+        title:              Edit Event ~ %%name%%
         actions:
           cancel:           []
           done:             []

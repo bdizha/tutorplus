@@ -4,7 +4,7 @@
 .sf_admin_form_field_is_finalized, .sf_admin_form_field_credits, .sf_admin_form_field_hours,
 .sf_admin_form_field_max_enrolled{
     float: left;
-    width: 45%;
+    width: 341px;
 }
 
 .sf_admin_form_field_description{

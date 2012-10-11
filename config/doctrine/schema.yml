@@ -902,7 +902,11 @@ UserCalendar:
     Owner:                  { class: sfGuardUser, local: owner_id, foreign: id, foreignType: many, foreignAlias: Owner, type: one, onDelete: CASCADE }  
     
 CalendarEvent:
-  actAs:                    [Timestampable]
+  actAs:             
+    Timestampable:          ~
+    Sluggable:
+      fields:               [name]
+  tableName:                calendar_event
   columns:
     calendar_id:            { type: integer, notnull: true }
     user_id:                { type: integer, notnull: true }
@@ -920,6 +924,7 @@ CalendarEvent:
     
 CalendarEventAttendee:
   actAs:                    [Timestampable]
+  tableName:                calendar_event_attendee
   columns:
     calendar_event_id:      { type: integer, notnull: true }
     user_id:                { type: integer, notnull: true }

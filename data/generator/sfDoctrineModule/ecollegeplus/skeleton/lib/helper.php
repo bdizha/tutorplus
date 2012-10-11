@@ -10,7 +10,6 @@
  */
 class ##MODULE_NAME##GeneratorHelper extends Base##UC_MODULE_NAME##GeneratorHelper
 {
-
     public function linkToNew($params)
     {
         return '<li class="sf_admin_action_new">'.button_to(__($params['label'], array(), 'sf_admin'), "/backend.php/##MODULE_NAME##", array()).'</li>';

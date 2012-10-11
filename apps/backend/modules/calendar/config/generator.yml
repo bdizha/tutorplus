@@ -23,15 +23,17 @@ generator:
         batch_actions:     []
         max_per_page:			 10
         actions:
-          _new: ~
+          _new:            { label: "+ Add Calendar" }
       edit:
         title:             Edit Calendar
+        display:           [ name, description, type, is_public, _color ]
         actions:
           cancel:          []
           done:            []
           _save:           []
       new:
         title:             New Calendar
+        display:           [ name, description, type, is_public, _color ]
         actions:
           cancel:          []
           _save:           []

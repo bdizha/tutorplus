@@ -18,12 +18,12 @@ class calendar_eventActions extends autoCalendar_eventActions
     {
         if (isset($request["calendar"]) && is_array($request["calendar"]))
         {
-            $calendar_ids = $request["calendar"];
+            $calendarIds = $request["calendar"];
             $ids = array();
 
-            foreach ($calendar_ids["id"] as $key => $id)
+            foreach ($calendarIds["id"] as $key => $id)
             {
-                if ($id)
+                if (!empty($id))
                 {
                     $ids[] = $id;
                 }
@@ -36,7 +36,7 @@ class calendar_eventActions extends autoCalendar_eventActions
             $ids = $this->getUser()->getMyAttribute('calendar_ids', array());
         }
 
-        echo json_encode($calendar_events = CalendarEventTable::getInstance()->retrieveByUserIdAndVisibility($this->getUser()->getId(), $ids));
+        echo json_encode($calendarEvents = CalendarEventTable::getInstance()->retrieveByUserIdAndVisibility($this->getUser()->getId(), $ids));
         die;
     }
 

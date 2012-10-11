@@ -112,7 +112,7 @@ html .fc,
 ------------------------------------------------------------------------*/
 
 .fc-content {
-    height: 470px;
+    background-color: #F9F9F9;
 }
 
 .fc-view {
@@ -121,6 +121,9 @@ html .fc,
     height: 100%;
 }
 
+.fc-content tfoot{
+/*    display: none;*/
+}
 
 td.fc-first{
     height: 16% !important;
@@ -200,11 +203,6 @@ td.fc-first{
     overflow: hidden;
 }
 
-.fc-state-default .fc-button-inner { /* non-theme */
-    border-style: solid;
-    border-width: 0 1px;
-}
-
 .next-arrow{
     background-image: url("/images/all-icons.png");
     background-position: -245px 0;
@@ -264,38 +262,24 @@ td.fc-first{
     left: 0;
     width: 500px;
     height: 100px;
-    border-width: 100px 0 0 1px;
-    border-style: solid;
-    border-color: #fff;
     opacity: .09;
     filter: alpha(opacity=9);
 }
 
-/* button states (determines colors)  */
-
-.fc-state-default,
-.fc-state-default .fc-button-inner {
-    border-color: #B6B6B6;
-    border-style: solid;
-    color: #555555 !important;
-}
-
-.fc-state-hover,
-.fc-state-hover .fc-button-inner {
-    border-color: #999;
-}
-
 .fc-state-down,
 .fc-state-down .fc-button-inner {
-    border-color: #0088CC;
-    background: #0088CC;
+    border-color: #134D58;
+    background: #134D58;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 }
 
 .fc-state-active,
 .fc-state-active .fc-button-inner {
-    background: none repeat scroll 0 0 #0088CC;
-    border-color: #0088CC;
+    background: none repeat scroll 0 0 #134D58;
     color: #FFFFFF !important;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
 }
 
 .fc-state-disabled,
@@ -424,16 +408,6 @@ a.fc-event {
 .fc-corner-top .fc-event-inner {
     margin-top: -1px;
 }
-
-.fc-corner-bottom {
-    margin-bottom: 1px;
-}
-
-.fc-corner-bottom .fc-event-inner {
-    margin-bottom: -1px;
-}
-
-
 
 /* Fake Rounded Corners SPECIFICALLY FOR EVENTS
 -----------------------------------------------------------------*/

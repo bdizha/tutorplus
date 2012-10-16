@@ -28,10 +28,10 @@
             
             var emailIdParts = $(this).attr("id").split("_");
             
-            $("li.tabs").removeClass("active").addClass("normal");
-            $("#message_read_tab").addClass("active").removeClass("normal");
-            $("#tab_content").html(loadingHtml);
-            $("#tab_content").load('/backend.php/message_read_tab/' + emailIdParts[1]);
+            $("#inbox_nav_tabs li").removeClass("active-tab");
+            $("#message_read_tab").addClass("active-tab")
+            $("#email_container").html(loadingHtml);
+            $("#email_container").load('/backend.php/message_read_tab/' + emailIdParts[1]);
         });
         
         $(".batch_selects").change(function(){
@@ -57,9 +57,9 @@
     });
     
     function setListCounts(){
-        $("#message_inbox").html("Inbox (<?php echo $total_inbox_count ?>)");
-        $("#message_draft").html("Drafts (<?php echo $total_drafts_count ?>)");
-        $("#message_sent").html("Sent (<?php echo $total_sent_count ?>)");
-        $("#message_trash").html("Trash (<?php echo $total_trash_count ?>)");
+        $("#message_inbox_item a").html("Inbox (<?php echo $totalInboxCount ?>)");
+        $("#message_draft_item a").html("Drafts (<?php echo $totalDraftsCount ?>)");
+        $("#message_sent_item a").html("Sent (<?php echo $totalSentCount ?>)");
+        $("#message_trash_item a").html("Trash (<?php echo $totalTrashCount ?>)");
     }
 </script>

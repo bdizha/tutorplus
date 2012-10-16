@@ -16,7 +16,7 @@
         <div id="tutorplus">
             <div id="main-header">
                 <div id="header-wrapper"> 
-                    <?php include_partial('common/header') ?>
+                    <?php include_component('common', 'header') ?>
                     <div id="main-menu">
                         <?php include_slot('menu') ?>
                     </div>                 
@@ -28,18 +28,18 @@
                         <?php include_slot('breadcrumbs') ?>
                     </div>
                     <div id="inner-container-wrapper">
-                        <?php include_slot('nav_vertical') ?>
-                        <?php include_slot('nav_vertical_bottom') ?>
-                        <?php if($sf_user->getId()): ?>
-                        <div id="middle-column">
-                            <div id="sf_admin_container">
-                                <?php echo $sf_content ?>
-                            </div>
-                        </div>  
+                        <?php if ($sf_user->getId()): ?>
+                            <?php include_slot('nav_vertical') ?>
+                            <?php include_slot('nav_vertical_bottom') ?>
+                            <div id="middle-column">
+                                <div id="sf_admin_container">
+                                    <?php echo $sf_content ?>
+                                </div>
+                            </div>  
                         <?php else: ?>
-                        <div id="middle-landing-column">
-                            <?php echo $sf_content ?>
-                        </div> 
+                            <div id="middle-landing-column">
+                                <?php echo $sf_content ?>
+                            </div> 
                         <?php endif; ?>
                     </div>
                 </div>

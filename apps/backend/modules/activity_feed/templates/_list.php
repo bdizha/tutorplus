@@ -5,5 +5,6 @@
     <div class="even-row">
         <?php include_partial('personal_info/photo', array('user' => $activityFeed->getDoer(), "dimension" => 36)) ?>
         <?php echo $activityFeed->getContent() ?>
+        <div class="clear"></div>
     </div> 
 <?php endforeach; ?>

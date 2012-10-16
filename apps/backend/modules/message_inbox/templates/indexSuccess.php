@@ -14,7 +14,7 @@
         <ul class="nav-tabs" id="inbox_nav_tabs">
             <li id="message_inbox_tab" class="active-tab">
                 <a href="/backend.php/message_inbox_tab">Inbox</a>
-                <span class="list-count">5</span>
+                <span class="list-count"><?php echo $totalInboxCount ?></span>
             </li>
             <li id="message_new_tab">
                 <a href="/backend.php/message_new_tab">Compose Message</a>
@@ -23,7 +23,7 @@
                 <a id="message_read" href="/backend.php/message_read_tab">&nbsp;</a>
             </li>
         </ul>
-        <div id="email_container" class="peer-block plain-row padding-10"></div>
+        <div id="email_container" class="peer-block plain-row"></div>
     </div>
 </div>
 <script type="text/javascript">

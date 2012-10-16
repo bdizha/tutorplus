@@ -10,13 +10,9 @@
             openPopup($(this).attr("popup_url"), '[?php echo sfConfig::get("app_popup_<?php echo $this->getModuleName() ?>_width") ?]', "480px", "[?php echo <?php echo ucwords($this->getI18NString('edit.title')) ?> ?]");
             return false;
         });
-	
-        function submitDoubleListValues(){
-            $("select.double_list_select-selected").each(function(){
-                $("#" + this.id + " option").each(function(){
-                    $(this).attr("selected", "selected");
-                });
-            });
-        }
     });
+        
+    function fetch<?php echo ucfirst(sfInflector::camelize($this->getModuleName())) ?>s(){
+        window.location = "/backend.php/<?php echo $this->getModuleName() ?>";
+    }
 </script>

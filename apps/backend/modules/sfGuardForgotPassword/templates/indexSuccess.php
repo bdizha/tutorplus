@@ -1,4 +1,8 @@
-<?php use_helper('I18N') ?>
+<?php use_helper('I18N', 'Date') ?>
+
+<?php slot('nav_vertical') ?>
+<?php include_component('common', 'menu', array("current_parent" => "home")) ?>
+<?php end_slot() ?>
 <div class="landing-row">
     <div id="authenticate">
         <div id="sf_admin_heading">

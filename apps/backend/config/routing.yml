@@ -1,3 +1,12 @@
+assessment_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AssessmentType
+    module:               assessment_type
+    prefix_path:          /assessment_type
+    column:               id
+    with_wildcard_routes: true
+
 profile_book:
   class: sfDoctrineRouteCollection
   options:
@@ -1243,11 +1252,11 @@ my_messages:
   param: { module: message_inbox, action: index }
   
 my_discussions:
-  url:   /my_discussions
+  url:   /my/discussions
   param: { module: discussion, action: index }  
 
 my_courses:
-  url:   /my_courses
+  url:   /my/courses
   param: { module: course, action: myCourses }
   
 courses:
@@ -1353,7 +1362,7 @@ mailing_list_instructors:
   param: { module: mailing_list, action: instructors }
   
 my_schedule:
-  url:   /my_schedule
+  url:   /my/schedule
   param: { module: calendar, action: mySchedule }
   
 calendar_home:

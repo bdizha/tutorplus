@@ -13,7 +13,7 @@
 
 (function($){ 
 	jQuery.fn.extend({  
-		elastic: function() {
+		elastic: function(options) {
 		
 			//	We will create a div clone of the textarea
 			//	by copying these attributes from the textarea to the div.
@@ -42,6 +42,7 @@
 				];
 			
 			return this.each( function() {
+				;
 
 				// Elastic only works on textareas
 				if ( this.type !== 'textarea' ) {
@@ -82,6 +83,7 @@
 						// Update height of textarea
 						update(true);
 					}
+
 				}
 				
 				// Sets a given height and overflow state on the textarea
@@ -91,11 +93,17 @@
 					if($textarea.height() !== curratedHeight){
 						$textarea.css({'height': curratedHeight + 'px','overflow':overflow});
 					}
+
+					// Callback function
+					if (typeof options !== 'undefined' && typeof options.callback == 'function') {
+						options.callback.call(this);
+					}
+
 				}
 				
 				// This function will update the height of the textarea if necessary 
 				function update(forced) {
-					
+
 					// Get curated content from the textarea.
 					var textareaContent = $textarea.val().replace(/&/g,'&amp;').replace(/ {2}/g, '&nbsp;').replace(/<|>/g, '&gt;').replace(/\n/g, '<br />');
 					
@@ -118,11 +126,13 @@
 							} else {
 								setHeightAndOverflow(goalheight,'hidden');
 							}
+
 							
 						}
 						
 					}
-					
+
+
 				}
 				
 				// Hide scrollbars
@@ -138,6 +148,7 @@
 				$textarea.bind('resize', setTwinWidth);
 				$textarea.bind('update', update);
 				
+
 				// Compact textarea on blur
 				$textarea.bind('blur',function(){
 					if($twin.height() < maxheight){

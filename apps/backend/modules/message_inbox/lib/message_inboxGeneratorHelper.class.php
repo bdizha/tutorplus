@@ -9,17 +9,13 @@
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class message_inboxGeneratorHelper extends BaseMessage_inboxGeneratorHelper {
-
-    public function linkToNew($params) {
-        return '<li class="sf_admin_action_new">' . button_to(__($params['label'], array(), 'sf_admin'), "/backend.php/message_inbox#", array()) . '</li>';
+    
+    public function linkToSend($object, $params) {
+        return '<li class="sf_admin_action_save"><input class="save email" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
 
-    public function linkToEdit($object, $params) {
-        return '<li class="sf_admin_action_edit">' . link_to(__($params['label'], array(), 'sf_admin'), "/backend.php/message_inbox#", array("popup_url" => "/backend.php/message_inbox/" . $object->getId() . "/edit")) . '</li>';
-    }
-
-    public function linkToSave($object, $params) {
-        return '<li class="sf_admin_action_save"><input class="save" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
+    public function linkToSaveDraft($object, $params) {
+        return '<input class="cancel email" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" />';
     }
 
     public function indexBreadcrumbs() {

@@ -13,12 +13,16 @@ generator:
 
     config:
       actions:               ~
+      form:
+        class:               EmailMessageForm
+        display:             [_from_email, _to_emails, _cc_emails, _bcc_emails, subject, body]
       fields:
         from_email:          { label: From }
-        to_email:            { label: To }
+        from_emails:         { label: From }
         created_at:          { label: Date }
-      form:
-        class:                EmailMessage
+        _to_email:           { label: To }
+        cc_email:            { label: Cc }
+        bcc_email:           { label: Bcc }
       filter:
         class: false
       list:
@@ -31,11 +35,11 @@ generator:
         max_per_page:			    10
       new:
         actions:       
-          _save_draft:        ~
-          _send:              ~
-          _cancel:            ~
+          save_draft:         { label: "Save Draft" }
+          cancel:             ~
+          send:               ~
       edit:
         actions:       
-          _save_draft:        ~
-          _send:              ~
-          _cancel:            ~
+          save_draft:         { label: "Save Draft" }
+          cancel:             ~
+          send:               ~

@@ -18,9 +18,11 @@ menu:
         credentials:                  [ student, instructor, staff ]
         children:
           course_info:                { route: course_show, param: slug,  label: "Course Info" }
+          announcements:              { route: course_announcement, label: "Announcements" }
           course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
           course_calendar:            { route: calendar, label: "Course Calendar" }
           assignments:                { route: assignment, label: "Assignments" }
+          assessment_types:           { route: assessment_type, label: "Assessment Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
           course_files:               { route: course_file, label: "Course Files" }
           course_participants:        { route: course_participant, label: "Participants" }
@@ -39,7 +41,6 @@ menu:
         credentials:                  [ student, instructor, staff ]
         children:
           discussion_explorer:        { route: discussion, label: "Discussion Explorer" }
-          my_discussions:             { route: discussion, label: "My Discussions" }
   calendar:                          
     details:                          { route: my_schedule, label: Calendar }
     type:                             One

@@ -1,5 +1,5 @@
 <td class="sf_admin_text sf_admin_list_td_name">
-  <?php echo link_to($discussion->getName(), 'discussion_show', $discussion) ?>
+  <?php echo link_to(myToolkit::shortenString($discussion->getName(), 50), 'discussion_show', $discussion) ?>
 </td>
 <td class="sf_admin_foreignkey sf_admin_list_td_user_id">
   <?php echo $discussion->getUser() ?>
@@ -14,5 +14,5 @@
   <?php echo $discussion->getMembers()->count() ?>
 </td>
 <td class="sf_admin_date sf_admin_list_td_last_visit">
-  <?php echo false !== strtotime($discussion->getLastVisit()) ? format_date($discussion->getLastVisit(), "d/M/yyyy") : '&nbsp;' ?>
+    <?php echo myToolkit::dateInWords($discussion->getLastVisit()); ?>
 </td>

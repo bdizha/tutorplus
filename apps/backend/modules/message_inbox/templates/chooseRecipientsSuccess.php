@@ -6,27 +6,34 @@
                 <li id="instructor_recipients"><a href="#">Instructors</a></li>
                 <li id="mailing_list_recipeints"><a href="#">Mailing Lists</a></li>
             </ul>
+            <?php $user = $sf_user->getGuardUser(); ?>
             <div class="peer-block plain-row padding-10">
                 <div class="recipients_tab" id="student_recipients_tab">            
                     <?php foreach ($students as $student): ?>
-                        <div class="peer">
-                            <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 36)) ?>
-                            <div class="name"><?php echo link_to($student->getUser(), 'profile_show', $student->getUser()) ?></div>
-                            <div class="message-recipient-input">
-                                <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][student][]" value="<?php echo $student["id"] ?>" <?php echo (isset($recipient[$type]['student']) && is_array($recipient[$type]['student']) && in_array($student["id"], $recipient[$type]['student'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $student->getId() ?>" class="choose-input" />                
-                            </div>
-                        </div> 
+                        <?php $studentUser = $student->getUser(); ?>
+                        <?php if ($studentUser->getId() != $user->getId()): ?>
+                            <div class="peer">
+                                <?php include_partial('personal_info/photo', array('user' => $studentUser, "dimension" => 36)) ?>
+                                <div class="name"><?php echo link_to($studentUser, 'profile_show', $studentUser) ?></div>
+                                <div class="message-recipient-input">
+                                    <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][student][]" value="<?php echo $student["id"] ?>" <?php echo (isset($recipient[$type]['student']) && is_array($recipient[$type]['student']) && in_array($student["id"], $recipient[$type]['student'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $student->getId() ?>" class="choose-input" />                
+                                </div>
+                            </div> 
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
                 <div class="recipients_tab hide" id="instructor_recipients_tab">
                     <?php foreach ($instructors as $instructor): ?>
-                        <div class="peer">
-                            <?php include_partial('personal_info/photo', array('user' => $instructor->getUser(), "dimension" => 36)) ?>
-                            <div class="name"><?php echo link_to($instructor->getUser(), 'profile_show', $instructor->getUser()) ?></div>
-                            <div class="message-recipient-input">
-                                <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][instructor][]" value="<?php echo $instructor["id"] ?>" <?php echo (isset($recipient[$type]['instructor']) && is_array($recipient[$type]['instructor']) && in_array($instructor["id"], $recipient[$type]['instructor'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $instructor->getId() ?>" class="choose-input" />                
+                        <?php $instructorUser = $instructor->getUser(); ?>
+                        <?php if ($instructorUser->getId() != $user->getId()): ?>
+                            <div class="peer">
+                                <?php include_partial('personal_info/photo', array('user' => $instructorUser, "dimension" => 36)) ?>
+                                <div class="name"><?php echo link_to($instructorUser, 'profile_show', $instructorUser) ?></div>
+                                <div class="message-recipient-input">
+                                    <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][instructor][]" value="<?php echo $instructor["id"] ?>" <?php echo (isset($recipient[$type]['instructor']) && is_array($recipient[$type]['instructor']) && in_array($instructor["id"], $recipient[$type]['instructor'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $instructor->getId() ?>" class="choose-input" />                
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
                 <div class="recipients_tab hide" id="mailing_list_recipeints_tab">
@@ -80,7 +87,8 @@
             
             $("#message_choose_recipients_form").ajaxSubmit(function(data){
                 $("#cboxLoadedContent").html(data);
-            });            
+            });    
+            $.fn.colorbox.resize();
             return false;
         });
         

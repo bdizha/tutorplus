@@ -243,6 +243,7 @@
 #middle-landing-column{
     padding-bottom: 10px;
     width: 940px;
+    margin-top: 15px;
 }
 
 #main-footer{
@@ -428,7 +429,7 @@
     clear: both;
     color: #555A65;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 13px;
     border-bottom: 1px solid #FFFFFF;
     padding: 10px;
 }
@@ -512,6 +513,7 @@
 
 #authenticate{
     height: 290px;
+    width: 520px;
 }
 
 #request-password{    
@@ -981,7 +983,6 @@
 }
 
 .landing-row{
-    margin-top: 40px;
     width: 940px;
     clear: both;
     height: 289px;
@@ -1054,7 +1055,7 @@
 }
 
 .column-row{
-    border-bottom: 1px solid #F1F1F1;
+    border-top: 1px solid #F1F1F1;
     height: 144px;
 }
 
@@ -1196,7 +1197,7 @@ ul.nav-tabs li {
     vertical-align: top;
     zoom: 1;
     list-style-type: none;
-    padding: 5px 20px;
+    padding: 5px 10px;
     font-weight: 500;
     color: #00446A;
     margin-bottom: -1px;
@@ -1229,4 +1230,17 @@ ul.nav-tabs li.active-tab {
 }
 .no-padding{
     padding: 0 !important;
+}
+
+.thread {
+    position: relative;
+    padding: 10px 0 10px 10px;
+}
+
+.message {
+    background-color: #F1F1F1;
+    border: 1px solid white;
+    margin-left: 65px;
+    padding: 5px;
+    min-height: 41px;
 }

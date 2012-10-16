@@ -10,16 +10,12 @@
  */
 class message_draftGeneratorHelper extends BaseMessage_draftGeneratorHelper {
 
-    public function linkToNew($params) {
-        return '<li class="sf_admin_action_new">' . button_to(__($params['label'], array(), 'sf_admin'), "/backend.php/message_draft#", array()) . '</li>';
+    public function linkToSend($object, $params) {
+        return '<li class="sf_admin_action_save"><input class="save email" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
 
-    public function linkToEdit($object, $params) {
-        return '<li class="sf_admin_action_edit">' . link_to(__($params['label'], array(), 'sf_admin'), "/backend.php/message_draft#", array("popup_url" => "/backend.php/message_draft/" . $object->getId() . "/edit")) . '</li>';
-    }
-
-    public function linkToSave($object, $params) {
-        return '<li class="sf_admin_action_save"><input type="button" value=" ' . __($params['label'], array(), 'sf_admin') . ' " class="save"></li>';
+    public function linkToSaveDraft($object, $params) {
+        return '<input class="cancel email" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" />';
     }
 
     public function indexBreadcrumbs() {

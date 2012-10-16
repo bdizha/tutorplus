@@ -1,9 +1,6 @@
 <td class="sf_admin_text sf_admin_list_td_title">
   <?php echo link_to($assignment->getTitle(), 'assignment_show', $assignment) ?>
 </td>
-<td class="sf_admin_text sf_admin_list_td_assignment_group">
-  <?php echo $assignment->getAssignmentGroup() ?>
-</td>
 <td class="sf_admin_text sf_admin_list_td_submission">
   <?php echo $assignment->getDisplaySubmission() ?>
 </td>

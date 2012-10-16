@@ -12,10 +12,13 @@
 <div id="sf_admin_content">
     <div class="content-block">
         <ul class="nav-tabs" id="sent_nav_tabs">
-            <li id="message_sent_tab" class="active-tab"><a href="/backend.php/message_sent_tab">Sent</a></li>
+            <li id="message_sent_tab" class="active-tab">
+                <a href="/backend.php/message_sent_tab">Sent</a>
+                <span class="list-count"><?php echo $totalSentCount ?></span>
+            </li>
             <li id="message_read_tab"><a id="message_read" href="/backend.php/message_read_tab">&nbsp;</a></li>
         </ul>
-        <div id="email_container" class="plain-row padding-10"></div>
+        <div id="email_container" class="plain-row"></div>
     </div>
 </div>
 <div id="tab_content"></div>

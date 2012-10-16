@@ -543,9 +543,9 @@ NotificationSettings:
   relations:
     User:                               { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE, foreignAlias: NotificationSettings }
     
-AssignmentType:
+AssessmentType:
   actAs:                    [Timestampable]
-  tableName:                assignment_type
+  tableName:                assessment_type
   columns:
     name:                   { type: string(255), notnull: true }
     weight:                 { type: decimal, default: 0, notnull: true }
@@ -561,7 +561,7 @@ Assignment:
   tableName:                assignment
   columns:
     title:                  { type: string(255), notnull: true }
-    assignment_group_id:    { type: integer, notnull: true }
+    assessment_type_id:    { type: integer, notnull: true }
     description:            { type: clob, notnull: true }
     submission:             { type: integer, notnull: true }
     due_date:               { type: timestamp, notnull: false }
@@ -577,7 +577,7 @@ Assignment:
     course_id:              { type: integer, notnull: true }
   relations:
     Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
-    AssignmentType:         { local: assignment_type_id, foreign: id, type: one, foreignType: one }
+    AssessmentType:         { local: assessment_type_id, foreign: id, type: one, foreignType: one }
     
 AssignmentFile:
   tableName:                assignment_file
@@ -826,10 +826,10 @@ EmailMessageCorrespondence:
   tableName:                  email_message_correspondence
   columns:
     initiator_id:             { type: integer, notnull: true }
-    invitee_id:         { type: integer, notnull: true }
+    invitee_id:               { type: integer, notnull: true }
   relations:
     InitiatorMessage:         { class: EmailMessage, local: initiator_id, foreignAlias: EmailMessageInitiator, foreignType: one, type: one, foreign: id, onDelete: CASCADE }
-    inviteeMessage:     { class: EmailMessage, local: invitee_id, foreignAlias: EmailMessageinvitee, foreignType: one, type: one, foreign: id, onDelete: CASCADE }
+    inviteeMessage:           { class: EmailMessage, local: invitee_id, foreignAlias: EmailMessageinvitee, foreignType: one, type: one, foreign: id, onDelete: CASCADE }
   
 EmailMessageReply:
   columns:
@@ -838,10 +838,10 @@ EmailMessageReply:
     email_message_id:         { type: integer, notnull: true }
     email_message_reply_id:   { type: integer, notnull: true }
   relations:                
-    SendingUser:              { class: sfGuardUser, local: sender_id, foreignAlias: MyEmailMessageReplys, foreign: id, onDelete: CASCADE }          
-    RespondingUser:           { class: sfGuardUser, local: responder_id, foreignAlias: OtherEmailMessageReplys, foreign: id, onDelete: CASCADE }
-    EmailMessage:             { class: EmailMessage, local: email_message_id, foreignAlias: EmailMessageReplys, foreignType: many, type: one, foreign: id, onDelete: CASCADE }
-    EmailMessageReply:        { class: EmailMessage, local: email_message_reply_id, foreignType: one, type: one, foreign: id, onDelete: CASCADE }   
+    SendingUser:              { class: sfGuardUser, local: sender_id, foreignAlias: MyReplies, foreign: id, onDelete: CASCADE }          
+    RespondingUser:           { class: sfGuardUser, local: responder_id, foreignAlias: OtherReplies, foreign: id, onDelete: CASCADE }
+    EmailMessage:             { class: EmailMessage, local: email_message_id, foreignAlias: Replies, foreignType: many, type: one, foreign: id, onDelete: CASCADE }
+    EmailMessageReply:        { class: EmailMessage, local: email_message_reply_id, foreignAlias: Invoker, foreignType: one, type: one, foreign: id, onDelete: CASCADE }   
    
 MailingList:
   actAs:                      [Timestampable]

@@ -12,9 +12,12 @@
 <div id="sf_admin_content">
     <div class="content-block">
         <ul class="nav-tabs" id="trash_nav_tabs">
-            <li id="message_trash_tab" class="active-tab"><a href="/backend.php/message_trash_tab">Trash</a></li>
+            <li id="message_trash_tab" class="active-tab">
+                <a href="/backend.php/message_trash_tab">Trash</a>
+                <span class="list-count"><?php echo $totalTrashCount ?></span>
+            </li>
         </ul>
-        <div id="email_container" class="plain-row padding-10"></div>
+        <div id="email_container" class="plain-row"></div>
     </div>
 </div>
 <script type="text/javascript">

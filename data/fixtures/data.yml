@@ -1,0 +1,2430 @@
+CourseMeetingTime:
+  CourseMeetingTime_2:
+    day: '3'
+    from_time: '01:00AM'
+    to_time: '02:00AM'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_3:
+    day: '6'
+    from_time: '18:15PM'
+    to_time: '20:00PM'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_4:
+    day: '1'
+    from_time: '00:00AM'
+    to_time: '00:00AM'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+  CourseMeetingTime_5:
+    day: '4'
+    from_time: '02:45AM'
+    to_time: '02:15AM'
+    Course: Course_1
+    Building: Building_1
+    Room: Room_1
+DiscussionMember:
+  DiscussionMember_2:
+    nickname: 'tutorplus student'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_2
+    User: sfGuardUser_2
+    is_removed: false
+    created_at: '2012-09-09 11:53:10'
+    updated_at: '2012-09-09 11:53:10'
+  DiscussionMember_3:
+    nickname: Tutorplus
+    subscription_type: '0'
+    membership_type: '0'
+    posting_permission_type: '0'
+    status: '0'
+    Discussion: Discussion_3
+    User: sfGuardUser_2
+    is_removed: false
+    created_at: '2012-09-23 16:20:18'
+    updated_at: '2012-09-23 16:20:18'
+  DiscussionMember_7:
+    nickname: tutorplus
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '4'
+    Discussion: Discussion_9
+    User: sfGuardUser_2
+    is_removed: false
+    created_at: '2012-09-25 13:37:25'
+    updated_at: '2012-09-25 13:37:25'
+  DiscussionMember_5:
+    nickname: john
+    subscription_type: '0'
+    membership_type: '0'
+    posting_permission_type: '0'
+    status: '4'
+    Discussion: Discussion_3
+    User: sfGuardUser_4
+    is_removed: true
+    created_at: '2012-09-23 18:33:14'
+    updated_at: '2012-09-25 16:35:16'
+  DiscussionMember_9:
+    nickname: musa
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '4'
+    Discussion: Discussion_14
+    User: sfGuardUser_6
+    is_removed: false
+    created_at: '2012-09-28 18:47:37'
+    updated_at: '2012-09-28 18:47:37'
+  DiscussionMember_10:
+    nickname: john
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '4'
+    Discussion: Discussion_15
+    User: sfGuardUser_8
+    is_removed: false
+    created_at: '2012-10-01 17:21:33'
+    updated_at: '2012-10-01 17:21:33'
+  DiscussionMember_11:
+    nickname: will
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '4'
+    Discussion: Discussion_16
+    User: sfGuardUser_7
+    is_removed: false
+    created_at: '2012-10-01 17:22:54'
+    updated_at: '2012-10-01 17:22:54'
+  DiscussionMember_12:
+    nickname: irwin
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '4'
+    Discussion: Discussion_17
+    User: sfGuardUser_9
+    is_removed: false
+    created_at: '2012-10-01 17:31:47'
+    updated_at: '2012-10-01 17:31:47'
+  DiscussionMember_13:
+    nickname: musa
+    subscription_type: '0'
+    membership_type: '0'
+    posting_permission_type: '0'
+    status: '0'
+    Discussion: Discussion_3
+    User: sfGuardUser_6
+    is_removed: false
+    created_at: '2012-10-05 19:31:11'
+    updated_at: '2012-10-05 19:31:11'
+  DiscussionMember_14:
+    nickname: winston
+    subscription_type: '0'
+    membership_type: '0'
+    posting_permission_type: '0'
+    status: '0'
+    Discussion: Discussion_3
+    User: sfGuardUser_10
+    is_removed: false
+    created_at: '2012-10-05 19:31:12'
+    updated_at: '2012-10-05 19:31:12'
+  DiscussionMember_15:
+    nickname: irwin
+    subscription_type: '0'
+    membership_type: '0'
+    posting_permission_type: '0'
+    status: '0'
+    Discussion: Discussion_3
+    User: sfGuardUser_9
+    is_removed: false
+    created_at: '2012-10-05 19:50:02'
+    updated_at: '2012-10-05 19:50:02'
+  DiscussionMember_16:
+    nickname: 'musa zirebwa'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_18
+    User: sfGuardUser_6
+    is_removed: false
+    created_at: '2012-10-06 13:04:51'
+    updated_at: '2012-10-06 13:04:51'
+  DiscussionMember_17:
+    nickname: 'musa zirebwa'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_3
+    User: sfGuardUser_6
+    is_removed: false
+    created_at: '2012-10-06 18:07:57'
+    updated_at: '2012-10-06 18:07:57'
+  DiscussionMember_18:
+    nickname: 'musa zirebwa'
+    subscription_type: '0'
+    membership_type: '2'
+    posting_permission_type: '1'
+    status: '0'
+    Discussion: Discussion_14
+    User: sfGuardUser_6
+    is_removed: false
+    created_at: '2012-10-11 18:44:15'
+    updated_at: '2012-10-11 18:44:15'
+UserCalendar:
+  UserCalendar_1:
+    Owner: sfGuardUser_6
+    Calendar: Calendar_1
+  UserCalendar_2:
+    Owner: sfGuardUser_6
+    Calendar: Calendar_2
+  UserCalendar_3:
+    Owner: sfGuardUser_6
+    Calendar: Calendar_3
+StudentMailingList:
+  StudentMailingList_1:
+    Student: Student_1
+    MailingList: MailingList_1
+AcademicYear:
+  AcademicYear_1:
+    year_start: '2011'
+    year_end: '2012'
+  AcademicYear_2:
+    year_start: '2012'
+    year_end: '2013'
+ProfileInterest:
+  ProfileInterest_1:
+    User: sfGuardUser_2
+    name: 'Playing pool and foolsbal games'
+  ProfileInterest_3:
+    User: sfGuardUser_2
+    name: 'Reading Computer Support Collaborative Learning texts'
+  ProfileInterest_4:
+    User: sfGuardUser_6
+    name: 'Reading the bible'
+  ProfileInterest_5:
+    User: sfGuardUser_7
+    name: 'Programming for funny and  a living'
+ProgramLevel:
+  ProgramLevel_1:
+    name: 'Masters Degree'
+  ProgramLevel_2:
+    name: 'Honours Degree'
+  ProgramLevel_3:
+    name: 'Higher National Diploma'
+  ProgramLevel_4:
+    name: 'Doctrate Degree'
+  ProgramLevel_5:
+    name: 'National Certificate'
+  ProgramLevel_6:
+    name: Diploma
+Calendar:
+  Calendar_1:
+    name: 'Personal calendar'
+    description: 'Personal calendar'
+    is_public: true
+    type: '1'
+    color: '#228822'
+  Calendar_2:
+    name: 'Academic calendar'
+    description: 'Academic calendar'
+    is_public: true
+    type: '3'
+    color: '#FF6600'
+  Calendar_3:
+    name: 'Holiday in the Eastern Cape'
+    description: 'I would like to spend my holiday in Eastern Cape this coming holiday.'
+    is_public: true
+    type: '4'
+    color: '#CC0066'
+Country:
+  Country_1:
+    name: 'South Africa'
+    code: ZA
+  Country_2:
+    name: 'United Kingdom'
+    code: UK
+StateProvince:
+  StateProvince_1:
+    name: 'Western Cape'
+    Country: Country_1
+  StateProvince_2:
+    name: Gauteng
+    Country: Country_1
+  StateProvince_3:
+    name: 'Eastern Cape'
+    Country: Country_1
+Announcement:
+  Announcement_1:
+    User: sfGuardUser_2
+    subject: 'If you''re a potential granduant please make sure you''ve paid your fees prior to graduationg'
+    message: 'If you''re a potential granduant please make sure you''ve paid your fees prior to graduationg. It would be nice to have settled all your fees debt.'
+    is_published: true
+    lock_until: '2012-09-16 00:00:00'
+    lock_after: '2012-09-16 00:00:00'
+    created_at: '2012-09-16 13:43:01'
+    updated_at: '2012-09-16 13:43:01'
+    slug: null
+  Announcement_2:
+    User: sfGuardUser_2
+    subject: 'TutorPlus is a 21st generation collaborative learning platform. We''re constantly improving on the features of this platform and we would like to hear from your views about what to include in the next releases.'
+    message: 'TutorPlus is a 21st generation collaborative learning platform. We''re constantly improving on the features of this platform and we would like to hear from your views about what to include in the next releases.'
+    is_published: true
+    lock_until: '2012-09-16 00:00:00'
+    lock_after: '2012-09-16 00:00:00'
+    created_at: '2012-09-16 13:49:05'
+    updated_at: '2012-09-16 13:49:05'
+    slug: null
+ActivityTemplate:
+  ActivityTemplate_16:
+    patterns: '##USER_SLUG##,##USER##,##DISCUSSION_TOPIC_SLUG##,##DISCUSSION_TOPIC##'
+    content: '<a href="/backend.php/profile##USER_SLUG##">##USER##</a> has posted a discussion message here: <a href="/backend.php/discussion_topic/##DISCUSSION_TOPIC_SLUG##">##DISCUSSION_TOPIC##</a>'
+    type: '7'
+    created_at: '2012-10-05 18:07:32'
+    updated_at: '2012-10-06 12:41:58'
+  ActivityTemplate_5:
+    patterns: '##USER##,##USER_SLUG##,##DISCUSSION_TOPIC_SLUG##,##DISCUSSION_TOPIC##,##DISCUSSION_REPLY##'
+    content: '<a href="/backend.php/profile##USER_SLUG##">##USER##</a> has replied to the discussion topic: <a href="/backend.php/discussion_topic/##DISCUSSION_TOPIC_SLUG##">##DISCUSSION_TOPIC##</a>'
+    type: '8'
+    created_at: '2012-09-28 19:29:18'
+    updated_at: '2012-10-06 12:53:45'
+  ActivityTemplate_7:
+    patterns: '##USER##,##USER_SLUG##'
+    content: '<a href="/backend.php/profile##USER_SLUG##">##USER##</a> has accepted your peer invitation.'
+    type: '1'
+    created_at: '2012-10-05 17:20:03'
+    updated_at: '2012-10-05 17:21:06'
+  ActivityTemplate_1:
+    patterns: '##USER##,##USER_SLUG##'
+    content: '<a href="/backend.php/profile##USER_SLUG##">##USER##</a> has sent a peer peer invitation.'
+    type: '0'
+    created_at: '2012-09-16 15:29:24'
+    updated_at: '2012-10-05 17:22:52'
+  ActivityTemplate_8:
+    patterns: '##EVENT_ID##,##EVENT#'
+    content: 'There is an upcoming event here: <a href="/backend.php/profile##EVENT_ID##">##EVENT##</a>.'
+    type: '17'
+    created_at: '2012-10-05 17:26:21'
+    updated_at: '2012-10-05 17:26:21'
+  ActivityTemplate_9:
+    patterns: '##DISCUSSION_ID##,##DISCUSSION##,##USER_SLUG##,>##USER##'
+    content: 'You''ve been subscribed to a peer discussion here: <a href="/backend.php/discussion/##DISCUSSION_ID##">##DISCUSSION##</a> by: <a href="/backend.php/profile/##USER_SLUG##">##USER##</a>'
+    type: '10'
+    created_at: '2012-10-05 17:29:12'
+    updated_at: '2012-10-05 17:29:12'
+  ActivityTemplate_10:
+    patterns: '##DISCUSSION_ID##,##DISCUSSION##,##USER_SLUG##,>##USER##'
+    content: "You've been subscribed \nfrom a peer discussion here: <a href=\"/backend.php/discussion/##DISCUSSION_ID##\">##DISCUSSION##</a> by: <a href=\"/backend.php/profile/##USER_SLUG##\">##USER##</a>"
+    type: '11'
+    created_at: '2012-10-05 17:29:45'
+    updated_at: '2012-10-05 17:29:45'
+  ActivityTemplate_11:
+    patterns: '##USER_SLUG##,>##USER##,##SUBJECT##'
+    content: 'You''ve been received an email from <a href="/backend.php/profile/##USER_SLUG##">##USER##</a> here: <a href="/backend.php//message_inbox">##SUBJECT##</a>'
+    type: '9'
+    created_at: '2012-10-05 17:31:40'
+    updated_at: '2012-10-05 17:31:40'
+  ActivityTemplate_13:
+    patterns: '##ASSIGNMENT_ID##,##ASSIGNMENT##'
+    content: 'There''s a new announcement posted here: <a href="/backend.php/announcement/##ANNOUNCEMENT_ID##">##ANNOUNCEMENT##</a>'
+    type: '4'
+    created_at: '2012-10-05 17:37:39'
+    updated_at: '2012-10-05 17:37:39'
+  ActivityTemplate_14:
+    patterns: '##NEWS_ID##,##NEWS##'
+    content: 'There''s a new news item posted here: <a href="/backend.php/announcement/##NEWS_ID##">##NEWS##</a>'
+    type: '5'
+    created_at: '2012-10-05 17:38:24'
+    updated_at: '2012-10-05 17:38:24'
+  ActivityTemplate_15:
+    patterns: '##COURSE_SLUG##,##COURSE##'
+    content: 'There''s a course file that''s been posted here: <a href="/backend.php/course/##COURSE_SLUG##">##COURSE##</a>'
+    type: '15'
+    created_at: '2012-10-05 17:39:50'
+    updated_at: '2012-10-05 17:39:50'
+  ActivityTemplate_6:
+    patterns: '##USER_SLUG##,##USER##,##DISCUSSION_TOPIC_SLUG##,##DISCUSSION_TOPIC##'
+    content: '<a href="/backend.php/profile/##USER_SLUG##">##USER##</a> has posted a new discussion topic here: <a href="/backend.php/discussion_topic/##DISCUSSION_TOPIC_SLUG##">##DISCUSSION_TOPIC##</a>'
+    type: '6'
+    created_at: '2012-10-05 17:18:48'
+    updated_at: '2012-10-06 12:54:43'
+  ActivityTemplate_12:
+    patterns: '##ASSIGNMENT_ID##,##ASSIGNMENT##,##DAYS##'
+    content: 'There''s a pending assignment in ##DAYS## day(s) here: <a href="/backend.php/assignment/##ASSIGNMENT_ID##">##ASSIGNMENT##</a>'
+    type: '12'
+    created_at: '2012-10-05 17:35:36'
+    updated_at: '2012-10-05 17:40:32'
+CourseFolder:
+  CourseFolder_1:
+    Course: Course_1
+    Folder: Folder_3
+EmailMessageReply:
+  EmailMessageReply_33:
+    SendingUser: sfGuardUser_6
+    RespondingUser: sfGuardUser_8
+    EmailMessage: EmailMessage_94
+    EmailMessageReply: EmailMessage_95
+  EmailMessageReply_34:
+    SendingUser: sfGuardUser_6
+    RespondingUser: sfGuardUser_6
+    EmailMessage: EmailMessage_94
+    EmailMessageReply: EmailMessage_98
+  EmailMessageReply_37:
+    SendingUser: sfGuardUser_6
+    RespondingUser: sfGuardUser_8
+    EmailMessage: EmailMessage_94
+    EmailMessageReply: EmailMessage_99
+  EmailMessageReply_38:
+    SendingUser: sfGuardUser_6
+    RespondingUser: sfGuardUser_6
+    EmailMessage: EmailMessage_94
+    EmailMessageReply: EmailMessage_102
+  EmailMessageReply_41:
+    SendingUser: sfGuardUser_6
+    RespondingUser: sfGuardUser_8
+    EmailMessage: EmailMessage_104
+    EmailMessageReply: EmailMessage_108
+  EmailMessageReply_42:
+    SendingUser: sfGuardUser_6
+    RespondingUser: sfGuardUser_6
+    EmailMessage: EmailMessage_104
+    EmailMessageReply: EmailMessage_111
+  EmailMessageReply_44:
+    SendingUser: sfGuardUser_6
+    RespondingUser: sfGuardUser_8
+    EmailMessage: EmailMessage_118
+    EmailMessageReply: EmailMessage_123
+  EmailMessageReply_45:
+    SendingUser: sfGuardUser_6
+    RespondingUser: sfGuardUser_8
+    EmailMessage: EmailMessage_119
+    EmailMessageReply: EmailMessage_122
+Discussion:
+  Discussion_2:
+    name: 'Make friend connect'
+    User: sfGuardUser_2
+    description: 'I would like to encourage everyone to be fully engaged with each other and make them valuable to each other.'
+    access_level: '0'
+    last_visit: '2012-09-09 00:00:00'
+    nb_topics: '1'
+    nb_members: '1'
+    nb_replies: '0'
+    is_primary: false
+    created_at: '2012-09-09 11:53:09'
+    updated_at: '2012-09-23 19:34:40'
+    slug: null
+  Discussion_18:
+    name: 'This is my new discussion'
+    User: sfGuardUser_6
+    description: 'Anyone who has something to say to me, please feel to share it with me here.'
+    access_level: '0'
+    last_visit: '2012-10-06 00:00:00'
+    nb_topics: '1'
+    nb_members: '1'
+    nb_replies: '1'
+    is_primary: false
+    created_at: '2012-10-06 13:04:51'
+    updated_at: '2012-10-06 13:06:15'
+    slug: this-is-my-new-discussion
+  Discussion_10:
+    name: 'Group discussion one'
+    User: sfGuardUser_2
+    description: 'This is the group discussion one.'
+    access_level: '1'
+    last_visit: '2012-09-25 00:00:00'
+    nb_topics: '0'
+    nb_members: '1'
+    nb_replies: '0'
+    is_primary: false
+    created_at: '2012-09-25 14:08:58'
+    updated_at: '2012-09-25 14:08:58'
+    slug: null
+  Discussion_11:
+    name: 'Group discussion two'
+    User: sfGuardUser_2
+    description: 'This is the group discussion two'
+    access_level: '1'
+    last_visit: '2012-09-25 00:00:00'
+    nb_topics: '0'
+    nb_members: '1'
+    nb_replies: '0'
+    is_primary: false
+    created_at: '2012-09-25 14:09:24'
+    updated_at: '2012-09-25 14:09:24'
+    slug: null
+  Discussion_12:
+    name: 'Group discussion three'
+    User: sfGuardUser_2
+    description: 'This is the group discussion three.'
+    access_level: '1'
+    last_visit: '2012-09-25 00:00:00'
+    nb_topics: '0'
+    nb_members: '1'
+    nb_replies: '0'
+    is_primary: false
+    created_at: '2012-09-25 14:09:51'
+    updated_at: '2012-09-25 14:09:51'
+    slug: null
+  Discussion_15:
+    name: 'John Kennedy''s discussion wall'
+    User: sfGuardUser_8
+    description: 'This is John Kennedy''s discussion wall and if you have anything to share with him/her please post it in this discussion.'
+    access_level: '1'
+    last_visit: null
+    nb_topics: '1'
+    nb_members: '1'
+    nb_replies: '1'
+    is_primary: true
+    created_at: '2012-10-01 17:21:33'
+    updated_at: '2012-10-01 17:21:33'
+    slug: null
+  Discussion_16:
+    name: 'Will Smith''s discussion wall'
+    User: sfGuardUser_7
+    description: 'This is Will Smith''s discussion wall and if you have anything to share with him/her please post it in this discussion.'
+    access_level: '1'
+    last_visit: null
+    nb_topics: '1'
+    nb_members: '1'
+    nb_replies: '1'
+    is_primary: true
+    created_at: '2012-10-01 17:22:54'
+    updated_at: '2012-10-01 17:22:54'
+    slug: null
+  Discussion_9:
+    name: 'Tutorplus Student''s discussion wall'
+    User: sfGuardUser_2
+    description: 'This is Tutorplus Student''s discussion wall and if you have anything to share with him/her please post it in this discussion.'
+    access_level: '1'
+    last_visit: null
+    DiscussionTopicReply: DiscussionTopicReply_13
+    nb_topics: '7'
+    nb_members: '1'
+    nb_replies: '3'
+    is_primary: true
+    created_at: '2012-09-25 13:37:25'
+    updated_at: '2012-09-25 17:30:11'
+    slug: null
+  Discussion_17:
+    name: 'Irwin Brown''s discussion wall'
+    User: sfGuardUser_9
+    description: 'This is Irwin Brown''s discussion wall and if you have anything to share with him/her please post it in this discussion.'
+    access_level: '1'
+    last_visit: null
+    nb_topics: '1'
+    nb_members: '1'
+    nb_replies: '1'
+    is_primary: true
+    created_at: '2012-10-01 17:31:47'
+    updated_at: '2012-10-01 17:31:47'
+    slug: null
+  Discussion_3:
+    name: 'BIS - main discussion'
+    User: sfGuardUser_2
+    description: 'This a discussion goup for the BIS course. Essentially, all the instructors and students of this course are encouraged to participate and collaborate with other participants in order for each one involved to fully benefit from the rest of the participants.'
+    access_level: '0'
+    last_visit: '2012-09-27 00:00:00'
+    DiscussionTopicReply: DiscussionTopicReply_24
+    nb_topics: '2'
+    nb_members: '1'
+    nb_replies: '2'
+    is_primary: false
+    created_at: '2012-09-23 16:20:18'
+    updated_at: '2012-10-06 18:22:27'
+    slug: bis-main-discussion
+  Discussion_14:
+    name: 'Musa Zirebwa''s discussion wall'
+    User: sfGuardUser_6
+    description: 'This is Musa Zirebwa''s discussion wall and if you have anything to share with him/her please post it in this discussion.'
+    access_level: '0'
+    last_visit: '2012-10-11 00:00:00'
+    nb_topics: '0'
+    nb_members: '1'
+    nb_replies: '1'
+    is_primary: false
+    created_at: '2012-09-28 18:47:37'
+    updated_at: '2012-10-11 18:44:15'
+    slug: musa-zirebwa-s-discussion-wall
+StudentCourse:
+  StudentCourse_1:
+    Student: Student_1
+    Course: Course_1
+  StudentCourse_2:
+    Student: Student_2
+    Course: Course_1
+  StudentCourse_3:
+    Student: Student_4
+    Course: Course_1
+  StudentCourse_5:
+    Student: Student_3
+    Course: Course_1
+  StudentCourse_6:
+    Student: Student_5
+    Course: Course_1
+News:
+  News_1:
+    User: sfGuardUser_2
+    heading: 'Google launches a new experimental online learning platform'
+    blurb: 'One would think that they''ve come up with something more intelligent or something, but that''s certainly not the case. I still think to date, tutorplus has the greatest potential to offer better learning opportunities for students.'
+    description: "One would think that they've come up with something more intelligent or something, but that's certainly not the case. I still think to date, tutorplus has the greatest potential to offer better learning opportunities for students.\n"
+    is_published: true
+    lock_until: '2012-09-16 00:00:00'
+    lock_after: '2012-09-16 00:00:00'
+    created_at: '2012-09-16 13:29:00'
+    updated_at: '2012-09-16 13:29:00'
+    slug: null
+  News_2:
+    User: sfGuardUser_2
+    heading: 'Open Source Education Software Unveiled by Google ITProPortal.com (09/13/12) Adario Strange '
+    blurb: 'Google has released Course Builder, open source software for creating online education courses. Google says Course Builder does not require high-level programming skills and should be accessible to anyone with the ability to build and maintain their own Web site. "The Course Builder open source project is an experimental early step for us in the world of online education," says Google research director Peter Norvig. "It is a snapshot of an approach we found useful and an indication of our future direction." Norvig says Google researchers plan to directly interact with Course Builder users via Google Hangouts over the next two weeks. A support site has been launched, and the free software download has already received its first update. Google also is offering the Course Builder Checklist as a primer on how to get started and what to expect. "We hope to continue development along these lines, but we wanted to make this limited code base available now, to see what early adopters will do with it, and to explore the future of learning technology," Norvig says.'
+    description: 'Google has released Course Builder, open source software for creating online education courses. Google says Course Builder does not require high-level programming skills and should be accessible to anyone with the ability to build and maintain their own Web site. "The Course Builder open source project is an experimental early step for us in the world of online education," says Google research director Peter Norvig. "It is a snapshot of an approach we found useful and an indication of our future direction." Norvig says Google researchers plan to directly interact with Course Builder users via Google Hangouts over the next two weeks. A support site has been launched, and the free software download has already received its first update. Google also is offering the Course Builder Checklist as a primer on how to get started and what to expect. "We hope to continue development along these lines, but we wanted to make this limited code base available now, to see what early adopters will do with it, and to explore the future of learning technology," Norvig says.'
+    is_published: true
+    lock_until: '2012-09-16 00:00:00'
+    lock_after: '2012-09-16 00:00:00'
+    created_at: '2012-09-16 14:06:43'
+    updated_at: '2012-09-16 14:06:43'
+    slug: null
+ActivityFeed:
+  ActivityFeed_13:
+    Doer: sfGuardUser_9
+    replacements: '["Irwin Brown","irwin-brown","is-there-anyone-who-can-work-with-us-on-the-give-assignment","Is there anyone who can work with us on the give ...","I tend to wonder why we''re not doing the right ..."]'
+    ActivityTemplate: ActivityTemplate_16
+    created_at: '2012-10-06 12:58:38'
+    updated_at: '2012-10-06 12:58:38'
+  ActivityFeed_14:
+    Doer: sfGuardUser_9
+    replacements: '["irwin-brown","Irwin Brown","is-there-anyone-who-can-work-with-us-on-the-give-assignment","Is there anyone who can work with us on the give ..."]'
+    ActivityTemplate: ActivityTemplate_6
+    created_at: '2012-10-06 12:59:51'
+    updated_at: '2012-10-06 12:59:51'
+  ActivityFeed_15:
+    Doer: sfGuardUser_9
+    replacements: '["irwin-brown","Irwin Brown","is-there-anyone-who-can-work-with-us-on-the-give-assignment","Is there anyone who can work with us on the give ...","That would be really nice thing to do especially ..."]'
+    ActivityTemplate: ActivityTemplate_5
+    created_at: '2012-10-06 12:59:51'
+    updated_at: '2012-10-06 12:59:51'
+  ActivityFeed_16:
+    Doer: sfGuardUser_6
+    replacements: '["musa-zirebwa","Musa Zirebwa","hi-friends-how-are-you-all-doing","Hi friends, how are you all doing?"]'
+    ActivityTemplate: ActivityTemplate_6
+    created_at: '2012-10-06 13:06:15'
+    updated_at: '2012-10-06 13:06:15'
+  ActivityFeed_17:
+    Doer: sfGuardUser_9
+    replacements: '["irwin-brown","Irwin Brown","is-there-anyone-who-can-work-with-us-on-the-give-assignment","Is there anyone who can work with us on the give ..."]'
+    ActivityTemplate: ActivityTemplate_6
+    created_at: '2012-10-06 18:22:27'
+    updated_at: '2012-10-06 18:22:27'
+  ActivityFeed_18:
+    Doer: sfGuardUser_6
+    replacements: '["musa-zirebwa","Musa Zirebwa","is-there-anyone-who-can-work-with-us-on-the-give-assignment","Is there anyone who can work with us on the give ...","Of course I know what you need from me... I will ..."]'
+    ActivityTemplate: ActivityTemplate_5
+    created_at: '2012-10-06 18:22:28'
+    updated_at: '2012-10-06 18:22:28'
+  ActivityFeed_19:
+    Doer: sfGuardUser_6
+    replacements: '["Musa Zirebwa","musa-zirebwa","there-s-a-discussion-taking-place-this-saturday","There''s a discussion taking place this Saturday.","Indeed, I''m making frantic efforts to remain active ..."]'
+    ActivityTemplate: ActivityTemplate_16
+    created_at: '2012-10-13 15:03:26'
+    updated_at: '2012-10-13 15:03:26'
+  ActivityFeed_20:
+    Doer: sfGuardUser_6
+    replacements: '["Musa Zirebwa","musa-zirebwa","there-s-a-discussion-taking-place-this-saturday","There''s a discussion taking place this Saturday.","Indeed, I''m making frantic efforts to remain active ..."]'
+    ActivityTemplate: ActivityTemplate_16
+    created_at: '2012-10-13 15:03:35'
+    updated_at: '2012-10-13 15:03:35'
+  ActivityFeed_21:
+    Doer: sfGuardUser_6
+    replacements: '["Musa Zirebwa","musa-zirebwa","there-s-a-discussion-taking-place-this-saturday","There''s a discussion taking place this Saturday.","I want to reuse the algorithm from question 8, or ..."]'
+    ActivityTemplate: ActivityTemplate_16
+    created_at: '2012-10-15 20:59:03'
+    updated_at: '2012-10-15 20:59:03'
+Instructor:
+  Instructor_2:
+    User: sfGuardUser_4
+    about: null
+    middle_name: ''
+    date_of_birth: 16-09-2012
+    gender: Male
+    employment: 'Full time'
+    is_student: true
+    high_school: null
+    studied_at: ''
+    current_study: ''
+    employment_start_date: '2012-09-04 00:00:00'
+    employment_end_date: '2012-09-13 00:00:00'
+    created_at: '2012-09-16 16:30:57'
+    updated_at: '2012-09-16 16:30:57'
+  Instructor_3:
+    User: sfGuardUser_9
+    about: 'I''m the best woman ever created in this world. I love being a little naughty all the time.'
+    middle_name: ''
+    date_of_birth: 01-10-2012
+    gender: Female
+    employment: 'Full time'
+    is_student: true
+    high_school: 'St Georges High'
+    studied_at: Massachusetts
+    current_study: 'Natural Language Processing (NLP)'
+    employment_start_date: null
+    employment_end_date: null
+    created_at: '2012-10-01 17:21:12'
+    updated_at: '2012-10-03 19:30:01'
+Department:
+  Department_1:
+    name: 'Information Systems'
+    abbreviation: IS
+    Faculty: Faculty_1
+EmailMessage:
+  EmailMessage_98:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Good news from South Carolina'
+    body: 'Yes! Great news and thank you for sharing! Our efforts are working!'
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:31:16'
+    updated_at: '2012-10-14 16:31:36'
+  EmailMessage_123:
+    from_email: john@gmail.com
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_8
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Some Thoughts'
+    body: "A struggle between the democracy and plutocracy is what we are experiencing today in this country. There are a number of complex issues feeding this struggle.\n\nThe corporation has immense power, and by it’s very nature, it must push toward plutocracy. This is challenging our system system This is fundamentally a greed driven component, that must be taken into account.\n\nThis component has an unhealthy level of power and is perhaps our number one issue. This is of paramount importance as it appears to be a predictor of the great depression."
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 18:25:27'
+    updated_at: '2012-10-14 18:26:07'
+  EmailMessage_111:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Fired Up & Ready to Make Calls!'
+    body: "I like Rachel Maddow's comment about the way republicans have complained that Joe was being \"mean\" to Paul Ryan.\n\nDemocrats are celebrating a debate victory while the opposition is making excuses, says Rachel ... I agree !"
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:56:26'
+    updated_at: '2012-10-16 19:22:57'
+  EmailMessage_122:
+    from_email: john@gmail.com
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_8
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Some Thoughts'
+    body: "A struggle between the democracy and plutocracy is what we are experiencing today in this country. There are a number of complex issues feeding this struggle.\n\nThe corporation has immense power, and by it’s very nature, it must push toward plutocracy. This is challenging our system system This is fundamentally a greed driven component, that must be taken into account.\n\nThis component has an unhealthy level of power and is perhaps our number one issue. This is of paramount importance as it appears to be a predictor of the great depression."
+    status: '0'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 18:25:27'
+    updated_at: '2012-10-16 19:25:11'
+  EmailMessage_100:
+    from_email: john@gmail.com
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_8
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Good news from South Carolina'
+    body: ''
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:31:43'
+    updated_at: '2012-10-14 16:40:47'
+  EmailMessage_113:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Troubling Sign?'
+    body: "I saw this morning that the turnout in states involved in early voting, republicans are showing up in much greater numbers.\n\nIn 2008 it was our side getting out to vote early, are democrats still lagging behind in the enthusiasm gap, have voter ID laws created the confusion they intended ? WE CANNOT LET THIS HAPPEN !"
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 17:01:29'
+    updated_at: '2012-10-16 19:22:50'
+  EmailMessage_99:
+    from_email: john@gmail.com
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_8
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Good news from South Carolina'
+    body: ''
+    status: '0'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:31:43'
+    updated_at: '2012-10-16 19:25:19'
+  EmailMessage_102:
+    from_email: musa@tutorplus.org
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Good news from South Carolina'
+    body: 'where do I go to start working phone bank or what ever need'
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:40:25'
+    updated_at: '2012-10-14 16:40:53'
+  EmailMessage_115:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Virginia Voter Reg Deadline is Monday, Oct 15!'
+    body: 'For those of you who have friends and family in Virginia, please note that the Virginia voter registration deadline is this coming Monday, October 15, 2012. Please check with your contacts to be sure that they: 1) Are registered to vote at their current address in Virginia 2) Meet the current Virginia ID requirements. Everyone should verify their current voter registration status, even if they are already registered. People can verify their voter registration information and current status here:'
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 17:40:24'
+    updated_at: '2012-10-14 18:57:42'
+  EmailMessage_116:
+    from_email: musa@tutorplus.org
+    to_email: will@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Virginia Voter Reg Deadline is Monday, Oct 15!'
+    body: 'For those of you who have friends and family in Virginia, please note that the Virginia voter registration deadline is this coming Monday, October 15, 2012. Please check with your contacts to be sure that they: 1) Are registered to vote at their current address in Virginia 2) Meet the current Virginia ID requirements. Everyone should verify their current voter registration status, even if they are already registered. People can verify their voter registration information and current status here:'
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 17:40:24'
+    updated_at: '2012-10-15 20:56:15'
+  EmailMessage_117:
+    from_email: musa@tutorplus.org
+    to_email: student@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Virginia Voter Reg Deadline is Monday, Oct 15!'
+    body: 'For those of you who have friends and family in Virginia, please note that the Virginia voter registration deadline is this coming Monday, October 15, 2012. Please check with your contacts to be sure that they: 1) Are registered to vote at their current address in Virginia 2) Meet the current Virginia ID requirements. Everyone should verify their current voter registration status, even if they are already registered. People can verify their voter registration information and current status here:'
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 17:40:24'
+    updated_at: '2012-10-16 19:22:44'
+  EmailMessage_114:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com;winston@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Virginia Voter Reg Deadline is Monday, Oct 15!'
+    body: "For those of you who have friends and family in Virginia, please note that the Virginia voter registration deadline is this coming Monday, October 15, 2012. Please check with your contacts to be sure that they: 1) Are registered to vote at their current address in Virginia 2) Meet the current Virginia ID requirements.\n\nEveryone should verify their current voter registration status, even if they are already registered. People can verify their voter registration information and current status here:"
+    status: '0'
+    is_read: true
+    is_trashed: true
+    created_at: '2012-10-14 17:40:24'
+    updated_at: '2012-10-14 18:10:07'
+  EmailMessage_106:
+    from_email: musa@tutorplus.org
+    to_email: will@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Fired Up & Ready to Make Calls!'
+    body: "Hi team, \n\nAre you fired up after watching Vice President Joe Biden during the debate? Use our African Americans for Obama call toll to call other African Americans and make sure they know what’s at stake this election. You can get started here: http://ofa.bo/tUN4WV \n\nGo Joe!\nStefanie \n\nStefanie Brown \nNational African American Vote Director \nObama For America"
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:52:59'
+    updated_at: '2012-10-16 19:26:26'
+  EmailMessage_104:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Fired Up & Ready to Make Calls!'
+    body: "Hi team, \n\nAre you fired up after watching Vice President Joe Biden during the debate? Use our African Americans for Obama call toll to call other African Americans and make sure they know what’s at stake this election. You can get started here: http://ofa.bo/tUN4WV \n\nGo Joe!\nStefanie \n\nStefanie Brown \nNational African American Vote Director \nObama For America"
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:52:59'
+    updated_at: '2012-10-14 16:53:48'
+  EmailMessage_118:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com;winston@gmail.com;student@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Some Thoughts'
+    body: "This set of circumstances is not a conspiracy but just a perfect storm of individual greed and a system that lacks the proper checks and balances. This challenges our way of life. Our founding fathers knew that maintaining a democracy is challenging. The purpose here is to remind and highlight the need for government transparency and accountability and to suggest the need for corporate reforms. In an ideal world simply by returning to Constitutional law. The intention of our Constitution, was to provide Liberty and Justice for all.\n\nIt appears that We The People, Risk Loss of Liberty, if we do not step up and pull our weight."
+    status: '0'
+    is_read: true
+    is_trashed: true
+    created_at: '2012-10-14 18:20:51'
+    updated_at: '2012-10-14 18:23:44'
+  EmailMessage_94:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Good news from South Carolina'
+    body: "Another defeat for voter suppression ! So. Carolina courts shut down the attempts to make voting more difficult.\n\nUnfortunately in Ohio, Atty. General Husted is taking matters to the U.S. Supreme Court, I'm sure he's been advised that the odds of the SCOTUS taking up the case is nearly zero. Husted is determined to create chaos in his state, something I hope Ohio voters will remember when he's up for re-election ?"
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:25:06'
+    updated_at: '2012-10-14 16:26:16'
+  EmailMessage_105:
+    from_email: musa@tutorplus.org
+    to_email: winston@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Fired Up & Ready to Make Calls!'
+    body: "Hi team, \n\nAre you fired up after watching Vice President Joe Biden during the debate? Use our African Americans for Obama call toll to call other African Americans and make sure they know what’s at stake this election. You can get started here: http://ofa.bo/tUN4WV \n\nGo Joe!\nStefanie \n\nStefanie Brown \nNational African American Vote Director \nObama For America"
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:52:59'
+    updated_at: '2012-10-16 19:26:13'
+  EmailMessage_107:
+    from_email: musa@tutorplus.org
+    to_email: student@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Fired Up & Ready to Make Calls!'
+    body: "Hi team, \n\nAre you fired up after watching Vice President Joe Biden during the debate? Use our African Americans for Obama call toll to call other African Americans and make sure they know what’s at stake this election. You can get started here: http://ofa.bo/tUN4WV \n\nGo Joe!\nStefanie \n\nStefanie Brown \nNational African American Vote Director \nObama For America"
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:52:59'
+    updated_at: '2012-10-16 19:26:20'
+  EmailMessage_109:
+    from_email: john@gmail.com
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_8
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Fired Up & Ready to Make Calls!'
+    body: "Yes, I was very proud of Joe!! My family was proud of him as well!! It's 3 of us here and we are DEFINITELY voting for Barack & Joe!! And , I will donate more money next week on-line as I have done in the past for their campaign.\n\nI am a Registered Nurse still working long, hard hours. I know Barack cares for the nurses in this country and all other workers in this country for that matter. Nice chatting with you. Eleanor"
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:54:23'
+    updated_at: '2012-10-14 16:56:01'
+  EmailMessage_96:
+    from_email: john@gmail.com
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_8
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Good news from South Carolina'
+    body: "The human species, myself included, Emancipation Proclamation, Abraham Lincoln. South Carolina Jim Crow laws and first to secede to subvert the U.S. and Global law is nothing new.\n\nI thank my Lord and Savior for sharing Dr. Stephen T. Colbert to be a shining example: \"It's not where you are from. It where are you're at.\""
+    status: '2'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:26:28'
+    updated_at: '2012-10-14 16:26:42'
+  EmailMessage_119:
+    from_email: musa@tutorplus.org
+    to_email: john@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Some Thoughts'
+    body: "This set of circumstances is not a conspiracy but just a perfect storm of individual greed and a system that lacks the proper checks and balances. This challenges our way of life. Our founding fathers knew that maintaining a democracy is challenging. The purpose here is to remind and highlight the need for government transparency and accountability and to suggest the need for corporate reforms. In an ideal world simply by returning to Constitutional law. The intention of our Constitution, was to provide Liberty and Justice for all.\n\nIt appears that We The People, Risk Loss of Liberty, if we do not step up and pull our weight."
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 18:23:36'
+    updated_at: '2012-10-14 18:24:41'
+  EmailMessage_108:
+    from_email: john@gmail.com
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_8
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Fired Up & Ready to Make Calls!'
+    body: "Yes, I was very proud of Joe!! My family was proud of him as well!! It's 3 of us here and we are DEFINITELY voting for Barack & Joe!! And , I will donate more money next week on-line as I have done in the past for their campaign.\n\nI am a Registered Nurse still working long, hard hours. I know Barack cares for the nurses in this country and all other workers in this country for that matter. Nice chatting with you. Eleanor"
+    status: '0'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:54:23'
+    updated_at: '2012-10-15 20:56:33'
+  EmailMessage_121:
+    from_email: musa@tutorplus.org
+    to_email: student@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Some Thoughts'
+    body: "This set of circumstances is not a conspiracy but just a perfect storm of individual greed and a system that lacks the proper checks and balances. This challenges our way of life. Our founding fathers knew that maintaining a democracy is challenging. The purpose here is to remind and highlight the need for government transparency and accountability and to suggest the need for corporate reforms. In an ideal world simply by returning to Constitutional law. The intention of our Constitution, was to provide Liberty and Justice for all.\n\nIt appears that We The People, Risk Loss of Liberty, if we do not step up and pull our weight."
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 18:23:36'
+    updated_at: '2012-10-16 19:21:56'
+  EmailMessage_120:
+    from_email: musa@tutorplus.org
+    to_email: winston@gmail.com
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_6
+    reply_to: musa@tutorplus.org
+    subject: 'Some Thoughts'
+    body: "This set of circumstances is not a conspiracy but just a perfect storm of individual greed and a system that lacks the proper checks and balances. This challenges our way of life. Our founding fathers knew that maintaining a democracy is challenging. The purpose here is to remind and highlight the need for government transparency and accountability and to suggest the need for corporate reforms. In an ideal world simply by returning to Constitutional law. The intention of our Constitution, was to provide Liberty and Justice for all.\n\nIt appears that We The People, Risk Loss of Liberty, if we do not step up and pull our weight."
+    status: '1'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 18:23:36'
+    updated_at: '2012-10-16 19:22:39'
+  EmailMessage_95:
+    from_email: john@gmail.com
+    to_email: musa@tutorplus.org
+    cc_email: ''
+    bcc_email: ''
+    Sender: sfGuardUser_8
+    reply_to: musa@tutorplus.org
+    subject: 'Re: Good news from South Carolina'
+    body: "The human species, myself included, Emancipation Proclamation, Abraham Lincoln. South Carolina Jim Crow laws and first to secede to subvert the U.S. and Global law is nothing new.\n\nI thank my Lord and Savior for sharing Dr. Stephen T. Colbert to be a shining example: \"It's not where you are from. It where are you're at.\""
+    status: '0'
+    is_read: true
+    is_trashed: false
+    created_at: '2012-10-14 16:26:28'
+    updated_at: '2012-10-16 19:25:28'
+Student:
+  Student_4:
+    User: sfGuardUser_8
+    about: 'I''m a very enthusiastic intellectual and would like to share knowledge with all my peers.'
+    middle_name: ''
+    date_of_birth: 01-10-2012
+    gender: Female
+    number: ''
+    high_school: ''
+    studied_at: ''
+    current_study: ''
+    enrollment: 'Full time'
+    status: 'Application received'
+    created_at: '2012-10-01 17:20:29'
+    updated_at: '2012-10-01 19:00:28'
+  Student_5:
+    User: sfGuardUser_10
+    about: ''
+    middle_name: ''
+    date_of_birth: 01-10-2012
+    gender: Male
+    number: ''
+    high_school: 'Cape Town High School'
+    studied_at: 'University of Cape Town'
+    current_study: Magento
+    enrollment: 'Full time'
+    status: 'Application received'
+    created_at: '2012-10-01 19:20:16'
+    updated_at: '2012-10-01 19:20:16'
+  Student_3:
+    User: sfGuardUser_7
+    about: 'I''m the best person ever created in this world. I would love to love everything I do and experience.'
+    middle_name: ''
+    date_of_birth: 01-10-2012
+    gender: Female
+    number: ''
+    high_school: 'California High School'
+    studied_at: Harvard
+    current_study: 'Educational research'
+    enrollment: 'Full time'
+    status: 'Application received'
+    created_at: '2012-10-01 17:19:44'
+    updated_at: '2012-10-03 19:00:17'
+  Student_1:
+    User: sfGuardUser_2
+    about: 'I''m the sexiest gal on earth! Do you wanna know what I mean?'
+    middle_name: ''
+    date_of_birth: 06-09-2012
+    gender: Female
+    number: N0041395A
+    high_school: 'Shung High School'
+    studied_at: NUST
+    current_study: 'Information Systems'
+    enrollment: 'Part time'
+    status: 'Application received'
+    created_at: '2012-09-06 18:08:59'
+    updated_at: '2012-10-03 19:16:20'
+  Student_2:
+    User: sfGuardUser_6
+    about: ''
+    middle_name: ''
+    date_of_birth: 13-03-1984
+    gender: Female
+    number: ''
+    high_school: 'Shung High School'
+    studied_at: NUSt
+    current_study: UCT
+    enrollment: 'Full time'
+    status: 'Application received'
+    created_at: '2012-09-28 18:47:12'
+    updated_at: '2012-10-07 12:49:19'
+CalendarEvent:
+  CalendarEvent_1:
+    Calendar: Calendar_1
+    User: sfGuardUser_6
+    name: 'NMMU TutorPlus presentation'
+    location: NMMU
+    from_date: '2012-10-16 00:00:00'
+    to_date: '2012-10-16 00:00:00'
+    reminder: '0'
+    description: 'CS50 is Harvard University''s introduction to the intellectual enterprises of computer science and the art of programming for majors and non-majors alike, with or without prior programming experience. Both on campus and off, CS50 draws quite the spectrum of students, including "those less comfortable," "those more comfortable," and those somewhere in between. However, what ultimately matters in this course is not so much where you end up relative to your classmates but where you, in Week 11, end up relative to yourself in Week 0.'
+    is_personal: true
+    notify_changes: true
+    created_at: '2012-10-16 19:46:32'
+    updated_at: '2012-10-16 19:46:32'
+    slug: nmmu-tutorplus-presentation
+DiscussionTopicMessage:
+  DiscussionTopicMessage_1:
+    message: 'Indeed, the many variations through which one can define business information systems. To start with business information systems is a discipline like any other implying it has certain values and principles that govern it. You would be wondering what these values are and defines them. Well, for me to answer that you need to acknowledge the roles played by the business analyst themselves here. '
+    User: sfGuardUser_2
+    DiscussionTopic: DiscussionTopic_2
+    created_at: '2012-09-25 09:23:53'
+    updated_at: '2012-09-25 09:23:53'
+  DiscussionTopicMessage_2:
+    message: 'Business information systems could be defined along the business needs of an organization per se. Say for instance in an educational environment, a business analyst has to work closely with educationists and their specific requirements to improve or enhance their educational goals.'
+    User: sfGuardUser_2
+    DiscussionTopic: DiscussionTopic_2
+    created_at: '2012-09-25 10:16:06'
+    updated_at: '2012-09-25 10:16:06'
+  DiscussionTopicMessage_3:
+    message: 'As far as I''m concerned there''s absolutely many career paths one can pursue in business analysis; ranging from governments, education, and most importantly in the public sector.'
+    User: sfGuardUser_2
+    DiscussionTopic: DiscussionTopic_3
+    created_at: '2012-09-25 10:55:10'
+    updated_at: '2012-09-25 10:55:10'
+  DiscussionTopicMessage_4:
+    message: 'Wow, this is such a wonderful system. Can anyone agree with me please?'
+    User: sfGuardUser_2
+    DiscussionTopic: DiscussionTopic_8
+    created_at: '2012-09-25 13:39:17'
+    updated_at: '2012-09-25 13:39:17'
+  DiscussionTopicMessage_5:
+    message: 'Thanks for coming up with a system like TutorPlus, please could keep on adding more features to this great platform.'
+    User: sfGuardUser_6
+    DiscussionTopic: DiscussionTopic_10
+    created_at: '2012-09-28 19:31:12'
+    updated_at: '2012-09-28 19:31:12'
+  DiscussionTopicMessage_6:
+    message: 'It''s good to have you on the discussion, and we looking forward to sharing some good insights with you on this bulletin board.'
+    User: sfGuardUser_9
+    DiscussionTopic: DiscussionTopic_16
+    created_at: '2012-10-05 19:55:29'
+    updated_at: '2012-10-05 19:55:29'
+  DiscussionTopicMessage_7:
+    message: 'Of course, anyone is welcome to come and join us here...'
+    User: sfGuardUser_9
+    DiscussionTopic: DiscussionTopic_20
+    created_at: '2012-10-05 21:08:04'
+    updated_at: '2012-10-05 21:08:04'
+  DiscussionTopicMessage_9:
+    message: 'In this course will be touching the very aspects of learning itself and making sure each student has the opportunity to express their opinions about the subject.'
+    User: sfGuardUser_9
+    DiscussionTopic: DiscussionTopic_20
+    created_at: '2012-10-06 12:47:36'
+    updated_at: '2012-10-06 12:47:36'
+  DiscussionTopicMessage_10:
+    message: 'I''m more that interested in working with you as well. When would you like us to meet then?'
+    User: sfGuardUser_9
+    DiscussionTopic: DiscussionTopic_20
+    created_at: '2012-10-06 12:53:08'
+    updated_at: '2012-10-06 12:53:08'
+  DiscussionTopicMessage_11:
+    message: 'We could also make sure that we meet every week just to recap about what we''ve been learning during that week. I don''t what others have to say about this out there?'
+    User: sfGuardUser_9
+    DiscussionTopic: DiscussionTopic_20
+    created_at: '2012-10-06 12:56:12'
+    updated_at: '2012-10-06 12:56:12'
+  DiscussionTopicMessage_12:
+    message: 'I tend to wonder why we''re not doing the right thing of working on our work day in day out?'
+    User: sfGuardUser_9
+    DiscussionTopic: DiscussionTopic_20
+    created_at: '2012-10-06 12:58:37'
+    updated_at: '2012-10-06 12:58:37'
+  DiscussionTopicMessage_13:
+    message: 'Indeed, I''m making frantic efforts to remain active in these discussions so we enhance each other''s understanding of the concepts involved here.'
+    User: sfGuardUser_6
+    DiscussionTopic: DiscussionTopic_16
+    created_at: '2012-10-13 15:03:26'
+    updated_at: '2012-10-13 15:03:26'
+  DiscussionTopicMessage_14:
+    message: 'Indeed, I''m making frantic efforts to remain active in these discussions so we enhance each other''s understanding of the concepts involved here.'
+    User: sfGuardUser_6
+    DiscussionTopic: DiscussionTopic_16
+    created_at: '2012-10-13 15:03:35'
+    updated_at: '2012-10-13 15:03:35'
+  DiscussionTopicMessage_15:
+    message: "I want to reuse the algorithm from question 8, or alternately use the maze Distance method, but can't figure out how to do either.\n\nEven though this is obviously inefficient, I tried enumerating every grid position and finding the minimum distance to any food. Regardless, somehow this approach gave me an inconsistent heuristic, but I can't figure out why.\n\nAny hints (primarily on how to reuse other components) would be appreciated."
+    User: sfGuardUser_6
+    DiscussionTopic: DiscussionTopic_16
+    created_at: '2012-10-15 20:59:03'
+    updated_at: '2012-10-15 20:59:03'
+NotificationSettings:
+  NotificationSettings_1:
+    can_receive_email: false
+    can_receive_reply: true
+    can_receive_peer_activities: false
+    can_receive_news_alerts: true
+    can_receive_announcement_alerts: true
+    can_receive_event_alerts: true
+    can_receive_discussion_updates: true
+    can_receive_course_updates: false
+    can_receive_assignment_due: true
+    can_receive_system_updates: true
+    can_receive_system_maintenance: true
+    User: sfGuardUser_2
+  NotificationSettings_3:
+    can_receive_email: false
+    can_receive_reply: false
+    can_receive_peer_activities: false
+    can_receive_news_alerts: false
+    can_receive_announcement_alerts: false
+    can_receive_event_alerts: false
+    can_receive_discussion_updates: false
+    can_receive_course_updates: false
+    can_receive_assignment_due: false
+    can_receive_system_updates: false
+    can_receive_system_maintenance: false
+    User: sfGuardUser_6
+  NotificationSettings_4:
+    can_receive_email: false
+    can_receive_reply: false
+    can_receive_peer_activities: false
+    can_receive_news_alerts: false
+    can_receive_announcement_alerts: false
+    can_receive_event_alerts: false
+    can_receive_discussion_updates: false
+    can_receive_course_updates: false
+    can_receive_assignment_due: false
+    can_receive_system_updates: false
+    can_receive_system_maintenance: false
+    User: sfGuardUser_8
+UserActivityFeed:
+  UserActivityFeed_46:
+    User: sfGuardUser_2
+    ActivityFeed: ActivityFeed_13
+  UserActivityFeed_47:
+    User: sfGuardUser_4
+    ActivityFeed: ActivityFeed_13
+  UserActivityFeed_48:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_13
+  UserActivityFeed_49:
+    User: sfGuardUser_10
+    ActivityFeed: ActivityFeed_13
+  UserActivityFeed_50:
+    User: sfGuardUser_9
+    ActivityFeed: ActivityFeed_13
+  UserActivityFeed_51:
+    User: sfGuardUser_2
+    ActivityFeed: ActivityFeed_14
+  UserActivityFeed_52:
+    User: sfGuardUser_4
+    ActivityFeed: ActivityFeed_14
+  UserActivityFeed_53:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_14
+  UserActivityFeed_54:
+    User: sfGuardUser_10
+    ActivityFeed: ActivityFeed_14
+  UserActivityFeed_55:
+    User: sfGuardUser_9
+    ActivityFeed: ActivityFeed_14
+  UserActivityFeed_56:
+    User: sfGuardUser_2
+    ActivityFeed: ActivityFeed_15
+  UserActivityFeed_57:
+    User: sfGuardUser_4
+    ActivityFeed: ActivityFeed_15
+  UserActivityFeed_58:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_15
+  UserActivityFeed_59:
+    User: sfGuardUser_10
+    ActivityFeed: ActivityFeed_15
+  UserActivityFeed_60:
+    User: sfGuardUser_9
+    ActivityFeed: ActivityFeed_15
+  UserActivityFeed_61:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_16
+  UserActivityFeed_62:
+    User: sfGuardUser_2
+    ActivityFeed: ActivityFeed_17
+  UserActivityFeed_63:
+    User: sfGuardUser_4
+    ActivityFeed: ActivityFeed_17
+  UserActivityFeed_64:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_17
+  UserActivityFeed_65:
+    User: sfGuardUser_10
+    ActivityFeed: ActivityFeed_17
+  UserActivityFeed_66:
+    User: sfGuardUser_9
+    ActivityFeed: ActivityFeed_17
+  UserActivityFeed_67:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_17
+  UserActivityFeed_68:
+    User: sfGuardUser_2
+    ActivityFeed: ActivityFeed_18
+  UserActivityFeed_69:
+    User: sfGuardUser_4
+    ActivityFeed: ActivityFeed_18
+  UserActivityFeed_70:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_18
+  UserActivityFeed_71:
+    User: sfGuardUser_10
+    ActivityFeed: ActivityFeed_18
+  UserActivityFeed_72:
+    User: sfGuardUser_9
+    ActivityFeed: ActivityFeed_18
+  UserActivityFeed_73:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_18
+  UserActivityFeed_74:
+    User: sfGuardUser_2
+    ActivityFeed: ActivityFeed_19
+  UserActivityFeed_75:
+    User: sfGuardUser_4
+    ActivityFeed: ActivityFeed_19
+  UserActivityFeed_76:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_19
+  UserActivityFeed_77:
+    User: sfGuardUser_10
+    ActivityFeed: ActivityFeed_19
+  UserActivityFeed_78:
+    User: sfGuardUser_9
+    ActivityFeed: ActivityFeed_19
+  UserActivityFeed_79:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_19
+  UserActivityFeed_80:
+    User: sfGuardUser_2
+    ActivityFeed: ActivityFeed_20
+  UserActivityFeed_81:
+    User: sfGuardUser_4
+    ActivityFeed: ActivityFeed_20
+  UserActivityFeed_82:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_20
+  UserActivityFeed_83:
+    User: sfGuardUser_10
+    ActivityFeed: ActivityFeed_20
+  UserActivityFeed_84:
+    User: sfGuardUser_9
+    ActivityFeed: ActivityFeed_20
+  UserActivityFeed_85:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_20
+  UserActivityFeed_86:
+    User: sfGuardUser_2
+    ActivityFeed: ActivityFeed_21
+  UserActivityFeed_87:
+    User: sfGuardUser_4
+    ActivityFeed: ActivityFeed_21
+  UserActivityFeed_88:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_21
+  UserActivityFeed_89:
+    User: sfGuardUser_10
+    ActivityFeed: ActivityFeed_21
+  UserActivityFeed_90:
+    User: sfGuardUser_9
+    ActivityFeed: ActivityFeed_21
+  UserActivityFeed_91:
+    User: sfGuardUser_6
+    ActivityFeed: ActivityFeed_21
+AssignmentSubmission:
+  AssignmentSubmission_1:
+    Assignment: Assignment_1
+    generated_file: '2012-Sep-22-17:56:21.zip'
+    original_file: 2012-09-20_-_Funtional_requirements_for_e-commerce_site__5bSTARTER_SPEC_5d.docx
+    User: sfGuardUser_2
+    status: '0'
+    created_at: '2012-09-22 17:56:21'
+    updated_at: '2012-09-22 17:56:21'
+Campus:
+  Campus_1:
+    name: 'Forest Hill'
+    is_primary: true
+    address: '105 Main Rd Mowbray'
+    city: 'Cape Town'
+    postcode: '8001'
+    Country: Country_1
+CourseDiscussion:
+  CourseDiscussion_1:
+    Course: Course_1
+    Discussion: Discussion_3
+  CourseDiscussion_2:
+    Course: Course_1
+    Discussion: Discussion_10
+  CourseDiscussion_3:
+    Course: Course_1
+    Discussion: Discussion_11
+  CourseDiscussion_4:
+    Course: Course_1
+    Discussion: Discussion_12
+  CourseDiscussion_5:
+    Course: Course_1
+    Discussion: Discussion_3
+ProfileQualification:
+  ProfileQualification_1:
+    User: sfGuardUser_2
+    institution: 'University of Botswana'
+    description: 'Honourary Doctrate Degree in Education'
+    year: '2012'
+Folder:
+  Folder_4:
+    name: Assignments
+    type: '0'
+    parent_id: '3'
+    created_at: '2012-09-25 14:44:10'
+    updated_at: '2012-09-25 14:44:10'
+    lft: 4
+    rgt: 5
+    level: 3
+  Folder_1:
+    name: 'File System'
+    type: '0'
+    parent_id: '1'
+    created_at: '2012-09-25 09:07:12'
+    updated_at: '2012-09-25 09:07:12'
+    lft: 1
+    rgt: 14
+    level: 0
+  Folder_2:
+    name: Courses
+    type: '0'
+    parent_id: '1'
+    created_at: '2012-09-25 09:07:12'
+    updated_at: '2012-09-25 09:07:12'
+    lft: 2
+    rgt: 13
+    level: 1
+  Folder_3:
+    name: BIS
+    type: '0'
+    parent_id: '2'
+    created_at: '2012-09-25 09:07:13'
+    updated_at: '2012-09-25 09:07:13'
+    lft: 3
+    rgt: 12
+    level: 2
+  Folder_5:
+    name: 'Lecture Slides'
+    type: '0'
+    parent_id: '3'
+    created_at: '2012-09-25 15:05:09'
+    updated_at: '2012-09-25 15:05:09'
+    lft: 6
+    rgt: 11
+    level: 3
+  Folder_6:
+    name: 11-05-1984
+    type: '0'
+    parent_id: '5'
+    created_at: '2012-09-25 15:08:18'
+    updated_at: '2012-09-25 15:08:18'
+    lft: 7
+    rgt: 10
+    level: 4
+  Folder_7:
+    name: Special
+    type: '0'
+    parent_id: '6'
+    created_at: '2012-10-06 17:37:17'
+    updated_at: '2012-10-06 17:37:17'
+    lft: 8
+    rgt: 9
+    level: 5
+EmailMessageCorrespondence:
+  EmailMessageCorrespondence_36:
+    InitiatorMessage: EmailMessage_114
+    inviteeMessage: EmailMessage_115
+    created_at: '2012-10-14 17:40:24'
+    updated_at: '2012-10-14 17:40:24'
+  EmailMessageCorrespondence_37:
+    InitiatorMessage: EmailMessage_114
+    inviteeMessage: EmailMessage_116
+    created_at: '2012-10-14 17:40:24'
+    updated_at: '2012-10-14 17:40:24'
+  EmailMessageCorrespondence_38:
+    InitiatorMessage: EmailMessage_114
+    inviteeMessage: EmailMessage_117
+    created_at: '2012-10-14 17:40:24'
+    updated_at: '2012-10-14 17:40:24'
+  EmailMessageCorrespondence_39:
+    InitiatorMessage: EmailMessage_118
+    inviteeMessage: EmailMessage_119
+    created_at: '2012-10-14 18:23:36'
+    updated_at: '2012-10-14 18:23:36'
+  EmailMessageCorrespondence_40:
+    InitiatorMessage: EmailMessage_118
+    inviteeMessage: EmailMessage_120
+    created_at: '2012-10-14 18:23:36'
+    updated_at: '2012-10-14 18:23:36'
+  EmailMessageCorrespondence_41:
+    InitiatorMessage: EmailMessage_118
+    inviteeMessage: EmailMessage_121
+    created_at: '2012-10-14 18:23:36'
+    updated_at: '2012-10-14 18:23:36'
+GradebookScale:
+  GradebookScale_1:
+    min_points: '75.00'
+    max_points: '100.00'
+    code: A
+    Gradebook: Gradebook_1
+    created_at: '2012-08-26 16:58:11'
+    updated_at: '2012-08-26 16:58:11'
+  GradebookScale_2:
+    min_points: '65.00'
+    max_points: '74.00'
+    code: B
+    Gradebook: Gradebook_1
+    created_at: '2012-08-26 16:58:11'
+    updated_at: '2012-08-26 16:58:11'
+  GradebookScale_3:
+    min_points: '55.00'
+    max_points: '64.00'
+    code: C
+    Gradebook: Gradebook_1
+    created_at: '2012-08-26 16:58:11'
+    updated_at: '2012-08-26 16:58:11'
+  GradebookScale_4:
+    min_points: '45.00'
+    max_points: '54.00'
+    code: D
+    Gradebook: Gradebook_1
+    created_at: '2012-08-26 16:58:11'
+    updated_at: '2012-08-26 16:58:11'
+  GradebookScale_5:
+    min_points: '35.00'
+    max_points: '44.00'
+    code: E
+    Gradebook: Gradebook_1
+    created_at: '2012-08-26 16:58:11'
+    updated_at: '2012-08-26 16:58:11'
+  GradebookScale_6:
+    min_points: '0.00'
+    max_points: '34.00'
+    code: F
+    Gradebook: Gradebook_1
+    created_at: '2012-08-26 16:58:11'
+    updated_at: '2012-08-26 16:58:11'
+  GradebookScale_7:
+    min_points: '75.00'
+    max_points: '100.00'
+    code: A
+    Gradebook: Gradebook_2
+    created_at: '2012-09-16 16:04:24'
+    updated_at: '2012-09-16 16:04:24'
+  GradebookScale_8:
+    min_points: '65.00'
+    max_points: '74.00'
+    code: B
+    Gradebook: Gradebook_2
+    created_at: '2012-09-16 16:04:24'
+    updated_at: '2012-09-16 16:04:24'
+  GradebookScale_9:
+    min_points: '55.00'
+    max_points: '64.00'
+    code: C
+    Gradebook: Gradebook_2
+    created_at: '2012-09-16 16:04:24'
+    updated_at: '2012-09-16 16:04:24'
+  GradebookScale_10:
+    min_points: '45.00'
+    max_points: '54.00'
+    code: D
+    Gradebook: Gradebook_2
+    created_at: '2012-09-16 16:04:24'
+    updated_at: '2012-09-16 16:04:24'
+  GradebookScale_11:
+    min_points: '35.00'
+    max_points: '44.00'
+    code: E
+    Gradebook: Gradebook_2
+    created_at: '2012-09-16 16:04:24'
+    updated_at: '2012-09-16 16:04:24'
+  GradebookScale_12:
+    min_points: '0.00'
+    max_points: '34.00'
+    code: F
+    Gradebook: Gradebook_2
+    created_at: '2012-09-16 16:04:24'
+    updated_at: '2012-09-16 16:04:24'
+File:
+  File_1:
+    Folder: Folder_3
+    original_name: Instituteforcooperatives.docx
+    generated_name: e52096400393d6b7f53e45e8186a62be.zip
+    mime_type: application/zip
+    size: '18739'
+    created_at: '2012-09-25 15:00:07'
+    updated_at: '2012-09-25 15:00:07'
+  File_2:
+    Folder: Folder_3
+    original_name: Payment_Notification.pdf
+    generated_name: 6d8c4e929aac3a769414c1bca5a15a81.pdf
+    mime_type: application/pdf
+    size: '53403'
+    created_at: '2012-09-25 15:00:35'
+    updated_at: '2012-09-25 15:00:35'
+  File_3:
+    Folder: Folder_4
+    original_name: 2012-09-20_-_Funtional_requirements_for_e-commerce_site__5bSTARTER_SPEC_5d.docx
+    generated_name: f14394b40fd366c2ea5be44ade89598a.zip
+    mime_type: application/zip
+    size: '260709'
+    created_at: '2012-09-25 15:03:11'
+    updated_at: '2012-09-25 15:03:11'
+ProfileBook:
+  ProfileBook_1:
+    User: sfGuardUser_2
+    title: 'Philosophy of Money'
+    author: 'George Simmel'
+  ProfileBook_2:
+    User: sfGuardUser_2
+    title: 'Pride and Prejudice'
+    author: 'Jane Austine'
+  ProfileBook_3:
+    User: sfGuardUser_6
+    title: Bible
+    author: God
+  ProfileBook_4:
+    User: sfGuardUser_6
+    title: 'How to make the best out of collaborative groups'
+    author: 'Batanayi Matuku'
+  ProfileBook_5:
+    User: sfGuardUser_2
+    title: 'Fifty shades'
+    author: 'E. L. James'
+  ProfileBook_6:
+    User: sfGuardUser_9
+    title: 'Unlimited power'
+    author: 'Anthon Robbins'
+Assignment:
+  Assignment_1:
+    title: 'How to Take CS50x'
+    AssessmentType: AssessmentType_1
+    description: "To take CS50x, then, simply start working your way through Week 0 through Week 11. For each week:\r\n\r\nWatch the week's lecture(s). Do take advantage of any questions that appear as you watch. Atop each video is a number that indicates how many questions await your attention; click that number to answer. Consider those questions opportunities to reinforce the week's material. You won't be graded on your answers, so you're welcome to try answering them as many times as you'd like.\r\nWatch one of the week's sections: Nate's if you consider yourself among \"those less comfortable\" or Rob's if you consider yourself among \"those more comfortable.\" If you consider yourself \"somewhere in between,\" you're welcome to watch either or both!\r\nWatch the week's shorts in order to dive into some topics more deeply.\r\nRead the \"specification\" for the week's problem set, watch Zamyla's walkthrough, and then dive into the problem set itself by following the specification's instructions. Note that the \"standard editions\" of some problem sets are accompanied by \"Hacker Editions,\" which are entirely optional. To receive an honor code certificate from HarvardX, you must submit the standard editions of problem sets.\r\nSubmit the problem set per its directions.\r\nIn addition to problem sets, the course also has two quizzes, each of which you must take via edX's website anytime after 15 January 2013 and before 15 April 2013. And the course also has a final project. More details to come!\r\n\r\nOf course, if you do not wish to receive an honor code certificate from HarvardX, you're welcome to take CS50x however you'd like! All of CS50's content will remain available at CS50.tv as OpenCourseWare after 15 April 2013, so not to worry if you don't get through it in time!"
+    submission: '1'
+    due_date: '2012-10-16 00:00:00'
+    points: '100'
+    weight: '15.00'
+    lock_until: '2012-10-16 00:00:00'
+    lock_after: '2012-10-16 00:00:00'
+    notify_users: true
+    is_graded: true
+    allow_late_submission: true
+    graded_by: '1'
+    Course: Course_1
+    created_at: '2012-10-16 19:07:37'
+    updated_at: '2012-10-16 19:07:37'
+    slug: how-to-take-cs50x
+Course:
+  Course_1:
+    name: 'Business Information Systems'
+    code: BIS
+    Department: Department_1
+    description: 'Business information systems is a course specifically designed to allow students a rare opportunity to integrate their technical skills with the business related concepts. It is a highly rated course among computer science professionals.'
+    is_finalized: true
+    AcademicPeriod: AcademicPeriod_1
+    start_date: '2012-08-26 00:00:00'
+    end_date: '2012-08-26 00:00:00'
+    credits: '0.00'
+    hours: '1240'
+    max_enrolled: '120'
+    created_at: '2012-10-02 00:00:00'
+    updated_at: '2012-10-02 00:00:00'
+    slug: bis
+Gradebook:
+  Gradebook_1:
+    items: '0'
+    Course: Course_1
+    created_at: '2012-08-26 16:58:11'
+    updated_at: '2012-08-26 16:58:11'
+  Gradebook_2:
+    items: '0'
+    Course: Course_1
+    created_at: '2012-09-16 16:04:24'
+    updated_at: '2012-09-16 16:04:24'
+Faculty:
+  Faculty_1:
+    name: Commerce
+    abbreviation: COM
+DiscussionTopic:
+  DiscussionTopic_3:
+    subject: 'Does anyone know what types of  business analysts careers are out there?'
+    message: 'Some of us we would like to pursue business analysis type of jobs and I would be interested in knowing some of these and what level does one need to be in?'
+    Discussion: Discussion_3
+    User: sfGuardUser_2
+    latest_topic_reply_id: null
+    nb_replies: 0
+    nb_views: '0'
+    created_at: '2012-09-23 17:32:24'
+    updated_at: '2012-09-23 17:32:24'
+    slug: null
+  DiscussionTopic_4:
+    subject: 'I''m just curious here, how does one become easily acquainted with their peers?'
+    message: 'You know we need to be able to easily make fresh peers and I would really appreciate it if someone breaks it down just how to attract more good peers around campus and in social circles generally?'
+    Discussion: Discussion_2
+    User: sfGuardUser_2
+    latest_topic_reply_id: null
+    nb_replies: 0
+    nb_views: '0'
+    created_at: '2012-09-23 19:34:40'
+    updated_at: '2012-09-23 19:34:40'
+    slug: null
+  DiscussionTopic_8:
+    subject: 'Welcome message from the TutorPlus team!'
+    message: 'Hi fellow participants, It''s a great pleasure to be part of this collaborative learning platform and be readily available to share relevant academic experiences we all have to endure in our varied normal discources. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!'
+    Discussion: Discussion_9
+    User: sfGuardUser_2
+    latest_topic_reply_id: '13'
+    nb_replies: 3
+    nb_views: '0'
+    created_at: '2012-09-25 13:37:25'
+    updated_at: '2012-09-25 17:30:11'
+    slug: null
+  DiscussionTopic_2:
+    subject: 'I would like to know if there''s a better way of defining business information systems?'
+    message: 'How would you define business information systems in your words? Would you be able to clarify the very intrinsic aspects that are relevant to the principles of information systems in general?'
+    Discussion: Discussion_3
+    User: sfGuardUser_2
+    latest_topic_reply_id: null
+    nb_replies: 6
+    nb_views: '0'
+    created_at: '2012-09-23 17:28:03'
+    updated_at: '2012-09-27 16:09:37'
+    slug: null
+  DiscussionTopic_1:
+    subject: 'Business information systems concepts'
+    message: 'Can anyone out there outline the general business system concepts that we all need to know in this course? I here there are a number of them and if you could provide a brief description that would be really appreciated. Thanks!'
+    Discussion: Discussion_3
+    User: sfGuardUser_2
+    latest_topic_reply_id: null
+    nb_replies: 0
+    nb_views: '0'
+    created_at: '2012-09-23 17:22:15'
+    updated_at: '2012-09-27 16:10:42'
+    slug: null
+  DiscussionTopic_16:
+    subject: 'There''s a discussion taking place this Saturday.'
+    message: 'Is there anyone who''s willing to take part in our discussion this coming Saturday as will be discussing any course related material with the rest of the discussion participants. Thanks!'
+    Discussion: Discussion_3
+    User: sfGuardUser_7
+    latest_topic_reply_id: '20'
+    nb_replies: 1
+    nb_views: '0'
+    created_at: '2012-10-05 18:19:17'
+    updated_at: '2012-10-05 20:07:37'
+    slug: there-s-a-discussion-taking-place-this-saturday
+  DiscussionTopic_10:
+    subject: 'Welcome message from the TutorPlus team!'
+    message: 'Hi fellow participants, It''s a great pleasure to be part of this collaborative learning platform and be readily available to share relevant academic experiences we all have to endure in our varied normal discources. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!'
+    Discussion: Discussion_14
+    User: sfGuardUser_6
+    latest_topic_reply_id: '15'
+    nb_replies: 2
+    nb_views: '0'
+    created_at: '2012-09-28 18:47:37'
+    updated_at: '2012-09-28 20:28:52'
+    slug: null
+  DiscussionTopic_11:
+    subject: 'Welcome message from the TutorPlus team!'
+    message: 'Hi fellow participants, It''s a great pleasure to be part of this collaborative learning platform and be readily available to share relevant academic experiences we all have to endure in our varied normal discources. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!'
+    Discussion: Discussion_15
+    User: sfGuardUser_8
+    latest_topic_reply_id: null
+    nb_replies: 0
+    nb_views: '0'
+    created_at: '2012-10-01 17:21:33'
+    updated_at: '2012-10-01 17:21:33'
+    slug: null
+  DiscussionTopic_12:
+    subject: 'Welcome message from the TutorPlus team!'
+    message: 'Hi fellow participants, It''s a great pleasure to be part of this collaborative learning platform and be readily available to share relevant academic experiences we all have to endure in our varied normal discources. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!'
+    Discussion: Discussion_16
+    User: sfGuardUser_7
+    latest_topic_reply_id: null
+    nb_replies: 0
+    nb_views: '0'
+    created_at: '2012-10-01 17:22:54'
+    updated_at: '2012-10-01 17:22:54'
+    slug: null
+  DiscussionTopic_13:
+    subject: 'Welcome message from the TutorPlus team!'
+    message: 'Hi fellow participants, It''s a great pleasure to be part of this collaborative learning platform and be readily available to share relevant academic experiences we all have to endure in our varied normal discources. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!'
+    Discussion: Discussion_17
+    User: sfGuardUser_9
+    latest_topic_reply_id: null
+    nb_replies: 0
+    nb_views: '0'
+    created_at: '2012-10-01 17:31:47'
+    updated_at: '2012-10-01 17:31:47'
+    slug: null
+  DiscussionTopic_21:
+    subject: 'Hi friends, how are you all doing?'
+    message: 'Hi friends, how are you all doing?'
+    Discussion: Discussion_18
+    User: sfGuardUser_6
+    latest_topic_reply_id: null
+    nb_replies: 0
+    nb_views: '0'
+    created_at: '2012-10-06 13:06:15'
+    updated_at: '2012-10-06 13:06:15'
+    slug: hi-friends-how-are-you-all-doing
+  DiscussionTopic_20:
+    subject: 'Is there anyone who can work with us on the give assignment?'
+    message: 'Is there anyone who can work with us on the give assignment?'
+    Discussion: Discussion_3
+    User: sfGuardUser_9
+    latest_topic_reply_id: '24'
+    nb_replies: 4
+    nb_views: '0'
+    created_at: '2012-10-05 21:01:40'
+    updated_at: '2012-10-06 18:22:27'
+    slug: is-there-anyone-who-can-work-with-us-on-the-give-assignment
+MailingList:
+  MailingList_1:
+    name: 'General instructors'
+    User: sfGuardUser_2
+    created_at: '2012-09-16 15:24:02'
+    updated_at: '2012-09-16 15:24:02'
+AssessmentType:
+  AssessmentType_1:
+    name: Assignments
+    weight: '20.00'
+    Course: Course_1
+    created_at: '2012-10-16 18:18:41'
+    updated_at: '2012-10-16 18:18:41'
+  AssessmentType_2:
+    name: Quizzes
+    weight: '10.00'
+    Course: Course_1
+    created_at: '2012-10-16 18:28:36'
+    updated_at: '2012-10-16 18:28:36'
+InstructorCourse:
+  InstructorCourse_4:
+    Instructor: Instructor_2
+    Course: Course_1
+  InstructorCourse_6:
+    Instructor: Instructor_3
+    Course: Course_1
+ProfileAward:
+  ProfileAward_1:
+    User: sfGuardUser_2
+    institution: 'University of Cape Town'
+    description: 'Postgraduate Diploma in Education'
+    year: '2012'
+  ProfileAward_2:
+    User: sfGuardUser_2
+    institution: 'National University of Science and Technology'
+    description: 'Bsc Honours Computer Science'
+    year: '2008'
+  ProfileAward_3:
+    User: sfGuardUser_2
+    institution: 'University of Cape Town'
+    description: 'I was awarded the best Computer Science student'
+    year: '2012'
+  ProfileAward_4:
+    User: sfGuardUser_8
+    institution: 'Nobel Prize winner!'
+    description: 'I was awarded a Nobel prize for the best educational platform in learning contexts.'
+    year: '2012'
+StudentContact:
+  StudentContact_13:
+    email_address: null
+    phone_work: null
+    phone_home: null
+    phone_mobile: null
+    address_line_1: null
+    address_line_2: null
+    postcode: null
+    city: null
+    Country: Country_1
+    StateProvince: StateProvince_1
+    Student: Student_1
+    postal_address_line_1: null
+    postal_address_line_2: null
+    postal_postcode: null
+    postal_city: null
+    PostalCountry: Country_1
+    PostalStateProvince: StateProvince_1
+    guardian_first_name: null
+    guardian_last_name: null
+    guardian_email_address: null
+    guardian_phone_work: null
+    guardian_phone_home: null
+    guardian_phone_mobile: null
+    guardian_address_line_1: null
+    guardian_address_line_2: null
+    guardian_postcode: null
+    guardian_city: null
+    GuardianCountry: Country_1
+    GuardianStateProvince: StateProvince_1
+    created_at: '2012-09-28 18:37:11'
+    updated_at: '2012-09-28 18:37:11'
+  StudentContact_14:
+    email_address: null
+    phone_work: null
+    phone_home: null
+    phone_mobile: null
+    address_line_1: null
+    address_line_2: null
+    postcode: null
+    city: null
+    Country: Country_1
+    StateProvince: StateProvince_1
+    Student: Student_2
+    postal_address_line_1: null
+    postal_address_line_2: null
+    postal_postcode: null
+    postal_city: null
+    PostalCountry: Country_1
+    PostalStateProvince: StateProvince_1
+    guardian_first_name: null
+    guardian_last_name: null
+    guardian_email_address: null
+    guardian_phone_work: null
+    guardian_phone_home: null
+    guardian_phone_mobile: null
+    guardian_address_line_1: null
+    guardian_address_line_2: null
+    guardian_postcode: null
+    guardian_city: null
+    GuardianCountry: Country_1
+    GuardianStateProvince: StateProvince_1
+    created_at: '2012-09-28 18:47:13'
+    updated_at: '2012-09-28 18:47:13'
+  StudentContact_15:
+    email_address: null
+    phone_work: null
+    phone_home: null
+    phone_mobile: null
+    address_line_1: null
+    address_line_2: null
+    postcode: null
+    city: null
+    Country: Country_1
+    StateProvince: StateProvince_1
+    Student: Student_3
+    postal_address_line_1: null
+    postal_address_line_2: null
+    postal_postcode: null
+    postal_city: null
+    PostalCountry: Country_1
+    PostalStateProvince: StateProvince_1
+    guardian_first_name: null
+    guardian_last_name: null
+    guardian_email_address: null
+    guardian_phone_work: null
+    guardian_phone_home: null
+    guardian_phone_mobile: null
+    guardian_address_line_1: null
+    guardian_address_line_2: null
+    guardian_postcode: null
+    guardian_city: null
+    GuardianCountry: Country_1
+    GuardianStateProvince: StateProvince_1
+    created_at: '2012-10-01 17:19:45'
+    updated_at: '2012-10-01 17:19:45'
+  StudentContact_16:
+    email_address: null
+    phone_work: null
+    phone_home: null
+    phone_mobile: null
+    address_line_1: null
+    address_line_2: null
+    postcode: null
+    city: null
+    Country: Country_1
+    StateProvince: StateProvince_1
+    Student: Student_4
+    postal_address_line_1: null
+    postal_address_line_2: null
+    postal_postcode: null
+    postal_city: null
+    PostalCountry: Country_1
+    PostalStateProvince: StateProvince_1
+    guardian_first_name: null
+    guardian_last_name: null
+    guardian_email_address: null
+    guardian_phone_work: null
+    guardian_phone_home: null
+    guardian_phone_mobile: null
+    guardian_address_line_1: null
+    guardian_address_line_2: null
+    guardian_postcode: null
+    guardian_city: null
+    GuardianCountry: Country_1
+    GuardianStateProvince: StateProvince_1
+    created_at: '2012-10-01 17:20:30'
+    updated_at: '2012-10-01 17:20:30'
+  StudentContact_17:
+    email_address: null
+    phone_work: null
+    phone_home: null
+    phone_mobile: null
+    address_line_1: null
+    address_line_2: null
+    postcode: null
+    city: null
+    Country: Country_1
+    StateProvince: StateProvince_1
+    Student: Student_5
+    postal_address_line_1: null
+    postal_address_line_2: null
+    postal_postcode: null
+    postal_city: null
+    PostalCountry: Country_1
+    PostalStateProvince: StateProvince_1
+    guardian_first_name: null
+    guardian_last_name: null
+    guardian_email_address: null
+    guardian_phone_work: null
+    guardian_phone_home: null
+    guardian_phone_mobile: null
+    guardian_address_line_1: null
+    guardian_address_line_2: null
+    guardian_postcode: null
+    guardian_city: null
+    GuardianCountry: Country_1
+    GuardianStateProvince: StateProvince_1
+    created_at: '2012-10-01 19:20:17'
+    updated_at: '2012-10-01 19:20:17'
+Room:
+  Room_1:
+    name: 'Nedbank Building'
+    abbreviation: S14
+    Building: Building_1
+AssignmentGroup:
+  AssignmentGroup_1:
+    name: 'Individual Assisgnments'
+    weight: '30.00'
+    Course: Course_1
+    created_at: '2012-09-21 20:39:37'
+    updated_at: '2012-09-21 20:39:37'
+  AssignmentGroup_2:
+    name: 'Group Assignments'
+    weight: '30.00'
+    Course: Course_1
+    created_at: '2012-09-21 20:39:59'
+    updated_at: '2012-09-21 20:39:59'
+ProfilePublication:
+  ProfilePublication_1:
+    User: sfGuardUser_2
+    title: 'Collective Intentionality in Collaborative Learning Environments'
+    link: ''
+    year: ''
+  ProfilePublication_2:
+    User: sfGuardUser_2
+    title: 'Adoption of Health 2.0 in South Africa'
+    link: ''
+    year: '2012'
+  ProfilePublication_3:
+    User: sfGuardUser_6
+    title: 'Implementing collaborative learning in educational contexts'
+    link: ''
+    year: '2012'
+Peer:
+  Peer_1:
+    Inviter: sfGuardUser_6
+    Invitee: sfGuardUser_2
+    status: '3'
+    type: '0'
+  Peer_9:
+    Inviter: sfGuardUser_9
+    Invitee: sfGuardUser_2
+    status: '2'
+    type: '2'
+  Peer_14:
+    Inviter: sfGuardUser_7
+    Invitee: sfGuardUser_2
+    status: '2'
+    type: '0'
+  Peer_12:
+    Inviter: sfGuardUser_7
+    Invitee: sfGuardUser_9
+    status: '3'
+    type: '1'
+  Peer_13:
+    Inviter: sfGuardUser_7
+    Invitee: sfGuardUser_6
+    status: '3'
+    type: '0'
+  Peer_8:
+    Inviter: sfGuardUser_9
+    Invitee: sfGuardUser_6
+    status: '3'
+    type: '2'
+  Peer_11:
+    Inviter: sfGuardUser_7
+    Invitee: sfGuardUser_4
+    status: '3'
+    type: '1'
+  Peer_7:
+    Inviter: sfGuardUser_9
+    Invitee: sfGuardUser_4
+    status: '3'
+    type: '3'
+  Peer_6:
+    Inviter: sfGuardUser_2
+    Invitee: sfGuardUser_4
+    status: '3'
+    type: '1'
+  Peer_3:
+    Inviter: sfGuardUser_6
+    Invitee: sfGuardUser_4
+    status: '3'
+    type: '1'
+  Peer_18:
+    Inviter: sfGuardUser_8
+    Invitee: sfGuardUser_2
+    status: '2'
+    type: '0'
+  Peer_15:
+    Inviter: sfGuardUser_7
+    Invitee: sfGuardUser_8
+    status: '3'
+    type: '0'
+  Peer_16:
+    Inviter: sfGuardUser_4
+    Invitee: sfGuardUser_8
+    status: '3'
+    type: '2'
+  Peer_10:
+    Inviter: sfGuardUser_9
+    Invitee: sfGuardUser_8
+    status: '3'
+    type: '2'
+  Peer_19:
+    Inviter: sfGuardUser_7
+    Invitee: sfGuardUser_10
+    status: '2'
+    type: '0'
+  Peer_17:
+    Inviter: sfGuardUser_8
+    Invitee: sfGuardUser_6
+    status: '3'
+    type: '0'
+  Peer_20:
+    Inviter: sfGuardUser_6
+    Invitee: sfGuardUser_10
+    status: '2'
+    type: '0'
+  Peer_21:
+    Inviter: sfGuardUser_9
+    Invitee: sfGuardUser_10
+    status: '2'
+    type: '2'
+sfGuardUser:
+  sfGuardUser_8:
+    first_name: John
+    last_name: Kennedy
+    email_address: john@gmail.com
+    username: john
+    algorithm: sha1
+    salt: b75e7051feec50c24673f5379f6b3f71
+    password: cd874c7928ace476870e0e45dfd6e1f2c646c419
+    is_active: true
+    is_super_admin: false
+    last_login: '2012-10-14 18:24:31'
+    created_at: '2012-10-01 17:20:29'
+    updated_at: '2012-10-14 18:24:31'
+    slug: john-kennedy
+  sfGuardUser_2:
+    first_name: Tutorplus
+    last_name: Student
+    email_address: student@tutorplus.org
+    username: tutorplusstudent
+    algorithm: sha1
+    salt: 4db0acf811b14473d1c98a130eb51c51
+    password: 1bc8d82a370316c392a683945e2b0b56042a8f04
+    is_active: true
+    is_super_admin: false
+    last_login: '2012-10-03 19:10:50'
+    created_at: '2012-09-06 18:08:59'
+    updated_at: '2012-10-03 19:10:50'
+    slug: tutorplus-student
+  sfGuardUser_6:
+    first_name: Musa
+    last_name: Zirebwa
+    email_address: musa@tutorplus.org
+    username: musa
+    algorithm: sha1
+    salt: 79714e54d56536f5d3284b4d0f8ecc4a
+    password: 177f1e438f1c3d2047ac8f5e4de99d8c3a623ba1
+    is_active: true
+    is_super_admin: false
+    last_login: '2012-10-16 19:01:21'
+    created_at: '2012-09-28 18:47:12'
+    updated_at: '2012-10-16 19:01:21'
+    slug: musa-zirebwa
+  sfGuardUser_7:
+    first_name: Will
+    last_name: Matuku
+    email_address: will@gmail.com
+    username: will
+    algorithm: sha1
+    salt: b304e00ae38f7a732d2d01c9f9c5f21c
+    password: d06b818c40542bc282649c2301163d55b3e65459
+    is_active: true
+    is_super_admin: false
+    last_login: '2012-10-05 16:56:23'
+    created_at: '2012-10-01 17:19:44'
+    updated_at: '2012-10-05 16:56:23'
+    slug: will-matuku
+  sfGuardUser_9:
+    first_name: Irwin
+    last_name: Brown
+    email_address: irwin@tutorplus.org
+    username: irwin
+    algorithm: sha1
+    salt: cf6968ad5d500ed1614227eb1d7070d3
+    password: 76ba13fca43daea07ea2a27dd0370a59fb4f47b9
+    is_active: true
+    is_super_admin: false
+    last_login: '2012-10-09 19:45:47'
+    created_at: '2012-10-01 17:21:12'
+    updated_at: '2012-10-09 19:45:47'
+    slug: irwin-brown
+  sfGuardUser_4:
+    first_name: John
+    last_name: Searle
+    email_address: johnsearle@tutorplus.org
+    username: johnsearle
+    algorithm: sha1
+    salt: 08da5df9e4a0776b64f2ba7c6fead744
+    password: 494c1561ffa5dd385af1ea7af0ce5d8f8a4e5280
+    is_active: true
+    is_super_admin: false
+    last_login: '2012-10-01 17:49:54'
+    created_at: '2012-09-16 16:30:57'
+    updated_at: '2012-10-01 17:49:54'
+    slug: john-searle
+  sfGuardUser_10:
+    first_name: Winston
+    last_name: Noran
+    email_address: winston@gmail.com
+    username: winston
+    algorithm: sha1
+    salt: 7eb251fa1d180e1e5f1840be772bdfb3
+    password: 0f0a32c5729cac30a9cc07084904a3dabe1b63da
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2012-10-01 19:20:16'
+    updated_at: '2012-10-01 19:20:16'
+    slug: winston-noran
+sfGuardRememberKey:
+  sfGuardRememberKey_32:
+    User: sfGuardUser_7
+    remember_key: im5kx45tui0ogwks8g4skc8gk40wksw
+    ip_address: 127.0.0.1
+    created_at: '2012-10-02 08:17:00'
+    updated_at: '2012-10-02 08:17:00'
+  sfGuardRememberKey_35:
+    User: sfGuardUser_9
+    remember_key: nzuocjofacggs8kw0ckcow8484ggwg8
+    ip_address: 127.0.0.1
+    created_at: '2012-10-09 19:45:47'
+    updated_at: '2012-10-09 19:45:47'
+  sfGuardRememberKey_38:
+    User: sfGuardUser_8
+    remember_key: g56le6gwq00g4cs0ko48s0w80k4cgcw
+    ip_address: 127.0.0.1
+    created_at: '2012-10-14 18:24:31'
+    updated_at: '2012-10-14 18:24:31'
+  sfGuardRememberKey_40:
+    User: sfGuardUser_6
+    remember_key: 3tyd65i3qhq8cgcs44k4ksk4wo8wg8g
+    ip_address: 127.0.0.1
+    created_at: '2012-10-16 19:01:21'
+    updated_at: '2012-10-16 19:01:21'
+DiscussionTopicReply:
+  DiscussionTopicReply_1:
+    reply: 'That''s incredible to hear! So would you please specify those governing principles so I know exactly what the expectations are?'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_1
+    created_at: '2012-09-25 09:58:44'
+    updated_at: '2012-09-25 09:58:44'
+  DiscussionTopicReply_2:
+    reply: 'Well, the principles are (1) business analysis has to be conducted in relevant terms, i.e the business requirements should be the driving force; (2) a business analyst ought  to work closely with different stakeholders and solicit the kind of business needs they have.'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_1
+    created_at: '2012-09-25 10:03:43'
+    updated_at: '2012-09-25 10:03:43'
+  DiscussionTopicReply_3:
+    reply: 'Oh! That''s really sounds interesting! So to summarize what you''re saying here does it also imply that for a business analyst to be able to execute their roles they have to demonstrate a broader understanding of the specific business process of their organization?'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_1
+    created_at: '2012-09-25 10:13:21'
+    updated_at: '2012-09-25 10:13:21'
+  DiscussionTopicReply_4:
+    reply: 'Awesome, response! So it would be particularly crucial for these analysts to take their time so as to fully comprehend that which the hiring organization specifically wants to achieve in meeting their organization objectives.'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_2
+    created_at: '2012-09-25 10:20:39'
+    updated_at: '2012-09-25 10:20:39'
+  DiscussionTopicReply_6:
+    reply: 'Ok, I''m just testing to see if this works!'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_1
+    created_at: '2012-09-25 10:29:30'
+    updated_at: '2012-09-25 10:29:30'
+  DiscussionTopicReply_7:
+    reply: 'You could not just do your testing. This is platform deserves to be rightfully used and not spammed by anything you can think of posting here.'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_1
+    created_at: '2012-09-25 10:50:32'
+    updated_at: '2012-09-25 10:50:32'
+  DiscussionTopicReply_11:
+    reply: 'Indeed, I would agree with you guys, this platform tries to at least make it so much easier for us to collaborate and share our opinions with our peers openly for any criticism to take place.'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_4
+    created_at: '2012-09-25 15:28:20'
+    updated_at: '2012-09-25 15:28:20'
+  DiscussionTopicReply_12:
+    reply: 'It seems the TutorPlus team has done a great job. Now we can easily collaborate with our peers.'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_4
+    created_at: '2012-09-25 17:28:03'
+    updated_at: '2012-09-25 17:28:03'
+  DiscussionTopicReply_13:
+    reply: 'Indeed, I would agree with you guys, this platform tries to at least make it so much easier for us to collaborate and share our opinions with our peers openly for any criticism to take place.'
+    User: sfGuardUser_2
+    DiscussionTopicMessage: DiscussionTopicMessage_4
+    created_at: '2012-09-25 17:30:11'
+    updated_at: '2012-09-25 17:30:11'
+  DiscussionTopicReply_14:
+    reply: 'Personally I would suppose you deserve to be voted the best educational platform of the 21st century.'
+    User: sfGuardUser_6
+    DiscussionTopicMessage: DiscussionTopicMessage_5
+    created_at: '2012-09-28 19:32:15'
+    updated_at: '2012-09-28 19:32:15'
+  DiscussionTopicReply_15:
+    reply: 'In fact systems like this are profoundly crucial to way in which our new generation students prefer to conduct their learning adventures.'
+    User: sfGuardUser_6
+    DiscussionTopicMessage: DiscussionTopicMessage_5
+    created_at: '2012-09-28 20:28:52'
+    updated_at: '2012-09-28 20:28:52'
+  DiscussionTopicReply_20:
+    reply: 'Indeed, I''m making frantic efforts to remain active in these discussions so we enhance each other''s understanding of the concepts involved here.'
+    User: sfGuardUser_9
+    DiscussionTopicMessage: DiscussionTopicMessage_6
+    created_at: '2012-10-05 20:07:37'
+    updated_at: '2012-10-05 20:07:37'
+  DiscussionTopicReply_21:
+    reply: 'That''s very true, Prof! I would also like to add that we''re all set out to do the best for the group.'
+    User: sfGuardUser_9
+    DiscussionTopicMessage: DiscussionTopicMessage_9
+    created_at: '2012-10-06 12:48:24'
+    updated_at: '2012-10-06 12:48:24'
+  DiscussionTopicReply_22:
+    reply: 'I would also like to agree with Prof about the way should conduct the activities of this discussion. I would also like to add as long we all work collaboratively, we''re bound to make positive impact on each other.'
+    User: sfGuardUser_9
+    DiscussionTopicMessage: DiscussionTopicMessage_9
+    created_at: '2012-10-06 12:52:27'
+    updated_at: '2012-10-06 12:52:27'
+  DiscussionTopicReply_23:
+    reply: 'That would be really nice thing to do especially considering exams are just around the corner. So when do you guys want us to meet? I would go for Saturday.'
+    User: sfGuardUser_9
+    DiscussionTopicMessage: DiscussionTopicMessage_11
+    created_at: '2012-10-06 12:59:51'
+    updated_at: '2012-10-06 12:59:51'
+  DiscussionTopicReply_24:
+    reply: 'Of course I know what you need from me... I will provide you all that.'
+    User: sfGuardUser_6
+    DiscussionTopicMessage: DiscussionTopicMessage_12
+    created_at: '2012-10-06 18:22:27'
+    updated_at: '2012-10-06 18:22:27'
+EmailTemplate:
+  EmailTemplate_1:
+    name: 'Welcome to TutorPlus'
+    subject: 'Welcome to the TutorPlus collaborative learning platform'
+    description: 'This is the first email that gets sent to all new TutorPlus participants.'
+    body: "Hi ##USER##,\r\n\r\nWe would like to take this opportunity to warmly welcome you to the TutorPlus collaborative learning platform. We sincerely hope you will find this platform quite appropriate and supportive to all your educational needs."
+    from_email: support@tutorplus.org
+    to_email: ''
+    cc_email: ''
+    bcc_email: ''
+    reply_to: support@tutorplus.org
+    is_html: true
+    is_active: true
+    created_at: '2012-09-16 15:14:05'
+    updated_at: '2012-09-20 17:32:50'
+    slug: welcome-to-tutorplus
+Building:
+  Building_1:
+    name: 'Leslie Building'
+    abbreviation: LSB
+AcademicPeriod:
+  AcademicPeriod_1:
+    name: 'First Semester'
+    start_date: 09-01-2012
+    end_date: 25-05-2012
+    grades_due: 26-08-2012
+    max_credits: '0'
+    AcademicYear: AcademicYear_1
+  AcademicPeriod_2:
+    name: 'Second Semester'
+    start_date: 06-08-2012
+    end_date: 23-11-2012
+    grades_due: 26-08-2012
+    max_credits: '0'
+    AcademicYear: AcademicYear_1

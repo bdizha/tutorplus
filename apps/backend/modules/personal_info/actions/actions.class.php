@@ -12,13 +12,13 @@ class personal_infoActions extends sfActions {
 
     public function preExecute() {
         $photoExtension = "png";
-        $$resizedPhoto = sfFinder::type('any')->maxdepth(0)
+        $resizedPhoto = sfFinder::type('any')->maxdepth(0)
                 ->relative()
                 ->name('normal-resized.*')
                 ->in(sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getUser()->getId());
 
-        if (isset($$resizedPhoto[0])) {
-            $photoParts = explode(".", $$resizedPhoto[0]);
+        if (isset($resizedPhoto[0])) {
+            $photoParts = explode(".", $resizedPhoto[0]);
 
             if (count($photoParts) == 2) {
                 $photoExtension = $photoParts[1];
@@ -98,14 +98,14 @@ class personal_infoActions extends sfActions {
 
     public function executeCropPhoto(sfWebRequest $request) {
         if ($request->getMethod() == "POST") {
-            if ($file_info = getimagesize($this->resized_photo)) {
+            if ($fileInfo = getimagesize($this->resized_photo)) {
                 $options = array("method" => "custom", "coords" => array("x1" => $_POST['x'], "y1" => $_POST['y'], "x2" => $_POST['x'] + $_POST['w'], "y2" => $_POST['y'] + $_POST['h']));
 
                 $thumbnail = new sfThumbnail($_POST['w'], $_POST['h'], false, true, 100, "sfImageMagickAdapter", $options);
                 $thumbnail->loadFile($this->resized_photo);
-                $thumbnail->save($this->cropped_photo, $file_info["mime"]);
+                $thumbnail->save($this->cropped_photo, $fileInfo["mime"]);
 
-                $this->generateAndSaveThumbnails($this->cropped_photo, $file_info["mime"], 0666);
+                $this->generateAndSaveThumbnails($this->cropped_photo, $fileInfo["mime"], 0666);
                 $this->getUser()->setFlash('notice', 'Your photo has been cropped successfully.', false);
             }
         }

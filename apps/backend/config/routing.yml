@@ -1670,7 +1670,7 @@ dropout:
 # default rules
 homepage:
   url:   /
-  param: { module: dashboard, action: index }
+  param: { module: home, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules  

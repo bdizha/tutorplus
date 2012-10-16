@@ -10,69 +10,77 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class DiscussionTopic extends BaseDiscussionTopic
-{
+class DiscussionTopic extends BaseDiscussionTopic {
 
-    public function updateCounts()
-    {
+    public function updateCounts() {
         $this->getDiscussion()->setNbTopics($this->getDiscussion()->getNbTopics() + 1);
         $this->getDiscussion()->setUpdatedAt($this->getCreatedAt());
         $this->getDiscussion()->save();
     }
 
-    public function retrieveReplies()
-    {
+    public function retrieveReplies() {
         $q = Doctrine_Query::create()
-            ->from('DiscussionTopicReply dtr')
-            ->addWhere('dtr.discussion_topic_id = ?', $this->get("id"));
+                ->from('DiscussionTopicReply dtr')
+                ->addWhere('dtr.discussion_topic_id = ?', $this->get("id"));
 
         return DiscussionTopicReplyTable::getInstance()->retrieveReplies($q);
     }
 
-    public function retrieveMessages()
-    {
+    public function retrieveMessages() {
         $q = Doctrine_Query::create()
-            ->from('DiscussionTopicMessage dtm')
-            ->addWhere('dtm.discussion_topic_id = ?', $this->get("id"));
+                ->from('DiscussionTopicMessage dtm')
+                ->addWhere('dtm.discussion_topic_id = ?', $this->get("id"));
 
         return DiscussionTopicMessageTable::getInstance()->retrieveMessages($q);
     }
 
-    public function getNbReplies()
-    {
-         $q = Doctrine_Query::create()   
-            ->from('DiscussionTopicReply dtr')
-             ->innerJoin('dtr.DiscussionTopicMessage dtm')
-            ->addWhere('dtm.discussion_topic_id = ?', $this->get("id"));
+    public function getNbReplies() {
+        $q = Doctrine_Query::create()
+                ->from('DiscussionTopicReply dtr')
+                ->innerJoin('dtr.DiscussionTopicMessage dtm')
+                ->addWhere('dtm.discussion_topic_id = ?', $this->get("id"));
 
         return DiscussionTopicReplyTable::getInstance()->retrieveReplies($q)->count();
     }
 
-    public function getNbMessages()
-    {
-         $q = Doctrine_Query::create()
-            ->from('DiscussionTopicMessage dtm')
-            ->addWhere('dtm.discussion_topic_id = ?', $this->get("id"));
+    public function getNbMessages() {
+        $q = Doctrine_Query::create()
+                ->from('DiscussionTopicMessage dtm')
+                ->addWhere('dtm.discussion_topic_id = ?', $this->get("id"));
 
         return DiscussionTopicMessageTable::getInstance()->retrieveMessages($q)->count();
     }
 
-    public function postSave($event)
-    {
+    public function postSave($event) {
         // update counts
         $this->updateCounts();
         
-        // save this activity
-        $replacements = array($this->getId(), $this->getSubject());
+         // save this activity
+        $replacements = array(
+            $this->getUser()->getSlug(),
+            $this->getUser()->getName(),
+            $this->getSlug(),
+            myToolkit::shortenString($this->getSubject(), 50)
+        );
+        
         $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_DISCUSSION_TOPIC);
 
-        if ($activityTemplate)
-        {
+        if ($activityTemplate) {
             $activityFeed = new ActivityFeed();
             $activityFeed->setActivityTemplate($activityTemplate);
             $activityFeed->setReplacements(json_encode($replacements));
+            $activityFeed->setUserId($this->getUserId());
             $activityFeed->save();
+
+            // link this activity with the current discussion users
+            foreach ($this->getDiscussion()->getMembers() as $discussionMember) {
+                $activityFeedUser = new UserActivityFeed();
+                $activityFeedUser->setUserId($discussionMember->getUserId());
+                $activityFeedUser->setActivityFeedId($activityFeed->getId());
+                $activityFeedUser->save();
+            }
         }
     }
+
 }
-    
+

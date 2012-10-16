@@ -32,9 +32,9 @@ class EmailMessageForm extends BaseEmailMessageForm
         $this->widgetSchema['cc_email'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['bcc_email'] = new sfWidgetFormInputHidden();
 
-        $this->validatorSchema['from_email'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'Your <b>from email</b> is required.'));
+        $this->validatorSchema['from_email'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'Your <b>From email</b> is required.'));
         $this->validatorSchema['to_email'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'Please specify at least a recipient.'));
-        $this->validatorSchema['subject'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'Please specify the <b>subject</b> of your message.'));
+        $this->validatorSchema['subject'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'Please specify the <b>Subject</b> of your message.'));
         $this->validatorSchema['body'] = new sfValidatorString(array('max_length' => 5000, 'required' => false));
         $this->validatorSchema['is_reply'] = new sfValidatorString(array('required' => false));
         $this->validatorSchema['previous_sender_id'] = new sfValidatorString(array('required' => false));
@@ -42,7 +42,7 @@ class EmailMessageForm extends BaseEmailMessageForm
 
         $this->setDefaults(array(
             "sender_id" => $user->getId(),
-            "status" => 2,
+            "status" => EmailMessageTable::EMAIL_MESSAGE_STATUS_SAVED,
             "from_email" => $user->getEmail()));
 
         $this->disableLocalCSRFProtection();

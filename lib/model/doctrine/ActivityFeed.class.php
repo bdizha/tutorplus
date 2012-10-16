@@ -10,6 +10,20 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class ActivityFeed extends BaseActivityFeed
-{
+class ActivityFeed extends BaseActivityFeed {
+
+    public function getContent() {
+        $patterns = explode(",", $this->getActivityTemplate()->getPatterns());
+        $patterns = array_map(array($this, "padPatterns"), $patterns);
+
+        $replacements = json_decode($this->getReplacements());
+        $content = $this->getActivityTemplate()->getContent();
+
+        return preg_replace($patterns, $replacements, $content);
+    }
+
+    public function padPatterns($pattern) {
+        return "/" . $pattern . "/";
+    }
+
 }

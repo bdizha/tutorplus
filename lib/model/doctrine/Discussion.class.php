@@ -39,7 +39,7 @@ class Discussion extends BaseDiscussion {
     }
 
     public function retrieveMembers($isRemoved = 0) {
-        return DiscussionMemberTable::getInstance()->retrieveMembers($isRemoved);
+        return DiscussionMemberTable::getInstance()->retrieveMembers($this->getId(), $isRemoved);
     }
 
     public function getNbNewTopics() {

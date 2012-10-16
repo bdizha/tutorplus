@@ -31,11 +31,11 @@ class DiscussionTopicReply extends BaseDiscussionTopicReply {
 
         // save this activity
         $replacements = array(
-            $this->getDiscussionTopicMessage()->getUser()->getName(),
-            $this->getDiscussionTopicMessage()->getUserId(),
+            $this->getUser()->getSlug(),
+            $this->getUser()->getName(),
+            $this->getDiscussionTopicMessage()->getDiscussionTopic()->getSlug(),
             myToolkit::shortenString($this->getDiscussionTopicMessage()->getDiscussionTopic()->getSubject(), 50),
-            $this->getDiscussionTopicMessage()->getDiscussionTopicId(),
-            myToolkit::shortenString($this->getReply())
+            myToolkit::shortenString($this->getReply(), 50)
         );
 
         // find the activity template for this logging
@@ -45,7 +45,16 @@ class DiscussionTopicReply extends BaseDiscussionTopicReply {
             $activityFeed = new ActivityFeed();
             $activityFeed->setActivityTemplate($activityTemplate);
             $activityFeed->setReplacements(json_encode($replacements));
+            $activityFeed->setUserId($this->getUserId());
             $activityFeed->save();
+
+            // link this activity with the current discussion users
+            foreach ($this->getDiscussionTopicMessage()->getDiscussionTopic()->getDiscussion()->getMembers() as $discussionMember) {
+                $activityFeedUser = new UserActivityFeed();
+                $activityFeedUser->setUserId($discussionMember->getUserId());
+                $activityFeedUser->setActivityFeedId($activityFeed->getId());
+                $activityFeedUser->save();
+            }
         }
     }
 

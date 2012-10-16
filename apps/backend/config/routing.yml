@@ -1,3 +1,12 @@
+assessment_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AssessmentType
+    module:               assessment_type
+    prefix_path:          /assessment_type
+    column:               id
+    with_wildcard_routes: true
+
 profile_book:
   class: sfDoctrineRouteCollection
   options:
@@ -636,6 +645,14 @@ course:
     prefix_path:          /course
     column:               id
     with_wildcard_routes: true
+    
+course_show:
+  url:     /course/:slug
+  class:   sfDoctrineRoute
+  options: { model: Course, type: object }
+  param:   { module: course, action: show }
+  requirements:
+    sf_method: [get]
 
 department:
   class: sfDoctrineRouteCollection
@@ -904,6 +921,14 @@ academics_student:
 academics_instructor:
   url: /instructor_details
   param: { module: instructor, action: details }
+    
+profile_show:
+  url:     /profile/:slug
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: profile, action: show }
+  requirements:
+    sf_method: [get]
   
 profile_student_details:
   url: /profile_student_details
@@ -937,9 +962,9 @@ profile_qualifications:
   url: /profile_qualifications
   param: { module: achievement, action: qualifications }
   
-profile_wall:
-  url: /profile_wall
-  param: { module: discussion_topic, action: wall }
+profile_timeline:
+  url: /profile_timeline
+  param: { module: discussion_topic, action: timeline }
   
 profile_peers:
   url: /profile_peers
@@ -1165,6 +1190,14 @@ assignment_detail:
 assignment_course:
   url:   /assignment/course
   param: { module: assignment, action: myCourse }
+    
+assignment_show:
+  url:     /assignment/:slug
+  class:   sfDoctrineRoute
+  options: { model: Assignment, type: object }
+  param:   { module: assignment, action: show }
+  requirements:
+    sf_method: [get]
   
 course_bulletin_board_post:
   url:   /course/bulletin_board_post
@@ -1219,11 +1252,11 @@ my_messages:
   param: { module: message_inbox, action: index }
   
 my_discussions:
-  url:   /my_discussions
+  url:   /my/discussions
   param: { module: discussion, action: index }  
 
 my_courses:
-  url:   /my_courses
+  url:   /my/courses
   param: { module: course, action: myCourses }
   
 courses:
@@ -1329,7 +1362,7 @@ mailing_list_instructors:
   param: { module: mailing_list, action: instructors }
   
 my_schedule:
-  url:   /my_schedule
+  url:   /my/schedule
   param: { module: calendar, action: mySchedule }
   
 calendar_home:
@@ -1379,6 +1412,10 @@ choose_mailing_list:
 choose_course_instructors:
   url:   /choose_course_instructors
   param: { module: course_participant, action: chooseInstructors }
+  
+choose_course_students:
+  url:   /choose_course_students
+  param: { module: course_participant, action: chooseStudents }
     
 academics:
   url:   /student
@@ -1395,6 +1432,30 @@ file_system:
 course_home:
   url:   /course/info
   param: { module: course, action: info }
+    
+discussion_show:
+  url:     /discussion/:slug
+  class:   sfDoctrineRoute
+  options: { model: Discussion, type: object }
+  param:   { module: discussion, action: show }
+  requirements:
+    sf_method: [get]
+    
+course_discussion_show:
+  url:     /course_discussion/:slug
+  class:   sfDoctrineRoute
+  options: { model: Discussion, type: object }
+  param:   { module: course_discussion, action: show }
+  requirements:
+    sf_method: [get]
+    
+discussion_topic_show:
+  url:     /discussion_topic/:slug
+  class:   sfDoctrineRoute
+  options: { model: DiscussionTopic, type: object }
+  param:   { module: discussion_topic, action: show }
+  requirements:
+    sf_method: [get]
   
 discussion_home:
   url: /discussion
@@ -1419,10 +1480,26 @@ discussion_topic_message_show_mini:
 recent_announcement:
   url:   /announcement/recent
   param: { module: announcement, action: recent }
+    
+announcement_show:
+  url:     /announcement/:slug
+  class:   sfDoctrineRoute
+  options: { model: Announcement, type: object }
+  param:   { module: announcement, action: show }
+  requirements:
+    sf_method: [get]
   
 recent_news:
   url:   /news/recent
   param: { module: news, action: recent }
+    
+news_show:
+  url:     /news/:slug
+  class:   sfDoctrineRoute
+  options: { model: News, type: object }
+  param:   { module: news, action: show }
+  requirements:
+    sf_method: [get]
   
 dashboard_events:
   url:   /dashboard_events

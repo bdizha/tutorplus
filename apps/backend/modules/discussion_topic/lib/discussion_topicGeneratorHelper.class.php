@@ -57,10 +57,10 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         $course = $discussionTopic->getDiscussion()->getCourse();
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getId(),
+                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug(),
                 "Discussions" => "course_discussion",
                 $discussion->getName() => "discussion/" . $discussion->getId(),
-                $discussionTopic->getSubject() => "discussion_topic/" . $discussionTopic->getId()
+                $discussionTopic->getSubject() => "discussion_topic/" . $discussionTopic->getSlug()
             )
         );
     }
@@ -78,8 +78,8 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         return array('breadcrumbs' => array(
                 "Discussions" => "discussion",
                 "Discussion Explorer" => "discussion",
-                $discussion->getName() => "discussion/" . $discussion->getId(),
-                $discussionTopic->getSubject() => "discussion_topic/" . $discussionTopic->getId()
+                $discussion->getName() => "discussion/" . $discussion->getSlug(),
+                $discussionTopic->getSubject() => "discussion_topic/" . $discussionTopic->getSlug()
             )
         );
     }
@@ -94,25 +94,28 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
 
     public function showContentActions($discussionTopic) {
         return array(
-            "my_discussion" => array("title" => "&lt; My Discussion", "url" => "discussion/" . $discussionTopic->getDiscussionId()),
+            "my_discussion" => array("title" => "&lt; My Discussion", "url" => "discussion/" . $discussionTopic->getDiscussion()->getSlug()),
             "manage_participants" => array("title" => "Manage Participants", "url" => "discussion_member"),
         );
     }
 
-    public function wallBreadcrumbs() {
+    public function timelineBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
-                "Discussion Wall" => "email_template"
+                "Profile" => "profile_timeline",
+                "Timeline" => "email_template"
             )
         );
     }
 
-    public function wallLinks() {
+    public function timelineLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_discussions",
-            "is_profile" => true
+            "slug" => $sfUser->getGuardUser()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($userId)
         );
     }
 

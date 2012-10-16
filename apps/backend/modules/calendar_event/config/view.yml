@@ -1,2 +1,2 @@
 all:
-  has_layout: true
+  stylesheets: [calendar.css]

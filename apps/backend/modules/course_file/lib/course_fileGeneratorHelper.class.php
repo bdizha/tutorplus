@@ -13,7 +13,7 @@ class course_fileGeneratorHelper extends BaseCourse_fileGeneratorHelper {
     public function indexBreadcrumbs($course) {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getId(),
+                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug(),
                 "Course Files" => "course_file",
             )
         );
@@ -25,7 +25,7 @@ class course_fileGeneratorHelper extends BaseCourse_fileGeneratorHelper {
             "current_child" => "my_course",
             "current_link" => "course_files",
             "is_profile" => true,
-            "id" => $course->getId()
+            "slug" => $course->getSlug()
         );
     }
 

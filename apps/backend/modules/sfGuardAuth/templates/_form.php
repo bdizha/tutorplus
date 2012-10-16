@@ -5,7 +5,7 @@
             <?php echo $form->renderHiddenFields(false) ?>
             <div class="row<?php $form["username"]->hasError() and print ' errors' ?>">
                 <div class="other-label">
-                    <label for="signin_username" id="lbl_email">Email or Username:</label>
+                    <label for="signin_username" id="lbl_email">Email:</label>
                 </div>
                 <div class="input-elm">								
                     <?php echo $form["username"] ?>					

@@ -13,20 +13,17 @@ html{
 
 body{
     background: url("/images/bg_content.jpg") repeat;
-    font-family: Arial, sans-serif;
+    font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
     font-size: 12px;
     height: 100%;
     width: 100%;
-    line-height: 1.7em;
+    line-height: 1.8em;
     margin: 0;
     padding: 0
 }
 
 ol, ul{
     list-style: none outside none;
-}
-
-li {
 }
 
 fieldset, img{
@@ -36,4 +33,12 @@ fieldset, img{
 
 a{
     color: #134D58;
+}
+
+a:hover{
+    text-decoration: underline !important;
+}
+
+label{
+    font-weight: bold;
 }

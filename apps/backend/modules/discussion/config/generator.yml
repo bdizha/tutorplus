@@ -14,7 +14,7 @@ generator:
     config:
       actions: ~
       fields:
-        user:              { label: Discussion owner }
+        user:              { label: Initiator }
         nb_members:        { label: Members }
         nb_topics:         { label: Total topics }
       form:

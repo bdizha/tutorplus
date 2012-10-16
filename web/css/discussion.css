@@ -55,11 +55,6 @@
     display: table !important;
 }
 
-#sf_admin_content .sf_admin_list{
-    display: block;
-    padding-right: 20px;
-}
-
 textarea{
     max-height: 1000px;
     height: 16px;
@@ -67,7 +62,8 @@ textarea{
 }
 
 span.separator{
-    color:#0088CC;font-size:14px;
+    color: #0088CC;
+    font-size: 14px;
 }
 
 .discussion_message{
@@ -169,16 +165,12 @@ span.separator{
     height: 100px;
 }
 
-.sf_admin_form_field_message label{
-    display: none;
-}
-
 #discussion_name, #discussion_topic_subject{
-    width: 520px;
+    width: 520px !important;
 }
 
 #discussion_topic_message, #discussion_description{
-    width: 520px;
+    width: 520px !important;
     max-height: 400px;
     height: 150px;
 }
@@ -378,7 +370,7 @@ span.separator{
 }
 
 #discussion_topic_reply_reply{
-    width: 565px;
+    width: 568px;
 }
 
 .replies-count{

@@ -1,1 +1,1 @@
-<?php echo $sf_user->getGuardUser()->getProfile()->getAbout() ?>
+<?php include_partial('academic_info/academic_info', array('user' => $sf_user->getGuardUser()->getProfile()->getUser())) ?>

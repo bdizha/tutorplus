@@ -167,8 +167,9 @@
 
 #top-menu a{
     padding: 10px;
-    font-size: 14px;
     display: block;
+    font-size: 12px;
+    text-transform: uppercase;
     height: 25px;
 }
 
@@ -205,6 +206,7 @@
     color: #FFFFFF;
     display: inline;
     padding: 0 0 0 20px;
+    position: relative;
 }
 
 #header-links ul li a{
@@ -241,6 +243,7 @@
 #middle-landing-column{
     padding-bottom: 10px;
     width: 940px;
+    margin-top: 15px;
 }
 
 #main-footer{
@@ -398,6 +401,8 @@
 
 .plain-row{
     background-color: #F9F9F9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .white-background{
@@ -424,9 +429,9 @@
     clear: both;
     color: #555A65;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 13px;
     border-bottom: 1px solid #FFFFFF;
-    padding: 5px 10px;
+    padding: 10px;
 }
 
 #sf_admin_container .content-block h2 .actions, #sf_admin_form_container h2 .actions{
@@ -508,6 +513,7 @@
 
 #authenticate{
     height: 290px;
+    width: 520px;
 }
 
 #request-password{    
@@ -719,6 +725,15 @@
     clear: both !important;
     width: 296px;
     position: relative;
+}
+
+.overlay-content {
+    margin: 10px 0 0;
+    display: inline-block;
+    clear: both !important;
+    width: 296px;
+    position: relative;
+    padding: 0 10px 10px;
 }
 
 .potential-list .image {
@@ -968,7 +983,6 @@
 }
 
 .landing-row{
-    margin-top: 40px;
     width: 940px;
     clear: both;
     height: 289px;
@@ -1041,7 +1055,7 @@
 }
 
 .column-row{
-    border-bottom: 1px solid #F1F1F1;
+    border-top: 1px solid #F1F1F1;
     height: 144px;
 }
 
@@ -1072,6 +1086,12 @@
     border-bottom: 1px solid #FFFFFF;
     padding: 5px 10px;
     position: relative;
+    display: block;
+    clear: both;
+}
+
+#activity_feeds .even-row{
+    padding: 5px 10px 10px !important;
 }
 
 .odd-row{
@@ -1113,9 +1133,9 @@
     right: 125px;
     position: absolute;
     top: 10px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
     -moz-box-shadow: 0 2px 4px rgba(0,0,0,.1);
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
@@ -1123,6 +1143,24 @@
     border: 1px solid #CCC;
     padding: 5px;
     z-index: 12;
+    width: 128px;
+}
+
+.menu-photo{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px !important;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+    border: 1px solid #CCC;
+    padding: 2px 2px 0;
+    height: 26px;
+    display: inline-block;
+    position: absolute;
+    left: -15px;
+    top: -7px;
+    height: 26px !important;
 }
 
 .profile-photo-block{
@@ -1140,4 +1178,69 @@
 
 .email-recipient{
     color: #134D58;
+}
+
+.photo-link{
+    display: block;
+    float: left;
+    margin-right: 7px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+ul.nav-tabs {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+ul.nav-tabs li {
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    list-style-type: none;
+    padding: 5px 10px;
+    font-weight: 500;
+    color: #00446A;
+    margin-bottom: -1px;
+}
+
+ul.nav-tabs li a{
+    font-size: 13px;
+}
+
+ul.nav-tabs li.active-tab {
+    background: #F9F9F9;
+    border-top: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: #008FC5;
+}
+
+.list-count{
+    color: #FFFFFF;
+    background-color: #21616D;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+.no-padding{
+    padding: 0 !important;
+}
+
+.thread {
+    position: relative;
+    padding: 10px 0 10px 10px;
+}
+
+.message {
+    background-color: #F1F1F1;
+    border: 1px solid white;
+    margin-left: 65px;
+    padding: 5px;
+    min-height: 41px;
 }

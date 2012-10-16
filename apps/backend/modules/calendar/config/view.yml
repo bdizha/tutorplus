@@ -7,6 +7,6 @@ newSuccess:
 editSuccess:
   layout: false
   
-myCalendarSuccess:  
-  stylesheets: [full_calendar_print, full_calendar, dashboard, -datepicker.css, calendar.css]
+myScheduleSuccess:  
+  stylesheets: [full_calendar_print, full_calendar, dashboard, calendar.css]
   javascripts: [jquery/full_calendar.js]

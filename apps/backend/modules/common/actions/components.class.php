@@ -12,8 +12,13 @@ class commonComponents extends sfComponents {
 
     public function executeMenu(sfWebRequest $request) {
         $menu = sfYaml::load(dirname(__FILE__) . "/../config/menu.yml");
-        
+
         $this->menu = $menu['menu'];
-        //myToolkit::debug($this->menu);
     }
+
+    public function executeHeader(sfWebRequest $request) {
+        $this->totalInboxCount = EmailMessageTable::getInstance()->countInboxByEmail($this->getUser()->getEmail());
+        $this->totalNotificationCount = EmailMessageTable::getInstance()->countDraftsByEmail($this->getUser()->getEmail());
+    }
+
 }

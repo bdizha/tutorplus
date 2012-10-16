@@ -2,27 +2,53 @@
 <?php include_partial('message_draft/flashes', array('form' => $form)) ?>
 <?php include_partial('message_draft/form', array('email_message' => $email_message, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
 <script type="text/javascript">
-    $(document).ready(function(){      
+    $(document).ready(function(){
+        
+        // make the reply textarea elastic
+        $('textarea').elastic().trigger('update');
+        
+        $('textarea').blur(function(){
+            $('body').click();
+        });
+        
         // set the counts of the email labels
         setListCounts();
         
-        $('#message_edit_tab a').html("<?php echo $email_message->getSubject() ?>");
-        $('#message_edit_tab a').attr("href", "message_draft_tab/<?php echo $email_message->getId() ?>/edit");
-        
-        $("#email_message_from_email").parent().append($("#email_message_from_email").val());        
-        $("#email_message_from_email").hide();
-        
-        $(".sf_admin_form_field_body label").remove();
-        $("div.sf_admin_form_field_to_email").append($("#cc_controller").html());
-        $("div.sf_admin_form_field_cc_email").hide();
-        $("div.sf_admin_form_field_bcc_email").hide();
-        
-        $("#add_cc").click(function(){
-            $("div.sf_admin_form_field_cc_email").toggle();
-        });
-
-        $("#add_bcc").click(function(){
-            $("div.sf_admin_form_field_bcc_email").toggle();
+        $(".sf_admin_form_field_body label").remove();        
+        $('.email').click(function(){  
+            if($(this).val() == "Save Draft")
+            {  
+                // set the message status to "saved"
+                $("#email_message_status").val("<?php echo EmailMessageTable::EMAIL_MESSAGE_STATUS_SAVED ?>");
+            }
+            else if($(this).val() == "Cancel")
+            {
+                if (confirm("Are you sure you want to discard this message?")){
+                    $("#drafts_nav_tabs li").removeClass("active-tab");
+                    $("#message_draft_tab").addClass("active-tab");
+                    fetchDefaultTab();
+                    return false;
+                }
+                else{
+                    return false;   
+                }
+            }
+            else{
+                $("#email_message_status").val("<?php echo EmailMessageTable::EMAIL_MESSAGE_STATUS_SENT ?>");
+            }
+                
+            $("#message_form").ajaxSubmit(function(data){
+                if(data == "success")
+                {
+                    $("#drafts_nav_tabs li").removeClass("active-tab");
+                    $("#message_draft_tab").addClass("active-tab");
+                    fetchDefaultTab();
+                }
+                else
+                {
+                    $("#email_container").html(data);
+                }
+            });
         });
     });
     

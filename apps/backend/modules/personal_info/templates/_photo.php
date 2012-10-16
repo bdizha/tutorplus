@@ -1,1 +1,3 @@
-<img src="/backend.php/profile_show_photo/<?php echo $user->getId() ?>/<?php echo $dimension ?>/<?php echo time() ?>" alt="<?php echo $user->getName() ?>" title="<?php echo $user->getName() ?>"/>
+<?php $image = "<img src=\"/backend.php/profile_show_photo/" . $user->getId() . "/" . $dimension . "/" . time() . "\" class=\"image\" alt=\"" . $user->getName() . "\" title=\"" . $user->getName() . "\"/>" ?>
+<?php $extraClass = (isset($cssClass)) ? " " . $cssClass : "" ?>
+<?php echo link_to($image, 'profile_show', $user, array("class" => "photo-link" . $extraClass, "style" => "width:" . $dimension . "px;height:" . $dimension . "px;")) ?>

@@ -19,7 +19,7 @@ generator:
       filter:
         class: false
       list:
-        title:             Courses Meeting Times
+        title:             Course Meeting Times
         display:           [_day, _time, _venue]
         sort:              [day, asc]
         batch_actions:     []

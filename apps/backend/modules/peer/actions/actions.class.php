@@ -14,19 +14,19 @@ require_once dirname(__FILE__) . '/../lib/peerGeneratorHelper.class.php';
 class peerActions extends autoPeerActions {
 
     public function executeStudents(sfWebRequest $request) {
-        $this->peers = PeerTable::getInstance()->findByUserIdAndTypes($this->getUser()->getId(), array(PeerTable::TYPE_STUDENT_STUDENT, PeerTable::TYPE_INSTRUCTOR_STUDENT));
+        $this->studentPeers = PeerTable::getInstance()->findByUserIdAndTypes($this->getUser()->getId(), array(PeerTable::TYPE_STUDENT_STUDENT, PeerTable::TYPE_INSTRUCTOR_STUDENT));
     }
 
     public function executeInstructors(sfWebRequest $request) {
-        $this->peers = PeerTable::getInstance()->findByUserIdAndTypes($this->getUser()->getId(), array(PeerTable::TYPE_STUDENT_INSTRUCTOR, PeerTable::TYPE_INSTRUCTOR_INSTRUCTOR));
+        $this->instructorPeers = PeerTable::getInstance()->findByUserIdAndTypes($this->getUser()->getId(), array(PeerTable::TYPE_STUDENT_INSTRUCTOR, PeerTable::TYPE_INSTRUCTOR_INSTRUCTOR));
     }
 
     public function executeFind(sfWebRequest $request) {
-        $this->peers = PeerTable::getInstance()->findByNotUserId($this->getUser()->getId());
+        $this->potentialPeers = PeerTable::getInstance()->findByNotUserId($this->getUser()->getId());
     }
 
     public function executeSuggested(sfWebRequest $request) {
-        $this->peers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->getUser()->getId(), PeerTable::STATUS_SUGGESTED);
+        $this->suggestedPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->getUser()->getId(), PeerTable::STATUS_SUGGESTED);
     }
 
     public function executeInvite(sfWebRequest $request) {

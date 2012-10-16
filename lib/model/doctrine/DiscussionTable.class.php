@@ -89,17 +89,17 @@ class DiscussionTable extends Doctrine_Table {
     }
 
     public function findOneByDiscussionIdAndUserId($discussionId, $userId) {
-        $query = $this->createQuery('d')
+        $q = $this->createQuery('d')
                 ->addWhere('d.id = ?', $discussionId)
                 ->andWhere('d.user_id = ?', $userId);
-        return $query->fetchOne();
+        return $q->fetchOne();
     }
 
     public function findOneByUserIdAndIsPrimary($userId, $isPrimary) {
-        $query = $this->createQuery('d')
+        $q = $this->createQuery('d')
                 ->addWhere('d.is_primary = ?', $isPrimary)
                 ->andWhere('d.user_id = ?', $userId);
-        return $query->fetchOne();
+        return $q->fetchOne();
     }
 
     public function findOrCreatePrimaryDiscussionByUserId($user) {
@@ -123,6 +123,14 @@ class DiscussionTable extends Doctrine_Table {
             $discussionMember->save();
         }
         return $discussion;
+    }
+
+    public function findPopularDiscussionsByUserId($userId, $limit = 3) {
+        $q = $this->createQuery('d')
+                ->innerJoin('d.Members dm')
+                ->andWhere('dm.user_id = ?', $userId);
+        $q->limit($limit);
+        return $q->execute();
     }
 
 }

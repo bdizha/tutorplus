@@ -1,8 +1,8 @@
 <h2>Discussion Topics - <?php echo $pager->getNbResults(); ?> topic(s)</h2>
 <div class="full-block">
     <?php if (!$pager->getNbResults()): ?>
-        <div class="sf_admin_form_row even-row">
-            <p><?php echo __('No posts', array(), 'sf_admin') ?></p>
+        <div class="no-result">
+            <?php echo __('No posts', array(), 'sf_admin') ?>
         </div>
     <?php else: ?>  
         <div id="discussion_topics">

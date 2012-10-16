@@ -4,5 +4,5 @@
         <?php include_partial('discussion_member/member', array('member' => $discussionMember)) ?>
     <?php endforeach; ?>
 <?php else: ?>
-    <div class="section_description">Currently there're no discussion participants.</div>
+    <div class="no-result">Currently there're no discussion participants.</div>
 <?php endif; ?>

@@ -14,6 +14,6 @@ class CalendarEvent extends BaseCalendarEvent
 {
     function getWhen()
     {
-        return $this->getFromDate() . " ~ " . $this->getToDate();
+        return $this->getDateTimeObject('from_date')->format('d/m/Y') . " - " . $this->getDateTimeObject('to_date')->format('d/m/Y');
     }
 }

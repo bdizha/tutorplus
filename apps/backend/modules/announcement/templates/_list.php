@@ -1,5 +1,8 @@
+<?php if (count($announcements) == 0): ?>
+    <div class="no-result">There's no announcements currently.</div>
+<?php endif; ?>
 <?php foreach ($announcements as $i => $announcement): ?>    
-    <div class="padding-10 full-block"> 
+    <div class="even-row"> 
         <a class="image" href="/backend.php/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
         <div class="value">
             <?php echo $announcement->getSubject() ?>

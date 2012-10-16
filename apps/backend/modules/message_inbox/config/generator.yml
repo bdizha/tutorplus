@@ -37,6 +37,6 @@ generator:
         max_per_page:			    10
       new:
         actions:       
-          _save_draft:        ~
-          _send:              ~
-          _cancel:            ~
+          save_draft:         { label: "Save Draft" }
+          cancel:             ~
+          send:               ~

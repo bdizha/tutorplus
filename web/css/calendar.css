@@ -1,38 +1,5 @@
 #calendar_event_description {
-    color: #3C3C3C;
-    font-size: 12px !important;
-    height: 100px;
-    padding: 2px !important;
-    width: 520px !important;
-}
-
-#calendar_name{
-    color: #3C3C3C;
-    font-size: 12px !important;
-    padding: 2px !important;
-    width: 300px !important;
-}
-
-#calendar_type{
-    width: 304px !important;
-}
-
-#calendar_description{
-    color: #3C3C3C;
-    font-size: 12px !important;
-    padding: 2px !important;
-    width: 300px !important;
-}
-
-#popup .sf_admin_form_row {
-    clear: both;
-    font-size: 12px;
-    margin-top: 1em;
-    padding: 0 !important;
-}
-
-.sf_admin_form_row label {
-    padding-left: 10px !important;
+    width: 325px !important;
 }
 
 #calendars ul.checkbox_list li {
@@ -57,4 +24,19 @@
 .calendar_label{
     cursor: hand;
     cursor: pointer;
+}
+
+.sf_admin_form_field_name, .sf_admin_form_field_calendar_id,
+.sf_admin_form_field_from_date, .sf_admin_form_field_to_date,
+.sf_admin_form_field_location, .sf_admin_form_field_is_personal{
+    float: left;
+    width: 341px;
+}
+
+.sf_admin_form_field_description{
+    clear: both;
+}
+
+#calendar_event_description{
+    width: 682px !important;
 }

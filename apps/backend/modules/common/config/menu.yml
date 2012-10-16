@@ -3,33 +3,6 @@ menu:
     details:                          { route: dashboard, label: Dashboard }
     type:                             Many
     children:
-      my_dashboard:                   
-        details:                      { route: dashboard, label: "Dashboard" }
-        credentials:                  [ student, instructor, staff ]
-        children:                    
-          my_dashboard:               { route: dashboard, label: "My Dashboard" }
-          activity_feeds:             { route: activity_feed, label: "Activity Feeds" }
-      my_messages:                    
-        details:                      { route: dashboard, label: "Messaging" }
-        credentials:                  [ student, instructor, staff ]
-        children:
-          message_inbox:              { route: message_inbox, label: "Inbox" }
-          message_sent:               { route: message_sent, label: "Sent" }
-          message_draft:              { route: message_draft, label: "Drafts" }
-          message_trash:              { route: message_trash, label: "Trash" }
-      my_courses:                                        
-        details:                      { route: dashboard, label: "Courses" }
-        credentials:                  [ student, instructor, staff ]
-        children:
-          course_explorer:            { route: courses, label: "Course Explorer" }
-          my_courses:                 { route: my_courses, label: "My Courses" }
-#          other_courses:              { route: other_course, label: "Other Courses" }
-      my_calendar:                                        
-        details:                      { route: calendar, label: "Calendar" }
-        children:
-          my_schedule:                { route: my_schedule, label: "My Schedule" }
-          calendar_events:            { route: calendar_event, label: "Calendar Events" }
-          calendars:                  { route: calendar, label: "Calendars" }
   courses:                          
     details:                          { route: courses, label: Courses }
     type:                             One
@@ -44,12 +17,15 @@ menu:
         details:                      { route: course_show, label: "Course Home" }
         credentials:                  [ student, instructor, staff ]
         children:
-          course_info:                { route: course_show, param: id,  label: "Course Info" }
+          course_info:                { route: course_show, param: slug,  label: "Course Info" }
+          announcements:              { route: course_announcement, label: "Announcements" }
+          course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
+          course_calendar:            { route: calendar, label: "Course Calendar" }
           assignments:                { route: assignment, label: "Assignments" }
-          assignment_groups:          { route: assignment_group, label: "Assignments Types" }
+          assessment_types:           { route: assessment_type, label: "Assessment Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
           course_files:               { route: course_file, label: "Course Files" }
-#          course_videos:              { route: course_file, label: "Course Videos" }
+          course_participants:        { route: course_participant, label: "Participants" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ student, instructor, staff ]
@@ -65,23 +41,34 @@ menu:
         credentials:                  [ student, instructor, staff ]
         children:
           discussion_explorer:        { route: discussion, label: "Discussion Explorer" }
-          my_discussions:             { route: discussion, label: "My Discussions" }
-  profile:                          
-    details:                          { route: profile_wall, label: Profile }
+  calendar:                          
+    details:                          { route: my_schedule, label: Calendar }
     type:                             One
     children:
+      my_calendar:                                        
+        details:                      { route: my_schedule, label: "Calendar" }
+        children:
+          my_schedule:                { route: my_schedule, label: "My Schedule" }
+          calendar_events:            { route: calendar_event, label: "Events" }
+          calendars:                  { route: calendar, label: "Calendars" }
+  profile:                          
+    details:                          { route: profile_show, label: Profile }
+    type:                             One
+    param:                            slug
+    children:
       my_profile:                   
-        details:                      { route: profile_wall, label: "Profile" }
+        details:                      { route: profile_show, label: "Profile" }
         credentials:                  [ student, instructor, staff ]
+        param:                        slug
         children:                    
-          my_info:                    { route: profile, label: "About" }
+          my_info:                    { route: profile_show, param: slug, label: "Public Info" }
           my_peers:                   { route: profile_peers, label: "Peers" }
-          my_discussions:             { route: profile_wall, label: "Discussion Wall" }
+          my_discussions:             { route: profile_timeline, label: "Timeline" }
           my_awards:                  { route: profile_award, label: "Awards" }
           my_qualifications:          { route: profile_qualification, label: "Qualifications" }
-          my_account_settings:        { route: profile_account_settings, label: "Account Settings" }
-          my_contact_details:         { route: profile_contact_details, label: "Contact Details" }
-          my_notification_settings:   { route: notification_settings, label: "Notification Settings" }
+          my_account_settings:        { route: profile_account_settings, command: ignore, label: "Account Settings" }
+          my_contact_details:         { route: profile_contact_details, command: ignore, label: "Contact Details" }
+          my_notification_settings:   { route: notification_settings, command: ignore, label: "Notification Settings" }
   peers:   
     details:                          { route:  peer_students, label: Peers }
     type:                             One
@@ -94,6 +81,29 @@ menu:
           instructor_peers:           { route: peer_instructors, label: "Instructor Peers" }
           suggested_peers:            { route: peer_suggested, label: "Suggested Peers" }
           find_peers:                 { route: peer_find, label: "Find Peers" }
+  messaging:                          
+    details:                          { route: message_inbox, label: Messaging }
+    type:                             One
+    children:
+      my_messages:                    
+        details:                      { route: message_inbox, label: "Messaging" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          message_inbox:              { route: message_inbox, label: "Inbox" }
+          message_sent:               { route: message_sent, label: "Sent" }
+          message_draft:              { route: message_draft, label: "Drafts" }
+          message_trash:              { route: message_trash, label: "Trash" }
+  communication:                          
+    details:                          { route: activity_feed, label: Communication }
+    type:                             One
+    children:
+      channels:                                     
+        details:                      { route: activity_feed, label: "Channes" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          notifications:              { route: activity_feed, label: "Notifications" }
+          news:                       { route: news, label: "News" }
+          announcements:              { route: announcement, label: "Announcements" }
   settings:    
     details:                          { route: course, label: Settings }
     type:                             Many
@@ -120,8 +130,6 @@ menu:
         details:                      { route: email_template, label: "Communication Settings" }
         credentials:                  [ administrator ]
         children:
-          news:                       { route: news, label: "News" }
-          announcements:              { route: announcement, label: "Announcements" }
           email_templates:            { route: email_template, label: "Email Templates" }
           mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
           activity_templates:         { route: activity_template, label: "Activity Templates" }
@@ -134,3 +142,38 @@ menu:
           buildings:                  { route: building, label: "Buildings" }
           campuses:                   { route: campus, label: "Campuses" }
           rooms:                      { route: room, label: "Rooms" }
+  home:                          
+    details:                          { route: message_inbox, label: Home }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  about_us:                          
+    details:                          { route: message_inbox, label: "About Us" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  collaborative_learning:                          
+    details:                          { route: message_inbox, label: "CSCL" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  our_philosophy:                          
+    details:                          { route: message_inbox, label: "OUr Philosophy" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  our_team:                          
+    details:                          { route: message_inbox, label: "OUr Team" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  contact_us:                          
+    details:                          { route: message_inbox, label: "Contact Us" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }
+  support:                          
+    details:                          { route: message_inbox, label: "Support" }
+    type:                             One
+    is_authenticated:                 false
+    children:                         { }

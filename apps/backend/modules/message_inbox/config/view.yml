@@ -1,6 +1,5 @@
 all:
-  stylesheets: [/sfFormExtraPlugin/css/jquery.autocompleter.css, email_message.css]
-  javascripts: [/sfFormExtraPlugin/js/jquery.autocompleter.js]
+  stylesheets: [email_message.css, profile.css, course.css]
 
 newSuccess:
   layout: false

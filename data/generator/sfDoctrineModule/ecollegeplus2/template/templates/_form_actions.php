@@ -1,4 +1,4 @@
-<ul class="sf_admin_actions" id="sf_admin_actions_[?php echo $this->getModuleName() ?]">
+<ul class="sf_admin_actions">
     <?php foreach (array('new', 'edit') as $action): ?>
         <?php if ('new' == $action): ?>
             [?php if ($form->isNew()): ?]
@@ -25,7 +25,6 @@
 
                     [?php else: ?]
                     <?php echo $this->addCredentialCondition($this->getLinkToAction($name, $params, true), $params) ?>
-
                     [?php endif; ?]
                 </li>
             <?php endif; ?>

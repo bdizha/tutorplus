@@ -23,19 +23,23 @@ class notification_settingsGeneratorHelper extends BaseNotification_settingsGene
     }
 
     public function editBreadcrumbs() {
+        $sfUser = sfContext::getInstance()->getUser();
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
+                "Profile" => "profile/" . $sfUser->getGuardUser()->getSlug(),
                 "Notification Settings" => "my_notification_settings"
             )
         );
     }
 
     public function editLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_notification_settings",
-            "is_profile" => true
+            "ignore" => !$sfUser->isCurrent($userId),
+            "slug" => $sfUser->getGuardUser()->getSlug()
         );
     }
 

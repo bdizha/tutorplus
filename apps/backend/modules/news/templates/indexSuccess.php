@@ -8,17 +8,9 @@
 <?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <?php end_slot() ?>
 
-<div class="sf_admin_heading">
-    <h3><?php echo __('News', array(), 'messages') ?></h3>
-</div>
-<div class="content-block">    
-    <div class="news-action">
-        <ul class="sf_admin_actions" class="clear">
-            <?php echo $helper->linkToAnnounce() ?>
-        </ul>
-    </div>
-    <div class="white-background">
-        <h2>News</h2>
+<div id="sf_admin_content">
+    <div class="content-block">
+        <h2>News</h2>   
         <div id="news_items">
             <?php include_partial('news/list', array("newsItems" => $newsItems, "helper" => $helper, "showActions" => true)) ?>
         </div>

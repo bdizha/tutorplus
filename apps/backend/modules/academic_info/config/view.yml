@@ -1,8 +1,2 @@
-indexSuccess:
-  stylesheets: [*, academics.css]
-
-showSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false
+all:
+  has_layout: false

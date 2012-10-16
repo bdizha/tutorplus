@@ -4,7 +4,7 @@
 .sf_admin_form_field_is_finalized, .sf_admin_form_field_credits, .sf_admin_form_field_hours,
 .sf_admin_form_field_max_enrolled{
     float: left;
-    width: 45%;
+    width: 341px;
 }
 
 .sf_admin_form_field_description{
@@ -111,7 +111,6 @@ select[size], select[multiple], select[size][multiple] {
 }
 
 #course_students, #course_instructors{
-    padding: 0 10px 10px;
 }
 
 .course-student, .course-instructor {
@@ -132,9 +131,10 @@ select[size], select[multiple], select[size][multiple] {
 }
 
 .choose-participants{
-    max-height: 300px;
+    max-height: 330px;
     overflow: auto;
     margin-bottom: 20px;
+    padding: 0 10px 10px;
 }
 
 .course-participant {

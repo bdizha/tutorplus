@@ -97,8 +97,9 @@ Instructor:
   columns:
     employment:                 { type: enum, values: [Full time, Part time] }
     is_student:                 { type: boolean, default: 0 }
-    current_study:              { type: string(255) }
+    high_school:                { type: string(255) }
     studied_at:                 { type: string(255) }
+    current_study:              { type: string(255) }
     employment_start_date:      { type: timestamp, notnull: false }
     employment_end_date:        { type: timestamp, notnull: false }
       
@@ -217,39 +218,41 @@ ActivityFeed:
     Timestampable:              ~
   tableName:                    activity_feed
   columns:
+    user_id:                    { type: integer, notnull: true }
     replacements:        				{ type: clob, notnull: true }
     activity_template_id:       { type: integer, notnull: true }
   relations:
     ActivityTemplate:           { class: ActivityTemplate, local: activity_template_id, foreign: id, onDelete: CASCADE, foreignAlias: ActivityFeeds }
+    Doer:                       { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: MyActivityFeeds, onDelete: CASCADE }
     
 UserActivityFeed:
   actAs:
-  tableName:                   user_activity
+  tableName:                   user_activity_feed
   columns:
     user_id:                   { type: integer, notnull: true }
     activity_feed_id:          { type: integer, notnull: true }
   relations:
     User:                      { class: sfGuardUser, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: UserActivityFeeds }
-    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: UserActivityFeeds }
+    ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: ActivityFeedUsers }
     
 CourseActivityFeed:
   actAs:
-  tableName:                   course_activity
+  tableName:                   course_activity_feed
   columns:
-    user_id:                   { type: integer, notnull: true }
+    course_id:                 { type: integer, notnull: true }
     activity_feed_id:          { type: integer, notnull: true }
   relations:
-    Course:                    { class: Course, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseActivityFeeds }
+    Course:                    { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseActivityFeeds }
     ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: CourseActivityFeeds }
     
 DiscussionActivityFeed:
   actAs:
-  tableName:                   discussion_activity
+  tableName:                   discussion_activity_feed
   columns:
-    user_id:                   { type: integer, notnull: true }
+    discussion_id:             { type: integer, notnull: true }
     activity_feed_id:          { type: integer, notnull: true }
   relations:
-    Discussion:                { class: Discussion, local: user_id, foreign: id, onDelete: CASCADE, foreignAlias: DiscussionActivityFeeds }
+    Discussion:                { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: DiscussionActivityFeeds }
     ActivityFeed:              { class: ActivityFeed, local: activity_feed_id, onDelete: CASCADE, foreignAlias: DiscussionActivityFeeds }
     
 Peer:
@@ -540,9 +543,9 @@ NotificationSettings:
   relations:
     User:                               { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE, foreignAlias: NotificationSettings }
     
-AssignmentType:
+AssessmentType:
   actAs:                    [Timestampable]
-  tableName:                assignment_type
+  tableName:                assessment_type
   columns:
     name:                   { type: string(255), notnull: true }
     weight:                 { type: decimal, default: 0, notnull: true }
@@ -558,7 +561,7 @@ Assignment:
   tableName:                assignment
   columns:
     title:                  { type: string(255), notnull: true }
-    assignment_group_id:    { type: integer, notnull: true }
+    assessment_type_id:    { type: integer, notnull: true }
     description:            { type: clob, notnull: true }
     submission:             { type: integer, notnull: true }
     due_date:               { type: timestamp, notnull: false }
@@ -574,7 +577,7 @@ Assignment:
     course_id:              { type: integer, notnull: true }
   relations:
     Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
-    AssignmentType:         { local: assignment_type_id, foreign: id, type: one, foreignType: one }
+    AssessmentType:         { local: assessment_type_id, foreign: id, type: one, foreignType: one }
     
 AssignmentFile:
   tableName:                assignment_file
@@ -823,10 +826,10 @@ EmailMessageCorrespondence:
   tableName:                  email_message_correspondence
   columns:
     initiator_id:             { type: integer, notnull: true }
-    invitee_id:         { type: integer, notnull: true }
+    invitee_id:               { type: integer, notnull: true }
   relations:
     InitiatorMessage:         { class: EmailMessage, local: initiator_id, foreignAlias: EmailMessageInitiator, foreignType: one, type: one, foreign: id, onDelete: CASCADE }
-    inviteeMessage:     { class: EmailMessage, local: invitee_id, foreignAlias: EmailMessageinvitee, foreignType: one, type: one, foreign: id, onDelete: CASCADE }
+    inviteeMessage:           { class: EmailMessage, local: invitee_id, foreignAlias: EmailMessageinvitee, foreignType: one, type: one, foreign: id, onDelete: CASCADE }
   
 EmailMessageReply:
   columns:
@@ -835,10 +838,10 @@ EmailMessageReply:
     email_message_id:         { type: integer, notnull: true }
     email_message_reply_id:   { type: integer, notnull: true }
   relations:                
-    SendingUser:              { class: sfGuardUser, local: sender_id, foreignAlias: MyEmailMessageReplys, foreign: id, onDelete: CASCADE }          
-    RespondingUser:           { class: sfGuardUser, local: responder_id, foreignAlias: OtherEmailMessageReplys, foreign: id, onDelete: CASCADE }
-    EmailMessage:             { class: EmailMessage, local: email_message_id, foreignAlias: EmailMessageReplys, foreignType: many, type: one, foreign: id, onDelete: CASCADE }
-    EmailMessageReply:        { class: EmailMessage, local: email_message_reply_id, foreignType: one, type: one, foreign: id, onDelete: CASCADE }   
+    SendingUser:              { class: sfGuardUser, local: sender_id, foreignAlias: MyReplies, foreign: id, onDelete: CASCADE }          
+    RespondingUser:           { class: sfGuardUser, local: responder_id, foreignAlias: OtherReplies, foreign: id, onDelete: CASCADE }
+    EmailMessage:             { class: EmailMessage, local: email_message_id, foreignAlias: Replies, foreignType: many, type: one, foreign: id, onDelete: CASCADE }
+    EmailMessageReply:        { class: EmailMessage, local: email_message_reply_id, foreignAlias: Invoker, foreignType: one, type: one, foreign: id, onDelete: CASCADE }   
    
 MailingList:
   actAs:                      [Timestampable]
@@ -899,7 +902,11 @@ UserCalendar:
     Owner:                  { class: sfGuardUser, local: owner_id, foreign: id, foreignType: many, foreignAlias: Owner, type: one, onDelete: CASCADE }  
     
 CalendarEvent:
-  actAs:                    [Timestampable]
+  actAs:             
+    Timestampable:          ~
+    Sluggable:
+      fields:               [name]
+  tableName:                calendar_event
   columns:
     calendar_id:            { type: integer, notnull: true }
     user_id:                { type: integer, notnull: true }
@@ -917,6 +924,7 @@ CalendarEvent:
     
 CalendarEventAttendee:
   actAs:                    [Timestampable]
+  tableName:                calendar_event_attendee
   columns:
     calendar_event_id:      { type: integer, notnull: true }
     user_id:                { type: integer, notnull: true }

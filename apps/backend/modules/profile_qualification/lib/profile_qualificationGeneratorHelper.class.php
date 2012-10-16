@@ -43,19 +43,23 @@ class profile_qualificationGeneratorHelper extends BaseProfile_qualificationGene
     }
 
     public function qualificationBreadcrumbs() {
+        $sfUser = sfContext::getInstance()->getUser();
         return array('breadcrumbs' => array(
-                "Profile" => "profile_wall",
-                "Qualifications" => "profile_qualification"
+                "Profile" => "profile/" . $sfUser->getProfile()->getUser()->getSlug(),
+                "Awards" => "profile_qualification"
             )
         );
     }
 
     public function qualificationLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $userId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_qualifications",
-            "is_profile" => true
+            "slug" => $sfUser->getGuardUser()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($userId)
         );
     }
 

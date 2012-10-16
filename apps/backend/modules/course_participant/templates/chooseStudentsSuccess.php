@@ -2,13 +2,47 @@
     <form id="choose_course_students_form" action="/backend.php/choose_course_students" method="post">
         <div class="choose-participants">
             <?php foreach ($students as $student): ?>
-                <div class="course-participant">
-                    <div class="course-participant-image">
-                        <img alt="<?php echo $student["name"] ?>" src="/uploads/users/6/avatar_24.png"/>
-                    </div>
-                    <div class="course-participant-name"><?php echo $student["name"] ?></div>
+                <div class="peer">
+                    <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 36)) ?>
+                    <div class="name"><?php echo link_to($student->getUser(), 'profile_show', $student->getUser()) ?></div>
                     <div class="course-participant-input">
-                        <input type="checkbox" class="input-checkbox" name="student[]" value="<?php echo $student["id"] ?>" <?php echo (isset($currentStudentIds) && is_array($currentStudentIds) && in_array($student["id"], $currentStudentIds)) ? "checked='checked'" : "" ?> id="student_<?php echo $student["id"] ?>" class="choose-input" />                
+                        <input type="checkbox" class="input-checkbox" name="student[]" value="<?php echo $student->getId() ?>" <?php echo (isset($currentStudentIds) && is_array($currentStudentIds) && in_array($student["id"], $currentStudentIds)) ? "checked='checked'" : "" ?> id="student_<?php echo $student->getId() ?>" class="choose-input" />                
+                    </div>
+                </div> 
+            <?php endforeach; ?>
+            <?php foreach ($students as $student): ?>
+                <div class="peer">
+                    <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 36)) ?>
+                    <div class="name"><?php echo link_to($student->getUser(), 'profile_show', $student->getUser()) ?></div>
+                    <div class="course-participant-input">
+                        <input type="checkbox" class="input-checkbox" name="student[]" value="<?php echo $student->getId() ?>" <?php echo (isset($currentStudentIds) && is_array($currentStudentIds) && in_array($student["id"], $currentStudentIds)) ? "checked='checked'" : "" ?> id="student_<?php echo $student->getId() ?>" class="choose-input" />                
+                    </div>
+                </div> 
+            <?php endforeach; ?>
+            <?php foreach ($students as $student): ?>
+                <div class="peer">
+                    <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 36)) ?>
+                    <div class="name"><?php echo link_to($student->getUser(), 'profile_show', $student->getUser()) ?></div>
+                    <div class="course-participant-input">
+                        <input type="checkbox" class="input-checkbox" name="student[]" value="<?php echo $student->getId() ?>" <?php echo (isset($currentStudentIds) && is_array($currentStudentIds) && in_array($student["id"], $currentStudentIds)) ? "checked='checked'" : "" ?> id="student_<?php echo $student->getId() ?>" class="choose-input" />                
+                    </div>
+                </div> 
+            <?php endforeach; ?>
+            <?php foreach ($students as $student): ?>
+                <div class="peer">
+                    <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 36)) ?>
+                    <div class="name"><?php echo link_to($student->getUser(), 'profile_show', $student->getUser()) ?></div>
+                    <div class="course-participant-input">
+                        <input type="checkbox" class="input-checkbox" name="student[]" value="<?php echo $student->getId() ?>" <?php echo (isset($currentStudentIds) && is_array($currentStudentIds) && in_array($student["id"], $currentStudentIds)) ? "checked='checked'" : "" ?> id="student_<?php echo $student->getId() ?>" class="choose-input" />                
+                    </div>
+                </div> 
+            <?php endforeach; ?>
+            <?php foreach ($students as $student): ?>
+                <div class="peer">
+                    <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 36)) ?>
+                    <div class="name"><?php echo link_to($student->getUser(), 'profile_show', $student->getUser()) ?></div>
+                    <div class="course-participant-input">
+                        <input type="checkbox" class="input-checkbox" name="student[]" value="<?php echo $student->getId() ?>" <?php echo (isset($currentStudentIds) && is_array($currentStudentIds) && in_array($student["id"], $currentStudentIds)) ? "checked='checked'" : "" ?> id="student_<?php echo $student->getId() ?>" class="choose-input" />                
                     </div>
                 </div> 
             <?php endforeach; ?>

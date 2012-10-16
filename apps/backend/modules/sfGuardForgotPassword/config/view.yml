@@ -1,2 +1,2 @@
 all:  
-  layout:         landing
+  stylesheets:    [ landing ]

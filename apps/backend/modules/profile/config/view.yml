@@ -8,5 +8,5 @@ newSuccess:
 editSuccess:
   has_layout:     false
  
-indexSuccess:
+showSuccess:
   has_layout:     true

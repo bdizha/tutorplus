@@ -44,26 +44,23 @@ class newsGeneratorHelper extends BaseNewsGeneratorHelper {
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "email_template",
-                "Communication Settings" => "communication_settings",
+               "Communication" => "activity_feed",
                 "News" => "news"
             )
         );
     }
 
     public function indexLinks() {
-        return array(
-            "current_parent" => "settings",
-            "current_child" => "communication_settings",
-            "current_link" => "news",
-            "is_profile" => true
+        return array(            
+            "current_parent" => "communication",
+            "current_child" => "channels",
+            "current_link" => "news"
         );
     }
 
     public function showBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "email_template",
-                "Communication Settings" => "communication_settings",
+                "Communication" => "news",
                 "News" => "news"
             )
         );
@@ -71,10 +68,9 @@ class newsGeneratorHelper extends BaseNewsGeneratorHelper {
 
     public function showLinks() {
         return array(
-            "current_parent" => "settings",
-            "current_child" => "communication_settings",
-            "current_link" => "news",
-            "is_profile" => true
+            "current_parent" => "communication",
+            "current_child" => "channels",
+            "current_link" => "news"
         );
     }
 

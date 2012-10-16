@@ -50,7 +50,7 @@ class discussion_topicActions extends autoDiscussion_topicActions
         $this->replyForm = new DiscussionTopicReplyForm();
     }
 
-    public function executeWall(sfWebRequest $request)
+    public function executeTimeline(sfWebRequest $request)
     {   
         $primaryDiscussion = DiscussionTable::getInstance()->findOrCreatePrimaryDiscussionByUserId($this->getUser()->getGuardUser());
         $this->discussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByUserId($this->getUser()->getId(), $primaryDiscussion->getId());

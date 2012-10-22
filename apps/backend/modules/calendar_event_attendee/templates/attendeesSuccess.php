@@ -1,0 +1,1 @@
+ <?php include_partial('list', array('event' => $event)) ?>

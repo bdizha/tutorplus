@@ -564,6 +564,14 @@ calendar_event:
     prefix_path:          /calendar_event
     column:               id
     with_wildcard_routes: true
+    
+calendar_event_show:
+  url:     /calendar_event/:slug
+  class:   sfDoctrineRoute
+  options: { model: CalendarEvent, type: object }
+  param:   { module: calendar_event, action: show }
+  requirements:
+    sf_method: [get]
 
 calendar:
   class: sfDoctrineRouteCollection
@@ -1029,6 +1037,14 @@ instructor_courses:
 course_choose:
   url: /course_choose
   param: { module: course, action: choose }
+ 
+event_attendees_choose:
+  url: /event_attendees_choose
+  param: { module: calendar_event_attendee, action: choose }
+  
+event_attendees:
+  url: /event/attendees
+  param: { module: calendar_event_attendee, action: attendees }
     
 mailing_lists_student:
   url: /mailing_lists_student
@@ -1670,7 +1686,7 @@ dropout:
 # default rules
 homepage:
   url:   /
-  param: { module: home, action: index }
+  param: { module: dashboard, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules  

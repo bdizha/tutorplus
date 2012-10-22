@@ -931,7 +931,7 @@ CalendarEventAttendee:
     status:                 { type: integer, default: 0, notnull: true } #[Sent, Accepted, Rejected, Ignored]
     comment:                { type: clob, notnull: true }
   relations:
-    CalendarEvent:          { local: calendar_event_id, foreign: id, type: one, foreignType: one }
+    CalendarEvent:          { local: calendar_event_id, foreign: id, type: one, foreignType: many, foreignAlias: Attendees }
     User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
     
 News:

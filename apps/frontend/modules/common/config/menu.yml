@@ -1,0 +1,22 @@
+menu:
+  home:  
+    details:                          { route: home, label: Home }
+  mission:  
+    details:                          { route: mission, label: Mission }
+    type:                             one
+  philosophy:  
+    details:                          { route: philosophy, label: Philosophy }
+    type:                             one
+  work:  
+    details:                          { route: work, label: "Our Work" }
+    type:                             one
+    type:                             one
+  leadership:  
+    details:                          { route: leadership, label: Leadership }
+    type:                             one
+  contact_us:  
+    details:                          { route: contact_us, label: "Contact Us" }
+    type:                             one
+  faq:  
+    details:                          { route: faq, label: "Faq" }
+    type:                             one

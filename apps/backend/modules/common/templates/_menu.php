@@ -4,13 +4,13 @@
 <div id="top-menu">
     <ul>
         <?php foreach ($menu as $key => $menuItem): ?>
-        <?php if ((isset($menuItem["is_authenticated"]) && !$menuItem["is_authenticated"] && !$sf_user->getId()) || ($sf_user->getId() && !isset($menuItem["is_authenticated"]))): ?>
-            <li class="separator"></li>
-            <li class="<?php echo ($i == 1 || $i == $menuItemsCount) ? ($i == 1) ? "first " : "last "  : "" ?>
-                <?php echo (!empty($current_parent) && $current_parent == $key) ? "active" : "normal" ?>">
-                <?php $params = (isset($menuItem["param"])) ? "?" . $menuItem["param"] . "=" . $sf_user->getGuardUser()->getSlug() : "" ?>
-                <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"] . $params) ?>
-            </li>
+            <?php if ($sf_user->getId()): ?>
+                <li class="separator"></li>
+                <li class="<?php echo ($i == 1 || $i == $menuItemsCount) ? ($i == 1) ? "first " : "last "  : "" ?>
+                    <?php echo (!empty($current_parent) && $current_parent == $key) ? "active" : "normal" ?>">
+                        <?php $params = (isset($menuItem["param"])) ? "?" . $menuItem["param"] . "=" . $sf_user->getGuardUser()->getSlug() : "" ?>
+                        <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"] . $params) ?>
+                </li>
             <?php endif; ?>
         <?php endforeach; ?>
         <?php $i++ ?>
@@ -35,7 +35,7 @@
                         <ol>
                             <?php $counter = 0; ?>                                    
                             <?php foreach ($childItem["children"] as $link => $linkItem): ?>
-                                <?php if (!isset($linkItem["command"]) || (isset($linkItem["command"]) && !(boolean)$$linkItem["command"])): ?>
+                                <?php if (!isset($linkItem["command"]) || (isset($linkItem["command"]) && !(boolean) $$linkItem["command"])): ?>
                                     <?php $counter++ ?>
                                     <?php $itemId2 = ($link == $current_link) ? "selected" : "" ?>
                                     <?php $params = (isset($linkItem["param"])) ? "?" . $linkItem["param"] . "=" . $$linkItem["param"] : "" ?>

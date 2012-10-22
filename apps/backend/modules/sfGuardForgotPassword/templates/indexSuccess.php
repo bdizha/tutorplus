@@ -5,13 +5,10 @@
 <?php end_slot() ?>
 <div class="landing-row">
     <div id="authenticate">
-        <div id="sf_admin_heading">
-            <h3>Recover Password:</h3>
-        </div>
-        <?php include_partial('sfGuardForgotPassword/flashes', array('form' => $form)) ?>
-        <div class="sf_admin_form" style="margin-top: 10px;">
+        <div class="sf_admin_form">
             <fieldset>
-                <h2>Enter your Email and we'll send you a link and a set of instructions to follow to change your password:</h2>
+                <h2>Recover Password:</h2>
+                <?php include_partial('sfGuardForgotPassword/flashes', array('form' => $form)) ?>
                 <form action="<?php echo url_for('@sf_guard_forgot_password') ?>" method="post">
                     <?php echo $form->renderHiddenFields(false) ?>
                     <div class="row">
@@ -24,10 +21,10 @@
                     </div>
                     <div style="clear: both;"></div>
                     <div class="row">
-                        <div class="other-label">
+                        <div id="sign-in-back">
                             <a href="<?php echo url_for('@sf_guard_signin') ?>">< Back to Sign In</a>
                         </div>
-                        <div class="input-elm">
+                        <div id="recover-password">
                             <input type="submit" class="save" value="Recover&nbsp;Password">      
                         </div>
                     </div>

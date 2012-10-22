@@ -120,23 +120,6 @@ select[size], select[multiple], select[size][multiple] {
     width: 265px;
 }
 
-.participant-image {
-    float: left;
-}
-
-.participant-meta {
-    float: left;
-    width: 180px;
-    padding-left: 10px;
-}
-
-.choose-participants{
-    max-height: 330px;
-    overflow: auto;
-    margin-bottom: 20px;
-    padding: 0 10px 10px;
-}
-
 .course-participant {
     margin: 10px 0 0;
     display: inline-block;

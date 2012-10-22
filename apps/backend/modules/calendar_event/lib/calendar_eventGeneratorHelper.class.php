@@ -10,6 +10,10 @@
  */
 class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
 
+    public function linkToManageAttendees($object, $params) {
+        return '<input class="button" id="calendar_event_attendees" type="button" value="' . __($params['label'], array(), 'sf_admin') . '"/>';
+    }
+
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
@@ -53,6 +57,23 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
     }
 
     public function editLinks() {
+        return array(
+            "current_parent" => "calendar",
+            "current_child" => "my_calendar",
+            "current_link" => "calendar_events"
+        );
+    }
+
+    public function showBreadcrumbs($object) {
+        return array('breadcrumbs' => array(
+                "Calendar" => "calendar",
+                "Events" => "calendar_event",
+                $object->getName() => "calendar_event/" . $object->getSlug(),
+            )
+        );
+    }
+
+    public function showLinks() {
         return array(
             "current_parent" => "calendar",
             "current_child" => "my_calendar",

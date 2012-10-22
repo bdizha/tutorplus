@@ -698,3 +698,20 @@ span.green{
 #personal_info_about{
     height: 100px;
 }
+
+.participant-image {
+    float: left;
+}
+
+.participant-meta {
+    float: left;
+    width: 180px;
+    padding-left: 10px;
+}
+
+.choose-participants{
+    max-height: 330px;
+    overflow: auto;
+    margin-bottom: 20px;
+    padding: 0 10px 10px 0;
+}

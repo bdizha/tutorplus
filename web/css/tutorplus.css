@@ -351,7 +351,7 @@
 
 #sf_admin_container{
     margin: 0;
-    padding: 13px 0 0;
+    padding: 11px 0 0;
 }
 
 #sf_admin_container .content-block h4{
@@ -513,27 +513,45 @@
 
 #authenticate{
     height: 290px;
-    width: 520px;
+    width: 357px;
+    position: relative;
 }
 
-#request-password{    
-    float: left;
-    padding-left: 10px;
-    padding-top: 0;
+#authenticate form{
+    padding: 0px 20px 20px 10px;    
+}
+
+#authenticate h2{
+    padding: 10px 15px !important;
+}
+
+#authenticate .error{
+    margin: 10px 20px 0;
+}
+
+#request-password{
+    position: absolute;
+    top: 3px;
+    right: 75px;
+}
+
+#sign-in-back{    
+    position: absolute;
+    top: 3px;
+    right: 140px;
 }
 
 #sign-in-label{
-    float: left;
-    margin-top: 3px;
-    padding-right: 5px;    
+    position: absolute;
+    top: -8px;
+    left: 36px    
 }
 
-#sign-in-input{
-    float: left;    
+#sign-in-input{ 
 }
 
-#sign-in{
-    float: left;
+#sign-in, #recover-password{
+    text-align: right;
 }
 
 #features-heading, #sign-in-message, #welcome-messsage, #system-information-heading{
@@ -989,7 +1007,7 @@
 }
 
 .landing-image{
-    background: url("/images/img_students.jpg") 0 0 no-repeat;
+    background: url("/images/home-01.jpg") -231px 0 no-repeat;
     display: inline-block;
     width: 590px;
     height: 266px;
@@ -1243,4 +1261,39 @@ ul.nav-tabs li.active-tab {
     margin-left: 65px;
     padding: 5px;
     min-height: 41px;
+}
+
+.section-photo{
+    webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid #D2D2D2;
+    padding: 1px;
+    float: left;
+}
+
+.poem-header{
+    margin-bottom: 10px;
+}
+
+.poem-body{
+    margin-left: 164px;
+    text-align: center;
+    width: 337px;
+    margin-top: 10px;
+}
+
+.section-row{
+    padding: 5px 10px 10px 10px;
+    background-color: #F9F9F9;
+}
+
+.section-row ul{
+    list-style: disc !important;
+    padding: 0 0 0 40px !important;
+}
+
+.section-row li {
+    display: list-item !important;
 }

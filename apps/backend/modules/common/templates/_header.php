@@ -2,7 +2,7 @@
     <div id="logo-container">
         <div id="logo-wrapper">
             <div id="logo">
-                <img src="/images/logo.png"></img>
+                <a href="/"><img src="/images/logo.png"></img></a>
             </div>
             <div id="header-links">                        
                 <ul>

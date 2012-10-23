@@ -24,9 +24,7 @@ class StudentContactForm extends BaseStudentContactForm
         $this->widgetSchema['postal_address_line_2'] = new sfWidgetFormInputText();
         $this->widgetSchema['guardian_address_line_1'] = new sfWidgetFormInputText();
         $this->widgetSchema['guardian_address_line_2'] = new sfWidgetFormInputText();
-
-        $this->validatorSchema['address_line_1'] = new sfValidatorString(array('required' => true));
-        $this->validatorSchema['postal_address_line_1'] = new sfValidatorString(array('required' => true));
+        
         $this->validatorSchema['address_line_1']->setMessage('required', 'The <b>Physical address line 1</b> field is required.');
         $this->validatorSchema['postal_address_line_1']->setMessage('required', 'The <b>Home address line 1</b> field is required.');
 

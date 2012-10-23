@@ -86,7 +86,7 @@ Student:
     studied_at:                 { type: string(255) }
     current_study:              { type: string(255) }
     enrollment:                 { type: enum, values: [Full time, Part time] }
-    status:                     { type: enum, values: [Application received, Application accepted, but not registered, Application rejected, Not registered, Registered, Expelled, Alumin, Withdrawn, Dropped out] }
+    status:                     { type: enum, values: [Application received, Application accepted but not registered, Application rejected, Not registered, Registered, Expelled, Alumin, Withdrawn, Dropped out] }
   
 Instructor:
   inheritance:
@@ -123,8 +123,8 @@ Contact:
     phone_work:                 { type: string(200) }
     phone_home:                 { type: string(200) }
     phone_mobile:               { type: string(200) }
-    address_line_1:             { type: string(300), notnull: false }
-    address_line_2:             { type: string(300), notnull: false }
+    address_line_1:             { type: string(300) }
+    address_line_2:             { type: string(300) }
     postcode:                   { type: string(10) }
     city:                       { type: string(255) }
     country_id:                 { type: integer, notnull: true }
@@ -141,20 +141,20 @@ StudentContact:
     Timestampable:              ~
   columns:
     student_id:                 { type: integer, notnull: true }
-    postal_address_line_1:      { type: string(300), notnull: false }
-    postal_address_line_2:      { type: string(300), notnull: false }
+    postal_address_line_1:      { type: string(300) }
+    postal_address_line_2:      { type: string(300) }
     postal_postcode:            { type: string(10) }
     postal_city:                { type: string(255) }
-    postal_country_id:          { type: integer, notnull: true }
-    postal_state_province_id:   { type: integer, notnull: true }
+    postal_country_id:          { type: integer}
+    postal_state_province_id:   { type: integer}
     guardian_first_name:        { type: string(255) }
     guardian_last_name:         { type: string(255) }
     guardian_email_address:     { type: string(255) }
     guardian_phone_work:        { type: string(200) }
     guardian_phone_home:        { type: string(200) }
     guardian_phone_mobile:      { type: string(200) }
-    guardian_address_line_1:    { type: string(300), notnull: false }
-    guardian_address_line_2:    { type: string(300), notnull: false }
+    guardian_address_line_1:    { type: string(300) }
+    guardian_address_line_2:    { type: string(300) }
     guardian_postcode:          { type: string(10) }
     guardian_city:              { type: string(255) }
     guardian_country_id:        { type: integer, notnull: false }
@@ -174,8 +174,8 @@ InstructorContact:
     Timestampable:              ~
   columns:
     instructor_id:              { type: integer, notnull: true }
-    postal_address_line_1:      { type: string(300), notnull: false }
-    postal_address_line_2:      { type: string(300), notnull: false }
+    postal_address_line_1:      { type: string(300) }
+    postal_address_line_2:      { type: string(300) }
     postal_postcode:            { type: string(10) }
     postal_city:                { type: string(255) }
     postal_country_id:          { type: integer, notnull: true }
@@ -193,8 +193,8 @@ StaffContact:
     Timestampable:              ~
   columns:
     staff_id:                   { type: integer, notnull: true }
-    postal_address_line_1:      { type: string(300), notnull: false }
-    postal_address_line_2:      { type: string(300), notnull: false }
+    postal_address_line_1:      { type: string(300) }
+    postal_address_line_2:      { type: string(300) }
     postal_postcode:            { type: string(10) }
     postal_city:                { type: string(255) }
     postal_country_id:          { type: integer, notnull: true }

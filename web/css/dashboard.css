@@ -5,14 +5,15 @@
 }
 
 .dashboard-row{
-    height: 140px;
+    height: 130px;
     background-color: #F9F9F9;
     position: relative;
     padding: 5px 10px;
+    overflow: hidden;
 }
 
 .dashboard-block h2 {
-text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .even-row{

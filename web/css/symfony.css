@@ -17,13 +17,13 @@
     height: 15px;
 }
 #sf_admin_heading h3, .sf_admin_heading h3{
-    color: #0A798D;
+    color: #21616D;
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
 }
 .pager-current{
-    background-color: #0A798D !important;
+    background-color: #21616D !important;
     color: #FFFFFF;
 }
 .sf_admin_pagination ul li a:hover{
@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 .sf_admin_pagination ul li a{
-    color: #0A798D !important;
+    color: #21616D !important;
 }
 #sf_admin_form_container{
     display: table;
@@ -43,10 +43,13 @@
 .sf_admin_list{
     display: table;
     width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #FFFFFF;
 }
 .sf_admin_list table{
     width: 100%;
-    background-color: white;
+    background-color: #FFFFFF;
 }
 .sf_admin_list th, #discussion_topics_footer{
     background-color: #F1F1F1;
@@ -55,7 +58,6 @@
     font-weight: normal;
     padding: 5px 5px 5px 10px;
     text-align: left;
-    border-radius: 0 0 3px 3px;
 }
 .sf_admin_list th a{
     font-size: 12px;
@@ -186,7 +188,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     font-size: 12px;
     padding: 5px 30px;
     text-align: center;
-    color: #0A798D;
+    color: #21616D;
     margin-bottom: 10px;
 }
 

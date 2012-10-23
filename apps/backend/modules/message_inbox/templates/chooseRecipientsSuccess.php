@@ -88,7 +88,7 @@
             $("#message_choose_recipients_form").ajaxSubmit(function(data){
                 $("#cboxLoadedContent").html(data);
             });    
-            $.fn.colorbox.resize();
+            //$.fn.colorbox.resize();
             return false;
         });
         

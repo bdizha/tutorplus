@@ -11,6 +11,9 @@
 class dashboardActions extends sfActions {
 
     public function preExecute() {
+        // redirect to the home page
+        $this->redirectUnless($this->getUser()->getId(), "/");
+        
         $this->helper = new dashboardGeneratorHelper();
         parent::preExecute();
     }

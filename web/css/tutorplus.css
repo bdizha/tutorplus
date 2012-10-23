@@ -115,7 +115,7 @@
 }
 
 #main-container a, #login-container{
-    color: #0A798D;
+    color: #21616D;
 }
 
 #container-wrapper, #main-container-wrapper{
@@ -209,7 +209,7 @@
 }
 
 #header-links ul li a{
-    color: #0A798D !important;
+    color: #21616D !important;
 }
 
 #top-menu, #inner-container-wrapper{
@@ -249,7 +249,7 @@
     border-top: 1px solid #CCCCCC;
     background-color: #FFFFFF !important;
     bottom: 0;
-    color: #0A798D;
+    color: #21616D;
     height: 37px;
     position: fixed;
     margin: 0 auto;
@@ -302,7 +302,7 @@
 }
 
 #main-footer ul li a{
-    color: #0A798D !important;
+    color: #21616D !important;
 }
 
 #breadcrumbs-container-wrapper{
@@ -365,7 +365,7 @@
 }
 
 #sf_admin_container .content-heading h3{
-    color: #0A798D;
+    color: #21616D;
     font-size: 14px;
     font-weight: normal;
 }
@@ -433,13 +433,13 @@
 }
 
 #sf_admin_container .content-block h2 .actions, #sf_admin_form_container h2 .actions{
-    color: #0A798D;
+    color: #21616D;
     float: right;
     display: block;
 }
 
 #sf_admin_container .content-block h2 a, #sf_admin_form_container h2 a {
-    color: #0A798D;
+    color: #21616D;
 }
 
 #sf_admin_container .content-row{
@@ -466,7 +466,7 @@
 }
 
 .more-link a{
-    color: #0A798D;
+    color: #21616D;
 }
 
 #left-panel{
@@ -1193,7 +1193,7 @@
 }
 
 .email-recipient{
-    color: #0A798D;
+    color: #21616D;
 }
 
 .photo-link{

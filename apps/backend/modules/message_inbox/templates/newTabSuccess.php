@@ -33,7 +33,13 @@
                     return false;   
                 }
             }
-                
+            
+            if($("#email_message_to_email").val() == "")
+            {  
+                alert("Oops! You need to specify at least a recipient.");
+                return false;
+            }
+            
             $("#message_form").ajaxSubmit(function(data){
                 if(data == "success")
                 {

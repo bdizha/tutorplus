@@ -1,2 +1,5 @@
 all:
   stylesheets: [email_template.css]
+  
+testSuccess:
+  layout: mailer

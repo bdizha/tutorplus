@@ -1683,6 +1683,10 @@ dropout:
   url:   /admission_statistics/dropout
   param: { module: admission_statistics, action: dropout }  
   
+mail_test:
+  url:   /mail_test
+  param: { module: email_template, action: test }
+  
 # default rules
 homepage:
   url:   /

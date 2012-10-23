@@ -1,6 +1,9 @@
 <div id="inner-header-wrapper">
     <div id="logo-container">
         <div id="logo-wrapper">
+            <div id="logo">
+                <img src="/images/logo.png"></img>
+            </div>
             <div id="header-links">                        
                 <ul>
                     <li id="header_link_support">

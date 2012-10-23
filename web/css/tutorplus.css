@@ -1,6 +1,4 @@
 #logo-wrapper{
-    background: url("/images/logo.png") no-repeat 15px -32px transparent;
-    margin-left: -124px;
 }
 
 #logo-container{
@@ -42,6 +40,7 @@
 }
 
 #inner-header-wrapper{
+    overflow: hidden;
     height: 69px; 
     background: url("/images/bg_header.png") repeat-x transparent;
 }
@@ -116,7 +115,7 @@
 }
 
 #main-container a, #login-container{
-    color: #134D58;
+    color: #0A798D;
 }
 
 #container-wrapper, #main-container-wrapper{
@@ -210,7 +209,7 @@
 }
 
 #header-links ul li a{
-    color: #134D58 !important;
+    color: #0A798D !important;
 }
 
 #top-menu, #inner-container-wrapper{
@@ -250,7 +249,7 @@
     border-top: 1px solid #CCCCCC;
     background-color: #FFFFFF !important;
     bottom: 0;
-    color: #134D58;
+    color: #0A798D;
     height: 37px;
     position: fixed;
     margin: 0 auto;
@@ -303,7 +302,7 @@
 }
 
 #main-footer ul li a{
-    color: #134D58 !important;
+    color: #0A798D !important;
 }
 
 #breadcrumbs-container-wrapper{
@@ -366,7 +365,7 @@
 }
 
 #sf_admin_container .content-heading h3{
-    color: #134D58;
+    color: #0A798D;
     font-size: 14px;
     font-weight: normal;
 }
@@ -427,7 +426,6 @@
     background-color: #F1F1F1;
     border-radius: 3px 3px 0 0;
     clear: both;
-    color: #555A65;
     font-weight: normal;
     font-size: 13px;
     border-bottom: 1px solid #FFFFFF;
@@ -435,13 +433,13 @@
 }
 
 #sf_admin_container .content-block h2 .actions, #sf_admin_form_container h2 .actions{
-    color: #134D58;
+    color: #0A798D;
     float: right;
     display: block;
 }
 
 #sf_admin_container .content-block h2 a, #sf_admin_form_container h2 a {
-    color: #134D58;
+    color: #0A798D;
 }
 
 #sf_admin_container .content-row{
@@ -468,7 +466,7 @@
 }
 
 .more-link a{
-    color: #134D58;
+    color: #0A798D;
 }
 
 #left-panel{
@@ -1195,7 +1193,7 @@
 }
 
 .email-recipient{
-    color: #134D58;
+    color: #0A798D;
 }
 
 .photo-link{
@@ -1296,4 +1294,14 @@ ul.nav-tabs li.active-tab {
 
 .section-row li {
     display: list-item !important;
+}
+
+#logo {
+    float: left;
+}
+
+#logo img{
+    width: 500px;
+    margin-top: -17px;
+    margin-left: -102px
 }

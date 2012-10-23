@@ -1,6 +1,6 @@
 <div class="sf_admin_list">
   [?php if (!$pager->getNbResults()): ?]
-    <p>[?php echo __('No result', array(), 'sf_admin') ?]</p>
+    <div class="no-result">[?php echo __('No result', array(), 'sf_admin') ?]</div>
   [?php else: ?]
     <table cellspacing="1">
       <thead>

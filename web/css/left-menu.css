@@ -33,15 +33,9 @@
 }
 
 .menu-heading span{
-    font-size: 14px;
-    font-family: arial;
     position: absolute;
     left: 16px;
     top: 23px
-}
-
-#left-column #child-item-1, #left-column #child-item-2{
-    
 }
 
 #left-column .menu-item-children{

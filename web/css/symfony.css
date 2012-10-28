@@ -164,7 +164,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     background-color: #CD0A0A;
     color: #FFFFFF;
     font-size: 12px;
-    margin: 3px 0 0 !important;
+    margin: 13px 0 0 !important;
     padding: 3px 10px;
 }
 
@@ -189,7 +189,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     padding: 5px 30px;
     text-align: center;
     color: #21616D;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .sf_admin_td_actions img {

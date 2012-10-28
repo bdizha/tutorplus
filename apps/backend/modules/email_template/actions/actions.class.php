@@ -15,12 +15,15 @@ class email_templateActions extends autoEmail_templateActions {
 
     public function executeTest(sfWebRequest $request) {
         $mailer = new tpMailer();
-        $mailer->setTemplate('reset-password');
+        $mailer->setTemplate('reset-your-tutorplus-password');
         $mailer->setToEmails("Batanayi Matuku <bdizha@gmail.com>");
         $mailer->addValues(array(
-            "USER" => "Edmore Musarurwa"
-        ));
-        
+            "USER" => "Edmore Musarurwa",
+            "RESET_PASSWORD_LINK" => $this->getPartial('email_template/link', array(
+                'title' => $this->generateUrl('sf_guard_forgot_password_change', array("unique_key" => "somerandomstuffcomeshere"), 'absolute=true'),
+                'route' => "@sf_guard_forgot_password_change?unique_key=somerandomstuffcomeshere")
+                )));
+
         $mailer->render();
 
         // send the asker the doctors response

@@ -17,7 +17,7 @@
 <script type='text/javascript'>
     //<![CDATA[
     $(document).ready(function(){    
-        $('textarea').elastic().trigger('update');
+        $('textarea').autosize();
         
         $('#discussion_topic_message_form_holder .save').click(function(){            
             $("#discussion_topic_message_form").hide();

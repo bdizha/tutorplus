@@ -18,39 +18,36 @@
  * 
  * @deprecated Use {@link sfGuardRememberMeFilter} instead
  */
-class sfGuardBasicSecurityFilter extends sfBasicSecurityFilter
-{
-  /**
-   * Executes the filter chain.
-   *
-   * @param sfFilterChain $filterChain
-   */
-  public function execute($filterChain)
-  {
-    $cookieName = sfConfig::get('app_sf_guard_plugin_remember_cookie_name', 'sfRemember');
+class sfGuardBasicSecurityFilter extends sfBasicSecurityFilter {
 
-    if ($this->isFirstCall())
-    {
-      // deprecated notice
-      $this->context->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('The filter "%s" is deprecated. Use "sfGuardRememberMeFilter" instead.', __CLASS__), 'priority' => sfLogger::NOTICE)));
+    /**
+     * Executes the filter chain.
+     *
+     * @param sfFilterChain $filterChain
+     */
+    public function execute($filterChain) {
+        $cookieName = sfConfig::get('app_sf_guard_plugin_remember_cookie_name', 'sfRemember');
 
-      if (
-        $this->context->getUser()->isAnonymous()
-        &&
-        $cookie = $this->context->getRequest()->getCookie($cookieName)
-      )
-      {
-        $q = Doctrine_Core::getTable('sfGuardRememberKey')->createQuery('r')
-              ->innerJoin('r.User u')
-              ->where('r.remember_key = ?', $cookie);
+        if ($this->isFirstCall()) {
+            // deprecated notice
+            $this->context->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('The filter "%s" is deprecated. Use "sfGuardRememberMeFilter" instead.', __CLASS__), 'priority' => sfLogger::NOTICE)));
 
-        if ($q->count())
-        {
-          $this->context->getUser()->signIn($q->fetchOne()->User);
+            if (
+                    $this->context->getUser()->isAnonymous()
+                    &&
+                    $cookie = $this->context->getRequest()->getCookie($cookieName)
+            ) {
+                $q = Doctrine_Core::getTable('sfGuardRememberKey')->createQuery('r')
+                        ->innerJoin('r.User u')
+                        ->where('r.remember_key = ?', $cookie);
+
+                if ($q->count()) {
+                    $this->context->getUser()->signIn($q->fetchOne()->User);
+                }
+            }
         }
-      }
+
+        parent::execute($filterChain);
     }
 
-    parent::execute($filterChain);
-  }
 }

@@ -4,7 +4,7 @@
 .sf_admin_form_field_reply_to, .sf_admin_form_field_credits, .sf_admin_form_field_hours,
 .sf_admin_form_field_max_enrolled{
     float: left;
-    width: 45%;
+    width: 341px;
 }
 
 .sf_admin_form_field_description{
@@ -20,8 +20,13 @@
     float: none !important;
 }
 
-#email_template_description, #email_template_body{
-    width: 682px;
+#email_template_description, #email_template_patterns{
+    width: 687px;
+    height: 60px;
+}
+
+ #email_template_body{
+    width: 687px;
     height: 130px;
 }
 

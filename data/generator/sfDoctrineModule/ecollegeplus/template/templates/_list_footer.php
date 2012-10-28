@@ -2,7 +2,7 @@
 <script type='text/javascript'>
     $(document).ready(function(){
         $(".sf_admin_action_new input").click(function(){
-            openPopup("/backend.php/<?php echo $this->getModuleName() ?>/new", '[?php echo sfConfig::get("app_popup_<?php echo $this->getModuleName() ?>_width") ?]', "480px", "[?php echo <?php echo ucwords($this->getI18NString('new.title')) ?> ?]");
+            openPopup("/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>/new", '[?php echo sfConfig::get("app_popup_<?php echo $this->getModuleName() ?>_width") ?]', "480px", "[?php echo <?php echo ucwords($this->getI18NString('new.title')) ?> ?]");
             return false;
         });
         
@@ -13,6 +13,6 @@
     });
         
     function fetch<?php echo ucfirst(sfInflector::camelize($this->getModuleName())) ?>s(){
-        window.location = "/backend.php/<?php echo $this->getModuleName() ?>";
+        window.location = "/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>";
     }
 </script>

@@ -207,11 +207,10 @@ class tpMailer {
         $template = $this->getTemplate();
         $replacements = $this->getReplacements();
         $message = $this->getMessage();
-        $body = strtr($this->getMailerTemplate(), $replacements);
+        $body = $this->htmlize(strtr($this->getMailerTemplate(), $replacements));
         
         die($body);
         
-
         $toEmail = "Batanayi Matuku <bdizha@gmail.com>";
         $message
                 ->setContentType($template->getIsHtml() ? "text/html" : "text/plain")
@@ -251,6 +250,10 @@ class tpMailer {
 
     protected function wrapPlacements($key) {
         return '##' . $key . '##';
+    }
+
+    protected function htmlize($string) {
+        return str_replace("\r\n\r\n", "</br>", $string);
     }
 
     public function getMailerTemplate($mailer = null) {

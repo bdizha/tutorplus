@@ -296,7 +296,7 @@
 }
 
 #main-footer ul li{
-    padding-left: 20px;
+    padding-left: 10px;
     color: #FFF;
     display: inline;    
 }
@@ -510,21 +510,19 @@
 }
 
 #authenticate{
-    height: 290px;
+    min-height: 290px;
     width: 357px;
-    position: relative;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #authenticate form{
-    padding: 0px 20px 20px 10px;    
+    padding: 10px 20px 20px 20px;    
 }
 
 #authenticate h2{
     padding: 10px 15px !important;
-}
-
-#authenticate .error{
-    margin: 10px 20px 0;
 }
 
 #request-password{
@@ -1039,12 +1037,10 @@
 
 .welcome-message{
     padding: 10px;
-    font-size: 15px;
     line-height: 30px;
 }
 
 .welcome-message span{
-    font-size: 15px;
     line-height: 30px;
     font-weight: bold;
 }
@@ -1055,10 +1051,6 @@
     width: 286px;
 }
 
-.instructor-testimonial .name{
-
-}
-
 .instructor-testimonial .institution{
     color: #90959A;
     font-size: 11px;
@@ -1066,8 +1058,7 @@
 }
 
 .says{
-    text-align: justify;
-    color: #7E7E7E;
+    font-size: 11px;
 }
 
 .column-row{
@@ -1304,4 +1295,11 @@ ul.nav-tabs li.active-tab {
     width: 500px;
     margin-top: -17px;
     margin-left: -102px
+}
+
+textarea {
+    vertical-align: top; 
+    transition: height 0.2s;
+    -webkit-transition: height 0.2s; 
+    -moz-transition: height 0.2s; 
 }

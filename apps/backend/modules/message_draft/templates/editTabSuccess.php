@@ -5,11 +5,7 @@
     $(document).ready(function(){
         
         // make the reply textarea elastic
-        $('textarea').elastic().trigger('update');
-        
-        $('textarea').blur(function(){
-            $('body').click();
-        });
+        $('textarea').autosize();
         
         // set the counts of the email labels
         setListCounts();

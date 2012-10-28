@@ -4,9 +4,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
         
-        //$("textarea").elastic().
+        $('textarea').autosize();
         
-        // fetch event attendees
         //fetchEventAttendees(); 
         
         $(".sf_admin_action_manage_attendees input").click(function(){

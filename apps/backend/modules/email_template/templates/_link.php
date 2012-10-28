@@ -1,0 +1,1 @@
+<?php echo link_to($title, $route, array("style" => "color:#0A798D; font-size:12px", "absolute" => true)) ?>

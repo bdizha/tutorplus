@@ -17,13 +17,13 @@ generator:
         class:                  EmailTemplateForm
         display:
          "Template Headers Details": [name, subject, from_email, to_email, cc_email, bcc_email, reply_to, is_active]
-         "Template Body Details": [description, is_html, body]
+         "Template Body Details": [description, patterns, is_html, body]
       fields:
       filter:
         class: false
       list:
         title:                  Email Templates
-        display:                [name, subject, from_email, is_active, is_html]
+        display:                [name, subject, from_email, is_active]
         sort:                   [name, asc]
         batch_actions:          []
         max_per_page:			      25

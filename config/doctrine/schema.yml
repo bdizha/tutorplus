@@ -779,7 +779,7 @@ EmailTemplate:
     name:                   { type: string(255), notnull: true, unique: true }
     subject:                { type: string(5000), notnull: true }
     description:            { type: string(5000) }
-    body:                   { type: clob, notnull: true }
+    patterns:               { type: string(500) }
     body:                   { type: clob, notnull: true }
     from_email:             { type: string(5000), notnull: true }
     to_email:               { type: string(5000) }

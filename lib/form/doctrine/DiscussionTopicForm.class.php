@@ -22,8 +22,8 @@ class DiscussionTopicForm extends BaseDiscussionTopicForm
         $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['discussion_id'] = new sfWidgetFormInputHidden();
 
-        $this->validatorSchema['subject']->setMessage('required', 'The <b>subject</b> field is required.');
-        $this->validatorSchema['message']->setMessage('required', 'The <b>message</b> field is required.');
+        $this->validatorSchema['subject']->setMessage('required', 'The <b>Subject</b> field is required.');
+        $this->validatorSchema['message']->setMessage('required', 'The <b>Message</b> field is required.');
 
         $this->setDefaults(array(
             'user_id' => $userId,

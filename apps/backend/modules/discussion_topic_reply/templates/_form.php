@@ -16,8 +16,7 @@
 <script type='text/javascript'>
     //<![CDATA[
     $(document).ready(function(){
-        //        $('textarea').elastic();
-        //        $('textarea').trigger('update');
+        $('textarea').autosize();
     });
     //]]>
 </script>

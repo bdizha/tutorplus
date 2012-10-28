@@ -19,16 +19,6 @@ require_once(dirname(__FILE__) . '/../../../../../plugins/sfDoctrineGuardPlugin/
  */
 class sfGuardAuthActions extends BasesfGuardAuthActions
 {
-    /**
-     * Executes home action
-     *
-     * @param sfRequest $request A request object
-     */
-    public function executeHome(sfWebRequest $request)
-    {
-        
-    }
-
     public function executeLogIn($request)
     {
         $user = $this->getUser();

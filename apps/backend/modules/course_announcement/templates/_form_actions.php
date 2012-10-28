@@ -28,8 +28,7 @@
 </ul>
 <script type='text/javascript'>
     $(document).ready(function(){
-        $('#announcement_message').elastic();
-        $('#announcement_message').trigger('update');
+        $('#announcement_message').autosize();
         
         $('#announcement_message').keyup(function(){
             $.fn.colorbox.resize();

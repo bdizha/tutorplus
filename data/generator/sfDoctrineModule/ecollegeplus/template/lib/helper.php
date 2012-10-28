@@ -20,7 +20,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
     }
 
     public function linkToEdit($object, $params) {
-        return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/backend.php/<?php echo $this->getModuleName() ?>#", array("popup_url" => "/backend.php/<?php echo $this->getModuleName() ?>/" . $object->getId() . "/edit")) . '</li>';
+        return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>#", array("popup_url" => "/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>/" . $object->getId() . "/edit")) . '</li>';
     }
 
     public function linkToDelete($object, $params, $is_form_action = false) {
@@ -31,7 +31,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
         if (!$is_form_action) {
             return '<li class="sf_admin_action_delete">' . link_to(__('<img src="/images/icons/14x14/delete.png" title="Delete" alt="Delete">', array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
         } else {
-            return '<li class="sf_admin_form_action_delete">' . button_to(__($params['label'], array(), 'sf_admin'), "/backend.php/<?php echo $this->getModuleName() ?>#", array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
+            return '<li class="sf_admin_form_action_delete">' . button_to(__($params['label'], array(), 'sf_admin'), "/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>#", array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
         }
     }
 
@@ -45,5 +45,29 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
 
     public function linkToSave($object, $params) {
         return '<li class="sf_admin_action_save"><input class="save" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
+    } 
+    
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array());
+    }
+
+    public function indexLinks() {
+        return array();
+    }
+
+    public function newBreadcrumbs() {
+        return array('breadcrumbs' => array());
+    }
+
+    public function newLinks() {
+        return array();
+    }
+
+    public function editBreadcrumbs() {
+        return array('breadcrumbs' => array());
+    }
+
+    public function editLinks() {
+        return array();
     }
 }

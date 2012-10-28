@@ -3,7 +3,8 @@
     padding: 0;
     text-decoration: none;
     font-size: 12px;
-        text-shadow: none;
+    text-shadow: none;
+    font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
 }
 
 html{
@@ -13,7 +14,6 @@ html{
 
 body{
     background: url("/images/bg_content.jpg") repeat;
-    font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
     font-size: 12px;
     height: 100%;
     width: 100%;

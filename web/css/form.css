@@ -3,7 +3,6 @@
     color: #666666;
     font-size: 12px;
     margin-top: 10px;
-    padding-left: 10px;
     position: relative;
 }
 
@@ -27,6 +26,7 @@ input[type=button], input[type=submit] {
     padding: 5px 10px;
     cursor: hand;
     cursor: pointer;
+    font-size: 11px;
 }
 
 .cancel, .done, .fc-header .fc-button{

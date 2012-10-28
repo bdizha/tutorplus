@@ -24,37 +24,35 @@
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
  * @version    SVN: $Id: sfGuardRememberMeFilter.class.php 32872 2011-08-02 15:15:56Z gimler $
  */
-class sfGuardRememberMeFilter extends sfFilter
-{
-  /**
-   * Executes the filter chain.
-   *
-   * @param sfFilterChain $filterChain
-   */
-  public function execute($filterChain)
-  {
-    $cookieName = sfConfig::get('app_sf_guard_plugin_remember_cookie_name', 'sfRemember');
+class sfGuardRememberMeFilter extends sfFilter {
 
-    if (
-      $this->isFirstCall()
-      &&
-      $this->context->getUser()->isAnonymous()
-      &&
-      $cookie = $this->context->getRequest()->getCookie($cookieName)
-    )
-    {
-      $q = Doctrine_Core::getTable('sfGuardUser')->createQuery('u')
-        ->select('u.*')
-        ->innerJoin('u.RememberKeys r')
-        ->where('u.is_active = ?', true)
-        ->addWhere('r.remember_key = ?', $cookie);
+    /**
+     * Executes the filter chain.
+     *
+     * @param sfFilterChain $filterChain
+     */
+    public function execute($filterChain) {
+        $cookieName = sfConfig::get('app_sf_guard_plugin_remember_cookie_name', 'sfRemember');
 
-      if ($q->count())
-      {
-        $this->context->getUser()->signIn($q->fetchOne());
-      }
+        if (
+                $this->isFirstCall()
+                &&
+                $this->context->getUser()->isAnonymous()
+                &&
+                $cookie = $this->context->getRequest()->getCookie($cookieName)
+        ) {
+            $q = Doctrine_Core::getTable('sfGuardUser')->createQuery('u')
+                    ->select('u.*')
+                    ->innerJoin('u.RememberKeys r')
+                    ->where('u.is_active = ?', true)
+                    ->addWhere('r.remember_key = ?', $cookie);
+
+            if ($q->count()) {
+                $this->context->getUser()->signIn($q->fetchOne());
+            }
+        }
+
+        $filterChain->execute();
     }
 
-    $filterChain->execute();
-  }
 }

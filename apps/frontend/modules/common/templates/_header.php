@@ -11,7 +11,11 @@
                         <a href="#">You need technical support?</a>        
                     </li>
                     <li id="header_link_sign_in">
-                        <input class="button" value="<?php echo $isAuthenticated ? "Dashboard" : "Sign In" ?>" type="button" onclick="document.location.href='/backend.php/<?php echo $isAuthenticated ? "dashboard" : "login" ?>';" />
+                        <?php if ($isAuthenticated): ?>
+                            <input class="button" value="Dashboard" type="button" onclick="document.location.href='/backend.php/dashboard';" />
+                        <?php else: ?>
+                            <input class="button" value="Sign In" type="button" onclick="document.location.href='/backend.php/user/login';" />
+                        <?php endif; ?>
                     </li>
                 </ul>
             </div>

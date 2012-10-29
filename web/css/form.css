@@ -29,7 +29,7 @@ input[type=button], input[type=submit] {
     font-size: 11px;
 }
 
-.cancel, .done, .fc-header .fc-button{
+.cancel, .done, .fc-header .fc-button, #calnext, #calprev{
     color: #666666 !important;
     text-shadow: 0 1px rgba(255, 255, 255, 0.5);
     border: 1px solid #CCCDCE !important;

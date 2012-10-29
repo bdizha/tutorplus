@@ -34,7 +34,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
                 "Events" => "calendar_event",
-                "New Event" => "calendar_event/new",
+                "New Event" => "calendar/event/new",
             )
         );
     }
@@ -51,7 +51,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
                 "Events" => "calendar_event",
-                "Edit Event ~ " . $object->getName() => "calendar_event/" . $object->getId() . "/edit",
+                "Edit Event ~ " . $object->getName() => "calendar/event/" . $object->getId() . "/edit",
             )
         );
     }
@@ -68,7 +68,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
                 "Events" => "calendar_event",
-                $object->getName() => "calendar_event/" . $object->getSlug(),
+                $object->getName() => "calendar/event/" . $object->getSlug(),
             )
         );
     }

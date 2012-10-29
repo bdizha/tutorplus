@@ -486,10 +486,10 @@ calendar_event:
     with_wildcard_routes: true
     
 calendar_event_show:
-  url:     /calendar_event/:slug
+  url:     /calendar/event/:slug
   class:   sfDoctrineRoute
   options: { model: CalendarEvent, type: object }
-  param:   { module: calendar/event, action: show }
+  param:   { module: calendar_event, action: show }
   requirements:
     sf_method: [get]
 
@@ -1335,7 +1335,7 @@ discussion_invite:
   param: { module: discussion_member, action: invite }
   
 discussion_topic_message_show_mini:
-  url:   /discussion/topic/message/show_mini
+  url:   /discussion/topic/message/show/mini
   param: { module: discussion_topic_message, action: show }
   
 recent_announcement:

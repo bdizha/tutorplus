@@ -14,7 +14,7 @@
     </div>
     <div id="sf_admin_content">
         <div class="content-block">     
-            <h2>Event Info <span class="actions"><a id="edit_academic_info" href="/backend.php/calendar_event/<?php echo $calendarEvent->getId() ?>/edit">Edit</a></span></h2>
+            <h2>Event Info <span class="actions"><a id="edit_event_info" href="/backend.php/calendar/event/<?php echo $calendarEvent->getId() ?>/edit">Edit</a></span></h2>
             <div class="full-block" id="event_info">
                 <div class="course_info">
                     <div class="even-row">
@@ -54,7 +54,7 @@
         </div>
         <ul class="sf_admin_actions" style="clear:both">
             <li class="sf_admin_actions_my_events">
-                <input type="button" class="button" onclick="document.location.href='/backend.php/calendar_event';" value="< My Events"/>
+                <input type="button" class="button" onclick="document.location.href='/backend.php/calendar/event';" value="< My Events"/>
             </li>
         </ul>
     </div>

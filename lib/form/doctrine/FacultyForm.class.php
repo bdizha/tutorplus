@@ -12,7 +12,7 @@ class FacultyForm extends BaseFacultyForm
 {
   public function configure()
   {
-  	$this->validatorSchema['name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>name</b> field is required.'));
-  	$this->validatorSchema['abbreviation'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>abbreviation</b> field is required.'));
+  	$this->validatorSchema['name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Name</b> field is required.', 'max_length' => 'Only 255 chars are permittied.'));
+  	$this->validatorSchema['abbreviation'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Abbreviation</b> field is required.', 'max_length' => 'Only 255 chars are permittied.'));
   }
 }

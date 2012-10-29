@@ -539,11 +539,8 @@
 
 #sign-in-label{
     position: absolute;
-    top: -8px;
-    left: 36px    
-}
-
-#sign-in-input{ 
+    top: -7px;
+    left: 25px;
 }
 
 #sign-in, #recover-password{

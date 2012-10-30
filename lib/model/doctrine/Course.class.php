@@ -90,4 +90,8 @@ class Course extends BaseCourse {
         return null;
     }
 
+    public function getHtmlizedDescription() {
+        return myToolkit::htmlString(parent::get("description"));
+    }
+
 }

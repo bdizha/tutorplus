@@ -69,7 +69,7 @@
         <div class="content-block">
             <h2>Assignment Description</h2>
             <div class="full-block padding-10 plain-row">
-                <?php echo $assignment->getDescription() ?>
+                <?php echo $assignment->getHtmlizedDescription() ?>
             </div>
         </div>
         <div class="content-block">

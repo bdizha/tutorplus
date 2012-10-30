@@ -10,30 +10,18 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class AcademicPeriod extends BaseAcademicPeriod
-{
-  public function __toString()
-  {
-    return (string) $this->getYearRange()." (".$this->getName().")";
-  }
-  
-  public function getYearRange()
-  {
-    return $this->getAcademicYear()->getYearRange();
-  }
-  
-	public function getStartDate()
-	{
-		return date('d-m-Y', strtotime(parent::_get('start_date')));
-	}
-	
-	public function getEndDate()
-	{
-		return date('d-m-Y', strtotime(parent::_get('end_date')));
-	}
-	
-	public function getGradesDue()
-	{
-		return date('d-m-Y', strtotime(parent::_get('grades_due')));
-	}
+class AcademicPeriod extends BaseAcademicPeriod {
+
+    public function __toString() {
+        return (string) $this->getYearRange() . " (" . $this->getName() . ")";
+    }
+
+    public function getYearRange() {
+        return $this->getAcademicYear()->getYearRange();
+    }
+
+    function getPeriod() {
+        return $this->getDateTimeObject('start_date')->format('d/m/Y') . " - " . $this->getDateTimeObject('end_date')->format('d/m/Y');
+    }
+
 }

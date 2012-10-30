@@ -77,7 +77,7 @@
         <div class="content-block">
             <h2>Course Description</h2>
             <div class="full-block padding-10 plain-row">
-                <?php echo $course->getDescription() ?>
+                <?php echo $course->getHtmlizedDescription() ?>
             </div>
         </div>
         <ul class="sf_admin_actions" style="clear:both">

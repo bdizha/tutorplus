@@ -25,7 +25,7 @@ generator:
         class: false
       list:
         title:                  Current Courses
-        display:                [=name, code, department, is_finalized, academic_period, max_enrolled]
+        display:                [=name, code, department, academic_period]
         sort:                   [name, asc]
         batch_actions:          []
         object_actions:        

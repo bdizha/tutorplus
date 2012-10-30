@@ -26,7 +26,6 @@ input[type=button], input[type=submit] {
     padding: 5px 10px;
     cursor: hand;
     cursor: pointer;
-    font-size: 11px;
 }
 
 .cancel, .done, .fc-header .fc-button, #calnext, #calprev{
@@ -239,4 +238,8 @@ select > option{
 #cboxLoadedContentInner input[type="text"], #cboxLoadedContentInner input[type="password"], #authenticate input[type="text"], #authenticate input[type="password"]{
     min-width: 325px !important;
     width: 325px;
+}
+
+.date-field{
+    width: 104px !important;
 }

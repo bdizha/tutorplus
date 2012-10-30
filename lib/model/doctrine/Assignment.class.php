@@ -32,4 +32,8 @@ class Assignment extends BaseAssignment
     {
         return AssignmentTable::$submission_types[parent::_get('submission')];
     }
+
+    public function getHtmlizedDescription() {
+        return myToolkit::htmlString(parent::get("description"));
+    }
 }

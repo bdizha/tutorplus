@@ -122,3 +122,7 @@
 #cboxLoadedContentInner .right {
     margin-left: 30px;
 }
+
+#cboxLoadedContentInner label{
+    float: none !important;
+}

@@ -8,42 +8,38 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class AssignmentForm extends BaseAssignmentForm
-{
+class AssignmentForm extends BaseAssignmentForm {
 
-    public function configure()
-    {
-        $this->formatDateFields();
-
+    public function configure() {
         unset(
-            $this['created_at'], $this['updated_at']
+                $this['created_at'], $this['updated_at']
         );
 
         $courseId = sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null);
         $this->widgetSchema['course_id'] = new sfWidgetFormInputHidden();
 
-        $this->widgetSchema['due_date'] = new sfWidgetFormJQueryDate(array("change_month" => true, "change_year" => true));
-        $this->widgetSchema['lock_until'] = new sfWidgetFormJQueryDate(array("change_month" => true, "change_year" => true));
-        $this->widgetSchema['lock_after'] = new sfWidgetFormJQueryDate(array("change_month" => true, "change_year" => true));
+        $this->widgetSchema['due_date'] = new tpWidgetFormDate();
+        $this->widgetSchema['lock_until'] = new tpWidgetFormDate();
+        $this->widgetSchema['lock_after'] = new tpWidgetFormDate();
 
         $this->widgetSchema['submission'] = new sfWidgetFormChoice(array(
-                'choices' => AssignmentTable::getInstance()->getSubmissionTypes(),
-                )
+                    'choices' => AssignmentTable::getInstance()->getSubmissionTypes(),
+                        )
         );
 
         $this->widgetSchema['graded_by'] = new sfWidgetFormChoice(array(
-                'choices' => AssignmentTable::getInstance()->getGradingTypes()
-                )
+                    'choices' => AssignmentTable::getInstance()->getGradingTypes()
+                        )
         );
 
         $this->validatorSchema['submission'] = new sfValidatorChoice(array(
-                'choices' => array_keys(AssignmentTable::getInstance()->getSubmissionTypes()),
-                )
+                    'choices' => array_keys(AssignmentTable::getInstance()->getSubmissionTypes()),
+                        )
         );
 
         $this->validatorSchema['graded_by'] = new sfValidatorChoice(array(
-                'choices' => array_keys(AssignmentTable::getInstance()->getGradingTypes()),
-                )
+                    'choices' => array_keys(AssignmentTable::getInstance()->getGradingTypes()),
+                        )
         );
 
         $this->validatorSchema['title']->setMessage('required', 'The <b>Title</b> field is required.');
@@ -56,16 +52,8 @@ class AssignmentForm extends BaseAssignmentForm
 
         $this->setDefaults(array(
             'course_id' => $courseId
-            )
+                )
         );
-    }
-
-    public function formatDateFields()
-    {
-        $due_date = !$this->getObject() ? date("d-m-Y", strtotime("now")) : $this->getObject()->getDateTimeObject('due_date')->format('d-m-Y');
-        $lock_until = !$this->getObject() ? date("d-m-Y", strtotime("now")) : $this->getObject()->getDateTimeObject('lock_until')->format('d-m-Y');
-        $lock_after = !$this->getObject() ? date("d-m-Y", strtotime("now")) : $this->getObject()->getDateTimeObject('lock_after')->format('d-m-Y');
-        $this->getObject()->setDueDate($due_date)->setLockUntil($lock_until)->setLockAfter($lock_after);
     }
 
 }

@@ -38,7 +38,7 @@ class DiscussionTopicMessageTable extends Doctrine_Table
             $q->innerJoin('d.CourseDiscussion cd')
                 ->addWhere('cd.course_id = ?', $courseId);
         }
-        $q->addWhere('dtm.created_at > ?', date('d-m-y H:i:s', strtotime("NOW - 7 days")));
+        $q->addWhere('dtm.created_at > ?', date('Y-m-d H:i:s', strtotime("NOW - 7 days")));
         return $q->execute();
     }
 }

@@ -16,7 +16,7 @@
         <div class="content-block">
             <h2>Course Info</h2>
             <div class="full-block">
-                <div class="course_info">
+                <div class="course_info plain-row">
                     <div class="even-row">
                         <div class="row-column">
                             <div class="row-label">

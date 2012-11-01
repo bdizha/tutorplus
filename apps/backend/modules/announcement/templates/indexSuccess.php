@@ -11,7 +11,7 @@
 <div id="sf_admin_content">
     <div class="content-block">
         <h2>Announcements</h2>   
-        <div id="announcements">
+        <div id="announcements" class="plain-row">
             <?php include_partial('announcement/list', array("announcements" => $announcements, "helper" => $helper, "showActions" => true)) ?>
         </div>
         <div class="announcement-action">

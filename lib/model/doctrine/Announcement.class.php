@@ -26,4 +26,8 @@ class Announcement extends BaseAnnouncement
         }
     }
 
+    public function getHtmlizedMessage() {
+        return myToolkit::htmlString($this->getMessage());
+    }
+
 }

@@ -332,6 +332,7 @@
 #breadcrumbs ol li{
     float: left;
     height: 33px;
+    padding-top: 4px;
     line-height: 2.5em;
 }
 
@@ -399,6 +400,7 @@
 }
 
 .plain-row{
+    padding-bottom: 5px;
     background-color: #F9F9F9;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -407,6 +409,10 @@
 .white-background{
     background-color: #FFFFFF;   
     margin-bottom: 10px; 
+}
+
+#discussion_stats, #recent-posting{
+    height: 128px;
 }
 
 #sf_admin_container .left-block{
@@ -702,8 +708,20 @@
     vertical-align: top;
 }
 
-.discussion, .discussion_topic, .section_description{
+.discussion, .discussion_topic{
     position: relative;
+    padding: 5px 10px;
+    position: relative;
+    display: block;
+    clear: both;
+}
+
+.section_description{
+    position: relative;
+    background-color: #F9F9F9;
+    position: relative;
+    display: block;
+    clear: both;
 }
 
 .item-actions{
@@ -1242,7 +1260,6 @@ ul.nav-tabs li.active-tab {
 }
 
 .message {
-    background-color: #F1F1F1;
     border: 1px solid white;
     margin-left: 65px;
     padding: 5px;

@@ -5,7 +5,7 @@
             <?php echo __('No posts', array(), 'sf_admin') ?>
         </div>
     <?php else: ?>  
-        <div id="discussion_topics">
+        <div id="discussion_topics" class="plain-row">
             <?php foreach ($pager->getResults() as $i => $discussion_topic): $odd = fmod(++$i, 2) ? 'odd' : 'even' ?>
                 <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussion_topic, "helper" => $helper)) ?>
             <?php endforeach; ?>

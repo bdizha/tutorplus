@@ -25,20 +25,22 @@
     <div class="content-block">
         <div class="left-block">
             <h2>Weekly Discussion Activities</h2>
-            <div id="discussion_stats" class="section_description">
-                <div class="even-row"><?php echo $discussionActivity["new_topics"] ?> discussion topic(s) started</div>
-                <div class="even-row"><?php echo $discussionActivity["new_messages"] ?> discussion message(s)</div>
-                <div class="even-row"><?php echo $discussionActivity["new_replies"] ?> discussion replies</div>
-                <div class="even-row"><?php echo $discussionActivity["new_members"] ?> new member(s) have joined discussion group(s)</div>
+            <div id="discussion_stats" class="plain-row">
+                <div class="even-row"><span class="list-count"><?php echo $discussionActivity["new_topics"] ?></span> discussion topic(s) started</div>
+                <div class="even-row"><span class="list-count"><?php echo $discussionActivity["new_messages"] ?></span> discussion message(s)</div>
+                <div class="even-row"><span class="list-count"><?php echo $discussionActivity["new_replies"] ?></span> discussion replies</div>
+                <div class="even-row"><span class="list-count"><?php echo $discussionActivity["new_members"] ?></span> new member(s) have joined discussion group(s)</div>
             </div>
         </div>
         <div class="right-block">
             <h2>Recent Posting</h2>
-            <?php if ($discussionTopic): ?>
-                <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false)) ?>
-            <?php else: ?>
-                <div class="even-row">There're currently no discussion topics started.</div>
-            <?php endif; ?>
+            <div class="plain-row" id="recent-posting">
+                <?php if (!$discussionTopic): ?>
+                    <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false, "shortenString" => 120)) ?>
+                <?php else: ?>
+                    <div class="even-row">There're currently no discussion topics started.</div>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>

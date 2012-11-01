@@ -12,11 +12,8 @@
  */
 class Course extends BaseCourse {
 
-    public function retrieveAnnouncements($limit = 2) {
-        $q = Doctrine_Query::create()
-                ->from('Announcement a');
-
-        return Doctrine_Core::getTable('Announcement')->retrieveOrdered($q, $limit);
+    public function getAnnouncements() {
+        return Doctrine_Core::getTable('Announcement')->findByCourseId($this->getId());
     }
 
     public function save(Doctrine_Connection $conn = null) {

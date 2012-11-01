@@ -573,14 +573,6 @@ course:
     prefix_path:          /course
     column:               id
     with_wildcard_routes: true
-    
-course_show:
-  url:     /course/:slug
-  class:   sfDoctrineRoute
-  options: { model: Course, type: object }
-  param:   { module: course, action: show }
-  requirements:
-    sf_method: [get]
 
 department:
   class: sfDoctrineRouteCollection
@@ -1257,6 +1249,14 @@ course_student:
 course_instructor:
   url:   /course/instructor
   param: { module: course_participant, action: instructors }
+    
+course_show:
+  url:     /my/course/:slug
+  class:   sfDoctrineRoute
+  options: { model: Course, type: object }
+  param:   { module: course, action: show }
+  requirements:
+    sf_method: [get]
   
 choose_course:
   url:   /choose/course/:module_name/:object_id

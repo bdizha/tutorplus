@@ -43,9 +43,7 @@
 .sf_admin_list{
     display: table;
     width: 100%;
-    border-radius: 5px;
     overflow: hidden;
-    background-color: #FFFFFF;
 }
 .sf_admin_list table{
     width: 100%;
@@ -128,7 +126,7 @@ tr.sf_admin_row.odd{
     width: 140px;
 }
 ul.sf_admin_actions{
-    height: 30px;
+    height: 34px;
     margin: 10px 0 0;
     text-align: right;
 }

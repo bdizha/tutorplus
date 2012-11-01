@@ -56,6 +56,11 @@ class DiscussionTopicReply extends BaseDiscussionTopicReply {
                 $activityFeedUser->save();
             }
         }
+    }    
+    
+    public function getHtmlizedReply(){
+        return myToolkit::htmlString($this->getReply());
     }
+
 
 }

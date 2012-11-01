@@ -54,15 +54,15 @@ class DiscussionTopic extends BaseDiscussionTopic {
     public function postSave($event) {
         // update counts
         $this->updateCounts();
-        
-         // save this activity
+
+        // save this activity
         $replacements = array(
             $this->getUser()->getSlug(),
             $this->getUser()->getName(),
             $this->getSlug(),
             myToolkit::shortenString($this->getSubject(), 50)
         );
-        
+
         $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_DISCUSSION_TOPIC);
 
         if ($activityTemplate) {
@@ -80,6 +80,10 @@ class DiscussionTopic extends BaseDiscussionTopic {
                 $activityFeedUser->save();
             }
         }
+    }
+
+    public function getHtmlizedMessage() {
+        return myToolkit::htmlString($this->getMessage());
     }
 
 }

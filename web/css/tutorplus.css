@@ -1300,3 +1300,7 @@ textarea {
     -webkit-transition: height 0.2s; 
     -moz-transition: height 0.2s; 
 }
+
+#calendar_event_form_holder label{
+    float: none !important;
+}

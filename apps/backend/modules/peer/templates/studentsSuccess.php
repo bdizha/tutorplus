@@ -14,7 +14,7 @@
 <div id="sf_admin_content">
     <div class="content-block">
         <?php if (count($studentPeers) == 0): ?>
-            <h2>It seems you're probably new in this platform or you haven't linked up with any student peers yet. You may want to do so below!</h2>
+            <h2>It seems you haven't linked up with any student peers yet. You may want to do so right away below!</h2>
             <div class="no-result">There's no student peers linked currently.</div>
             <?php include_partial('common/content_actions', array('actions' => $helper->findPeersContentActions())) ?>
         <?php else: ?>

@@ -71,5 +71,9 @@ class Discussion extends BaseDiscussion {
         }
         return null;
     }
+    
+    public function getHtmlizedDescription(){
+        return myToolkit::htmlString($this->getDescription());
+    }
 
 }

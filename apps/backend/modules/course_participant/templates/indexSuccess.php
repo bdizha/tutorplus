@@ -33,19 +33,19 @@
         fetchCourseStudents();        
         
         $(".sf_admin_action_manage_students input").click(function(){
-            openPopup("/backend.php/choose_course_students", '785px', "180px", "<?php echo __('Manage Student Participants', Array(), 'messages') ?>");
+            openPopup("/backend.php/choose/course/students", '785px', "180px", "<?php echo __('Manage Student Participants', Array(), 'messages') ?>");
             return false;
         }); 
         
         $(".sf_admin_action_manage_instructors input").click(function(){
-            openPopup("/backend.php/choose_course_instructors", '785px', "180px", "<?php echo __('Manage Instructor Participants', Array(), 'messages') ?>");
+            openPopup("/backend.php/choose/course/instructors", '785px', "180px", "<?php echo __('Manage Instructor Participants', Array(), 'messages') ?>");
             return false;
         });
     });
 
     function fetchCourseInstructors(){
         $('#course_instructors').html(loadingHtml);
-        $.get('/backend.php/course_instructor', showCourseInstructors);
+        $.get('/backend.php/course/instructor', showCourseInstructors);
     }
 
     function showCourseInstructors(res){
@@ -54,7 +54,7 @@
 
     function fetchCourseStudents(){
         $('#course_students').html(loadingHtml);
-        $.get('/backend.php/course_student', showCourseStudents);
+        $.get('/backend.php/course/student', showCourseStudents);
     }
 
     function showCourseStudents(res){

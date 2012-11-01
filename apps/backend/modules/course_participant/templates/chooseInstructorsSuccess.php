@@ -1,5 +1,5 @@
 <div id="cboxLoadedContentInner">
-    <form id="choose_course_instructors_form" action="/backend.php/choose_course_instructors" method="post">
+    <form id="choose_course_instructors_form" action="<?php echo url_for("@choose_course_instructors") ?>" method="post">
         <div class="choose-participants">
             <?php foreach ($instructors as $instructor): ?>
                 <div class="peer">

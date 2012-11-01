@@ -39,6 +39,11 @@ class DiscussionTopicMessage extends BaseDiscussionTopicMessage {
                 $activityFeedUser->save();
             }
         }
+    }   
+    
+    public function getHtmlizedMessage(){
+        return myToolkit::htmlString($this->getMessage());
     }
+
 
 }

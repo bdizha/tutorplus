@@ -39,12 +39,42 @@ class tpWidgetFormDate extends sfWidgetFormDate {
     protected function configure($options = array(), $attributes = array()) {
         $this->addOption('format', "%day%&nbsp;-&nbsp;%month%&nbsp;-&nbsp;%year%");
         $this->addOption('days', parent::generateTwoCharsRange(1, 31));
-        $this->addOption('months', parent::generateTwoCharsRange(1, 12));
-        $years = range(date('Y') - 5, date('Y') + 5);
-        $this->addOption('years', array_combine($years, $years));
+        $this->addOption('months', $this->genereateMonthRange());
+        $this->addOption('years', array_combine($this->genereateYearRange(), $this->genereateYearRange()));
         $this->addOption('can_be_empty', true);
-        $this->addOption('empty_values', array('year' => '', 'month' => '', 'day' => ''));
+        $this->addOption('empty_values', array('year' => 'YYYY', 'month' => 'MM', 'day' => 'DD'));
         $this->setAttributes(array("class" => "date-field"));
+    }
+
+    /**
+     * Generates month range
+     *
+     * @return array
+     */
+    static protected function genereateMonthRange() {
+        return array(
+            1 => "January",
+            2 => "February",
+            3 => "March",
+            4 => "April",
+            5 => "May",
+            6 => "June",
+            7 => "July",
+            8 => "August",
+            9 => "September",
+            10 => "October",
+            11 => "November",
+            12 => "December"
+        );
+    }
+
+    /**
+     * Generates year range
+     *
+     * @return array
+     */
+    static protected function genereateYearRange() {
+        return range(date('Y') - 5, date('Y') + 5);
     }
 
 }

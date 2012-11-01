@@ -57,6 +57,6 @@ class myToolkit extends sfToolkit {
     }
     
     public static function htmlString($string = ""){
-        return str_replace("\n", "<br /><br />", str_replace("\r\n\r\n", "\n", html_entity_decode($string)));
+        return str_replace("\n", "<br /><br />", str_replace("\r\n\r\n", "\n", str_replace("\n\n", "\n", html_entity_decode($string))));
     }
 }

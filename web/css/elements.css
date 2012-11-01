@@ -4,7 +4,7 @@
     text-decoration: none;
     font-size: 12px;
     text-shadow: none;
-    line-height: 25px;
+    line-height: 20px;
     font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
 }
 
@@ -13,12 +13,20 @@ html{
     height: 100%;
 }
 
+div, li {
+    line-height: 20px !important;
+}
+
+textarea{
+    line-height: 23px !important;
+}
+
 body{
     background: url("/images/bg_content.jpg") repeat;
     font-size: 12px;
     height: 100%;
     width: 100%;
-    line-height: 25px;
+    line-height: 20px;
     margin: 0;
     padding: 0
 }

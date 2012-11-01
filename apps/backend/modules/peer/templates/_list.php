@@ -24,7 +24,7 @@
         <?php endif; ?>
         <div class="peer"> 
             <?php include_partial('personal_info/photo', array('user' => $myPeer, "dimension" => 48)) ?>
-            <div class="name"><?php echo link_to($myPeer, 'profile_show', $myPeer) ?></div>
+            <div class="name"><?php echo link_to(myToolkit::shortenString($myPeer->getName(), 14), 'profile_show', $myPeer) ?></div>
             <div class="peer-actions">
                 <input type="button" class="peer-<?php echo $statusClass ?>" inviterid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
             </div>
@@ -51,7 +51,7 @@
             $(this).addClass("peer-peered");
             $(this).removeClass("peer-accept");
             $(this).attr("value", "Peered");
-            $.get('/backend.php/peer_accept/' + inviterId, {}, function(response){   
+            $.get('/backend.php/peer/accept/' + inviterId, {}, function(response){   
                 if(response == "success"){
                 }
             }, 'html'); 
@@ -62,7 +62,7 @@
             $(this).addClass("peer-invited");
             $(this).removeClass("peer-open");
             $(this).attr("value", "? Invited");
-            $.get('/backend.php/peer_invite/' + inviteeId, {}, function(response){   
+            $.get('/backend.php/peer/invite/' + inviteeId, {}, function(response){   
                 if(response == "success"){
                 }
             }, 'html'); 

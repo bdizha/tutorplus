@@ -15,12 +15,6 @@ class CourseForm extends BaseCourseForm {
                 $this['created_at'], $this['updated_at']
         );
 
-//        $this->widgetSchema['description'] = new sfWidgetFormTextareaTinyMCE(array(
-//                'width' => 700,
-//                'height' => 350,
-//                'config' => 'theme_advanced_disable: "anchor,image,cleanup,help"',
-//            ));
-
         $this->widgetSchema['start_date'] = new tpWidgetFormDate();
         $this->widgetSchema['end_date'] = new tpWidgetFormDate();
 

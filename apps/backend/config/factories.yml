@@ -50,9 +50,9 @@ all:
       transport:
         class:        Swift_SmtpTransport
         param:
-          host:       smtp.gmail.com
+          host:       mail.tutorplus.org
           port:       25
           encryption: "ssl"
-          username:   bdizha@gmail.com
-          password:   "@%gr4f1f0x#"
+          username:   support@tutorplus.org
+          password:   "Tut0rp1us001"
 

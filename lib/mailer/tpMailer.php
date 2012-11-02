@@ -251,7 +251,7 @@ class tpMailer {
     }
 
     protected function htmlize($string) {
-        return str_replace("\r\n\r\n", "</br>", $string);
+        return "<p>" . str_replace("\r\n\r\n", "<p></p>", $string) . "</p>";
     }
 
     public function getMailerTemplate($mailer = null) {

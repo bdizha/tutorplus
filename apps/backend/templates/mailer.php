@@ -11,10 +11,10 @@
                 <div style="display: block;padding-top: 10px">Thanks</div>
                 <div style="display: block;">The <strong>TutorPlus</strong> Team</div>
                 <p style="font-size:12px;color:#707070;line-height:125%">
-                    View today's activities <a style="color: #0A798D" href="http://tutorplus.org/backend.php/dashboard" target="_blank">here</a>
+                    View today's activities <a style="color: #0A798D" href="http://www.tutorplus.org/backend.php/dashboard" target="_blank">here</a>
                 </p>
             </div>
-            <p style="margin:0;padding-bottom:40px;padding-top:20px;background-color:#F1F1F1;text-align:center;font-size:12px;color:#707070;line-height:125%">If you no longer wish to receive these emails from us you may un-subscribe <a style="color:#0A798D; font-size:12px" href="http://tutorplus.org/backend.php/notification_settings" target="_blank">here</a>.</p>
+            <p style="margin:0;padding-bottom:40px;padding-top:20px;background-color:#F1F1F1;text-align:center;font-size:12px;color:#707070;line-height:125%">If you no longer wish to receive these emails from us you may un-subscribe <a style="color:#0A798D; font-size:12px" href="http://www.tutorplus.org/backend.php/notification_settings" target="_blank">here</a>.</p>
         </div>
     </body>
 </html>

@@ -40,7 +40,7 @@ all:
     param:
       cache_key_use_vary_headers: true
       cache_key_use_host_name:    true
-      
+   
   mailer:
     class: sfMailer
     param:
@@ -50,14 +50,8 @@ all:
       transport:
         class:        Swift_SmtpTransport
         param:
-<<<<<<< HEAD
           host:       smtp.gmail.com
           port:       465 
-=======
-          host:       mail.tutorplus.org
-          port:       25
->>>>>>> 967a1d7fc665eb2a0331f27fc35cafc61592cb21
           encryption: "ssl"
-          username:   support@tutorplus.org
-          password:   "Tut0rp1us001"
-
+          username:   bdizha@gmail.com
+          password:   "@%gr4f1f0x#"

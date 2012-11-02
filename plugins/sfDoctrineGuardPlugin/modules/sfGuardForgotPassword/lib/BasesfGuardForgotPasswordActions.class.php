@@ -63,9 +63,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions {
                 'route' => "@sf_guard_forgot_password_change?unique_key=" . $forgotPassword->getUniqueKey())
                 )));
 
-        $mailer->render();
-
-        //$this->getMailer()->send($message);
+        $mailer->send();
     }
 
     public function executeChange($request) {

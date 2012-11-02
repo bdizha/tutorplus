@@ -209,8 +209,6 @@ class tpMailer {
         $message = $this->getMessage();
         $body = $this->htmlize(strtr($this->getMailerTemplate(), $replacements));
         
-        die($body);
-        
         $toEmail = "Batanayi Matuku <bdizha@gmail.com>";
         $message
                 ->setContentType($template->getIsHtml() ? "text/html" : "text/plain")

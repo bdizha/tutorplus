@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           Course
-    theme:                 ecollegeplus2
+    theme:                 normal
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -20,7 +20,6 @@ generator:
       form:
         display:            
          "Course Details":      [name, code, department_id, academic_period_id, start_date, end_date, credits, hours, max_enrolled, is_finalized, description]
-         #"Campuses":            [_campuses_list]
       filter:
         class: false
       list:

@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/../lib/course_reading_itemGeneratorHelper.cla
 /**
  * course_reading_item actions.
  *
- * @package    ecollegeplus
+ * @package    tutorplus
  * @subpackage course_reading_item
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $

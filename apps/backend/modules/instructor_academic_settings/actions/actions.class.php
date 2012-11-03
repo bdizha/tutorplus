@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/../lib/instructor_academic_settingsGeneratorH
 /**
  * instructor_academic_settings actions.
  *
- * @package    ecollegeplus
+ * @package    tutorplus
  * @subpackage instructor_academic_settings
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $

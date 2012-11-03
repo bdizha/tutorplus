@@ -45,11 +45,11 @@
 
 /* announcement fields */
 #announcement_subject{
-    width: 520px !important;
+    width: 548px !important;
 }
 
 #announcement_message{
-    width: 520px !important;
+    width: 548px !important;
     max-height: 400px;
     height: 150px
 }

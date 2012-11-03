@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/../lib/instructor_contactGeneratorHelper.clas
 /**
  * instructor_contact actions.
  *
- * @package    ecollegeplus
+ * @package    tutorplus
  * @subpackage instructor_contact
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $

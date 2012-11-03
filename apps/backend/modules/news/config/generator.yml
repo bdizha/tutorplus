@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           News
-    theme:                 ecollegeplus
+    theme:                 normal
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -18,7 +18,7 @@ generator:
       filter:
         class: false
       list:
-        title:                  Institution News
+        title:                  News Items
         display:                [heading, blurb, is_published]
         sort:                   [heading, asc]
         batch_actions:          []
@@ -29,7 +29,8 @@ generator:
         actions:
           _new: ~  
       form:
-        display:                [heading, blurb, description, is_published, lock_until, lock_after]
+        display:        
+          "Details":            [heading, blurb, description, is_published, lock_until, lock_after]
       edit:
         actions:          
           cancel:               []

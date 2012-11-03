@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/../lib/discussion_topic_replyGeneratorHelper.
 /**
  * discussion_topic_reply actions.
  *
- * @package    ecollegeplus
+ * @package    tutorplus
  * @subpackage discussion_topic_reply
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $

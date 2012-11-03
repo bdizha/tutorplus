@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/../lib/calendar_eventGeneratorHelper.class.ph
 /**
  * calendar_event actions.
  *
- * @package    ecollegeplus
+ * @package    tutorplus
  * @subpackage calendar_event
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $

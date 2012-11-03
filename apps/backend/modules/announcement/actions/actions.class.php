@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/../lib/announcementGeneratorHelper.class.php'
 /**
  * announcement actions.
  *
- * @package    ecollegeplus
+ * @package    tutorplus
  * @subpackage announcement
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -14,7 +14,7 @@ require_once dirname(__FILE__) . '/../lib/announcementGeneratorHelper.class.php'
 class announcementActions extends autoAnnouncementActions
 {
 
-    public function executeIndex(sfWebRequest $request)
+    public function executeDisplay(sfWebRequest $request)
     {
         $this->announcements = AnnouncementTable::getInstance()->retrieveOrdered();
     }

@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/../lib/newsGeneratorHelper.class.php';
 /**
  * news actions.
  *
- * @package    ecollegeplus
+ * @package    tutorplus
  * @subpackage news
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -14,11 +14,9 @@ require_once dirname(__FILE__) . '/../lib/newsGeneratorHelper.class.php';
 class newsActions extends autoNewsActions
 {
 
-    public function executeIndex(sfWebRequest $request)
+    public function executeDisplay(sfWebRequest $request)
     {
         $this->newsItems = NewsTable::getInstance()->retrieveOrdered();
-        
-        //myToolkit::debug($this->newsItems->toArray());
     }
 
     public function executeRecent(sfWebRequest $request)

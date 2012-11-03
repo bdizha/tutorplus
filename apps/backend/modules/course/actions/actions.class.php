@@ -177,4 +177,18 @@ class courseActions extends autoCourseActions {
         return $postedCourseIds;
     }
 
+    public function executeCalendar(sfWebRequest $request) {
+        $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
+        $this->course = CourseTable::getInstance()->find(array($courseId));
+
+        $ids = array();
+        $calendarIds = CalendarTable::getInstance()->retrieveByIdsUserIdAndVisibility($this->getUser()->getId());
+
+        foreach ($calendarIds as $key => $calendarId) {
+            $ids[] = $calendarId["id"];
+        }
+
+        $this->getUser()->setMyAttribute('calendar_ids', array_values($ids));
+    }
+
 }

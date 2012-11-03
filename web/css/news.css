@@ -45,7 +45,7 @@
 
 /* news fields */
 #news_blurb, #news_description, #news_heading{
-    width: 620px !important
+    width: 688px !important
 }
 
 .news-row{
@@ -63,4 +63,8 @@
     margin-top: 10px;
     border-radius: 5px;
     position: relative;
+}
+
+.news-action{
+    margin-bottom: 10px !important;
 }

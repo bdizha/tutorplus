@@ -6,3 +6,7 @@ chooseSuccess:
 
 currentSuccess:
   stylesheets: [profile.css, student.css]
+  
+calendarSuccess:  
+  stylesheets: [full_calendar_print, full_calendar, dashboard, calendar.css]
+  javascripts: [jquery/full_calendar.js]

@@ -5,7 +5,7 @@
   <?php echo $assignment->getDisplaySubmission() ?>
 </td>
 <td class="sf_admin_date sf_admin_list_td_due_date">
-  <?php echo false !== strtotime($assignment->getDueDate()) ? format_date($assignment->getDueDate(), "f") : '&nbsp;' ?>
+  <?php echo $assignment->getDateTimeObject('due_date')->format('d/m/Y H:i') ?>
 </td>
 <td class="sf_admin_text sf_admin_list_td_weight">
   <?php echo $assignment->getWeight() ?>

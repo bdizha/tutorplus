@@ -5,7 +5,8 @@
 }
 
 .sf_admin_list_th_title{
-    width: 300px;
+    width: 260px;
+    word-break: break-all;
 }
 
 #course_form_holder .sf_admin_form_row label, #assignment_form_holder .sf_admin_form_row label {

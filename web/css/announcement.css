@@ -45,12 +45,11 @@
 
 /* announcement fields */
 #announcement_subject{
-    width: 548px !important;
+    width: 688px !important;
 }
 
 #announcement_message{
-    width: 548px !important;
-    max-height: 400px;
+    width: 688px !important;
     height: 150px
 }
 
@@ -65,4 +64,8 @@
     margin-top: 10px;
     border-radius: 5px;
     position: relative;
+}
+
+.news-action{
+    margin-bottom: 10px !important;
 }

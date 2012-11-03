@@ -10,8 +10,8 @@
  */
 class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
 
-    public function linkToAnnounce() {
-        return '<li class="sf_admin_action_announce"><input type="button" class="button" value="+ Announce"/></li>';
+    public function linkToPrevious() {
+        return '<li class="sf_admin_action_announcements"><input type="button" class="button" onclick="window.location=\'/backend.php/announcement\'" value="< Announcements"/></li>';
     }
 
     public function indexBreadcrumbs() {
@@ -57,6 +57,23 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
     }
 
     public function editLinks() {
+        return array(
+            "current_parent" => "communication",
+            "current_child" => "channels",
+            "current_link" => "announcements"
+        );
+    }
+
+    public function showBreadcrumbs($object) {
+        return array('breadcrumbs' => array(
+                "Communication" => "activity_feed",
+                "Announcements" => "announcement",
+                "Announcement ~ " . $object->getSubject() => "announcement/" . $object->getSlug(),
+            )
+        );
+    }
+
+    public function showLinks() {
         return array(
             "current_parent" => "communication",
             "current_child" => "channels",

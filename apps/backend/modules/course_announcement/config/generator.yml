@@ -2,21 +2,35 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           Announcement
-    theme:                 popup
+    theme:                 normal
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          course_zzannouncement
+    route_prefix:          course_announcement
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
-      filter:  ~
-      form:    ~
+      fields:
+        user:                   { label: Announcer }
+      filter:
+        class: false
+      list:
+        title:                  Announcements
+        display:                [ subject, user ]
+        sort:                   [ subject, asc ]
+        batch_actions:          []
+        object_actions:        
+          _edit: ~
+          _delete: ~
+        max_per_page:			      10
+        actions:
+          _new: ~  
+      form:
+        display:
+          "Details":            [ subject, message, is_published, lock_until, lock_after ]
       edit:
         actions:          
           cancel:               []

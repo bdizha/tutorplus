@@ -111,4 +111,22 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
+    public function calendarBreadcrumbs($course) {
+        return array('breadcrumbs' => array(
+                "Courses" => "course",
+                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug(),
+                "Calendar" => "course_calendar"
+            )
+        );
+    }
+
+    public function calendarLinks($course) {
+        return array(
+            "current_parent" => "courses",
+            "current_child" => "my_course",
+            "current_link" => "course_calendar",
+            "slug" => $course->getSlug()
+        );
+    }
+
 }

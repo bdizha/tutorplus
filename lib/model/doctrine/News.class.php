@@ -26,4 +26,8 @@ class News extends BaseNews
             $activityFeed->save();
         }
     }
+
+    public function getHtmlizedDescription() {
+        return myToolkit::htmlString($this->getDescription());
+    }
 }

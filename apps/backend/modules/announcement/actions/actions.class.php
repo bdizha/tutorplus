@@ -24,4 +24,9 @@ class announcementActions extends autoAnnouncementActions
         $this->announcements = AnnouncementTable::getInstance()->retrieveLatest(null, 3);
     }
 
+    public function executeShow(sfWebRequest $request)
+    {
+        $this->forward404Unless($this->announcement = $this->getRoute()->getObject());
+    }
+
 }

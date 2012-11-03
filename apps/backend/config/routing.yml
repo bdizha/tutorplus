@@ -916,6 +916,10 @@ instructor_courses:
   url: /instructor/courses
   param: { module: instructor_academic_settings, action: courses }
   
+course_calendar:
+  url: /course/calendar
+  param: { module: course, action: calendar }
+  
 course_choose:
   url: /course/choose
   param: { module: course, action: choose }
@@ -1233,10 +1237,6 @@ course_info:
 course_home:
   url:   /course/detail
   param: { module: course, action: detail }
-    
-course_calendar:
-  url:   /course
-  param: { module: course, action: index }
     
 course_participant:
   url:   /course/participant

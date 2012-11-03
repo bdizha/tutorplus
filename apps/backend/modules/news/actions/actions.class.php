@@ -26,7 +26,7 @@ class newsActions extends autoNewsActions
 
     public function executeShow(sfWebRequest $request)
     {
-        $this->forward404Unless($this->news = $this->getRoute()->getObject());
+        $this->forward404Unless($this->newsItem = $this->getRoute()->getObject());
     }
 
 }

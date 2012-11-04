@@ -22,4 +22,8 @@ class course_announcementActions extends autoCourse_announcementActions {
         $this->forward404Unless($this->course, sprintf('Object Course does not exist (%s).', $courseId));
     }
 
+    public function executeShow(sfWebRequest $request) {
+        $this->forward404Unless($this->announcement = $this->getRoute()->getObject());
+    }
+
 }

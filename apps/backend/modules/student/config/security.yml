@@ -1,0 +1,5 @@
+all:
+  is_secure: false
+
+registerSuccess:
+  is_secure: true

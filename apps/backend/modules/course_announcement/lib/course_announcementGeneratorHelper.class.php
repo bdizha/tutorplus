@@ -8,21 +8,21 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class course_announcementGeneratorHelper extends BaseCourse_announcementGeneratorHelper {
+class course_announcementGeneratorHelper extends BaseCourse_announcementGeneratorHelper{ 
 
-    protected $course = null;
+    public $course = null;
 
     public function setCourse($course) {
         $this->course = $course;
     }
 
-    public function linkToAnnounce() {
-        return '<li class="sf_admin_action_announce"><input type="button" class="button" value="+ Announce"/></li>';
+    public function linkToPrevious() {
+        return '<li class="sf_admin_action_announcements"><input type="button" class="button" onclick="window.location=\'/backend.php/course/announcement\'" value="< Announcements"/></li>';
     }
-
-    public function indexBreadcrumbs($course) {
+    
+    public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Courses" => "course",
+                "Modules" => "course",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
                 "Announcements" => "course_announcement"
             )
@@ -40,7 +40,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Courses" => "course",
+                "Modules" => "course",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
                 "Announcements" => "course_announcement",
                 "New Announcement" => "announcement/new"
@@ -59,7 +59,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 
     public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
-                "Courses" => "course",
+                "Modules" => "course",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
                 "Announcements" => "course_announcement",
                 "Edit Announcement ~ " . $object->getSubject() => "announcement/" . $object->getId() . "/edit",
@@ -68,6 +68,25 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     }
 
     public function editLinks() {
+        return array(
+            "current_parent" => "courses",
+            "current_child" => "my_course",
+            "current_link" => "announcements",
+            "slug" => $this->course->getSlug()
+        );
+    }
+
+    public function showBreadcrumbs($object) {
+        return array('breadcrumbs' => array(
+                "Modules" => "course",
+                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
+                "Announcements" => "course_announcement",
+                "Announcement ~ " . $object->getSubject() => "announcement/" . $object->getSlug(),
+            )
+        );
+    }
+
+    public function showLinks() {
         return array(
             "current_parent" => "courses",
             "current_child" => "my_course",

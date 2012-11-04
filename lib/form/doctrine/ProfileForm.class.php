@@ -13,14 +13,13 @@ class ProfileForm extends BaseProfileForm
 
     public function configure()
     {
-        $this->formatDateFields();
         unset(
             $this['created_at'], $this['updated_at']
         );
 
         $this->widgetSchema['first_name'] = new sfWidgetFormInputText();
         $this->widgetSchema['last_name'] = new sfWidgetFormInputText();
-        $this->widgetSchema['date_of_birth'] = new sfWidgetFormJQueryDate(array("change_month" => true, "change_year" => true));
+        $this->widgetSchema['date_of_birth'] = new tpWidgetFormDate();
         $this->widgetSchema['username'] = new sfWidgetFormInputText();
         $this->widgetSchema['email_address'] = new sfWidgetFormInputText();
         $this->widgetSchema['password'] = new sfWidgetFormInputPassword(array(), array("autocomplete" => "off"));
@@ -54,12 +53,6 @@ class ProfileForm extends BaseProfileForm
         ));
     }
 
-    public function formatDateFields()
-    {
-        $date_of_birth = !$this->getObject()->getId() ? date("d-m-Y", strtotime("now")) : $this->getObject()->getDateTimeObject('date_of_birth')->format('d-m-Y');
-        $this->getObject()->setDateOfBirth($date_of_birth);
-    }
-
     /**
      * Override the save method to save the merged user form.
      */
@@ -79,8 +72,8 @@ class ProfileForm extends BaseProfileForm
             if (!$user->getId())
             {
                 $user->set('algorithm', 'sha1');
-                $user->set('username', $this->getValue("username"));
-                $user->set('password', $this->getValue("password"));
+                $user->set('username', $this->getValue("number"));
+                $user->set('password', "batanayi"); //substr(md5(rand() + time()), 0), 8);
                 $user->set('email_address', $this->getValue("email_address"));
             }
             $user->set('first_name', $this->getValue("first_name"));
@@ -89,7 +82,6 @@ class ProfileForm extends BaseProfileForm
             $user->save();
 
             unset($this->values['username']);
-
             $this->setValue('user_id', $user->get('id'));
         }
     }

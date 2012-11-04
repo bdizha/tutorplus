@@ -14,7 +14,7 @@
 <div id="sf_admin_form_container">
     <div id="sf_admin_content">
         <div class="content-block">
-            <h2>Course Info</h2>
+            <h2>Module Info</h2>
             <div class="full-block">
                 <div class="course_info plain-row">
                     <div class="even-row">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="row-column">
                             <div class="row-label">
-                                Course dates:
+                                Module dates:
                             </div>
                             <div class="row-value">
                                 <?php echo $course->getDateTimeObject('start_date')->format('d/m/Y') ?> - <?php echo $course->getDateTimeObject('end_date')->format('d/m/Y') ?>                          
@@ -75,17 +75,17 @@
             </div>
         </div>
         <div class="content-block">
-            <h2>Course Description</h2>
+            <h2>Module Description</h2>
             <div class="full-block padding-10 plain-row">
                 <?php echo $course->getHtmlizedDescription() ?>
             </div>
         </div>
         <ul class="sf_admin_actions" style="clear:both">
             <li class="sf_admin_actions_my_courses">
-                <input type="button" class="button" onclick="document.location.href='/backend.php/course';" value="< My Courses"/>
+                <input type="button" class="button" onclick="document.location.href='/backend.php/course';" value="< My Modules"/>
             </li>
             <li class="sf_admin_actions_course_assignments">
-                <input type="button" class="button" onclick="document.location.href='/backend.php/assignment';" value="Course Assignments"/>
+                <input type="button" class="button" onclick="document.location.href='/backend.php/assignment';" value="Module Assignments"/>
             </li>
         </ul>
     </div>

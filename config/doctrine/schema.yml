@@ -891,6 +891,29 @@ Calendar:
     type:                   { type: integer, default: 0, notnull: true } #[Personal Calendar, Public Calendar, Academic Calendar, Social Calendar, Exams Calendar]
     color:                  { type: string(255), notnull: true }
     
+Faq:
+  actAs:       
+    Timestampable:          ~
+    Sluggable:
+      fields:               [subject]
+  tableName:                faq
+  columns:
+    user_id:                { type: integer, notnull: true }
+    question:               { type: string(255), notnull: true }
+    answer:                 { type: clob, notnull: true }
+    is_published:           { type: boolean, default: 0, notnull: true }
+  relations:
+    User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
+     
+CourseFaq:
+  tableName:                course_faq
+  columns:
+    course_id:              { type: integer, notnull: true }
+    faq_id:                 { type: integer, notnull: true }
+  relations:      
+    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }          
+    Faq:                    { class: Faq, local: faq_id, foreign: id, onDelete: CASCADE }
+    
 UserCalendar:
   actAs:
   tableName:                user_calendar

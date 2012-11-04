@@ -1,6 +1,6 @@
 <?php $user = $announcement->getUser() ?>
 <td class="sf_admin_text sf_admin_list_td_subject">
-    <?php echo link_to(myToolkit::shortenString($announcement->getSubject(), 100), 'announcement_show', $announcement) ?>
+    <?php echo link_to(myToolkit::shortenString($announcement->getSubject(), 100), 'course_announcement_show', $announcement) ?>
 </td>
 <td class="sf_admin_text sf_admin_list_td_user">
     <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 24)) ?>

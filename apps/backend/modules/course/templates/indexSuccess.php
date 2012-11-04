@@ -10,7 +10,7 @@
 
 <?php include_partial('course/flashes') ?>
 <div id="sf_admin_heading">
-    <h3><?php echo __('Courses', array(), 'messages') ?></h3>
+    <h3><?php echo __('Modules', array(), 'messages') ?></h3>
 </div>
 <div id="sf_admin_content">
     <?php include_partial('course/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>

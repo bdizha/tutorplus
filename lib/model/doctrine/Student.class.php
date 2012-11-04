@@ -86,20 +86,32 @@ class Student extends BaseStudent {
         return $mailingLists;
     }
 
-    public function saveDefaultContact() {
-        
+    public function saveDefaultContact($values = array()) {
+
         $studentContact = $this->getStudentContact();
         if (!$studentContact->getId()) {
             $studentContact = new StudentContact();
             $studentContact->setStudentId($this->getId());
-            $studentContact->setCountryId(1);
-            $studentContact->setStateProvinceId(1);
-            $studentContact->setPostalStateProvinceId(1);
-            $studentContact->setPostalCountryId(1);
-            $studentContact->setGuardianStateProvinceId(1);
-            $studentContact->setGuardianCountryId(1);
-            $studentContact->setGuardianStateProvinceId(1);
+            $studentContact->setCountryId($values["country_id"]);
+            $studentContact->setStateProvinceId($values["state_province_id"]);
+            $studentContact->setPostalStateProvinceId($values["state_province_id"]);
+            $studentContact->setPostalCountryId($values["country_id"]);
+            $studentContact->setGuardianStateProvinceId($values["state_province_id"]);
+            $studentContact->setGuardianCountryId($values["country_id"]);
+            $studentContact->setGuardianStateProvinceId($values["state_province_id"]);
             $studentContact->save();
+        }
+    }
+
+    public function saveDefaultCourses($values = array()) {
+
+        foreach (range(1, 3) as $key) {
+            if (!empty($values["course_" . $key])) {
+                $studentCourse = new StudentCourse();
+                $studentCourse->setStudentId($this->getId());
+                $studentCourse->setCourseId($values["course_" . $key]);
+                $studentCourse->save();
+            }
         }
     }
 

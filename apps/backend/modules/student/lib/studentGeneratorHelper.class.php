@@ -79,7 +79,7 @@ class studentGeneratorHelper extends BaseStudentGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs() {
+    public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "student",

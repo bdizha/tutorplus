@@ -10,7 +10,7 @@
 
 <div id="sf_admin_content">
     <div class="content-block">
-        <h2>My Courses</h2>
+        <h2>My Modules</h2>
         <div class="full-block" id="courses_list">
             <?php include_partial('student/courses', array('courses' => $courses)) ?>
         </div>

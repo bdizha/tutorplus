@@ -18,7 +18,7 @@
 .sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_employment,
 .sf_admin_form_field_is_instructor, .sf_admin_form_field_employment_start_date, .sf_admin_form_field_employment_end_date,
 .sf_admin_form_field_is_active, .sf_admin_form_field_current_study{
-    width: 45%;
+    width: 341px;
     float: left;	
 }
 

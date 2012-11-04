@@ -63,7 +63,7 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
         return array();
     }
 
-    public function editBreadcrumbs() {
+    public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array());
     }
 

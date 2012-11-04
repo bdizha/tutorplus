@@ -14,7 +14,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Setting" => "course",
                 "Academic Settings" => "academic_settings",
-                "Courses" => "course"
+                "Modules" => "course"
             )
         );
     }
@@ -31,7 +31,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Setting" => "course",
                 "Communication Settings" => "academic_settings",
-                "Courses" => "course"
+                "Modules" => "course"
             )
         );
     }
@@ -48,7 +48,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Setting" => "course",
                 "Academic Settings" => "academic_settings",
-                "Courses" => "course"
+                "Modules" => "course"
             )
         );
     }
@@ -63,7 +63,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function showBreadcrumbs($course) {
         return array('breadcrumbs' => array(
-                "Courses" => "course",
+                "Module" => "course",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
             )
         );
@@ -81,8 +81,8 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function myCoursesBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Courses" => "courses",
-                "My Courses" => "my_courses"
+                "Modules" => "courses",
+                "My Modules" => "my_courses"
             )
         );
     }
@@ -97,8 +97,8 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function exploreCoursesBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Courses" => "courses",
-                "Course Explorer" => "course_explorer"
+                "Modules" => "courses",
+                "Module Explorer" => "course_explorer"
             )
         );
     }
@@ -113,7 +113,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function calendarBreadcrumbs($course) {
         return array('breadcrumbs' => array(
-                "Courses" => "course",
+                "Modules" => "course",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug(),
                 "Calendar" => "course_calendar"
             )

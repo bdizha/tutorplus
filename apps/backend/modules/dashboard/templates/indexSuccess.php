@@ -8,6 +8,7 @@
 <?php include_partial('common/breadcrumbs', array()) ?>
 <?php end_slot() ?>
 
+<?php include_partial('common/flashes') ?>
 <div id="sf_admin_content">
     <div id="dashboard_container">
         <div class="content-block dashboard-block left">

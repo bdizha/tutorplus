@@ -1320,4 +1320,26 @@ textarea {
 
 #calendar_event_form_holder label{
     float: none !important;
+    width: 336px !important;
+}
+
+.register-container{
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.register-container-wrapper{
+    min-height: 290px;
+    margin-top: 20px;
+    width: 722px;
+}
+
+.register-container label{
+    float: none !important;
+    width: 336px !important;
+}
+
+.register-container .sf_admin_form_field_country_id{
+    display: none !important;
 }

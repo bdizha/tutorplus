@@ -15,8 +15,12 @@
 .sf_admin_form_field_guardian_phone_mobile, .sf_admin_form_field_guardian_address_line_1, .sf_admin_form_field_guardian_address_line_2,
 .sf_admin_form_field_guardian_postcode, .sf_admin_form_field_guardian_city, .sf_admin_form_field_guardian_country_id,
 .sf_admin_form_field_guardian_state_province_id, .sf_admin_form_field_high_school, .sf_admin_form_field_current_qualification,
-.sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_studied_at, .sf_admin_form_field_current_study{
-    width: 45%;
+.sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_studied_at, .sf_admin_form_field_current_study,
+.sf_admin_form_field_mobile_phone, .sf_admin_form_field_department, .sf_admin_form_field_module, .sf_admin_form_field_year,
+.sf_admin_form_field_semester, .sf_admin_form_field_department_1, .sf_admin_form_field_course_1, .sf_admin_form_field_department_2,
+.sf_admin_form_field_course_2, .sf_admin_form_field_department_3, .sf_admin_form_field_course_3,
+.sf_admin_form_field_year, .sf_admin_form_field_semester{
+    width: 341px;
     float: left;	
 }
 

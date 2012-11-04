@@ -1,3 +1,21 @@
+instructor_enroll:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Instructor
+    module:               instructor_enroll
+    prefix_path:          /instructor/enroll
+    column:               id
+    with_wildcard_routes: true
+
+student_enroll:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Student
+    module:               student_enroll
+    prefix_path:          /student/enroll
+    column:               id
+    with_wildcard_routes: true
+
 assessment_type:
   class: sfDoctrineRouteCollection
   options:
@@ -663,6 +681,34 @@ student:
     prefix_path:          /student
     column:               id
     with_wildcard_routes: true
+    
+student_register_create:
+  url:     /enroll/student.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Student, type: object }
+  param:   { module: enroll, action: studentCreate, sf_format: html }
+  requirements: { sf_method: post }
+  
+student_register_new:
+  url:     /student/register/new.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Student, type: object }
+  param:   { module: enroll, action: studentRegister, sf_format: html }
+  requirements: { sf_method: get }
+  
+instructor_register_create:
+  url:     /enroll/instructor.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Instructor, type: object }
+  param:   { module: enroll, action: instructorCreate, sf_format: html }
+  requirements: { sf_method: post }
+  
+instructor_register_new:
+  url:     /instructor/register/new.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Instructor, type: object }
+  param:   { module: enroll, action: instructorRegister, sf_format: html }
+  requirements: { sf_method: get }
     
 student_inline_update:
   url:     /student/inline/:id.:sf_format

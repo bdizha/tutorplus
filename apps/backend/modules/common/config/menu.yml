@@ -4,27 +4,27 @@ menu:
     type:                             Many
     children:
   courses:                          
-    details:                          { route: courses, label: Courses }
+    details:                          { route: courses, label: Modules }
     type:                             One
     children:
       courses:                                        
-        details:                      { route: my_courses, label: "Courses" }
+        details:                      { route: my_courses, label: "Modules" }
         credentials:                  [ student, instructor, staff ]
         children:
-          course_explorer:            { route: courses, label: "Course Explorer" }
-          my_courses:                 { route: my_courses, label: "My Courses" }
+          course_explorer:            { route: courses, label: "Module Explorer" }
+          my_courses:                 { route: my_courses, label: "My Modules" }
       my_course:                                        
-        details:                      { route: course_show, label: "Course Home" }
+        details:                      { route: course_show, label: "Module Home" }
         credentials:                  [ student, instructor, staff ]
         children:
-          course_info:                { route: course_show, param: slug,  label: "Course Info" }
+          course_info:                { route: course_show, param: slug,  label: "Module Info" }
           announcements:              { route: course_announcement, label: "Announcements" }
           course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
           course_calendar:            { route: course_calendar, label: "Calendar" }
           assignments:                { route: assignment, label: "Assignments" }
           assessment_types:           { route: assessment_type, label: "Assessment Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
-          course_files:               { route: course_file, label: "Course Files" }
+          course_files:               { route: course_file, label: "Module Files" }
           course_participants:        { route: course_participant, label: "Participants" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
@@ -112,7 +112,7 @@ menu:
         details:                      { route: course, label: "Academic Settings" }
         credentials:                  [ administrator ]
         children:                    
-          courses:                    { route: course, label: Courses }
+          courses:                    { route: course, label: Modules }
           programmes:                 { route: program, label: "Programmes" }
           departments:                { route: department, label: "Departments" }
           academic_years:             { route: academic_year, label: "Academic Years" }

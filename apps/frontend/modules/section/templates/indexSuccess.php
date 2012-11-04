@@ -10,10 +10,10 @@
     </div>
     <div class="landing-right-column">
         <div class="column-row">
-            <input class="button landing-button" value="Explore courses" type="button" onclick="document.location.href='/backend.php/courses';"/>
+            <input class="button landing-button" value="Student Register" type="button" onclick="document.location.href='/backend.php/student/enroll/new';"/>
         </div>
         <div class="column-row">
-            <input class="button landing-button" value="Hear from us" type="button" onclick="document.location.href='/contact/us';"/>
+            <input class="button landing-button" value="Tutor Register" type="button" onclick="document.location.href='/backend.php/instructor/enroll/new';"/>
         </div>
     </div>
 </div>

@@ -13,7 +13,7 @@
             <input class="button landing-button" value="Student Register" type="button" onclick="document.location.href='/backend.php/student/enroll/new';"/>
         </div>
         <div class="column-row">
-            <input class="button landing-button" value="Tutor Register" type="button" onclick="document.location.href='/backend.php/instructor/enroll/new';"/>
+            <input class="button landing-button" value="Tutor Register" type="button" onclick="document.location.href='/backend.php/student/enroll/new';"/>
         </div>
     </div>
 </div>

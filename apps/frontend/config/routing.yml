@@ -18,6 +18,18 @@ mission:
   url:   /mission
   param: { module: section, action: mission }
   
+modules:
+  url:   /modules
+  param: { module: section, action: modules }
+  
+students:
+  url:   /students
+  param: { module: section, action: students }
+  
+instructors:
+  url:   /instructors
+  param: { module: section, action: instructors }
+  
 philosophy:
   url:   /philosophy
   param: { module: section, action: philosophy }

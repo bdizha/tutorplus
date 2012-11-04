@@ -51,6 +51,14 @@ class sectionActions extends sfActions {
     }
 
     /**
+     * Executes modules action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeModules(sfWebRequest $request) {
+    }
+
+    /**
      * Executes philosophy action
      *
      * @param sfRequest $request A request object
@@ -64,6 +72,22 @@ class sectionActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeWork(sfWebRequest $request) {
+    }
+
+    /**
+     * Executes students action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeStudents(sfWebRequest $request) {
+    }
+
+    /**
+     * Executes instructors action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeInstructors(sfWebRequest $request) {
     }
 
     /**

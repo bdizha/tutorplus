@@ -3,12 +3,17 @@ menu:
     details:                          { route: home, label: Home }
   mission:  
     details:                          { route: mission, label: Mission }
+  modules:  
+    details:                          { route: modules, label: "Unisa Modules" }
     type:                             one
   philosophy:  
     details:                          { route: philosophy, label: Philosophy }
+  students:  
+    details:                          { route: students, label: "Our Students" }
     type:                             one
-  work:  
-    details:                          { route: work, label: "Our Work" }
+    type:                             one
+  instructors:  
+    details:                          { route: instructors, label: "Our Instructors" }
     type:                             one
     type:                             one
   leadership:  

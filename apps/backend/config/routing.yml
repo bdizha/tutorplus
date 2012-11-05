@@ -1,3 +1,12 @@
+faq:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Faq
+    module:               faq
+    prefix_path:          /faq
+    column:               id
+    with_wildcard_routes: true
+
 instructor_enroll:
   class: sfDoctrineRouteCollection
   options:

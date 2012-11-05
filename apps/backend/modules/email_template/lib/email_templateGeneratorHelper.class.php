@@ -23,8 +23,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
         return array(
             "current_parent" => "settings",
             "current_child" => "communication_settings",
-            "current_link" => "email_templates",
-            "is_profile" => true
+            "current_link" => "email_templates"
         );
     }
 
@@ -41,8 +40,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
         return array(
             "current_parent" => "settings",
             "current_child" => "communication_settings",
-            "current_link" => "email_templates",
-            "is_profile" => true
+            "current_link" => "email_templates"
         );
     }
 
@@ -59,8 +57,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
         return array(
             "current_parent" => "settings",
             "current_child" => "communication_settings",
-            "current_link" => "email_templates",
-            "is_profile" => true
+            "current_link" => "email_templates"
         );
     }
 }

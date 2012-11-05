@@ -895,7 +895,7 @@ Faq:
   actAs:       
     Timestampable:          ~
     Sluggable:
-      fields:               [subject]
+      fields:               [question]
   tableName:                faq
   columns:
     user_id:                { type: integer, notnull: true }
@@ -911,7 +911,7 @@ CourseFaq:
     course_id:              { type: integer, notnull: true }
     faq_id:                 { type: integer, notnull: true }
   relations:      
-    Course:                 { class: Course, local: course_id, foreign: id, onDelete: CASCADE }          
+    Course:                 { class: Course, local: course_id, foreign: id, foreignAlias: Faqs, onDelete: CASCADE }          
     Faq:                    { class: Faq, local: faq_id, foreign: id, onDelete: CASCADE }
     
 UserCalendar:

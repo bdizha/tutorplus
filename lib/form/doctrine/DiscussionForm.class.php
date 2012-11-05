@@ -11,13 +11,11 @@
 class DiscussionForm extends BaseDiscussionForm {
 
     public function configure() {
-        $this->formatDateFields();
-
         unset(
                 $this['created_at'], $this['updated_at']
         );
 
-        $user_id = sfContext::getInstance()->getUser()->getId();
+        $userId = sfContext::getInstance()->getUser()->getId();
         $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['last_visit'] = new sfWidgetFormInputHidden();
 
@@ -34,14 +32,8 @@ class DiscussionForm extends BaseDiscussionForm {
         $this->validatorSchema['description']->setMessage('required', 'The <b>Description</b> field is required.');
 
         $this->setDefaults(array(
-            'user_id' => $user_id,
+            'user_id' => $userId,
             'access_level' => DiscussionTable::ACCESS_LEVEL_RESTRICTED,
         ));
     }
-
-    public function formatDateFields() {
-        $lastVisit = !$this->getObject() ? date("d-m-Y H:i:s", strtotime("now")) : $this->getObject()->getDateTimeObject('last_visit')->format('d-m-Y');
-        $this->getObject()->setLastVisit($lastVisit);
-    }
-
 }

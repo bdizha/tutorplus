@@ -1,0 +1,39 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Faq
+    theme:                 popup
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          faq
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields: ~
+      filter:
+        class:             false
+      list:
+        title:             Faqs
+        display:           [ question, answer, is_published ]
+        sort:              [ question, asc ]
+        batch_actions:     []
+        max_per_page:      5 
+        actions:
+          _new:            ~
+      form:
+        display:           [ question, answer, is_published ]
+      edit:
+        title:             Edit Faq
+        actions:
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             New Faq
+        actions:
+          cancel:          []
+          _save:           []

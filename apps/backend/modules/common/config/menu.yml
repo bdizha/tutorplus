@@ -133,6 +133,7 @@ menu:
           email_templates:            { route: email_template, label: "Email Templates" }
           mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
           activity_templates:         { route: activity_template, label: "Activity Templates" }
+          faqs:                       { route: faq, label: "Faqs" }
       location_settings:                    
         details:                      { route: country, label: "Location Settings" }
         credentials:                  [ administrator ]

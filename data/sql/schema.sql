@@ -23,6 +23,7 @@ CREATE TABLE course (id BIGSERIAL, name VARCHAR(255) NOT NULL, code VARCHAR(10) 
 CREATE TABLE course_activity_feed (id BIGSERIAL, course_id BIGINT NOT NULL, activity_feed_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course_announcement (id BIGSERIAL, course_id BIGINT NOT NULL, announcement_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course_discussion (id BIGSERIAL, course_id BIGINT NOT NULL, discussion_id BIGINT NOT NULL, PRIMARY KEY(id));
+CREATE TABLE course_faq (id BIGSERIAL, course_id BIGINT NOT NULL, faq_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course_folder (id BIGSERIAL, course_id BIGINT NOT NULL, folder_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course_link (id BIGSERIAL, name VARCHAR(255) NOT NULL, url VARCHAR(255) NOT NULL, course_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE course_meeting_time (id BIGSERIAL, day BIGINT NOT NULL, from_time VARCHAR(255) NOT NULL, to_time VARCHAR(255) NOT NULL, course_id BIGINT NOT NULL, building_id BIGINT NOT NULL, room_id BIGINT NOT NULL, PRIMARY KEY(id));
@@ -39,6 +40,7 @@ CREATE TABLE email_message_correspondence (id BIGSERIAL, initiator_id BIGINT NOT
 CREATE TABLE email_message_reply (id BIGSERIAL, sender_id BIGINT NOT NULL, responder_id BIGINT NOT NULL, email_message_id BIGINT NOT NULL, email_message_reply_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE email_template (id BIGSERIAL, name VARCHAR(255) NOT NULL UNIQUE, subject VARCHAR(5000) NOT NULL, description VARCHAR(5000), patterns VARCHAR(500), body TEXT NOT NULL, from_email VARCHAR(5000) NOT NULL, to_email VARCHAR(5000), cc_email VARCHAR(5000), bcc_email VARCHAR(5000), reply_to VARCHAR(5000) NOT NULL, is_html BOOLEAN DEFAULT 'false' NOT NULL, is_active BOOLEAN DEFAULT 'true' NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, slug VARCHAR(255), PRIMARY KEY(id));
 CREATE TABLE faculty (id BIGSERIAL, name VARCHAR(255) NOT NULL, abbreviation VARCHAR(10) NOT NULL, PRIMARY KEY(id));
+CREATE TABLE faq (id BIGSERIAL, user_id BIGINT NOT NULL, question VARCHAR(255) NOT NULL, answer TEXT NOT NULL, is_published BOOLEAN DEFAULT 'false' NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, slug VARCHAR(255), PRIMARY KEY(id));
 CREATE TABLE file (id BIGSERIAL, folder_id BIGINT NOT NULL, original_name VARCHAR(255) NOT NULL, generated_name VARCHAR(255) NOT NULL, mime_type VARCHAR(128) NOT NULL, size BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE folder (id BIGSERIAL, name VARCHAR(255) NOT NULL, type BIGINT DEFAULT 0 NOT NULL, parent_id BIGINT DEFAULT 1 NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, lft INT, rgt INT, level SMALLINT, PRIMARY KEY(id));
 CREATE TABLE gradebook (id BIGSERIAL, items BIGINT DEFAULT 0 NOT NULL, course_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
@@ -92,6 +94,7 @@ CREATE UNIQUE INDEX course_sluggable ON course (slug, code, name);
 CREATE UNIQUE INDEX discussion_sluggable ON discussion (slug);
 CREATE UNIQUE INDEX discussion_topic_sluggable ON discussion_topic (slug);
 CREATE UNIQUE INDEX email_template_sluggable ON email_template (slug, name);
+CREATE UNIQUE INDEX faq_sluggable ON faq (slug);
 CREATE UNIQUE INDEX folderFile ON file (folder_id, original_name);
 CREATE UNIQUE INDEX news_sluggable ON news (slug);
 CREATE UNIQUE INDEX sf_guard_user_sluggable ON sf_guard_user (slug, first_name, last_name);
@@ -130,6 +133,8 @@ ALTER TABLE course_announcement ADD CONSTRAINT course_announcement_course_id_cou
 ALTER TABLE course_announcement ADD CONSTRAINT course_announcement_announcement_id_announcement_id FOREIGN KEY (announcement_id) REFERENCES announcement(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course_discussion ADD CONSTRAINT course_discussion_discussion_id_discussion_id FOREIGN KEY (discussion_id) REFERENCES discussion(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course_discussion ADD CONSTRAINT course_discussion_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE course_faq ADD CONSTRAINT course_faq_faq_id_faq_id FOREIGN KEY (faq_id) REFERENCES faq(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE course_faq ADD CONSTRAINT course_faq_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course_folder ADD CONSTRAINT course_folder_folder_id_folder_id FOREIGN KEY (folder_id) REFERENCES folder(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course_folder ADD CONSTRAINT course_folder_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE course_link ADD CONSTRAINT course_link_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
@@ -158,6 +163,7 @@ ALTER TABLE email_message_reply ADD CONSTRAINT email_message_reply_sender_id_sf_
 ALTER TABLE email_message_reply ADD CONSTRAINT email_message_reply_responder_id_sf_guard_user_id FOREIGN KEY (responder_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE email_message_reply ADD CONSTRAINT email_message_reply_email_message_reply_id_email_message_id FOREIGN KEY (email_message_reply_id) REFERENCES email_message(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE email_message_reply ADD CONSTRAINT email_message_reply_email_message_id_email_message_id FOREIGN KEY (email_message_id) REFERENCES email_message(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE faq ADD CONSTRAINT faq_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE file ADD CONSTRAINT file_folder_id_folder_id FOREIGN KEY (folder_id) REFERENCES folder(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE gradebook ADD CONSTRAINT gradebook_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE gradebook_item ADD CONSTRAINT gradebook_item_gradebook_id_gradebook_id FOREIGN KEY (gradebook_id) REFERENCES gradebook(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;

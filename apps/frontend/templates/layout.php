@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head> 	
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
-        <title>Tutorplus collaborative learning platform</title>
-        <meta name="description" content="Tutorplus collaborative learning platform"/>
+        <title>Get better results with us! Tutorplus Collaborative Learning Platform - UNISA</title>
+        <meta name="description" content="Get better results with us! Tutorplus Collaborative Learning Platform - UNISA"/>
         <meta name="robots" content="follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <?php include_http_metas() ?>

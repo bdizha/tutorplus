@@ -23,5 +23,5 @@ menu:
     details:                          { route: contact_us, label: "Contact Us" }
     type:                             one
   faq:  
-    details:                          { route: faq, label: "Faq" }
+    details:                          { route: faq, label: "Faqs" }
     type:                             one

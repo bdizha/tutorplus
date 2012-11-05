@@ -165,7 +165,7 @@
 }
 
 #top-menu a{
-    padding: 10px;
+    padding: 10px 9px 10px 10px;
     display: block;
     font-size: 12px;
     text-transform: uppercase;
@@ -240,9 +240,12 @@
 }
 
 #middle-landing-column{
+    border: 1px solid #F1F1F1;
+    background-color: #FFFFFF !important;
     padding-bottom: 10px;
     width: 940px;
     margin-top: 15px;
+    border-radius: 5px;
 }
 
 #main-footer{
@@ -1044,7 +1047,6 @@
 }
 
 .landing-left-column{   
-    background-color: #FFFFFF;
     float: left;
     width: 612px;
     height: 289px;
@@ -1079,6 +1081,7 @@
 .column-row{
     border-top: 1px solid #F1F1F1;
     height: 144px;
+    margin-top: -1px;
 }
 
 .landing-button{
@@ -1281,15 +1284,14 @@ ul.nav-tabs li.active-tab {
 }
 
 .poem-body{
-    margin-left: 164px;
+    margin-left: 264px;
     text-align: center;
     width: 337px;
     margin-top: 10px;
 }
 
 .section-row{
-    padding: 5px 10px 10px 10px;
-    background-color: #F9F9F9;
+    padding: 5px 0;
 }
 
 .section-row ul{
@@ -1342,4 +1344,23 @@ textarea {
 
 .register-container .sf_admin_form_field_country_id{
     display: none !important;
+}
+
+.section-block{
+    margin: 10px 0px 20px;
+}
+
+#tp_admin_container{
+    padding: 10px;
+}
+
+#tp_admin_content{
+    width: 920px;    
+}
+
+#tp_admin_heading h3{
+    color: #21616D;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
 }

@@ -13,14 +13,14 @@
     <div class="content-block">
         <ul class="nav-tabs" id="inbox_nav_tabs">
             <li id="message_inbox_tab" class="active-tab">
-                <a href="/backend.php/message_inbox_tab">Inbox</a>
+                <a href="/backend.php/message/inbox/tab">Inbox</a>
                 <span class="list-count"><?php echo $totalInboxCount ?></span>
             </li>
             <li id="message_new_tab">
-                <a href="/backend.php/message_new_tab">Compose Message</a>
+                <a href="/backend.php/message/new/tab">Compose Message</a>
             </li> 
             <li id="message_read_tab">
-                <a id="message_read" href="/backend.php/message_read_tab">&nbsp;</a>
+                <a id="message_read" href="/backend.php/message/read/tab">&nbsp;</a>
             </li>
         </ul>
         <div id="email_container" class="peer-block plain-row"></div>
@@ -43,6 +43,6 @@
 
     function fetchDefaultTab(){
         $("#email_container").html(loadingHtml);
-        $("#email_container").load('/backend.php/message_inbox_tab');
+        $("#email_container").load('/backend.php/message/inbox/tab');
     }
 </script>

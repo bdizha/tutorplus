@@ -21,7 +21,7 @@
     <div class="landing-left-column">
         <div class="column-row">
             <p class="welcome-message">
-                <span>Welcome to TutorPlus</span> - a novel platform where Higher Education learners <span>collaborate</span> within their course activities with the support of their instructors and peers. It's surely an enhanced free learning platform which is specifically designed to compliment your educational needs...
+                <span>Welcome to TutorPlus</span> - a novel learning platform where UNISA learners <span>collaborate</span> within their module/course activities with the support of our specially trained instructors and tutors. It's surely an enhanced free learning platform which is specifically designed to compliment your distant educational needs. <span>Get better results with us!!!</span>
             </p>
         </div>
         <div class="column-row">

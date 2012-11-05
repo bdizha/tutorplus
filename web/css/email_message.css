@@ -196,8 +196,8 @@ span.separator {
 
 .choose-recipient{
     position: absolute;
-    right: 2px;
-    top: 35px;
+    right: 3px;
+    top: 31px;
 }
 #email_message_subject, #email_message_body{    
     width: 692px !important;

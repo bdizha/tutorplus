@@ -4,17 +4,15 @@
 <?php include_component('common', 'menu', array("current_parent" => "faq")) ?>
 <?php end_slot() ?>
 
-<div id="sf_admin_container">
-    <div class="sf_admin_heading">
+<div id="tp_admin_container">
+    <div id="tp_admin_heading">
         <h3>Frequently asked questions</h3>
     </div>
-    <div id="sf_admin_content">
+    <div id="tp_admin_content">
         <?php foreach ($faqs as $faq): ?>
-            <div class="content-block">
+            <div class="section-block">
                 <h2><?php echo $faq->getQuestion() ?></h2>
-                <div class="full-block">
-                    <div class="even-row"><?php echo $faq->getAnswer() ?></div>
-                </div>
+                <?php echo $faq->getAnswer() ?>
             </div>        
         <?php endforeach; ?>
     </div>

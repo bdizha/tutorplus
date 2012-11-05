@@ -1200,11 +1200,11 @@ message_reply:
   param: { module: message_inbox, action: reply }
   
 message_inbox_tab:
-  url:   /message/inbox_tab
+  url:   /message/inbox/tab
   param: { module: message_inbox, action: inboxTab }
   
 message_new_tab:
-  url:   /message/new_tab
+  url:   /message/new/tab
   param: { module: message_inbox, action: newTab }
   
 message_auto_email_to:

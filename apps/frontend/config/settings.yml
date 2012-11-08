@@ -3,7 +3,7 @@
 
 prod:
   .settings:
-    no_script_name:         false
+    no_script_name:         true
     logging_enabled:        false
 
 dev:
@@ -11,7 +11,7 @@ dev:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
     web_debug:              true
     cache:                  false
-    no_script_name:         false
+    no_script_name:         true
     etag:                   false
 
 test:
@@ -19,17 +19,24 @@ test:
     error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
     cache:                  false
     web_debug:              false
-    no_script_name:         false
+    no_script_name:         true
     etag:                   false
 
 all:
   .settings:
     # Form security secret (CSRF protection)
-    csrf_secret:            0e831e41ed910469ed95648b6082a39ad9aa33ab
+    csrf_secret:            aa394eb0a252339d95d03293b530397a5756869c
 
     # Output escaping settings
-    escaping_strategy:      true
+    escaping_strategy:      false
     escaping_method:        ESC_SPECIALCHARS
 
     # Enable the database manager
     use_database:           true
+    
+    enabled_modules:       [default, sfGuardGroup, sfGuardUser, sfGuardRegister, sfGuardPermission, sfGuardAuth, sfGuardForgotPassword, io_doctrine_menu]
+    
+    login_module:          sfGuardAuth
+    login_action:          logIn
+    secure_module:         dashboard
+    secure_action:         index

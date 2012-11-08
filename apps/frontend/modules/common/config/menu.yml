@@ -1,4 +1,149 @@
-menu:
+secure:
+  dashboard:  
+    details:                          { route: dashboard, label: Dashboard }
+    type:                             Many
+    children:
+  courses:                          
+    details:                          { route: courses, label: Modules }
+    type:                             One
+    children:
+      courses:                                        
+        details:                      { route: my_courses, label: "Modules" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          course_explorer:            { route: courses, label: "Module Explorer" }
+          my_courses:                 { route: my_courses, label: "My Modules" }
+      my_course:                                        
+        details:                      { route: course_show, label: "Module Home" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          course_info:                { route: course_show, param: slug,  label: "Module Info" }
+          announcements:              { route: course_announcement, label: "Announcements" }
+          course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
+          course_calendar:            { route: course_calendar, label: "Calendar" }
+          assignments:                { route: assignment, label: "Assignments" }
+          assessment_types:           { route: assessment_type, label: "Assessment Types" }
+          course_discussion:          { route: course_discussion, label: "Discussions" }
+          course_files:               { route: course_file, label: "Module Files" }
+          course_participants:        { route: course_participant, label: "Participants" }
+      my_assignment:                                        
+        details:                      { route: assignment_show, label: "Assignment Home" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          assignment_info:            { route: assignment_show, label: "Assignment Info" }
+          assignment_discussion:      { route: course_discussion, label: "Discussions" }
+  discussions:                          
+    details:                          { route: discussion, label: Discussions }
+    type:                             One
+    children:
+      discussions:                                     
+        details:                      { route: discussion, label: "Discussions" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          discussion_explorer:        { route: discussion, label: "Discussion Explorer" }
+  calendar:                          
+    details:                          { route: my_schedule, label: Calendar }
+    type:                             One
+    children:
+      my_calendar:                                        
+        details:                      { route: my_schedule, label: "Calendar" }
+        children:
+          my_schedule:                { route: my_schedule, label: "My Schedule" }
+          calendar_events:            { route: calendar_event, label: "Events" }
+          calendars:                  { route: calendar, label: "Calendars" }
+  profile:                          
+    details:                          { route: profile_show, label: Profile }
+    type:                             One
+    param:                            slug
+    children:
+      my_profile:                   
+        details:                      { route: profile_show, label: "Profile" }
+        credentials:                  [ student, instructor, staff ]
+        param:                        slug
+        children:                    
+          my_info:                    { route: profile_show, param: slug, label: "Public Info" }
+          my_peers:                   { route: profile_peers, label: "Peers" }
+          my_discussions:             { route: profile_timeline, label: "Timeline" }
+          my_awards:                  { route: profile_award, label: "Awards" }
+          my_qualifications:          { route: profile_qualification, label: "Qualifications" }
+          my_account_settings:        { route: profile_account_settings, command: ignore, label: "Account Settings" }
+          my_contact_details:         { route: profile_contact_details, command: ignore, label: "Contact Details" }
+          my_notification_settings:   { route: notification_settings, command: ignore, label: "Notification Settings" }
+  peers:   
+    details:                          { route:  peer_students, label: Peers }
+    type:                             One
+    children:
+      peers:                   
+        details:                      { route: peer_students, label: "Peers" }
+        credentials:                  [ student, instructor, staff ]
+        children:                    
+          student_peers:              { route: peer_students, label: "Student Peers" }
+          instructor_peers:           { route: peer_instructors, label: "Instructor Peers" }
+          suggested_peers:            { route: peer_suggested, label: "Suggested Peers" }
+          find_peers:                 { route: peer_find, label: "Find Peers" }
+  messaging:                          
+    details:                          { route: message_inbox, label: Messaging }
+    type:                             One
+    children:
+      my_messages:                    
+        details:                      { route: message_inbox, label: "Messaging" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          message_inbox:              { route: message_inbox, label: "Inbox" }
+          message_sent:               { route: message_sent, label: "Sent" }
+          message_draft:              { route: message_draft, label: "Drafts" }
+          message_trash:              { route: message_trash, label: "Trash" }
+  communication:                          
+    details:                          { route: activity_feed, label: Communication }
+    type:                             One
+    children:
+      channels:                                     
+        details:                      { route: activity_feed, label: "Channes" }
+        credentials:                  [ student, instructor, staff ]
+        children:
+          notifications:              { route: activity_feed, label: "Notifications" }
+          news:                       { route: news, label: "News" }
+          announcements:              { route: announcement, label: "Announcements" }
+  settings:    
+    details:                          { route: course, label: Settings }
+    type:                             Many
+    children:
+      academic_settings:                   
+        details:                      { route: course, label: "Academic Settings" }
+        credentials:                  [ administrator ]
+        children:                    
+          courses:                    { route: course, label: Modules }
+          programmes:                 { route: program, label: "Programmes" }
+          departments:                { route: department, label: "Departments" }
+          academic_years:             { route: academic_year, label: "Academic Years" }
+          academic_periods:           { route: academic_period, label: "Academic Periods" }
+          program_levels:             { route: program_level, label: "Program Levels" }
+          faculties:                  { route: faculty, label: "Faculties" }
+      access_settings:                    
+        details:                      { route: student, label: "Access Settings" }
+        credentials:                  [ administrator ]
+        children:
+          students:                   { route: student, label: "Students" }
+          instructors:                { route: instructor, label: "Instructors" }
+          staff:                      { route: staff, label: "Staff" }
+      communication_settings:                    
+        details:                      { route: email_template, label: "Communication Settings" }
+        credentials:                  [ administrator ]
+        children:
+          email_templates:            { route: email_template, label: "Email Templates" }
+          mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
+          activity_templates:         { route: activity_template, label: "Activity Templates" }
+          faqs:                       { route: faq, label: "Faqs" }
+      location_settings:                    
+        details:                      { route: country, label: "Location Settings" }
+        credentials:                  [ administrator ]
+        children:
+          countries:                  { route: country, label: "Countries" }
+          state_provincies:           { route: state_province, label: "State Provinces" }
+          buildings:                  { route: building, label: "Buildings" }
+          campuses:                   { route: campus, label: "Campuses" }
+          rooms:                      { route: room, label: "Rooms" }
+public:
   home:  
     details:                          { route: home, label: Home }
   mission:  

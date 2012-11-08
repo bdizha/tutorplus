@@ -10,10 +10,10 @@
     </div>
     <div class="landing-right-column">
         <div class="column-row">
-            <input class="button landing-button" value="Enroll as a student!" type="button" onclick="document.location.href='/backend.php/student/enroll/new';"/>
+            <input class="button landing-button" value="Enroll as a student!" type="button" onclick="document.location.href='/student/enroll/new';"/>
         </div>
         <div class="column-row">
-            <input class="button landing-button" value="Enroll as an instructor!" type="button" onclick="document.location.href='/backend.php/student/enroll/new';"/>
+            <input class="button landing-button" value="Enroll as an instructor!" type="button" onclick="document.location.href='/student/enroll/new';"/>
         </div>
     </div>
 </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="column-row">
             <div class="instructor-testimonial">
-                <a class="photo-link" style="width:96px;height:96px;" href="/backend.php/profile/john-kennedy"><img src="/uploads/users/9/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
+                <a class="photo-link" style="width:96px;height:96px;" href="/profile/john-kennedy"><img src="/uploads/users/9/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
                 <div class="text">
                     <h3 class="name">David Austin</h3>
                     <h5 class="institution">University of Pretoria</h5>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="instructor-testimonial">
-               <a class="photo-link" style="width:96px;height:96px;" href="/backend.php/profile/john-kennedy"><img src="/uploads/users/8/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
+               <a class="photo-link" style="width:96px;height:96px;" href="/profile/john-kennedy"><img src="/uploads/users/8/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
                 <div class="text">
                     <h3 class="name">Brian Harvey</h3>
                     <h5 class="institution">NMMU</h5>
@@ -46,7 +46,7 @@
     <div class="landing-right-column">
         <div class="column-row">
             <div class="instructor-testimonial">
-                <a class="photo-link" style="width:96px;height:96px;" href="/backend.php/profile/john-kennedy"><img src="/uploads/users/8/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
+                <a class="photo-link" style="width:96px;height:96px;" href="/profile/john-kennedy"><img src="/uploads/users/8/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
                 <div class="text">
                     <h3 class="name">Johh Searle</h3>
                     <h5 class="institution">University of Cape Town</h5>
@@ -56,7 +56,7 @@
         </div>
         <div class="column-row">
             <div class="instructor-testimonial">
-                <a class="photo-link" style="width:96px;height:96px;" href="/backend.php/profile/john-kennedy"><img src="/uploads/users/8/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
+                <a class="photo-link" style="width:96px;height:96px;" href="/profile/john-kennedy"><img src="/uploads/users/8/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
                 <div class="text">
                     <h3 class="name">Batanayi Matuku</h3>
                     <h5 class="institution">Rhodes University</h5>

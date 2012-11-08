@@ -1,0 +1,3 @@
+<?php $image = "<img src=\"/profile/show/photo/" . $user->getId() . "/" . $dimension . "/" . time() . "\" class=\"image\" alt=\"" . $user->getName() . "\" title=\"" . $user->getName() . "\"/>" ?>
+<?php $extraClass = (isset($cssClass)) ? " " . $cssClass : "" ?>
+<?php echo link_to($image, 'profile_show', $user, array("class" => "photo-link" . $extraClass, "style" => "width:" . $dimension . "px;height:" . $dimension . "px;")) ?>

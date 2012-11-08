@@ -19,7 +19,7 @@ class CorrespondenceForm extends BaseCorrespondenceForm
 
         $user_id = sfContext::getInstance()->getUser()->getId();
         $correspondent_id = new sfWidgetFormDoctrineJQueryAutocompleter(array(
-                'url' => '/backend.php/invite_correspondence',
+                'url' => '/invite_correspondence',
                 'model' => 'sfGuardUser',
                 'value_callback' => 'findOneById'
             ));

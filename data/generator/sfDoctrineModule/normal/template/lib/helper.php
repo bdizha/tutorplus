@@ -16,11 +16,11 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
   }
   
   public function linkToNew($params) {
-        return '<li class="sf_admin_action_new">' . button_to(__($params['label'], array(), 'sf_admin'), "/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>/new", array("class" => "new")) . '</li>';
+        return '<li class="sf_admin_action_new">' . button_to(__($params['label'], array(), 'sf_admin'), "/<?php echo str_replace("_", "/", $this->getModuleName()) ?>/new", array("class" => "new")) . '</li>';
     }
 
     public function linkToEdit($object, $params) {
-        return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>/" . $object->getId() . "/edit") . '</li>';
+        return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/<?php echo str_replace("_", "/", $this->getModuleName()) ?>/" . $object->getId() . "/edit") . '</li>';
     }
 
     public function linkToDelete($object, $params) {
@@ -36,11 +36,11 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
     }
 
     public function linkToCancel($object, $params) {
-        return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>\'"/>';
+        return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/<?php echo str_replace("_", "/", $this->getModuleName()) ?>\'"/>';
     }
 
     public function linkToDone($object, $params) {
-        return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/backend.php/<?php echo str_replace("_", "/", $this->getModuleName()) ?>\'"/>';
+        return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/<?php echo str_replace("_", "/", $this->getModuleName()) ?>\'"/>';
     }
 
     public function linkToSave($object, $params) {

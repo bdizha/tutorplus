@@ -14,7 +14,7 @@
 <div id="sf_admin_form_container">
     <div id="sf_admin_content">
         <div class="content-block">
-            <h2>Assignment Info</h2>
+            <h2>Assignment Info <?php echo $helper->showToEdit($assignment) ?></h2>
             <div class="full-block">
                 <div class="assignment_info">
                     <div class="even-row">

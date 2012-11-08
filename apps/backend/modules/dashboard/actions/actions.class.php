@@ -13,7 +13,7 @@ class dashboardActions extends sfActions {
     public function preExecute() {
         // redirect to the home page
         $this->redirectUnless($this->getUser()->getId(), "/");
-        
+
         $this->helper = new dashboardGeneratorHelper();
         parent::preExecute();
     }
@@ -26,16 +26,19 @@ class dashboardActions extends sfActions {
     public function executeIndex(sfWebRequest $request) {
         // set the discussion module i.e for the menu to know what links to show
         $this->getUser()->setMyAttribute('discussion_module_id', DiscussionTable::MODULE_DISCUSSION);
-        
+
         $this->courses = $this->getUser()->getProfile()->getCourses();
-        
+
         //$this->announcements = AnnouncementTable::getInstance()->findLatestByUserId($this->getUser()->getId(), 100);
         $this->newsItems = NewsTable::getInstance()->findLatest(100);
         //$this->events = CalendarEventTable::getInstance()->retrieveByVisibility(true);
         $this->notifications = ActivityFeedTable::getInstance()->findByUserId($this->getUser()->getId(), 3);
         $this->discussions = DiscussionTable::getInstance()->findPopularDiscussionsByUserId($this->getUser()->getId());
         $this->peers = PeerTable::getInstance()->findByUserId($this->getUser()->getId());
-        
-        //myToolkit::debug($this->myPeers->toArray());
     }
+
+    public function preError404() {
+        
+    }
+
 }

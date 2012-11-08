@@ -91,4 +91,12 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         );
     }
 
+    public function getPopupHeight() {
+        return array("480px");
+    }
+
+    public function getPopupWidth() {
+        return array("480px");
+    }
+
 }

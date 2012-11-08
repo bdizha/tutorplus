@@ -31,7 +31,7 @@
             $("#inbox_nav_tabs li").removeClass("active-tab");
             $("#message_read_tab").addClass("active-tab")
             $("#email_container").html(loadingHtml);
-            $("#email_container").load('/backend.php/message_read_tab/' + emailIdParts[1]);
+            $("#email_container").load('/backend.php/message/read/tab/' + emailIdParts[1]);
         });
         
         $(".batch_selects").change(function(){

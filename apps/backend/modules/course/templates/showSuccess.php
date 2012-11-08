@@ -14,7 +14,7 @@
 <div id="sf_admin_form_container">
     <div id="sf_admin_content">
         <div class="content-block">
-            <h2>Module Info</h2>
+            <h2>Module Info <?php echo $helper->showToEdit($course) ?></h2>
             <div class="full-block">
                 <div class="course_info plain-row">
                     <div class="even-row">

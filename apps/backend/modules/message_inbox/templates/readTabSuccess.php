@@ -5,8 +5,7 @@
     </fieldset>
 </div>
 <script type='text/javascript'>
-    $(document).ready(function(){  
-        
+    $(document).ready(function(){
         // make the reply textarea elastic
         $('textarea').autosize();
         
@@ -14,10 +13,9 @@
         setListCounts();
         
         $('#message_read_tab a').html("<?php echo esc_specialchars($emailMessage->getSubject()) ?>");
-        $('#message_read_tab a').attr("href", "message_read_tab/<?php echo $emailMessage->getId() ?>");
+        $('#message_read_tab a').attr("href", "message/read/tab/<?php echo $emailMessage->getId() ?>");
         
-        $('.save').click(function(){  
-            
+        $('.save').click(function(){
             var body = $("#email_message_reply_body").val();
             if($.trim(body) != ""){
                 $("#message_reply_form").ajaxSubmit(function(data){
@@ -26,7 +24,7 @@
                         $("#sent_nav_tabs li").removeClass("active-tab");
                         $("#message_read_tab").addClass("active-tab")
                         $("#email_container").html(loadingHtml);
-                        $("#email_container").load("/backend.php/message_read_tab/<?php echo $emailMessage->getId() ?>");
+                        $("#email_container").load("/backend.php/message/read/tab/<?php echo $emailMessage->getId() ?>");
                     }
                     else
                     {

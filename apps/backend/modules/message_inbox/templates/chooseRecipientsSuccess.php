@@ -1,6 +1,6 @@
 <div id="cboxLoadedContentInner">
     <div class="choose-participants">
-        <form id="message_choose_recipients_form" action="/backend.php/message_choose_recipients/<?php echo $type ?>" method="post">
+        <form id="message_choose_recipients_form" action="/backend.php/message/choose/recipients/<?php echo $type ?>" method="post">
             <ul class="nav-tabs" id="recipients-nav-tabs">
                 <li id="student_recipients" class="active-tab"><a href="#">Students</a></li>
                 <li id="instructor_recipients"><a href="#">Instructors</a></li>

@@ -16,7 +16,7 @@
 <script type='text/javascript'>
     //<![CDATA[
     $(document).ready(function(){
-        $('textarea').autosize();
+        $('#discussion-topic-reply-form-<?php echo $discussionTopicMessageId ?> textarea').redactor();
     });
     //]]>
 </script>

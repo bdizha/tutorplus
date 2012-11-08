@@ -128,5 +128,9 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
             "slug" => $course->getSlug()
         );
     }
+    
+    public function showToEdit($object) {
+        return '<span class="actions"><a id="edit_course" href="/backend.php/course/'. $object->getId() .'/edit">Edit</a></span>';
+    }
 
 }

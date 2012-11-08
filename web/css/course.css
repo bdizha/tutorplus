@@ -20,6 +20,10 @@
     float: none !important;
 }
 
+.sf_admin_form_field_description{
+    width: 699px;    
+}
+
 #course_description{
     width: 687px;
     height: 130px;

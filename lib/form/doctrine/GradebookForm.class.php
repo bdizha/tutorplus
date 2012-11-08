@@ -20,11 +20,11 @@ class GradebookForm extends BaseGradebookForm
         $this->widgetSchema['items'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['course_id'] = new sfWidgetFormInputHidden();
 
-        $student_gradebook_item_collection_form = new StudentGradebookItemCollectionForm(null, array(
+        $studentGradebookItemCollectionForm = new StudentGradebookItemCollectionForm(null, array(
                 'gradebook' => $this->getObject(),
             ));
 
-        $this->embedForm('grades', $student_gradebook_item_collection_form);
+        $this->embedForm('grades', $studentGradebookItemCollectionForm);
     }
 
 }

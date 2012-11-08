@@ -12,7 +12,7 @@
         $(".choose-recipient").live("click", function(){
             var type = $(this).attr("id"); 
             var title = $(this).attr("title"); 
-            var url = '/backend.php/message_choose_recipients/' + type;
+            var url = '/backend.php/message/choose/recipients/' + type;
             openPopup(url, '623px', '480px', 'Add ' + title + ' Message Recipients');
             return false;
         });

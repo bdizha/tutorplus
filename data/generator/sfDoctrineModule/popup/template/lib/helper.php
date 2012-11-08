@@ -70,4 +70,12 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
     public function editLinks() {
         return array();
     }
+
+    public function getPopupHeight() {
+        return array("480px");
+    }
+
+    public function getPopupWidth() {
+        return array("480px");
+    }
 }

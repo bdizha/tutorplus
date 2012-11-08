@@ -25,8 +25,8 @@
 </ul>
 <script type='text/javascript'>
     $(document).ready(function(){
-        $(".sf_admin_action_new input").click(function(){           
-            openPopup("/backend.php/discussion/topic/new", "605px", "625px", "New Discussion Topic");
+        $(".sf_admin_action_new input").click(function(){  
+            openPopup("/backend.php/discussion/topic/new", "605px", "605px", "New Discussion Topic");
             return false;
         });
         

@@ -7,8 +7,8 @@
 <div class="breadcrumb">
     <div id="current_path">
         <a id="first" href="/course">Academics</a>
-        <a href="/academic_info"><?php echo __('General Info', array(), 'messages') ?></a>
-        <a href="/academic_info"><?php echo __('Academic Info', array(), 'messages') ?></a>
+        <a href="/academic/info"><?php echo __('General Info', array(), 'messages') ?></a>
+        <a href="/academic/info"><?php echo __('Academic Info', array(), 'messages') ?></a>
     </div>
 </div>
 
@@ -29,7 +29,7 @@
 	
     function fetchAcademicInfo(){
         var academic_period_id = $('#academic_period_academic_info_id').val();
-        $.get('/backend_dev.php/academic_info/' + academic_period_id, showAcademicInfo);
+        $.get('/backend_dev.php/academic/info/' + academic_period_id, showAcademicInfo);
     }
 	
     function showAcademicInfo(res){

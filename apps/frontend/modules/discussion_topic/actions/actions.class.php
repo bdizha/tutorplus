@@ -41,11 +41,10 @@ class discussion_topicActions extends autoDiscussion_topicActions
         $this->forward404Unless($this->discussionTopic = $this->getRoute()->getObject());
         $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussionTopic->getId());
 
-        $course = $this->discussionTopic->getDiscussion()->getCourseDiscussion()->getCourse();
-        if ($course->getId())
+        $this->course = $this->discussionTopic->getDiscussion()->getCourseDiscussion()->getCourse();
+        if ($this->course->getId())
         {
-            $this->course = $course;
-            $this->getUser()->setMyAttribute('course_show_id', $course->getId());
+            $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
         }
         $this->replyForm = new DiscussionTopicReplyForm();
     }

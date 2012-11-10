@@ -48,7 +48,7 @@ profile_publication:
   options:
     model:                ProfilePublication
     module:               profile_publication
-    prefix_path:          /profile_publication
+    prefix_path:          /profile/publication
     column:               id
     with_wildcard_routes: true
 
@@ -866,14 +866,6 @@ academics_student:
 academics_instructor:
   url: /instructor_details
   param: { module: instructor, action: details }
-    
-profile_show:
-  url:     /profile/:slug
-  class:   sfDoctrineRoute
-  options: { model: sfGuardUser, type: object }
-  param:   { module: profile, action: show }
-  requirements:
-    sf_method: [get]
   
 profile_student_details:
   url: /profile/student/details
@@ -937,7 +929,15 @@ profile_account_settings_ajax:
   
 profile_peer:
   url: /profile/peer
-  param: { module: profile, action: index } 
+  param: { module: profile, action: index }
+    
+profile_show:
+  url:     /profile/:slug
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: profile, action: show }
+  requirements:
+    sf_method: [get] 
   
 peer_profile:
   url: /peer/profile/:peer_id

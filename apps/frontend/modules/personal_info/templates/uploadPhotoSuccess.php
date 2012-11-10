@@ -5,7 +5,7 @@
             <?php include_partial('common/flashes', array('form' => $form)) ?>
             <div id="sf_admin_form_content">
                 <div class="sf_admin_form">
-                    <form id="upload_photo_form" enctype="multipart/form-data" action="/profile_upload_photo" method="post">
+                    <form id="upload_photo_form" enctype="multipart/form-data" action="/profile/upload/photo" method="post">
                         <?php echo $form->renderHiddenFields(false) ?>
                         <fieldset id="sf_fieldset_none">
                             <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_filename">    
@@ -43,7 +43,7 @@
                 $("#cboxLoadedContentInner").hide();
                 $("#cboxLoadedContent").append(loadingHtml);           
                 if(isSuccess(data)){ 
-                    openPopup("/profile_crop_photo", "600px", "600px", "Crop Photo");                
+                    openPopup("/profile/crop/photo", "600px", "600px", "Crop Photo");                
                 }
                 else
                 { 

@@ -5,7 +5,7 @@
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs($discussion)) ?>
+<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <?php end_slot() ?>
 
 <?php include_partial('course_discussion/flashes') ?>

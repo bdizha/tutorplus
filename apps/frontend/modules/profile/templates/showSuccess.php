@@ -13,7 +13,7 @@
 </div>
 <div id="sf_admin_content">
     <div class="content-block">      
-        <h2>Personal Info <?php if($sf_user->isCurrent($user->getId())): ?><span class="actions"><a id="edit_personal_info" href="/personal_info/<?php echo $user->getId() ?>/edit">Edit</a></span><?php endif; ?></h2>
+        <h2>Personal Info <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><a id="edit_personal_info" href="/personal/info/<?php echo $user->getId() ?>/edit">Edit</a></span><?php endif; ?></h2>
         <div class="full-block"> 
             <div class="even-row about-me">
                 <div class="row-column" id="personal_info">
@@ -24,11 +24,15 @@
                         <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 128)) ?>
                     </div>
                     <div class="profile-photo-block">
-                        <?php if ($sf_user->hasPhoto()): ?>
-                            <input type="button" class="button" id="upload_photo" value="Change Photo"></input>
-                            <input type="button" class="button" id="crop_photo" value="Crop Photo"></input>
+                        <?php if ($sf_user->isCurrent($user->getId())): ?>
+                            <?php if ($sf_user->hasPhoto()): ?>
+                                <input type="button" class="button" id="upload_photo" value="Change Photo"></input>
+                                <input type="button" class="button" id="crop_photo" value="Crop Photo"></input>
+                            <?php else: ?>
+                                <input type="button" class="button" id="upload_photo" value="Upload Photo"></input>
+                            <?php endif; ?>
                         <?php else: ?>
-                            <input type="button" class="button" id="upload_photo" value="Upload Photo"></input>
+                            <input type="button" class="button" id="send_email" value="Send Email"></input>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -36,25 +40,25 @@
         </div>  
     </div>
     <div class="content-block">     
-        <h2>Academic Info <?php if($sf_user->isCurrent($user->getId())): ?><span class="actions"><a id="edit_academic_info" href="/academic_info/<?php echo $user->getId() ?>/edit">Edit</a></span><?php endif; ?></h2>
+        <h2>Academic Info <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><a id="edit_academic_info" href="/academic/info/<?php echo $user->getId() ?>/edit">Edit</a></span><?php endif; ?></h2>
         <div class="full-block" id="academic_info">
             <?php include_partial('academic_info/academic_info', array('user' => $user)) ?>
         </div>  
     </div>
     <div class="content-block">      
-        <h2>Publications <?php if($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_publication_new", array("id" => "add_profile_publication")) ?></span><?php endif; ?></h2>
+        <h2>Publications <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_publication_new", array("id" => "add_profile_publication")) ?></span><?php endif; ?></h2>
         <div class="full-block" id="profile_publications">  
             <?php include_partial('profile_publication/list', array('publications' => $user->getPublications())) ?>
         </div>
     </div>
     <div class="content-block">      
-        <h2>Favourite Books <?php if($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_book_new", array("id" => "add_profile_book")) ?></span><?php endif; ?></h2>
+        <h2>Favourite Books <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_book_new", array("id" => "add_profile_book")) ?></span><?php endif; ?></h2>
         <div class="full-block" id="profile_books">  
             <?php include_partial('profile_book/list', array('books' => $user->getFavouriteBooks())) ?>
         </div>
     </div>
     <div class="content-block">      
-        <h2>Interests <?php if($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_interest_new", array("id" => "add_profile_interest")) ?></span><?php endif; ?></h2>
+        <h2>Interests <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_interest_new", array("id" => "add_profile_interest")) ?></span><?php endif; ?></h2>
         <div class="full-block" id="profile_interests">  
             <?php include_partial('profile_interest/list', array('interests' => $user->getInterests())) ?>  
         </div>
@@ -89,34 +93,34 @@
         });
         
         $("#upload_photo").click(function(){      
-            openPopup("/profile_upload_photo", "600px", "300px", $(this).attr("value"));
+            openPopup("/profile/upload/photo", "600px", "300px", $(this).attr("value"));
             return false;
         });
         
         $("#crop_photo").click(function(){      
-            openPopup("/profile_crop_photo", "600px", "600px", $(this).attr("value"));
+            openPopup("/profile/crop/photo", "600px", "600px", $(this).attr("value"));
             return false;
         });
     });
     
     function fetchPersonalInfo(){
-        $('#personal_info').load('/personal_info');
+        $('#personal_info').load('/personal/info');
     }
     
     function fetchAcademicInfo(){
-        $('#academic_info').load('/academic_info');
+        $('#academic_info').load('/academic/info');
     }
 
     function fetchPublications(){
-        $('#profile_publications').load('/profile_publication');
+        $('#profile_publications').load('/profile/publication');
     }
     
     function fetchFavouriteBooks(){
-        $('#profile_books').load('/profile_book');
+        $('#profile_books').load('/profile/book');
     }
     
     function fetchInterests(){
-        $('#profile_interests').load('/profile_interest');
+        $('#profile_interests').load('/profile/interest');
     }
     //]]
 </script>

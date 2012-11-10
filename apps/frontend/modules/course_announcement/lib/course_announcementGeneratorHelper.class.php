@@ -94,5 +94,9 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
             "slug" => $this->course->getSlug()
         );
     }
+    
+    public function showToEdit($object) {
+        return '<span class="actions"><a id="edit_course" href="/course/announcement/'. $object->getId() .'/edit">Edit</a></span>';
+    }
 
 }

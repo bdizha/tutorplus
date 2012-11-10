@@ -44,11 +44,12 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs() {
+    public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Setting" => "profile_discussions",
                 "Communication Settings" => "communication_settings",
-                "Email Templates" => "email_template"
+                "Email Templates" => "email_template",
+                "Edit Email Template ~ " . $object->getSubject() => "email/template/" . $object->getId() . "/edit",
             )
         );
     }

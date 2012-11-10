@@ -63,6 +63,14 @@ class academic_infoActions extends sfActions {
             $this->getUser()->setFlash('notice', $notice);
             $this->redirect($route);
         } else {
+
+            foreach ($form as $name => $field):
+                if($field->hasError()):
+                echo '<li>' . $name . '</li>';
+                endif;
+            endforeach;
+            die;
+
             $this->getUser()->setFlash('error', 'Your personal info has not been saved due to some errors.', false);
         }
     }

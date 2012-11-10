@@ -126,7 +126,8 @@ span.separator{
     font-weight: bold;
 }
 
-#discussion_form_holder .sf_admin_form_row label{
+#discussion_form_holder .sf_admin_form_row label,
+#course_discussion_form_holder .sf_admin_form_row label{
     float: none !important;
 }
 
@@ -167,7 +168,11 @@ span.separator{
 
 
 #discussion_topic_subject{
-    width: 520px !important;
+    width: 524px !important;
+}
+
+#discussion_topic_form_holder .sf_admin_form_field_message{
+    width: 535px !important;
 }
 
 #discussion_topic_message_form_holder label, .reply-details label{

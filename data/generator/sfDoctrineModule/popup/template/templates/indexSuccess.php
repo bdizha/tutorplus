@@ -39,5 +39,5 @@
 </div>
 
 <div id="sf_admin_footer">
-    [?php include_partial('<?php echo $this->getModuleName() ?>/list_footer', array('pager' => $pager)) ?]
+    [?php include_partial('<?php echo $this->getModuleName() ?>/list_footer', array('pager' => $pager, 'helper' => $helper)) ?]
 </div>

@@ -1,11 +1,2 @@
 all:
   stylesheets: [discussion, profile]
-  
-newSuccess:
-  has_layout: false
-  
-editSuccess:
-  has_layout: false
-  
-indexSuccess:
-  has_layout: true

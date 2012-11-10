@@ -19,7 +19,7 @@
         </ul>
     </div> 
     <div class="full-block">
-        <h2><?php echo $announcement->getSubject() ?></h2>   
+        <h2><?php echo $announcement->getSubject() ?> <?php echo $helper->showToEdit($announcement) ?></h2>  
         <div class="description padding-10 white-background">
             <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 96)) ?>
             <?php echo link_to($user, 'profile_show', $user) ?>

@@ -1,3 +1,6 @@
+all:
+  has_layout: true
+  
 newSuccess:
   layout: false
   

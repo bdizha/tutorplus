@@ -14,7 +14,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Setting" => "course",
                 "Academic Settings" => "academic_settings",
-                "Modules" => "course"
+                "Courses" => "course"
             )
         );
     }
@@ -30,8 +30,9 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Setting" => "course",
-                "Communication Settings" => "academic_settings",
-                "Modules" => "course"
+                "Academic Settings" => "academic_settings",
+                "Courses" => "course",
+                "New Course" => "course/new"
             )
         );
     }
@@ -44,11 +45,12 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs() {
+    public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Setting" => "course",
                 "Academic Settings" => "academic_settings",
-                "Modules" => "course"
+                "Courses" => "course",
+                "Edit Course ~ " . $object->getCode() . " ~ " . $object->getName() => "course/" . $object->getId() . "/edit",
             )
         );
     }
@@ -63,7 +65,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function showBreadcrumbs($course) {
         return array('breadcrumbs' => array(
-                "Module" => "course",
+                "Course" => "course",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
             )
         );
@@ -81,8 +83,8 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function myCoursesBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Modules" => "courses",
-                "My Modules" => "my_courses"
+                "Courses" => "courses",
+                "My Courses" => "my_courses"
             )
         );
     }
@@ -97,8 +99,8 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function exploreCoursesBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Modules" => "courses",
-                "Module Explorer" => "course_explorer"
+                "Courses" => "courses",
+                "Course Explorer" => "course_explorer"
             )
         );
     }
@@ -113,7 +115,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function calendarBreadcrumbs($course) {
         return array('breadcrumbs' => array(
-                "Modules" => "course",
+                "Courses" => "course",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug(),
                 "Calendar" => "course_calendar"
             )
@@ -128,9 +130,9 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
             "slug" => $course->getSlug()
         );
     }
-    
+
     public function showToEdit($object) {
-        return '<span class="actions"><a id="edit_course" href="/course/'. $object->getId() .'/edit">Edit</a></span>';
+        return '<span class="actions"><a id="edit_course" href="/course/' . $object->getId() . '/edit">Edit</a></span>';
     }
 
 }

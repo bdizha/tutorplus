@@ -29,12 +29,12 @@
 <script type="text/javascript">
     $(document).ready(function(){ 
         $("#upload_photo").click(function(){      
-            openPopup("/profile_upload_photo", "600px", "600px", "Upload A New Photo");
+            openPopup("/profile/upload/photo", "600px", "600px", "Upload A New Photo");
             return false;
         });
         
         $("#crop_photo").click(function(){      
-            openPopup("/profile_crop_photo", "600px", "600px", "Crop Your profile photo");
+            openPopup("/profile/crop/photo", "600px", "600px", "Crop Your profile photo");
             return false;
         });
     });

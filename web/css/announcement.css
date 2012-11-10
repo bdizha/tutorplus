@@ -69,3 +69,7 @@
 .news-action{
     margin-bottom: 10px !important;
 }
+
+#course_announcement_form_holder .sf_admin_form_row label {
+    float: none !important;
+}

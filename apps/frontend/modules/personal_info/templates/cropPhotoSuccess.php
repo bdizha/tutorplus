@@ -4,8 +4,8 @@
         <div id="sf_admin_form_content">
             <?php include_partial('common/flashes') ?>
             <div id="crop_area">
-                <img src="/profile_show_photo/<?php echo $sf_user->getId() ?>/resized/<?php echo time() ?>" id="cropbox" />
-                <form action="/profile_crop_photo" method="post" id="crop_photo_form">
+                <img src="/profile/show/photo/<?php echo $sf_user->getId() ?>/resized/<?php echo time() ?>" id="cropbox" />
+                <form action="/profile/crop/photo" method="post" id="crop_photo_form">
                     <input type="hidden" id="x" name="x" />
                     <input type="hidden" id="y" name="y" />
                     <input type="hidden" id="w" name="w" />

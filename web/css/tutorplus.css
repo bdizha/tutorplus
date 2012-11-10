@@ -1155,7 +1155,7 @@
 }
 
 .about-me-photo{
-    right: 125px;
+    right: 135px;
     position: absolute;
     top: 10px;
     -webkit-border-radius: 5px;
@@ -1193,12 +1193,12 @@
     position: absolute;
     top: 30px;
     z-index: 12;
-    width: 100px;
+    width: 110px;
 }
 
 .profile-photo-block .button{
     margin-top: 10px;
-    width: 100px;
+    width: 110px;
 }
 
 .email-recipient{

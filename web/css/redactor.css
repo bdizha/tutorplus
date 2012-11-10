@@ -103,6 +103,7 @@ body .redactor_box_fullscreen {
 .redactor_editor ul,
 .redactor_editor ol {
 	padding-left: 2em !important;
+        list-style-type: decimal !important;
 }
 .redactor_editor ul ul,
 .redactor_editor ol ol,

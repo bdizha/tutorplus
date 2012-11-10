@@ -30,4 +30,14 @@ class Announcement extends BaseAnnouncement
         return myToolkit::htmlString($this->getMessage());
     }
 
+    public function getToEmails() {
+        $toEmails = array();
+        foreach (sfGuardUserTable::getInstance()->findAll() as $user) {
+            $toEmails[] = $user->getName() . " <" . $user->getEmail() . ">";
+        }
+
+        return $toEmails;
+    }
+
+
 }

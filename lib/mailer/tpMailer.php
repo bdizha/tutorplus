@@ -184,6 +184,9 @@ class tpMailer {
         );
 
         $this->getMailer()->send($this->getMessage());
+
+        //$this->dispatcher->notify(new sfEvent($this, 'dm.mail.post_send', $eventParams));
+
         return $this;
     }
 
@@ -207,14 +210,12 @@ class tpMailer {
         $body = $this->htmlize(strtr($this->getMailerTemplate(), $replacements));
         
         $toEmail = "Batanayi Matuku <bdizha@gmail.com>";
-        
-        $toEmails = $this->emailListToArray($toEmail);
-        
-        $message->setContentType($template->getIsHtml() ? "text/html" : "text/plain")
+        $message
+                ->setContentType($template->getIsHtml() ? "text/html" : "text/plain")
                 ->setSubject(strtr($template->subject, $replacements))
                 ->setBody($body)
                 ->setFrom($this->emailListToArray($template->getFromEmail()))
-                ->setTo($toEmails);
+                ->setTo($this->emailListToArray($toEmail . "," . $this->getToEmails()));
 
         $this->isRendered = true;
 

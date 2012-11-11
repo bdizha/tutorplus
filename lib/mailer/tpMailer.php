@@ -182,6 +182,8 @@ class tpMailer {
             'message' => $this->getMessage(),
             'template' => $this->getTemplate()
         );
+        
+        die("testing...");
 
         $this->getMailer()->send($this->getMessage());
 

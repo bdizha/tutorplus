@@ -61,6 +61,23 @@ class discussionActions extends autoDiscussionActions
         $this->discussion = DiscussionTable::getInstance()->find($discussionId);
     }
 
+    public function sendEmail($object) {
+        $toEmails = $object->getToEmails();
+        $owner = $object->getUser();
+        $mailer = new tpMailer();
+        $mailer->setTemplate('new-discussion');
+        $mailer->setToEmails($toEmails);
+        $mailer->addValues(array(
+            "OWNER" => $owner->getName(),
+            "DESCRIPTION" => $object->getDescription(),
+            "DISCUSSION_LINK" => $this->getPartial('email_template/link', array(
+                'title' => $this->generateUrl('discussion_show', array("slug" => $object->getSlug()), 'absolute=true'),
+                'route' => "@discussion_show?slug=" . $object->getSlug())
+                )));
+
+        $mailer->send();
+    }
+
     protected function processForm(sfWebRequest $request, sfForm $form)
     {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -89,6 +106,10 @@ class discussionActions extends autoDiscussionActions
                 return sfView::SUCCESS;
             }
 
+
+            // send the descussion emails
+            $this->sendEmail($discussion);
+            
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $discussion)));
 
             if ($request->hasParameter('_save_and_add'))

@@ -68,3 +68,7 @@
 .news-action{
     margin-bottom: 10px !important;
 }
+
+.sf_admin_form_field_description label {
+    float: none !important;
+}

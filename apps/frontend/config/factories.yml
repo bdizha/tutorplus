@@ -25,8 +25,19 @@ test:
 
 dev:
   mailer:
+    class: sfMailer
     param:
-      delivery_strategy: none
+      logging:           %SF_LOGGING_ENABLED%
+      charset:           %SF_CHARSET%
+      delivery_strategy: realtime
+      transport:
+        class:        Swift_SmtpTransport
+        param:
+          host:       smtp.gmail.com
+          port:       465 
+          encryption: "ssl"
+          username:   bdizha@gmail.com
+          password:   "@%gr4f1f0x#"
 
 all:
   routing:
@@ -53,5 +64,5 @@ all:
           host:       smtp.gmail.com
           port:       465 
           encryption: "ssl"
-          username:   bdizha2@gmail.com
+          username:   bdizha@gmail.com
           password:   "@%gr4f1f0x#"

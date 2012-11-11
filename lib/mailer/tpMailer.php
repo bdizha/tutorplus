@@ -213,16 +213,11 @@ class tpMailer {
         
         $toEmails = $this->emailListToArray($toEmail . "," . $this->getToEmails());
         
-        echo "<pre>";
-        print_r($toEmails);
-        die("</pre>");
-        
-        $message
-                ->setContentType($template->getIsHtml() ? "text/html" : "text/plain")
+        $message->setContentType($template->getIsHtml() ? "text/html" : "text/plain")
                 ->setSubject(strtr($template->subject, $replacements))
                 ->setBody($body)
                 ->setFrom($this->emailListToArray($template->getFromEmail()))
-                ->setTo();
+                ->setTo($toEmails);
 
         $this->isRendered = true;
 

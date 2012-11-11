@@ -14,11 +14,13 @@ require_once dirname(__FILE__) . '/../lib/assignmentGeneratorHelper.class.php';
 class assignmentActions extends autoAssignmentActions {
 
     public function preExecute() {
+        parent::preExecute();
+        
         if (!$courseId = $this->getUser()->getMyAttribute('course_show_id', null)) {
             $this->redirect("@course");
         }
         $this->forward404Unless($this->course = Doctrine_Core::getTable('Course')->find(array($courseId)), sprintf('Object Course does not exist (%s).', $courseId));
-        parent::preExecute();
+        $this->helper->setCourse($this->course);
     }
 
     public function executeShow(sfWebRequest $request) {

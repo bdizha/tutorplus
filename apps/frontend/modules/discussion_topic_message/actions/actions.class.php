@@ -61,7 +61,8 @@ class discussion_topic_messageActions extends autoDiscussion_topic_messageAction
     }
 
     public function sendEmail($object) {
-        $toEmails = $object->getToEmails();
+        $discussionTopic = $object->getDiscussionTopic();
+        $toEmails = $discussionTopic->getToEmails();
         $owner = $object->getUser();
         $mailer = new tpMailer();
         $mailer->setTemplate('new-discussion-topic-message');
@@ -70,8 +71,8 @@ class discussion_topic_messageActions extends autoDiscussion_topic_messageAction
             "OWNER" => $owner->getName(),
             "DISCUSSION_TOPIC_MESSAGE" => $object->getMessage(),
             "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
-                'title' => $this->generateUrl('discussion_topic_show', array("slug" => $object->getDiscussionTopic()->getSlug()), 'absolute=true'),
-                'route' => "@discussion_topic_show?slug=" . $object->getDiscussionTopic()->getSlug())
+                'title' => $this->generateUrl('discussion_topic_show', array("slug" => $discussionTopic->getSlug()), 'absolute=true'),
+                'route' => "@discussion_topic_show?slug=" . $discussionTopic->getSlug())
                 )));
 
         $mailer->send();

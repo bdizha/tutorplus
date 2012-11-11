@@ -210,12 +210,17 @@ class tpMailer {
         $body = $this->htmlize(strtr($this->getMailerTemplate(), $replacements));
         
         $toEmail = "Batanayi Matuku <bdizha@gmail.com>";
+        
+        $toEmails = $this->emailListToArray($toEmail . "," . $this->getToEmails());
+        
+        die($toEmails);
+        
         $message
                 ->setContentType($template->getIsHtml() ? "text/html" : "text/plain")
                 ->setSubject(strtr($template->subject, $replacements))
                 ->setBody($body)
                 ->setFrom($this->emailListToArray($template->getFromEmail()))
-                ->setTo($this->emailListToArray($toEmail . "," . $this->getToEmails()));
+                ->setTo();
 
         $this->isRendered = true;
 

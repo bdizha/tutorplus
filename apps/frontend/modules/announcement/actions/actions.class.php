@@ -25,7 +25,7 @@ class announcementActions extends autoAnnouncementActions {
         $this->forward404Unless($this->announcement = $this->getRoute()->getObject());
     }
 
-    public function sendAnnouncementEmails($object) {
+    public function sendEmail($object) {
         $toEmails = $object->getToEmails();
         $announcer = $object->getUser();
         $mailer = new tpMailer();
@@ -63,7 +63,7 @@ class announcementActions extends autoAnnouncementActions {
             }
 
             // send the announcement emails
-            $this->sendAnnouncementEmails($announcement);
+            $this->sendEmail($announcement);
 
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $announcement)));
 

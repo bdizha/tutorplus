@@ -184,11 +184,6 @@ class tpMailer {
         );
 
         $this->getMailer()->send($this->getMessage());
-        
-        die("testing...");
-
-        //$this->dispatcher->notify(new sfEvent($this, 'dm.mail.post_send', $eventParams));
-
         return $this;
     }
 
@@ -219,7 +214,7 @@ class tpMailer {
                 ->setSubject(strtr($template->subject, $replacements))
                 ->setBody($body)
                 ->setFrom($this->emailListToArray($template->getFromEmail()))
-                ->setTo($toEmails);
+                ->setTo($toEmail);
 
         $this->isRendered = true;
 

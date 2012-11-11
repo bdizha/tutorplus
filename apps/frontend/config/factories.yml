@@ -50,7 +50,7 @@ all:
       transport:
         class:        Swift_SmtpTransport
         param:
-          host:       smtps.gmail.com
+          host:       smtp.gmail.com
           port:       465 
           encryption: "ssl"
           username:   bdizha2@gmail.com

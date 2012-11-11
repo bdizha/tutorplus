@@ -182,10 +182,10 @@ class tpMailer {
             'message' => $this->getMessage(),
             'template' => $this->getTemplate()
         );
-        
-        die("testing...");
 
         $this->getMailer()->send($this->getMessage());
+        
+        die("testing...");
 
         //$this->dispatcher->notify(new sfEvent($this, 'dm.mail.post_send', $eventParams));
 

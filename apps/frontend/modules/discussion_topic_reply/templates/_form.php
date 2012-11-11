@@ -9,7 +9,7 @@
             <?php echo $form["reply"] ?>
         </div> 
         <div class="discussion_topic_actions">
-            <input messageid="<?php echo $discussionTopicMessageId ?>" class="button hide submit-discussion-topic-reply" type="button" value="Reply" />
+            <input messageid="<?php echo $discussionTopicMessageId ?>" class="button submit-discussion-topic-reply" type="button" value="Reply" />
         </div>
     </div>
 </form>

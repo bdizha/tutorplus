@@ -31,13 +31,12 @@ class Announcement extends BaseAnnouncement
     }
 
     public function getToEmails() {
-        $toEmails = array();
+        $toEmails = "";
         foreach (sfGuardUserTable::getInstance()->findAll() as $user) {
             $toEmails .= $user->getName() . " <" . $user->getEmail() . ">,";
         }
         
         $toEmails = trim($toEmails, ",");
-
         return $toEmails;
     }
 

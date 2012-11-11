@@ -36,6 +36,23 @@ class discussion_topicActions extends autoDiscussion_topicActions
         $this->sort = $this->getSort();
     }
 
+    public function sendEmail($object) {
+        $toEmails = $object->getToEmails();
+        $announcer = $object->getUser();
+        $mailer = new tpMailer();
+        $mailer->setTemplate('new-discussion-topic');
+        $mailer->setToEmails($toEmails);
+        $mailer->addValues(array(
+            "OWNER" => $announcer->getName(),
+            "DISCUSSION_TOPIC" => $object->getMessage(),
+            "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
+                'title' => $this->generateUrl('discussion_topic_show', array("slug" => $object->getSlug()), 'absolute=true'),
+                'route' => "@discussion_topic_show?slug=" . $object->getSlug())
+                )));
+
+        $mailer->send();
+    }
+
     public function executeShow(sfWebRequest $request)
     {
         $this->forward404Unless($this->discussionTopic = $this->getRoute()->getObject());

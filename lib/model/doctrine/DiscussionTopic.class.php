@@ -86,5 +86,14 @@ class DiscussionTopic extends BaseDiscussionTopic {
         return myToolkit::htmlString($this->getMessage());
     }
 
+    public function getToEmails() {
+        $toEmails = "";
+        foreach (sfGuardUserTable::getInstance()->findAll() as $user) {
+            $toEmails .= $user->getName() . " <" . $user->getEmail() . ">,";
+        }
+        
+        $toEmails = trim($toEmails, ",");
+        return $toEmails;
+    }
 }
 

@@ -782,6 +782,7 @@ EmailTemplate:
     patterns:               { type: string(500) }
     body:                   { type: clob, notnull: true }
     from_email:             { type: string(5000), notnull: true }
+    from_name:              { type: string(255), notnull: true, default: 'Tutor+ team'}
     to_email:               { type: string(5000) }
     cc_email:               { type: string(5000) }
     bcc_email:              { type: string(5000) }

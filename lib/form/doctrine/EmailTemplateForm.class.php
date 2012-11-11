@@ -25,8 +25,9 @@ class EmailTemplateForm extends BaseEmailTemplateForm
         $this->widgetSchema['reply_to'] = new sfWidgetFormInputText();
 
         $this->validatorSchema['name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Name</b> field is required.'));
-        $this->validatorSchema['from_email'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>From email</b> field is required.'));
-        $this->validatorSchema['reply_to'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Reply to</b> field is required.'));
+        $this->validatorSchema['from_name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'Your <b>From name</b> is required.'));
+        $this->validatorSchema['from_email'] = new sfValidatorEmail(array('max_length' => 255, 'required' => true), array('required' => 'The <b>From email</b> field is required.', 'invalid' => 'Your <b>From email</b> is invalid.'));
+        $this->validatorSchema['reply_to'] = new sfValidatorEmail(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Reply to</b> field is required.', 'invalid' => 'Your <b>Reply to</b> is invalid.'));
         $this->validatorSchema['subject'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Subject</b> field is required.'));
         $this->validatorSchema['body'] = new sfValidatorString(array('max_length' => 5000, 'required' => true), array('required' => 'The <b>Body</b> field is required.'));
     }

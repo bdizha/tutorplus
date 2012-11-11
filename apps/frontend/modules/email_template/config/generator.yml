@@ -16,7 +16,7 @@ generator:
       form:
         class:                  EmailTemplateForm
         display:
-         "Template Headers Details": [name, subject, from_email, to_email, cc_email, bcc_email, reply_to, is_active]
+         "Template Headers Details": [name, subject, from_name, from_email, to_email, cc_email, bcc_email, reply_to, is_active]
          "Template Body Details": [description, patterns, is_html, body]
       fields:
       filter:

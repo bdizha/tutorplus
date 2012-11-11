@@ -39,6 +39,4 @@ class Announcement extends BaseAnnouncement
         $toEmails = trim($toEmails, ",");
         return $toEmails;
     }
-
-
 }

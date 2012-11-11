@@ -63,10 +63,11 @@ class newsGeneratorHelper extends BaseNewsGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs() {
+    public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Communication" => "news",
-                "News" => "news"
+                "News" => "news",
+                "Edit News Item ~ " . $object->getSubject() => "news/" . $object->getId() . "/edit",
             )
         );
     }

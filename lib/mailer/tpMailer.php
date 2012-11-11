@@ -215,7 +215,7 @@ class tpMailer {
                 ->setSubject(strtr($template->subject, $replacements))
                 ->setBody($body)
                 ->setFrom($this->emailListToArray($template->getFromEmail()))
-                ->setTo($this->emailListToArray($toEmail . "," . $this->getToEmails()));
+                ->setTo($this->emailListToArray($toEmail/* . "," . $this->getToEmails()*/));
 
         $this->isRendered = true;
 

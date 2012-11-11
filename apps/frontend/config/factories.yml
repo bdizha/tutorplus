@@ -53,5 +53,5 @@ all:
           host:       smtp.gmail.com
           port:       465 
           encryption: "ssl"
-          username:   bdizha@gmail.com
+          username:   bdizha2@gmail.com
           password:   "@%gr4f1f0x#"

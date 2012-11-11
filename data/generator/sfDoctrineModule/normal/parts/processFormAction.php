@@ -3,6 +3,7 @@
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
+      $isNew = $form->getObject()->isNew();
       $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
       try {
@@ -21,6 +22,11 @@
         return sfView::SUCCESS;
       }
 
+      // send the <?php echo $this->getSingularName() ?> emails
+      if($isNew){
+        $this->sendEmail($<?php echo $this->getSingularName() ?>);
+      }
+      
       $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $<?php echo $this->getSingularName() ?>)));
 
       if ($request->hasParameter('_save_and_add'))
@@ -40,4 +46,7 @@
     {
       $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
     }
+  }
+  
+  public function sendEmail($object) {
   }

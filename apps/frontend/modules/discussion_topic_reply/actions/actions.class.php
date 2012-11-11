@@ -49,8 +49,8 @@ class discussion_topic_replyActions extends autoDiscussion_topic_replyActions {
             "OWNER" => $owner->getName(),
             "DISCUSSION_TOPIC_REPLY" => $object->getMessage(),
             "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
-                'title' => $this->generateUrl('discussion_topic_message_show', array("slug" => $object->getDiscussionTopicMessage()->getDiscussionTopic()->getSlug()), 'absolute=true'),
-                'route' => "@discussion_topic_message_show?slug=" . $object->getDiscussionTopicMessage()->getDiscussionTopic()->getSlug())
+                'title' => $this->generateUrl('discussion_topic_show', array("slug" => $object->getDiscussionTopicMessage()->getDiscussionTopic()->getSlug()), 'absolute=true'),
+                'route' => "@discussion_topic_show?slug=" . $object->getDiscussionTopicMessage()->getDiscussionTopic()->getSlug())
                 )));
 
         $mailer->send();

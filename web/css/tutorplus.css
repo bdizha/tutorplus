@@ -1,6 +1,3 @@
-#logo-wrapper{
-}
-
 #logo-container{
     width: 940px;
     margin-left: auto;
@@ -1363,4 +1360,24 @@ textarea {
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
+}
+
+.recipient{
+    width: 485px;
+    position: relative;
+    clear: both !important;
+    height: 25px;
+    border-bottom: 1px solid #F1F1F1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.participant-input{
+    width: 50px;
+    float: left;
+}
+
+.content-block ol{
+    list-style-type: decimal !important;
+    padding-left: 2em;
 }

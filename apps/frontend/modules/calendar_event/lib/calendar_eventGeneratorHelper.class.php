@@ -13,6 +13,10 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
     public function linkToManageAttendees($object, $params) {
         return '<input class="button" id="calendar_event_attendees" type="button" value="' . __($params['label'], array(), 'sf_admin') . '"/>';
     }
+    
+    public function linkToEvents($object, $params) {
+        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/calendar/event\';" />';
+    }
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(

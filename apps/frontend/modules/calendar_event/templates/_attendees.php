@@ -4,7 +4,7 @@
 <script type="text/javascript">
     $(document).ready(function(){        
         $('textarea').autosize();        
-        $(".sf_admin_action_manage_attendees input").click(function(){
+        $("#calendar_event_attendees").click(function(){
             openPopup("/event_attendees_choose", '785px', "180px", "<?php echo __('Manage Attendees', Array(), 'messages') ?>");
             return false;
         }); 

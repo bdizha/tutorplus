@@ -54,8 +54,22 @@
         </div>
         <ul class="sf_admin_actions" style="clear:both">
             <li class="sf_admin_actions_my_events">
-                <input type="button" class="button" onclick="document.location.href='/calendar/event';" value="< My Events"/>
+                <?php echo $helper->linkToEvents($calendarEvent, array("label" => "< My Events")) ?>
+                <?php echo $helper->linkToManageAttendees($calendarEvent, array("label" => "Manage Attendees")) ?>
             </li>
         </ul>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){        
+        $('textarea').autosize();        
+        $("#calendar_event_attendees").click(function(){
+            openPopup("/event/attendees/choose", '560px', "560px", "<?php echo __('Manage Attendees', Array(), 'messages') ?>");
+            return false;
+        }); 
+    });
+
+    function fetchEventAttendees(){
+        $('#calendar_attendees').load("/event/attendees");
+    }
+</script>

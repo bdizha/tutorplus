@@ -312,11 +312,12 @@ span.separator{
 }
 
 #discussion_topic_message_form_holder .discussion_topic_actions{
-    margin-top: -5px;
+    margin-top: -10px !important;
+    margin-right: 10px !important;
 }
 
 .comments .discussion_topic_actions{
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #discussion_topics_footer{

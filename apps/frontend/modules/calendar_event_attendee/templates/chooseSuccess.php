@@ -2,48 +2,12 @@
     <form id="event_attendees_choose_form" action="/event_attendees_choose" method="post">
         <div class="choose-participants">
             <?php foreach ($users as $user): ?>
-                <div class="peer">
-                    <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 36)) ?>
-                    <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
-                    <div class="event_attendee-participant-input">
+                <div class="recipient">
+                    <div class="participant-input">
                         <input type="checkbox" class="input-checkbox" name="attendee[]" value="<?php echo $user->getId() ?>" <?php echo (isset($currentUserIds) && is_array($currentUserIds) && in_array($user["id"], $currentUserIds)) ? "checked='checked'" : "" ?> id="attendee_<?php echo $user->getId() ?>" class="choose-input" />                
                     </div>
-                </div> 
-            <?php endforeach; ?>
-            <?php foreach ($users as $user): ?>
-                <div class="peer">
-                    <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 36)) ?>
+                    <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 24)) ?>
                     <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
-                    <div class="event_attendee-participant-input">
-                        <input type="checkbox" class="input-checkbox" name="attendee[]" value="<?php echo $user->getId() ?>" <?php echo (isset($currentUserIds) && is_array($currentUserIds) && in_array($user["id"], $currentUserIds)) ? "checked='checked'" : "" ?> id="attendee_<?php echo $user->getId() ?>" class="choose-input" />                
-                    </div>
-                </div> 
-            <?php endforeach; ?>
-            <?php foreach ($users as $user): ?>
-                <div class="peer">
-                    <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 36)) ?>
-                    <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
-                    <div class="event_attendee-participant-input">
-                        <input type="checkbox" class="input-checkbox" name="attendee[]" value="<?php echo $user->getId() ?>" <?php echo (isset($currentUserIds) && is_array($currentUserIds) && in_array($user["id"], $currentUserIds)) ? "checked='checked'" : "" ?> id="attendee_<?php echo $user->getId() ?>" class="choose-input" />                
-                    </div>
-                </div> 
-            <?php endforeach; ?>
-            <?php foreach ($users as $user): ?>
-                <div class="peer">
-                    <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 36)) ?>
-                    <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
-                    <div class="event_attendee-participant-input">
-                        <input type="checkbox" class="input-checkbox" name="attendee[]" value="<?php echo $user->getId() ?>" <?php echo (isset($currentUserIds) && is_array($currentUserIds) && in_array($user["id"], $currentUserIds)) ? "checked='checked'" : "" ?> id="attendee_<?php echo $user->getId() ?>" class="choose-input" />                
-                    </div>
-                </div> 
-            <?php endforeach; ?>
-            <?php foreach ($users as $user): ?>
-                <div class="peer">
-                    <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 36)) ?>
-                    <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
-                    <div class="event_attendee-participant-input">
-                        <input type="checkbox" class="input-checkbox" name="attendee[]" value="<?php echo $user->getId() ?>" <?php echo (isset($currentUserIds) && is_array($currentUserIds) && in_array($user["id"], $currentUserIds)) ? "checked='checked'" : "" ?> id="attendee_<?php echo $user->getId() ?>" class="choose-input" />                
-                    </div>
                 </div> 
             <?php endforeach; ?>
         </div>

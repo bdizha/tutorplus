@@ -1562,9 +1562,9 @@ mission:
   url:   /mission
   param: { module: section, action: mission }
   
-modules:
-  url:   /modules
-  param: { module: section, action: modules }
+offered_courses:
+  url:   /offered/courses
+  param: { module: section, action: offeredCourses }
   
 students:
   url:   /students

@@ -148,8 +148,8 @@ public:
     details:                          { route: home, label: Home }
   mission:  
     details:                          { route: mission, label: Mission }
-  courses:  
-    details:                          { route: courses, label: "Courses" }
+  offered_courses:  
+    details:                          { route: offered_courses, label: Courses }
     type:                             one
   philosophy:  
     details:                          { route: philosophy, label: Philosophy }
@@ -168,5 +168,5 @@ public:
     details:                          { route: contact_us, label: "Contact Us" }
     type:                             one
   faq:  
-    details:                          { route: faq, label: "Faqs" }
+    details:                          { route: faq, label: Faqs }
     type:                             one

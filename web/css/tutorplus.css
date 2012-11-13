@@ -1381,3 +1381,8 @@ textarea {
     list-style-type: decimal !important;
     padding-left: 2em;
 }
+
+ul.department-course{
+    list-style-type: disc !important;
+    padding-left: 2em;
+}

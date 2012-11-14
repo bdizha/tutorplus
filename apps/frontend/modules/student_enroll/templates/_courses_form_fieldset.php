@@ -4,7 +4,7 @@
             <h2><?php echo $department->getName() ?> (<?php echo $department->getAbbreviation() ?>)</h2>
             <?php foreach ($department->getCourses() as $course): ?>
                 <?php $name = preg_replace('/[^a-z0-9_]/', '_', strtolower($course->getCode())) ?>
-                <?php $label = $course->getName() . "(" . $course->getCode() . ")" ?>
+                <?php $label = $course->getName() . " (" . $course->getCode() . ")" ?>
                 <div class="department-course sf_admin_form_field_<?php echo $name ?>"> 
                     <div class="checkbox">
                         <?php echo $form[$name]->render() ?>

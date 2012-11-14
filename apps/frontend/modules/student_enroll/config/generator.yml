@@ -13,7 +13,7 @@ generator:
 
     config:
       fields:
-        number:              { label: "Unisa Student Number" }
+        number:              { label: "Student number" }
         password_again:      { label: "Confirm password" }
         permissions_list:    { lable: Roles }
 
@@ -21,8 +21,8 @@ generator:
       form:
         class:               StudentRegisterForm
         display:            
-         "Your Personal Details":        [first_name, last_name, number, email_address, mobile_phone, country_id, state_province_id]
-         "Tutorial Enrollment Details":  [year, semester, department_1, course_1, department_2, course_2, department_3, course_3]
+         "Personal Details": [first_name, last_name, number, email_address, mobile_phone, country_id, state_province_id]
+         "Academic Period": [year, semester]
       filter:
         class: false
       list:

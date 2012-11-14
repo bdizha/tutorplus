@@ -1,3 +1,2 @@
 all:  
-  stylesheets:    [landing]
   layout:         public

@@ -6,7 +6,15 @@
 
 <div class="landing-row">
     <div class="landing-left-column">
-        <div class="landing-image"></div>
+        <div class="landing-image" id="scrollable">
+            <div class="items">
+                <div><img src="/images/home-02.jpg" /></div>
+                <div><img src="/images/home-04.jpg" /></div>
+                <div><img src="/images/home-05.jpg" /></div>
+                <div><img src="/images/home-06.jpg" /></div>
+                <div><img src="/images/home-07.jpg" /></div>
+            </div>
+        </div>
     </div>
     <div class="landing-right-column">
         <div class="column-row">
@@ -34,7 +42,7 @@
                 </div>
             </div>
             <div class="instructor-testimonial">
-               <a class="photo-link" style="width:96px;height:96px;" href="/profile/john-kennedy"><img src="/uploads/users/8/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
+                <a class="photo-link" style="width:96px;height:96px;" href="/profile/john-kennedy"><img src="/uploads/users/8/normal-96.jpg " class="image" alt="John Kennedy" title="John Kennedy"></a>
                 <div class="text">
                     <h3 class="name">Brian Harvey</h3>
                     <h5 class="institution">NMMU</h5>
@@ -66,3 +74,14 @@
         </div>
     </div>
 </div>
+<script type='text/javascript'>
+    //<![DATA[
+    $(document).ready(function(){ 
+        // initialize scrollable
+        var root = $("#scrollable").scrollable({circular: true}).autoscroll({ autoplay: true });
+ 
+        // provide scrollable API for the action buttons
+        window.api = root.data("scrollable");
+    });
+    //]]
+</script>

@@ -15,22 +15,22 @@ class StudentRegisterForm extends StudentForm {
 
         $courseForm = new CourseForm();
         $academicPeriodForm = new AcademicPeriodForm();
-        $studentCourseForm = new StudentCourseForm();
         $contactForm = new ContactForm();
 
         // build department course pairs
-        foreach (range(1, 3) as $key) {
-            $this->widgetSchema ['department_' . $key] = new sfWidgetFormDoctrineChoice(array('model' => $courseForm->getRelatedModelName('Department'), 'add_empty' => false));
-            $this->widgetSchema ['course_' . $key] = new sfWidgetFormDoctrineChoice(array('model' => $studentCourseForm->getRelatedModelName('Course'), 'add_empty' => false));
-            $this->widgetSchema ['department_' . $key]->setLabel("Department");
-            $this->widgetSchema ['course_' . $key]->setLabel("Module");
-
-            $this->validatorSchema['department_' . $key] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-            $this->validatorSchema['course_' . $key] = new sfValidatorString(array('max_length' => 255, 'required' => false));
+        foreach (DepartmentTable::getInstance()->findAll() as $department) {
+            foreach ($department->getCourses() as $course) {
+                $name = preg_replace('/[^a-z0-9_]/', '_', strtolower($course->getCode()));
+                $this->widgetSchema[$name] = new sfWidgetFormInputCheckbox(array(), array("value" => $course->getId()));
+            }
         }
-
-        $this->validatorSchema['department_1'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'Please choose your a <b>Department</b>.'));
-        $this->validatorSchema['course_1'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'Please choose your a <b>Course</b>.'));
+        
+        foreach (DepartmentTable::getInstance()->findAll() as $department) {
+            foreach ($department->getCourses() as $course) {
+                $name = preg_replace('/[^a-z0-9_]/', '_', strtolower($course->getCode()));
+                $this->validatorSchema[$name] = new sfValidatorString(array('max_length' => 255, 'required' => false));
+            }
+        }
 
         $this->widgetSchema ['year'] = new sfWidgetFormDoctrineChoice(array('model' => $academicPeriodForm->getRelatedModelName('AcademicYear'), 'add_empty' => false));
         $this->widgetSchema ['semester'] = new sfWidgetFormDoctrineChoice(array('model' => $courseForm->getRelatedModelName('AcademicPeriod'), 'add_empty' => false));

@@ -1,2 +1,3 @@
 all:  
   layout:         public
+  stylesheets:    [picture.css]

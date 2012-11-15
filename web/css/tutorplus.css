@@ -1366,6 +1366,10 @@ textarea {
     margin: 10px 0px 20px;
 }
 
+.section-block h2{
+    font-size: 14px;
+}
+
 #tp_admin_container{
     padding: 10px;
 }
@@ -1377,8 +1381,10 @@ textarea {
 #tp_admin_heading h3{
     color: #21616D;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
+    border-bottom: 1px solid #21616D;
+    padding-bottom: 10px;
 }
 
 .recipient{

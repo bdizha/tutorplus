@@ -1,6 +1,6 @@
 all:
   layout: register
-  stylesheets: [student.css]  
+  stylesheets: [student.css, picture.css]  
   
 newSuccess:
   has_layout: true

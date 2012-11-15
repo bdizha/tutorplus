@@ -1,3 +1,4 @@
 body{
     background-image: url("/images/bg_enroll.jpg") !important;
+    background-attachment: fixed;
 }

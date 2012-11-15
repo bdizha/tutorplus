@@ -41,7 +41,7 @@ class StudentRegisterForm extends StudentForm {
 
         $this->validatorSchema['year'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Academic year</b> field is required.'));
         $this->validatorSchema['semester'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Semester</b> field is required.'));
-        $this->validatorSchema['number'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Unisa student number</b> field is required.'));
+        $this->validatorSchema['number'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Student number</b> field is required.'));
         $this->validatorSchema['mobile_phone'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Mobile phone</b> field is required.'));
         $this->validatorSchema['state_province_id'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Province</b> field is required.'));
         $this->validatorSchema['country_id'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Country</b> field is required.'));

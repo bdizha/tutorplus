@@ -16,7 +16,7 @@
         </div>
         <div class="section-block">
             <h2>General Inquiries and Feedback</h2>
-            If you have a general question about TutorPlus please email <a href="mailto:info@tutorplus.org">info@tutorplus.org</a>. To see if your question has already been answered, visit our <a href="https://www.tutorplus.org/faqs">FAQ page</a>. You can also join the discussion on our <a href="http://www.facebook.com/tutorplus">Facebook page</a>. Though we may not have a chance to respond to every email, we take all feedback into consideration.
+            If you have a general question about TutorPlus please email <a href="mailto:info@tutorplus.org">info@tutorplus.org</a>. To see if your question has already been answered, visit our <a href="http://www.tutorplus.org/faq">FAQ page</a>. You can also join the discussion on our <a href="http://www.facebook.com/tutorplus">Facebook page</a>. Though we may not have a chance to respond to every email, we take all feedback into consideration.
         </div>
         <div class="section-block">
             <h2>Technical Inquiries and Feedback</h2>

@@ -9,10 +9,15 @@
         <h3>Offered Unisa Courses</h3>
     </div>
     <div id="tp_admin_content">
+        <?php $counter = 0 ?>
         <?php foreach ($departments as $department): ?>
             <div class="section-block">
+                <?php if ($counter == 0): ?>
+                    <img src="/images/section_unisa.jpg">
+                <?php endif; ?>
+                <?php $counter++ ?>
                 <h2><?php echo $department->getName() ?> (<?php echo $department->getAbbreviation() ?>)</h2>
-                <ul class="department-course">
+                <ul>
                     <?php foreach ($department->getCourses() as $course): ?>
                         <li><?php echo $course->getName() ?> (<?php echo $course->getCode() ?>)</li>
                     <?php endforeach; ?>

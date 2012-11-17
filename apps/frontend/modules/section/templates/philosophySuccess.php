@@ -10,6 +10,7 @@
     </div>
     <div id="tp_admin_content">
         <div class="section-block">
+            <img src="/images/section_philosophy.jpg">
             <h2>Academic values</h2>
             We are fully engaged members of the academic community, and our principles derive from the universities, colleges, libraries, scholarly societies and other institutions around the world that we serve. Our fundamental aim is to support student development in Higher Learning contexts worldwide.
         </div>

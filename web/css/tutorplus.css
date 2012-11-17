@@ -1302,7 +1302,7 @@ ul.nav-tabs li.active-tab {
 
 .poem-body{
     margin-left: 264px;
-    text-align: center;
+    text-align: justify;
     width: 337px;
     margin-top: 10px;
 }
@@ -1366,6 +1366,11 @@ textarea {
     margin: 10px 0px 20px;
 }
 
+.section-block img{
+    float: right;
+    margin-left: 10px;
+}
+
 .section-block h2{
     font-size: 14px;
 }
@@ -1402,12 +1407,12 @@ textarea {
     float: left;
 }
 
-.content-block ol{
+.content-block ol0{
     list-style-type: decimal !important;
     padding-left: 2em;
 }
 
-ul.department-course{
+ul.department-course, .section-block ul{
     list-style-type: disc !important;
     padding-left: 2em;
 }

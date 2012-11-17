@@ -1540,9 +1540,9 @@ contact_us:
   url:   /contact/us
   param: { module: section, action: contactUs }
   
-leadership:
-  url:   /leadership
-  param: { module: section, action: leadership }
+team:
+  url:   /team
+  param: { module: section, action: team }
   
 mission:
   url:   /mission

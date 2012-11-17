@@ -2,9 +2,7 @@
 <div id="inner-header-wrapper">
     <div id="logo-container">
         <div id="logo-wrapper">
-            <div id="logo">
-                <a href="/"><img src="/images/logo.png"></img></a>
-            </div>
+            <div id="logo"><a href="/"><img src="/images/logo.png"></img></a></div>
             <div id="header-links">                        
                 <ul>
                     <?php if ($isAuthenticated): ?>
@@ -25,15 +23,10 @@
                             <input class="button" value="Sign Out" type="button" onclick="document.location.href='<?php echo url_for('@sf_guard_signout') ?>';" />
                         </li>
                     <?php else: ?>
-                        <li id="header_link_support">
-                            <a href="#">Do you need technical support?</a>        
-                        </li>
                         <li id="header_link_sign_in">
-                            <?php if ($isAuthenticated): ?>
-                                <input class="button" value="Dashboard" type="button" onclick="document.location.href='/dashboard';" />
-                            <?php else: ?>
-                                <input class="button" value="Sign In" type="button" onclick="document.location.href='/user/login';" />
-                            <?php endif; ?>
+                            <input class="cancel" value="Enroll as a Student!" type="button" onclick="document.location.href='/student/enroll/new';"/>
+                            <input class="cancel" value="Enroll as an Instructor!" type="button" onclick="document.location.href='/student/enroll/new';"/>
+                            <input class="button" value="Sign In" type="button" onclick="document.location.href='/user/login';" />
                         </li>
                     <?php endif; ?>
                 </ul>

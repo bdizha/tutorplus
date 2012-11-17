@@ -11,6 +11,7 @@
     <div id="tp_admin_content">
         <div class="section-block">
             <h2>Class Feedback</h2>
+            <img src="/images/secton_contac_us.jpg">
             We are always seeking feedback to improve our courses. If you are an enrolled student and have any questions, feedback, suggestions, or any other issues specific to a particular class, please post on the discussion forums of that class.
         </div>
         <div class="section-block">

@@ -149,20 +149,16 @@ public:
   mission:  
     details:                          { route: mission, label: Mission }
   offered_courses:  
-    details:                          { route: offered_courses, label: Courses }
+    details:                          { route: offered_courses, label: "UNISA Courses" }
     type:                             one
   philosophy:  
     details:                          { route: philosophy, label: Philosophy }
-  students:  
-    details:                          { route: students, label: "Our Students" }
-    type:                             one
     type:                             one
   instructors:  
     details:                          { route: instructors, label: "Our Instructors" }
     type:                             one
-    type:                             one
-  leadership:  
-    details:                          { route: leadership, label: Leadership }
+  team:  
+    details:                          { route: team, label: "TutorPlus Team" }
     type:                             one
   contact_us:  
     details:                          { route: contact_us, label: "Contact Us" }

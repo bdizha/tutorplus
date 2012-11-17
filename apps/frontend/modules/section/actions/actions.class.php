@@ -36,11 +36,11 @@ class sectionActions extends sfActions {
     }
 
     /**
-     * Executes leadership action
+     * Executes team action
      *
      * @param sfRequest $request A request object
      */
-    public function executeLeadership(sfWebRequest $request) {
+    public function executeTeam(sfWebRequest $request) {
     }
 
     /**

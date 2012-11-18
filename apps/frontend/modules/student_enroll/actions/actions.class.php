@@ -16,6 +16,7 @@ class student_enrollActions extends autoStudent_enrollActions {
     protected function processForm(sfWebRequest $request, sfForm $form) {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         if ($form->isValid()) {
+            $isNew = $form->getObject()->isNew();
             $notice = 'Congrats! You have been successfully enrolled as a TutorPlus student.';
 
             try {
@@ -23,10 +24,14 @@ class student_enrollActions extends autoStudent_enrollActions {
 
                 // save default student contact details
                 $student->saveDefaultContact($form->getValues());
-                
+
                 // save student course
                 $student->saveDefaultCourses($form->getValues());
-                
+
+                // send the student emails
+                if ($isNew) {
+                    $this->sendEmail($student);
+                }
             } catch (Doctrine_Validator_Exception $e) {
 
                 $errorStack = $form->getObject()->getErrorStack();
@@ -42,16 +47,31 @@ class student_enrollActions extends autoStudent_enrollActions {
             }
 
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $student)));
-            
+
             // automatically sign in the student
             $this->getUser()->signin($student->getUser(), false);
-            
+
             $this->getUser()->setFlash('notice', $notice);
-            
+
             // redirect them to their dashboard
             $this->redirect('@dashboard');
         } else {
             $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
         }
     }
+
+    public function sendEmail($object) {
+        $user = $object->getUser();
+        $mailer = new tpMailer();
+        $mailer->setTemplate('student-enrollment');
+        $mailer->setToEmails($user->getName() . " <" . $user->getEmail() . ">");
+        $mailer->addValues(
+                array(
+                    "USER" => $user->getName()
+                )
+        );
+
+        $mailer->send();
+    }
+
 }

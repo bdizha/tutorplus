@@ -14,14 +14,11 @@ class dashboardGeneratorHelper extends sfModelGeneratorHelper {
         return 'list' == $action ? 'profile' : 'profile_' . $action;
     }
 
-    public function dashboardBreadcrumbs() {
-        return array('breadcrumbs' => array(
-                "My Dashboard" => "dashboard",
-            )
-        );
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array());
     }
 
-    public function dashboardLinks() {
+    public function indexLinks() {
         return array(
             "current_parent" => "dashboard",
             "current_child" => "my_dashboard",

@@ -16,10 +16,6 @@
     text-transform: uppercase;
 }
 
-.even-row{
-    min-height: 40px;    
-}
-
 #dashboard_container .left{
     margin-right: 7px;
 }

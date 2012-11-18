@@ -1132,6 +1132,16 @@ a.right {
     clear: both;
 }
 
+.even-row::after{
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
 #activity_feeds .even-row{
     padding: 5px 10px 10px !important;
 }

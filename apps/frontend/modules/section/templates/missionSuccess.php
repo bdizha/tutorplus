@@ -45,7 +45,7 @@
                     stop, but continue to making every learning experience an
                     invaluable one. 
                 </div>
-                <div class="poem-body">Indeed, we're tacking collaborative efforts
+                <div class="poem-body">Indeed, we're tackling collaborative efforts
                     for collaborative causes for our generation and future ones.
                 </div>
             </div>

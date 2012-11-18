@@ -29,7 +29,7 @@ class dashboardActions extends sfActions {
 
         $this->courses = $this->getUser()->getProfile()->getCourses();
 
-        //$this->announcements = AnnouncementTable::getInstance()->findLatestByUserId($this->getUser()->getId(), 100);
+        $this->announcements = AnnouncementTable::getInstance()->retrieveLatest();
         $this->newsItems = NewsTable::getInstance()->findLatest(100);
         //$this->events = CalendarEventTable::getInstance()->retrieveByVisibility(true);
         $this->notifications = ActivityFeedTable::getInstance()->findByUserId($this->getUser()->getId(), 3);

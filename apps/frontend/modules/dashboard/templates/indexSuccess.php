@@ -1,11 +1,11 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->dashboardLinks()) ?>
+<?php include_component('common', 'menu', $helper->indexLinks()) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array()) ?>
+<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <?php end_slot() ?>
 
 <?php include_partial('common/flashes') ?>

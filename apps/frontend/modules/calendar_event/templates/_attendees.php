@@ -2,8 +2,9 @@
     <?php include_partial('calendar_event_attendee/list', array('event' => $form->getObject())) ?>
 </div>
 <script type="text/javascript">
-    $(document).ready(function(){        
-        $('textarea').autosize();        
+    $(document).ready(function(){ 
+        // make the reply textarea elastic	
+        $('textarea').redactor();          
         $("#calendar_event_attendees").click(function(){
             openPopup("/event_attendees_choose", '785px', "180px", "<?php echo __('Manage Attendees', Array(), 'messages') ?>");
             return false;

@@ -61,8 +61,10 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function(){        
-        $('textarea').autosize();        
+    $(document).ready(function(){   
+        // make the reply textarea elastic	
+        $('textarea').redactor();     
+        
         $("#calendar_event_attendees").click(function(){
             openPopup("/event/attendees/choose", '560px', "560px", "<?php echo __('Manage Attendees', Array(), 'messages') ?>");
             return false;

@@ -3,9 +3,8 @@
 <?php include_partial('message_inbox/form', array('email_message' => $email_message, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
 <script type="text/javascript">
     $(document).ready(function(){
-        
-        // make the reply textarea elastic
-        $('textarea').autosize();
+        // make the reply textarea elastic	
+        $('textarea').redactor();
         
         // set the counts of the email labels
         setListCounts();

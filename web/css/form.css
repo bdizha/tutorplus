@@ -231,6 +231,11 @@ select > option{
     padding: 6px 0;
 }
 
+fieldset textarea{
+    width: 687px;
+    height: 60px;
+}
+
 #cboxLoadedContentInner textarea{
     min-width: 325px;
 }

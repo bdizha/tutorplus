@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           ActivityTemplate
-    theme:                 popup
+    theme:                 normal
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -14,15 +14,16 @@ generator:
     config:
       actions: ~
       form:
-        class:                  ActivityTemplateForm
-        display:                [ type, patterns, content ]
+        class:                 ActivityTemplateForm
+        display:
+         "Template Details":   [type, patterns, content]
       fields:
       filter:
         class: false
       list:
         title:                  Activity Templates
-        display:                [ _type, content ]
-        sort:                   [ type, asc ]
+        display:                [_type, content]
+        sort:                   [type, asc]
         batch_actions:          []
         max_per_page:			      25
         actions:

@@ -6,8 +6,8 @@
 </div>
 <script type='text/javascript'>
     $(document).ready(function(){
-        // make the reply textarea elastic
-        $('textarea').autosize();
+        // make the reply textarea elastic	
+        $('textarea').redactor();
         
         // set the counts of the email labels
         setListCounts();

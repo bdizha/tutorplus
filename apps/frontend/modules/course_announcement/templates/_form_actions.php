@@ -28,7 +28,8 @@
 </ul>
 <script type='text/javascript'>
     $(document).ready(function(){
-        $('#announcement_message').autosize();
+        // make the reply textarea elastic	
+        $('#announcement_message').redactor();
         
         $('#announcement_message').keyup(function(){
             $.fn.colorbox.resize();

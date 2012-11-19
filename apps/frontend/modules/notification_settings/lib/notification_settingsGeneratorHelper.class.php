@@ -22,7 +22,7 @@ class notification_settingsGeneratorHelper extends BaseNotification_settingsGene
         return '<li class="sf_admin_action_save"><input type="submit" value=" ' . __($params['label'], array(), 'sf_admin') . ' " class="save"></li>';
     }
 
-    public function editBreadcrumbs() {
+    public function editBreadcrumbs($object) {
         $sfUser = sfContext::getInstance()->getUser();
         return array('breadcrumbs' => array(
                 "Profile" => "profile/" . $sfUser->getGuardUser()->getSlug(),

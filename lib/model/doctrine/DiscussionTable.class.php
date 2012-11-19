@@ -110,7 +110,7 @@ class DiscussionTable extends Doctrine_Table {
             $discussion->setIsPrimary(true);
             $discussion->setUserId($user->getId());
             $discussion->setAccessLevel(DiscussionTable::ACCESS_LEVEL_RESTRICTED);
-            $discussion->setDescription("This is " . $user->getName() . "'s discussion wall and if you have anything to share with him/her please post it in this discussion.");
+            $discussion->setDescription("This is " . $user->getName() . "'s discussion wall and if you have anything to share with them please post it in this discussion.");
             $discussion->save();
 
             $discussionMember = new DiscussionMember();

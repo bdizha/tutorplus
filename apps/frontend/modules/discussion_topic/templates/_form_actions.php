@@ -33,7 +33,7 @@
                 window.location = window.location.href;
             }
             else{
-                fetchContent('/discussion_topic');
+                fetchContent('/discussion/topic');
             }
             $.fn.colorbox.close();
             return false;

@@ -51,12 +51,12 @@
         });
         
         $("a#discussion_member_new").click(function(){
-            openPopup("/discussion_topic/new", "600px", "", "New Discussion Topic");
+            openPopup("/discussion/topic/new", "600px", "", "New Discussion Topic");
             return false;
         });
     });
     
     function fetchDiscussionMembers(){
-        $("#discussion_members").load("/discussion_members");
+        $("#discussion_members").load("/discussion/members");
     }
 </script>

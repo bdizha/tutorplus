@@ -17,13 +17,13 @@
     height: 15px;
 }
 #sf_admin_heading h3, .sf_admin_heading h3{
-    color: #21616D;
+    color: #985321;
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
 }
 .pager-current{
-    background-color: #21616D !important;
+    background-color: #985321 !important;
     color: #FFFFFF;
 }
 .sf_admin_pagination ul li a:hover{
@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 .sf_admin_pagination ul li a{
-    color: #21616D !important;
+    color: #985321 !important;
 }
 #sf_admin_form_container{
     display: table;
@@ -159,7 +159,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     border-radius: 5px 5px 0 0;
     font-weight: normal;
     font-size: 12px;
-    background-color: #CD0A0A;
+    background-color: #985321;
     color: #FFFFFF;
     font-size: 12px;
     margin: 13px 0 0 !important;
@@ -172,7 +172,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     background-color: #FCF0F0;
     border: 1px solid #E2D0D0;
     border-radius: 0 0 5px 5px;
-    color: #8D1C1C !important;
+    color: #985321 !important;
     font-size: 11px;
     margin: 0 0 3px;
     padding: 3px 10px
@@ -186,7 +186,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     font-size: 12px;
     padding: 5px 30px;
     text-align: center;
-    color: #21616D;
+    color: #985321;
     margin-top: 10px;
 }
 

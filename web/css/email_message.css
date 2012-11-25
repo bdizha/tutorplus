@@ -176,7 +176,7 @@ span.separator {
 .recipient-field{
     position: relative;
     clear: both;
-    min-height: 50px;
+    min-height: 15px;
 }
 
 .message-recipient-input{
@@ -232,4 +232,22 @@ span.separator {
 
 .notice{
     margin: 0 10px 10px;
+}
+
+#bcc_email{
+    position: absolute;
+    right: 5px;
+    top: -4px;
+}
+
+#cc_email{
+    position: absolute;
+    right: 60px;
+    top: -4px;
+}
+
+#to_email{
+    position: absolute;
+    right: 110px;
+    top: -4px;
 }

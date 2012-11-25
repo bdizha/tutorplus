@@ -1,6 +1,7 @@
 
 var closeHtml = "<img src=\"/css/colorbox/images/close.png\" alt=\"Close\" width=\"27\" height=\"27\">";
 var loadingHtml = "<div class=\"loading\"><img src=\"/images/loading.gif\" alt=\"Loading...\"></div>";
+var loadingButtonHtml = "<button class='button'><a class='anchor-1' href='#'>&nbsp;</a><a class='anchor-2' href='#'>&nbsp;</a><a class='anchor-3' href='#'>&nbsp;</a></button>";
 $(document).ready(function(){
     
     // submit discussion topic replies
@@ -150,4 +151,19 @@ function is_numeric(value){
     var regex = /^[0-9]{1,3}(\.([0-9]{1,2}))?$/;
         
     return regex.test(value);
+}
+    
+function rotateLoading(){
+    var height1 = $(".anchor-3").css("height");
+    var height2 = $(".anchor-1").css("height");
+    var height3 = $(".anchor-2").css("height");
+    var top1 = $(".anchor-3").css("top");
+    var top2 = $(".anchor-1").css("top");
+    var top3 = $(".anchor-2").css("top");
+        
+    $(".anchor-1").css("height", height1).css("top", top1);
+    $(".anchor-2").css("height", height2).css("top", top2);
+    $(".anchor-3").css("height", height3).css("top", top3);
+        
+    setTimeout(rotateLoading, 300)
 }

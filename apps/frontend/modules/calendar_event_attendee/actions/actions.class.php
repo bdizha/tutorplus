@@ -37,9 +37,8 @@ class calendar_event_attendeeActions extends autoCalendar_event_attendeeActions 
 
         // fetch all students for now
         $this->users = sfGuardUserTable::getInstance()->findAll();
-        
-        //myToolkit::debug($this->event->toArray());
 
+        //myToolkit::debug($this->event->toArray());
         // look for the current course students
         $currentCourseStudents = CalendarEventAttendeeTable::getInstance()->findByCalendarEventId($this->event->getId());
 
@@ -63,6 +62,9 @@ class calendar_event_attendeeActions extends autoCalendar_event_attendeeActions 
                     $calendarEventAttendee->setComment("Invited");
                     $calendarEventAttendee->save();
                 }
+
+                $notice = 'The attendees were added successfully.';
+                $this->getUser()->setFlash('notice', $notice, false);
             }
 
             $this->currentUserIds = $userIds;

@@ -43,10 +43,17 @@
                         <?php endif; ?>
                     </div>          
                     <div id="sign-in">
-                        <input type="submit" class="button" value="Sign In" />
+                        <input type="submit" loadingid="sign_in" class="button" value="Sign In" />
                     </div>
                 </div>
             </form>
         </fieldset>
     </div>
 </div>    
+<script type="text/javascript">
+    $(".button").click(function(){
+        $(this).addClass('hide');
+        $(this).parent().append(loadingButtonHtml);
+        rotateLoading();
+    });
+</script>

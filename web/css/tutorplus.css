@@ -1404,11 +1404,11 @@ textarea {
 }
 
 .recipient{
-    width: 485px;
+    width: 350px;
     position: relative;
     clear: both !important;
     height: 25px;
-    border-bottom: 1px solid #F1F1F1;
+    border-bottom: 1px solid #C37E4C;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -1416,9 +1416,10 @@ textarea {
 .participant-input{
     width: 50px;
     float: left;
+    margin-top: 5px;
 }
 
-.content-block ol0{
+.content-block ol{
     list-style-type: decimal !important;
     padding-left: 2em;
 }

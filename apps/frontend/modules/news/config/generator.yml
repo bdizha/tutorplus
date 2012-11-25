@@ -19,7 +19,7 @@ generator:
         class: false
       list:
         title:                  News Items
-        display:                [heading, blurb, is_published]
+        display:                [heading, blurb]
         sort:                   [heading, asc]
         batch_actions:          []
         object_actions:        

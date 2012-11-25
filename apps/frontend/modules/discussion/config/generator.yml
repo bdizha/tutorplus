@@ -24,7 +24,7 @@ generator:
         class: false
       list:
         title:             My Discussions
-        display:           [=name, user, access_level, nb_topics, nb_members, last_visit]
+        display:           [=name, user, access_level, nb_topics, last_visit]
         sort:              [name, asc]
         batch_actions:     []
         object_actions:     

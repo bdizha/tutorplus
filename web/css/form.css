@@ -29,6 +29,7 @@ input[type=button], input[type=submit] {
 }
 
 .cancel, .done, .fc-header .fc-button, #calnext, #calprev{
+    height: 32px;
     color: #666666 !important;
     text-shadow: 0 1px rgba(255, 255, 255, 0.5);
     border: 1px solid #CCCDCE !important;
@@ -108,7 +109,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     outline: medium none;
 }
 
-.save, #add_files, .new, .button, .choose-recipient{
+.save, .new, .button{
     border-radius: 3px;
     background-color: #AB6634;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#C37E4C),to(#AB6634	));
@@ -122,7 +123,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     color: white !important;
 }
 
-.save:hover, #add_files:hover, .new:hover, .button:hover, choose-recipient:hover{
+.save:hover, .new:hover, .button:hover{
     background-color: #C37E4C;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#AB6634),to(#C37E4C	));
     background-image: -webkit-linear-gradient(top,#AB6634,#C37E4C);
@@ -247,4 +248,39 @@ fieldset textarea{
 
 .date-field{
     width: 104px !important;
+}
+
+button.button{
+    width: 52px;
+    height: 32px;
+    position: relative;
+    margin-left: 9px;
+}
+
+button a{
+    background-color: white;
+    margin-left: 2px;
+    display: inline-block;
+    width: 4px;
+}
+
+.anchor-1{
+    height: 7px;
+    position: absolute;
+    left: 15px;
+    top: 12px;
+}
+
+.anchor-2{
+    height: 13px;
+    position: absolute;
+    left: 23px;
+    top: 9px;
+}
+
+.anchor-3{
+    height: 19px;
+    position: absolute;
+    left: 31px;
+    top: 5px;
 }

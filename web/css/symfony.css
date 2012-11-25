@@ -135,7 +135,7 @@ ul.sf_admin_actions{
     margin: 10px 0 -10px 20px;
 }
 ul.sf_admin_actions li{
-    display: inline-block;
+    float: right;
     margin-left: 5px;
     position: relative;
 }

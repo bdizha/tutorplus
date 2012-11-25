@@ -66,12 +66,12 @@
         $('textarea').redactor();     
         
         $("#calendar_event_attendees").click(function(){
-            openPopup("/event/attendees/choose", '560px', "560px", "<?php echo __('Manage Attendees', Array(), 'messages') ?>");
+            openPopup("/event/attendees/choose", '425px', "260px", "<?php echo __('Manage Attendees', Array(), 'messages') ?>");
             return false;
         }); 
     });
 
     function fetchEventAttendees(){
-        $('#calendar_attendees').load("/event/attendees");
+        $('#event_attendees').load("/event/attendees");
     }
 </script>

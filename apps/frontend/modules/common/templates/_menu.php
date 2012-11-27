@@ -84,8 +84,8 @@
     });
 
     function resizeMainContainerWrapperHeight(){
-        if( $("#main-container-wrapper").height() < $("#left-column").height())
-            $("#main-container-wrapper").height($("#left-column").height());
+//        if( $("#main-container-wrapper").height() < $("#left-column").height())
+//            $("#main-container-wrapper").height($("#left-column").height());
     }
 </script>
 <?php end_slot() ?>

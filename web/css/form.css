@@ -23,36 +23,23 @@ input[type=button], input[type=submit] {
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 5px 10px;
+    padding: 3px 10px;
     cursor: hand;
     cursor: pointer;
 }
 
 .cancel, .done, .fc-header .fc-button, #calnext, #calprev{
-    height: 32px;
+    background-color: #AB6634;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #F7F8F8), color-stop(100%, #F1F2F3));
+    background-image: -webkit-linear-gradient(#F7F8F8,#F1F2F3);
+    background-image: -moz-linear-gradient(#F7F8F8,#F1F2F3);
+    background-image: -o-linear-gradient(#F7F8F8,#F1F2F3);
+    background-image: -ms-linear-gradient(#F7F8F8,#F1F2F3);
+    background-image: linear-gradient(#F7F8F8,#F1F2F3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#F7F8F8',EndColorStr='#F1F2F3');
+    border: 1px solid #CCCDCE;
     color: #666666 !important;
-    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
-    border: 1px solid #CCCDCE !important;
-    background: #F9F9F9;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #F7F8F8), color-stop(100%, #F1F2F3));
-    background: -webkit-linear-gradient(#F7F8F8,#F1F2F3);
-    background: -moz-linear-gradient(#F7F8F8,#F1F2F3);
-    background: -o-linear-gradient(#F7F8F8,#F1F2F3);
-    background: -ms-linear-gradient(#F7F8F8,#F1F2F3);
-    background: linear-gradient(#F7F8F8,#F1F2F3);
-    -moz-background-origin: border;
-    -webkit-background-origin: border;
-    -o-background-origin: border-box;
-    -ms-background-origin: border-box;
-    -khtml-background-origin: border-box;
-    background-origin: border-box;
-    -moz-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2),0 1px rgba(255,255,255,0.18),inset 0 1px #fff;
-    -webkit-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2),0 1px rgba(255,255,255,0.18),inset 0 1px #fff;
-    -o-box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2),0 1px rgba(255,255,255,0.18),inset 0 1px #fff;
-    margin-bottom: 0;
     font-size: 13px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
 }
 
 .cancel:hover, .done:hover{
@@ -109,8 +96,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     outline: medium none;
 }
 
-.save, .new, .button{
-    border-radius: 3px;
+.save, .new, .button, .landing-button{
     background-color: #AB6634;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#C37E4C),to(#AB6634	));
     background-image: -webkit-linear-gradient(top,#C37E4C,#AB6634);
@@ -120,10 +106,14 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     background-image: linear-gradient(top,#C37E4C,#AB6634);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#C37E4C',EndColorStr='#AB6634');
     border: 1px solid #C37E4C;
-    color: white !important;
+    color: #FFF !important;
 }
 
-.save:hover, .new:hover, .button:hover{
+.save, .new, .button, .cancel{
+    height: 29px;
+}
+
+.save:hover, .new:hover, .button:hover, .landing-button{
     background-color: #C37E4C;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#AB6634),to(#C37E4C	));
     background-image: -webkit-linear-gradient(top,#AB6634,#C37E4C);

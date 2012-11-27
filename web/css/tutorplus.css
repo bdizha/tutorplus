@@ -4,21 +4,16 @@
     margin-right: auto;
 }
 
-#main-header{
-    height: 65px;    
-}
-
 #header-big{
     height: 185px;
     padding-top: 2em;
 }
 
 #main-header, #header-big{
-    background: url("/images/bg_content.jpg") repeat;
+    background-color: #F9F9F9;
     position: fixed;
     width: 100%;
-    height: 70px;
-    position: fixed;
+    height: 65px;
     width: 100%;
     z-index: 99999;
     top: 0;
@@ -38,7 +33,7 @@
 
 #inner-header-wrapper{
     overflow: hidden;
-    height: 69px;
+    height: 65px;
 }
 
 #inner-header-landing-wrapper{
@@ -47,7 +42,7 @@
 }
 
 #tutorplus{
-    padding-top: 114px;
+    padding-top: 132px;
 }
 
 #logo-wrapper{
@@ -128,14 +123,19 @@
     width: 920px;
 }
 
-#main-menu{    
-    background-color: #C37E4C;
-    height: 45px;
+#main-menu{   
+    background-image: -moz-linear-gradient(top,#AB6634,#C37E4C);
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#AB6634),to(#C37E4C));
+    background-color: #AB6634;
+    display: block;
+    margin: 0;
+    padding: 0 0 0;
+    height: 40px;
 }
 
 #top-menu .separator{
-    background-color: #FFF;
-    height: 45px;
+    background-color: #C37E4C;
+    height: 40px;
     width: 1px;
 }
 
@@ -146,15 +146,17 @@
 }
 
 #top-menu ul li.normal{
-    height: 45px;
+    height: 40px;
 }
 
 #top-menu ul li.first{
 }
 
 #top-menu ul li.active{
+    background-image: -moz-linear-gradient(top,#985321,#A04F17);
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#985321),to(#A04F17));
     background-color: #985321;
-    height: 45px;
+    height: 40px;
 }
 
 #top-menu a{
@@ -221,9 +223,12 @@
 }
 
 #left-column{
-    float: left;
     width: 218px;
-    margin: 20px 0 10px -5px;
+    position: fixed;
+    width: 218px;
+    z-index: 99999;
+    top: 152px;
+    left: 290px;
 }
 
 #middle-column{
@@ -303,6 +308,12 @@
 
 #breadcrumbs-container-wrapper{
     background: url("/images/bg_breadcrum.jpg") repeat-x transparent;
+    position: fixed;
+    width: 100%;
+    height: 35px;
+    z-index: 99999;
+    top: 105px;
+    left: 0;
 }
 
 #breadcrumbs{
@@ -320,8 +331,8 @@
 }
 
 #breadcrumbs ol li.first{
-    background: url("/images/bg_breadcrum_left_border.jpg") no-repeat scroll -2px 2px transparent;
-    height: 33px;
+    background: url("/images/bg_breadcrum_left_border.jpg") no-repeat scroll -4px 2px transparent;
+    height: 29px;
     padding-left: 10px;
 }
 
@@ -429,6 +440,7 @@
     border-radius: 3px 3px 0 0;
     clear: both;
     color: #FFF;
+    height: 20px;
     font-weight: normal;
     font-size: 13px;
     border-bottom: 1px solid #FFFFFF;
@@ -520,12 +532,12 @@
     margin-right: auto;
 }
 
-#authenticate form{
-    padding: 10px 20px 20px 20px;    
+#authenticate fieldset {
+    margin-top: 10px !important;
 }
 
-#authenticate h2{
-    padding: 10px 15px !important;
+#authenticate form{
+    padding: 0px 10px 10px 10px;    
 }
 
 #request-password{
@@ -1275,10 +1287,10 @@ ul.nav-tabs li.active-tab {
 }
 
 .list-count{
-    color: #FFFFFF;
-    background-color: #985321;
+    color: white;
+    background-color: #C37E4C;
     padding: 3px 6px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 11px;
 }
 .no-padding{

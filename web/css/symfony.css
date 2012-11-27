@@ -50,8 +50,8 @@
     background-color: #FFFFFF;
 }
 .sf_admin_list th, #discussion_topics_footer{
-    background-color: #F1F1F1;
-    color: #7E7E7E;
+    background-color: #C37E4C;
+    color: #FFF;
     font-size: 12px;
     font-weight: normal;
     padding: 5px 5px 5px 10px;
@@ -60,7 +60,7 @@
 .sf_admin_list th a{
     font-size: 12px;
     font-weight: normal;
-    color: #7E7E7E !important;
+    color: #FFF !important;
 }
 .sf_admin_list th a:hover{
     text-decoration: underline !important;

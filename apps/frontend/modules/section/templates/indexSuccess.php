@@ -18,10 +18,10 @@
     </div>
     <div class="landing-right-column">
         <div class="column-row">
-            <input class="button landing-button" value="Enroll as a student!" type="button" onclick="document.location.href='/student/enroll/new';"/>
+            <input class="landing-button" value="Enroll as a student!" type="button" onclick="document.location.href='/student/enroll/new';"/>
         </div>
         <div class="column-row">
-            <input class="button landing-button" value="Enroll as an instructor!" type="button" onclick="document.location.href='/student/enroll/new';"/>
+            <input class="landing-button" value="Enroll as an instructor!" type="button" onclick="document.location.href='/student/enroll/new';"/>
         </div>
     </div>
 </div>

@@ -22,7 +22,7 @@ textarea{
 }
 
 body{
-    background: url("/images/bg_content.jpg") repeat;
+    background-color: #F9F9F9;
     font-size: 12px;
     height: 100%;
     width: 100%;

@@ -6,10 +6,10 @@
 
 <div class="sf_admin_form">
     <div id="authenticate">
+        <?php include_partial('sfGuardAuth/flashes', array('form' => $form)) ?>
         <fieldset>
             <h2>Sign In:</h2>
             <form action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
-                <?php include_partial('sfGuardAuth/flashes', array('form' => $form)) ?>
                 <?php echo $form->renderHiddenFields(false) ?>
                 <div class="row<?php $form["username"]->hasError() and print ' errors' ?>">
                     <div class="other-label">

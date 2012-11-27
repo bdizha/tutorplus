@@ -53,8 +53,8 @@
 <script type='text/javascript'>
     $(document).ready(function(){
         
-        // resize the main container height
-        resizeMainContainerWrapperHeight();
+        // configure left column css
+        resizeLeftColumnCss();
         
         $(".menu-item").click(function(){
             var child_item_id = $(this).next().attr("id");
@@ -83,9 +83,11 @@
         }
     });
 
-    function resizeMainContainerWrapperHeight(){
-//        if( $("#main-container-wrapper").height() < $("#left-column").height())
-//            $("#main-container-wrapper").height($("#left-column").height());
+    function resizeLeftColumnCss(){
+        var bodyWidth = $("body").width();
+        var innerContainerWrapperWidth = $("#inner-container-wrapper").width();
+        var calculatedLeft = (bodyWidth - innerContainerWrapperWidth) / 2;
+        $("#left-column").css("left", calculatedLeft - 2);
     }
 </script>
 <?php end_slot() ?>

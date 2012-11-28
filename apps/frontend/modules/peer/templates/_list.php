@@ -36,7 +36,7 @@
         <?php $statusClass = "open"; ?>
         <div class="peer"> 
             <?php include_partial('personal_info/photo', array('user' => $myPeer, "dimension" => 48)) ?>
-            <div class="name"><?php echo link_to($myPeer, 'profile_show', $myPeer) ?></div>
+            <div class="name"><?php echo link_to(myToolkit::shortenString($myPeer->getName(), 14), 'profile_show', $myPeer) ?></div>
             <div class="peer-actions">
                 <input type="button" class="peer-<?php echo $statusClass ?>" inviteeid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
             </div>

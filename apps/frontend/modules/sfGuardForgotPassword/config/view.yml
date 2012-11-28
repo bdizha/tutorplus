@@ -1,3 +1,2 @@
 all:  
-  stylesheets:    [picture.css]
   layout:         other

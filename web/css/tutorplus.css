@@ -103,7 +103,7 @@
 }
 
 #main-container a, #login-container{
-    color: #985321;
+    color: #C37E4C;
 }
 
 #container-wrapper, #main-container-wrapper{
@@ -152,10 +152,10 @@
 #top-menu ul li.first{
 }
 
-#top-menu ul li.active{
-    background-image: -moz-linear-gradient(top,#985321,#A04F17);
-    background-image: -webkit-gradient(linear,left bottom,left top,from(#985321),to(#A04F17));
-    background-color: #985321;
+#top-menu ul li.active, #top-menu ul li.normal:hover{
+    background-image: -moz-linear-gradient(top,#985321,#A04F17) !important;
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#985321),to(#A04F17)) !important;
+    background-color: #985321 !important;
     height: 40px;
 }
 
@@ -165,6 +165,7 @@
     font-size: 12px;
     text-transform: uppercase;
     height: 25px;
+    text-decoration: none !important;
 }
 
 #top-menu ul li.active a{
@@ -204,7 +205,7 @@
 }
 
 #header-links ul li a{
-    color: #985321 !important;
+    color: #C37E4C !important;
 }
 
 #top-menu, #inner-container-wrapper{
@@ -436,14 +437,12 @@
 }
 
 #sf_admin_container .content-block h2, .sf_admin_form fieldset h2{
-    background-color: #C37E4C;
-    border-radius: 3px 3px 0 0;
+    background-color: #DCDCDC;
     clear: both;
-    color: #FFF;
+    color: #7E7E7E;
     height: 20px;
     font-weight: normal;
     font-size: 13px;
-    border-bottom: 1px solid #FFFFFF;
     padding: 5px 10px;
 }
 
@@ -1460,4 +1459,8 @@ ul.department-course, .section-block ul{
 
 .checkbox{       
     position: relative;
+}
+
+.input-elm{
+    padding-top: 3px;
 }

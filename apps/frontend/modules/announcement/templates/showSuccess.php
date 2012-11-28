@@ -20,7 +20,7 @@
     </div> 
     <div class="full-block">
         <h2><?php echo $announcement->getSubject() ?></h2>   
-        <div class="description padding-10 white-background">
+        <div class="description padding-10">
             <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 96)) ?>
             <?php echo link_to($user, 'profile_show', $user) ?>
             <?php echo $announcement->getHtmlizedMessage() ?>

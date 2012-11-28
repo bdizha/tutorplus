@@ -19,7 +19,7 @@
     </div> 
     <div class="full-block">
         <h2><?php echo $newsItem->getHeading() ?></h2>   
-        <div class="padding-10 description white-background">
+        <div class="padding-10 description">
             <?php echo $newsItem->getHtmlizedDescription() ?>
         </div>         
     </div>

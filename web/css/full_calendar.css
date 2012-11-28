@@ -122,7 +122,7 @@ html .fc,
 }
 
 .fc-content tfoot{
-/*    display: none;*/
+    /*    display: none;*/
 }
 
 td.fc-first{
@@ -134,7 +134,7 @@ td.fc-first{
 ------------------------------------------------------------------------*/
 
 .fc-widget-content {  /* <td>, usually */
-/*    border: 1px solid #FFF;*/
+    /*    border: 1px solid #FFF;*/
 }
 
 .fc-widget-header{
@@ -191,8 +191,8 @@ td.fc-first{
 
 .fc-state-default { 
     /*
-	non-theme 
-	*/
+        non-theme 
+    */
     border-style: solid;
     border-width: 1px 0;
 }
@@ -268,18 +268,14 @@ td.fc-first{
 
 .fc-state-down,
 .fc-state-down .fc-button-inner {
-    border-color: #134D58;
-    background: #134D58;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+    border-color: #B87341;
+    background: #B87341;
 }
 
 .fc-state-active,
 .fc-state-active .fc-button-inner {
-    background: none repeat scroll 0 0 #134D58;
-    color: #FFFFFF !important;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+    background: none repeat scroll 0 0 #B87341;
+    color: white !important;
 }
 
 .fc-state-disabled,
@@ -450,7 +446,7 @@ table.fc-border-separate {
 
 .fc-border-separate th,
 .fc-border-separate td {
-/*    border-width: 1px 0 0 1px;*/
+    /*    border-width: 1px 0 0 1px;*/
 }
 
 .fc-border-separate th.fc-last,
@@ -474,7 +470,7 @@ table.fc-border-separate {
 ------------------------------------------------------------------------*/
 
 .fc-grid th {
-    background-color: #B9B9B9;
+    background-color: #DCDCDC;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: normal;
@@ -494,8 +490,8 @@ table.fc-border-separate {
     padding: 3px;
     filter: alpha(opacity=60); /* for IE */
     /* opacity with small font can sometimes look too faded
-	   might want to set the 'color' property instead
-	   making day-numbers bold also fixes the problem */
+           might want to set the 'color' property instead
+           making day-numbers bold also fixes the problem */
 }
 
 .fc-grid .fc-day-content {

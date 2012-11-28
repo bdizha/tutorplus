@@ -13,16 +13,13 @@
 </div>
 <div id="sf_admin_content">
     <div class="content-block">
-        <?php if (count($instructorPeers) == 0): ?>
-            <h2>It seems there's no new peers in this platform who might be available to peer up with you currently. Keep looking :)</h2>
+        <?php if (count($potentialPeers) == 0): ?>
+            <h2>It seems there's no new peers in this platform who're available to peer up with you currently.</h2>
         <?php else: ?>    
-            <h2>Get ready to start peering up with your colleagues here! You may want to use their name to quickly find them below :)</h2>  
+            <h2>Get peered up! You may want to use their name to quickly find them below :)</h2>  
             <div class="peer-block plain-row padding-10" id="my_peers">
-                <?php include_partial('list', array("peers" => $instructorPeers)) ?>
+                <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
             </div> 
         <?php endif; ?>
-        <div class="peer-block plain-row padding-10" id="my_peers">  
-            <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
-        </div>
     </div>
 </div>

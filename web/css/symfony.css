@@ -100,9 +100,6 @@ tr.sf_admin_row.odd{
     margin-top: -3px;
     padding: 5px 0;
 }
-.sf_admin_form fieldset{
-    border-radius: 5px 5px 0 0;
-}
 .sf_admin_form h2, .sf_admin_show h2{
 }
 .sf_admin_form fieldset .sf_admin_form_row{
@@ -154,9 +151,6 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
 }
 
 .error .title{
-    -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
-    border-radius: 5px 5px 0 0;
     font-weight: normal;
     font-size: 12px;
     background-color: #985321;
@@ -167,11 +161,8 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
 }
 
 .error ol{	
-    -moz-border-radius: 0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
     background-color: #FCF0F0;
     border: 1px solid #E2D0D0;
-    border-radius: 0 0 5px 5px;
     color: #985321 !important;
     font-size: 11px;
     margin: 0 0 3px;
@@ -179,9 +170,6 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
 }
 
 .notice{
-    -moz-border-radius: 4px 4px 4px 4px;
-    -webkit-border-radius: 4px 4px 4px 4px;
-    border-radius: 4px 4px 4px 4px;
     background-color: #DEFFBA;
     font-size: 12px;
     padding: 5px 30px;

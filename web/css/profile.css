@@ -514,18 +514,14 @@ span.green{
 }
 
 .peer{
-    /*    background-color: #F9F9F9;*/
-    border: 1px solid #FFFFFF;
+    border: 1px solid white;
     border-radius: 5px 5px 5px 5px;
     float: left;
     height: 58px;
-    margin: 5px 5px 0 0;
+    margin: 5px 9px 5px 0;
     padding: 10px 0 10px 10px;
-    width: 158px;
-    word-break: break-all;    
-    /*    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
-        -moz-box-shadow: 0 2px 3px rgba(0,0,0,.1);
-        box-shadow: 0 2px 3px rgba(0, 0, 0, .1);*/
+    width: 330px;
+    word-break: break-all;
 }
 
 .last{
@@ -586,14 +582,9 @@ span.green{
 }
 
 .peer-open, .peer-suggested, .peer-declined{
+    line-height: 15px !important;
+    width: 95px;
     background-color: #DD4B39;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#DD4B39),to(#D14836));
-    background-image: -webkit-linear-gradient(top,#DD4B39,#D14836);
-    background-image: -moz-linear-gradient(top,#DD4B39,#D14836);
-    background-image: -ms-linear-gradient(top,#DD4B39,#D14836);
-    background-image: -o-linear-gradient(top,#DD4B39,#D14836);
-    background-image: linear-gradient(top,#DD4B39,#D14836);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#DD4B39',EndColorStr='#D14836');
     border: 1px solid #D14836;
     color: white !important;
     font-size: 11px;
@@ -602,24 +593,12 @@ span.green{
 
 .peer-open:hover, .peer-suggested:hover, .peer-declined:hover{
     background-color: #D14836;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#D14836),to(#DD4B39));
-    background-image: -webkit-linear-gradient(top,#D14836,#DD4B39);
-    background-image: -moz-linear-gradient(top,#D14836,#DD4B39);
-    background-image: -ms-linear-gradient(top,#D14836,#DD4B39);
-    background-image: -o-linear-gradient(top,#D14836,#DD4B39);
-    background-image: linear-gradient(top,#D14836,#DD4B39);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D14836',EndColorStr='#DD4B39');
 }
 
 .peer-accept{
+    line-height: 15px !important;
+    width: 95px;
     background-color: #FBB60F;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#FBB60F),to(#FFA500));
-    background-image: -webkit-linear-gradient(top,#FBB60F,#FFA500);
-    background-image: -moz-linear-gradient(top,#FBB60F,#FFA500);
-    background-image: -ms-linear-gradient(top,#FBB60F,#FFA500);
-    background-image: -o-linear-gradient(top,#FBB60F,#FFA500);
-    background-image: linear-gradient(top,#FBB60F,#FFA500);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#FBB60F',EndColorStr='#FFA500');
     border: 1px solid #FBB60F;
     color: white !important;
     font-size: 11px;
@@ -628,24 +607,12 @@ span.green{
 
 .peer-accept:hover{
     background-color: #FFA500;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#FFA500),to(#FBB60F));
-    background-image: -webkit-linear-gradient(top,#FFA500,#FBB60F);
-    background-image: -moz-linear-gradient(top,#FFA500,#FBB60F);
-    background-image: -ms-linear-gradient(top,#FFA500,#FBB60F);
-    background-image: -o-linear-gradient(top,#FFA500,#FBB60F);
-    background-image: linear-gradient(top,#FFA500,#FBB60F);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#FFA500',EndColorStr='#FBB60F');
 }
 
 .peer-peered{
+    line-height: 15px !important;
+    width: 95px;
     background-color: #AB6634;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#AB6634),to(#C37E4C));
-    background-image: -webkit-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: -moz-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: -ms-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: -o-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: linear-gradient(top,#AB6634,#C37E4C);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#AB6634',EndColorStr='#C37E4C');
     border: 1px solid #C37E4C;
     color: white !important;
     font-size: 11px;
@@ -653,42 +620,15 @@ span.green{
     cursor: default !important;
 }
 
-.peer-peered:hover{
-    background-color: #C37E4C;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#C37E4C),to(#AB6634));
-    background-image: -webkit-linear-gradient(top,#C37E4C,#AB6634);
-    background-image: -moz-linear-gradient(top,#C37E4C,#AB6634);
-    background-image: -ms-linear-gradient(top,#C37E4C,#AB6634);
-    background-image: -o-linear-gradient(top,#C37E4C,#AB6634);
-    background-image: linear-gradient(top,#C37E4C,#AB6634);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#C37E4C',EndColorStr='#AB6634');
-}
-
 .peer-invited{
-    background-color: #D2D2D2;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#D2D2D2),to(#D7D7D7));
-    background-image: -webkit-linear-gradient(top,#D2D2D2,#D7D7D7);
-    background-image: -moz-linear-gradient(top,#D2D2D2,#D7D7D7);
-    background-image: -ms-linear-gradient(top,#D2D2D2,#D7D7D7);
-    background-image: -o-linear-gradient(top,#D2D2D2,#D7D7D7);
-    background-image: linear-gradient(top,#D2D2D2,#D7D7D7);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D2D2D2',EndColorStr='#D7D7D7');
-    border: 1px solid #D2D2D2;
+    line-height: 15px !important;
+    width: 95px;
+    background-color: #08C;
+    border: 1px solid #08C;
     color: white !important;
     font-size: 11px;
     padding: 1px 10px !important;
     cursor: default !important;
-}
-
-.peer-invited:hover{
-    background-color: #D7D7D7;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#D7D7D7),to(#D2D2D2));
-    background-image: -webkit-linear-gradient(top,#D7D7D7,#D2D2D2);
-    background-image: -moz-linear-gradient(top,#D7D7D7,#D2D2D2);
-    background-image: -ms-linear-gradient(top,#D7D7D7,#D2D2D2);
-    background-image: -o-linear-gradient(top,#D7D7D7,#D2D2D2);
-    background-image: linear-gradient(top,#D7D7D7,#D2D2D2);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#D7D7D7',EndColorStr='#D2D2D2');
 }
 
 #personal_info_about{

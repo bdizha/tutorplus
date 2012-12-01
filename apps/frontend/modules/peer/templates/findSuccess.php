@@ -8,15 +8,18 @@
 <?php include_partial('common/breadcrumbs', $helper->findBreadcrumbs()) ?>
 <?php end_slot() ?>
 
-<div id="sf_admin_heading">
-    <h3>Find Peers</h3>
-</div>
 <div id="sf_admin_content">
     <div class="content-block">
+        <ul class="nav-tabs">
+            <li class="active-tab">
+                <a href="#" tab="potential_peers" class="tab-title">Find Peers</a>
+                <span class="list-count"><?php echo count($potentialPeers) ?></span>
+            </li>
+        </ul>
         <?php if (count($potentialPeers) == 0): ?>
-            <h2>It seems there's no new peers in this platform who're available to peer up with you currently.</h2>
+            <div class="no-result">It seems there's no new peers in this platform who're available to peer up with you currently :)</div>
         <?php else: ?>    
-            <h2>Get peered up! You may want to use their name to quickly find them below :)</h2>  
+            <div class="no-result">Get peered up! You may want to use their name to quickly find them below :)</div>
             <div class="peer-block plain-row padding-10" id="my_peers">
                 <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
             </div> 

@@ -24,7 +24,7 @@
         <?php endif; ?>
         <div class="peer"> 
             <?php include_partial('personal_info/photo', array('user' => $myPeer, "dimension" => 48)) ?>
-            <div class="name"><?php echo link_to(myToolkit::shortenString($myPeer->getName(), 14), 'profile_show', $myPeer) ?></div>
+            <div class="name"><?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?></div>
             <div class="peer-actions">
                 <input type="button" class="peer-<?php echo $statusClass ?>" inviterid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
             </div>
@@ -36,7 +36,7 @@
         <?php $statusClass = "open"; ?>
         <div class="peer"> 
             <?php include_partial('personal_info/photo', array('user' => $myPeer, "dimension" => 48)) ?>
-            <div class="name"><?php echo link_to(myToolkit::shortenString($myPeer->getName(), 14), 'profile_show', $myPeer) ?></div>
+            <div class="name"><?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?></div>
             <div class="peer-actions">
                 <input type="button" class="peer-<?php echo $statusClass ?>" inviteeid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
             </div>
@@ -51,8 +51,9 @@
             $(this).addClass("peer-peered");
             $(this).removeClass("peer-accept");
             $(this).attr("value", "Peered");
-            $.get('/peer/accept/' + inviterId, {}, function(response){   
+            $.get('/peer/accept/' + inviterId, {}, function(response){
                 if(response == "success"){
+                    // display a notice
                 }
             }, 'html'); 
         });
@@ -62,8 +63,9 @@
             $(this).addClass("peer-invited");
             $(this).removeClass("peer-open");
             $(this).attr("value", "? Invited");
-            $.get('/peer/invite/' + inviteeId, {}, function(response){   
+            $.get('/peer/invite/' + inviteeId, {}, function(response){
                 if(response == "success"){
+                    // display a notice
                 }
             }, 'html'); 
         });

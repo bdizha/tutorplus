@@ -77,9 +77,9 @@ secure:
         details:                      { route: peer_students, label: "Peers" }
         credentials:                  [ student, instructor, staff ]
         children:                    
-          student_peers:              { route: peer_students, label: "Student Peers" }
-          instructor_peers:           { route: peer_instructors, label: "Instructor Peers" }
-          suggested_peers:            { route: peer_suggested, label: "Suggested Peers" }
+          student_peers:              { route: peer_students, label: "Students" }
+          instructor_peers:           { route: peer_instructors, label: "Instructors" }
+          suggested_peers:            { route: peer_suggested, label: "Suggestions" }
           find_peers:                 { route: peer_find, label: "Find Peers" }
   messaging:                          
     details:                          { route: message_inbox, label: Messaging }

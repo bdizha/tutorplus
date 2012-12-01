@@ -1,6 +1,6 @@
 .dashboard-block{
     display: block;
-    width: 465px;
+    width: 460px;
     float: left;
 }
 
@@ -12,12 +12,8 @@
     overflow: hidden;
 }
 
-.dashboard-block h2 {
-    text-transform: uppercase;
-}
-
 #dashboard_container .left{
-    margin-right: 7px;
+    margin-right: 20px;
 }
 
 .my-peer {
@@ -33,26 +29,25 @@
 
 #my_messages{
     text-align: center;
-    background-position: center -1293px;
-    background-image: url(https://dashboard.bostatic.com/assets/launchpad_sprite_tiles-10a6d4f6f8d2b7e4b3f6dee2157fce16.png);   
+    background-position: center 32px;
+    background-image: url("/images/icon_emails.png");
     background-repeat: no-repeat;
     height: 100px !important;
-    width: 465px;
+    width: 465px
 }
 
 #events{
     text-align: center;
-    background-position: center -2445px;
-    background-image: url(https://dashboard.bostatic.com/assets/launchpad_sprite_tiles-10a6d4f6f8d2b7e4b3f6dee2157fce16.png);   
+    background-position: center 32px;
+    background-image: url("/images/icon_events.png");
     background-repeat: no-repeat;
     height: 100px !important;
-    width: 465px;
+    width: 465px
 }
 
 .view-more{
-    background: url(https://dashboard.bostatic.com/assets/launchpad_sprite-791139d3f11784b8e716120c898a3323.png) no-repeat scroll -85px -2687px transparent;
     height: 40px;
-    width: 22px;
+    width: 80px;
     position: absolute;
     top: 5px;
     right: 10px;

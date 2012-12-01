@@ -518,15 +518,10 @@
 }
 
 #authenticate{
-    min-height: 290px;
     width: 357px;
-    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-}
-
-#authenticate fieldset {
-    margin-top: 10px !important;
+    border: 1px solid #CCC;
 }
 
 #authenticate form{
@@ -536,7 +531,7 @@
 #request-password{
     position: absolute;
     top: 3px;
-    right: 75px;
+    right: 89px;
 }
 
 #sign-in-back{    
@@ -1114,7 +1109,7 @@ a.right {
 
 .even-row{
     background-color: #F9F9F9;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px dashed #C37E4C;
     padding: 5px 10px;
     position: relative;
     display: block;
@@ -1324,9 +1319,8 @@ ul.nav-tabs li.active-tab {
 }
 
 #logo img{
-    width: 500px;
-    margin-top: -17px;
-    margin-left: -102px
+    margin-top: 10px;
+    margin-left: -20px;
 }
 
 textarea {

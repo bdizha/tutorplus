@@ -36,12 +36,12 @@ class course_discussionActions extends autoCourse_discussionActions {
 
         // fetch discussions stats
         $this->discussionActivity = array();
-        $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics($this->course->getId())->count();
-        $this->discussionActivity["new_replies"] = DiscussionTopicReplyTable::getInstance()->getNbNewReplies($this->course->getId())->count();
-        $this->discussionActivity["new_messages"] = DiscussionTopicMessageTable::getInstance()->getNbNewMessages($this->course->getId())->count();
-        $this->discussionActivity["new_members"] = DiscussionMemberTable::getInstance()->getNbNewMembersJoined($this->course->getId())->count();
+        $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics()->count();
+        $this->discussionActivity["new_replies"] = DiscussionTopicReplyTable::getInstance()->getNbNewReplies()->count();
+        $this->discussionActivity["new_messages"] = DiscussionTopicMessageTable::getInstance()->getNbNewMessages()->count();
+        $this->discussionActivity["new_members"] = DiscussionMemberTable::getInstance()->getNbNewMembersJoined()->count();
 
-        $this->discussionTopic = DiscussionTopicTable::getInstance()->getTopicWithRecentActivity($this->course->getId());
+        $this->discussionTopic = DiscussionTopicTable::getInstance()->getTopicWithRecentActivity();
 
         // pager
         if ($request->getParameter('page')) {

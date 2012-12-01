@@ -208,10 +208,11 @@
     color: #C37E4C !important;
 }
 
-#top-menu, #inner-container-wrapper{
+#top-menu, #inner-container-wrapper, #left-column-container{
     width: 940px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 #top-menu ul{
@@ -225,11 +226,8 @@
 
 #left-column{
     width: 218px;
-    position: fixed;
-    width: 218px;
-    z-index: 99999;
-    top: 152px;
-    left: 290px;
+    float: left;
+    margin-top: 20px;
 }
 
 #middle-column{
@@ -450,10 +448,6 @@
     color: #985321;
     float: right;
     display: block;
-}
-
-#sf_admin_container .content-block h2 a, #sf_admin_form_container h2 a {
-    color: #FFF !important;
 }
 
 #sf_admin_container .content-row{
@@ -717,11 +711,11 @@
 }
 
 .discussion, .discussion_topic{
-    position: relative;
-    padding: 5px 10px;
+    padding: 10px 10px;
     position: relative;
     display: block;
     clear: both;
+    border-bottom: 1px dashed #C37E4C;
 }
 
 .section_description{
@@ -736,24 +730,7 @@
     position: absolute;
     right: 5px;
     bottom: 5px;
-    background-color: #FFFFFF;
     padding: 3px;
-    border-radius: 3px;
-}
-
-.item-actions .edit{
-    height: 14px;
-    width: 14px;
-    display: block;
-    background: url('/images/icons/14x14/edit.png') no-repeat;
-}
-
-.item-actions .delete{
-    margin-top: 3px;
-    height: 14px;
-    width: 14px;
-    display: block;
-    background: url('/images/icons/14x14/delete.png') no-repeat;
 }
 
 .potential-list {

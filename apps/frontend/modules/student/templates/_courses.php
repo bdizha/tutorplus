@@ -2,7 +2,7 @@
     <div class="no-result">There's currently no courses assigned.</div>
 <?php endif; ?>
 <?php foreach ($courses as $course): ?>
-    <div class="student-item even-background">
+    <div class="student-item">
         <div class="image">
             <img alt="<?php echo $course->getName() ?>" src="/images/small-icon.hover.png">
         </div>

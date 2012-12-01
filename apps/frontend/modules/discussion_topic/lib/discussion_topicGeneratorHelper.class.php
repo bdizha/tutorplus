@@ -99,4 +99,20 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         return array("480px");
     }
 
+    public function linkToDiscussionTopicEdit($object, $params) {
+        return link_to(__('Edit', array(), 'sf_admin'), "/discussion/topic/" . $object->getId() . "/edit", array("class" => "button-edit"));
+    }
+
+    public function linkToDiscussionTopicDelete($object, $params) {
+        if ($object->isNew()) {
+            return '';
+        }
+
+        if (!isset($params['type'])) {
+            return link_to(__('Remove', array(), 'sf_admin'), 'discussion_topic_delete', $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], "class" => "button-remove"));
+        } else {
+            return '<li class="sf_admin_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
+        }
+    }
+
 }

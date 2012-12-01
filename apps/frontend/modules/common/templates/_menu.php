@@ -54,7 +54,7 @@
     $(document).ready(function(){
         
         // configure left column css
-        resizeLeftColumnCss();
+        // resizeLeftColumnCss();
         
         $(".menu-item").click(function(){
             var child_item_id = $(this).next().attr("id");
@@ -77,9 +77,6 @@
                     $(this).parent().attr("id", "");
                 }
             });
-            
-            // resize the main container height
-            resizeMainContainerWrapperHeight();
         }
     });
 

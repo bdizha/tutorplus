@@ -1,5 +1,5 @@
 <?php foreach ($courses as $course): ?>
-    <div class="student-item even-background">
+    <div class="student-item">
         <div class="image">
             <img alt="<?php echo $course["name"] ?>" src="/images/small-icon.hover.png">
         </div>

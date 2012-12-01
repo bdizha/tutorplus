@@ -147,7 +147,8 @@ td.fc-first{
 }
 
 .fc-state-highlight, .fc-today { /* <td> today cell */ /* TODO: add .fc-today to <th> */
-    background: none repeat scroll 0 0 #FCD113 !important;
+    background: none repeat scroll 0 0 #C37E4C !important;
+    color: #FFFFFF !important;
     z-index: 1000;
 }
 

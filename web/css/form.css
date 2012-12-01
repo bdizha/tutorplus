@@ -52,7 +52,6 @@ input[type=button], input[type=submit] {
 }
 
 .sf_admin_form_action_delete input[type=button], .delete{
-    border-radius: 3px;
     background-color: #D14836;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#DD4B39),to(#D14836));
     background-image: -webkit-linear-gradient(top,#DD4B39,#D14836);
@@ -61,7 +60,7 @@ input[type=button], input[type=submit] {
     background-image: -o-linear-gradient(top,#DD4B39,#D14836);
     background-image: linear-gradient(top,#DD4B39,#D14836);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#DD4B39',EndColorStr='#D14836');
-    border: 1px solid #DD4B39;
+    border: 1px solid #D14836;
     color: white !important;
 }
 
@@ -109,6 +108,32 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     color: #FFF !important;
 }
 
+.button-edit, .button-remove{
+    height: 20px !important;
+    cursor: pointer;
+    border: none !important;
+    font-size: 10px !important;
+    color: #FFF !important;
+    padding: 0px 3px !important;
+    text-align: center;
+}
+
+input.button-edit, input.button-remove{
+    line-height: 15px !important;
+}
+
+a.button-edit, a.button-remove{
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.button-edit{
+    background: #39F;
+}
+
+.button-remove{
+    background: #C00;
+}
 .save, .new, .button, .cancel{
     height: 29px;
 }

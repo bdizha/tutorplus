@@ -4,10 +4,6 @@
 </div>
 <div id="sf_admin_content">
     <div class="content-block">
-        <h2><?php echo $discussion->getName() ?></h2>
-        <?php include_partial('discussion_topic/list_header', array('discussion' => $discussion)) ?>
-    </div>
-    <div class="content-block">
         <?php include_partial('discussion_topic/topics', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
         <ul class="sf_admin_actions" style="clear:both">
             <li class="sf_admin_action_new">

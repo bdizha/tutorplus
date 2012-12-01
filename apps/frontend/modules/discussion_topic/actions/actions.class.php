@@ -36,7 +36,7 @@ class discussion_topicActions extends autoDiscussion_topicActions
         $this->sort = $this->getSort();
     }
 
-    public function sendEmail($object) {
+    public function sendlEmail($object) {
         $toEmails = $object->getToEmails();
         $announcer = $object->getUser();
         $mailer = new tpMailer();
@@ -73,8 +73,7 @@ class discussion_topicActions extends autoDiscussion_topicActions
         
         $this->recentDiscussionTopic = DiscussionTopicTable::getInstance()->getTopicWithRecentActivity();
         $this->favouredDiscussionTopic = DiscussionTopicTable::getInstance()->getTopicWithMostActivities();
-        
-        
+
         $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussionTopic->getId());
         $this->replyForm = new DiscussionTopicReplyForm();
     }
@@ -94,6 +93,19 @@ class discussion_topicActions extends autoDiscussion_topicActions
 
         $this->processForm($request, $this->form);
         $this->setTemplate('new');
+    }
+
+    public function executeDelete(sfWebRequest $request)
+    {
+        $discussionTopic = $this->getRoute()->getObject();
+        $request->checkCSRFProtection();
+        $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $discussionTopic)));
+        if ($this->getRoute()->getObject()->delete())
+        {
+            $this->getUser()->setFlash('notice', 'The topic was deleted successfully.');
+        }
+
+        $this->redirect('@discussion_show?slug=' . $discussionTopic->getDiscussion()->getSlug());
     }
 
     public function executeTopics(sfWebRequest $request)

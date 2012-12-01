@@ -66,16 +66,14 @@ class discussion_topic_replyActions extends autoDiscussion_topic_replyActions {
                 $this->discussion_topic_reply = $form->save();
                 $this->getUser()->setMyAttribute('discussion_topic_message_show_id', $this->discussion_topic_reply->getDiscussionTopicMessageId());
 
-
                 // send the discussion_topic_message emails
                 if ($isNew) {
-                    $this->sendEmail($discussion_topic_message);
+                    //$this->sendEmail($discussion_topic_message);
                 }
 
                 echo $this->discussion_topic_reply->getId();
                 exit;
             } catch (Doctrine_Validator_Exception $e) {
-                
             }
 
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $this->discussion_topic_reply)));

@@ -325,7 +325,7 @@ span.separator{
 }
 
 #discussion_topic_message_form_holder{
-    width: 722px;
+    width: 690px;
     background-color: #F9F9F9;
 }
 
@@ -387,9 +387,31 @@ span.separator{
 }
 
 .replies-count{
-    color: #134D58;
+    color: #C37E4C;
 }
 
 .sf_admin_form_field_description{
     width: 699px;
+}
+
+.discussion-left-block{
+    width: 690px;
+    float: left;
+}
+
+.discussion-right-block{
+    width: 230px;
+    float: left;
+    margin-left: 20px;
+}
+
+#discussion-participants{
+    padding: 5px 10px;
+}
+
+.participant{
+    height: 42px !important;
+    width: 36px !important;
+    float: left;
+    padding-right: 6px;
 }

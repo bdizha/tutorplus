@@ -47,7 +47,7 @@ class discussion_topic_messageActions extends autoDiscussion_topic_messageAction
 
             // send the discussion_topic_message emails
             if ($isNew) {
-                $this->sendEmail($discussion_topic_message);
+                //$this->sendEmail($discussion_topic_message);
             }
 
             // session the new created discussion topic message id

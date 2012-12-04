@@ -1,0 +1,41 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Payment
+    theme:                 normal
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          payment
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+      filter:
+        class: false
+      list:
+        title:                  Received Payments
+        display:                [student, amount, bookkeeper, reference, balance]
+        sort:                   [reference, asc]
+        batch_actions:          []
+        object_actions:
+          _edit: ~
+          _delete: ~
+        max_per_page:			10
+        actions:
+          _new:                 { label: "Make Payment" }
+      form:
+        display:
+          "Details":            [student_id, amount, reference, comment]
+      edit:
+        actions:
+          cancel:               []
+          done:                 []
+          _save:                []
+      new:
+        actions:
+          cancel:               []
+          _save:                []

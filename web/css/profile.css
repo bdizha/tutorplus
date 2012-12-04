@@ -514,7 +514,7 @@ span.green{
 }
 
 .peer{
-    border: 1px solid white;
+    border: 1px solid #DCDCDC;
     border-radius: 5px 5px 5px 5px;
     float: left;
     height: 58px;

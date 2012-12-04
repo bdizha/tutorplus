@@ -1,3 +1,12 @@
+payment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Payment
+    module:               payment
+    prefix_path:          /payment
+    column:               id
+    with_wildcard_routes: true
+
 faq:
   class: sfDoctrineRouteCollection
   options:
@@ -1079,7 +1088,15 @@ peer_peers:
   
 my_document:
   url:   /folder
-  param: { module: folder, action: index }    
+  param: { module: folder, action: index }
+
+payment_received:
+  url:   /payment/received
+  param: { module: payment, action: received }
+
+payment_outstanding:
+  url:   /payment/outstanding
+  param: { module: payment, action: outstanding }
   
 folder_section:
   url:   /folder_section/:section

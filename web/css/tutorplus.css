@@ -593,9 +593,8 @@
 }
 
 #logo{
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 20px;
+    float: left;
+    overflow: hidden;
 }
 
 #sf_admin_container .user-image{
@@ -1108,8 +1107,7 @@ a.right {
 }
 
 .even-row{
-    background-color: #F9F9F9;
-    border-bottom: 1px dashed #C37E4C;
+    border-bottom: 1px solid #DCDCDC;
     padding: 5px 10px;
     position: relative;
     display: block;
@@ -1317,13 +1315,9 @@ ul.nav-tabs li.active-tab {
     display: list-item !important;
 }
 
-#logo {
-    float: left;
-}
-
 #logo img{
-    margin-top: 10px;
-    margin-left: -20px;
+    margin-top: 14px;
+    margin-left: 0px;
 }
 
 textarea {

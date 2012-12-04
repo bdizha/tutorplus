@@ -82,7 +82,7 @@ secure:
           suggested_peers:            { route: peer_suggested, label: "Suggestions" }
           find_peers:                 { route: peer_find, label: "Find Peers" }
   messaging:                          
-    details:                          { route: message_inbox, label: Messaging }
+    details:                          { route: message_inbox, label: Inbox }
     type:                             One
     children:
       my_messages:                    
@@ -143,6 +143,16 @@ secure:
           buildings:                  { route: building, label: "Buildings" }
           campuses:                   { route: campus, label: "Campuses" }
           rooms:                      { route: room, label: "Rooms" }
+  payments:
+    details:                        { route: payment, label: Payments }
+    type:                           One
+    children:
+      history:
+        details:                    { route: activity_feed, label: "History" }
+        credentials:                [ staff ]
+        children:
+          received_payments:        { route: payment_received, label: "Received" }
+          outstanding_payments:     { route: payment_outstanding, label: "Outstanding" }
 public:
   home:  
     details:                          { route: home, label: Home }

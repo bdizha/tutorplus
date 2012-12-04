@@ -1262,9 +1262,13 @@ ul.nav-tabs li.active-tab {
 }
 
 .list-count{
-    color: #FFF;
+    background-color: #C37E4C;
     font-size: 11px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #FFF;
 }
+
 .no-padding{
     padding: 0 !important;
 }

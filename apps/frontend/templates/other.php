@@ -24,7 +24,13 @@
             </div>
             <div id="main-container">
                 <div id="main-container-wrapper">
-                    <?php echo $sf_content ?>
+                    <div id="inner-container-wrapper">
+                        <div id="middle-column" style="width:940px;margin-left:0 !important">
+                            <div id="sf_admin_container">
+                                <?php echo $sf_content ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="clear"></div>
                 <div id="color-box-modal" style="display:none">&nbsp;</div>

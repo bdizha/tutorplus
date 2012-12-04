@@ -9,7 +9,7 @@
 <?php end_slot() ?>
 
 <?php include_partial('common/flashes') ?>
-<div id="sf_admin_content">
+<div id="sf_admin_content" style="width:940px !important;">
     <div id="dashboard_container">
         <div class="content-block dashboard-block left">
             <h2>Notifications <a href="/activity_feed" class="view-more">View More</a></h2>
@@ -40,7 +40,7 @@
         <div class="content-block dashboard-block">
             <h2>My Discussions <a href="/discussion" class="view-more">View More</a></h2>
             <div id="my_discussions" class="dashboard-row">
-                <?php include_partial('discussions', array('myDiscussions' => $discussions)) ?>
+                <?php include_partial('discussions', array('discussions' => $discussions)) ?>
             </div>
         </div>
         <div class="content-block dashboard-block left">

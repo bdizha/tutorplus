@@ -51,11 +51,7 @@
     </ul>			
 </div>
 <script type='text/javascript'>
-    $(document).ready(function(){
-        
-        // configure left column css
-        // resizeLeftColumnCss();
-        
+    $(document).ready(function(){        
         $(".menu-item").click(function(){
             var child_item_id = $(this).next().attr("id");
             hideMenuItemsChildren(child_item_id);				

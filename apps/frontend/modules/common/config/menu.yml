@@ -2,7 +2,7 @@ secure:
   dashboard:  
     details:                          { route: dashboard, label: Dashboard }
     type:                             Many
-    children:
+    children:                         {}
   courses:                          
     details:                          { route: courses, label: Courses }
     type:                             One
@@ -145,14 +145,18 @@ secure:
           rooms:                      { route: room, label: "Rooms" }
   payments:
     details:                        { route: payment, label: Payments }
-    type:                           One
+    type:                           Many
     children:
       history:
         details:                    { route: activity_feed, label: "History" }
         credentials:                [ staff ]
         children:
-          received_payments:        { route: payment_received, label: "Received" }
-          outstanding_payments:     { route: payment_outstanding, label: "Outstanding" }
+          received_payments:        { route: payment, label: "Received" }
+      plans:
+        details:                    { route: payment_scheme, label: "Plans" }
+        credentials:                [ staff ]
+        children:
+          payment_scheme:           { route: payment_scheme, label: "Schemes" }
 public:
   home:  
     details:                          { route: home, label: Home }

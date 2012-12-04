@@ -1036,7 +1036,19 @@ Payment:
     reference:              { type: string(255), notnull: true, default: "Not supplied" }
     balance:                { type: clob, notnull: true }
     comment:                { type: clob, notnull: true }
-    bookkeeper:             { type: integer, notnull: true }
+    user_id:                { type: integer, notnull: true }
   relations:
-    User:                   { class: sfGuardUser, local: bookkeeper, foreign: id, foreignAlias: Payments, onDelete: CASCADE }
+    User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: Payments, onDelete: CASCADE }
     Student:                { class: Student, local: student_id, foreign: id, foreignAlias: Payments, onDelete: CASCADE }
+
+PaymentScheme:
+  actAs:
+    Timestampable:          ~
+  columns:
+    student_id:             { type: integer, notnull: true }
+    amount:                 { type: string(255), notnull: true }
+    frequency:              { type: integer, default: 0, notnull: true } #[Monthly, Bi-annually, Annually]
+    next_payment_date:      { type: timestamp, notnull: false }
+  relations:
+    Student:                { class: Student, local: student_id, foreign: id, foreignAlias: Payments, onDelete: CASCADE }
+    

@@ -1,3 +1,12 @@
+payment_scheme:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                PaymentScheme
+    module:               payment_scheme
+    prefix_path:          /payment/scheme
+    column:               id
+    with_wildcard_routes: true
+
 payment:
   class: sfDoctrineRouteCollection
   options:

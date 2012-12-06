@@ -77,10 +77,6 @@
 <script type='text/javascript'>
     //<![DATA[
     $(document).ready(function () {
-        $('#left-column').css("display", "none");
-        $('#middle-column').css("margin-left", "0");
-        $('#middle-column, #sf_admin_content').css("width", "940px");
-
         $(".sf_admin_action_new input").click(function () {
             openPopup("/discussion/topic/new", "605px", "605px", "New Discussion Topic");
             return false;

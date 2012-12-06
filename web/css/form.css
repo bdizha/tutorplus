@@ -96,7 +96,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
 }
 
 .enroll{
-    background-color: #176E9B;
+    background-color: #08C;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#176E9B),to(#08C));
     background-image: -webkit-linear-gradient(top,#176E9B,#08C);
     background-image: -moz-linear-gradient(top,#176E9B,#08C);
@@ -109,7 +109,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
 }
 
 .enroll:hover{
-    background-color: #08C;
+    background-color: #176E9B;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#08C),to(#176E9B));
     background-image: -webkit-linear-gradient(top,#08C,#176E9B);
     background-image: -moz-linear-gradient(top,#08C,#176E9B);
@@ -117,6 +117,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     background-image: -o-linear-gradient(top,#08C,#176E9B);
     background-image: linear-gradient(top,#08C,#176E9B);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#08C',EndColorStr='#176E9B');
+    border: 1px solid #176E9B;
 }
 
 .save, .new, .button, .landing-button{

@@ -1,8 +1,2 @@
-newSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false
-  
-showSuccess:
-  layout: false
+all:
+  has_layout: false

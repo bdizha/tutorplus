@@ -4,6 +4,7 @@ all:
   
 showSuccess:
   has_layout: true
+  layout:      other
   
 timelineSuccess:
   has_layout: true

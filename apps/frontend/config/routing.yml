@@ -1193,11 +1193,15 @@ my_discussions:
 
 my_courses:
   url:   /my/courses
-  param: { module: course, action: myCourses }
+  param: { module: course, action: my }
   
-courses:
-  url:   /courses
+explore_courses:
+  url:   /explore/courses
   param: { module: course, action: explorer }
+  
+enroll_course:
+  url:   /course/enroll/:course_id
+  param: { module: course, action: enroll }
   
 archived_courses:
   url:   /archived/courses

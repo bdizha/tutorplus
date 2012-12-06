@@ -8,18 +8,13 @@
 <?php include_partial('common/breadcrumbs', $helper->myCoursesBreadcrumbs()) ?>
 <?php end_slot() ?>
 
+<?php include_partial('common/flashes') ?>
+
 <div id="sf_admin_content">
     <div class="content-block">
-        <h2>My Modules</h2>
+        <h2>My Courses</h2>
         <div class="full-block" id="courses_list">
             <?php include_partial('student/courses', array('courses' => $courses)) ?>
         </div>
     </div>
 </div>
-<script type='text/javascript'>
-    //<![DATA[
-    $(document).ready(function(){        
-        
-    });
-    //]]
-</script>

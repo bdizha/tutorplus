@@ -115,4 +115,8 @@ class Student extends BaseStudent {
         }
     }
 
+    public function hasCourse($courseId) {
+        return !is_null(StudentCourseTable::getInstance()->findOneByStudentIdAndCourseId($this->getId(), $courseId));
+    }
+
 }

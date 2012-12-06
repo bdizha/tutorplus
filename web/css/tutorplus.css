@@ -41,10 +41,6 @@
     background: url("/images/bg_landing_header.jpg") repeat-x transparent;
 }
 
-#tutorplus{
-    padding-top: 132px;
-}
-
 #logo-wrapper{
     height: 68px;    
 }
@@ -1435,4 +1431,16 @@ ul.department-course, .section-block ul{
 
 .input-elm{
     padding-top: 3px;
+}
+
+#courses_list .enroll{
+    float: right;
+}
+
+.public{
+    padding-top: 105px;
+}
+
+.private{
+    padding-top: 132px;
 }

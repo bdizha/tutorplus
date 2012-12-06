@@ -36,4 +36,13 @@ class StudentCourseTable extends Doctrine_Table
 
         return $query->execute();
     }
+
+    public function findOneByStudentIdAndCourseId($studentId, $courseId)
+    {
+        $query = $this->createQuery()
+            ->where('student_id = ?', $studentId)
+            ->andWhere("course_id = ?", $courseId);
+
+        return $query->fetchOne();
+    }
 }

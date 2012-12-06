@@ -2,4 +2,4 @@ all:
   layout:         public
 
 indexSuccess:
-  stylesheets:    [picture.css]
+  stylesheets:    [public.css]

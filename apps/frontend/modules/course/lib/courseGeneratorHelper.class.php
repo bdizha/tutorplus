@@ -99,8 +99,8 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function exploreCoursesBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Courses" => "courses",
-                "Course Explorer" => "course_explorer"
+                "Courses" => "my_courses",
+                "Course Explorer" => "explore_courses"
             )
         );
     }
@@ -109,7 +109,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         return array(
             "current_parent" => "courses",
             "current_child" => "courses",
-            "current_link" => "course_explorer"
+            "current_link" => "explore_courses"
         );
     }
 

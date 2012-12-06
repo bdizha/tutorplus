@@ -4,15 +4,15 @@ secure:
     type:                             Many
     children:                         {}
   courses:                          
-    details:                          { route: courses, label: Courses }
+    details:                          { route: explore_courses, label: Courses }
     type:                             One
     children:
       courses:                                        
         details:                      { route: my_courses, label: "Courses" }
         credentials:                  [ student, instructor, staff ]
         children:
-          course_explorer:            { route: courses, label: "Course Explorer" }
           my_courses:                 { route: my_courses, label: "My Courses" }
+          explore_courses:            { route: explore_courses, label: "Course Explorer" }
       my_course:                                        
         details:                      { route: course_show, label: "Course Home" }
         credentials:                  [ student, instructor, staff ]

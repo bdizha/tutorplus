@@ -23,7 +23,7 @@ class courseActions extends autoCourseActions {
         $this->courses = CourseTable::getInstance()->findAll();
     }
 
-    public function executeMyCourses(sfWebRequest $request) {
+    public function executeMy(sfWebRequest $request) {
         $this->courses = $this->getUser()->getProfile()->getCourses();
     }
 
@@ -189,6 +189,32 @@ class courseActions extends autoCourseActions {
         }
 
         $this->getUser()->setMyAttribute('calendar_ids', array_values($ids));
+    }
+
+    public function executeEnroll(sfWebRequest $request) {
+        try {
+            $courseId = $request->getParameter("course_id");
+            $studentId = $this->getUser()->getProfile()->getId();
+            $course = CourseTable::getInstance()->find($courseId);
+            $student = StudentTable::getInstance()->find($studentId);
+
+            if(!$student->hasCourse($courseId)){
+                $studentCourse = new StudentCourse();
+                $studentCourse->setStudentId($studentId);
+                $studentCourse->setCourseId($courseId);
+                $studentCourse->save();
+
+                echo "success";
+                $this->getUser()->setFlash("notice", "Successfully enrolled into {$course->getCode()} course!");
+            }
+            else{
+                echo "error";
+                $this->getUser()->setFlash("notice", "It seems you're already enrolled into {$course->getCode()} course!");
+            }
+        } catch (Exception $e) {
+            echo $e;
+            $this->getUser()->setFlash("notice", "You could not be enrolled into this course! Please try gain or contact us.");
+        }
     }
 
 }

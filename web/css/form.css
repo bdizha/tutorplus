@@ -95,9 +95,33 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     outline: medium none;
 }
 
+.enroll{
+    background-color: #176E9B;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#176E9B),to(#08C));
+    background-image: -webkit-linear-gradient(top,#176E9B,#08C);
+    background-image: -moz-linear-gradient(top,#176E9B,#08C);
+    background-image: -ms-linear-gradient(top,#176E9B,#08C);
+    background-image: -o-linear-gradient(top,#176E9B,#08C);
+    background-image: linear-gradient(top,#176E9B,#08C);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#176E9B',EndColorStr='#08C');
+    border: 1px solid #08C;
+    color: #FFF !important;
+}
+
+.enroll:hover{
+    background-color: #08C;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#08C),to(#176E9B));
+    background-image: -webkit-linear-gradient(top,#08C,#176E9B);
+    background-image: -moz-linear-gradient(top,#08C,#176E9B);
+    background-image: -ms-linear-gradient(top,#08C,#176E9B);
+    background-image: -o-linear-gradient(top,#08C,#176E9B);
+    background-image: linear-gradient(top,#08C,#176E9B);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#08C',EndColorStr='#176E9B');
+}
+
 .save, .new, .button, .landing-button{
     background-color: #AB6634;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#C37E4C),to(#AB6634	));
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#C37E4C),to(#AB6634));
     background-image: -webkit-linear-gradient(top,#C37E4C,#AB6634);
     background-image: -moz-linear-gradient(top,#C37E4C,#AB6634);
     background-image: -ms-linear-gradient(top,#C37E4C,#AB6634);

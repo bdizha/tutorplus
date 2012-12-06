@@ -13,7 +13,7 @@
         <?php include_javascripts() ?>
     </head>
     <body>
-        <div id="tutorplus">
+        <div id="tutorplus" class="private">
             <div id="main-header">
                 <div id="header-wrapper"> 
                     <?php include_component('common', 'header') ?>

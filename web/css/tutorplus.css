@@ -233,8 +233,8 @@
 }
 
 #middle-landing-column{
-    border: 1px solid #F1F1F1;
-    background-color: #FFFFFF !important;
+    border: 1px solid #FFF;
+    background-color: #F9F9F9 !important;
     padding-bottom: 10px;
     width: 940px;
     margin-top: 15px;
@@ -993,7 +993,6 @@
 }
 
 .landing-right-column{
-    background-color: #FFFFFF;
     float: left;
     width: 310px;
     height: 289px;
@@ -1005,6 +1004,14 @@
     width: 612px;
     height: 289px;
     position: relative;
+}
+
+.scrollable-container{
+    width: 612px;
+    height: 289px;
+    position: relative;
+    background-color: #FFF;
+    border-top-left-radius: 5px;
 }
 
 .welcome-message{
@@ -1034,7 +1041,7 @@
 }
 
 .column-row{
-    border-top: 1px solid #F1F1F1;
+    border-top: 1px solid #FFF;
     height: 144px;
     margin-top: -1px;
 }
@@ -1390,10 +1397,6 @@ ul.department-course, .section-block ul{
 
 .input-elm{
     padding-top: 3px;
-}
-
-#courses_list .enroll{
-    float: right;
 }
 
 .public{

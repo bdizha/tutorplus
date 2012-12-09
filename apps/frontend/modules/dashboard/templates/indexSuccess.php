@@ -22,14 +22,6 @@
             <div id="my_peers" class="dashboard-row">
                 <?php include_partial('peers', array('myPeers' => $peers)) ?>
             </div>
-        </div> 
-        <div class="content-block dashboard-block left">
-            <h2>My Messages <a href="/message/inbox" class="view-more">View More</a></h2>
-            <div id="my_messages" class="dashboard-row"></div>
-        </div>
-        <div class="content-block dashboard-block"> 
-            <h2>Events <a href="/my/schedule" class="view-more">View More</a></h2>
-            <div id="events" class="dashboard-row"></div>
         </div>
         <div class="content-block dashboard-block left">
             <h2>My Courses <a href="/courses" class="view-more">View More</a></h2>
@@ -42,6 +34,14 @@
             <div id="my_discussions" class="dashboard-row">
                 <?php include_partial('discussions', array('discussions' => $discussions)) ?>
             </div>
+        </div>
+        <div class="content-block dashboard-block left">
+            <h2>My Messages <a href="/message/inbox" class="view-more">View More</a></h2>
+            <div id="my_messages" class="dashboard-row"></div>
+        </div>
+        <div class="content-block dashboard-block">
+            <h2>Events <a href="/my/schedule" class="view-more">View More</a></h2>
+            <div id="events" class="dashboard-row"></div>
         </div>
         <div class="content-block dashboard-block left">
             <h2>Announcements <a href="/announcement" class="view-more">View More</a></h2>

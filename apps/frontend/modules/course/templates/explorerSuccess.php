@@ -14,7 +14,7 @@
     <div class="content-block">
         <h2>Course Explorer</h2>
         <div class="full-block" id="courses_list">
-            <?php include_partial('student/courses', array('courses' => $courses)) ?>
+            <?php include_partial('student/courses', array('courses' => $courses, 'student' => $student)) ?>
         </div>
     </div>
 </div>

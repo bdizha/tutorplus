@@ -10,6 +10,10 @@
     float:left;
 }
 
+.landing-image img{
+    border-radius: 5px;
+}
+
 .landing-image .items {
     width:20000em;
     position:absolute;

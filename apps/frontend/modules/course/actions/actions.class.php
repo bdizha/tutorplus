@@ -11,51 +11,70 @@ require_once dirname(__FILE__) . '/../lib/courseGeneratorHelper.class.php';
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class courseActions extends autoCourseActions {
+class courseActions extends autoCourseActions
+{
+    public function preExecute()
+    {
+        $user = $this->getUser();
+        if ($user->isStudent()) {
+            $studentId = $user->getProfile()->getId();
+            $this->student = StudentTable::getInstance()->find($studentId);
+        }
+        parent::preExecute();
+    }
 
-    public function executeShow(sfWebRequest $request) {
+    public function executeShow(sfWebRequest $request)
+    {
         $this->course = $this->getRoute()->getObject();
         $this->forward404Unless($this->course);
         $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
     }
 
-    public function executeExplorer(sfWebRequest $request) {
+    public function executeExplorer(sfWebRequest $request)
+    {
         $this->courses = CourseTable::getInstance()->findAll();
     }
 
-    public function executeMy(sfWebRequest $request) {
+    public function executeMy(sfWebRequest $request)
+    {
         $this->courses = $this->getUser()->getProfile()->getCourses();
     }
 
-    public function executeInfo(sfWebRequest $request) {
+    public function executeInfo(sfWebRequest $request)
+    {
         $this->redirectIf($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course_show?id=" . $courseId);
     }
 
-    public function executeDetail(sfWebRequest $request) {
+    public function executeDetail(sfWebRequest $request)
+    {
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
         $this->course_meeting_times = CourseMeetingTimeTable::getInstance()->findByCourse($courseId);
 
         $this->forward404Unless($this->course = CourseTable::getInstance()->find(array($this->getUser()->getMyAttribute('course_show_id', null))), sprintf('Object Course does not exist (%s).', $this->getUser()->getMyAttribute('course_show_id', null)));
     }
 
-    public function executeMeetingTimes(sfWebRequest $request) {
+    public function executeMeetingTimes(sfWebRequest $request)
+    {
         $this->forward404Unless($this->course = CourseTable::getInstance()->find(array($this->getUser()->getMyAttribute('course_show_id', null))), sprintf('Object Course does not exist (%s).', $this->getUser()->getMyAttribute('course_show_id', null)));
     }
 
-    public function executeBulletinBoardPost(sfWebRequest $request) {
+    public function executeBulletinBoardPost(sfWebRequest $request)
+    {
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
         $this->bulletin_board_posts = BulletinBoardPostTable::getInstance()->retrieveBulletinBoardsExceptTrashed($this->getUser()->getId());
 
         $this->forward404Unless($this->course = CourseTable::getInstance()->find(array($courseId)), sprintf('Object Course does not exist (%s).', $courseId));
     }
 
-    public function executeFiles(sfWebRequest $request) {
+    public function executeFiles(sfWebRequest $request)
+    {
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
 
         $this->course_files = FileTable::getInstance()->findByCourse($courseId);
     }
 
-    public function executeChoose(sfWebRequest $request) {
+    public function executeChoose(sfWebRequest $request)
+    {
         $this->module = $request->getParameter("module_name");
         $this->objectId = $request->getParameter("object_id");
 
@@ -83,7 +102,8 @@ class courseActions extends autoCourseActions {
         }
     }
 
-    protected function saveOrGetObjectCourses($postedCourseIds = null, $module, $objectId) {
+    protected function saveOrGetObjectCourses($postedCourseIds = null, $module, $objectId)
+    {
         if ($module == CourseTable::MODULE_STUDENT) {
             // fetch current courses by student id
             $currentCourseIds = array_keys(StudentTable::getInstance()->find($objectId)->getCourses());
@@ -177,7 +197,8 @@ class courseActions extends autoCourseActions {
         return $postedCourseIds;
     }
 
-    public function executeCalendar(sfWebRequest $request) {
+    public function executeCalendar(sfWebRequest $request)
+    {
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
         $this->course = CourseTable::getInstance()->find(array($courseId));
 
@@ -191,25 +212,23 @@ class courseActions extends autoCourseActions {
         $this->getUser()->setMyAttribute('calendar_ids', array_values($ids));
     }
 
-    public function executeEnroll(sfWebRequest $request) {
+    public function executeEnroll(sfWebRequest $request)
+    {
         try {
             $courseId = $request->getParameter("course_id");
-            $studentId = $this->getUser()->getProfile()->getId();
             $course = CourseTable::getInstance()->find($courseId);
-            $student = StudentTable::getInstance()->find($studentId);
 
-            if(!$student->hasCourse($courseId)){
+            if (!$this->student->isEnrolled($courseId)) {
                 $studentCourse = new StudentCourse();
-                $studentCourse->setStudentId($studentId);
+                $studentCourse->setStudentId($this->student->getId());
                 $studentCourse->setCourseId($courseId);
                 $studentCourse->save();
 
                 echo "success";
-                $this->getUser()->setFlash("notice", "Successfully enrolled into {$course->getCode()} course!");
-            }
-            else{
+                $this->getUser()->setFlash("notice", "Successfully enrolled into the {$course->getCode()} course!");
+            } else {
                 echo "error";
-                $this->getUser()->setFlash("notice", "It seems you're already enrolled into {$course->getCode()} course!");
+                $this->getUser()->setFlash("notice", "It seems you're already enrolled into the {$course->getCode()} course!");
             }
         } catch (Exception $e) {
             echo $e;

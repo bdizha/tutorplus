@@ -115,8 +115,8 @@ class Student extends BaseStudent {
         }
     }
 
-    public function hasCourse($courseId) {
-        return !is_null(StudentCourseTable::getInstance()->findOneByStudentIdAndCourseId($this->getId(), $courseId));
+    public function isEnrolled($courseId) {
+        return is_object(StudentCourseTable::getInstance()->findOneByStudentIdAndCourseId($this->getId(), $courseId));
     }
 
 }

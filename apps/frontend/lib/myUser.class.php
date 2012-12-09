@@ -136,6 +136,24 @@ class myUser extends sfGuardSecurityUser {
     }
 
     /**
+     * Check whether if this user is a student
+     *
+     * @return Doctrine_Record
+     */
+    public function isStudent() {
+       return !is_null($this->getStudentId());
+    }
+
+    /**
+     * Check whether if this user is an instructor
+     *
+     * @return Doctrine_Record
+     */
+    public function isInstructor() {
+        return !is_null($this->getInstructorId());
+    }
+
+    /**
      * Returns the current user type
      *
      * @return Doctrine_Record
@@ -149,6 +167,8 @@ class myUser extends sfGuardSecurityUser {
             return sfGuardUserTable::TYPE_STAFF;
         return null;
     }
+
+
 
     public function hasPhoto() {
         return count(sfFinder::type('file')->in(sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getId())) > 0;

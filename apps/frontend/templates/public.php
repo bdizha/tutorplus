@@ -5,7 +5,7 @@
         <title>Get better results with us! Tutorplus Collaborative Learning Platform - UNISA</title>
         <meta name="description" content="Get better results with us! Tutorplus Collaborative Learning Platform - UNISA"/>
         <meta name="robots" content="follow" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="SHORTCUT ICON" href="/favicon.ico">
         <?php include_http_metas() ?>
         <?php include_metas() ?>
         <?php include_title() ?>

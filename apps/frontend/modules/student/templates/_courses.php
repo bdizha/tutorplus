@@ -4,7 +4,7 @@
 <?php foreach ($courses as $course): ?>
     <div class="student-item">
         <div class="image">
-            <img alt="<?php echo $course->getName() ?>" src="/images/small-icon.hover.png">
+            <img alt="<?php echo $course->getName() ?>" src="/images/course-icon.png">
         </div>
         <div class="info">
             <div class="name"><?php echo link_to($course->getName(), 'course_show', $course) ?></div>

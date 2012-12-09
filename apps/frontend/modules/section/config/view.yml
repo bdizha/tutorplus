@@ -2,4 +2,4 @@ all:
   layout:         public
 
 indexSuccess:
-  stylesheets:    [public.css]
+  stylesheets:    [public.css, scrollable-buttons.css]

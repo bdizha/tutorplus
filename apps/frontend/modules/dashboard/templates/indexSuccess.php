@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="content-block dashboard-block left">
-            <h2>My Courses <a href="/courses" class="view-more">View More</a></h2>
+            <h2>My Courses <a href="/my/courses" class="view-more">View More</a></h2>
             <div id="my_courses" class="dashboard-row">
                 <?php include_partial('courses', array('myCourses' => $courses)) ?>
             </div>

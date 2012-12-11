@@ -26,7 +26,7 @@
                     <?php endif; ?>
                 </li>
                 <li class="sf_admin_action_member_new">
-                    <input type="button" class="button" href="/discussion/member/new" value="+ Invite Participants"/>
+
                 </li>
                 <li class="sf_admin_action_member">
                     <input type="button" class="button" onclick="document.location.href='/discussion/member';"
@@ -38,23 +38,6 @@
                     <input type="button" class="button" href="/discussion/member/<?php echo $member->getId() ?>/edit" value="Edit Membership">
                 </li>
                 <?php endif; ?>
-            </ul>
-        </div>
-        <div class="discussion-right-block">
-            <h2>Suggested Followers</h2>
-            <div id="discussion-participants">
-                <?php include_partial('personal_info/photo', array('user' => $discussion->getUser(), "dimension" => 36)) ?>
-            </div>
-        </div>
-    </div>
-    <div class="content-block">
-        <div class="discussion-left-block">
-            <h2>Discussion Topics - <?php echo $discussion->getTopics()->count(); ?> topic(s)</h2>
-            <?php include_partial('discussion_topic/list', array('discussionTopics' => $discussion->getTopics(), 'helper' => $helper)) ?>
-            <ul class="sf_admin_actions" style="clear:both">
-                <li class="sf_admin_action_new">
-                    <input type="button" class="button" value="+ New Topic"/>
-                </li>
             </ul>
         </div>
         <div class="discussion-right-block">
@@ -70,6 +53,28 @@
                 <?php else: ?>
                 <div class="no-result">There's no participants.</div>
                 <?php endif; ?>
+            </div>
+            <ul class="sf_admin_actions" style="clear:both">
+                <li class="sf_admin_action_new">
+                    <input type="button" class="button" href="/discussion/member/new" value="+ Add Members"/>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-block">
+        <div class="discussion-left-block">
+            <h2>Discussion Topics - <?php echo $discussion->getTopics()->count(); ?> topic(s)</h2>
+            <?php include_partial('discussion_topic/list', array('discussionTopics' => $discussion->getTopics(), 'helper' => $helper)) ?>
+            <ul class="sf_admin_actions" style="clear:both">
+                <li class="sf_admin_action_new">
+                    <input type="button" class="button" value="+ New Topic"/>
+                </li>
+            </ul>
+        </div>
+        <div class="discussion-right-block">
+            <h2>Suggested Followers</h2>
+            <div id="discussion-participants">
+                <?php include_partial('personal_info/photo', array('user' => $discussion->getUser(), "dimension" => 36)) ?>
             </div>
         </div>
     </div>

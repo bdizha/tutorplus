@@ -96,28 +96,28 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
 }
 
 .enroll{
-    background-color: #176E9B;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#176E9B),to(#08C));
-    background-image: -webkit-linear-gradient(top,#176E9B,#08C);
-    background-image: -moz-linear-gradient(top,#176E9B,#08C);
-    background-image: -ms-linear-gradient(top,#176E9B,#08C);
-    background-image: -o-linear-gradient(top,#176E9B,#08C);
-    background-image: linear-gradient(top,#176E9B,#08C);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#176E9B',EndColorStr='#08C');
+    background-color: #91A690;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#728271),to(#91A690));
+    background-image: -webkit-linear-gradient(top,#728271,#91A690);
+    background-image: -moz-linear-gradient(top,#728271,#91A690);
+    background-image: -ms-linear-gradient(top,#728271,#91A690);
+    background-image: -o-linear-gradient(top,#728271,#91A690);
+    background-image: linear-gradient(top,#728271,#91A690);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#728271',EndColorStr='#91A690');
     color: #FFF !important;
-    border: 1px solid #176E9B;
+    border: 1px solid #91A690;
 }
 
 .enroll:hover{
-    background-color: #08C;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#08C),to(#176E9B));
-    background-image: -webkit-linear-gradient(top,#08C,#176E9B);
-    background-image: -moz-linear-gradient(top,#08C,#176E9B);
-    background-image: -ms-linear-gradient(top,#08C,#176E9B);
-    background-image: -o-linear-gradient(top,#08C,#176E9B);
-    background-image: linear-gradient(top,#08C,#176E9B);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#08C',EndColorStr='#176E9B');
-    border: 1px solid #08C;
+    background-color: #728271;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#91A690),to(#728271));
+    background-image: -webkit-linear-gradient(top,#91A690,#728271);
+    background-image: -moz-linear-gradient(top,#91A690,#728271);
+    background-image: -ms-linear-gradient(top,#91A690,#728271);
+    background-image: -o-linear-gradient(top,#91A690,#728271);
+    background-image: linear-gradient(top,#91A690,#728271);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#91A690',EndColorStr='#728271');
+    border: 1px solid #728271;
 }
 
 .save, .new, .button, .landing-button{
@@ -153,11 +153,13 @@ a.button-edit, a.button-remove{
 }
 
 .button-edit{
-    background: #39F;
+    background: #728271;
+    width: 60px;
 }
 
 .button-remove{
     background: #C00;
+    width: 60px;
 }
 .save, .new, .button, .cancel{
     height: 29px;

@@ -29,7 +29,7 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         $course = $discussionTopic->getDiscussion()->getCourse();
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug(),
+                $course->getCode() => "course/" . $course->getSlug(),
                 "Discussions" => "course_discussion",
                 $discussion->getName() => "discussion/" . $discussion->getId(),
                 $discussionTopic->getSubject() => "discussion_topic/" . $discussionTopic->getSlug()

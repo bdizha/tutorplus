@@ -24,6 +24,9 @@
             </div>
             <div id="main-container">
                 <div id="main-container-wrapper">
+                    <div id="breadcrumbs-container-wrapper">
+                        <?php include_slot('breadcrumbs') ?>
+                    </div>
                     <div id="inner-container-wrapper">
                         <div id="middle-column" style="width:940px;margin-left:0 !important">
                             <div id="sf_admin_container">

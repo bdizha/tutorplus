@@ -1,7 +1,7 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php if ($course): ?>
+<?php if (!is_null($course)): ?>
     <?php include_component('common', 'menu', $helper->courseLinks($discussion)) ?>
 <?php else: ?>
     <?php include_component('common', 'menu', $helper->discussionLinks($discussion)) ?>
@@ -9,7 +9,7 @@
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php if ($course): ?>
+<?php if (!is_null($course)): ?>
     <?php include_partial('common/breadcrumbs', $helper->courseBreadcrumbs($discussion)) ?>
 <?php else: ?>
     <?php include_partial('common/breadcrumbs', $helper->discussionBreadcrumbs($discussion)) ?>

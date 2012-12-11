@@ -154,7 +154,7 @@ span.separator{
 }
 
 #discussion_topic_message_message{
-    width: 689px;
+    width: 909px;
 }
 
 #discussion_members_message{
@@ -163,9 +163,8 @@ span.separator{
 }
 
 #discussion_name{
-    width: 687px !important;
+    width: 909px !important;
 }
-
 
 #discussion_topic_subject{
     width: 524px !important;
@@ -181,7 +180,6 @@ span.separator{
 
 .reply-details .value{
     margin: 0 10px 0 45px;
-    
 }
 
 #discussion_topic_message{
@@ -191,7 +189,7 @@ span.separator{
 }
 
 #discussion_description{
-    width: 687px !important;
+    width: 909px !important;
     max-height: 400px;
     height: 400px;
 }
@@ -390,10 +388,6 @@ span.separator{
     color: #C37E4C;
 }
 
-.sf_admin_form_field_description{
-    width: 699px;
-}
-
 .discussion-left-block{
     width: 690px;
     float: left;
@@ -414,4 +408,14 @@ span.separator{
     width: 36px !important;
     float: left;
     padding-right: 6px;
+}
+
+#discussion_container .left {
+    margin-right: 20px;
+}
+
+.discussion-block{
+    display: block;
+    width: 460px;
+    float: left;
 }

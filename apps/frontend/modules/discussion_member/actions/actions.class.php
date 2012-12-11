@@ -23,6 +23,9 @@ class discussion_memberActions extends autoDiscussion_memberActions {
             $this->course = $course;
             $this->getUser()->setMyAttribute('course_show_id', $course->getId());
         }
+        else{
+            $this->course = null;
+        }
     }
 
     public function executeIndex(sfWebRequest $request) {

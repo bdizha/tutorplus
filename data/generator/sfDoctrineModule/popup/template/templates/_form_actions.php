@@ -34,10 +34,8 @@
 </ul>
 <script type='text/javascript'>
     $(document).ready(function(){        
-        $('#<?php echo $this->getModuleName() ?>_form_holder .save').click(function(){            
-            $(this).addClass('hide');
-            $(this).parent().append(loadingButtonHtml);
-            rotateLoading();
+        $('#<?php echo $this->getModuleName() ?>_form_holder .save').click(function(){
+            $(this).val("Loading...");
             
             $("#<?php echo $this->getModuleName() ?>_form").ajaxSubmit(function(data){
                 $("#cboxLoadedContent").html(data);

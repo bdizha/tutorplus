@@ -1,6 +1,6 @@
 #sf_admin_container ul.radio_list li{
     display: block !important;
-    line-height: 1.5em;
+    margin-left: 140px;
     list-style: none outside none;
     position: relative;
 }
@@ -175,7 +175,7 @@ span.separator{
 }
 
 #discussion_topic_message_form_holder label, .reply-details label{
-    float: none !important;
+    display: none !important;
 }
 
 .reply-details .value{
@@ -311,7 +311,7 @@ span.separator{
 
 #discussion_topic_message_form_holder .discussion_topic_actions{
     margin-top: -10px !important;
-    margin-right: 10px !important;
+    margin-right: 0px !important;
 }
 
 .comments .discussion_topic_actions{
@@ -351,7 +351,7 @@ span.separator{
 }
 
 .message{
-    border: 1px solid #FFFFFF;
+    border: 1px solid #DDD;
     margin-left: 65px;
     padding: 5px;
     min-height: 41px;
@@ -371,13 +371,13 @@ span.separator{
     margin: -1px 0 0 65px;
     clear: both;
     background-color: #F9F9F9;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #DDD;
     border-bottom: none !important;
 }
 
 .comment{
     padding: 10px 0 5px 10px;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid #DDD;
 }
 
 #discussion_topic_reply_reply{
@@ -418,4 +418,8 @@ span.separator{
     display: block;
     width: 460px;
     float: left;
+}
+
+.sf_admin_form_field_message{
+    padding: 10px 0px !important;
 }

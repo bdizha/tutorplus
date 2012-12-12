@@ -99,15 +99,16 @@ tr.sf_admin_row.odd{
     margin-top: -3px;
     padding: 5px 0;
 }
-.sf_admin_form h2, .sf_admin_show h2{
-}
+
 .sf_admin_form fieldset .sf_admin_form_row{
-    padding: 10px 10px !important;
+    padding: 10px 10px;
 }
+
 .sf_admin_form_row{
     font-size: 12px;
-    padding: 0 10px 10px;
+    padding: 10px 0px;
 }
+
 .sf_admin_form_row div.help{
     color: #AAAAAA;
     font-size: 11px;

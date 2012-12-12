@@ -310,7 +310,7 @@ discussion_topic_reply:
   options:
     model:                DiscussionTopicReply
     module:               discussion_topic_reply
-    prefix_path:          /discussion/topic/reply
+    prefix_path:          /discussion_topic_reply
     column:               id
     with_wildcard_routes: true
 

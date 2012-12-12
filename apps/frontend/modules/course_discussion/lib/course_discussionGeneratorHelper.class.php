@@ -10,7 +10,6 @@
  */
 class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHelper
 {
-
     public $course = null;
 
     public function setCourse($course)

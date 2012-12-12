@@ -13,11 +13,17 @@ require_once dirname(__FILE__) . '/../lib/discussion_memberGeneratorHelper.class
  */
 class discussion_memberActions extends autoDiscussion_memberActions {
 
-    public function beforeExecute() {
+    public function preExecute() {
+        parent::preExecute();
         $discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
         $this->redirectUnless($discussionId, "@discussion");
         $this->discussion = DiscussionTable::getInstance()->find($discussionId);
 
+        $this->helper->setDiscussion($this->discussion);
+        $this->forward404Unless($this->discussion);
+    }
+
+    public function beforeExecute() {
         $course = $this->discussion->getCourseDiscussion()->getCourse();
         if ($course->getId()) {
             $this->course = $course;

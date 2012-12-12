@@ -1,6 +1,3 @@
 all:
   stylesheets: [discussion, profile]
   layout:      other
-
-newSuccess:
-  layout: false

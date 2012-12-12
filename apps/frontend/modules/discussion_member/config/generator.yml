@@ -14,7 +14,7 @@ generator:
     config:
       actions: ~
       fields:
-        user:                             { label: Member }
+        user:                             { label: Participant }
         is_removed:                       { label: Is Unsubscribed }
         subscription_type:                { label: Subscription }
         membership_type:                  { label: Membership }
@@ -40,7 +40,7 @@ generator:
           _edit:                       []
         actions:
           listDiscussion:              { label: < My Discussion }
-          _new:                        { label: + Invite Participants }
+          _new:                        { label: + Add Participant }
       edit:
         title:                         Edit Participant ~ %%nickname%%
         actions:
@@ -48,7 +48,7 @@ generator:
           done:                        []
           _save:                       []
       new:
-        title:                         Add Participants
+        title:                         Add Participant
         actions:
           cancel:                      []
           _save:                       []

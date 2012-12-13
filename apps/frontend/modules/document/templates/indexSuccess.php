@@ -20,12 +20,12 @@
 <script type='text/javascript'>
     $(document).ready(function(){    
     
-        $("#browser").load("/backend_dev.php/file_system?directory=Users");
-        $("#document_actual_content").load("/backend_dev.php/directory_descendants?parent_id=3");
+        $("#browser").load("/file_system?directory=Users");
+        $("#document_actual_content").load("/directory_descendants?parent_id=3");
         $("#edit_form").load("/document/new");
     
         $("span.directory, .current_directory span").live('click', function(){
-            $("#document_actual_content").load("/backend_dev.php/directory_descendants?parent_id=" + $(this).prev().html());
+            $("#document_actual_content").load("/directory_descendants?parent_id=" + $(this).prev().html());
             $("#document_parent_id").val($(this).prev().html());
         });
     

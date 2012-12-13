@@ -40,15 +40,15 @@ generator:
           _edit:                       []
         actions:
           listDiscussion:              { label: < My Discussion }
-          _new:                        { label: + Add Participant }
+          _new:                        { label: + Invite Followers }
       edit:
-        title:                         Edit Participant ~ %%nickname%%
+        title:                         Edit Follower ~ %%nickname%%
         actions:
           cancel:                      []
           done:                        []
           _save:                       []
       new:
-        title:                         Add Participant
+        title:                         Add Follower
         actions:
           cancel:                      []
           _save:                       []

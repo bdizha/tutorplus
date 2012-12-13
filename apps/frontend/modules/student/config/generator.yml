@@ -13,7 +13,7 @@ generator:
 
     config:
       fields:
-        number:              { label: "Unisa Student Number" }
+        number:              { label: "Student number" }
         password_again:      { label: "Confirm password" }
         permissions_list:    { lable: Roles }
 

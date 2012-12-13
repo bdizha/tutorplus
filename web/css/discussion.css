@@ -154,7 +154,8 @@ span.separator{
 }
 
 #discussion_topic_message_message{
-    width: 909px;
+    width: 688px;
+    display: none;
 }
 
 #discussion_members_message{
@@ -310,7 +311,6 @@ span.separator{
 }
 
 #discussion_topic_message_form_holder .discussion_topic_actions{
-    margin-top: -10px !important;
     margin-right: 0px !important;
 }
 
@@ -381,7 +381,8 @@ span.separator{
 }
 
 #discussion_topic_reply_reply{
-    width: 568px;
+    width: 516px;
+    display: none;
 }
 
 .replies-count{
@@ -391,16 +392,19 @@ span.separator{
 .discussion-left-block{
     width: 690px;
     float: left;
+    margin-top: 5px;
 }
 
 .discussion-right-block{
     width: 230px;
     float: left;
     margin-left: 20px;
+    margin-top: 5px;
 }
 
 #discussion-participants{
     padding: 5px 10px;
+    background-color: #FFF;
 }
 
 .participant{
@@ -420,6 +424,30 @@ span.separator{
     float: left;
 }
 
-.sf_admin_form_field_message{
-    padding: 10px 0px !important;
+.sf_admin_heading .discussion-actions{
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+
+.sf_admin_list_th_name{
+    width: 400px;
+}
+
+.discussion-actions{
+    position: absolute;
+    right: 10px;
+    top: 33px;
+    background-color: white;
+    padding: 5px;
+    width: 60px;
+    border: 1px solid #DDD;
+    padding-top: 0px;
+    display: none;
+}
+
+.discussion-view{
+    position: absolute;
+    right: 10px;
+    top: 4px;
 }

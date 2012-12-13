@@ -1,5 +1,5 @@
 <div id="sf_admin_form_container">
-    <form id="mailing_list_form" action="/backend_dev.php/mailing_lists_student" method="post">
+    <form id="mailing_list_form" action="/mailing_lists_student" method="post">
         <div class="content-block">
             <div id="choose_mailing_lists">
                 <ul>
@@ -50,7 +50,7 @@
             
             if(data != null)
             {
-                $.get("/backend_dev.php/course_choose", data, reloadCourses);                    
+                $.get("/course_choose", data, reloadCourses);                    
             }
         });
         

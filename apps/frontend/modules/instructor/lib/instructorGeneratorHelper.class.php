@@ -15,7 +15,7 @@ class instructorGeneratorHelper extends BaseInstructorGeneratorHelper {
     }
 
     public function linkToEdit($object, $params) {
-        return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/backend_dev.php/instructor/" . $object->getId() . "/edit") . '</li>';
+        return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/instructor/" . $object->getId() . "/edit") . '</li>';
     }
 
     public function linkToDelete($object, $params) {

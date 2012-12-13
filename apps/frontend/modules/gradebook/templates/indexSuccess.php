@@ -15,11 +15,11 @@
     });
 		
     function fetchGradebookScale(){
-        $.get('/backend_dev.php/gradebook_scale', showGradebookScale);
+        $.get('/gradebook_scale', showGradebookScale);
     }
 		
     function fetchGradebookItems(){
-        $.get('/backend_dev.php/gradebook_item', showGradebookItems);
+        $.get('/gradebook_item', showGradebookItems);
     }		
 		
     function showGradebookScale(res){

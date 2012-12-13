@@ -23,9 +23,10 @@ input[type=button], input[type=submit] {
     -webkit-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 3px 10px;
+    padding: 0px 10px;
     cursor: hand;
     cursor: pointer;
+    font-size: 11px;
 }
 
 .cancel, .done, .fc-header .fc-button, #calnext, #calprev{
@@ -134,7 +135,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     min-width: 85px;
 }
 
-.button-edit, .button-remove{
+.button-edit, .button-remove, .button-view{
     height: 20px !important;
     cursor: pointer;
     border: none !important;
@@ -144,26 +145,31 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     text-align: center;
 }
 
-input.button-edit, input.button-remove{
+input.button-edit, input.button-remove, input.button-view{
     line-height: 15px !important;
 }
 
-a.button-edit, a.button-remove{
+a.button-edit, a.button-remove, a.button-view{
     display: inline-block;
     margin-top: 5px;
 }
 
 .button-edit{
     background: #429CA9;
-    width: 60px;
+    width: 55px;
+}
+
+.button-view{
+    background: #C37E4C;
+    width: 100px;
 }
 
 .button-remove{
     background: #C00;
-    width: 60px;
+    width: 55px;
 }
 .save, .new, .button, .cancel{
-    height: 29px;
+    height: 22px;
 }
 
 .save:hover, .new:hover, .button:hover, .landing-button{

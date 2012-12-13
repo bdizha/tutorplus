@@ -233,7 +233,6 @@
 }
 
 #middle-landing-column{
-    border: 1px solid #FFF;
     background-color: #F9F9F9 !important;
     padding-bottom: 10px;
     width: 940px;
@@ -354,6 +353,7 @@
 #sf_admin_container{
     margin: 0;
     padding: 11px 0 0;
+    position: relative;
 }
 
 #sf_admin_container .content-block h4{
@@ -379,7 +379,6 @@
 
 #sf_admin_container .content-block{
     padding: 0;
-    overflow: hidden;
     position: relative;
     border-radius: 3px;
     margin-bottom: 10px;
@@ -394,7 +393,7 @@
 
 .full-block{
     position: relative;
-    /*    border-bottom: 1px solid #FFFFFF;*/
+    background-color: #FFFFFF;   
 }
 
 .full-block table{
@@ -415,6 +414,8 @@
 
 #discussion_stats, #recent-posting{
     height: 128px;
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
 }
 
 #sf_admin_container .left-block{
@@ -431,12 +432,11 @@
 }
 
 #sf_admin_container .content-block h2, .sf_admin_form fieldset h2{
-    background-color: #DCDCDC;
+    background-color: #DDD;
     clear: both;
-    color: #7E7E7E;
     height: 20px;
     font-weight: normal;
-    font-size: 13px;
+    font-size: 12px;
     padding: 5px 10px;
 }
 
@@ -517,7 +517,7 @@
     width: 357px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #CCC;
+    margin-top: 20px;
 }
 
 #authenticate form{
@@ -705,7 +705,8 @@
     position: relative;
     display: block;
     clear: both;
-    border-bottom: 1px dashed #C37E4C;
+    background-color: #FFF;
+    border-bottom: 1px dashed #DDD;
 }
 
 .section_description{
@@ -1041,13 +1042,12 @@
 }
 
 .column-row{
-    border-top: 1px solid #FFF;
     height: 144px;
     margin-top: -1px;
 }
 
 .landing-button{
-    margin: 40px 40px 40px 27px !important;
+    margin: 40px 0 40px 67px !important;
     padding: 18px !important;
     width: 255px;
     font-weight: bold;
@@ -1069,7 +1069,6 @@
 }
 
 .even-row{
-    border-bottom: 1px solid #DCDCDC;
     padding: 5px 10px;
     position: relative;
     display: block;
@@ -1405,4 +1404,10 @@ ul.department-course, .section-block ul{
 
 .private{
     padding-top: 132px;
+}
+
+.top-actions{
+    position: absolute;
+    right: 0;
+    top: -25px;
 }

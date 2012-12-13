@@ -14,7 +14,7 @@ html{
 }
 
 div, li {
-    line-height: 20px !important;
+    line-height: 22px !important;
 }
 
 textarea{
@@ -46,4 +46,8 @@ a{
 
 a:hover{
     text-decoration: underline !important;
+}
+
+p{
+    margin-bottom: 22px;
 }

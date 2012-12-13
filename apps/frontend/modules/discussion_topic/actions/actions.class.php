@@ -64,6 +64,7 @@ class discussion_topicActions extends autoDiscussion_topicActions
             $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
         }
         $this->replyForm = new DiscussionTopicReplyForm();
+        $this->messageForm = new DiscussionTopicMessageForm();
     }
 
     public function executeTimeline(sfWebRequest $request)

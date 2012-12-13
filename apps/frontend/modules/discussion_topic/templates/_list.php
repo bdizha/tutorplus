@@ -1,4 +1,3 @@
-
 <div class="full-block">
     <?php if (!$discussionTopics->count()): ?>
         <div class="no-result">

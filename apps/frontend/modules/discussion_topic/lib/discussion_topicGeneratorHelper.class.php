@@ -98,6 +98,10 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
     public function getPopupWidth() {
         return array("480px");
     }
+    
+    public function linkToDiscussionTopicView($object, $params) {
+        return link_to(__('View Topic', array(), 'sf_admin'), "/discussion/topic/" . $object->getSlug(), array("class" => "button-view"));
+    }
 
     public function linkToDiscussionTopicEdit($object, $params) {
         return link_to(__('Edit', array(), 'sf_admin'), "/discussion/topic/" . $object->getId() . "/edit", array("class" => "button-edit"));

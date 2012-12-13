@@ -22,7 +22,7 @@
             </div>
             <div id="modal-body" class="modal-body">
                 <div id="fileupload">
-                    <form action="/backend_dev.php/upload_file" id="upload_form" method="POST" enctype="multipart/form-data">
+                    <form action="/upload_file" id="upload_form" method="POST" enctype="multipart/form-data">
                         <div class="fileupload-buttonbar">    
                             <label for="file_folder_id">Choose folder to upload files into:</label>
                             <select id="file_folder_id" name="file[folder_id]">

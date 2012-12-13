@@ -1,6 +1,6 @@
 <div id="sf_admin_form_container"> 
     <?php include_partial('common/flashes', array('form' => $form)) ?>
-    <form id="course_form" action="/backend_dev.php/courses_instructor" method="post">
+    <form id="course_form" action="/courses_instructor" method="post">
         <div id="sf_admin_container">
             <div class="instructor_form_row">    
                 <div>
@@ -69,7 +69,7 @@
             
             if(data != null)
             {
-                $.get("/backend_dev.php/course_choose", data, reloadCourses);                    
+                $.get("/course_choose", data, reloadCourses);                    
             }
         });
         

@@ -23,7 +23,7 @@
                     <?php echo $form->renderGlobalErrors() ?>
                 <?php endif; ?>
                 
-                <h2>Courses <span class="actions"><a id="edit_instructor_courses" href="/backend_dev.php/courses_instructor">Edit</a></span></h2>
+                <h2>Courses <span class="actions"><a id="edit_instructor_courses" href="/courses_instructor">Edit</a></span></h2>
                 <div id="courses_list"></div>
                 
                 <h2>Mailing Lists <span class="actions"><a id="edit_instructor_mailing_lists" href="/mailing_lists_instructor">Edit</a></span></h2>

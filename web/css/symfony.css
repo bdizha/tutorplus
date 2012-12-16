@@ -13,7 +13,7 @@
     position: relative;
 }
 #sf_admin_heading, .sf_admin_heading{
-    height: 15px;
+    height: 22px;
 }
 #sf_admin_heading h3, .sf_admin_heading h3{
     color: #C37E4C;
@@ -176,6 +176,10 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
     text-align: center;
     color: #985321;
     margin-top: 10px;
+    position: fixed;
+    top: 95px;
+    z-index: 99999;
+    width: 880px;
 }
 
 .sf_admin_td_actions img {

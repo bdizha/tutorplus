@@ -86,4 +86,8 @@ class Discussion extends BaseDiscussion {
         return $toEmails;
     }
 
+    public function hasJoined($userId) {
+        return is_object(DiscussionMemberTable::getInstance()->findOneByDiscussionIdAndUserId($this->getId(), $userId));
+    }
+
 }

@@ -9,7 +9,6 @@
 <?php end_slot() ?>
 
 <?php include_partial('discussion/flashes') ?>
-
 <div class="sf_admin_heading">
     <h3><?php echo __('Discussion Explorer', array(), 'messages') ?></h3>
 </div>

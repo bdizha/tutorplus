@@ -665,7 +665,6 @@
 }
 
 .members_tab{
-    border: 1px solid #CCCCCC;
 }
 
 .heading-tabs li.tabs {
@@ -706,7 +705,7 @@
     display: block;
     clear: both;
     background-color: #FFF;
-    border-bottom: 1px dashed #DDD;
+    border-bottom: 1px solid #DDD;
 }
 
 .section_description{
@@ -979,7 +978,6 @@
 }
 
 .no-result{
-    background-color: #F9F9F9 !important;
     padding: 10px;
 }
 
@@ -1204,7 +1202,7 @@ ul.nav-tabs li a{
 }
 
 ul.nav-tabs li.active-tab {
-    background: #F9F9F9;
+    background: #FFF;
     border-top: 1px solid #C37E4C;
     border-left: 1px solid #C37E4C;
     border-right: 1px solid #C37E4C;
@@ -1219,7 +1217,6 @@ ul.nav-tabs li.active-tab {
 
 .active-tab .tab-title{
     color: #985321 !important;
-    font-weight: bold;
 }
 
 .list-count{
@@ -1409,5 +1406,14 @@ ul.department-course, .section-block ul{
 .top-actions{
     position: absolute;
     right: 0;
-    top: -25px;
+    top: -30px;
+}
+
+.follower-filters{
+    margin: 10px 0 0 10px;
+}
+
+.follwers_tab{
+    overflow: auto;
+    height: 300px;
 }

@@ -113,4 +113,45 @@ class DiscussionMemberTable extends Doctrine_Table {
         return $q->fetchOne();
     }
 
+    public function retrieveSuggestionsByStudentIdAndUserId($studentId, $userId, $discussionId, $limit = 2) {
+        $randomizedSuggestions = array();
+
+        $where = "(id IN (SELECT st.user_id FROM Student st WHERE st.id IN (SELECT sc.student_id FROM StudentCourse sc WHERE sc.course_id IN (SELECT sc2.course_id FROM Studentcourse sc2 WHERE sc2.student_id = $studentId))) ";
+        $where .= "OR (u.id IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = $userId)) ";
+        $where .= "OR (u.id IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = $userId))) ";
+        $where .= "AND (u.id NOT IN (SELECT dm.user_id FROM DiscussionMember dm WHERE dm.discussion_id = $discussionId))";
+        $q = Doctrine_Query::create()
+                ->select('u.id, u.first_name, u.last_name')
+                ->from("sfGuardUser u")
+                ->where($where)
+                ->whereNotIn("u.id", array($userId));
+
+        $suggestedUsers = $q->execute();
+
+        $suggestedUsersArray = $suggestedUsers->toArray();
+
+        if (count($suggestedUsers) >= $limit) {
+            $randomIndexes = array_rand($suggestedUsersArray, $limit);
+            foreach ($suggestedUsers as $key => $user) {
+                if (in_array($key, $randomIndexes)) {
+                    $randomizedSuggestions[] = $user;
+                }
+            }
+
+            return $randomizedSuggestions;
+        } else {
+            return $suggestedUsers;
+        }
+
+        return $suggestedUsers;
+    }
+
+    public function findOneByDiscussionIdAndUserId($discussionId, $userId) {
+        $query = $this->createQuery()
+                ->where('discussion_id = ?', $discussionId)
+                ->andWhere("user_id = ?", $userId);
+
+        return $query->fetchOne();
+    }
+
 }

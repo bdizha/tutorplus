@@ -14,7 +14,7 @@
         <input type="button" class="button" href="/discussion/member/new" value="+ Invite Participants" />
     </li>
     <li class="sf_admin_action_member">
-        <input type="button" class="button" onclick="document.location.href='/discussion_member';" value="Manage Participants" />
+        <input type="button" class="button" onclick="document.location.href='/discussion_member';" value="Manage Followers" />
     </li>
     <?php $member = $discussion->getMemberByUserId($sf_user->getId()); ?>
     <?php if ($member): ?>
@@ -37,11 +37,6 @@
         
         $(".sf_admin_pagination li").click(function(){
             fetchContent($(this).children('a').attr("href"));
-            return false;
-        });
-        
-        $(".sf_admin_action_member_new input").live("click", function(){
-            openPopup('/discussion/invite', '640px', '480px', '+ Invite Participants');
             return false;
         });
         

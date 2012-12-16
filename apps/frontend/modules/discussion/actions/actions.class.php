@@ -11,28 +11,36 @@ require_once dirname(__FILE__) . '/../lib/discussionGeneratorHelper.class.php';
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussionActions extends autoDiscussionActions
-{
+class discussionActions extends autoDiscussionActions {
 
-    public function executeShow(sfWebRequest $request)
-    {
+    public function executeShow(sfWebRequest $request) {
         $this->discussion = $this->getRoute()->getObject();
         $this->forward404Unless($this->discussion);
         $this->getUser()->setMyAttribute('discussion_show_id', $this->discussion->getId());
 
         $course = $this->discussion->getCourseDiscussion()->getCourse();
-        if ($course->getId())
-        {
+        if ($course->getId()) {
             $this->course = $course;
             $this->getUser()->setMyAttribute('course_show_id', $course->getId());
         }
+        if (is_object($this->discussion)) {
+            if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
+                $studentId = $this->getUser()->getStudentId();
+                $userId = $this->getUser()->getId();
+
+                $this->suggestedFollowers = DiscussionMemberTable::getInstance()->retrieveSuggestionsByStudentIdAndUserId($studentId, $userId, $this->discussion->getId());
+            } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
+                $this->suggestedFollowers = null;
+            }
+        } else {
+
+            $this->suggestedFollowers = null;
+        }
     }
 
-    public function executeIndex(sfWebRequest $request)
-    {
+    public function executeIndex(sfWebRequest $request) {
         // sorting
-        if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort')))
-        {
+        if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
             $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
         }
 
@@ -46,8 +54,7 @@ class discussionActions extends autoDiscussionActions
         $this->discussionTopic = DiscussionTopicTable::getInstance()->getTopicWithRecentActivity();
 
         // pager
-        if ($request->getParameter('page'))
-        {
+        if ($request->getParameter('page')) {
             $this->setPage($request->getParameter('page'));
         }
 
@@ -55,8 +62,7 @@ class discussionActions extends autoDiscussionActions
         $this->sort = $this->getSort();
     }
 
-    public function executeMembers(sfWebRequest $request)
-    {
+    public function executeMembers(sfWebRequest $request) {
         $discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
         $this->discussion = DiscussionTable::getInstance()->find($discussionId);
     }
@@ -78,26 +84,20 @@ class discussionActions extends autoDiscussionActions
         $mailer->send();
     }
 
-    protected function processForm(sfWebRequest $request, sfForm $form)
-    {
+    protected function processForm(sfWebRequest $request, sfForm $form) {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-        if ($form->isValid())
-        {
+        if ($form->isValid()) {
             $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
-            try
-            {
+            try {
                 $discussion = $form->save();
 
                 // save the owner of this group
                 $discussion->saveGroupOwner($this->getUser()->getId(), $this->getUser()->getName());
-            }
-            catch (Doctrine_Validator_Exception $e)
-            {
+            } catch (Doctrine_Validator_Exception $e) {
                 $errorStack = $form->getObject()->getErrorStack();
 
                 $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
-                foreach ($errorStack as $field => $errors)
-                {
+                foreach ($errorStack as $field => $errors) {
                     $message .= "$field (" . implode(", ", $errors) . "), ";
                 }
                 $message = trim($message, ', ');
@@ -108,50 +108,41 @@ class discussionActions extends autoDiscussionActions
 
 
             // send the descussion emails
-            $this->sendEmail($discussion);
-            
+            //$this->sendEmail($discussion);
+
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $discussion)));
 
-            if ($request->hasParameter('_save_and_add'))
-            {
+            if ($request->hasParameter('_save_and_add')) {
                 $this->getUser()->setFlash('notice', $notice . ' You can add another one below.');
 
                 $this->redirect('@discussion_new');
-            }
-            else
-            {
+            } else {
                 $this->getUser()->setFlash('notice', $notice);
                 $this->redirect(array('sf_route' => 'discussion_edit', 'sf_subject' => $discussion));
             }
-        }
-        else
-        {
+        } else {
             $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
         }
     }
 
-    protected function buildQuery()
-    {
+    protected function buildQuery() {
         $tableMethod = $this->configuration->getTableMethod();
         $query = Doctrine_Core::getTable('Discussion')
-            ->createQuery('d');
+                ->createQuery('d');
 
-        if (true)
-        {
+        if (true) {
             $userId = $this->getUser()->getMyAttribute('peer_show_id', null);
-            if (!$userId)
-            {
+            if (!$userId) {
                 $userId = $this->getUser()->getId();
             }
 
             $query
-                ->innerJoin('d.Members dm')
-                ->addWhere("dm.user_id = ?", $userId)
-                ->addOrderBy("d.updated_at Desc");
+                    ->innerJoin('d.Members dm')
+                    ->addWhere("dm.user_id = ?", $userId)
+                    ->addOrderBy("d.updated_at Desc");
         }
 
-        if ($tableMethod)
-        {
+        if ($tableMethod) {
             $query = Doctrine_Core::getTable('Discussion')->$tableMethod($query);
         }
 

@@ -28,8 +28,7 @@ class discussion_memberActions extends autoDiscussion_memberActions {
         if ($course->getId()) {
             $this->course = $course;
             $this->getUser()->setMyAttribute('course_show_id', $course->getId());
-        }
-        else{
+        } else {
             $this->course = null;
         }
     }
@@ -37,6 +36,10 @@ class discussion_memberActions extends autoDiscussion_memberActions {
     public function executeIndex(sfWebRequest $request) {
         $this->beforeExecute();
         parent::executeIndex($request);
+    }
+
+    public function executeFollowers(sfWebRequest $request) {
+        $this->beforeExecute();
     }
 
     public function executeEdit(sfWebRequest $request) {
@@ -56,7 +59,6 @@ class discussion_memberActions extends autoDiscussion_memberActions {
         $this->instructors = InstructorTable::getInstance()->findAll();
 
         if ($request->getMethod() == "POST") {
-            $notice = 'The invitation(s) were sent successfully.';
             try {
                 $members = $request->getParameter('members');
 
@@ -66,10 +68,8 @@ class discussion_memberActions extends autoDiscussion_memberActions {
                 // send invitation emails
                 // $this->sendMemberInvitations($form, $members);
             } catch (Doctrine_Validator_Exception $e) {
-                $this->getUser()->setFlash('error', 'The invitations have not been send due to some errors.', false);
+                
             }
-
-            $this->getUser()->setFlash('notice', $notice);
         } else {
             // fetch the current discussion members
             $this->currentMemberIds = sfGuardUserTable::getInstance()->retrieveUserIdsByDiscussionId($discussionId);
@@ -95,23 +95,70 @@ class discussion_memberActions extends autoDiscussion_memberActions {
             DiscussionMemberTable::getInstance()->unSubscribeByUserIdsAndDiscussionId($toDelete, $discussionId);
         }
 
+        //myToolkit::debug($toDelete);
+
         $toAdd = array_diff($postedMemberIds, $currentMembersIds);
         if (count($toAdd)) {
             $users = sfGuardUserTable::getInstance()->retrieveByIds($toAdd);
             foreach ($users as $user) {
                 // make sure we don't add a member twice
                 if (!in_array($user->getId(), $currentMembersIds)) {
-                    $discussionMember = new DiscussionMember();
-                    $discussionMember->setNickname(strtolower($user->getFirstName()));
-                    $discussionMember->setStatus(DiscussionMemberTable::MEMBERSHIP_TYPE_ORDINARY);
-                    $discussionMember->setDiscussionId($discussionId);
-                    $discussionMember->setUserId($user->getId());
-                    $discussionMember->save();
+
+                    $userId = $user->getId();
+                    if ($this->discussion->hasJoined($userId)) {
+                        $discussionMember = DiscussionMemberTable::getInstance()->findOneByDiscussionIdAndUserId($discussionId, $userId);
+                        $discussionMember->setIsRemoved(false);
+                        $discussionMember->save();
+                    } else {
+                        $discussionMember = new DiscussionMember();
+                        $discussionMember->setNickname(strtolower($user->getFirstName()));
+                        $discussionMember->setStatus(DiscussionMemberTable::MEMBERSHIP_TYPE_ORDINARY);
+                        $discussionMember->setDiscussionId($discussionId);
+                        $discussionMember->setUserId($user->getId());
+                        $discussionMember->save();
+                    }
                 }
             }
         }
 
         return $postedMemberIds;
+    }
+
+    public function executeSuggested(sfWebRequest $request) {
+
+        if ($this->discussion) {
+            if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
+                $studentId = $this->getUser()->getStudentId();
+                $userId = $this->getUser()->getId();
+
+                $this->suggestedFollowers = DiscussionMemberTable::getInstance()->retrieveSuggestionsByStudentIdAndUserId($studentId, $userId, $this->discussion->getId());
+            } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
+                $this->suggestedFollowers = null;
+            }
+        } else {
+            die("redirect");
+        }
+    }
+
+    public function executeAccept(sfWebRequest $request) {
+        try {
+            $userId = $request->getParameter("user_id");
+            $user = sfGuardUserTable::getInstance()->find($userId);
+
+            if (!$this->discussion->hasJoined($userId)) {
+                $discussionMember = new DiscussionMember();
+                $discussionMember->setNickname(strtolower($user->getFirstName()));
+                $discussionMember->setUserId($userId);
+                $discussionMember->setDiscussionId($this->discussion->getId());
+                $discussionMember->save();
+
+                echo "{$user->getName()} has been added to this discussion successfully.";
+            } else {
+                echo "It seems {$user->getName()} is already following this discusison!";
+            }
+        } catch (Exception $e) {
+            echo "User could not be added to this discussion.";
+        }
     }
 
     protected function buildQuery() {

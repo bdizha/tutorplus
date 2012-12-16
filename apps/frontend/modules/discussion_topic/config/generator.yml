@@ -13,6 +13,8 @@ generator:
 
     config:
       actions:             ~
+      fields:
+        message:           { label: Description }
       form:
         display:           [subject, message]
       filter:

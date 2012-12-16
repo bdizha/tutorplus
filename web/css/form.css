@@ -96,7 +96,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     outline: medium none;
 }
 
-.enroll{
+.enroll, .invite{
     background-color: #337883;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#429CA9),to(#337883));
     background-image: -webkit-linear-gradient(top,#429CA9,#337883);
@@ -109,7 +109,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     border: 1px solid #337883;
 }
 
-.enroll:hover{
+.enroll:hover, .invite:hover{
     background-color: #429CA9;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#337883),to(#429CA9));
     background-image: -webkit-linear-gradient(top,#337883,#429CA9);

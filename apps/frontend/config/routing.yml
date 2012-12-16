@@ -448,6 +448,30 @@ discussion_member:
     prefix_path:          /discussion/member
     column:               id
     with_wildcard_routes: true
+  
+discussion_members:
+  url:   /discussion/members
+  param: { module: discussion, action: members }
+  
+discussion_member_invite:
+  url:   /discussion/member/invite
+  param: { module: discussion_member, action: invite }
+  
+discussion_member_followers:
+  url:   /discussion/member/followers
+  param: { module: discussion_member, action: followers }
+  
+discussion_member_accept:
+  url:   /discussion/member/accept/:user_id
+  param: { module: discussion_member, action: accept }
+  
+discussion_member_suggested:
+  url:   /discussion/member/suggested
+  param: { module: discussion_member, action: suggested }
+  
+discussion_topic_message_show_mini:
+  url:   /discussion/topic/message/show/mini
+  param: { module: discussion_topic_message, action: show }
 
 discussion_reply:
   class: sfDoctrineRouteCollection
@@ -1392,22 +1416,6 @@ discussion_topic_show:
 discussion_home:
   url: /discussion
   param: { module: discusion, action: index }
-  
-discussion_topics:
-  url:   /discussion/topics
-  param: { module: discussion_topic, action: topics }
-  
-discussion_members:
-  url:   /discussion/members
-  param: { module: discussion, action: members }
-  
-discussion_invite:
-  url:   /discussion/invite
-  param: { module: discussion_member, action: invite }
-  
-discussion_topic_message_show_mini:
-  url:   /discussion/topic/message/show/mini
-  param: { module: discussion_topic_message, action: show }
   
 recent_announcement:
   url:   /announcement/recent

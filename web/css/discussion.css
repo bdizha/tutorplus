@@ -219,10 +219,11 @@ span.separator{
 }
 
 .discussion-potential-member{
-    margin: 10px 0 0;
     display: inline-block;
     clear: both !important;
-    width: 280px;
+    width: 480px;
+    border-bottom: 1px solid #DDD;
+    padding: 5px 0;
 }
 
 .discussion-potential-member .image{
@@ -237,6 +238,7 @@ span.separator{
 
 .discussion-potential-member .input{
     float: left;
+    margin-top: 5px;
 }
 
 #discussion_members{
@@ -336,8 +338,6 @@ span.separator{
 }
 
 #discussion_member_invite_form{
-    overflow: auto;
-    height: 300px;
     margin-bottom: 10px;   
 }
 
@@ -355,6 +355,7 @@ span.separator{
     margin-left: 65px;
     padding: 5px;
     min-height: 41px;
+    background-color: #FFF;
 }
 
 .thread .icon{
@@ -402,9 +403,13 @@ span.separator{
     margin-top: 5px;
 }
 
-#discussion-participants{
-    padding: 5px 10px;
+#suggested-followers{
     background-color: #FFF;
+}
+
+#discussion-followers{
+    background-color: #FFF;
+    padding: 10px;
 }
 
 .participant{
@@ -450,4 +455,16 @@ span.separator{
     position: absolute;
     right: 10px;
     top: 4px;
+}
+
+.follower{
+    height: 47px;
+    word-break: break-all;
+    clear: both;
+    border-bottom: 1px solid #DDD;
+    padding: 10px;
+}
+
+#discussion-notice{
+    display: none;
 }

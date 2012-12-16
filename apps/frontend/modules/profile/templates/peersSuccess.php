@@ -25,7 +25,7 @@
                 </li>
             </ul>
         </div>
-        <div class="peer-block plain-row padding-10">
+        <div class="peer-block padding-10">
             <div id="student_peers" class="peers">
                 <?php include_partial('peer/list', array("peers" => $studentPeers)) ?>
             </div>

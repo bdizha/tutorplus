@@ -1,3 +1,9 @@
 all:
   stylesheets: [discussion, profile]
   layout:      other
+  
+acceptSuccess:
+  has_layout: false
+  
+suggestedSuccess: 
+  has_layout: false

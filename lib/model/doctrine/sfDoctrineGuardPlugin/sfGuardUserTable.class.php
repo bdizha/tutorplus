@@ -56,11 +56,12 @@ class sfGuardUserTable extends PluginsfGuardUserTable {
         return $query->execute();
     }
 
-    public function retrieveUserIdsByDiscussionId($discussionId = null) {
+    public function retrieveUserIdsByDiscussionId($discussionId = null, $isRemoved = 0) {
         $query = $this->createQuery('u')
                 ->select('u.id')
                 ->innerJoin('u.DiscussionMember dm')
-                ->where('dm.discussion_id = ?', $discussionId);
+                ->where('dm.discussion_id = ?', $discussionId)
+                ->addWhere('dm.is_removed = ?', $isRemoved);
 
         return $query->execute()->getPrimaryKeys();
     }

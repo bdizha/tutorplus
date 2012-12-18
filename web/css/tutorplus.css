@@ -394,17 +394,12 @@
 .full-block{
     position: relative;
     background-color: #FFFFFF;   
+    border-right: 1px solid #DDD;
+    border-left: 1px solid #DDD;
 }
 
 .full-block table{
     margin-top: -1px;
-}
-
-.plain-row{
-    padding-bottom: 5px;
-    background-color: #F9F9F9;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 
 .white-background{
@@ -413,9 +408,10 @@
 }
 
 #discussion_stats, #recent-posting{
-    height: 128px;
+    height: 131px;
     margin-bottom: 20px;
     background-color: #FFFFFF;
+    overflow: hidden;
 }
 
 #sf_admin_container .left-block{
@@ -433,7 +429,6 @@
 
 #sf_admin_container .content-block h2, .sf_admin_form fieldset h2{
     background-color: #DDD;
-    clear: both;
     height: 20px;
     font-weight: normal;
     font-size: 12px;
@@ -697,15 +692,6 @@
     display: inline-block;
     position: relative;
     vertical-align: top;
-}
-
-.discussion, .discussion_topic{
-    padding: 10px 10px;
-    position: relative;
-    display: block;
-    clear: both;
-    background-color: #FFF;
-    border-bottom: 1px solid #DDD;
 }
 
 .section_description{
@@ -1070,7 +1056,9 @@
     padding: 5px 10px;
     position: relative;
     display: block;
-    clear: both;
+    border-bottom: 1px solid #DDD;
+    min-height: 44px;
+    max-height: 44px;
 }
 
 .even-row::after{
@@ -1112,6 +1100,8 @@
 
 .peer-block{
     overflow: hidden;
+    background-color: #FFF;
+    border: 1px solid #DDD;
 }
 
 .label{
@@ -1181,10 +1171,6 @@
     overflow: hidden;
 }
 
-ul.nav-tabs {
-    border-bottom: 1px solid #C37E4C;
-}
-
 ul.nav-tabs li {
     display: inline-block;
     vertical-align: top;
@@ -1203,15 +1189,9 @@ ul.nav-tabs li a{
 
 ul.nav-tabs li.active-tab {
     background: #FFF;
-    border-top: 1px solid #C37E4C;
-    border-left: 1px solid #C37E4C;
-    border-right: 1px solid #C37E4C;
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-top-left-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-topleft: 5px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    border-top: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
     color: #008FC5;
 }
 
@@ -1349,7 +1329,7 @@ textarea {
     position: relative;
     clear: both !important;
     height: 25px;
-    border-bottom: 1px solid #C37E4C;
+    border-bottom: 1px solid #DDD;
     padding-top: 5px;
     padding-bottom: 5px;
 }

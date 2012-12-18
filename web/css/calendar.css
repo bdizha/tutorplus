@@ -18,7 +18,7 @@
 }
 
 .calendar_name{
-     float: left; width:14px; height:14px; margin:3px;
+    float: left; width:14px; height:14px; margin:3px;
 }
 
 .calendar_label{
@@ -39,4 +39,15 @@
 
 #calendar_event_description{
     width: 685px !important;
+}
+
+#calendar_description{
+    width: 325px !important;
+}
+
+.event-row{
+    padding: 5px 10px;
+    position: relative;
+    display: block;
+    border-bottom: 1px solid #DDD;
 }

@@ -136,14 +136,13 @@
 }
 
 .student-item {
-    clear: both;
     height: 80px;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid #DDD;
 }
 
 .student-item .image {
     float: left;
-    width: 150px;
+    width: 100px;
 }
 
 .student-item .image img {
@@ -155,7 +154,7 @@
     height: 60px;
     padding: 10px;
     position: relative;
-    width: 359px;
+    width: 400px;
 }
 
 .student-item .schedule {

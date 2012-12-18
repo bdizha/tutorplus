@@ -17,6 +17,10 @@ div, li {
     line-height: 22px !important;
 }
 
+.error li, .error b{
+    font-size: 11px;
+}
+
 textarea{
     line-height: 23px !important;
 }

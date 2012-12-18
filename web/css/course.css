@@ -82,6 +82,7 @@ select[size], select[multiple], select[size][multiple] {
 
 .course-row{
     padding: 5px;
+    border-bottom: 1px solid #DDD;
 }
 
 #campuses_list{
@@ -112,9 +113,6 @@ select[size], select[multiple], select[size][multiple] {
     position: absolute;
     top: 2px;
     width: 10px;    
-}
-
-#course_students, #course_instructors{
 }
 
 .course-student, .course-instructor {
@@ -190,5 +188,9 @@ select[size], select[multiple], select[size][multiple] {
 }
 
 .course-item-year{
+    padding: 10px;
+}
+
+#course_discription{
     padding: 10px;
 }

@@ -1,5 +1,5 @@
 <h2>Discussion Participants</h2>
-<div id="discussion_members" class="peer-block plain-row padding-10">
+<div id="discussion_members" class="peer-block  padding-10">
     <?php include_partial('discussion_member/members', array('discussion' => $discussion)) ?>            
 </div> 
 <ul class="sf_admin_actions" style="clear:both">

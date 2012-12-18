@@ -19,7 +19,7 @@ secure:
         children:
           course_info:                { route: course_show, param: slug,  label: "Course Info" }
           announcements:              { route: course_announcement, label: "Announcements" }
-          course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
+          #course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
           course_calendar:            { route: course_calendar, label: "Calendar" }
           assignments:                { route: assignment, label: "Assignments" }
           assessment_types:           { route: assessment_type, label: "Assessment Types" }

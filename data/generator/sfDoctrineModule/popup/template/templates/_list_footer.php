@@ -6,8 +6,8 @@
             return false;
         });
         
-        $(".sf_admin_action_edit a").click(function(){
-            openPopup($(this).attr("popup_url"), '[?php echo $helper->getPopupWidth() ?]', '[?php echo $helper->getPopupHeight() ?]', "[?php echo <?php echo ucwords($this->getI18NString('edit.title')) ?> ?]");
+        $(".button-edit").click(function(){
+            openPopup($(this).attr("href"), '[?php echo $helper->getPopupWidth() ?]', '[?php echo $helper->getPopupHeight() ?]', "[?php echo <?php echo ucwords($this->getI18NString('edit.title')) ?> ?]");
             return false;
         });
     });

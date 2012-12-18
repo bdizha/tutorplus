@@ -34,7 +34,7 @@
         <div class="content-block">
             <h2><?php echo $discussionTopic->getUser() ?>'s Discussion Wall</h2>
             <div id="discussion_topic_message_form_container"></div>
-            <div class="full-block plain-row">
+            <div class="full-block ">
                 <div id="discussion-topic-replies">
                     <?php foreach ($discussionTopic->retrieveMessages() as $discussionTopicMessage): ?>
                         <?php include_partial('discussion_topic_message/message', array('discussionTopicMessage' => $discussionTopicMessage, "form" => $replyForm)) ?>

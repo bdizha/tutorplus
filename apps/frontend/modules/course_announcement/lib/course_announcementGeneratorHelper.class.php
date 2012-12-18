@@ -41,7 +41,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Modules" => "course",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
+                $this->course->getCode() . " ~ " . myToolkit::shortenString($this->course->getName(), 30) => "course/" . $this->course->getSlug(),
                 "Announcements" => "course_announcement",
                 "New Announcement" => "announcement/new"
             )
@@ -60,7 +60,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Modules" => "course",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
+                $this->course->getCode() . " ~ " . myToolkit::shortenString($this->course->getName(), 30) => "course/" . $this->course->getSlug(),
                 "Announcements" => "course_announcement",
                 "Edit Announcement ~ " . $object->getSubject() => "announcement/" . $object->getId() . "/edit",
             )

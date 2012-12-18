@@ -21,7 +21,7 @@
         <div class="discussion-left-block">
             <div class="full-block">
                 <h2>By <?php echo link_to($discussion->getUser(), 'profile_show', $discussion->getUser()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussion->getUpdatedAt()) ?></span> - <a href="/discussion/topic/<?php echo $discussion->getSlug() ?>"><?php echo $discussion->getNbTopics() ?> topics of <?php echo $discussion->getNbTopics() ?> followers</a></h2>
-                <div class="even-row"><?php echo $discussion->getDescription() ?></div>                
+                <div class="discussion-row"><?php echo $discussion->getDescription() ?></div>                
             </div>
             <ul class="sf_admin_actions" style="clear:both">
                 <li class="sf_admin_action_my_discussions">

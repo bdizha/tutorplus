@@ -61,6 +61,20 @@ class course_discussionActions extends autoCourse_discussionActions {
         if ($courseDiscussion) {
             $this->getUser()->setMyAttribute('course_show_id', $courseDiscussion->getCourseId());
         }
+        
+        if (is_object($this->discussion)) {
+            if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
+                $studentId = $this->getUser()->getStudentId();
+                $userId = $this->getUser()->getId();
+
+                $this->suggestedFollowers = DiscussionMemberTable::getInstance()->retrieveSuggestionsByStudentIdAndUserId($studentId, $userId, $this->discussion->getId());
+            } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
+                $this->suggestedFollowers = null;
+            }
+        } else {
+
+            $this->suggestedFollowers = null;
+        }
     }
 
     protected function processForm(sfWebRequest $request, sfForm $form) {

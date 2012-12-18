@@ -16,16 +16,16 @@
         <div class="content-block">
             <h2>Module Info <?php echo $helper->showToEdit($course) ?></h2>
             <div class="full-block">
-                <div class="course_info plain-row">
-                    <div class="even-row">
-                        <div class="row-column">
-                            <div class="row-label">
-                                Department:
-                            </div>
-                            <div class="row-value">
-                                <?php echo $course->getDepartment() ?>                 
-                            </div>
+                <div class="course_info ">
+                    <div class="course-row">
+                        <div class="row-label">
+                            Department:
                         </div>
+                        <div class="row-value">
+                            <?php echo $course->getDepartment() ?>                 
+                        </div>
+                    </div>                    
+                    <div class="course-row">
                         <div class="row-column">
                             <div class="row-label">
                                 Module dates:
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="even-row">
+                    <div class="course-row">
                         <div class="row-column">
                             <div class="row-label">
                                 Is finalized:
@@ -53,7 +53,7 @@
                             </div>
                         </div>                        
                     </div>
-                    <div class="even-row">
+                    <div class="course-row">
                         <div class="row-column">
                             <div class="row-label">
                                 Duration:
@@ -75,9 +75,11 @@
             </div>
         </div>
         <div class="content-block">
-            <h2>Module Description</h2>
-            <div class="full-block padding-10 plain-row">
-                <?php echo $course->getHtmlizedDescription() ?>
+            <h2>Course Description</h2>
+            <div class="full-block">
+                <div class="course-row" id="course_discription">
+                    <?php echo $course->getHtmlizedDescription() ?>
+                </div>
             </div>
         </div>
         <ul class="sf_admin_actions" style="clear:both">

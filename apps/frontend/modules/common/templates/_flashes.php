@@ -4,7 +4,7 @@
 <?php if ($sf_user->hasFlash('error')): ?>
     <div class="error">
         <?php if (isset($form)): ?>
-            <div class="title">Oops! Please correct the following encountered errors.</div>
+            <div class="title">Please correct the following encountered errors.</div>
             <ol>
                 <?php foreach ($form as $name => $field): ?>
                     <?php if ($field->hasError()): ?>

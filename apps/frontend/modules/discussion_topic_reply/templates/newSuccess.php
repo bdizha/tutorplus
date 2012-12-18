@@ -8,7 +8,9 @@
             $this = $(this);
             $messageId = $this.attr('messageid');  
             
-            if($this.val() != "Loading..." && $('#discussion-topic-reply-form-' + $messageId + ' textarea').val() != ""){
+            $replyValue = trim($('#discussion-topic-reply-form-' + $messageId + ' textarea').val());
+            
+            if($this.val() != "Loading..." && $replyValue != ""){
                 $this.val("Loading...");          
                 $('#discussion-topic-reply-form-' + $messageId).ajaxSubmit(function(data){             
                     if(data != 'failure'){

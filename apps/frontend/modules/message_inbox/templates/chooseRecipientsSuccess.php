@@ -7,7 +7,7 @@
                 <li id="mailing_list_recipeints"><a href="#">Mailing Lists</a></li>
             </ul>
             <?php $user = $sf_user->getGuardUser(); ?>
-            <div class="peer-block plain-row padding-10">
+            <div class="peer-block  padding-10">
                 <div class="recipients_tab" id="student_recipients_tab">            
                     <?php foreach ($students as $student): ?>
                         <?php $studentUser = $student->getUser(); ?>

@@ -1,5 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
-<div class="full-block padding-10 plain-row"> 
+<div class="full-block padding-10 "> 
     <a class="image" href="/profile">
         <?php include_partial('personal_info/photo', array('user' => $discussion->getUser(), "dimension" => 36)) ?>
     </a>

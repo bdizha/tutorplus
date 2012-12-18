@@ -5,7 +5,7 @@
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs()) ?>
+<?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs($notification_settings)) ?>
 <?php end_slot() ?>
 
 <?php include_partial('notification_settings/flashes', array('form' => $form)) ?>

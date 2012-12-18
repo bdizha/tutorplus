@@ -30,16 +30,16 @@
             <div class="discussion-right-block">
                 <h2>Discussion Statistics</h2>
                 <div id="discussion_stats">
-                    <div class="even-row">
+                    <div class="discussion-row">
                         <span class="list-count"><?php echo $discussionActivity["new_topics"] ?></span> discussion topic(s) started
                     </div>
-                    <div class="even-row">
+                    <div class="discussion-row">
                         <span class="list-count"><?php echo $discussionActivity["new_messages"] ?></span> discussion message(s)
                     </div>
-                    <div class="even-row">
+                    <div class="discussion-row">
                         <span class="list-count"><?php echo $discussionActivity["new_replies"] ?></span> discussion replies
                     </div>
-                    <div class="even-row">
+                    <div class="discussion-row">
                         <span class="list-count"><?php echo $discussionActivity["new_members"] ?></span> invited member(s)
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <?php if (!$discussionTopic): ?>
                         <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false, "shortenString" => 120)) ?>
                     <?php else: ?>
-                        <div class="even-row">There's no topics started.</div>
+                        <div class="discussion-row">There's no topics started.</div>
                     <?php endif; ?>
                 </div>
             </div>

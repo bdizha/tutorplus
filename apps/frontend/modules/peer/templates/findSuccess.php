@@ -20,7 +20,7 @@
             <div class="no-result">It seems there's no new peers in this platform who're available to peer up with you currently :)</div>
         <?php else: ?>    
             <div class="no-result">Get peered up! You may want to use their name to quickly find them below :)</div>
-            <div class="peer-block plain-row padding-10" id="my_peers">
+            <div class="peer-block  padding-10" id="my_peers">
                 <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
             </div> 
         <?php endif; ?>

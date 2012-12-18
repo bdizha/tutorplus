@@ -53,14 +53,14 @@
         </div>
         <div class="content-block">
             <div class="discussion-left-block">
-                <h2><span id="replies-count"><?php echo $discussionTopic->getNbReplies() ?></span> replies  of <span id="messages-count"><?php echo $discussionTopic->getNbMessages() ?></span> message(s)</h2>
+                <h2><span class="list-count" id="replies-count"><?php echo $discussionTopic->getNbReplies() ?></span> replies  of <span id="messages-count" class="list-count"><?php echo $discussionTopic->getNbMessages() ?></span> post(s)</h2>
                 <div id="discussion_topic_message_form_container">
                     <div id="sf_admin_form_container">
                         <?php include_partial('common/flashes', array('form' => $messageForm)) ?>
                         <?php include_partial('discussion_topic_message/form', array('discussion_topic_message' => new DiscussionTopicMessage(), 'form' => $messageForm)) ?>
                     </div>
                 </div>
-                <div class="full-block plain-row">
+                <div class="full-block ">
                     <div id="discussion-topic-replies">
                         <?php foreach ($discussionTopic->retrieveMessages() as $discussionTopicMessage): ?>
                             <?php include_partial('discussion_topic_message/message', array('discussionTopicMessage' => $discussionTopicMessage, "form" => $replyForm)) ?>

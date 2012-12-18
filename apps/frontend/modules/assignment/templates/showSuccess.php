@@ -68,7 +68,7 @@
         </div>
         <div class="content-block">
             <h2>Assignment Description</h2>
-            <div class="full-block padding-10 plain-row">
+            <div class="full-block padding-10 ">
                 <?php echo $assignment->getHtmlizedDescription() ?>
             </div>
         </div>

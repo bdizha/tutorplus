@@ -30,7 +30,7 @@
     </div>
     <div class="content-block">
         <h2>Discussion Wall</h2>
-        <div class="full-block plain-row">    
+        <div class="full-block ">    
             <div class="thread">
                 <a class="image" href="/profile"><img height="48px" width="48px" alt="Batanayi Matuku" src="/avatars/48.png"></a>
                 <div class="message">

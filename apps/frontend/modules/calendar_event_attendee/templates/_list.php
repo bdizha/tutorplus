@@ -1,11 +1,11 @@
 <?php $eventAttendees = $event->getAttendees(); ?>
 <?php if ($eventAttendees->count() > 0): ?>
-    <div class="peer-block plain-row padding-10">
+    <div class="peer-block  padding-10">
         <?php foreach ($eventAttendees as $eventAttendee): ?>
             <?php $user = $eventAttendee->getUser() ?>
             <div class="peer" id="event-attendee-<?php echo $eventAttendee->getId() ?>">
                 <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 36)) ?>
-                <div class="name"><?php echo link_to(myToolkit::shortenString($user->getName(), 14), 'profile_show', $user) ?></div>
+                <div class="name"><?php echo link_to($user->getName(), 'profile_show', $user) ?></div>
                 <div class="type"><?php echo $user->getType() ?></h4>
                 </div>
             </div>

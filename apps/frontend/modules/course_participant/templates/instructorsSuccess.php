@@ -1,6 +1,6 @@
 <?php $courseInstructors = $course->getCourseInstructors(); ?>
 <?php if ($courseInstructors->count() > 0): ?>
-    <div class="peer-block plain-row padding-10">
+    <div class="peer-block  padding-10">
         <?php foreach ($courseInstructors as $courseInstructor): ?>
             <?php $user = $courseInstructor->getInstructor()->getUser() ?>
             <div class="peer" id="course-student-<?php echo $courseInstructor->getInstructor()->getId() ?>">

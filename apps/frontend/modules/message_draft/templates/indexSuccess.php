@@ -18,7 +18,7 @@
             </li>
             <li id="message_edit_tab" class="hide"><a href="/message_edit_tab">Compose Message</a></li>
         </ul>
-        <div id="email_container" class="plain-row"></div>
+        <div id="email_container" class=""></div>
     </div>
 </div>
 <script type="text/javascript">

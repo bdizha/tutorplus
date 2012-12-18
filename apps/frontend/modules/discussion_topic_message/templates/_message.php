@@ -7,7 +7,7 @@
     </div>
     <div class="comments">
         <div class="comment">
-            <span class="stats-item replies-count"><span id="replies-count-<?php echo $discussionTopicMessage->getId() ?>"><?php echo $discussionTopicMessage->getReplies()->count() ?></span> comment(s)</span>
+            <span class="stats-item replies-count"><span class="list-count" id="replies-count-<?php echo $discussionTopicMessage->getId() ?>"><?php echo $discussionTopicMessage->getReplies()->count() ?></span> comment(s)</span>
         </div>
         <div id="discussion-topic-replies-<?php echo $discussionTopicMessage->getId() ?>">
             <?php include_partial("discussion_topic_reply/replies", array("discussionTopicMessageReplies" => $discussionTopicMessage->getReplies())) ?>            

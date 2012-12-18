@@ -17,7 +17,7 @@
                 <span class="list-count"><?php echo $totalTrashCount ?></span>
             </li>
         </ul>
-        <div id="email_container" class="plain-row"></div>
+        <div id="email_container" class=""></div>
     </div>
 </div>
 <script type="text/javascript">

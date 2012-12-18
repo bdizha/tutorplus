@@ -15,43 +15,41 @@
 </div>
 <div id="sf_admin_content">
     <div class="content-block">
-        <?php include_partial('course_discussion/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
-        <ul class="sf_admin_actions">
-            <?php include_partial('course_discussion/list_batch_actions', array('helper' => $helper)) ?>
-            <?php include_partial('course_discussion/list_actions', array('helper' => $helper)) ?>
-            <?php include_partial('course_discussion/list_footer', array('helper' => $helper)) ?>
-        </ul>
-    </div>
-    <div class="content-block">
         <div id="discussion_container">
-            <div class="discussion-block left">
-                <h2>Weekly Discussion Activities</h2>
-                <div id="discussion_stats" class="plain-row">
-                    <div class="even-row"><span
-                            class="list-count"><?php echo $discussionActivity["new_topics"] ?></span> discussion
-                        topic(s) started
+            <ul class="top-actions">
+                <?php include_partial('discussion/list_actions', array('helper' => $helper)) ?>
+            </ul>
+            <div class="discussion-left-block">
+                <h2>&nbsp;</h2>
+                <?php include_partial('discussion/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
+                <ul class="sf_admin_actions">
+                    <?php include_partial('discussion/list_batch_actions', array('helper' => $helper)) ?>
+                    <?php include_partial('discussion/list_actions', array('helper' => $helper)) ?>
+                    <?php include_partial('discussion/list_footer', array('helper' => $helper)) ?>
+                </ul>
+            </div>
+            <div class="discussion-right-block">
+                <h2>Discussion Statistics</h2>
+                <div id="discussion_stats">
+                    <div class="discussion-row">
+                        <span class="list-count"><?php echo $discussionActivity["new_topics"] ?></span> discussion topic(s) started
                     </div>
-                    <div class="even-row"><span
-                            class="list-count"><?php echo $discussionActivity["new_messages"] ?></span> discussion
-                        message(s)
+                    <div class="discussion-row">
+                        <span class="list-count"><?php echo $discussionActivity["new_messages"] ?></span> discussion message(s)
                     </div>
-                    <div class="even-row"><span
-                            class="list-count"><?php echo $discussionActivity["new_replies"] ?></span> discussion
-                        replies
+                    <div class="discussion-row">
+                        <span class="list-count"><?php echo $discussionActivity["new_replies"] ?></span> discussion replies
                     </div>
-                    <div class="even-row"><span
-                            class="list-count"><?php echo $discussionActivity["new_members"] ?></span> new member(s)
-                        have joined discussion group(s)
+                    <div class="discussion-row">
+                        <span class="list-count"><?php echo $discussionActivity["new_members"] ?></span> invited member(s)
                     </div>
                 </div>
-            </div>
-            <div class="discussion-block">
                 <h2>Recent Posting</h2>
-                <div class="plain-row" id="recent-posting">
+                <div id="recent-posting">
                     <?php if (!$discussionTopic): ?>
-                    <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false, "shortenString" => 120)) ?>
+                        <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false, "shortenString" => 120)) ?>
                     <?php else: ?>
-                    <div class="even-row">There're currently no discussion topics started.</div>
+                        <div class="discussion-row">There's no topics started.</div>
                     <?php endif; ?>
                 </div>
             </div>

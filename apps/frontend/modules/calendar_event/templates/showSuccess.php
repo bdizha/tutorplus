@@ -17,7 +17,7 @@
             <h2>Event Info <span class="actions"><a id="edit_event_info" href="/calendar/event/<?php echo $calendarEvent->getId() ?>/edit">Edit</a></span></h2>
             <div class="full-block" id="event_info">
                 <div class="course_info">
-                    <div class="even-row">
+                    <div class="event-row">
                         <div class="row-column">
                             <span class="label">Name:</span> <?php echo $calendarEvent->getName() ?> 
                         </div>
@@ -25,7 +25,7 @@
                             <span class="label">Where:</span> <?php echo $calendarEvent->getLocation() ?>
                         </div>
                     </div>
-                    <div class="even-row">
+                    <div class="event-row">
                         <div class="row-column">
                             <span class="label">When:</span> <?php echo $calendarEvent->getWhen() ?>
                         </div>
@@ -41,7 +41,7 @@
         <div class="content-block">      
             <h2>Description</h2>
             <div class="full-block">  
-                <div class="even-row">
+                <div class="event-row">
                     <?php echo $calendarEvent->getDescription() ?>  
                 </div>
             </div>

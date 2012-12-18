@@ -18,7 +18,7 @@
             </li>
             <li id="message_read_tab"><a id="message_read" href="/message_read_tab">&nbsp;</a></li>
         </ul>
-        <div id="email_container" class="plain-row"></div>
+        <div id="email_container" class=""></div>
     </div>
 </div>
 <div id="tab_content"></div>

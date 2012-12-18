@@ -18,7 +18,7 @@
     $(document).ready(function(){        
         $('#discussion_topic_message_message').redactor();
         $('#discussion_topic_message_form_holder .save').click(function(){    
-            if($(this).val() != "Loading..."){
+            if($(this).val() != "Loading..." && $('#discussion_topic_message_message').val() != ""){
                 $(this).val("Loading...");
                 $("#discussion_topic_message_form").ajaxSubmit(function(data){                
                     if(data == "success"){                    

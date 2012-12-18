@@ -22,7 +22,7 @@
             <div class="no-result">There's no instructor peers linked currently.</div>
             <?php include_partial('common/content_actions', array('actions' => $helper->findPeersContentActions())) ?>
         <?php else: ?>
-            <div class="peer-block plain-row padding-10" id="my_peers">
+            <div class="peer-block  padding-10" id="my_peers">
                 <?php include_partial('list', array("peers" => $instructorPeers)) ?>
             </div> 
         <?php endif; ?>

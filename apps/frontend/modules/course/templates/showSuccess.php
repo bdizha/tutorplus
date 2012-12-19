@@ -78,7 +78,7 @@
             <h2>Course Description</h2>
             <div class="full-block">
                 <div class="course-row" id="course_discription">
-                    <?php echo $course->getHtmlizedDescription() ?>
+                    <?php echo $course->getDescription() ?>
                 </div>
             </div>
         </div>

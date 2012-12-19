@@ -29,7 +29,7 @@
                     if(data == "success")
                     {
                         fetchDefaultTab();
-                        $("li.tabs").removeClass("active");
+                        $("#inbox_nav_tabs li").removeClass("active-tab");
                         $("#message_trash_tab").addClass("active");
                     }
                     else

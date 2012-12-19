@@ -2,6 +2,7 @@
     display: block;
     width: 460px;
     float: left;
+    margin-bottom: 20px !important;
 }
 
 .dashboard-row{

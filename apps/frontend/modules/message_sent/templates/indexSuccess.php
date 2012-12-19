@@ -11,21 +11,23 @@
 <?php include_partial('message_sent/flashes') ?>
 <div id="sf_admin_content">
     <div class="content-block">
-        <ul class="nav-tabs" id="sent_nav_tabs">
+         <ul class="nav-tabs" id="inbox_nav_tabs">
             <li id="message_sent_tab" class="active-tab">
-                <a href="/message_sent_tab">Sent</a>
+                <a href="/message/sent/tab">Sent</a>
                 <span class="list-count"><?php echo $totalSentCount ?></span>
             </li>
-            <li id="message_read_tab"><a id="message_read" href="/message_read_tab">&nbsp;</a></li>
+            <li id="message_read_tab">
+                <a id="message_read" href="/message/read/tab">&nbsp;</a>
+            </li>
         </ul>
-        <div id="email_container" class=""></div>
+        <div id="email_container"></div>
     </div>
 </div>
 <div id="tab_content"></div>
 <script type="text/javascript">
-    $(document).ready(function(){  
-        $("#sent_nav_tabs a").click(function(){
-            $("#sent_nav_tabs li").removeClass("active-tab");
+    $(document).ready(function(){ 	
+        $("#inbox_nav_tabs a").click(function(){
+            $("#inbox_nav_tabs li").removeClass("active-tab");
             $(this).parent().addClass("active-tab");
             $("#email_container").html(loadingHtml);
             $("#email_container").load($(this).attr("href"));
@@ -39,6 +41,6 @@
 
     function fetchDefaultTab(){
         $("#email_container").html(loadingHtml);
-        $("#email_container").load('/message_sent_tab');
+        $("#email_container").load('/message/sent/tab');
     }
 </script>

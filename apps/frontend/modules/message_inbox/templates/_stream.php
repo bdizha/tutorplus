@@ -27,7 +27,7 @@
     <div class="thread">
         <?php include_partial('personal_info/photo', array('user' => $emailMessage->getSender(), "dimension" => 48)) ?>
         <div class="message">
-            <div class="value"><?php echo $emailMessage->getHtmlizedBody() ?></div>
+            <div class="value"><?php echo $emailMessage->getBody() ?></div>
             <div class="user_meta">By <?php echo link_to($emailMessage->getSender(), 'profile_show', $emailMessage->getSender()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($emailMessage->getCreatedAt(), "f"); ?></span></div>
         </div>
     </div>
@@ -36,13 +36,13 @@
         <div class="thread">
             <?php include_partial('personal_info/photo', array('user' => $emailMessageReply->getSender(), "dimension" => 48)) ?>
             <div class="message">
-                <div class="value"><?php echo $emailMessageReply->getHtmlizedBody() ?></div>
+                <div class="value"><?php echo $emailMessageReply->getBody() ?></div>
                 <div class="user_meta">By <?php echo link_to($emailMessageReply->getSender(), 'profile_show', $emailMessageReply->getSender()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($emailMessageReply->getCreatedAt(), "f"); ?></span></div>
             </div>
         </div>
     <?php endforeach; ?>
     <div class="thread" id="message_reply">
-        <form action="/message_reply" method="post" name="message_reply_form" id="message_reply_form">
+        <form action="/message/reply" method="post" name="message_reply_form" id="message_reply_form">
             <input id="email_message_to_email>" type="hidden" name="email_message[to_email]" value="<?php echo $fromEmail; ?>"/>
             <input id="email_message_subject" type="hidden" name="email_message[subject]" value="Re: <?php echo $emailMessage->getSubject() ?>"/>
             <input id="email_message_is_reply" type="hidden" name="email_message[is_reply]" value="1"/>

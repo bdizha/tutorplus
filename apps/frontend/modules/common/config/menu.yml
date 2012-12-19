@@ -82,7 +82,7 @@ secure:
           suggested_peers:            { route: peer_suggested, label: "Suggestions" }
           find_peers:                 { route: peer_find, label: "Find Peers" }
   messaging:                          
-    details:                          { route: message_inbox, label: Inbox }
+    details:                          { route: message_inbox, label: Messaging }
     type:                             One
     children:
       my_messages:                    

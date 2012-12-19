@@ -122,8 +122,13 @@ class message_inboxActions extends autoMessage_inboxActions {
             $this->emailMessage->setIsRead(true);
             $this->emailMessage->save();
         }
-        
-        $this->fromEmail = $this->emailMessage->getFromEmail();
+
+        if ($this->getUser()->getEmail() == $this->emailMessage->getFromEmail()) {
+            $this->fromEmail = $this->emailMessage->getToEmail();
+        } else {
+
+            $this->fromEmail = $this->emailMessage->getFromEmail();
+        }
 
         $emailMessageReply = $this->emailMessage->getInvoker();
         if ($emailMessageReply->getEmailMessageId()) {
@@ -141,7 +146,7 @@ class message_inboxActions extends autoMessage_inboxActions {
                 // this becomes the sent message
                 $sentEmailMessage = $form->save();
 
-                // do the actual email sending if and if there message is being sent
+                // do the actual email sending if and only if there is message being sent
                 if ($form->getValue("to_email") && $status == EmailMessageTable::EMAIL_MESSAGE_STATUS_SENT) {
                     $this->sendToEmails($form, $sentEmailMessage);
                 }

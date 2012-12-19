@@ -191,8 +191,8 @@ span.separator{
 
 #discussion_description{
     width: 909px !important;
-    max-height: 400px;
-    height: 400px;
+    max-height: 100px;
+    height: 100px;
 }
 
 #discussion_topic_form_holder .redactor_editor{

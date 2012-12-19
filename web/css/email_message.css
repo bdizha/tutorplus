@@ -65,12 +65,7 @@ input[type="text"], input[type="password"] {
 
 .message_stream{
     font-size: 12px;
-    width: 711px;
     position: relative;
-}
-
-.message_stream p{
-    padding-top: 5px;
 }
 
 .message_table{
@@ -99,7 +94,7 @@ input[type="text"], input[type="password"] {
     color: #999999;
     padding-top: 10px;
     position: absolute;
-    right: 0px;
+    right: 10px;
     top: -5px;
 }
 
@@ -151,6 +146,10 @@ span.separator {
     display: block;
 }
 
+.message_actions{
+    margin-right: 10px;
+}
+
 .email_from{
     color: #666666;
     font-weight: normal !important;
@@ -200,7 +199,7 @@ span.separator {
     top: 31px;
 }
 #email_message_subject, #email_message_body{    
-    width: 692px !important;
+    width: 687px !important;
 }
 
 .sf_admin_form fieldset{
@@ -218,12 +217,14 @@ span.separator {
 }
 
 .sf_admin_actions, .error{
-    margin: 0 10px !important;
+    margin: 0 12px !important;
 }
 
 #email_container{
     padding-top: 10px;
     padding-bottom: 10px;
+    border: 1px solid #DDD;
+    background-color: #FFF;
 }
 
 .sf_admin_list{
@@ -236,18 +237,47 @@ span.separator {
 
 #bcc_email{
     position: absolute;
-    right: 5px;
+    right: 2px;
     top: -4px;
 }
 
 #cc_email{
     position: absolute;
-    right: 60px;
+    right: 57px;
     top: -4px;
 }
 
 #to_email{
     position: absolute;
-    right: 110px;
+    right: 107px;
     top: -4px;
+}
+
+.email-recipient{
+    display: inline-block;
+    clear: both !important;
+    width: 480px;
+    border-bottom: 1px solid #DDD;
+    padding: 5px 0;
+}
+
+.recipients-tab{
+    border-top: 1px solid #DDD;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.email-recipient .input {
+    float: left;
+    margin-top: 5px;
+}
+
+.email-recipient .name {
+    float: left;
+    width: 180px;
+    padding-left: 10px;
+}
+
+#email_container table{
+    width: 700px !important;
 }

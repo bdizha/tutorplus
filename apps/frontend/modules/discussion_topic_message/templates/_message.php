@@ -2,7 +2,7 @@
 <div class="thread discussion-reply" id="discussion-reply-<?php echo $discussionTopicMessage->getId() ?>">
     <?php include_partial('personal_info/photo', array('user' => $discussionTopicMessage->getUser(), "dimension" => 48)) ?>
     <div class="message">
-        <div class="value"><?php echo $discussionTopicMessage->getHtmlizedMessage() ?></div>
+        <div class="value"><?php echo $discussionTopicMessage->getMessage() ?></div>
         <div class="user">By <?php echo link_to($discussionTopicMessage->getUser(), 'profile_show', $discussionTopicMessage->getUser()) ?> - <span class="datetime"><?php echo false !== strtotime($discussionTopicMessage->getUpdatedAt()) ? distance_of_time_in_words(strtotime($discussionTopicMessage->getUpdatedAt())) . " ago" : '&nbsp;' ?></span></div>
     </div>
     <div class="comments">

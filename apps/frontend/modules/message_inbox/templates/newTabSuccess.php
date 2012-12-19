@@ -3,11 +3,11 @@
 <?php include_partial('message_inbox/form', array('email_message' => $email_message, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
 <script type="text/javascript">
     $(document).ready(function(){
-        // make the reply textarea elastic	
-        $('textarea').redactor();
-        
         // set the counts of the email labels
         setListCounts();
+        
+        // enable the redactor editor
+        $("#email_message_body").redactor();
         
         $(".sf_admin_form_field_body label").remove();        
         $('.email').click(function(){  
@@ -34,26 +34,26 @@
                 alert("Oops! You need to specify at least a recipient.");
                 return false;
             }
+            else if($("#email_message_body").val() == ""){
+                alert("Oops! You can't send a blank email.");
+                return false;
+            }
             
-            $("#message_form").ajaxSubmit(function(data){
-                if(data == "success")
-                {
-                    $("#inbox_nav_tabs li").removeClass("active-tab");
-                    $("#message_inbox_tab").addClass("active-tab");
-                    fetchDefaultTab();
-                }
-                else
-                {
-                    $("#email_container").html(data);
-                }
-            });
+            if($(this).val() != "Sending..."){
+                $(this).val("Sending...");
+                $("#message_form").ajaxSubmit(function(data){
+                    if(data == "success")
+                    {
+                        $("#inbox_nav_tabs li").removeClass("active-tab");
+                        $("#message_inbox_tab").addClass("active-tab");
+                        fetchDefaultTab();
+                    }
+                    else
+                    {
+                        $("#email_container").html(data);
+                    }
+                });                
+            }
         });
     });
-    
-    function setListCounts(){
-        $("#message_inbox").html("Inbox (<?php echo $total_inbox_count ?>)");
-        $("#message_draft").html("Drafts (<?php echo $total_drafts_count ?>)");
-        $("#message_sent").html("Sent (<?php echo $total_sent_count ?>)");
-        $("#message_trash").html("Trash (<?php echo $total_trash_count ?>)");
-    }
 </script>

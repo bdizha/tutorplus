@@ -1159,10 +1159,6 @@
     width: 110px;
 }
 
-.email-recipient{
-    color: #985321;
-}
-
 .photo-link{
     display: block;
     float: left;
@@ -1178,8 +1174,8 @@ ul.nav-tabs li {
     list-style-type: none;
     padding: 5px 10px;
     font-weight: 500;
-    color: #00446A;
     margin-bottom: -1px;
+    height: 23px;
 }
 
 ul.nav-tabs li a{
@@ -1213,13 +1209,14 @@ ul.nav-tabs li.active-tab {
 
 .thread {
     position: relative;
-    padding: 10px 0 10px 10px;
+    padding: 10px;
+    border-top: 1px solid #DDD;
 }
 
 .message {
     border: 1px solid white;
     margin-left: 65px;
-    padding: 5px;
+    padding: 0 5px;
     min-height: 41px;
 }
 

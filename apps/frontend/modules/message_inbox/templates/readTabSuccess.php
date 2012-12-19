@@ -12,12 +12,12 @@
         // set the counts of the email labels
         setListCounts();
         
-        $('#message_read_tab a').html("<?php echo esc_specialchars($emailMessage->getSubject()) ?>");
-        $('#message_read_tab a').attr("href", "message/read/tab/<?php echo $emailMessage->getId() ?>");
+        $('#message_read_tab a').attr("href", "/message/read/tab/<?php echo $emailMessage->getId() ?>");
         
         $('.save').click(function(){
             var body = $("#email_message_reply_body").val();
-            if($.trim(body) != ""){
+            if($.trim(body) != "" && $(this).val() != "Replying..."){
+                $(this).val("Replying...");
                 $("#message_reply_form").ajaxSubmit(function(data){
                     if(data == "success")
                     {            

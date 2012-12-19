@@ -22,14 +22,13 @@
         // handle message clicks
         $('.sf_admin_list_td_from_emails, .sf_admin_list_td_subject, .sf_admin_list_td_created_at').click(function(){
             // get the second td element
-            var subject = $(this).attr('subject');
-            $("#message_read").html(subject);
+            $("#message_read").html("Read Message");
             $("#message_read_tab").show();
             
             var emailIdParts = $(this).attr("id").split("_");
             
             $("#inbox_nav_tabs li").removeClass("active-tab");
-            $("#message_read_tab").addClass("active-tab")
+            $("#message_read_tab").addClass("active-tab");
             $("#email_container").html(loadingHtml);
             $("#email_container").load('/message/read/tab/' + emailIdParts[1]);
         });

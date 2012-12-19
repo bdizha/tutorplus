@@ -29,6 +29,14 @@ class myUser extends sfGuardSecurityUser {
         return $this->getMyAttribute("user_id", null);
     }
 
+    public function getEmail() {
+        if ($this->getId()) {
+            return $this->getGuardUser()->getEmail();
+        } else {
+            return null;
+        }
+    }
+
     /**
      * Returns the student id 
      *
@@ -141,7 +149,7 @@ class myUser extends sfGuardSecurityUser {
      * @return Doctrine_Record
      */
     public function isStudent() {
-       return !is_null($this->getStudentId());
+        return !is_null($this->getStudentId());
     }
 
     /**
@@ -167,8 +175,6 @@ class myUser extends sfGuardSecurityUser {
             return sfGuardUserTable::TYPE_STAFF;
         return null;
     }
-
-
 
     public function hasPhoto() {
         return count(sfFinder::type('file')->in(sfConfig::get("sf_web_dir") . "/uploads/users/" . $this->getId())) > 0;

@@ -11,14 +11,16 @@
 <?php include_partial('message_draft/flashes') ?>
 <div id="sf_admin_content">
     <div class="content-block">
-        <ul class="nav-tabs" id="drafts_nav_tabs">
+        <ul class="nav-tabs" id="inbox_nav_tabs">
             <li id="message_draft_tab" class="active-tab">
-                <a href="/message_draft_tab">Drafts</a>
+                <a href="/message/draft/tab">Drafts</a>
                 <span class="list-count"><?php echo $totalDraftsCount ?></span>
             </li>
-            <li id="message_edit_tab" class="hide"><a href="/message_edit_tab">Compose Message</a></li>
+            <li id="message_edit_tab" class="hide">
+                <a href="/message_edit_tab">Compose Message</a>
+            </li>
         </ul>
-        <div id="email_container" class=""></div>
+        <div id="email_container"></div>
     </div>
 </div>
 <script type="text/javascript">
@@ -38,6 +40,6 @@
 
     function fetchDefaultTab(){
         $("#email_container").html(loadingHtml);
-        $("#email_container").load('/message_draft_tab');
+        $("#email_container").load('/message/draft/tab');
     }
 </script>

@@ -20,11 +20,11 @@
         $('.sf_admin_list_td_to_email, .sf_admin_list_td_subject, .sf_admin_list_td_created_at').click(function(){
             var emailIdParts = $(this).attr("id").split("_");
             
-            $("#drafts_nav_tabs li").removeClass("active-tab");
+            $("#inbox_nav_tabs li").removeClass("active-tab");
             $("#message_edit_tab").addClass("active-tab").removeClass("hide");
             $("#email_container").html(loadingHtml);
-            $("#message_edit_tab a").attr("href", "/message_draft_tab/" + emailIdParts[1] + "/edit");
-            $("#email_container").load('/message_draft_tab/' + emailIdParts[1] + "/edit");
+            $("#message_edit_tab a").attr("href", "/message/draft/tab/" + emailIdParts[1] + "/edit");
+            $("#email_container").load('/message/draft/tab/' + emailIdParts[1] + "/edit");
         });
         
         $(".batch_selects").change(function(){

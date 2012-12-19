@@ -22,14 +22,14 @@
         $('.sf_admin_list_td_to_email, .sf_admin_list_td_subject, .sf_admin_list_td_created_at').click(function(){
             // get the second td element
             var subject = $(this).attr('subject');
-            $("#message_read").html(subject);
+            $("#message_read").html("Read Message");
             
             var emailIdParts = $(this).attr("id").split("_");
             
-            $("#sent_nav_tabs li").removeClass("active-tab");
-            $("#message_read_tab").addClass("active-tab")
+            $("#inbox_nav_tabs li").removeClass("active-tab");
+            $("#message_read_tab").addClass("active-tab");
             $("#email_container").html(loadingHtml);
-            $("#email_container").load('/message_read_tab/' + emailIdParts[1]);
+            $("#email_container").load('/message/read/tab/' + emailIdParts[1]);
         });
         
         $(".batch_selects").change(function(){

@@ -24,7 +24,7 @@
                         <a class="image" href="/profile"><img height="36px" width="36px" alt="Batanayi Matuku" src="/avatars/36.png"></a>
                         <div class="value">
                             <?php echo $announcement->getSubject() ?>
-                            <?php echo $announcement->getHtmlizedMessage() ?>
+                            <?php echo $announcement->getMessage() ?>
                         </div>
                         <div class="user">By <?php echo link_to($announcement->getUser(), "profile") ?>  - <span class="datetime"><?php echo false !== strtotime($announcement->getUpdatedAt()) ? distance_of_time_in_words(strtotime($announcement->getUpdatedAt())) . " ago" : '&nbsp;' ?></span></div>
                         <?php if (isset($showActions) && $showActions && false): ?>

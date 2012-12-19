@@ -42,7 +42,7 @@ class EmailMessageForm extends BaseEmailMessageForm
 
         $this->setDefaults(array(
             "sender_id" => $user->getId(),
-            "status" => EmailMessageTable::EMAIL_MESSAGE_STATUS_SAVED,
+            "status" => EmailMessageTable::EMAIL_MESSAGE_STATUS_SENT,
             "from_email" => $user->getEmail()));
 
         $this->disableLocalCSRFProtection();

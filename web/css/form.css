@@ -132,7 +132,6 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#C37E4C',EndColorStr='#AB6634');
     border: 1px solid #C37E4C;
     color: #FFF !important;
-    min-width: 85px;
 }
 
 .button-edit, .button-remove, .button-view{

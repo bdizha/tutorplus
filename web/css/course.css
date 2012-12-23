@@ -73,7 +73,7 @@ select[size], select[multiple], select[size][multiple] {
 
 .venue{
     display: block;
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #EEEDDD;
 }
 
 .course-meeting-time{
@@ -82,7 +82,7 @@ select[size], select[multiple], select[size][multiple] {
 
 .course-row{
     padding: 5px;
-    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #EEE;
 }
 
 #campuses_list{
@@ -193,4 +193,66 @@ select[size], select[multiple], select[size][multiple] {
 
 #course_discription{
     padding: 10px;
+}
+
+#course_instructors, #course_students{
+    background-color: #FFF;
+    min-height: 80px;
+}
+
+.course-follower{
+    display: inline-block;
+    clear: both !important;
+    width: 480px;
+    border-bottom: 1px solid #EEE;
+    padding: 5px 0;
+}
+
+.course-follower .name {
+    float: left;
+    width: 180px;
+    padding-left: 10px;
+}
+
+.course-follower .input {
+    float: left;
+    margin-top: 5px;
+}
+
+#choose_course_students_form,
+#choose_course_instructors_form{
+    height: 330px;
+    overflow: auto;
+    padding-top: 10px;
+    display: block;
+    position: relative;
+    border-top: 1px solid #EEE;
+    margin: 0 10px 20px;
+}
+
+.student-course{
+    display: inline-block;
+    clear: both !important;
+    width: 614px;
+    border-top: 1px solid #EEE;
+    padding: 5px 0;
+    margin-left: 10px;
+}
+
+.student-course .name {
+    float: left;
+    width: 560px;
+    padding-left: 10px;
+}
+
+#student_choose_course_form{
+    height: 330px;
+    overflow: auto;
+    padding-top: 10px;
+    display: block;
+    position: relative;
+}
+
+.student-course img{
+    float: left;
 }

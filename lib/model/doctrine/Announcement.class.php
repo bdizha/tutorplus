@@ -22,6 +22,7 @@ class Announcement extends BaseAnnouncement
             $activityFeed = new ActivityFeed();
             $activityFeed->setActivityTemplate($activityTemplate);
             $activityFeed->setReplacements(json_encode($replacements));
+            $activityFeed->setUserId($this->getUserId());
             $activityFeed->save();
         }
     }

@@ -44,7 +44,7 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "program",
+                "Settings" => "course",
                 "Academic Settings" => "academic_settings",
                 "Programmes" => "program"
             )
@@ -62,7 +62,7 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
 
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "program",
+                "Settings" => "course",
                 "Communication Settings" => "academic_settings",
                 "Programmes" => "program"
             )
@@ -78,9 +78,9 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs() {
+    public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
-                "Setting" => "program",
+                "Settings" => "course",
                 "Academic Settings" => "academic_settings",
                 "Programmes" => "program"
             )

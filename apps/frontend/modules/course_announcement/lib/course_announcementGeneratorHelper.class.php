@@ -81,7 +81,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
                 "Modules" => "course",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
                 "Announcements" => "course_announcement",
-                "Announcement ~ " . $object->getSubject() => "announcement/" . $object->getSlug(),
+                myToolkit::shortenString($object->getSubject(), 45) => "announcement/" . $object->getSlug(),
             )
         );
     }

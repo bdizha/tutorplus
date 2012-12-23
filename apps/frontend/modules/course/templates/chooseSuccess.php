@@ -4,21 +4,15 @@
         <div id="sf_admin_form_content">
             <?php include_partial('common/flashes') ?>
             <form id="<?php echo $module ?>_choose_course_form" action="<?php echo url_for2('choose_course', array("module_name" => $module, "object_id" => $objectId)) ?>" method="post">
-                <fieldset id="sf_fieldset_none">
-                    <div class="sf_admin_form_row">
-                        <?php foreach ($courses as $key => $course): ?>
-                            <div class="potential-list <?php echo fmod($key, 2) ? "right" : "left" ?>">
-                                <div class="image">
-                                    <img alt="<?php echo $course["name"] ?>" src="/images/icons/14x14/my_courses.png"/>
-                                </div>
-                                <div class="name"><?php echo $course["name"] ?></div>
-                                <div class="input">
-                                    <input type="checkbox" name="courses[]" value="<?php echo $course["id"] ?>" <?php echo (in_array($course["id"], $currentCourseIds)) ? "checked='checked'" : "" ?> id="course_<?php echo $course["id"] ?>" class="choose-input" />
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>          
-                </fieldset>
+                <?php foreach ($courses as $key => $course): ?>
+                    <div class="student-course">
+                        <img alt="<?php echo $course["name"] ?>" src="/images/course-icon.png" style="width: 36px;height: 36px;">                  
+                        <div class="name"><?php echo $course["name"] ?></div>
+                        <div class="input">
+                            <input type="checkbox" name="courses[]" value="<?php echo $course["id"] ?>" <?php echo (in_array($course["id"], $currentCourseIds)) ? "checked='checked'" : "" ?> id="course_<?php echo $course["id"] ?>" class="choose-input" />
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </form>            
         </div>            
     </div>            

@@ -10,12 +10,21 @@
  */
 class facultyGeneratorHelper extends BaseFacultyGeneratorHelper {
 
-    public function indexLinks() {
-        return array("current_parent" => "settings", "current_child" => "academic_settings", "current_link" => "faculties");
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Academic Settings" => "academic_settings",
+                "Faculties" => "faculty"
+            )
+        );
     }
 
-    public function newBreadcrumbs() {
-        return array('breadcrumbs' => array("Faculties" => "faculty"));
+    public function indexLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "academic_settings",
+            "current_link" => "faculties"
+        );
     }
 
 }

@@ -18,6 +18,15 @@
 .sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_employment,
 .sf_admin_form_field_is_student, .sf_admin_form_field_employment_start_date, .sf_admin_form_field_employment_end_date,
 .sf_admin_form_field_is_active, .sf_admin_form_field_current_study{
-    width: 45%;
+    width: 341px;
     float: left;	
+}
+
+#staff_form_holder .sf_admin_form_row label {
+    float: none !important;
+    width: 330px !important;
+}
+
+.sf_admin_form_field_employment_start_date, .sf_admin_form_field_is_student{
+    clear: both !important;
 }

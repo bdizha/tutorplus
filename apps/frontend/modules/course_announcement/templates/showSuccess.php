@@ -10,7 +10,7 @@
 
 <?php $user = $announcement->getUser() ?>
 <div class="sf_admin_heading">
-    <h3><?php echo __('Read Announcement', array(), 'messages') ?></h3>
+    <h3><?php echo __('Announcement ~ ' . $announcement->getSubject(), array(), 'messages') ?></h3>
 </div>
 <div class="content-block">
     <div class="news-action">

@@ -34,7 +34,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
         return '<li class="sf_admin_action_show">' . link_to(__($params['label'], array(), 'sf_admin'), "/discussion_member", array("onclick" => "document.location.href='/discussion_member';return false")) . '</li>';
     }
 
-    public function linkToManageParticipants($object, $params)
+    public function linkToManageFollowers($object, $params)
     {
         return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/discussion_member\';return false"/>';
     }
@@ -52,7 +52,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
             $course->getCode() . " ~ " . myToolkit::shortenString($course->getName(), 50) => "course/" . $course->getSlug(),
             "Discussions" => "course_discussion",
             myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
-            "Participants" => "discussion_member"
+            "Followers" => "discussion_member"
         )
         );
     }
@@ -72,7 +72,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
             "Discussions" => "discussion",
             "Discussion Explorer" => "discussion",
             myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
-            "Participants" => "discussion_member"
+            "Followers" => "discussion_member"
         )
         );
     }
@@ -93,7 +93,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
             "Discussions" => "discussion",
             "Discussion Explorer" => "discussion",
             myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
-            "Participants" => "discussion_member",
+            "Followers" => "discussion_member",
             "Edit Participant ~ " . $object->getNickname() => "discussion/member/" . $object->getId() . "/edit"
         )
         );
@@ -105,7 +105,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
             "Discussions" => "discussion",
             "Discussion Explorer" => "discussion",
             myToolkit::shortenString($this->discussion->getName(), 50) => "discussion/" . $this->discussion->getSlug(),
-            "Participants" => "discussion_member",
+            "Followers" => "discussion_member",
             "New Participant" => "discussion/member/new"
         )
         );

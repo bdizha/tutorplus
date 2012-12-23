@@ -3,10 +3,10 @@
     <head></head>
     <body>
         <div style="width:600px;background-color:#F1F1F1">
-            <div style="border-style:solid;border-width:1px;border-color:#ddd;border-bottom:none;padding:10px;height: 40px;overflow: hidden;">
+            <div style="border-style:solid;border-width:1px;border-color:#EEE;border-bottom:none;padding:10px;height: 40px;overflow: hidden;">
                 <img src="http://tutorplus.org/images/logo.png" style="width: 500px;margin-top: -33px;margin-left: -74px;"></img>
             </div>
-            <div style="background-color:#fdfdfd;border-style:solid;border-width:1px;border-color:#ddd;padding:20px;color:#505050;font-family:'helvetica neue', helvetica, arial, sans-serif;font-size:12px;line-height:1.8em">
+            <div style="background-color:#fdfdfd;border-style:solid;border-width:1px;border-color:#EEE;padding:20px;color:#505050;font-family:'helvetica neue', helvetica, arial, sans-serif;font-size:12px;line-height:1.8em">
                 <div style="display: block;"><?php echo $content ?></div>
                 <div style="display: block;padding-top: 10px">Thanks</div>
                 <div style="display: block;">The <strong>TutorPlus</strong> Team</div>

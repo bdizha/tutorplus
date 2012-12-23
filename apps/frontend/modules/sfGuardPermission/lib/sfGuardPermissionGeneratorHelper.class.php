@@ -8,30 +8,57 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class sfGuardPermissionGeneratorHelper extends BaseSfGuardPermissionGeneratorHelper
-{
-	public function linkToNew($params)
-  {
-    return '<li class="sf_admin_action_new">'.button_to(__($params['label'], array(), 'sf_admin'), "/sfGuardPermission#", array()).'</li>';
-  }
+class sfGuardPermissionGeneratorHelper extends BaseSfGuardPermissionGeneratorHelper {
 
-  public function linkToEdit($object, $params)
-  {
-    return '<li class="sf_admin_action_edit">'.link_to(__($params['label'], array(), 'sf_admin'), "/sfGuardPermission#", array("popup_url" => "/sfGuardPermission/".$object->getId()."/edit")).'</li>';
-  }
-  
-	public function linkToSave($object, $params)
-  {
-    return '<li class="sf_admin_action_save"><input class="save" type="button" value="'.__($params['label'], array(), 'sf_admin').'" /></li>';
-  }
-  
-	public function linkToSaveAndAdd($object, $params)
-  {
-    if (!$object->isNew())
-    {
-      return '';
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "course",
+                "Users Permissions" => "sfGuardPermission"
+            )
+        );
     }
 
-    return '<li class="sf_admin_action_save_and_add"><input class="save" type="button" value="'.__($params['label'], array(), 'sf_admin').'" name="_save_and_add" /></li>';
-  }
+    public function indexLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "permissions"
+        );
+    }
+
+    public function newBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "course",
+                "User Permissions" => "sfGuardPermission"
+            )
+        );
+    }
+
+    public function newLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "permissions"
+        );
+    }
+
+    public function editBreadcrumbs($object) {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "course",
+                "User Permissions" => "sfGuardPermission"
+            )
+        );
+    }
+
+    public function editLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "permissions"
+        );
+    }
+
 }

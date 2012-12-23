@@ -21,18 +21,8 @@ class InstructorForm extends BaseInstructorForm {
         $this->widgetSchema['is_student'] = new sfWidgetFormInputCheckbox();
 
         $this->validatorSchema['is_active'] = new sfValidatorBoolean(array('required' => false));
+        $this->validatorSchema['employment_start_date']->setMessage('invalid', 'The <b>Employment start date</b> field is invalid.');
+        $this->validatorSchema['employment_end_date']->setMessage('invalid', 'The <b>Employment end date</b> field is invalid.');
         $this->validatorSchema['employment']->setMessage('required', 'The <b>Employment</b> field is required.');
     }
-
-    public function configure() {
-        parent::configure();
-        $this->widgetSchema ['username'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema ['password'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema ['password_again'] = new sfWidgetFormInputHidden();
-
-        $this->validatorSchema['username'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-        $this->validatorSchema['password'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-        $this->validatorSchema['password_again'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-    }
-
 }

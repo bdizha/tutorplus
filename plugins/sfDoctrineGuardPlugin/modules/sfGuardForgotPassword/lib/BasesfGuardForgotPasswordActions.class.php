@@ -12,7 +12,7 @@ abstract class BasesfGuardForgotPasswordActions extends sfActions {
 
     public function preExecute() {
         if ($this->getUser()->isAuthenticated()) {
-            $this->redirect('@homepage');
+            $this->redirect('@home');
         }
     }
 

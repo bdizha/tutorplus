@@ -46,6 +46,8 @@ CREATE TABLE folder (id BIGSERIAL, name VARCHAR(255) NOT NULL, type BIGINT DEFAU
 CREATE TABLE gradebook (id BIGSERIAL, items BIGINT DEFAULT 0 NOT NULL, course_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE gradebook_item (id BIGSERIAL, name VARCHAR(255) NOT NULL, weight NUMERIC(18,2) DEFAULT 0 NOT NULL, gradebook_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE gradebook_scale (id BIGSERIAL, min_points NUMERIC(18,2) DEFAULT 0 NOT NULL, max_points NUMERIC(18,2) DEFAULT 0 NOT NULL, code VARCHAR(255) NOT NULL, gradebook_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
+CREATE TABLE group (id BIGSERIAL, name VARCHAR(255) NOT NULL, description VARCHAR(1000) NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
+CREATE TABLE group_permission (id BIGSERIAL, group_id BIGINT NOT NULL, permission_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE instructor (id BIGSERIAL, user_id BIGINT NOT NULL, about VARCHAR(500), middle_name VARCHAR(200), date_of_birth TIMESTAMP, gender VARCHAR(255), employment VARCHAR(255), is_student BOOLEAN DEFAULT 'false', high_school VARCHAR(255), studied_at VARCHAR(255), current_study VARCHAR(255), employment_start_date TIMESTAMP, employment_end_date TIMESTAMP, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE instructor_contact (id BIGSERIAL, email_address VARCHAR(255), phone_work VARCHAR(200), phone_home VARCHAR(200), phone_mobile VARCHAR(200), address_line_1 VARCHAR(300), address_line_2 VARCHAR(300), postcode VARCHAR(10), city VARCHAR(255), country_id BIGINT NOT NULL, state_province_id BIGINT NOT NULL, instructor_id BIGINT NOT NULL, postal_address_line_1 VARCHAR(300), postal_address_line_2 VARCHAR(300), postal_postcode VARCHAR(10), postal_city VARCHAR(255), postal_country_id BIGINT NOT NULL, postal_state_province_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE instructor_course (id BIGSERIAL, instructor_id BIGINT NOT NULL, course_id BIGINT NOT NULL, PRIMARY KEY(id));
@@ -61,9 +63,14 @@ CREATE TABLE peer (id BIGSERIAL, inviter_id BIGINT NOT NULL, invitee_id BIGINT N
 CREATE TABLE profile (id BIGSERIAL, user_id BIGINT NOT NULL, about VARCHAR(500), middle_name VARCHAR(200), date_of_birth TIMESTAMP, gender VARCHAR(255), created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE profile_award (id BIGSERIAL, user_id BIGINT, institution VARCHAR(255), description VARCHAR(500), year VARCHAR(255), PRIMARY KEY(id));
 CREATE TABLE profile_book (id BIGSERIAL, user_id BIGINT, title VARCHAR(255) NOT NULL, author VARCHAR(255), PRIMARY KEY(id));
+CREATE TABLE profile_group (id BIGSERIAL, name VARCHAR(255) NOT NULL, description VARCHAR(1000) NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
+CREATE TABLE profile_group_permission (id BIGSERIAL, group_id BIGINT NOT NULL, permission_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE profile_interest (id BIGSERIAL, user_id BIGINT, name VARCHAR(500) NOT NULL, PRIMARY KEY(id));
+CREATE TABLE profile_permission (id BIGSERIAL, name VARCHAR(255) NOT NULL, description VARCHAR(1000) NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE profile_publication (id BIGSERIAL, user_id BIGINT, title VARCHAR(255) NOT NULL, link VARCHAR(500), year VARCHAR(255), PRIMARY KEY(id));
 CREATE TABLE profile_qualification (id BIGSERIAL, user_id BIGINT, institution VARCHAR(255), description VARCHAR(500), year VARCHAR(255), PRIMARY KEY(id));
+CREATE TABLE profile_user_group (id BIGSERIAL, user_id BIGINT NOT NULL, group_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
+CREATE TABLE profile_user_permission (id BIGSERIAL, user_id BIGINT NOT NULL, permission_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE program (id BIGSERIAL, name VARCHAR(255) NOT NULL, abbreviation VARCHAR(10) NOT NULL, code VARCHAR(255) NOT NULL, description TEXT NOT NULL, type BIGINT DEFAULT 0 NOT NULL, department_id BIGINT NOT NULL, program_level_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE program_level (id BIGSERIAL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id));
 CREATE TABLE room (id BIGSERIAL, name VARCHAR(255) NOT NULL, abbreviation VARCHAR(10) NOT NULL, building_id BIGINT NOT NULL, PRIMARY KEY(id));
@@ -82,6 +89,8 @@ CREATE TABLE student_program (id BIGSERIAL, student_id BIGINT NOT NULL, program_
 CREATE TABLE user_activity_feed (id BIGSERIAL, user_id BIGINT NOT NULL, activity_feed_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE user_calendar (id BIGSERIAL, owner_id BIGINT NOT NULL, calendar_id BIGINT NOT NULL, PRIMARY KEY(id));
 CREATE TABLE user_folder (id BIGSERIAL, user_id BIGINT NOT NULL, folder_id BIGINT NOT NULL, PRIMARY KEY(id));
+CREATE TABLE user_group (id BIGSERIAL, user_id BIGINT NOT NULL, group_id BIGINT NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
+CREATE TABLE user_permission (id BIGSERIAL, name VARCHAR(255) NOT NULL, description VARCHAR(1000) NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE sf_guard_forgot_password (id BIGSERIAL, user_id BIGINT NOT NULL, unique_key VARCHAR(255), expires_at TIMESTAMP NOT NULL, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
 CREATE TABLE sf_guard_group_permission (group_id BIGINT, permission_id BIGINT, created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(group_id, permission_id));
 CREATE TABLE sf_guard_permission (id BIGSERIAL, name VARCHAR(255) UNIQUE, description VARCHAR(1000), created_at TIMESTAMP NOT NULL, updated_at TIMESTAMP NOT NULL, PRIMARY KEY(id));
@@ -170,6 +179,7 @@ ALTER TABLE file ADD CONSTRAINT file_folder_id_folder_id FOREIGN KEY (folder_id)
 ALTER TABLE gradebook ADD CONSTRAINT gradebook_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE gradebook_item ADD CONSTRAINT gradebook_item_gradebook_id_gradebook_id FOREIGN KEY (gradebook_id) REFERENCES gradebook(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE gradebook_scale ADD CONSTRAINT gradebook_scale_gradebook_id_gradebook_id FOREIGN KEY (gradebook_id) REFERENCES gradebook(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE group_permission ADD CONSTRAINT group_permission_group_id_group_id FOREIGN KEY (group_id) REFERENCES group(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE instructor ADD CONSTRAINT instructor_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE instructor_contact ADD CONSTRAINT instructor_contact_state_province_id_state_province_id FOREIGN KEY (state_province_id) REFERENCES state_province(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE instructor_contact ADD CONSTRAINT instructor_contact_postal_state_province_id_state_province_id FOREIGN KEY (postal_state_province_id) REFERENCES state_province(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
@@ -195,9 +205,16 @@ ALTER TABLE peer ADD CONSTRAINT peer_invitee_id_sf_guard_user_id FOREIGN KEY (in
 ALTER TABLE profile ADD CONSTRAINT profile_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE profile_award ADD CONSTRAINT profile_award_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE profile_book ADD CONSTRAINT profile_book_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE profile_group ADD CONSTRAINT profile_group_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE profile_group_permission ADD CONSTRAINT profile_group_permission_permission_id_profile_permission_id FOREIGN KEY (permission_id) REFERENCES profile_permission(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE profile_group_permission ADD CONSTRAINT profile_group_permission_group_id_profile_group_id FOREIGN KEY (group_id) REFERENCES profile_group(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE profile_interest ADD CONSTRAINT profile_interest_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE profile_publication ADD CONSTRAINT profile_publication_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE profile_qualification ADD CONSTRAINT profile_qualification_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE profile_user_group ADD CONSTRAINT profile_user_group_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE profile_user_group ADD CONSTRAINT profile_user_group_group_id_profile_group_id FOREIGN KEY (group_id) REFERENCES profile_group(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE profile_user_permission ADD CONSTRAINT profile_user_permission_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE profile_user_permission ADD CONSTRAINT profile_user_permission_permission_id_profile_permission_id FOREIGN KEY (permission_id) REFERENCES profile_permission(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE program ADD CONSTRAINT program_program_level_id_program_level_id FOREIGN KEY (program_level_id) REFERENCES program_level(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE program ADD CONSTRAINT program_department_id_department_id FOREIGN KEY (department_id) REFERENCES department(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE room ADD CONSTRAINT room_building_id_building_id FOREIGN KEY (building_id) REFERENCES building(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
@@ -236,6 +253,8 @@ ALTER TABLE user_calendar ADD CONSTRAINT user_calendar_owner_id_sf_guard_user_id
 ALTER TABLE user_calendar ADD CONSTRAINT user_calendar_calendar_id_calendar_id FOREIGN KEY (calendar_id) REFERENCES calendar(id) NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE user_folder ADD CONSTRAINT user_folder_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE user_folder ADD CONSTRAINT user_folder_folder_id_folder_id FOREIGN KEY (folder_id) REFERENCES folder(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE user_group ADD CONSTRAINT user_group_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE user_group ADD CONSTRAINT user_group_group_id_group_id FOREIGN KEY (group_id) REFERENCES group(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE sf_guard_forgot_password ADD CONSTRAINT sf_guard_forgot_password_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE sf_guard_group_permission ADD CONSTRAINT sf_guard_group_permission_permission_id_sf_guard_permission_id FOREIGN KEY (permission_id) REFERENCES sf_guard_permission(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;
 ALTER TABLE sf_guard_group_permission ADD CONSTRAINT sf_guard_group_permission_group_id_sf_guard_group_id FOREIGN KEY (group_id) REFERENCES sf_guard_group(id) ON DELETE CASCADE NOT DEFERRABLE INITIALLY IMMEDIATE;

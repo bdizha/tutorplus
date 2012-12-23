@@ -1,1 +1,1 @@
-<?php include_partial('student/programmes', array('programmes' => $student->getProgrammes())) ?>
+<?php include_partial('student/programmes', array('programmes' => $student->getProgrammes(), 'student' => $student)) ?>

@@ -26,11 +26,11 @@
 
 #notifications, #my_courses, #my_discussions, #news_items, #announcements{
     padding: 0 0 12px 0 !important;
-    border: 1px solid #DDD;
+    border: 1px solid #EEE;
 }
 
 #my_peers{
-    border: 1px solid #DDD;    
+    border: 1px solid #EEE;    
 }
 
 #my_messages{
@@ -40,7 +40,7 @@
     background-repeat: no-repeat;
     height: 100px !important;
     width: 438px;
-    border: 1px solid #DDD;
+    border: 1px solid #EEE;
 }
 
 #events{
@@ -50,7 +50,7 @@
     background-repeat: no-repeat;
     height: 100px !important;
     width: 438px;
-    border: 1px solid #DDD;
+    border: 1px solid #EEE;
 }
 
 .view-more{

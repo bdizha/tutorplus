@@ -21,11 +21,11 @@
  *     if ($this->form->process($request))
  *     {
  *       // culture has changed
- *       return $this->redirect('@homepage');
+ *       return $this->redirect('@home');
  *     }
  *
  *     // the form is not valid (can't happen... but you never know)
- *     return $this->redirect('@homepage');
+ *     return $this->redirect('@home');
  *   }
  * }
  *

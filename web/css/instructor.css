@@ -17,9 +17,9 @@
 .sf_admin_form_field_guardian_state_province_id, .sf_admin_form_field_high_school, .sf_admin_form_field_current_qualification,
 .sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_employment,
 .sf_admin_form_field_is_instructor, .sf_admin_form_field_employment_start_date, .sf_admin_form_field_employment_end_date,
-.sf_admin_form_field_is_active, .sf_admin_form_field_current_study{
-    width: 341px;
-    float: left;	
+.sf_admin_form_field_is_active, .sf_admin_form_field_current_study, .sf_admin_form_field_is_student{
+    width: 338px;
+    display: inline-block;	
 }
 
 #sf_admin_container label{
@@ -160,7 +160,7 @@
 }
 
 #choose_programes li {
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #EEEDDD;
     display: block;
     float: left;
     height: 20px;
@@ -196,7 +196,7 @@
 }
 
 #choose_courses li {
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #EEEDDD;
     display: block;
     float: left;
     height: 20px;
@@ -213,7 +213,7 @@
 }
 
 #choose_mailing_lists li {
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #EEEDDD;
     display: block;
     float: left;
     height: 20px;

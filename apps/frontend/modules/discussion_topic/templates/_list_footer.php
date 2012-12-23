@@ -1,4 +1,4 @@
-<h2>Discussion Participants</h2>
+<h2>Discussion Followers</h2>
 <div id="discussion_members" class="peer-block  padding-10">
     <?php include_partial('discussion_member/members', array('discussion' => $discussion)) ?>            
 </div> 
@@ -11,7 +11,7 @@
         <?php endif; ?>                
     </li>
     <li class="sf_admin_action_member_new">
-        <input type="button" class="button" href="/discussion/member/new" value="+ Invite Participants" />
+        <input type="button" class="button" href="/discussion/member/new" value="+ Invite Followers" />
     </li>
     <li class="sf_admin_action_member">
         <input type="button" class="button" onclick="document.location.href='/discussion_member';" value="Manage Followers" />

@@ -1052,3 +1052,49 @@ PaymentScheme:
   relations:
     Student:                { class: Student, local: student_id, foreign: id, foreignAlias: Payments, onDelete: CASCADE }
     
+ProfileGroup:
+  actAs:
+    Timestampable:          ~
+  columns:
+    name:                   { type: string(255), notnull: true }
+    description:            { type: string(1000), notnull: true }
+  relations:
+    Users:                  { class: sfGuardUser, local: user_id, onDelete: CASCADE }
+    Permissions:            { class: ProfilePermission, refClass: ProfileGroupPermission, local: group_id, foreign: permission_id, foreignAlias: Groups, onDelete: CASCADE }
+    
+ProfilePermission:
+  actAs:
+    Timestampable:          ~
+  columns:
+    name:                   { type: string(255), notnull: true }
+    description:            { type: string(1000), notnull: true }
+      
+ProfileGroupPermission:
+  actAs:
+    Timestampable:          ~
+  columns:
+    group_id:               { type: integer, notnull: true }
+    permission_id:          { type: integer, notnull: true }
+  relations:
+    Group:                  { class: ProfileGroup, local: group_id, foreign: id, foreignAlias: Group, onDelete: CASCADE }
+    Permission:             { class: ProfilePermission, local: permission_id, foreign: id, foreignAlias: Permission, onDelete: CASCADE }
+    
+ProfileUserGroup:
+  actAs:
+    Timestampable:          ~
+  columns:
+    user_id:                { type: integer, notnull: true }
+    group_id:               { type: integer, notnull: true }
+  relations:
+    User:                   { class: sfGuardUser, local: user_id, onDelete: CASCADE }
+    Group:                  { class: ProfileGroup, local: group_id, onDelete: CASCADE }
+    
+ProfileUserPermission:
+  actAs:
+    Timestampable:          ~
+  columns:
+    user_id:                { type: integer, notnull: true }
+    permission_id:          { type: integer, notnull: true }
+  relations:
+    User:                   { class: sfGuardUser, local: user_id, onDelete: CASCADE }
+    Permission:             { class: ProfilePermission, local: permission_id, onDelete: CASCADE }

@@ -28,7 +28,7 @@
 #cboxBottomRight{width:15px; height:15px;}
 #cboxMiddleLeft{width:15px;}
 #cboxMiddleRight{width:15px;}
-#cboxContent{background:#fff; overflow:hidden; border: 1px solid #DDD;}
+#cboxContent{background:#fff; overflow:hidden; border: 1px solid #EEE;}
 .cboxIframe{background:#fff;}
 #cboxError{padding:50px; border:1px solid #ccc;}
 #cboxLoadedContent{
@@ -115,9 +115,14 @@
     min-height: 100px;
 }
 
-#cboxLoadedContent .error, #cboxLoadedContent .notice{
+#cboxLoadedContent .error{
     margin-left: 10px;
     margin-right: 10px;
+}
+
+#cboxLoadedContent .notice{
+    margin-left: -291px;
+    top: 10px;
 }
 
 #cboxLoadedContentInner .right {

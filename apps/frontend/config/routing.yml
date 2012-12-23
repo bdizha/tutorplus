@@ -1,10 +1,28 @@
+profile_permission:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfilePermission
+    module:               profile_permission
+    prefix_path:          /profile/permission
+    column:               id
+    with_wildcard_routes: true
+
+profile_group:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileGroup
+    module:               profile_group
+    prefix_path:          /profile/group
+    column:               id
+    with_wildcard_routes: true
+
 payment_scheme:
   class: sfDoctrineRouteCollection
   options:
     model:                PaymentScheme
     module:               payment_scheme
     prefix_path:          /payment/scheme
-    column:               id
+    column:               ida
     with_wildcard_routes: true
 
 payment:
@@ -1569,8 +1587,8 @@ sf_guard_forgot_password_change:
   param:   { module: sfGuardForgotPassword, action: change }
   requirements: { sf_method: get }
   
-faq:
-  url:   /faq
+faqs:
+  url:   /faqs
   param: { module: section, action: faq }
   
   

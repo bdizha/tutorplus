@@ -52,6 +52,10 @@ class Instructor extends BaseInstructor
     {
         return date('d-m-Y', strtotime(parent::_get('date_of_birth')));
     }
+    
+    public function getEmploymentType(){
+        return InstructorTable::$employment_types[$this->getEmployment()];
+    }
 
     public function getCourses()
     {

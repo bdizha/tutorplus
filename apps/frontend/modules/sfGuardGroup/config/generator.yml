@@ -24,7 +24,7 @@ generator:
         batch_actions:     []
         max_per_page:			 10
         actions:
-          _new: ~
+          _new:            ~
       edit:
         title:             Edit Group: %%name%%
       new:

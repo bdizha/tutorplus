@@ -27,7 +27,7 @@
 }
 
 #mailing_list_students li {
-    border-top: 1px dashed #DDDDDD;
+    border-top: 1px dashed #EEEDDD;
     clear: both;
     display: block;
     overflow: auto;
@@ -61,7 +61,7 @@
     display: block;
     padding: 10px;
     position: relative;
-    border-top: 1px dashed #DDDDDD;
+    border-top: 1px dashed #EEEDDD;
     overflow: auto;
 }
 

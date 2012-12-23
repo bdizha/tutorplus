@@ -20,8 +20,8 @@
 .sf_admin_form_field_semester, .sf_admin_form_field_department_1, .sf_admin_form_field_course_1, .sf_admin_form_field_department_2,
 .sf_admin_form_field_course_2, .sf_admin_form_field_department_3, .sf_admin_form_field_course_3,
 .sf_admin_form_field_year, .sf_admin_form_field_semester{
-    width: 341px;
-    float: left;	
+    width: 338px;
+    display: inline-block;	
 }
 
 #sf_admin_container label{
@@ -71,7 +71,7 @@
 }
 
 #choose_programes li {
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #EEEDDD;
     display: block;
     float: left;
     height: 20px;
@@ -107,7 +107,7 @@
 }
 
 #choose_courses li {
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #EEEDDD;
     display: block;
     float: left;
     height: 20px;
@@ -124,7 +124,7 @@
 }
 
 #choose_mailing_lists li {
-    border-bottom: 1px solid #DDDDDD;
+    border-bottom: 1px solid #EEEDDD;
     display: block;
     float: left;
     height: 20px;
@@ -137,7 +137,7 @@
 
 .student-item {
     height: 80px;
-    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #EEE;
 }
 
 .student-item .image {

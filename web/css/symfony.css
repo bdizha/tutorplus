@@ -49,7 +49,7 @@
     background-color: #FFFFFF;
 }
 .sf_admin_list th, #discussion_topics_footer{
-    background-color: #DCDCDC;
+    background-color: #EEE;
     color: #7E7E7E;
     font-size: 12px;
     font-weight: normal;
@@ -86,7 +86,6 @@ tr.sf_admin_row.odd{
 }
 .sf_admin_heading{
     color: #555555;
-    white-space: nowrap;
 }
 #sf_admin_documents{
     color: #555555;
@@ -195,4 +194,8 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
 
 .content{
     position: relative;
+}
+
+#sf_admin_list_th_actions{
+    width: 130px;
 }

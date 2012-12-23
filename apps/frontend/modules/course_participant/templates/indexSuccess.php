@@ -9,7 +9,7 @@
 <?php end_slot() ?>
 
 <div class="sf_admin_heading">
-    <h3><?php echo __('Course Participants', array(), 'messages') ?></h3>
+    <h3><?php echo __('Course Followers', array(), 'messages') ?></h3>
 </div>
 <div id="sf_admin_form_container">  
     <div id="sf_admin_content">
@@ -33,12 +33,12 @@
         fetchCourseStudents();        
         
         $(".sf_admin_action_manage_students input").click(function(){
-            openPopup("/choose/course/students", '785px', "180px", "<?php echo __('Manage Student Participants', Array(), 'messages') ?>");
+            openPopup("/choose/course/students", '583px', '480px', "<?php echo __('Manage Student Followers', Array(), 'messages') ?>");
             return false;
         }); 
         
         $(".sf_admin_action_manage_instructors input").click(function(){
-            openPopup("/choose/course/instructors", '785px', "180px", "<?php echo __('Manage Instructor Participants', Array(), 'messages') ?>");
+            openPopup("/choose/course/instructors", '583px', '480px', "<?php echo __('Manage Instructor Followers', Array(), 'messages') ?>");
             return false;
         });
     });

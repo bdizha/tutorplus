@@ -15,6 +15,7 @@ html{
 
 div, li {
     line-height: 22px !important;
+    position: relative;
 }
 
 .error li, .error b{
@@ -54,4 +55,8 @@ a:hover{
 
 p{
     margin-bottom: 22px;
+}
+
+td p{
+    margin-bottom: 0px !important;
 }

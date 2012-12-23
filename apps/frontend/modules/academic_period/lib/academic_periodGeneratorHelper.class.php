@@ -10,12 +10,21 @@
  */
 class academic_periodGeneratorHelper extends BaseAcademic_periodGeneratorHelper {
 
-    public function indexLinks() {
-        return array("current_parent" => "settings", "current_child" => "academic_settings", "current_link" => "academic_periods");
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Academic Settings" => "academic_settings",
+                "Academic Periods" => "academic_period"
+            )
+        );
     }
 
-    public function newBreadcrumbs() {
-        return array('breadcrumbs' => array("Academic Periods" => "academic_period"));
+    public function indexLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "academic_settings",
+            "current_link" => "academic_periods"
+        );
     }
 
 }

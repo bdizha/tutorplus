@@ -14,18 +14,4 @@ class StudentForm extends BaseStudentForm {
         parent::setupInheritance();
         $this->widgetSchema->setNameFormat('student[%s]');
     }
-
-    public function configure() {
-        parent::configure();
-        $this->widgetSchema ['username'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema ['password'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema ['password_again'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema ['status'] = new sfWidgetFormInputHidden();
-
-        $this->validatorSchema['username'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-        $this->validatorSchema['password'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-        $this->validatorSchema['password_again'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-        $this->validatorSchema['status'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-    }
-
 }

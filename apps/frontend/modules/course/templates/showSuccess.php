@@ -28,7 +28,7 @@
                     <div class="course-row">
                         <div class="row-column">
                             <div class="row-label">
-                                Module dates:
+                                Course dates:
                             </div>
                             <div class="row-value">
                                 <?php echo $course->getDateTimeObject('start_date')->format('d/m/Y') ?> - <?php echo $course->getDateTimeObject('end_date')->format('d/m/Y') ?>                          

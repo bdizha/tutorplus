@@ -25,7 +25,7 @@ secure:
           assessment_types:           { route: assessment_type, label: "Assessment Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
           course_files:               { route: course_file, label: "Course Files" }
-          course_participants:        { route: course_participant, label: "Participants" }
+          course_participants:        { route: course_participant, label: "Followers" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ student, instructor, staff ]
@@ -126,6 +126,8 @@ secure:
           students:                   { route: student, label: "Students" }
           instructors:                { route: instructor, label: "Instructors" }
           staff:                      { route: staff, label: "Staff" }
+          groups:                     { route: profile_group, label: "Groups" }
+          permissions:                { route: profile_permission, label: "Permissions" }
       communication_settings:                    
         details:                      { route: email_template, label: "Communication Settings" }
         credentials:                  [ administrator ]
@@ -178,5 +180,5 @@ public:
     details:                          { route: contact_us, label: "Contact Us" }
     type:                             one
   faq:  
-    details:                          { route: faq, label: Faqs }
+    details:                          { route: faqs, label: Faqs }
     type:                             one

@@ -119,9 +119,8 @@ class myUser extends sfGuardSecurityUser {
      */
     public function getProfile() {
         $userId = $this->getMyAttribute("profile_show_id", null);
-        $user = sfGuardUserTable::getInstance()->findOneById($userId);
-
         try {
+            $user = sfGuardUserTable::getInstance()->findOneById($userId);
             return $user->getProfile();
         } catch (sfException $e) {
             return null;

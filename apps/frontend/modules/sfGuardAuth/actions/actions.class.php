@@ -24,7 +24,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
         $user = $this->getUser();
         if ($user->isAuthenticated())
         {
-            return $this->redirect('@homepage');
+            return $this->redirect('@home');
         }
 
         $class = sfConfig::get('app_sf_guard_plugin_signin_form', 'sfGuardFormSignin');
@@ -44,7 +44,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
                 $this->getUser()->setFlash('notice', 'Greetings from the TutorPlus team, and we wish you a wonderful learning session.');
                 $this->getUser()->setFlash('error', false, false);
 
-                return $this->redirect('' != $logInUrl ? $logInUrl : '@homepage');
+                return $this->redirect('' != $logInUrl ? $logInUrl : '@home');
             }
         }
         else

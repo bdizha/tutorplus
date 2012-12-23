@@ -15,15 +15,22 @@ generator:
       actions: ~      
       fields:
       form:
-        display: [name, description, groups_list, users_list]
+        display:           [name, description, groups_list, users_list]
       list:
-        title: User Permissions
-        display: [=name, description, created_at, updated_at]
-        batch_actions: []
-        max_per_page: 3
+        title:             User Permissions
+        display:           [=name, description, created_at, updated_at]
+        batch_actions:     []
+        max_per_page:      3
         actions:
-          _new: ~
+          _new:            ~
       edit:
-        title: Edit Permission - %%name%%
+        title:             Edit Permission - %%name%%
+        actions:
+          cancel:          []
+          done:            []
+          _save:           []
       new:
-        title: New Permission
+        title:             New Permission
+        actions:
+          cancel:          []
+          _save:           []

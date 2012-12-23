@@ -72,4 +72,18 @@ class studentActions extends autoStudentActions {
         }
     }
 
+//    protected function processForm(sfWebRequest $request, sfForm $form) {
+//        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+//        if ($form->isValid()) {
+//            
+//        } else {
+//            foreach ($form as $name => $field):
+//                if ($field->hasError()):
+//                    echo '<li>'. $name . " => " . $field->getError().'</li>';
+//                endif;
+//            endforeach;
+//            die;
+//        }
+//    }
+
 }

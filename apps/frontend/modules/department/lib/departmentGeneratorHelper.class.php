@@ -10,12 +10,20 @@
  */
 class departmentGeneratorHelper extends BaseDepartmentGeneratorHelper {
 
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Academic Settings" => "academic_settings",
+                "Departments" => "department"
+            )
+        );
+    }
+
     public function indexLinks() {
-        return array("current_parent" => "settings", "current_child" => "academic_settings", "current_link" => "departments");
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "academic_settings",
+            "current_link" => "departments"
+        );
     }
-
-    public function newBreadcrumbs() {
-        return array('breadcrumbs' => array("Departments" => "department"));
-    }
-
 }

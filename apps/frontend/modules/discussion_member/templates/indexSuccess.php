@@ -19,7 +19,7 @@
 <?php include_partial('discussion_member/flashes') ?>
 
 <div class="sf_admin_heading">
-    <h3><?php echo __('Discussion ~ Participants', array(), 'messages') ?></h3>
+    <h3><?php echo __('Discussion ~ Followers', array(), 'messages') ?></h3>
 </div>
 <div id="sf_admin_content">
     <?php include_partial('discussion_member/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>

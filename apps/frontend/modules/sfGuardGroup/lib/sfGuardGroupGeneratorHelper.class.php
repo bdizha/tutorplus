@@ -10,27 +10,55 @@
  */
 class sfGuardGroupGeneratorHelper extends BaseSfGuardGroupGeneratorHelper
 {
-    public function linkToNew($params)
-    {
-        return '<li class="sf_admin_action_new">'.button_to(__($params['label'], array(), 'sf_admin'), "/sfGuardGroup#", array()).'</li>';
+
+    public function indexBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "course",
+                "User Groups" => "sfGuardGroup"
+            )
+        );
     }
 
-    public function linkToEdit($object, $params)
-    {
-        return '<li class="sf_admin_action_edit">'.link_to(__($params['label'], array(), 'sf_admin'), "/sfGuardGroup#", array("popup_url" => "/sfGuardGroup/".$object->getId()."/edit")).'</li>';
+    public function indexLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "groups"
+        );
     }
 
-    public function linkToSave($object, $params)
-    {
-        return '<li class="sf_admin_action_save"><input type="button" value=" ' . __($params['label'], array(), 'sf_admin') . ' " class="save"></li>';
+    public function newBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "course",
+                "User Groups" => "sfGuardGroup"
+            )
+        );
     }
 
-    public function linkToSaveAndAdd($object, $params)
-    {
-        if (!$object->isNew())
-        {
-            return '';
-        }
-        return '<li class="sf_admin_action_save_andn_add"><input id="link_to_save_and_add" type="button" value=" ' . __($params['label'], array(), 'sf_admin') . ' " class="save"></li>';
+    public function newLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "groups"
+        );
+    }
+
+    public function editBreadcrumbs($object) {
+        return array('breadcrumbs' => array(
+                "Settings" => "course",
+                "Access Settings" => "course",
+                "User Groups" => "sfGuardGroup"
+            )
+        );
+    }
+
+    public function editLinks() {
+        return array(
+            "current_parent" => "settings",
+            "current_child" => "access_settings",
+            "current_link" => "groups"
+        );
     }
 }

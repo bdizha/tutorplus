@@ -1,0 +1,38 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ProfileGroup
+    theme:                 normal
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          profile_group
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~      
+      fields:
+        permissions_list: { label: Permissions }
+      form:
+        display:           
+         "Details":        [name, description, permissions_list]
+      list:
+        title:             Profile Groups
+        display:           [=name, description]
+        batch_actions:     []
+        max_per_page:      3
+        actions:
+          _new:            ~
+      edit:
+        title:             Edit Profile Group - %%name%%
+        actions:
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        title:             New Profile Group
+        actions:
+          cancel:          []
+          _save:           []

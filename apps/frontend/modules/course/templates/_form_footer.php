@@ -1,11 +1,9 @@
 <script type='text/javascript'>
     $(document).ready(function(){	
-        $('#course_description').redactor();
+        $('#course_description, #course_instructor_background').redactor();
     });
     
-    $(".save, .button, .new").click(function(){
-        $(this).addClass('hide');
-        $(this).parent().append(loadingButtonHtml);
-        rotateLoading();
+    $(".save").click(function(){
+        $(this).val("Loading...");
     });
 </script>

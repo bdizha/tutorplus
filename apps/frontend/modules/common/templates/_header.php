@@ -24,8 +24,8 @@
                         </li>
                     <?php else: ?>
                         <li id="header_link_sign_in">
-                            <input class="enroll" value="Enroll as a Student!" type="button" onclick="document.location.href='/student/enroll/new';"/>
-                            <input class="enroll" value="Enroll as an Instructor!" type="button" onclick="document.location.href='/student/enroll/new';"/>
+                            <input class="enrolled" value="Enroll as a Student!" type="button" onclick="document.location.href='/student/enroll/new';"/>
+                            <input class="enrolled" value="Enroll as an Instructor!" type="button" onclick="document.location.href='/student/enroll/new';"/>
                             <input class="button" value="Sign In" type="button" onclick="document.location.href='/user/login';" />
                         </li>
                     <?php endif; ?>

@@ -58,19 +58,16 @@
     padding: 5px 0;
 }
 
-.announcement{
-    padding: 10px 10px 0;
-    background-color: #F5F5F5;
-    margin-top: 10px;
-    border-radius: 5px;
-    position: relative;
-}
-
-.news-action{
-    margin-bottom: 10px !important;
-}
-
 #course_announcement_form_holder .sf_admin_form_row label, 
 #announcement_form_holder .sf_admin_form_row label {
     float: none !important;
+}
+
+.announcement{
+    padding: 10px 10px;
+    position: relative;
+    display: block;
+    clear: both;
+    background-color: white;
+    border-top: 1px solid #EBEAE9;    
 }

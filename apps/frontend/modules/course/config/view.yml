@@ -1,5 +1,5 @@
 all:
-  stylesheets: [course, student]
+  stylesheets: [course.css, student.css, profile.css]
   
 chooseSuccess:
   has_layout: false

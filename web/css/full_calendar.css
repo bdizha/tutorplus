@@ -147,7 +147,7 @@ td.fc-first{
 }
 
 .fc-state-highlight, .fc-today { /* <td> today cell */ /* TODO: add .fc-today to <th> */
-    background: none repeat scroll 0 0 #C37E4C !important;
+    background: none repeat scroll 0 0 #BB6E3C !important;
     color: #FFFFFF !important;
     z-index: 1000;
 }
@@ -581,7 +581,7 @@ table.fc-border-separate {
 }
 
 .fc-widget-header .fc-agenda-divider-inner {
-    background: #eee;
+    background: #EBEAE9;
 }
 
 /* slot rows */

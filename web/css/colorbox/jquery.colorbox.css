@@ -28,7 +28,7 @@
 #cboxBottomRight{width:15px; height:15px;}
 #cboxMiddleLeft{width:15px;}
 #cboxMiddleRight{width:15px;}
-#cboxContent{background:#fff; overflow:hidden; border: 1px solid #EEE;}
+#cboxContent{background:#fff; overflow:hidden; border: 1px solid #EBEAE9;}
 .cboxIframe{background:#fff;}
 #cboxError{padding:50px; border:1px solid #ccc;}
 #cboxLoadedContent{

@@ -247,7 +247,7 @@ ul.instTree li{
 
 .content_panel{
     -moz-border-radius-topleft: 4px;
-    background-color: #EEEEEE;
+    background-color: #EBEAE9EEE;
     border-bottom: 1px solid #CCCCCC;
     padding: 5px 5px 5px 20px;
 }
@@ -349,7 +349,7 @@ ul.instTree li.node{
 }
 
 ul.instTree li.node.active-node > .text{
-    background-color: #EEEDDD;
+    background-color: #EBEAE9DDD;
 }
 
 ul.instTree li.node > .text{
@@ -394,7 +394,7 @@ ul.instTree li span.sign.minus{
 }
 
 .files_content .folder_item.folder_item_hover{
-    background-color: #EEEEEE;
+    background-color: #EBEAE9EEE;
 }
 
 .files_content .folder_item .header .sub_header .readable_size{
@@ -553,7 +553,7 @@ ul.tabs li a {
     -moz-border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
     border-radius: 4px 4px 0 0;
-    background: none repeat scroll 0 0 #EEEEEE;
+    background: none repeat scroll 0 0 #EBEAE9EEE;
     border-color: #E5E5E5 #E5E5E5 -moz-use-text-color;
     font-size: 12px;
     display: inline;

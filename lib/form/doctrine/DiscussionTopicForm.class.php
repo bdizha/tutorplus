@@ -21,8 +21,7 @@ class DiscussionTopicForm extends BaseDiscussionTopicForm
         $discussionId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_show_id', null);
         $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['discussion_id'] = new sfWidgetFormInputHidden();
-
-        $this->validatorSchema['subject']->setMessage('required', 'The <b>Subject</b> field is required.');
+        
         $this->validatorSchema['message']->setMessage('required', 'The <b>Message</b> field is required.');
 
         $this->setDefaults(array(

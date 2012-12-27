@@ -23,17 +23,7 @@ class course_participantGeneratorHelper {
             "current_parent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_participants",
-            "is_profile" => true,
             "slug" => $course->getSlug()
         );
     }
-
-    public function participantsContentActions($course) {
-        return array(
-            "list_discussion" => array("title" => "&lt; My Course", "url" => "course/" . $course->getSlug()),
-            "manage_students" => array("title" => "Manage Students"),
-            "manage_instructors" => array("title" => "Manage Instructors")
-        );
-    }
-
 }

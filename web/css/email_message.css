@@ -223,7 +223,7 @@ span.separator {
 #email_container{
     padding-top: 10px;
     padding-bottom: 10px;
-    border: 1px solid #EEE;
+    border: 1px solid #EBEAE9;
     background-color: #FFF;
 }
 
@@ -257,12 +257,12 @@ span.separator {
     display: inline-block;
     clear: both !important;
     width: 480px;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #EBEAE9;
     padding: 5px 0;
 }
 
 .recipients-tab{
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #EBEAE9;
     padding-left: 10px;
     padding-top: 10px;
 }

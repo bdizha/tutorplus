@@ -1,22 +1,23 @@
 <?php if (count($courses) == 0): ?>
-    <div class="no-result">There's currently no courses assigned.</div>
+    <div class="no-result">There's no courses available.</div>
 <?php else: ?>
     <div  class="full-block">
         <?php foreach ($courses as $course): ?>
-            <div class="student-item">
-                <div class="image">
+            <div class="course-catalog">
+                <div class="icon">
                     <img alt="<?php echo $course->getName() ?>" src="/images/course-icon.png">
                 </div>
-                <div class="info">
-                    <div class="name"><?php echo link_to($course->getName(), 'course_show', $course) ?></div>
-                </div>
-                <div class="student-item-year">
-                    <span><?php echo date("M jS Y", strtotime($course["start_date"])) ?>
-                        - <?php echo date("M jS Y", strtotime($course["end_date"])) ?></span>
+                <div class="name"><?php echo link_to($course->getName() . " - " . $course->getCode(), 'course_show', $course) ?></div>
+                <div class="duration">
+                    <span>
+                        <?php echo date("M jS Y", strtotime($course["start_date"])) ?>
+                        -
+                        <?php echo date("M jS Y", strtotime($course["end_date"])) ?>
+                    </span>
                     <?php if ($student->isEnrolled($course->getId())): ?>
-                        <input class="button" value="Enrolled!" type="button"/>
+                        <input class="enrolled" value="You're enrolled!" type="button"/>
                     <?php else: ?>
-                        <input class="enroll" courseid="<?php echo $course->getId() ?>" value="Enroll now" type="button"/>
+                        <input class="enroll button" courseid="<?php echo $course->getId() ?>" value="Enroll now!" type="button"/>
                     <?php endif; ?>
                 </div>
             </div>

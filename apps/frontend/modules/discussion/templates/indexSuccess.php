@@ -45,10 +45,10 @@
                 </div>
                 <h2>Recent Posting</h2>
                 <div id="recent-posting">
-                    <?php if (!$discussionTopic): ?>
-                        <?php include_partial('discussion_topic/topic', array('discussion_topic' => $discussionTopic, "showActions" => false, "shortenString" => 120)) ?>
+                    <?php if ($discussionTopic): ?>
+                        <?php include_partial('discussion_topic/topic', array('discussionTopic' => $discussionTopic, 'helper' => $helper, "showActions" => false, "shortenString" => 120)) ?>
                     <?php else: ?>
-                        <div class="discussion-row">There's no topics started.</div>
+                        <div class="discussion-row">There's no discussion topics have been started yet.</div>
                     <?php endif; ?>
                 </div>
             </div>
@@ -58,10 +58,10 @@
 <script type='text/javascript'>
     $(document).ready(function(){    
         $(".discussion").hover(function(){
-            $(this).children(".discussion-actions").show();
+            $(this).children(".inline-content-actions").show();
         },
         function(){
-            $(this).children(".discussion-actions").hide();
+            $(this).children(".inline-content-actions").hide();
         });
     });
 </script>

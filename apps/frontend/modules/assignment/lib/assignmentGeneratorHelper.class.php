@@ -17,13 +17,13 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
     }
 
     public function linkToMyCourse($params) {
-        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/course/' . sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null) . '\';return false"/>';
+        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/my/course/' . $this->course->getSlug() . '\';return false"/>';
     }
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Courses" => "my_courses",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                $this->course->getCode() . " ~ " . $this->course->getName() => 'my/course/' . $this->course->getSlug(),
                 "Assignments" => "assignment"
             )
         );
@@ -39,8 +39,6 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
     }
 
     public function newBreadcrumbs() {
-        $this->courseId = sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null);
-        $this->course = CourseTable::getInstance()->findOneById($this->courseId);
         return array('breadcrumbs' => array(
                 "Courses" => "my_courses",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
@@ -63,7 +61,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
         $this->course = $object->getCourse();
         return array('breadcrumbs' => array(
                 "Courses" => "my_courses",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                $this->course->getCode() . " ~ " . $this->course->getName() => 'my/course/' . $this->course->getSlug(),
                 "Assignments" => "assignment",
                 $object->getTitle() => "assignment/" . $object->getId() . "/edit"
             )
@@ -84,7 +82,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
                 "My Course" => "my_course",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                $this->course->getCode() . " ~ " . $this->course->getName() => 'my/course/' . $this->course->getSlug(),
                 "Assignments" => "assignment",
                 $assignment->getTitle() => "assignment/" . $assignment->getId()
             )

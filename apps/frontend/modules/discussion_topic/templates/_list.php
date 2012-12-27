@@ -1,7 +1,7 @@
 <div class="full-block">
     <?php if (!$discussionTopics->count()): ?>
         <div class="no-result">
-            <?php echo __('No posts', array(), 'sf_admin') ?>
+            <?php echo __("There's no discussion topics posted yet.", array(), 'sf_admin') ?>
         </div>
     <?php else: ?>  
         <div id="discussion_topics">

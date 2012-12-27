@@ -13,7 +13,7 @@
 <div id="sf_admin_content">
     <div class="content-block">
         <h2>Course Explorer</h2>
-        <div class="full-block" id="courses_list">
+        <div id="courses_list">
             <?php include_partial('student/courses', array('courses' => $courses, 'student' => $student)) ?>
         </div>
     </div>

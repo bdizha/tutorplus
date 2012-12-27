@@ -1,3 +1,21 @@
+news_item:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NewsItem
+    module:               news_item
+    prefix_path:          /news/item
+    column:               id
+    with_wildcard_routes: true
+
+discussion_topic_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionTopicType
+    module:               discussion_topic_type
+    prefix_path:          /discussion/topic/type
+    column:               id
+    with_wildcard_routes: true
+
 profile_permission:
   class: sfDoctrineRouteCollection
   options:
@@ -338,15 +356,6 @@ folder:
     model:                Folder
     module:               folder
     prefix_path:          /folder
-    column:               id
-    with_wildcard_routes: true
-
-news:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                News
-    module:               news
-    prefix_path:          /news
     column:               id
     with_wildcard_routes: true
 
@@ -1213,10 +1222,6 @@ undo_remove_post:
   url:   /undo/remove_post/:id
   param: { module: bulletin_board, action: undoRemove }
   
-news_detail:
-  url:   /course/announcement
-  param: { module: course, action: announcements }
-  
 event:
   url:   /course/announcement
   param: { module: course, action: announcements }  
@@ -1446,16 +1451,12 @@ announcement_show:
   param:   { module: announcement, action: show }
   requirements:
     sf_method: [get]
-  
-recent_news:
-  url:   /news/recent
-  param: { module: news, action: recent }
     
-news_show:
-  url:     /news/:slug
+news_item_show:
+  url:     /news/item/:slug
   class:   sfDoctrineRoute
-  options: { model: News, type: object }
-  param:   { module: news, action: show }
+  options: { model: NewsItem, type: object }
+  param:   { module: news_item, action: show }
   requirements:
     sf_method: [get]
   

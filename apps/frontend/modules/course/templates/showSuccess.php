@@ -14,7 +14,7 @@
 <div id="sf_admin_form_container">
     <div id="sf_admin_content">
         <div class="content-block">
-            <h2>Module Info <?php echo $helper->showToEdit($course) ?></h2>
+            <h2>Course info <?php echo $helper->showToEdit($course) ?></h2>
             <div class="full-block">
                 <div class="course_info ">
                     <div class="course-row">
@@ -31,14 +31,14 @@
                                 Course dates:
                             </div>
                             <div class="row-value">
-                                <?php echo $course->getDateTimeObject('start_date')->format('d/m/Y') ?> - <?php echo $course->getDateTimeObject('end_date')->format('d/m/Y') ?>                          
+                                <?php echo $course->getDateTimeObject('start_date')->format('M jS Y') ?> - <?php echo $course->getDateTimeObject('end_date')->format('M jS Y') ?>                          
                             </div>
                         </div>
                     </div>
                     <div class="course-row">
                         <div class="row-column">
                             <div class="row-label">
-                                Is finalized:
+                                Is active:
                             </div>
                             <div class="row-value">
                                 <?php echo $course->getIsFinalized() ? "Yes" : "No" ?>                 
@@ -59,7 +59,7 @@
                                 Duration:
                             </div>
                             <div class="row-value">
-                                <?php echo $course->getHours() ?> hrs             
+                                <?php echo (int) ($course->getHours() / 24 / 7) ?> weeks long             
                             </div>
                         </div>
                         <div class="row-column">
@@ -75,20 +75,42 @@
             </div>
         </div>
         <div class="content-block">
-            <h2>Course Description</h2>
+            <h2>About the instructor (s)</h2>
+            <div class="full-block">
+                <div class="course-row" id="instructor_background">
+                    <?php echo $course->getInstructorBackground() ?>
+                </div>            
+                <div id="course_instructors">
+                    <?php include_partial('course_participant/instructors', array('course' => $course)) ?>
+                </div>
+            </div>
+            <?php include_partial('common/actions', array('actions' => array("manage_instructors" => array("title" => "Manage Instructors")))) ?>
+        </div>
+        <div class="content-block">
+            <h2>About the course</h2>
             <div class="full-block">
                 <div class="course-row" id="course_discription">
                     <?php echo $course->getDescription() ?>
                 </div>
             </div>
         </div>
-        <ul class="sf_admin_actions" style="clear:both">
-            <li class="sf_admin_actions_my_courses">
-                <input type="button" class="button" onclick="document.location.href='/course';" value="< My Modules"/>
-            </li>
-            <li class="sf_admin_actions_course_assignments">
-                <input type="button" class="button" onclick="document.location.href='/assignment';" value="Module Assignments"/>
-            </li>
-        </ul>
+        <?php include_partial('common/actions', array('actions' => array("course_assignments" => array("title" => "Course Assignments", "url" => "assignment"), "my_courses" => array("title" => "< My Courses", "url" => "my/courses")))) ?>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){        
+        $(".sf_admin_action_manage_instructors input").click(function(){
+            openPopup("/choose/course/instructors", '583px', '480px', "<?php echo __('Manage Instructor Followers', Array(), 'messages') ?>");
+            return false;
+        });
+    });
+
+    function fetchCourseInstructors(){
+        $('#course_instructors').html(loadingHtml);
+        $.get('/course/instructor', showCourseInstructors);
+    }
+
+    function showCourseInstructors(res){
+        $('#course_instructors').html(res);
+    }
+</script>

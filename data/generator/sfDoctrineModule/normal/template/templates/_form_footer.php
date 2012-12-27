@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $(".save, .button, .new").click(function(){
+    $(".save").click(function(){
         $(this).val("Loading...");
     });
 </script>

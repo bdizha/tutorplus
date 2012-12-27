@@ -98,7 +98,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
     }
     
     public function linkToDiscussionView($object, $params) {
-        return link_to(__('View Discussion', array(), 'sf_admin'), "/discussion/" . $object->getSlug(), array("class" => "button-view"));
+        return link_to(__('View', array(), 'sf_admin'), "/discussion/" . $object->getSlug(), array("class" => "button-view"));
     }
 
     public function linkToDiscussionEdit($object, $params) {

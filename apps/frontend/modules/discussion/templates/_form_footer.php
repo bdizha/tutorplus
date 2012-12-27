@@ -3,7 +3,7 @@
         $('#discussion_description').redactor();
     });
     
-    $(".save, .button, .new").click(function(){
+    $(".save").click(function(){
         $(this).val("Loading...");
     });
 </script>

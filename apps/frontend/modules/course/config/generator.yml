@@ -16,15 +16,17 @@ generator:
         lecturers_list:         { label: "Instructors" }
         students_list:          { label: Students }
         campuses_list:          { label: Campuses }
+        academic_period:          { label: Period }
+        instructor_background:  { label: "Instructor(s) background" }
         
       form:
         display:            
-         "Course Details":      [name, code, department_id, academic_period_id, start_date, end_date, credits, hours, max_enrolled, is_finalized, description]
+         "Course Details":      [name, code, department_id, academic_period_id, start_date, end_date, credits, hours, max_enrolled, is_finalized, instructor_background, description]
       filter:
         class: false
       list:
         title:                  Current Courses
-        display:                [=name, code, department, academic_period]
+        display:                [name, department, academic_period]
         sort:                   [name, asc]
         batch_actions:          []
         object_actions:        

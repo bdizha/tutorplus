@@ -19,13 +19,12 @@ secure:
         children:
           course_info:                { route: course_show, param: slug,  label: "Course Info" }
           announcements:              { route: course_announcement, label: "Announcements" }
-          #course_meeting_times:       { route: course_meeting_time, label: "Meeting Times" }
+          course_participants:        { route: course_participant, label: "Course Peers" }
           course_calendar:            { route: course_calendar, label: "Calendar" }
           assignments:                { route: assignment, label: "Assignments" }
-          assessment_types:           { route: assessment_type, label: "Assessment Types" }
+          #assessment_types:           { route: assessment_type, label: "Assessment Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
           course_files:               { route: course_file, label: "Course Files" }
-          course_participants:        { route: course_participant, label: "Followers" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ student, instructor, staff ]
@@ -102,7 +101,7 @@ secure:
         credentials:                  [ student, instructor, staff ]
         children:
           notifications:              { route: activity_feed, label: "Notifications" }
-          news:                       { route: news, label: "News" }
+          news_items:                 { route: news_item, label: "News Items" }
           announcements:              { route: announcement, label: "Announcements" }
   settings:    
     details:                          { route: course, label: Settings }
@@ -135,6 +134,7 @@ secure:
           email_templates:            { route: email_template, label: "Email Templates" }
           mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
           activity_templates:         { route: activity_template, label: "Activity Templates" }
+          discussion_types:           { route: discussion_topic_type, label: "Discussion Types" }
           faqs:                       { route: faq, label: "Faqs" }
       location_settings:                    
         details:                      { route: country, label: "Location Settings" }

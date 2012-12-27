@@ -160,7 +160,7 @@
 }
 
 #choose_programes li {
-    border-bottom: 1px solid #EEEDDD;
+    border-bottom: 1px solid #EBEAE9DDD;
     display: block;
     float: left;
     height: 20px;
@@ -196,7 +196,7 @@
 }
 
 #choose_courses li {
-    border-bottom: 1px solid #EEEDDD;
+    border-bottom: 1px solid #EBEAE9DDD;
     display: block;
     float: left;
     height: 20px;
@@ -213,7 +213,7 @@
 }
 
 #choose_mailing_lists li {
-    border-bottom: 1px solid #EEEDDD;
+    border-bottom: 1px solid #EBEAE9DDD;
     display: block;
     float: left;
     height: 20px;

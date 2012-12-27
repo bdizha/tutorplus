@@ -73,7 +73,7 @@ select[size], select[multiple], select[size][multiple] {
 
 .venue{
     display: block;
-    border-bottom: 1px solid #EEEDDD;
+    border-bottom: 1px solid #EBEAE9DDD;
 }
 
 .course-meeting-time{
@@ -81,8 +81,8 @@ select[size], select[multiple], select[size][multiple] {
 }
 
 .course-row{
-    padding: 5px;
-    border-top: 1px solid #EEE;
+    padding: 10px;
+    border-top: 1px solid #EBEAE9;
 }
 
 #campuses_list{
@@ -197,14 +197,13 @@ select[size], select[multiple], select[size][multiple] {
 
 #course_instructors, #course_students{
     background-color: #FFF;
-    min-height: 80px;
 }
 
 .course-follower{
     display: inline-block;
     clear: both !important;
     width: 480px;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #EBEAE9;
     padding: 5px 0;
 }
 
@@ -226,7 +225,7 @@ select[size], select[multiple], select[size][multiple] {
     padding-top: 10px;
     display: block;
     position: relative;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #EBEAE9;
     margin: 0 10px 20px;
 }
 
@@ -234,7 +233,7 @@ select[size], select[multiple], select[size][multiple] {
     display: inline-block;
     clear: both !important;
     width: 614px;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #EBEAE9;
     padding: 5px 0;
     margin-left: 10px;
 }
@@ -255,4 +254,35 @@ select[size], select[multiple], select[size][multiple] {
 
 .student-course img{
     float: left;
+}
+
+.course-catalog{
+    height: 80px;
+    border-top: 1px solid #EBEAE9;
+    padding-left: 5px;
+}
+
+.course-catalog .icon{
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+}
+
+.course-catalog .name{
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    width: 355px;
+    vertical-align: top;
+}
+
+.course-catalog .duration{
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    width: 210px;
+}
+
+.course-catalog input{
+    width: 116px !important;
 }

@@ -22,7 +22,7 @@ class NewsForm extends BaseNewsForm {
 
         $this->validatorSchema['heading']->setMessage('required', 'The <b>Heading</b> field is required.');
         $this->validatorSchema['blurb']->setMessage('required', 'The <b>Blurb</b> field is required.');
-        $this->validatorSchema['description']->setMessage('required', 'The <b>Description</b> field is required.');
+        $this->validatorSchema['body']->setMessage('required', 'The <b>Body</b> field is required.');
 
         $this->setDefaults(array(
             'user_id' => $userId,

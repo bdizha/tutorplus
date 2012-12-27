@@ -1,6 +1,6 @@
 .redactor_box {
 	position: relative;
-	border: 1px solid #EEE;
+	border: 1px solid #EBEAE9;
 	overflow: visible;
 }
 .redactor_box, .redactor_box textarea {
@@ -9,7 +9,7 @@
 
 body .redactor_air {
 	position: absolute;
-	border: 1px solid #EEE;
+	border: 1px solid #EBEAE9;
 	border-bottom: none;
 	z-index: 2;
 }
@@ -122,7 +122,7 @@ body .redactor_box_fullscreen {
 	font-size: 1em !important;
 }
 .redactor_editor table td {
-	border: 1px solid #EEE;
+	border: 1px solid #EBEAE9;
 	padding: 5px !important;
 	vertical-align: top;
 }
@@ -140,7 +140,7 @@ body .redactor_box_fullscreen {
 .redactor_editor pre {
 	font-size: 90% !important;
 	background: #f8f8f8 !important;
-	border: 1px solid #EEE !important;
+	border: 1px solid #EBEAE9 !important;
 	border-radius: 3px !important;
 	padding: 1em !important;
 	white-space: pre;
@@ -267,7 +267,7 @@ body .redactor_air .redactor_toolbar {
 	width: 25px;
 	height: 25px;
 	border: 1px solid transparent;
-	* border: 1px solid #eee;
+	* border: 1px solid #EBEAE9;
 	display: block;
 	line-height: 0;
 	font-size: 0;
@@ -301,7 +301,7 @@ body .redactor_air .redactor_toolbar {
 }
 .redactor_toolbar li a:active, .redactor_toolbar li a.redactor_act {
 	border-color: #b5b5b5;
-	background-color: #EEE;
+	background-color: #EBEAE9;
 }
 
 
@@ -389,7 +389,7 @@ body .redactor_toolbar li a.redactor_btn_alignment	 		{ background-position: -62
 	padding: 10px;
 }
 .redactor_separator_drop {
-	border-top: 1px solid #EEE;
+	border-top: 1px solid #EBEAE9;
 	padding: 0 !important;
 	line-height: 0;
 	font-size: 0;
@@ -535,11 +535,11 @@ body .redactor_toolbar li a.redactor_btn_alignment	 		{ background-position: -62
 	margin-right: 5px;
 }
 #redactor_tabs a:hover, #redactor_tabs a.redactor_tabs_act {
-	background-color: #EEE;
+	background-color: #EBEAE9;
 	padding: 5px 15px;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .4) inset;
 	border: none;
-	text-shadow: 0 1px 0 #eee;
+	text-shadow: 0 1px 0 #EBEAE9;
 	color: #777 !important;
 	text-decoration: none !important;
 }

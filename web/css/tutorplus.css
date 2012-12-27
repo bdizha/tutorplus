@@ -99,7 +99,7 @@
 }
 
 #main-container a, #login-container{
-    color: #C37E4C;
+    color: #BB6E3C;
 }
 
 #container-wrapper, #main-container-wrapper{
@@ -120,8 +120,8 @@
 }
 
 #main-menu{   
-    background-image: -moz-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: -webkit-gradient(linear,left bottom,left top,from(#AB6634),to(#C37E4C));
+    background-image: -moz-linear-gradient(top,#AB6634,#BB6E3C);
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#AB6634),to(#BB6E3C));
     background-color: #AB6634;
     display: block;
     margin: 0;
@@ -130,7 +130,7 @@
 }
 
 #top-menu .separator{
-    background-color: #C37E4C;
+    background-color: #BB6E3C;
     height: 40px;
     width: 1px;
 }
@@ -201,7 +201,7 @@
 }
 
 #header-links ul li a{
-    color: #C37E4C !important;
+    color: #BB6E3C !important;
 }
 
 #top-menu, #inner-container-wrapper, #left-column-container{
@@ -399,9 +399,9 @@
 .full-block{
     position: relative;
     background-color: #FFFFFF;   
-    border-right: 1px solid #EEE;
-    border-left: 1px solid #EEE;
-    border-bottom: 1px solid #EEE;
+    border-right: 1px solid #EBEAE9;
+    border-left: 1px solid #EBEAE9;
+    border-bottom: 1px solid #EBEAE9;
 }
 
 .full-block table{
@@ -434,7 +434,7 @@
 }
 
 #sf_admin_container .content-block h2, .sf_admin_form fieldset h2{
-    background-color: #EEE;
+    background-color: #EBEAE9;
     height: 20px;
     font-weight: normal;
     font-size: 12px;
@@ -972,7 +972,6 @@
 .no-result{
     padding: 10px;
     background-color: white;
-    border: 1px solid #EEE;
 }
 
 .no-padding{
@@ -1064,7 +1063,7 @@
     padding: 5px 10px;
     position: relative;
     display: block;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #EBEAE9;
     min-height: 44px;
     max-height: 44px;
 }
@@ -1103,13 +1102,13 @@
 .row-column{
     display: inline-block;
     padding: 0;
-    width: 349px;
+    width: 348px;
 }
 
 .peer-block{
     overflow: hidden;
     background-color: #FFF;
-    border: 1px solid #EEE;
+    border: 1px solid #EBEAE9;
 }
 
 .label{
@@ -1193,9 +1192,9 @@ ul.nav-tabs li a{
 
 ul.nav-tabs li.active-tab {
     background: #FFF;
-    border-top: 1px solid #EEE;
-    border-left: 1px solid #EEE;
-    border-right: 1px solid #EEE;
+    border-top: 1px solid #EBEAE9;
+    border-left: 1px solid #EBEAE9;
+    border-right: 1px solid #EBEAE9;
     color: #008FC5;
 }
 
@@ -1204,7 +1203,7 @@ ul.nav-tabs li.active-tab {
 }
 
 .list-count{
-    background-color: #C37E4C;
+    background-color: #BB6E3C;
     font-size: 11px;
     padding: 2px 4px;
     border-radius: 3px;
@@ -1218,7 +1217,7 @@ ul.nav-tabs li.active-tab {
 .thread {
     position: relative;
     padding: 10px;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #EBEAE9;
 }
 
 .message {
@@ -1334,7 +1333,7 @@ textarea {
     position: relative;
     clear: both !important;
     height: 25px;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #EBEAE9;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -1401,5 +1400,17 @@ ul.department-course, .section-block ul{
 .followers_tab{
     overflow: auto;
     height: 300px;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #EBEAE9;
+}
+
+.inline-content-actions{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: white;
+    padding: 5px;
+    width: 60px;
+    border: 1px solid #EBEAE9;
+    padding-top: 0px;
+    display: none;
 }

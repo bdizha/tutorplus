@@ -9,11 +9,6 @@
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
-
-    public function linkToPrevious() {
-        return '<li class="sf_admin_action_announcements"><input type="button" class="button" onclick="window.location=\'/announcement\'" value="< Announcements"/></li>';
-    }
-
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Communication" => "activity_feed",
@@ -64,21 +59,24 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
         );
     }
 
-    public function showBreadcrumbs($object) {
-        return array('breadcrumbs' => array(
-                "Communication" => "activity_feed",
-                "Announcements" => "announcement",
-                "Announcement ~ " . $object->getSubject() => "announcement/" . $object->getSlug(),
-            )
-        );
+    public function linkToAnnouncementEdit($object, $params) {
+        return link_to(__('Edit', array(), 'sf_admin'), "/announcement/" . $object->getId() . "/edit", array("class" => "button-edit"));
     }
 
-    public function showLinks() {
-        return array(
-            "current_parent" => "communication",
-            "current_child" => "channels",
-            "current_link" => "announcements"
-        );
+    public function linkToAnnouncementDelete($object, $params) {
+        if ($object->isNew()) {
+            return '';
+        }
+
+        if (!isset($params['type'])) {
+            return link_to(__('Remove', array(), 'sf_admin'), 'announcement_delete', $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], "class" => "button-remove"));
+        } else {
+            return '<li class="sf_admin_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
+        }
+    }
+    
+    public function linkToAnnouncementNew(){
+        return '<input id="new_course_announcement" type="button" class="button" onClick="document.location.href=\'/announcement/new\'" value="+ Add Announcement">';
     }
 
 }

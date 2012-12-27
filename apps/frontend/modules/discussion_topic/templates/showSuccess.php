@@ -30,7 +30,7 @@
             <div class="discussion-left-block">
                 <h2><?php echo $discussionTopic->getSubject() ?></h2>
                 <?php include_partial('discussion_topic/topic', array('discussionTopic' => $discussionTopic, "helper" => $helper)) ?>
-                <?php include_partial('common/content_actions', array('actions' => $helper->showContentActions($discussionTopic))) ?>
+                <?php include_partial('common/actions', array('actions' => $helper->showContentActions($discussionTopic))) ?>
             </div>
             <div class="discussion-right-block">
                 <h2>Suggested Followers</h2>

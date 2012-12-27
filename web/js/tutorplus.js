@@ -15,6 +15,10 @@ $(document).ready(function(){
             $(this).height(15);
         }
     });
+    
+    $(".save").click(function(){
+        $(this).val("Loading...");
+    });
 });
     
 function convertToDecimal(val){

@@ -12,7 +12,7 @@
         <div class="section-block">
             <img src="/images/section_mission.jpg">
             <h2>Transformative uses of new technologies in higher education</h2>
-            TutorPlus is a not-for-profit organization that helps the academic community use educational technologies to preserve the scholarly record and to advance research and learning in the Higher Education sector in sustainable ways. TutorPlus provides a collaborative learning platform that enables the academic community to fully engage its learners and instructors together in their discourse through a neutral and objective platform which is essential for collaborating learning.
+            TutorPlus is a not-for-profit organization that helps the academic community use educational technologies to preserve the scholarly record and to advance research and learning in the Higher Education sector in sustainable ways. TutorPlus provides a collaborative learning platform that enables the academic community to fully engage its learners and instructors together in their discourse through a neutral and objective platform which is essential for collaborative learning.
         </div>
         <div class="section-block">
             <h2>Setting the stage for CSCL</h2>

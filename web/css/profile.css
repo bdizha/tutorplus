@@ -514,12 +514,12 @@ span.green{
 }
 
 .peer{
-    border: 1px solid #EEE;
-    float: left;
+    border-bottom: 1px solid #EBEAE9;
+    display: inline-block;
     height: 58px;
     margin: 5px 9px 5px 0;
     padding: 10px 0 10px 10px;
-    width: 329px;
+    width: 327px;
     word-break: break-all;
 }
 
@@ -612,7 +612,7 @@ span.green{
     line-height: 15px !important;
     width: 95px;
     background-color: #AB6634;
-    border: 1px solid #C37E4C;
+    border: 1px solid #BB6E3C;
     color: white !important;
     font-size: 11px;
     padding: 1px 10px !important;

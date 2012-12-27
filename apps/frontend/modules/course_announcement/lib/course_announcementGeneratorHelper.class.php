@@ -15,10 +15,6 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     public function setCourse($course) {
         $this->course = $course;
     }
-
-    public function linkToPrevious() {
-        return '<li class="sf_admin_action_announcements"><input type="button" class="button" onclick="window.location=\'/course/announcement\'" value="< Announcements"/></li>';
-    }
     
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
@@ -99,4 +95,23 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
         return '<span class="actions"><a id="edit_course" href="/course/announcement/'. $object->getId() .'/edit">Edit</a></span>';
     }
 
+    public function linkToAnnouncementEdit($object, $params) {
+        return link_to(__('Edit', array(), 'sf_admin'), "/course/announcement/" . $object->getId() . "/edit", array("class" => "button-edit"));
+    }
+
+    public function linkToAnnouncementDelete($object, $params) {
+        if ($object->isNew()) {
+            return '';
+        }
+
+        if (!isset($params['type'])) {
+            return link_to(__('Remove', array(), 'sf_admin'), 'course_announcement_delete', $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], "class" => "button-remove"));
+        } else {
+            return '<li class="sf_admin_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
+        }
+    }
+    
+    public function linkToAnnouncementNew(){
+        return '<input id="new_course_announcement" type="button" class="button" onClick="document.location.href=\'/course/announcement/new\'" value="+ Add Announcement">';
+    }
 }

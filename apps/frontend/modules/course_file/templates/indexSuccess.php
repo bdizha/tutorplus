@@ -18,28 +18,28 @@
                 <?php include_partial('file/list', array('fileSystem' => $fileSystem, 'folderPath' => array(), 'addedFolderId' => 0, 'addedFileId' => 0)) ?>
             </div>
         </div>
-        <?php include_partial('common/content_actions', array('actions' => $helper->indexContentActions())) ?>
+        <?php include_partial('common/actions', array('actions' => $helper->indexContentActions())) ?>
     </div>
 </div>
 <script type='text/javascript'>
     $(document).ready(function(){
         $(".sf_admin_action_add_folder input").click(function(){
             // set the folder section to be able to determine possible patent folders
-            $.get('/folder_section/courses', function(){});
+            $.get('/folder/section/courses', function(){});
             openPopup("/folder/new", '600px', "480px", "<?php echo __('Create Folder', Array(), 'messages') ?>");
             return false;
         });
         
         $(".sf_admin_action_upload_file input").click(function(){
             // set the folder section to be able to determine possible patent folders
-            $.get('/folder_section/courses', function(){});
+            $.get('/folder/section/courses', function(){});
             openPopup("/file/new", '600px', "480px", "<?php echo __('Upload File', Array(), 'messages') ?>");
             return false;
         });
     });
 
     function fetchFileSystem(){
-        $.get('/course_files', showFileSystem);
+        $.get('/course/files', showFileSystem);
     }
 
     function showFileSystem(res){

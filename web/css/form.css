@@ -19,11 +19,7 @@ input[type=button], input[type=submit] {
     appearance: none;
     margin: 0;
     outline: 0;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 2px 10px 3px;
+    padding: 0px 10px 0;
     cursor: hand;
     cursor: pointer;
     font-size: 11px;
@@ -42,6 +38,7 @@ input[type=button], input[type=submit] {
     color: #666666 !important;
     font-size: 13px;
     padding: 2px 10px 3px;
+    height: 22px;
 }
 
 .cancel:hover, .done:hover{
@@ -97,7 +94,7 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     outline: medium none;
 }
 
-.enroll, .invite{
+.enrolled, .invite{
     background-color: #337883;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#429CA9),to(#337883));
     background-image: -webkit-linear-gradient(top,#429CA9,#337883);
@@ -109,9 +106,10 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     color: #FFF !important;
     border: 1px solid #337883;
     padding: 2px 10px 3px;
+    height: 22px;
 }
 
-.enroll:hover, .invite:hover{
+.enrolled:hover, .invite:hover{
     background-color: #429CA9;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#337883),to(#429CA9));
     background-image: -webkit-linear-gradient(top,#337883,#429CA9);
@@ -125,14 +123,14 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
 
 .save, .new, .button, .landing-button{
     background-color: #AB6634;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#C37E4C),to(#AB6634));
-    background-image: -webkit-linear-gradient(top,#C37E4C,#AB6634);
-    background-image: -moz-linear-gradient(top,#C37E4C,#AB6634);
-    background-image: -ms-linear-gradient(top,#C37E4C,#AB6634);
-    background-image: -o-linear-gradient(top,#C37E4C,#AB6634);
-    background-image: linear-gradient(top,#C37E4C,#AB6634);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#C37E4C',EndColorStr='#AB6634');
-    border: 1px solid #C37E4C;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#BB6E3C),to(#AB6634));
+    background-image: -webkit-linear-gradient(top,#BB6E3C,#AB6634);
+    background-image: -moz-linear-gradient(top,#BB6E3C,#AB6634);
+    background-image: -ms-linear-gradient(top,#BB6E3C,#AB6634);
+    background-image: -o-linear-gradient(top,#BB6E3C,#AB6634);
+    background-image: linear-gradient(top,#BB6E3C,#AB6634);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#BB6E3C',EndColorStr='#AB6634');
+    border: 1px solid #BB6E3C;
     color: #FFF !important;
     padding: 2px 10px 3px;
 }
@@ -156,14 +154,9 @@ a.button-edit, a.button-remove, a.button-view{
     margin-top: 5px;
 }
 
-.button-edit{
-    background: #429CA9;
+.button-edit, .button-view{
+    background: #BB6E3C;
     width: 55px;
-}
-
-.button-view{
-    background: #C37E4C;
-    width: 100px;
 }
 
 .button-remove{
@@ -172,14 +165,14 @@ a.button-edit, a.button-remove, a.button-view{
 }
 
 .save:hover, .new:hover, .button:hover, .landing-button{
-    background-color: #C37E4C;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#AB6634),to(#C37E4C	));
-    background-image: -webkit-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: -moz-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: -ms-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: -o-linear-gradient(top,#AB6634,#C37E4C);
-    background-image: linear-gradient(top,#AB6634,#C37E4C);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#AB6634',EndColorStr='#C37E4C');
+    background-color: #BB6E3C;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#AB6634),to(#BB6E3C	));
+    background-image: -webkit-linear-gradient(top,#AB6634,#BB6E3C);
+    background-image: -moz-linear-gradient(top,#AB6634,#BB6E3C);
+    background-image: -ms-linear-gradient(top,#AB6634,#BB6E3C);
+    background-image: -o-linear-gradient(top,#AB6634,#BB6E3C);
+    background-image: linear-gradient(top,#AB6634,#BB6E3C);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#AB6634',EndColorStr='#BB6E3C');
 }
 
 select{

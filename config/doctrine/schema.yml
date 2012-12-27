@@ -410,7 +410,7 @@ DiscussionTopic:
       fields:                  [subject]
   tableName:                   discussion_topic
   columns:
-    subject:                   { type: string(255), notnull: true }
+    discussion_topic_type_id:  { type: integer, notnull: true }
     message:        				   { type: clob, notnull: true }
     discussion_id:             { type: integer, notnull: true }
     user_id:                   { type: integer, notnull: true }
@@ -420,6 +420,13 @@ DiscussionTopic:
   relations:
     User:                      { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
     Discussion:                { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: Topics }
+    DiscussionTopicType:       { class: DiscussionTopicType, local: discussion_topic_type_id, foreign: id, onDelete: CASCADE, alias: Type, foreignAlias: Topics }
+    
+DiscussionTopicType:
+  actAs:                       [Timestampable]
+  tableName:                   discussion_topic_type
+  columns:
+    name:                      { type: string(255), notnull: true }
     
 DiscussionTopicMessage:
   actAs:                       [Timestampable]
@@ -689,6 +696,7 @@ Course:
     code:                   { type: string(10), notnull: true }
     department_id:          { type: integer, notnull: true } 
     description:            { type: clob, notnull: true }
+    instructor_background:  { type: clob, notnull: true, default: 'This course has been developed collaboratively by a team of TutorPlus tutors and educationists.' }
     is_finalized:           { type: boolean, default: 0, notnull: true }
     academic_period_id:     { type: integer, notnull: true }
     start_date:             { type: timestamp, notnull: true }
@@ -958,7 +966,7 @@ CalendarEventAttendee:
     CalendarEvent:          { local: calendar_event_id, foreign: id, type: one, foreignType: many, foreignAlias: Attendees }
     User:                   { class: sfGuardUser, local: user_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
     
-News:
+NewsItem:
   actAs:       
     Timestampable:          ~
     Sluggable:
@@ -967,7 +975,7 @@ News:
     user_id:                { type: integer, notnull: true }
     heading:                { type: string(255), notnull: true }
     blurb:                  { type: clob, notnull: true }
-    description:            { type: clob, notnull: true }
+    body:                   { type: clob, notnull: true }
     is_published:           { type: boolean, default: 0, notnull: true }
     lock_until:             { type: timestamp, notnull: false }
     lock_after:             { type: timestamp, notnull: false }

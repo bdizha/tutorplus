@@ -60,7 +60,7 @@ class DiscussionTopic extends BaseDiscussionTopic {
             $this->getUser()->getSlug(),
             $this->getUser()->getName(),
             $this->getSlug(),
-            myToolkit::shortenString($this->getSubject(), 50)
+            $this->getSubject()
         );
 
         $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_DISCUSSION_TOPIC);
@@ -80,10 +80,6 @@ class DiscussionTopic extends BaseDiscussionTopic {
                 $activityFeedUser->save();
             }
         }
-    }
-
-    public function getHtmlizedMessage() {
-        return myToolkit::htmlString($this->getMessage());
     }
 
     public function getToEmails() {

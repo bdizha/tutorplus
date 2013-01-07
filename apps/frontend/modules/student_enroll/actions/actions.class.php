@@ -49,7 +49,7 @@ class student_enrollActions extends autoStudent_enrollActions {
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $student)));
 
             // automatically sign in the student
-            $this->getUser()->signin($student->getUser(), false);
+            $this->getUser()->signin($student->getProfile(), false);
 
             $this->getUser()->setFlash('notice', $notice);
 
@@ -61,7 +61,7 @@ class student_enrollActions extends autoStudent_enrollActions {
     }
 
     public function sendEmail($object) {
-        $user = $object->getUser();
+        $user = $object->getProfile();
         $mailer = new tpMailer();
         $mailer->setTemplate('student-enrollment');
         $mailer->setToEmails($user->getName() . " <" . $user->getEmail() . ">");

@@ -19,10 +19,10 @@
             </ul>
         </div>
         <?php if (count($suggestedPeers) == 0): ?>
-            <div class="no-result">It seems you're probably new in this platform or you haven't been engaged in any interaction yet :)</div>
-            <?php include_partial('common/actions', array('actions' => $helper->findPeersContentActions())) ?>
+            <div class="no-result peer-block">It seems you're probably new in this platform or you haven't been engaged in any interaction yet :)</div>
+            <?php include_partial('common/actions', array('actions' => $helper->findPeers())) ?>
         <?php else: ?>
-            <div class="peer-block  padding-10" id="my_peers">
+            <div class="peer-block padding-10" id="my_peers">
                 <?php include_partial('list', array("peers" => $suggestedPeers)) ?>
             </div> 
         <?php endif; ?>

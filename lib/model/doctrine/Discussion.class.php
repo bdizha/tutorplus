@@ -28,18 +28,18 @@ class Discussion extends BaseDiscussion {
     /**
      * Save the group member
      */
-    public function saveGroupOwner($user_id = null, $username = "") {
-        $discussionMember = new DiscussionMember();
-        $discussionMember->setNickname(strtolower($username));
-        $discussionMember->setUserId($user_id);
-        $discussionMember->setDiscussionId($this->getId());
-        $discussionMember->setMembershipType(2);
-        $discussionMember->setPostingPermissionType(1);
-        $discussionMember->save();
+    public function saveGroupOwner($profile_id = null, $username = "") {
+        $discussionMemberPeer = new DiscussionPeer();
+        $discussionMemberPeer->setNickname(strtolower($username));
+        $discussionMemberPeer->setProfileId($profile_id);
+        $discussionMemberPeer->setDiscussionId($this->getId());
+        $discussionMemberPeer->setMembershipType(2);
+        $discussionMemberPeer->setPostingPermissionType(1);
+        $discussionMemberPeer->save();
     }
 
     public function retrieveMembers($isRemoved = 0) {
-        return DiscussionMemberTable::getInstance()->retrieveMembers($this->getId(), $isRemoved);
+        return DiscussionPeerTable::getInstance()->retrieveMembers($this->getId(), $isRemoved);
     }
 
     public function getNbNewTopics() {
@@ -50,18 +50,18 @@ class Discussion extends BaseDiscussion {
 
     public function getNbNewReplies() {
         $q = Doctrine_Query::create()
-                ->from('DiscussionTopicReply d');
-        return DiscussionTopicReply::getInstance()->getNbNewReplies($q);
+                ->from('DiscussionComment d');
+        return DiscussionComment::getInstance()->getNbNewReplies($q);
     }
 
     public function getNbNewMembersJoined() {
         $q = Doctrine_Query::create()
-                ->from('DiscussionMember dm');
-        return DiscussionMemberTable::getInstance()->getNbNewMembersJoined($q);
+                ->from('DiscussionPeer dm');
+        return DiscussionPeerTable::getInstance()->getNbNewMembersJoined($q);
     }
 
-    public function getMemberByUserId($userId) {
-        return DiscussionMemberTable::getInstance()->getMembersByDiscussionIdAndUserId($this->getId(), $userId);
+    public function getMemberByProfileId($profileId) {
+        return DiscussionPeerTable::getInstance()->getMembersByDiscussionIdAndProfileId($this->getId(), $profileId);
     }
 
     public function getCourse() {
@@ -71,8 +71,8 @@ class Discussion extends BaseDiscussion {
         }
         return null;
     }
-    
-    public function getHtmlizedDescription(){
+
+    public function getHtmlizedDescription() {
         return myToolkit::htmlString($this->getDescription());
     }
 
@@ -81,13 +81,40 @@ class Discussion extends BaseDiscussion {
         foreach (sfGuardUserTable::getInstance()->findAll() as $user) {
             $toEmails .= $user->getName() . " <" . $user->getEmail() . ">,";
         }
-        
+
         $toEmails = trim($toEmails, ",");
         return $toEmails;
     }
 
-    public function hasJoined($userId) {
-        return is_object(DiscussionMemberTable::getInstance()->findOneByDiscussionIdAndUserId($this->getId(), $userId));
+    public function hasJoined($profileId) {
+        return is_object(DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($this->getId(), $profileId));
+    }
+
+    public function postInsert($event) {
+        // save this activity
+        $replacements = array(
+            $this->getProfile()->getSlug(),
+            $this->getProfile()->getName(),
+            $this->getSlug(),
+            $this->getName()
+        );
+
+        $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_DISCUSSION);
+
+        if ($activityTemplate) {
+            $activityFeed = new ActivityFeed();
+            $activityFeed->setActivityTemplate($activityTemplate);
+            $activityFeed->setReplacements(json_encode($replacements));
+            $activityFeed->setProfileId($this->somethingId());
+            $activityFeed->setItemId($this->getId());
+            $activityFeed->save();
+
+            // link this activity with the current user
+            $activityFeedUser = new UserActivityFeed();
+            $activityFeedUser->setProfileId($this->somethingId());
+            $activityFeedUser->setActivityFeedId($activityFeed->getId());
+            $activityFeedUser->save();
+        }
     }
 
 }

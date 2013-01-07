@@ -2,9 +2,9 @@
 <?php if ($courseInstructors->count() > 0): ?>
     <div class="padding-10">
         <?php foreach ($courseInstructors as $courseInstructor): ?>
-            <?php $user = $courseInstructor->getInstructor()->getUser() ?>
+            <?php $user = $courseInstructor->getInstructor()->getProfile() ?>
             <div class="peer" id="course-student-<?php echo $courseInstructor->getInstructor()->getId() ?>">
-                <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 48)) ?>
+                <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 48)) ?>
                 <div class="name"><?php echo link_to($user->getName(), 'profile_show', $user) ?></div>
                 <div class="type"><?php echo $user->getType() ?></h4>
                 </div>

@@ -19,12 +19,12 @@ class FileForm extends BaseFileForm
 
         $folders = array();
         $user = sfContext::getInstance()->getUser();
-        $object = $object = $user->getProfile()->getUser();
+        $object = $object = $user->getProfile()->getProfile();
         $folderSection = $user->getMyAttribute('folder_section', FolderTable::DOCUMENTS_SECTION);
 
         if ($folderSection == FolderTable::DOCUMENTS_SECTION)
         {
-            $object = $user->getProfile()->getUser();
+            $object = $user->getProfile()->getProfile();
         }
         elseif ($folderSection == FolderTable::COURSES_SECTION)
         {

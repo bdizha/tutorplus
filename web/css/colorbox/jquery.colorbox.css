@@ -18,7 +18,7 @@
     Change the following styles to modify the appearance of ColorBox.  They are
     ordered & tabbed in a way that represents the nesting of the generated HTML.
 */
-#cboxOverlay{background-color: #FFF;}
+#cboxOverlay{background-color: #F9F9F9;}
 #colorbox{background: none;}
 #cboxTopLeft{width:15px; height:15px;}
 #cboxTopCenter{height:15px;}
@@ -41,9 +41,9 @@
     left: 0;
     text-align: left;
     width: 100%;
-    height: 25px;
-    color: #985321;
-    font-size: 15px;
+    height: 22px;
+    color: #856651;
+    font-size: 13px;
     padding: 10px 10px 5px 20px;
     text-transform: uppercase;
 }
@@ -101,13 +101,11 @@
     _behavior: expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')");
 }
 
-#cboxLoadedContent a{
-}
-
 #cboxLoadedContent .sf_admin_actions{
     position: absolute;
-    bottom: 10px;
-    right: 22px;
+    bottom: -40px;
+    right: 10px;
+    clear: both;
 }
 
 #cboxLoadedContentInner{

@@ -52,12 +52,12 @@ class sectionActions extends sfActions {
     }
 
     /**
-     * Executes offered courses action
+     * Executes affilited institutions action
      *
      * @param sfRequest $request A request object
      */
-    public function executeOfferedCourses(sfWebRequest $request) {
-        $this->departments = DepartmentTable::getInstance()->findAll();
+    public function executeInstitutions(sfWebRequest $request) {
+        $this->institutions = InstitutionTable::getInstance()->findAll();
     }
 
     /**

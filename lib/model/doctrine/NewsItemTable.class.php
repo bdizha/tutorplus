@@ -16,4 +16,23 @@ class NewsItemTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('NewsItem');
     }
+
+    public function findLatest($limit = 2) {
+        $q = Doctrine_Query::create()
+                ->from('NewsItem ni');
+        $q->addOrderBy('ni.created_at DESC');
+        $q->limit($limit);
+
+        return $q->execute();
+    }
+
+    public function retrieveOrdered(Doctrine_Query $q = null) {
+        if (is_null($q)) {
+            $q = Doctrine_Query::create()
+                    ->from('NewsItem ni');
+        }
+        $q->addOrderBy('ni.created_at DESC');
+
+        return $q->execute();
+    }
 }

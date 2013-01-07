@@ -20,7 +20,7 @@
 <script type='text/javascript'>
     $(document).ready(function(){    
     
-        $("#browser").load("/file_system?directory=Users");
+        $("#browser").load("/file_system?directory=Profiles");
         $("#document_actual_content").load("/directory_descendants?parent_id=3");
         $("#edit_form").load("/document/new");
     

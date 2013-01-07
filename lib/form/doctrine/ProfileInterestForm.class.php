@@ -11,15 +11,15 @@
 class ProfileInterestForm extends BaseProfileInterestForm {
 
     public function configure() {
-        $userId = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $profileId = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['name']    = new sfWidgetFormInputText();
 
         $this->validatorSchema['name']->setMessage('required', 'The <b>Name</b> field is required.');
         $this->validatorSchema['name']->setMessage('max_length', 'Please specify the max length message here.');
 
         $this->setDefaults(array(
-            'user_id' => $userId
+            'profile_id' => $profileId
         ));
     }
 

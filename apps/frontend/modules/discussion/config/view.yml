@@ -1,3 +1,2 @@
 all:
   stylesheets: [discussion, profile]
-  layout:      other

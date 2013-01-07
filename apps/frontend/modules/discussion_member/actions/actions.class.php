@@ -72,7 +72,7 @@ class discussion_memberActions extends autoDiscussion_memberActions {
             }
         } else {
             // fetch the current discussion members
-            $this->currentMemberIds = sfGuardUserTable::getInstance()->retrieveUserIdsByDiscussionId($discussionId);
+            $this->currentMemberIds = sfGuardUserTable::getInstance()->retrieveProfileIdsByDiscussionId($discussionId);
         }
     }
 
@@ -81,18 +81,18 @@ class discussion_memberActions extends autoDiscussion_memberActions {
         $postedMemberIds = array();
         foreach (array('student', 'instructor') as $memberType) {
             if ((isset($members[$memberType]) && is_array($members[$memberType]))) {
-                foreach ($members[$memberType] as $memberUserId) {
-                    $postedMemberIds[] = $memberUserId;
+                foreach ($members[$memberType] as $memberProfileId) {
+                    $postedMemberIds[] = $memberProfileId;
                 }
             }
         }
 
         // fetch the current discussion members
-        $currentMembersIds = sfGuardUserTable::getInstance()->retrieveUserIdsByDiscussionId($discussionId);
+        $currentMembersIds = sfGuardUserTable::getInstance()->retrieveProfileIdsByDiscussionId($discussionId);
 
         $toDelete = array_diff($currentMembersIds, $postedMemberIds);
         if (count($toDelete)) {
-            DiscussionMemberTable::getInstance()->unSubscribeByUserIdsAndDiscussionId($toDelete, $discussionId);
+            DiscussionPeerTable::getInstance()->unSubscribeByProfileIdsAndDiscussionId($toDelete, $discussionId);
         }
 
         //myToolkit::debug($toDelete);
@@ -104,18 +104,18 @@ class discussion_memberActions extends autoDiscussion_memberActions {
                 // make sure we don't add a member twice
                 if (!in_array($user->getId(), $currentMembersIds)) {
 
-                    $userId = $user->getId();
-                    if ($this->discussion->hasJoined($userId)) {
-                        $discussionMember = DiscussionMemberTable::getInstance()->findOneByDiscussionIdAndUserId($discussionId, $userId);
-                        $discussionMember->setIsRemoved(false);
-                        $discussionMember->save();
+                    $profileId = $user->getId();
+                    if ($this->discussion->hasJoined($profileId)) {
+                        $discussionMemberPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($discussionId, $profileId);
+                        $discussionMemberPeer->setIsRemoved(false);
+                        $discussionMemberPeer->save();
                     } else {
-                        $discussionMember = new DiscussionMember();
-                        $discussionMember->setNickname(strtolower($user->getFirstName()));
-                        $discussionMember->setStatus(DiscussionMemberTable::MEMBERSHIP_TYPE_ORDINARY);
-                        $discussionMember->setDiscussionId($discussionId);
-                        $discussionMember->setUserId($user->getId());
-                        $discussionMember->save();
+                        $discussionMemberPeer = new DiscussionPeer();
+                        $discussionMemberPeer->setNickname(strtolower($user->getFirstName()));
+                        $discussionMemberPeer->setStatus(DiscussionPeerTable::MEMBERSHIP_TYPE_ORDINARY);
+                        $discussionMemberPeer->setDiscussionId($discussionId);
+                        $discussionMemberPeer->setProfileId($user->getId());
+                        $discussionMemberPeer->save();
                     }
                 }
             }
@@ -129,9 +129,9 @@ class discussion_memberActions extends autoDiscussion_memberActions {
         if ($this->discussion) {
             if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
                 $studentId = $this->getUser()->getStudentId();
-                $userId = $this->getUser()->getId();
+                $profileId = $this->getUser()->getId();
 
-                $this->suggestedFollowers = DiscussionMemberTable::getInstance()->retrieveSuggestionsByStudentIdAndUserId($studentId, $userId, $this->discussion->getId());
+                $this->suggestedFollowers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
             } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
                 $this->suggestedFollowers = null;
             }
@@ -142,15 +142,15 @@ class discussion_memberActions extends autoDiscussion_memberActions {
 
     public function executeAccept(sfWebRequest $request) {
         try {
-            $userId = $request->getParameter("user_id");
-            $user = sfGuardUserTable::getInstance()->find($userId);
+            $profileId = $request->getParameter("profile_id");
+            $user = sfGuardUserTable::getInstance()->find($profileId);
 
-            if (!$this->discussion->hasJoined($userId)) {
-                $discussionMember = new DiscussionMember();
-                $discussionMember->setNickname(strtolower($user->getFirstName()));
-                $discussionMember->setUserId($userId);
-                $discussionMember->setDiscussionId($this->discussion->getId());
-                $discussionMember->save();
+            if (!$this->discussion->hasJoined($profileId)) {
+                $discussionMemberPeer = new DiscussionPeer();
+                $discussionMemberPeer->setNickname(strtolower($user->getFirstName()));
+                $discussionMemberPeer->setProfileId($profileId);
+                $discussionMemberPeer->setDiscussionId($this->discussion->getId());
+                $discussionMemberPeer->save();
 
                 echo "{$user->getName()} has been added to this discussion successfully.";
             } else {
@@ -163,13 +163,13 @@ class discussion_memberActions extends autoDiscussion_memberActions {
 
     protected function buildQuery() {
         $tableMethod = $this->configuration->getTableMethod();
-        $query = Doctrine_Core::getTable('DiscussionMember')
+        $query = Doctrine_Core::getTable('DiscussionPeer')
                 ->createQuery('a')
                 ->addWhere("a.discussion_id = ?", $this->getUser()->getMyAttribute('discussion_show_id', null))
                 ->addOrderBy("a.updated_at Desc");
 
         if ($tableMethod) {
-            $query = Doctrine_Core::getTable('DiscussionMember')->$tableMethod($query);
+            $query = Doctrine_Core::getTable('DiscussionPeer')->$tableMethod($query);
         }
 
         $this->addSortQuery($query);

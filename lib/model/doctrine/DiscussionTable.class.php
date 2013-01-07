@@ -31,13 +31,13 @@ class DiscussionTable extends Doctrine_Table {
         return self::$access_levels;
     }
 
-    public function findOrCreateOneByCourse($course, $userId) {
+    public function findOrCreateOneByCourse($course, $profileId) {
         if (!is_object($courseDiscussion = CourseDiscussionTable::getInstance()->findOneByCourseId($course->getId()))) {
             // save a discussion
             $discussion = new Discussion();
             $discussion->setName($course->getCode() . " - main discussion");
-            $discussion->setDescription("This a discussion goup for the " . $course->getCode() . " course. Essentially, all the instructors and students of this course are encouraged to participate and collaborate with other participants in order for each one involved to full benefit from the rest of the participants.");
-            $discussion->setUserId($userId);
+            $discussion->setDescription("This a discussion goup for the " . $course->getCode() . " course. Essentially, all the instructors and students of this course are encouraged to participate and collaborate with other participants in order for each one involved to fully benefit from the rest of the participants.");
+            $discussion->setProfileId($profileId);
             $discussion->setAccessLevel(DiscussionTable::ACCESS_LEVEL_RESTRICTED);
             $discussion->save();
 
@@ -58,77 +58,76 @@ class DiscussionTable extends Doctrine_Table {
 
     public function setStudentMembersByCourse($course, $discussion) {
         foreach ($course->getCourseStudents() as $courseStudent) {
-            if (!is_object($discussionMember = DiscussionMemberTable::getInstance()->findOneByDiscussionIdAndUserId($discussion->getId(), $courseStudent->getStudent()->getUserId()))) {
-                $discussionMember = new DiscussionMember();
-                $discussionMember->setDiscussionId($discussion);
-                $discussionMember->setUserId($courseStudent->getStudent()->getUserId());
-                $discussionMember->setNickname($courseStudent->getStudent()->getFirstName());
-                $discussionMember->setStatus(DiscussionMemberTable::POSTING_PERMISSION_TYPE_DEFAULT);
-                $discussionMember->setSubscriptionType(DiscussionMemberTable::SUBSCRIPTION_TYPE_PROMPT_EMAIL);
-                $discussionMember->setPostingPermissionType(DiscussionMemberTable::POSTING_PERMISSION_TYPE_DEFAULT);
-                $discussionMember->setMembershipType(DiscussionMemberTable::MEMBERSHIP_TYPE_ORDINARY);
-                $discussionMember->save();
+            if (!is_object($discussionMemberPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($discussion->getId(), $courseStudent->getStudent()->getProfileId()))) {
+                $discussionMemberPeer = new DiscussionPeer();
+                $discussionMemberPeer->setDiscussionId($discussion);
+                $discussionMemberPeer->setProfileId($courseStudent->getStudent()->getProfileId());
+                $discussionMemberPeer->setNickname($courseStudent->getStudent()->getFirstName());
+                $discussionMemberPeer->setStatus(DiscussionPeerTable::POSTING_PERMISSION_TYPE_DEFAULT);
+                $discussionMemberPeer->setSubscriptionType(DiscussionPeerTable::SUBSCRIPTION_TYPE_PROMPT_EMAIL);
+                $discussionMemberPeer->setPostingPermissionType(DiscussionPeerTable::POSTING_PERMISSION_TYPE_DEFAULT);
+                $discussionMemberPeer->setMembershipType(DiscussionPeerTable::MEMBERSHIP_TYPE_ORDINARY);
+                $discussionMemberPeer->save();
             }
         }
     }
 
     public function setInstructorMembersByCourse($course, $discussion) {
         foreach ($course->getCourseInstructors() as $courseInstructor) {
-            if (!is_object($discussionMember = DiscussionMemberTable::getInstance()->findOneByDiscussionIdAndUserId($discussion->getId(), $courseInstructor->getInstructor()->getUserId()))) {
-                $discussionMember = new DiscussionMember();
-                $discussionMember->setDiscussionId($discussion);
-                $discussionMember->setUserId($courseInstructor->getInstructor()->getUserId());
-                $discussionMember->setNickname($courseInstructor->getInstructor()->getFirstName());
-                $discussionMember->setStatus(DiscussionMemberTable::POSTING_PERMISSION_TYPE_DEFAULT);
-                $discussionMember->setSubscriptionType(DiscussionMemberTable::SUBSCRIPTION_TYPE_PROMPT_EMAIL);
-                $discussionMember->setPostingPermissionType(DiscussionMemberTable::POSTING_PERMISSION_TYPE_OWNER);
-                $discussionMember->setMembershipType(DiscussionMemberTable::MEMBERSHIP_TYPE_OWNER);
-                $discussionMember->save();
+            if (!is_object($discussionMemberPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($discussion->getId(), $courseInstructor->getInstructor()->getProfileId()))) {
+                $discussionMemberPeer = new DiscussionPeer();
+                $discussionMemberPeer->setDiscussionId($discussion);
+                $discussionMemberPeer->setProfileId($courseInstructor->getInstructor()->getProfileId());
+                $discussionMemberPeer->setNickname($courseInstructor->getInstructor()->getFirstName());
+                $discussionMemberPeer->setStatus(DiscussionPeerTable::POSTING_PERMISSION_TYPE_DEFAULT);
+                $discussionMemberPeer->setSubscriptionType(DiscussionPeerTable::SUBSCRIPTION_TYPE_PROMPT_EMAIL);
+                $discussionMemberPeer->setPostingPermissionType(DiscussionPeerTable::POSTING_PERMISSION_TYPE_OWNER);
+                $discussionMemberPeer->setMembershipType(DiscussionPeerTable::MEMBERSHIP_TYPE_OWNER);
+                $discussionMemberPeer->save();
             }
         }
     }
 
-    public function findOneByDiscussionIdAndUserId($discussionId, $userId) {
+    public function findOneByDiscussionIdAndProfileId($discussionId, $profileId) {
         $q = $this->createQuery('d')
                 ->addWhere('d.id = ?', $discussionId)
-                ->andWhere('d.user_id = ?', $userId);
+                ->andWhere('d.profile_id = ?', $profileId);
         return $q->fetchOne();
     }
 
-    public function findOneByUserIdAndIsPrimary($userId, $isPrimary) {
+    public function findOneByProfileIdAndIsPrimary($profileId, $isPrimary) {
         $q = $this->createQuery('d')
                 ->addWhere('d.is_primary = ?', $isPrimary)
-                ->andWhere('d.user_id = ?', $userId);
+                ->andWhere('d.profile_id = ?', $profileId);
         return $q->fetchOne();
     }
 
-    public function findOrCreatePrimaryDiscussionByUserId($user) {
-        $discussion = DiscussionTable::getInstance()->findOneByUserIdAndIsPrimary($user->getId(), true);
+    public function findOrCreatePrimaryDiscussionByProfileId($user) {
+        $discussion = DiscussionTable::getInstance()->findOneByProfileIdAndIsPrimary($user->getId(), true);
         if (!is_object($discussion)) {
             $discussion = new Discussion();
-            $discussion->setName($user->getName() . "'s discussion wall");
+            $discussion->setName($user->getName() . "'s general discussion");
             $discussion->setIsPrimary(true);
-            $discussion->setUserId($user->getId());
+            $discussion->setProfileId($user->getId());
             $discussion->setAccessLevel(DiscussionTable::ACCESS_LEVEL_RESTRICTED);
-            $discussion->setDescription("This is " . $user->getName() . "'s discussion wall and if you have anything to share with them please post it in this discussion.");
+            $discussion->setDescription("This is " . $user->getName() . "'s general discussion and if you have anything to share with them please post it in this discussion.");
             $discussion->save();
 
-            $discussionMember = new DiscussionMember();
-            $discussionMember->setNickname(strtolower($user->getFirstName()));
-            $discussionMember->setUserId($user->getId());
-            $discussionMember->setDiscussionId($discussion->getId());
-            $discussionMember->setMembershipType(DiscussionMemberTable::MEMBERSHIP_TYPE_OWNER);
-            $discussionMember->setStatus(DiscussionMemberTable::STATUS_CREATOR);
-            $discussionMember->setPostingPermissionType(DiscussionMemberTable::POSTING_PERMISSION_TYPE_OWNER);
-            $discussionMember->save();
+            $discussionMemberPeer = new DiscussionPeer();
+            $discussionMemberPeer->setNickname(strtolower($user->getFirstName()));
+            $discussionMemberPeer->setProfileId($user->getId());
+            $discussionMemberPeer->setDiscussionId($discussion->getId());
+            $discussionMemberPeer->setMembershipType(DiscussionPeerTable::MEMBERSHIP_TYPE_OWNER);
+            $discussionMemberPeer->setStatus(DiscussionPeerTable::STATUS_CREATOR);
+            $discussionMemberPeer->save();
         }
         return $discussion;
     }
 
-    public function findPopularDiscussionsByUserId($userId, $limit = 3) {
+    public function findPopularDiscussionsByProfileId($profileId, $limit = 3) {
         $q = $this->createQuery('d')
                 ->innerJoin('d.Members dm')
-                ->andWhere('dm.user_id = ?', $userId);
+                ->andWhere('dm.profile_id = ?', $profileId);
         $q->limit($limit);
         return $q->execute();
     }

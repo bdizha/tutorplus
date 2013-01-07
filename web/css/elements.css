@@ -27,7 +27,7 @@ textarea{
 }
 
 body{
-    background-color: #F9F9F9;
+    background-color: #F8F7F5;
     font-size: 12px;
     height: 100%;
     width: 100%;
@@ -46,7 +46,7 @@ fieldset, img{
 }
 
 a{
-    color: #BB6E3C;
+    color: #9D774B;
 }
 
 a:hover{
@@ -54,7 +54,7 @@ a:hover{
 }
 
 p{
-    margin-bottom: 22px;
+    margin-bottom: 11px;
 }
 
 td p{

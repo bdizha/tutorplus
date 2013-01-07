@@ -11,8 +11,8 @@
 class ProfilePublicationForm extends BaseProfilePublicationForm {
 
     public function configure() {
-        $userId = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $profileId = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['link']    = new sfWidgetFormInputText();
 
         $this->validatorSchema['link'] = new sfValidatorUrl(array('max_length' => 500, 'required' => false));
@@ -20,7 +20,7 @@ class ProfilePublicationForm extends BaseProfilePublicationForm {
         $this->validatorSchema['link']->setMessage('invalid', 'The <b>Link</b> should be in right foramt (e.g http://something.something).');
 
         $this->setDefaults(array(
-            'user_id' => $userId
+            'profile_id' => $profileId
         ));
     }
 

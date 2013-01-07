@@ -27,7 +27,7 @@
                             <label for="file_folder_id">Choose folder to upload files into:</label>
                             <select id="file_folder_id" name="file[folder_id]">
                                 <option value="13">File System</option>
-                                <option value="14">- Users</option>
+                                <option value="14">- Profiles</option>
                                 <option value="15">- - Batanayi Matuku</option>
                                 <option value="16">- - - My Documents</option>
                                 <option value="21">- - - Batanayi</option>

@@ -37,9 +37,9 @@ class course_discussionActions extends autoCourse_discussionActions {
         // fetch discussions stats
         $this->discussionActivity = array();
         $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics()->count();
-        $this->discussionActivity["new_replies"] = DiscussionTopicReplyTable::getInstance()->getNbNewReplies()->count();
-        $this->discussionActivity["new_messages"] = DiscussionTopicMessageTable::getInstance()->getNbNewMessages()->count();
-        $this->discussionActivity["new_members"] = DiscussionMemberTable::getInstance()->getNbNewMembersJoined()->count();
+        $this->discussionActivity["new_replies"] = DiscussionCommentTable::getInstance()->getNbNewReplies()->count();
+        $this->discussionActivity["new_messages"] = DiscussionPostTable::getInstance()->getNbNewMessages()->count();
+        $this->discussionActivity["new_members"] = DiscussionPeerTable::getInstance()->getNbNewMembersJoined()->count();
 
         $this->discussionTopic = DiscussionTopicTable::getInstance()->getTopicWithRecentActivity();
 
@@ -65,9 +65,9 @@ class course_discussionActions extends autoCourse_discussionActions {
         if (is_object($this->discussion)) {
             if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
                 $studentId = $this->getUser()->getStudentId();
-                $userId = $this->getUser()->getId();
+                $profileId = $this->getUser()->getId();
 
-                $this->suggestedFollowers = DiscussionMemberTable::getInstance()->retrieveSuggestionsByStudentIdAndUserId($studentId, $userId, $this->discussion->getId());
+                $this->suggestedFollowers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
             } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
                 $this->suggestedFollowers = null;
             }

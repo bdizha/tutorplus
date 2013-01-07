@@ -14,7 +14,7 @@ class sfGuardPermissionGeneratorHelper extends BaseSfGuardPermissionGeneratorHel
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "course",
-                "Users Permissions" => "sfGuardPermission"
+                "Profiles Permissions" => "sfGuardPermission"
             )
         );
     }

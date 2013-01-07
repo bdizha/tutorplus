@@ -23,7 +23,7 @@ class DiscussionTopicTable extends Doctrine_Table {
             $q->innerJoin('d.CourseDiscussion cd')
                     ->addWhere('cd.course_id = ?', $courseId);
         }
-        
+
         $q->addWhere('dt.created_at > ?', date('Y-m-d H:i:s', strtotime("NOW - 7 days")));
         return $q->execute();
     }
@@ -60,26 +60,33 @@ class DiscussionTopicTable extends Doctrine_Table {
         return $q->fetchOne();
     }
 
-    public function findOrCreateOneByUserId($userId, $discussionId) {
-        $discussionTopic = self::getInstance()->findOneByUserId($userId);
+    public function findOrCreateOneByProfileId($profileId, $discussionId) {
+        $discussionTopic = self::getInstance()->findOneByProfileId($profileId);
         if (!is_object($discussionTopic)) {
             $discussionTopic = new DiscussionTopic();
+            $discussionTopic->setDiscussionTypeId(DiscussionTypeTable::TYPE_DISCUSSION);
             $discussionTopic->setSubject("Welcome message from the TutorPlus team!");
-            $discussionTopic->setMessage("Hi fellow participants, It's a great pleasure to be part of this collaborative learning platform and be readily available to share relevant academic experiences we all have to endure in our varied normal discources. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!");
+            $discussionTopic->setMessage("Hi fellow participant, It's a great pleasure to have you as a part of this collaborative learning platform and we would like you to be readily available to share with your peers any relevant academic experiences we all have to endure in all our varied learning objectives. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!");
             $discussionTopic->setDiscussionId($discussionId);
-            $discussionTopic->setUserId($userId);
+            $discussionTopic->setIsPrimary(true);
+            $discussionTopic->setProfileId($profileId);
             $discussionTopic->save();
         }
         return $discussionTopic;
     }
 
-    public function findOneByUserId($userId) {
-        $q = $this->createQuery('dt')
-                ->innerJoin('dt.Discussion d');
-
-        $q->addWhere('d.user_id = ?', $userId);
-        $q->addWhere('d.is_primary = ?', true);
+    public function findOneByProfileId($profileId) {
+        $q = $this->createQuery('dt');
+        $q->addWhere('dt.profile_id = ?', $profileId);
+        $q->addWhere('dt.is_primary = ?', true);
         return $q->fetchOne();
+    }
+
+    public function findByProfileId($profileId) {
+        $q = $this->createQuery('dt');
+        $q->addWhere('dt.profile_id = ?', $profileId)
+                ->orderBy('dt.updated_at DESC');
+        return $q->execute();
     }
 
 }

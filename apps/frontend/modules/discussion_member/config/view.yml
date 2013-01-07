@@ -1,6 +1,5 @@
 all:
   stylesheets: [discussion, profile]
-  layout:      other
   
 acceptSuccess:
   has_layout: false

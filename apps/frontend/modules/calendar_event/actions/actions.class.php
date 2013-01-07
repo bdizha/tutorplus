@@ -35,7 +35,7 @@ class calendar_eventActions extends autoCalendar_eventActions {
             $ids = $this->getUser()->getMyAttribute('calendar_ids', array());
         }
 
-        echo json_encode($calendarEvents = CalendarEventTable::getInstance()->retrieveByUserIdAndVisibility($this->getUser()->getId(), $ids));
+        echo json_encode($calendarEvents = CalendarEventTable::getInstance()->retrieveByProfileIdAndVisibility($this->getUser()->getId(), $ids));
         die;
     }
 

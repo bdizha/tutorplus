@@ -35,14 +35,14 @@ class discussion_topic_replyActions extends autoDiscussion_topic_replyActions {
             $this->processForm($request, $this->form);
         } else {
             $discussionTopicMessageId = $this->getUser()->getMyAttribute('discussion_topic_message_show_id', null);
-            $this->discussionTopicMessage = DiscussionTopicMessageTable::getInstance()->find($discussionTopicMessageId);
+            $this->discussionTopicMessage = DiscussionPostTable::getInstance()->find($discussionTopicMessageId);
         }
     }
 
     public function sendEmail($object) {
-        $discussionTopic = $object->getDiscussionTopicMessage()->getDiscussionTopic();
+        $discussionTopic = $object->getDiscussionPost()->getDiscussionTopic();
         $toEmails = $discussionTopic->getToEmails();
-        $owner = $object->getUser();
+        $owner = $object->getProfile();
         $mailer = new tpMailer();
         $mailer->setTemplate('new-discussion-topic-reply');
         $mailer->setToEmails($toEmails);
@@ -64,7 +64,7 @@ class discussion_topic_replyActions extends autoDiscussion_topic_replyActions {
                 $isNew = $form->getObject()->isNew();
 
                 $this->discussion_topic_reply = $form->save();
-                $this->getUser()->setMyAttribute('discussion_topic_message_show_id', $this->discussion_topic_reply->getDiscussionTopicMessageId());
+                $this->getUser()->setMyAttribute('discussion_topic_message_show_id', $this->discussion_topic_reply->getDiscussionPostId());
 
                 // send the discussion_topic_message emails
                 if ($isNew) {

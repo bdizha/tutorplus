@@ -17,7 +17,7 @@ class CorrespondenceForm extends BaseCorrespondenceForm
             $this['status'], $this['type']
         );
 
-        $user_id = sfContext::getInstance()->getUser()->getId();
+        $profile_id = sfContext::getInstance()->getUser()->getId();
         $correspondent_id = new sfWidgetFormDoctrineJQueryAutocompleter(array(
                 'url' => '/invite_correspondence',
                 'model' => 'sfGuardUser',
@@ -28,7 +28,7 @@ class CorrespondenceForm extends BaseCorrespondenceForm
         $this->setWidget('correspondent_id', $correspondent_id);
 
         $this->setDefaults(array(
-            'innitiator_id' => $user_id,
+            'innitiator_id' => $profile_id,
         ));
 
         $this->disableLocalCSRFProtection();

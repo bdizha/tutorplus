@@ -5,7 +5,7 @@ class ProfilePhotoForm extends sfForm
 
     public function configure()
     {
-        if (!$user_id = $this->getOption('user_id'))
+        if (!$profile_id = $this->getOption('profile_id'))
         {
             throw new InvalidArgumentException('You must provide an user object.');
         }
@@ -14,7 +14,7 @@ class ProfilePhotoForm extends sfForm
         $this->setValidator('filename', new sfValidatorFile(array(
                 'mime_types' => 'web_images',
                 'validated_file_class' => 'sfValidatedPhoto',
-                'path' => sfConfig::get('sf_upload_dir') . '/users/' . $user_id . '/',
+                'path' => sfConfig::get('sf_upload_dir') . '/users/' . $profile_id . '/',
                 ), array('required' => 'Please specify the <b>Photo</b> to upload.')));
 
         $this->widgetSchema->setNameFormat('profile[%s]');

@@ -1,6 +1,7 @@
 
 var closeHtml = "<img src=\"/css/colorbox/images/close.png\" alt=\"Close\" width=\"27\" height=\"27\">";
 var loadingHtml = "<div class=\"loading\"><img src=\"/images/loading.gif\" alt=\"Loading...\"></div>";
+var redactorDefaultHtml = "<p><br></p>";
 $(document).ready(function(){        
     $(".prompt").live('focus', function(){
         if($(this).val() == this.title){
@@ -14,10 +15,6 @@ $(document).ready(function(){
             $(this).val(this.title);
             $(this).height(15);
         }
-    });
-    
-    $(".save").click(function(){
-        $(this).val("Loading...");
     });
 });
     

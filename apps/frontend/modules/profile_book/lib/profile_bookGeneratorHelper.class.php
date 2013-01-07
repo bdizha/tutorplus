@@ -30,4 +30,8 @@ class profile_bookGeneratorHelper extends BaseProfile_bookGeneratorHelper {
         return '<li class="sf_admin_action_save"><input class="save" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }
 
+    public function linkToBookEdit($object, $params) {
+        return link_to(__('Edit', array(), 'sf_admin'), "/profile/book/" . $object->getId() . "/edit", array("class" => "button-edit edit_profile_book"));
+    }
+
 }

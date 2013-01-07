@@ -16,11 +16,11 @@ class ActivityFeedTable extends Doctrine_Table {
         return Doctrine_Core::getTable('ActivityFeed');
     }
 
-    public function findByUserId($userId, $limit = null) {
+    public function findByProfileId($profileId, $limit = null) {
         $q = Doctrine_Query::create()
                 ->from('ActivityFeed af')
-                ->innerJoin('af.ActivityFeedUsers afu')
-                ->andWhere('afu.user_id = ?', $userId);
+                ->innerJoin('af.ActivityFeedProfiles afu')
+                ->andWhere('afu.profile_id = ?', $profileId);
         if ($limit) {
             $q->limit($limit);
         }

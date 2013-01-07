@@ -7,6 +7,7 @@
     margin-bottom: 10px;
     height: 105px;
 }
+
 #profile-left
 {
     float: left;
@@ -70,40 +71,34 @@
     color: #8A8A8A;
 }
 
-.spotlight{
-    background: url("/images/spotlight.png") no-repeat scroll 0 0 transparent;
-    cursor: pointer;
-    display: inline-block;
-    height: 10px;
-    margin-left: -2px;
-    width: 14px;    
-}
-
 #profile-attributes{
     padding-top: 0 !important;
 }
 
+#personal_details{
+    position: absolute;
+    bottom: 5px;
+}
+
 .profile-row{
     clear: both;
-    font-size: 12px;
-    min-height: 20px;
     padding: 5px 10px;
-    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #EBEAE9;
 }
 
 .profile-column{
     display: inline-block;
-    padding: 0;
-    width: 349px;
+    width: 348px;
 }
+
 .profile-row label{
     display: inline-block;
-    color: #666666;
     width: 140px;
 }
 
 .profile-row .content{
     display: inline-block;
+    color: #666666;
 }
 
 #personal_details_container, #notification_settings_container, #account_Settings_container{
@@ -473,7 +468,7 @@ span.green{
 .award, .qualification {
     clear: both;
     height: 80px;
-    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #EBEAE9;
 }
 
 .award .image, .qualification .image {
@@ -491,7 +486,7 @@ span.green{
     height: 60px;
     padding: 10px;
     position: relative;
-    width: 510px;
+    width: 506px;
 }
 
 .award .schedule, .qualification .schedule {
@@ -514,12 +509,11 @@ span.green{
 }
 
 .peer{
-    border-bottom: 1px solid #EBEAE9;
     display: inline-block;
     height: 58px;
     margin: 5px 9px 5px 0;
-    padding: 10px 0 10px 10px;
-    width: 327px;
+    padding: 0 0 10px 0;
+    width: 338px;
     word-break: break-all;
 }
 
@@ -580,58 +574,9 @@ span.green{
     float: left;
 }
 
-.peer-open, .peer-suggested, .peer-declined{
-    line-height: 15px !important;
-    width: 95px;
-    background-color: #DD4B39;
-    border: 1px solid #D14836;
-    color: white !important;
-    font-size: 11px;
-    padding: 1px 10px !important;
-}
-
-.peer-open:hover, .peer-suggested:hover, .peer-declined:hover{
-    background-color: #D14836;
-}
-
-.peer-accept{
-    line-height: 15px !important;
-    width: 95px;
-    background-color: #FBB60F;
-    border: 1px solid #FBB60F;
-    color: white !important;
-    font-size: 11px;
-    padding: 1px 10px !important;
-}
-
-.peer-accept:hover{
-    background-color: #FFA500;
-}
-
-.peer-peered{
-    line-height: 15px !important;
-    width: 95px;
-    background-color: #AB6634;
-    border: 1px solid #BB6E3C;
-    color: white !important;
-    font-size: 11px;
-    padding: 1px 10px !important;
-    cursor: default !important;
-}
-
-.peer-invited{
-    line-height: 15px !important;
-    width: 95px;
-    background-color: #08C;
-    border: 1px solid #08C;
-    color: white !important;
-    font-size: 11px;
-    padding: 1px 10px !important;
-    cursor: default !important;
-}
-
 #personal_info_about{
     height: 100px;
+    width: 300px;
 }
 
 .participant-image {
@@ -651,4 +596,130 @@ span.green{
     padding: 0 10px 10px 10px;
     display: block;
     position: relative;
+}
+
+#perfonal-photo{
+    border-right: 1px solid #DDD;
+}
+
+.personal-info-column{
+    display: inline-block;
+    vertical-align: top;
+    width: 327px;
+    height: 186px;
+    padding: 10px;
+}
+
+.about-me-photo{
+    left: 10px;
+    position: absolute;
+    top: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    background-color: white;
+    border: 1px solid #CCC;
+    padding: 5px;
+    width: 128px;
+}
+
+.academic-info-row .value,
+.profile-row .value{
+    color: #90959A;
+}
+
+.profile-photo-block{
+    right: 65px;
+    position: absolute;
+    top: 40px;
+    z-index: 12;
+    width: 110px;
+}
+
+.profile-photo-block .button{
+    margin-top: 10px;
+    width: 110px;
+}
+
+.academic-info-row{
+    padding: 5px 10px;
+    border-top: 1px solid #EBEAE9;
+}
+
+#profile_publications ul,
+#profile_books ul, 
+#profile_interests ul{
+    list-style-type: disc !important;
+    padding-left: 25px;
+}
+
+#profile_publications li,
+#profile_books li, 
+#profile_interests li{
+    line-height: 25px !important;
+    padding-top: 10px;
+}
+
+#profile_publications,
+#profile_books,
+#profile_interests{
+    padding-bottom: 10px;
+}
+
+#timeline_form_container{
+    margin-left: 10px;
+}
+
+.snapshot{
+    padding: 10px 10px;
+    position: relative;
+    display: block;
+    border: 1px solid #EBEAE9;
+    margin: 0 0 10px 10px;
+    width: 700px;
+    border-radius: 3px;
+    vertical-align: top;
+    background-color: #FFFFFF;
+}
+
+.snapshot .heading{
+    height: 58px;
+    border-bottom: 1px solid #DDD;
+}
+
+.snapshot .body{
+    margin: 5px 0 3px;    
+}
+
+.statistics{
+    padding-top: 5px;
+    height: 30px;
+    border-top: 1px solid #DDD;
+    background-color: #FFFFFF;
+}
+
+.snapshot .comments{
+    border: 1px solid #EBEAE9;
+    border-bottom: none !important;
+}
+
+.comments .statistics{
+    background-color: #F9F9F9;
+    padding-left: 10px;
+    border-top: none !important;
+    border-bottom: 1px solid #DDD;
+}
+
+.snapshot .comment .heading{
+    height: 45px !important;
+    border-bottom: 1px solid #DDD;
+}
+
+.left-timeline, .right-timeline{
+    display: inline-block;
+    vertical-align: top;
+    width: 364px;    
 }

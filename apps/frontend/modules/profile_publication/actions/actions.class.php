@@ -19,7 +19,7 @@ class profile_publicationActions extends autoProfile_publicationActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
-        $this->profile = $this->getUser()->getGuardUser();
+        $this->profile = $this->getUser()->getProfile();
     }
 
 }

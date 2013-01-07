@@ -12,18 +12,6 @@ require_once dirname(__FILE__) . '/../lib/courseGeneratorHelper.class.php';
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class courseActions extends autoCourseActions {
-
-    public function preExecute() {
-        $user = $this->getUser();
-        if ($user->isStudent()) {
-            $studentId = $user->getProfile()->getId();
-            if ($studentId) {
-                $this->student = StudentTable::getInstance()->find($studentId);
-            }
-        }
-        parent::preExecute();
-    }
-
     public function executeShow(sfWebRequest $request) {
         $this->course = $this->getRoute()->getObject();
         $this->forward404Unless($this->course);
@@ -42,27 +30,8 @@ class courseActions extends autoCourseActions {
         $this->redirectIf($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course_show?id=" . $courseId);
     }
 
-    public function executeDetail(sfWebRequest $request) {
-        $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
-        $this->course_meeting_times = CourseMeetingTimeTable::getInstance()->findByCourse($courseId);
-
-        $this->forward404Unless($this->course = CourseTable::getInstance()->find(array($this->getUser()->getMyAttribute('course_show_id', null))), sprintf('Object Course does not exist (%s).', $this->getUser()->getMyAttribute('course_show_id', null)));
-    }
-
-    public function executeMeetingTimes(sfWebRequest $request) {
-        $this->forward404Unless($this->course = CourseTable::getInstance()->find(array($this->getUser()->getMyAttribute('course_show_id', null))), sprintf('Object Course does not exist (%s).', $this->getUser()->getMyAttribute('course_show_id', null)));
-    }
-
-    public function executeBulletinBoardPost(sfWebRequest $request) {
-        $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
-        $this->bulletin_board_posts = BulletinBoardPostTable::getInstance()->retrieveBulletinBoardsExceptTrashed($this->getUser()->getId());
-
-        $this->forward404Unless($this->course = CourseTable::getInstance()->find(array($courseId)), sprintf('Object Course does not exist (%s).', $courseId));
-    }
-
     public function executeFiles(sfWebRequest $request) {
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
-
         $this->course_files = FileTable::getInstance()->findByCourse($courseId);
     }
 
@@ -193,7 +162,7 @@ class courseActions extends autoCourseActions {
         $this->course = CourseTable::getInstance()->find(array($courseId));
 
         $ids = array();
-        $calendarIds = CalendarTable::getInstance()->retrieveByIdsUserIdAndVisibility($this->getUser()->getId());
+        $calendarIds = CalendarTable::getInstance()->retrieveByIdsProfileIdAndVisibility($this->getUser()->getId());
 
         foreach ($calendarIds as $key => $calendarId) {
             $ids[] = $calendarId["id"];

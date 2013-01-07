@@ -33,7 +33,7 @@ class calendar_event_attendeeActions extends autoCalendar_event_attendeeActions 
      * @param sfRequest $request A request object
      */
     public function executeChoose(sfWebRequest $request) {
-        $this->currentUserIds = array();
+        $this->currentProfileIds = array();
 
         // fetch all students for now
         $this->users = sfGuardUserTable::getInstance()->findAll();
@@ -43,21 +43,21 @@ class calendar_event_attendeeActions extends autoCalendar_event_attendeeActions 
         $currentCourseStudents = CalendarEventAttendeeTable::getInstance()->findByCalendarEventId($this->event->getId());
 
         foreach ($currentCourseStudents as $currentCourseStudent) {
-            $this->currentUserIds[] = $currentCourseStudent->getUserId();
+            $this->currentProfileIds[] = $currentCourseStudent->getProfileId();
         }
 
-        $userIds = $request->getParameter("attendee", array());
+        $profileIds = $request->getParameter("attendee", array());
         if ($request->getMethod() == "POST") {
-            $toDelete = array_diff($this->currentUserIds, $userIds);
+            $toDelete = array_diff($this->currentProfileIds, $profileIds);
             if (count($toDelete)) {
-                CalendarEventAttendeeTable::getInstance()->deleteByEventIdAndUserIds($this->event->getId(), array_values($toDelete));
+                CalendarEventAttendeeTable::getInstance()->deleteByEventIdAndProfileIds($this->event->getId(), array_values($toDelete));
             }
 
-            $toAdd = array_diff($userIds, $this->currentUserIds);
+            $toAdd = array_diff($profileIds, $this->currentProfileIds);
             if (count($toAdd)) {
-                foreach ($toAdd as $userId) {
+                foreach ($toAdd as $profileId) {
                     $calendarEventAttendee = new CalendarEventAttendee();
-                    $calendarEventAttendee->setUserId($userId);
+                    $calendarEventAttendee->setProfileId($profileId);
                     $calendarEventAttendee->setCalendarEventId($this->event->getId());
                     $calendarEventAttendee->setComment("Invited");
                     $calendarEventAttendee->save();
@@ -67,7 +67,7 @@ class calendar_event_attendeeActions extends autoCalendar_event_attendeeActions 
                 $this->getUser()->setFlash('notice', $notice, false);
             }
 
-            $this->currentUserIds = $userIds;
+            $this->currentProfileIds = $profileIds;
         }
     }
 

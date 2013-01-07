@@ -66,7 +66,7 @@ class personal_infoActions extends sfActions {
     }
 
     public function executeUploadPhoto(sfWebRequest $request) {
-        $this->form = new ProfilePhotoForm(null, array('user_id' => $this->getUser()->getId()));
+        $this->form = new ProfilePhotoForm(null, array('profile_id' => $this->getUser()->getId()));
         if ($request->getMethod() == "POST") {
             $this->processForm($request, $this->form);
         }
@@ -125,7 +125,7 @@ class personal_infoActions extends sfActions {
 
     public function executeEdit(sfWebRequest $request) {
         $profile = $this->getUser()->getProfile();
-        $user = $this->getUser()->getProfile()->getUser();
+        $user = $this->getUser()->getProfile()->getProfile();
         
         // construct the personal info form based on the user type
         $personalInfoForm = $user->getType() . "PersonalInfoForm";
@@ -134,7 +134,7 @@ class personal_infoActions extends sfActions {
 
     public function executeUpdate(sfWebRequest $request) {
         $profile = $this->getUser()->getProfile();
-        $user = $this->getUser()->getProfile()->getUser();
+        $user = $this->getUser()->getProfile()->getProfile();
         
         // construct the personal info form based on the user type
         $personalInfoForm = $user->getType() . "PersonalInfoForm";

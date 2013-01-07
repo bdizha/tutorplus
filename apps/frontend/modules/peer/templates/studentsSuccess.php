@@ -20,7 +20,7 @@
         </div>
         <?php if (count($studentPeers) == 0): ?>
             <div class="no-result">There's no student peers linked currently.</div>
-            <?php include_partial('common/actions', array('actions' => $helper->findPeersContentActions())) ?>
+            <?php include_partial('common/actions', array('actions' => $helper->findPeers())) ?>
         <?php else: ?>
             <div class="peer-block  padding-10" id="my_peers">
                 <?php include_partial('list', array("peers" => $studentPeers)) ?>

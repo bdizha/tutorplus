@@ -34,12 +34,12 @@ class correspondentActions extends sfActions
 
     public function executeStudents(sfWebRequest $request)
     {
-        $this->student_correspondences = CorrespondenceTable::getInstance()->retrieveStudentCorrespondencesByUserId($this->getUser()->getId());
+        $this->student_correspondences = CorrespondenceTable::getInstance()->retrieveStudentCorrespondencesByProfileId($this->getUser()->getId());
     }
 
     public function executeInstructors(sfWebRequest $request)
     {
-        $this->instructor_correspondences = CorrespondenceTable::getInstance()->retrieveInstructorCorrespondencesByUserId($this->getUser()->getId());
+        $this->instructor_correspondences = CorrespondenceTable::getInstance()->retrieveInstructorCorrespondencesByProfileId($this->getUser()->getId());
     }
 
     public function executeCorrespond(sfWebRequest $request)
@@ -50,7 +50,7 @@ class correspondentActions extends sfActions
         $correspondents = array();
         $students = array();
 
-        $current_correspondences = CorrespondenceTable::getInstance()->retrieveCorrespondencesByUserId($this->getUser()->getId());
+        $current_correspondences = CorrespondenceTable::getInstance()->retrieveCorrespondencesByProfileId($this->getUser()->getId());
 
         $this->find_students = "";
         if ($request->getMethod() == "POST")
@@ -100,7 +100,7 @@ class correspondentActions extends sfActions
 
     public function executeInstructorCorrespond(sfWebRequest $request)
     {
-        $this->form = new ProfilePhotoForm(null, array('user' => $this->getUser()));
+        $this->form = new ProfilePhotoForm(null, array('profile' => $this->getUser()));
     }
 
 }

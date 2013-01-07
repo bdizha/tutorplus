@@ -8,9 +8,9 @@
                     <?php foreach ($users as $user): ?>
                         <div class="recipient">
                             <div class="participant-input">
-                                <input type="checkbox" class="input-checkbox" name="attendee[]" value="<?php echo $user->getId() ?>" <?php echo (isset($currentUserIds) && is_array($currentUserIds) && in_array($user["id"], $currentUserIds)) ? "checked='checked'" : "" ?> id="attendee_<?php echo $user->getId() ?>" class="choose-input" />                
+                                <input type="checkbox" class="input-checkbox" name="attendee[]" value="<?php echo $user->getId() ?>" <?php echo (isset($currentProfileIds) && is_array($currentProfileIds) && in_array($user["id"], $currentProfileIds)) ? "checked='checked'" : "" ?> id="attendee_<?php echo $user->getId() ?>" class="choose-input" />                
                             </div>
-                            <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 24)) ?>
+                            <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 24)) ?>
                             <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
                         </div> 
                     <?php endforeach; ?>

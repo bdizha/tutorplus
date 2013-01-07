@@ -10,11 +10,13 @@
 
 <?php include_partial('common/flashes') ?>
 
+<div class="sf_admin_heading">
+  <h3>My Courses</h3>
+</div>
 <div id="sf_admin_content">
     <div class="content-block">
-        <h2>My Courses</h2>
-        <div class="full-block" id="courses_list">
-            <?php include_partial('student/courses', array('courses' => $courses, 'student' => $student)) ?>
+        <div id="courses_list">
+            <?php include_partial('courses', array('courses' => $courses, 'profile' => $sf_user->getProfile())) ?>
         </div>
     </div>
 </div>

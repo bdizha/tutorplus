@@ -15,11 +15,11 @@ class FaqForm extends BaseFaqForm {
                 $this['created_at'], $this['updated_at']
         );
 
-        $userId = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $profileId = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
 
         $this->setDefaults(array(
-            'user_id' => $userId
+            'profile_id' => $profileId
         ));
     }
 

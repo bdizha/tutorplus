@@ -1,73 +1,92 @@
 #course_announcements{
-    padding: 0;
+  padding: 0;
 }
 
 .announcement h4 {
-    color: #8A8A8A;
-    font-size: 12px;
-    padding: 0;
+  color: #8A8A8A;
+  font-size: 12px;
+  padding: 0;
 }
 
 #announcement-action{
-    display: block;
-    height: 40px;
-    position: relative;
+  display: block;
+  height: 40px;
+  position: relative;
 }
 
 .announcement-details{
-    padding: 0 0 10px 10px;
-    width: 760px;
+  padding: 0 0 10px 10px;
+  width: 760px;
 }
 
 #announcement-action .users-actions{
-    left: 5px;
-    position: absolute;
-    top: 5px;
+  left: 5px;
+  position: absolute;
+  top: 5px;
 }
 
 .announcement .user-image{
-    float: left;
-    padding: 10px 10px 0 0;
+  float: left;
+  padding: 10px 10px 0 0;
 }
 
 .announcement a{
-    color: #3F7CB6;
+  color: #3F7CB6;
 }
 
 .announcement .user-meta{
-    color: #666666;
-    padding: 5px 0;
+  color: #666666;
+  padding: 5px 0;
 }
 
 .announcement-action .more-link{
-    margin-top: -30px
+  margin-top: -30px
 }
 
 /* announcement fields */
 #announcement_subject{
-    width: 688px !important;
+  width: 688px !important;
 }
 
 #announcement_message{
-    width: 688px !important;
-    height: 150px
+  width: 688px !important;
+  height: 150px
 }
 
 .announcement-row{
-    border-bottom: 1px dashed #C0C0C0;
-    padding: 5px 0;
+  border-bottom: 1px dashed #C0C0C0;
+  padding: 5px 0;
 }
 
 #course_announcement_form_holder .sf_admin_form_row label, 
 #announcement_form_holder .sf_admin_form_row label {
-    float: none !important;
+  float: none !important;
+}
+
+#announcements{
+  margin-left: -10px;
 }
 
 .announcement{
-    padding: 10px 10px;
-    position: relative;
-    display: block;
-    clear: both;
-    background-color: white;
-    border-top: 1px solid #EBEAE9;    
+  padding: 10px 10px;
+  position: relative;
+  display: block;
+  border: 1px solid #EBEAE9;
+  margin: 0 0 10px 10px;
+  width: 700px;
+  border-radius: 3px;
+  vertical-align: top;
+  background-color: white;
+  min-height: 96px;    
+}
+
+.announcement .meta-info {
+  height: 45px;
+  margin-left: 105px;
+  border-bottom: 1px solid #DDD;
+}
+
+.announcement .heading{
+  color: #856651;
+  font-weight: bold;
 }

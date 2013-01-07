@@ -17,8 +17,8 @@ class BulletinBoardForm extends BaseBulletinBoardForm
             $this['created_at'], $this['updated_at']
         );
 
-        $user_id = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden(array("default" => $user_id));
+        $profile_id = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden(array("default" => $profile_id));
 
         $this->validatorSchema['post']->setMessage('required', 'The <b>Post</b> field is required.');
 
@@ -26,10 +26,10 @@ class BulletinBoardForm extends BaseBulletinBoardForm
     }
     
     // save the calendar owner.
-    public function saveUserCalendar($user_id, $calendar)
+    public function saveUserCalendar($profile_id, $calendar)
     {
         $user_calendar = new UserCalendar();
-        $user_calendar->setOwnerId($user_id);
+        $user_calendar->setOwnerId($profile_id);
         $user_calendar->setCalendar($calendar);
         $user_calendar->save();
     }

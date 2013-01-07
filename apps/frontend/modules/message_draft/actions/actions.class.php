@@ -113,11 +113,11 @@ class message_draftActions extends autoMessage_draftActions {
         // fetch all the mailing users
         foreach (MailingListTable::getInstance()->retrieveByIds($mailingListIds) as $mailingList) {
             foreach ($mailingList->getInstructorMailingLists() as $instructorMailingList) {
-                $recipientEmails[] = $instructorMailingList->getInstructor()->getUser()->getEmail();
+                $recipientEmails[] = $instructorMailingList->getInstructor()->getProfile()->getEmail();
             }
 
             foreach ($mailingList->getStudentMailingLists() as $studentMailingList) {
-                $recipientEmails[] = $studentMailingList->getStudent()->getUser()->getEmail();
+                $recipientEmails[] = $studentMailingList->getStudent()->getProfile()->getEmail();
             }
         }
 

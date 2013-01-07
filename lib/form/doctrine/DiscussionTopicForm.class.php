@@ -17,15 +17,17 @@ class DiscussionTopicForm extends BaseDiscussionTopicForm
             $this['created_at'], $this['updated_at']
         );
 
-        $userId = sfContext::getInstance()->getUser()->getId();
+        $profileId = sfContext::getInstance()->getUser()->getId();
         $discussionId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_show_id', null);
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['discussion_id'] = new sfWidgetFormInputHidden();
         
+        $this->validatorSchema['discussion_type_id']->setMessage('required', 'The <b>Post type</b> field is required.');
+        $this->validatorSchema['subject']->setMessage('required', 'The <b>Subject</b> field is required.');
         $this->validatorSchema['message']->setMessage('required', 'The <b>Message</b> field is required.');
 
         $this->setDefaults(array(
-            'user_id' => $userId,
+            'profile_id' => $profileId,
             'discussion_id' => $discussionId,
         ));
     }

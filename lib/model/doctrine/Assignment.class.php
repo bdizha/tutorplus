@@ -30,7 +30,7 @@ class Assignment extends BaseAssignment
 
     public function getDisplaySubmission()
     {
-        return AssignmentTable::$submission_types[parent::_get('submission')];
+        return AssignmentTable::$submissionTypes[parent::_get('submission')];
     }
 
     public function getHtmlizedDescription() {

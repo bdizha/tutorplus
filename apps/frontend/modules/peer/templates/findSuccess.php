@@ -16,11 +16,11 @@
                 <span class="list-count"><?php echo count($potentialPeers) ?></span>
             </li>
         </ul>
-        <?php if (count($potentialPeers) == 0): ?>
-            <div class="no-result">It seems there's no new peers in this platform who're available to peer up with you currently :)</div>
-        <?php else: ?>    
-            <div class="no-result">Get peered up! You may want to use their name to quickly find them below :)</div>
-            <div class="peer-block  padding-10" id="my_peers">
+        <div class="peer-block  padding-10" id="my_peers">
+            <?php if (count($potentialPeers) == 0): ?>
+                <div class="tip">It seems there's no new peers in this platform who're available to peer up with you currently :)</div>
+            <?php else: ?>    
+                <div class="tip">Get peered up! You may want to use their name to quickly find them below :)</div>
                 <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
             </div> 
         <?php endif; ?>

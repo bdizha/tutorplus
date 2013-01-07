@@ -17,12 +17,12 @@ class NotificationSettingsTable extends Doctrine_Table
         return Doctrine_Core::getTable('NotificationSettings');
     }
 
-    public function findOrCreateOneByUserId($userId)
+    public function findOrCreateOneByProfileId($profileId)
     {
-        if (!is_object($notificationSettings = $this->getInstance()->findOneByUserId($userId)))
+        if (!is_object($notificationSettings = $this->getInstance()->findOneByProfileId($profileId)))
         {
             $notificationSettings = new NotificationSettings();
-            $notificationSettings->setUserId($userId);
+            $notificationSettings->setProfileId($profileId);
             $notificationSettings->save();
         }
         return $notificationSettings;

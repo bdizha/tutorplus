@@ -25,7 +25,7 @@ class notification_settingsGeneratorHelper extends BaseNotification_settingsGene
     public function editBreadcrumbs($object) {
         $sfUser = sfContext::getInstance()->getUser();
         return array('breadcrumbs' => array(
-                "Profile" => "profile/" . $sfUser->getGuardUser()->getSlug(),
+                "Profile" => "profile/" . $sfUser->getProfile()->getSlug(),
                 "Notification Settings" => "my_notification_settings"
             )
         );
@@ -33,13 +33,13 @@ class notification_settingsGeneratorHelper extends BaseNotification_settingsGene
 
     public function editLinks() {
         $sfUser = sfContext::getInstance()->getUser();
-        $userId = $sfUser->getMyAttribute('profile_show_id', null);
+        $profileId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
             "current_parent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_notification_settings",
-            "ignore" => !$sfUser->isCurrent($userId),
-            "slug" => $sfUser->getGuardUser()->getSlug()
+            "ignore" => !$sfUser->isCurrent($profileId),
+            "slug" => $sfUser->getProfile()->getSlug()
         );
     }
 

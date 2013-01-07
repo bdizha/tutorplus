@@ -17,14 +17,14 @@ class BulletinBoardCommentForm extends BaseBulletinBoardCommentForm
             $this['created_at'], $this['updated_at']
         );
 
-        $user_id = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $profile_id = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['bulletin_board_id'] = new sfWidgetFormInputHidden();
 
         $this->validatorSchema['content']->setMessage('required', 'The <b>Content</b> field is required.');
 
         $this->setDefaults(array(
-            'user_id' => $user_id
+            'profile_id' => $profile_id
         ));
 
         $this->disableLocalCSRFProtection();

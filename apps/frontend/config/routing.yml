@@ -1,3 +1,12 @@
+institution:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Institution
+    module:               institution
+    prefix_path:          /institution
+    column:               id
+    with_wildcard_routes: true
+
 news_item:
   class: sfDoctrineRouteCollection
   options:
@@ -7,12 +16,12 @@ news_item:
     column:               id
     with_wildcard_routes: true
 
-discussion_topic_type:
+discussion_type:
   class: sfDoctrineRouteCollection
   options:
-    model:                DiscussionTopicType
-    module:               discussion_topic_type
-    prefix_path:          /discussion/topic/type
+    model:                DiscussionType
+    module:               discussion_type
+    prefix_path:          /discussion/type
     column:               id
     with_wildcard_routes: true
 
@@ -235,7 +244,7 @@ course_announcement:
 discussion_topic_message:
   class: sfDoctrineRouteCollection
   options:
-    model:                DiscussionTopicMessage
+    model:                DiscussionPost
     module:               discussion_topic_message
     prefix_path:          /discussion/topic/message
     column:               id
@@ -344,7 +353,7 @@ file:
 discussion_topic_reply:
   class: sfDoctrineRouteCollection
   options:
-    model:                DiscussionTopicReply
+    model:                DiscussionComment
     module:               discussion_topic_reply
     prefix_path:          /discussion_topic_reply
     column:               id
@@ -470,7 +479,7 @@ email_message:
 discussion_member:
   class: sfDoctrineRouteCollection
   options:
-    model:                DiscussionMember
+    model:                DiscussionPeer
     module:               discussion_member
     prefix_path:          /discussion/member
     column:               id
@@ -489,15 +498,15 @@ discussion_member_followers:
   param: { module: discussion_member, action: followers }
   
 discussion_member_accept:
-  url:   /discussion/member/accept/:user_id
+  url:   /discussion/member/accept/:profile_id
   param: { module: discussion_member, action: accept }
   
 discussion_member_suggested:
   url:   /discussion/member/suggested
   param: { module: discussion_member, action: suggested }
   
-discussion_topic_message_show_mini:
-  url:   /discussion/topic/message/show/mini
+discussion_topic_message_show:
+  url:   /discussion/topic/message/show
   param: { module: discussion_topic_message, action: show }
 
 discussion_reply:
@@ -947,7 +956,7 @@ profile_delete_photo:
   param: { module: profile, action: deletePhoto } 
   
 profile_show_photo:
-  url:   /profile/show/photo/:user_id/:size/:timestamp
+  url:   /profile/show/photo/:profile_id/:size/:timestamp
   param: { module: profile, action: showPhoto } 
   
 profile_qualifications:
@@ -956,7 +965,7 @@ profile_qualifications:
   
 profile_timeline:
   url: /profile/timeline
-  param: { module: discussion_topic, action: timeline }
+  param: { module: profile, action: timeline }
   
 profile_peers:
   url: /profile/peers
@@ -1236,15 +1245,19 @@ my_messages:
   
 my_discussions:
   url:   /my/discussions
-  param: { module: discussion, action: index }  
+  param: { module: discussion, action: my }  
 
 my_courses:
   url:   /my/courses
   param: { module: course, action: my }
   
-explore_courses:
+course_explorer:
   url:   /explore/courses
   param: { module: course, action: explorer }
+  
+discussion_explorer:
+  url:   /explore/discussions
+  param: { module: discussion, action: explorer }
   
 enroll_course:
   url:   /course/enroll/:course_id
@@ -1562,30 +1575,30 @@ mail_test:
   url:   /mail_test
   param: { module: email_template, action: test }
   
-sf_guard_signin:
-  url:   /user/login
+profile_sign_in:
+  url:   /user/sign/in
   param: { module: sfGuardAuth, action: logIn }
 
-sf_guard_signout:
-  url:   /user/logout
-  param: { module: sfGuardAuth, action: signout }
+profile_sign_out:
+  url:   /user/sign/out
+  param: { module: sfGuardAuth, action: signOut }
 
-sf_guard_forgot_password:
+profile_forgot_password:
   url:   /user/request/password
-  param: { module: sfGuardForgotPassword, action: index }
+  param: { module: ProfileForgotPassword, action: index }
   
-sf_guard_forgot_password_update:
+profile_forgot_password_update:
   url:     /user/reset/password/:unique_key
   class:   sfDoctrineRoute
-  options: { model: sfGuardForgotPassword, type: object }
-  param:   { module: sfGuardForgotPassword, action: change }
+  options: { model: ProfileForgotPassword, type: object }
+  param:   { module: ProfileForgotPassword, action: change }
   requirements: { sf_method: post }
   
-sf_guard_forgot_password_change:
+profile_forgot_password_change:
   url:     /user/reset/password/:unique_key
   class:   sfDoctrineRoute
-  options: { model: sfGuardForgotPassword, type: object }
-  param:   { module: sfGuardForgotPassword, action: change }
+  options: { model: ProfileForgotPassword, type: object }
+  param:   { module: ProfileForgotPassword, action: change }
   requirements: { sf_method: get }
   
 faqs:
@@ -1616,6 +1629,10 @@ students:
 instructors:
   url:   /instructors
   param: { module: section, action: instructors }
+  
+institutions:
+  url:   /institutions
+  param: { module: section, action: institutions }  
   
 philosophy:
   url:   /philosophy

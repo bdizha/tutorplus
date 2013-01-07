@@ -12,9 +12,9 @@
 <div id="sf_admin_content" style="width:940px !important;">
     <div id="dashboard_container">
         <div class="content-block dashboard-block left">
-            <h2>Notifications <a href="/activity_feed" class="view-more">View More</a></h2>
+            <h2>Timeline <a href="/activity_feed" class="view-more">View More</a></h2>
             <div id="notifications" class="dashboard-row">
-                <?php include_partial('activity_feed/list', array("activityFeeds" => $notifications)) ?>
+                <?php include_partial('activity_feeds', array("activityFeeds" => $notifications)) ?>
             </div>
         </div>
         <div class="content-block dashboard-block">        
@@ -31,7 +31,7 @@
         </div>
         <div class="content-block dashboard-block">
             <h2>My Discussions <a href="/discussion" class="view-more">View More</a></h2>
-            <div id="my_discussions" class="dashboard-row">
+            <div id="my_timeline" class="dashboard-row">
                 <?php include_partial('discussions', array('discussions' => $discussions)) ?>
             </div>
         </div>
@@ -40,7 +40,7 @@
             <div id="my_messages" class="dashboard-row"></div>
         </div>
         <div class="content-block dashboard-block">
-            <h2>Events <a href="/my/schedule" class="view-more">View More</a></h2>
+            <h2>My Events <a href="/my/schedule" class="view-more">View More</a></h2>
             <div id="events" class="dashboard-row"></div>
         </div>
         <div class="content-block dashboard-block left">
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="content-block dashboard-block">
-            <h2>News <a href="/news" class="view-more">View More</a></h2>
+            <h2>News Updates <a href="/news/item" class="view-more">View More</a></h2>
             <div id="news_items" class="dashboard-row">
                 <?php include_partial('news_items', array('newsItems' => $newsItems)) ?>
             </div>

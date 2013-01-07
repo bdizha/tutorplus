@@ -12,6 +12,6 @@ class NotificationSettingsForm extends BaseNotificationSettingsForm
 {
   public function configure()
   {
-      $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+      $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
   }
 }

@@ -19,7 +19,7 @@ class profile_interestActions extends autoProfile_interestActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
-        $this->profile = $this->getUser()->getGuardUser();
+        $this->profile = $this->getUser()->getProfile();
     }
 
 }

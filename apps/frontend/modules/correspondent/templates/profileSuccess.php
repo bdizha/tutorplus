@@ -130,7 +130,7 @@
                     <div id="qualifications_list">
                         <ul>
                             <?php $i = 0; ?>
-                            <?php foreach ($profile->getUser()->getQualifications() as $qualification): ?>
+                            <?php foreach ($profile->getProfile()->getQualifications() as $qualification): ?>
                                 <li class="<?php echo fmod($i, 2) ? "odd" : "even" ?>">
                                     <div class="qualification-image">
                                         <img alt="<?php echo $qualification->getDescription() ?>, <?php echo $qualification->getInstitution() ?> <?php echo $qualification->getYear() ?>" src="/images/icons/14x14/achievements.png">
@@ -146,7 +146,7 @@
                     <div id="awards_list">
                         <ul>
                             <?php $i = 0; ?>
-                            <?php foreach ($profile->getUser()->getAwards() as $award): ?>
+                            <?php foreach ($profile->getProfile()->getAwards() as $award): ?>
                                 <li class="<?php echo fmod($i, 2) ? "odd" : "even" ?>">
                                     <div class="award-image">
                                         <img alt="<?php echo $award->getDescription() ?>, <?php echo $award->getInstitution() ?> <?php echo $award->getYear() ?>" src="/images/icons/14x14/achievements.png">

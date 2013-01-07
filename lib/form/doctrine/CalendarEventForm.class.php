@@ -15,8 +15,8 @@ class CalendarEventForm extends BaseCalendarEventForm {
                 $this['created_at'], $this['updated_at']
         );
 
-        $userId = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $profileId = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
 
         $this->widgetSchema['from_date'] = new tpWidgetFormDate();
         $this->widgetSchema['to_date'] = new tpWidgetFormDate();
@@ -30,7 +30,7 @@ class CalendarEventForm extends BaseCalendarEventForm {
         $this->validatorSchema['description']->setMessage('required', 'The <b>Description</b> field is required.');
 
         $this->setDefaults(array(
-            'user_id' => $userId,
+            'profile_id' => $profileId,
         ));
     }
 

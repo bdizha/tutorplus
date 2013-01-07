@@ -20,11 +20,11 @@
                         <?php foreach ($students as $student): ?>
                             <div class="discussion-potential-member">
                                 <div class="image">
-                                    <?php include_partial('personal_info/photo', array('user' => $student->getUser(), "dimension" => 24)) ?>
+                                    <?php include_partial('personal_info/photo', array('profile' => $student->getProfile(), "dimension" => 24)) ?>
                                 </div>
                                 <div class="name"><?php echo $student["name"] ?></div>
                                 <div class="input">
-                                    <input type="checkbox" class="input-checkbox" name="members[student][]" value="<?php echo $student["user_id"] ?>" <?php echo (is_array($currentMemberIds) && in_array($student["user_id"], $currentMemberIds)) ? "checked='checked'" : "" ?> id="members_student_<?php echo $student["user_id"] ?>" class="choose-input" />                
+                                    <input type="checkbox" class="input-checkbox" name="members[student][]" value="<?php echo $student["profile_id"] ?>" <?php echo (is_array($currentMemberIds) && in_array($student["profile_id"], $currentMemberIds)) ? "checked='checked'" : "" ?> id="members_student_<?php echo $student["profile_id"] ?>" class="choose-input" />                
                                 </div>
                             </div> 
                         <?php endforeach; ?>
@@ -37,11 +37,11 @@
                         <?php foreach ($instructors as $instructor): ?>
                             <div class="discussion-potential-member">
                                 <div class="image">
-                                    <?php include_partial('personal_info/photo', array('user' => $instructor->getUser(), "dimension" => 24)) ?>
+                                    <?php include_partial('personal_info/photo', array('profile' => $instructor->getProfile(), "dimension" => 24)) ?>
                                 </div>
                                 <div class="name"><?php echo $instructor["name"] ?></div>
                                 <div class="input">
-                                    <input type="checkbox" class="input-checkbox" name="members[instructor][]" value="<?php echo $instructor["user_id"] ?>" <?php echo (is_array($currentMemberIds) && in_array($instructor["user_id"], $currentMemberIds)) ? "checked='checked'" : "" ?> id="members_student_<?php echo $instructor["user_id"] ?>" class="choose-input" />                
+                                    <input type="checkbox" class="input-checkbox" name="members[instructor][]" value="<?php echo $instructor["profile_id"] ?>" <?php echo (is_array($currentMemberIds) && in_array($instructor["profile_id"], $currentMemberIds)) ? "checked='checked'" : "" ?> id="members_student_<?php echo $instructor["profile_id"] ?>" class="choose-input" />                
                                 </div>
                             </div> 
                         <?php endforeach; ?>

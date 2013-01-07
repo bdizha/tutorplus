@@ -15,7 +15,7 @@ class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorH
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "course",
-                "Users Permissions" => "profile_permission"
+                "Profiles Permissions" => "profile_permission"
             )
         );
     }

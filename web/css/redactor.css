@@ -49,12 +49,12 @@ body .redactor_box_fullscreen {
 	padding: 15px !important;
 	margin: 0 !important;
 	background: none;
-	background: #fff !important;
 	overflow: auto;
 	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 	font-size: 15px !important;
 	line-height: 1.45em !important;
 	white-space: normal;
+    z-index: 9;
 }
 .redactor_editor a {
 	color: #15c !important;

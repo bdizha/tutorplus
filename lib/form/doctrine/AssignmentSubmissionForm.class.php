@@ -18,11 +18,11 @@ class AssignmentSubmissionForm extends BaseAssignmentSubmissionForm
         );
         
         $assignmentId = sfContext::getInstance()->getUser()->getMyAttribute('assignment_show_id', null);
-        $userId = sfContext::getInstance()->getUser()->getId();
+        $profileId = sfContext::getInstance()->getUser()->getId();
 
         $this->widgetSchema['generated_file'] = new sfWidgetFormInputFile();
         $this->widgetSchema['original_file'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['assignment_id'] = new sfWidgetFormInputHidden();
         
         $this->validatorSchema['original_file'] = new sfValidatorString(array('required' => false));
@@ -34,7 +34,7 @@ class AssignmentSubmissionForm extends BaseAssignmentSubmissionForm
 
         $this->setDefaults(array(
             'assignment_id' => $assignmentId,
-            'user_id' => $userId
+            'profile_id' => $profileId
         ));
 
         $this->disableLocalCSRFProtection();

@@ -17,8 +17,8 @@ class BulletinBoardPostForm extends BaseBulletinBoardPostForm
             $this['created_at'], $this['updated_at']
         );
 
-        $user_id = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden(array("default" => $user_id));
+        $profile_id = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden(array("default" => $profile_id));
         $this->validatorSchema['post']->setMessage('required', 'The <b>Post</b> field is required.');
 
         $this->disableLocalCSRFProtection();

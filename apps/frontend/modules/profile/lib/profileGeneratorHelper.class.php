@@ -10,124 +10,137 @@
  */
 class profileGeneratorHelper extends BaseProfileGeneratorHelper {
 
-    public function linkToNew($params) {
-        return '<li class="sf_admin_action_new">' . button_to(__($params['label'], array(), 'sf_admin'), "/profile", array()) . '</li>';
-    }
+  public function timelineBreadcrumbs() {
+    return array('breadcrumbs' => array(
+            "Profile" => "profile_timeline",
+            "Timeline" => "profile_timelime"
+        )
+    );
+  }
 
-    public function linkToEdit($object, $params) {
-        return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/profile", array("popup_url" => "/profile/" . $object->getId() . "/edit")) . '</li>';
-    }
+  public function timelineLinks() {
+    $sfUser = sfContext::getInstance()->getUser();
+    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
+    return array(
+        "current_parent" => "profile",
+        "current_child" => "my_profile",
+        "current_link" => "my_timeline",
+        "slug" => $sfUser->getProfile()->getSlug(),
+        "ignore" => !$sfUser->isCurrent($profileId)
+    );
+  }
 
-    public function linkToDelete($object, $params, $is_form_action = false) {
-        if ($object->isNew()) {
-            return '';
-        }
+  public function publicInfoBreadcrumbs() {
+    $sfUser = sfContext::getInstance()->getUser();
+    return array('breadcrumbs' => array(
+            "Profile" => "profile_timeline",
+            "Public Info" => "profile/" . $sfUser->getProfile()->getProfile()->getSlug()
+        )
+    );
+  }
 
-        if (!$is_form_action) {
-            return '<li class="sf_admin_action_delete">' . link_to(__('<img src="/images/icons/14x14/delete.png" title="Delete" alt="Delete">', array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
-        } else {
-            return '<li class="sf_admin_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
-        }
-    }
+  public function publicInfoLinks() {
+    $sfUser = sfContext::getInstance()->getUser();
+    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
+    return array(
+        "current_parent" => "profile",
+        "current_child" => "my_profile",
+        "current_link" => "my_info",
+        "slug" => $sfUser->getProfile()->getProfile()->getSlug(),
+        "ignore" => !$sfUser->isCurrent($profileId)
+    );
+  }
 
-    public function publicInfoBreadcrumbs() {
-        $sfUser = sfContext::getInstance()->getUser();
-        return array('breadcrumbs' => array(
-                "Profile" => "profile_timeline",
-                "Public Info" => "profile/" . $sfUser->getProfile()->getUser()->getSlug()
-            )
-        );
-    }
+  public function discussionBreadcrumbs() {
+    return array('breadcrumbs' => array(
+            "Profile" => "profile_timeline",
+            "Discussions" => "profile_timeline"
+        )
+    );
+  }
 
-    public function publicInfoLinks() {
-        $sfUser = sfContext::getInstance()->getUser();
-        $userId = $sfUser->getMyAttribute('profile_show_id', null);
-        return array(
-            "current_parent" => "profile",
-            "current_child" => "my_profile",
-            "current_link" => "my_info",
-            "slug" => $sfUser->getProfile()->getUser()->getSlug(),
-            "ignore" => !$sfUser->isCurrent($userId)
-        );
-    }
+  public function discussionLinks() {
+    $sfUser = sfContext::getInstance()->getUser();
+    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
+    return array(
+        "current_parent" => "profile",
+        "current_child" => "my_profile",
+        "current_link" => "my_timeline",
+        "slug" => $sfUser->getProfile()->getProfile()->getSlug(),
+        "ignore" => !$sfUser->isCurrent($profileId)
+    );
+  }
 
-    public function discussionBreadcrumbs() {
-        return array('breadcrumbs' => array(
-                "Profile" => "profile_timeline",
-                "Discussions" => "profile_timeline"
-            )
-        );
-    }
+  public function accountSettingsBreadcrumbs() {
+    return array('breadcrumbs' => array(
+            "Profile" => "profile_timeline",
+            "Account Settings" => "profile_settings"
+        )
+    );
+  }
 
-    public function discussionLinks() {
-        $sfUser = sfContext::getInstance()->getUser();
-        $userId = $sfUser->getMyAttribute('profile_show_id', null);
-        return array(
-            "current_parent" => "profile",
-            "current_child" => "my_profile",
-            "current_link" => "my_discussions",
-            "slug" => $sfUser->getProfile()->getUser()->getSlug(),
-            "ignore" => !$sfUser->isCurrent($userId)
-        );
-    }
+  public function accountSettingsLinks() {
+    $sfUser = sfContext::getInstance()->getUser();
+    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
+    return array(
+        "current_parent" => "profile",
+        "current_child" => "my_profile",
+        "current_link" => "my_account_settings",
+        "slug" => $sfUser->getProfile()->getSlug(),
+        "ignore" => !$sfUser->isCurrent($profileId)
+    );
+  }
 
-    public function accountSettingsBreadcrumbs() {
-        return array('breadcrumbs' => array(
-                "Profile" => "profile_timeline",
-                "Account Settings" => "profile_settings"
-            )
-        );
-    }
+  public function contactDetailsBreadcrumbs() {
+    return array('breadcrumbs' => array(
+            "Profile" => "profile_timeline",
+            "Contact Details" => "my_contact_details"
+        )
+    );
+  }
 
-    public function accountSettingsLinks() {
-        $sfUser = sfContext::getInstance()->getUser();
-        $userId = $sfUser->getMyAttribute('profile_show_id', null);
-        return array(
-            "current_parent" => "profile",
-            "current_child" => "my_profile",
-            "current_link" => "my_account_settings",
-            "slug" => $sfUser->getGuardUser()->getSlug(),
-            "ignore" => !$sfUser->isCurrent($userId)
-        );
-    }
+  public function contactDetailsLinks() {
+    $sfUser = sfContext::getInstance()->getUser();
+    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
+    return array(
+        "current_parent" => "profile",
+        "current_child" => "my_profile",
+        "current_link" => "my_contact_details",
+        "slug" => $sfUser->getProfile()->getSlug(),
+        "ignore" => !$sfUser->isCurrent($profileId)
+    );
+  }
 
-    public function contactDetailsBreadcrumbs() {
-        return array('breadcrumbs' => array(
-                "Profile" => "profile_timeline",
-                "Contact Details" => "my_contact_details"
-            )
-        );
-    }
+  public function peersBreadcrumbs() {
+    return array('breadcrumbs' => array(
+            "Profile" => "profile_timeline",
+            "Peers" => "my_peers"
+        )
+    );
+  }
 
-    public function contactDetailsLinks() {
-        $sfUser = sfContext::getInstance()->getUser();
-        $userId = $sfUser->getMyAttribute('profile_show_id', null);
-        return array(
-            "current_parent" => "profile",
-            "current_child" => "my_profile",
-            "current_link" => "my_contact_details",
-            "slug" => $sfUser->getGuardUser()->getSlug(),
-            "ignore" => !$sfUser->isCurrent($userId)
-        );
-    }
+  public function peersLinks() {
+    $sfUser = sfContext::getInstance()->getUser();
+    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
+    return array(
+        "current_parent" => "profile",
+        "current_child" => "my_profile",
+        "current_link" => "my_peers",
+        "slug" => $sfUser->getProfile()->getSlug(),
+        "ignore" => !$sfUser->isCurrent($profileId)
+    );
+  }
 
-    public function peersBreadcrumbs() {
-        return array('breadcrumbs' => array(
-                "Profile" => "profile_timeline",
-                "Peers" => "my_peers"
-            )
-        );
-    }
+  public function linkToPublicationEdit($object, $params) {
+    return link_to(__('Edit', array(), 'sf_admin'), "/profile/publication/" . $object->getId() . "/edit", array("class" => "button-edit edit_profile_publication"));
+  }
 
-    public function peersLinks() {
-        $sfUser = sfContext::getInstance()->getUser();
-        $userId = $sfUser->getMyAttribute('profile_show_id', null);
-        return array(
-            "current_parent" => "profile",
-            "current_child" => "my_profile",
-            "current_link" => "my_peers",
-            "slug" => $sfUser->getGuardUser()->getSlug(),
-            "ignore" => !$sfUser->isCurrent($userId)
-        );
-    }
+  public function linkToBookEdit($object, $params) {
+    return link_to(__('Edit', array(), 'sf_admin'), "/profile/book/" . $object->getId() . "/edit", array("class" => "button-edit edit_profile_book"));
+  }
+
+  public function linkToInterestEdit($object, $params) {
+    return link_to(__('Edit', array(), 'sf_admin'), "/profile/interest/" . $object->getId() . "/edit", array("class" => "button-edit edit_profile_interest"));
+  }
+
 }

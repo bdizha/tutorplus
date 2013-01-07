@@ -30,26 +30,26 @@ class CalendarTable extends Doctrine_Table
         return self::$types;
     }
     
-    public function retrieveByUserIdAndVisibility($user_id = null, $is_public = true)
+    public function retrieveByProfileIdAndVisibility($profile_id = null, $is_public = true)
     {
         $query = $this->createQuery('c')
             ->select("c.id, c.name, c.color");
 
-        return $this->getByUserIdAndVisibilityQuery($query, $user_id, $is_public)->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
+        return $this->getByProfileIdAndVisibilityQuery($query, $profile_id, $is_public)->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
     }
     
-    public function retrieveByIdsUserIdAndVisibility($user_id = null, $is_public = true)
+    public function retrieveByIdsProfileIdAndVisibility($profile_id = null, $is_public = true)
     {
         $query = $this->createQuery('c')
             ->select("c.id");
 
-        return $this->getByUserIdAndVisibilityQuery($query, $user_id, $is_public)->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
+        return $this->getByProfileIdAndVisibilityQuery($query, $profile_id, $is_public)->execute(array(), Doctrine_Core::HYDRATE_ARRAY);
     }
     
-    public function getByUserIdAndVisibilityQuery(Doctrine_Query $query, $user_id, $is_public)
+    public function getByProfileIdAndVisibilityQuery(Doctrine_Query $query, $profile_id, $is_public)
     {
       return $query->innerJoin('c.Owner o')
-            ->where('o.owner_id = ?', $user_id)
+            ->where('o.owner_id = ?', $profile_id)
             ->orWhere('c.is_public = ?', $is_public);
     }
 }

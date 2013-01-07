@@ -5,8 +5,8 @@
         <?php else: ?>
             <?php foreach ($instructors as $instructor): ?>
                 <div class="course-follower">
-                    <?php include_partial('personal_info/photo', array('user' => $instructor->getUser(), "dimension" => 36)) ?>
-                    <div class="name"><?php echo $instructor->getUser() ?></div>
+                    <?php include_partial('personal_info/photo', array('profile' => $instructor->getProfile(), "dimension" => 36)) ?>
+                    <div class="name"><?php echo $instructor->getProfile() ?></div>
                     <div class="input">
                         <input type="checkbox" class="input-checkbox" name="instructor[]" value="<?php echo $instructor->getId() ?>" <?php echo (isset($currentInstructorIds) && is_array($currentInstructorIds) && in_array($instructor["id"], $currentInstructorIds)) ? "checked='checked'" : "" ?> id="instructor_<?php echo $instructor->getId() ?>" class="choose-input" />
                     </div>

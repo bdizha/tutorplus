@@ -1,1 +1,1 @@
-<?php include_partial('list', array("profile" => $profile)) ?>
+<?php include_partial('list', array("profile" => $profile, "helper" => $helper)) ?>

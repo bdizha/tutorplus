@@ -125,40 +125,40 @@ class CorrespondenceTable extends Doctrine_Table
         return $q->execute();
     }
 
-    public function retrieveStudentCorrespondencesByUserId($user_id = null, $status = 0, $limit = 100)
+    public function retrieveStudentCorrespondencesByProfileId($profile_id = null, $status = 0, $limit = 100)
     {
         $q = $this->createQuery('c')
-            ->where('((c.innitiator_id = ?) OR (c.correspondent_id = ? AND c.status != ?))', array($user_id, $user_id, $status))
+            ->where('((c.innitiator_id = ?) OR (c.correspondent_id = ? AND c.status != ?))', array($profile_id, $profile_id, $status))
             ->whereIn('c.type', array(self::STUDENT_STUDENT, self::STUDENT_INSTRUCTOR, self::INSTRUCTOR_STUDENT));
 
         $q->limit($limit);
         return $q->execute();
     }
 
-    public function retrieveInstructorCorrespondencesByUserId($user_id = null, $status = 0, $limit = 100)
+    public function retrieveInstructorCorrespondencesByProfileId($profile_id = null, $status = 0, $limit = 100)
     {
         $q = $this->createQuery('c')
-            ->where('((c.innitiator_id = ?) OR (c.correspondent_id = ? AND c.status != ?))', array($user_id, $user_id, $status))
+            ->where('((c.innitiator_id = ?) OR (c.correspondent_id = ? AND c.status != ?))', array($profile_id, $profile_id, $status))
             ->whereIn('c.type', array(self::INSTRUCTOR_INSTRUCTOR, self::STUDENT_INSTRUCTOR, self::INSTRUCTOR_STUDENT));
 
         $q->limit($limit);
         return $q->execute();
     }
 
-    public function retrieveCorrespondencesByUserId($user_id = null, $limit = 100)
+    public function retrieveCorrespondencesByProfileId($profile_id = null, $limit = 100)
     {
         $q = $this->createQuery('c')
-            ->where('c.innitiator_id = ?', $user_id)
-            ->orWhere('c.correspondent_id = ?', $user_id);
+            ->where('c.innitiator_id = ?', $profile_id)
+            ->orWhere('c.correspondent_id = ?', $profile_id);
 
         $q->limit($limit);
         return $q->execute();
     }
     
-    public function retrieveRequestsByUserIdAndStatus($user_id = null, $status = 0, $limit = 100)
+    public function retrieveRequestsByProfileIdAndStatus($profile_id = null, $status = 0, $limit = 100)
     {
         $q = $this->createQuery('c')
-            ->where('c.correspondent_id = ?', $user_id)
+            ->where('c.correspondent_id = ?', $profile_id)
             ->andWhere('c.status = ?', $status);
 
         $q->limit($limit);
@@ -172,8 +172,8 @@ class CorrespondenceTable extends Doctrine_Table
         $q = Doctrine_Query::create()
             ->select('u.id, u.first_name, u.last_name')
             ->from("sfGuardUser u")
-            ->where('id IN (SELECT st.user_id FROM Student st WHERE st.id IN (SELECT sc.student_id FROM StudentCourse sc WHERE sc.course_id IN (SELECT sc2.course_id FROM Studentcourse sc2 WHERE sc2.student_id = ?)))', $student_id)
-//            ->orWhere('id IN (SELECT i.user_id FROM Instructor i WHERE i.id IN (SELECT ic.instructor_id FROM InstructorCourse ic WHERE ic.course_id IN (SELECT sc3.course_id FROM Studentcourse sc3 WHERE sc3.student_id = ?)))', $student_id)
+            ->where('id IN (SELECT st.profile_id FROM Student st WHERE st.id IN (SELECT sc.student_id FROM StudentCourse sc WHERE sc.course_id IN (SELECT sc2.course_id FROM Studentcourse sc2 WHERE sc2.student_id = ?)))', $student_id)
+//            ->orWhere('id IN (SELECT i.profile_id FROM Instructor i WHERE i.id IN (SELECT ic.instructor_id FROM InstructorCourse ic WHERE ic.course_id IN (SELECT sc3.course_id FROM Studentcourse sc3 WHERE sc3.student_id = ?)))', $student_id)
             ->addWhere('(u.id NOT IN (SELECT c1.correspondent_id FROM correspondence c1 WHERE c1.innitiator_id = ?))', $innitiator_id)
             ->addWhere('(u.id NOT IN (SELECT c2.innitiator_id FROM correspondence c2 WHERE c2.correspondent_id = ?))', $innitiator_id)
             ->whereNotIn("u.id", array($innitiator_id));

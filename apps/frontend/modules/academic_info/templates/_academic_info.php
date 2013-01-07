@@ -1,26 +1,28 @@
-<div class="course_info">
-    <div class="even-row">
-        <div class="row-column">
-            <span class="label">Current study:</span> <?php echo $user->getProfile()->getCurrentStudy() ?>
-        </div>
-        <div class="row-column">
-            <span class="label">Department:</span> Education
-        </div>
+<div class="academic-info-row">
+    <div class="row-column">
+        <span class="label">Current study:</span>
+        <span class="value"><?php echo $user->getProfile()->getCurrentStudy() ?></span>
     </div>
-    <div class="even-row">
-        <div class="row-column">
-            <span class="label">Institution:</span> University of Cape Town (UCT)
-        </div>
-        <div class="row-column">
-            <span class="label">Studied at:</span> <?php echo $user->getProfile()->getStudiedAt() ?>
-        </div>
+    <div class="row-column">
+        <span class="label">Department:</span>
+        <span class="value">Education</span>
     </div>
-    <?php if ($user->getType() == sfGuardUserTable::TYPE_STUDENT): ?>
-        <div class="even-row">
-            <div class="row-column">
-                <span class="label">High School:</span> <?php echo $user->getProfile()->getHighSchool() ?>
-            </div>
-            <div class="row-column"></div>
-        </div>
-    <?php endif; ?>
 </div>
+<div class="academic-info-row">
+    <div class="row-column">
+        <span class="label">Institution:</span>
+        <span class="value">University of Cape Town (UCT)</span>
+    </div>
+    <div class="row-column">
+        <span class="label">Studied at:</span>
+        <span class="value"><?php echo $user->getProfile()->getStudiedAt() ?></span>
+    </div>
+</div>
+<?php if ($user->getType() == sfGuardUserTable::TYPE_STUDENT): ?>
+    <div class="academic-info-row">
+        <div class="row-column">
+            <span class="label">High School:</span>
+            <span class="value"><?php echo $user->getProfile()->getHighSchool() ?></span>
+        </div>
+    </div>
+<?php endif; ?>

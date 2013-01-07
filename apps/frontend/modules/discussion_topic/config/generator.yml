@@ -14,15 +14,15 @@ generator:
     config:
       actions:             ~
       fields:
-        message:                  { label: Description }
-        discussion_topic_type_id: { label: "Post Type" }
+        message:                  { label: Post }
+        discussion_type_id: { label: "Post Type" }
       form:
-        display:           [discussion_topic_type_id, message]
+        display:           [discussion_type_id, subject, message]
       filter:
         class: false
       list:
         title:             My Discussion Topics
-        display:           [discussion_topic_type_id, message]
+        display:           [discussion_type_id, message]
         sort:              [subject, asc]
         batch_actions:     []
         max_per_page:			 2

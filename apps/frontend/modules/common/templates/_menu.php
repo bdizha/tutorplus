@@ -7,7 +7,7 @@
             <li class="separator"></li>
             <li class="<?php echo ($i == 1 || $i == $menuItemsCount) ? ($i == 1) ? "first " : "last "  : "" ?>
                 <?php echo (!empty($current_parent) && $current_parent == $key) ? "active" : "normal" ?>">
-                    <?php $params = (isset($menuItem["param"])) ? "?" . $menuItem["param"] . "=" . $sf_user->getGuardUser()->getSlug() : "" ?>
+                    <?php $params = (isset($menuItem["param"])) ? "?" . $menuItem["param"] . "=" . $sf_user->getProfile()->getSlug() : "" ?>
                     <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"] . $params) ?>
             </li>
         <?php endforeach; ?>

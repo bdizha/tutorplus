@@ -13,12 +13,12 @@ class AssignmentTable extends Doctrine_Table
         3 => 'Quiz',
         4 => 'Not Graded'
     );
-    static public $submission_types = array(
+    static public $submissionTypes = array(
         1 => 'No Submission',
         2 => 'Online Submission',
         3 => 'On Paper'
     );
-    static public $grading_types = array(
+    static public $gradingTypes = array(
         1 => 'Points',
         2 => 'Percentage',
         3 => 'Complete/Incomplete',
@@ -42,12 +42,12 @@ class AssignmentTable extends Doctrine_Table
 
     public function getSubmissionTypes()
     {
-        return self::$submission_types;
+        return self::$submissionTypes;
     }
 
     public function getGradingTypes()
     {
-        return self::$grading_types;
+        return self::$gradingTypes;
     }
 
     public function retrieveUpcomingAssignments(Doctrine_Query $q = null)

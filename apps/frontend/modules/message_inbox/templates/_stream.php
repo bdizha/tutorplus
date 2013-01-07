@@ -3,7 +3,7 @@
         <label for="email_message_from_email">From:</label>
         <div class="content">
             <?php $sender = $emailMessage->getSender(); ?>
-            <?php include_partial('personal_info/photo', array('user' => $sender, "dimension" => 24)) ?>
+            <?php include_partial('personal_info/photo', array('profile' => $sender, "dimension" => 24)) ?>
             <?php echo $sender->getName() . "&nbsp;&lt;" . $sender->getEmail() . "&gt;" ?>
         </div>
     </div>
@@ -13,7 +13,7 @@
             <div id="to_email_recipients">
                 <div id="recipients_holder_to_email">
                     <?php foreach (sfGuardUserTable::getInstance()->retrieveByEmails($emailMessage->getToEmail()) as $user): ?>
-                        <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 24)) ?>
+                        <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 24)) ?>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -25,19 +25,19 @@
     </div>
     <div class="message-time"><?php echo myToolkit::formattedDate($emailMessage->getCreatedAt(), "f"); ?></div>
     <div class="thread">
-        <?php include_partial('personal_info/photo', array('user' => $emailMessage->getSender(), "dimension" => 48)) ?>
+        <?php include_partial('personal_info/photo', array('profile' => $emailMessage->getSender(), "dimension" => 48)) ?>
         <div class="message">
             <div class="value"><?php echo $emailMessage->getBody() ?></div>
-            <div class="user_meta">By <?php echo link_to($emailMessage->getSender(), 'profile_show', $emailMessage->getSender()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($emailMessage->getCreatedAt(), "f"); ?></span></div>
+            <div class="user-meta">By <?php echo link_to($emailMessage->getSender(), 'profile_show', $emailMessage->getSender()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($emailMessage->getCreatedAt(), "f"); ?></span></div>
         </div>
     </div>
     <?php foreach ($emailMessage->getReplies() as $reply): ?>
         <?php $emailMessageReply = $reply->getEmailMessageReply() ?>
         <div class="thread">
-            <?php include_partial('personal_info/photo', array('user' => $emailMessageReply->getSender(), "dimension" => 48)) ?>
+            <?php include_partial('personal_info/photo', array('profile' => $emailMessageReply->getSender(), "dimension" => 48)) ?>
             <div class="message">
                 <div class="value"><?php echo $emailMessageReply->getBody() ?></div>
-                <div class="user_meta">By <?php echo link_to($emailMessageReply->getSender(), 'profile_show', $emailMessageReply->getSender()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($emailMessageReply->getCreatedAt(), "f"); ?></span></div>
+                <div class="user-meta">By <?php echo link_to($emailMessageReply->getSender(), 'profile_show', $emailMessageReply->getSender()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($emailMessageReply->getCreatedAt(), "f"); ?></span></div>
             </div>
         </div>
     <?php endforeach; ?>
@@ -53,7 +53,7 @@
             <input id="email_message_sender_id" type="hidden" value="<?php echo $sf_user->getId() ?>" name="email_message[sender_id]">
             <input id="email_message_reply_to" type="hidden" value="<?php echo $emailMessage->getFromEmail() ?>" name="email_message[reply_to]"/>
             <input id="email_message_status" type="hidden" value="<?php echo EmailMessageTable::EMAIL_MESSAGE_STATUS_SENT ?>" name="email_message[status]"/>
-            <?php include_partial('personal_info/photo', array('user' => $sf_user->getGuardUser(), "dimension" => 48)) ?>
+            <?php include_partial('personal_info/photo', array('profile' => $sf_user->getProfile(), "dimension" => 48)) ?>
             <div class="reply">
                 <textarea name="email_message[body]" id="email_message_reply_body" cols="30" rows="4"></textarea>
             </div>

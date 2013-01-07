@@ -11,7 +11,7 @@
 class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Communication" => "activity_feed",
+                  "Timeline" => "activity_feed",
                 "Announcements" => "announcement"
             )
         );
@@ -19,15 +19,15 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "communication",
-            "current_child" => "channels",
+            "current_parent" => "timeline",
+            "current_child" => "timeline",
             "current_link" => "announcements"
         );
     }
 
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Communication" => "activity_feed",
+                "Timeline" => "activity_feed",
                 "Announcements" => "announcement",
                 "New Announcement" => "announcement/new"
             )
@@ -36,15 +36,15 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "communication",
-            "current_child" => "channels",
+            "current_parent" => "timeline",
+            "current_child" => "timeline",
             "current_link" => "announcements"
         );
     }
 
     public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
-                "Communication" => "activity_feed",
+                "Timeline" => "activity_feed",
                 "Announcements" => "announcement",
                 "Edit Announcement ~ " . $object->getSubject() => "announcement/" . $object->getId() . "/edit",
             )
@@ -53,8 +53,8 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "communication",
-            "current_child" => "channels",
+            "current_parent" => "timeline",
+            "current_child" => "timeline",
             "current_link" => "announcements"
         );
     }

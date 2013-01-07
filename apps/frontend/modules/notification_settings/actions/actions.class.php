@@ -16,7 +16,7 @@ class notification_settingsActions extends autoNotification_settingsActions
 
     function executeIndex(sfWebRequest $request)
     {
-        $notificationSettings = NotificationSettingsTable::getInstance()->findOrCreateOneByUserId($this->getUser()->getId());
+        $notificationSettings = NotificationSettingsTable::getInstance()->findOrCreateOneByProfileId($this->getUser()->getId());
         if ($notificationSettings)
         {
             $this->redirect('@notification_settings_edit?id=' . $notificationSettings->getId());

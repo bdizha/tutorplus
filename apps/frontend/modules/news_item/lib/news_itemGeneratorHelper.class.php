@@ -12,7 +12,7 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
 
     public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Communication" => "activity_feed",
+                "Timeline" => "activity_feed",
                 "News Items" => "news_item"
             )
         );
@@ -20,15 +20,15 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "communication",
-            "current_child" => "channels",
+            "current_parent" => "timeline",
+            "current_child" => "timeline",
             "current_link" => "news_items"
         );
     }
 
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Communication" => "activity_feed",
+                "Timeline" => "activity_feed",
                 "News Items" => "news_item",
                 "New NewsItem" => "news_item/new"
             )
@@ -37,15 +37,15 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "communication",
-            "current_child" => "channels",
+            "current_parent" => "timeline",
+            "current_child" => "timeline",
             "current_link" => "news_items"
         );
     }
 
     public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
-                "Communication" => "activity_feed",
+                "Timeline" => "activity_feed",
                 "News Items" => "news_item",
                 "Edit NewsItem ~ " . $object->getHeading() => "news_item/" . $object->getId() . "/edit",
             )
@@ -54,8 +54,8 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "communication",
-            "current_child" => "channels",
+            "current_parent" => "timeline",
+            "current_child" => "timeline",
             "current_link" => "news_items"
         );
     }

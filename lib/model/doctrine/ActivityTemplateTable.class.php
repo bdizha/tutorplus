@@ -13,10 +13,10 @@ class ActivityTemplateTable extends Doctrine_Table
     const TYPE_PEER_EMAIL = 3;
     const TYPE_POSTED_ANNOUNCEMENT = 4;
     const TYPE_POSTED_NEWS = 5;
-    const TYPE_POSTED_DISCUSSION_TOPIC = 6;
-    const TYPE_POSTED_DISCUSSION_MESSAGE = 7;
-    const TYPE_POSTED_DISCUSSION_REPLY = 8;
-    const TYPE_RECEIVED_EMAIL = 9;
+    const TYPE_POSTED_DISCUSSION = 6;
+    const TYPE_POSTED_DISCUSSION_TOPIC = 7;
+    const TYPE_POSTED_DISCUSSION_MESSAGE = 8;
+    const TYPE_POSTED_DISCUSSION_REPLY = 9;
     const TYPE_SUBSCRIBED_DISCUSSION_MEMBER = 10;
     const TYPE_UNSUBSCRIBED_DISCUSSION_MEMBER = 11;
     const TYPE_PENDING_ASSINGMENT = 12;
@@ -25,6 +25,7 @@ class ActivityTemplateTable extends Doctrine_Table
     const TYPE_SUBMITTED_COURSE_FILE = 15;
     const TYPE_UPCOMING_ASSIGNMENT = 16;
     const TYPE_UPCOMING_EVENT = 17;
+    const TYPE_RECEIVED_EMAIL = 18;
 
     static public $types = array(
         0 => 'Sent peer invitation',
@@ -33,10 +34,10 @@ class ActivityTemplateTable extends Doctrine_Table
         3 => 'Sent email',
         4 => 'Posted announcenment',
         5 => 'Posted news',
-        6 => 'Posted discussion topic',
-        7 => 'Posted discussion message',
-        8 => 'Posted discussion reply',
-        9 => 'Received email',
+        6 => 'Posted discussion',
+        7 => 'Posted discussion topic',
+        8 => 'Posted discussion message',
+        9 => 'Posted discussion reply',
         10 => 'Subscribed discussion member',
         11 => 'Unsubscribed discussion member',
         12 => 'Pending assignment',
@@ -44,7 +45,8 @@ class ActivityTemplateTable extends Doctrine_Table
         14 => 'Submitted assignment file',
         15 => 'Submitted course file',
         16 => 'Upcoming assignment',
-        17 => 'Upcoming event'
+        17 => 'Upcoming event',
+        18 => 'Received email'
     );
 
     /**

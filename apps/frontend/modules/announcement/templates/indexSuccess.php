@@ -9,28 +9,25 @@
 <?php end_slot() ?>
 
 <div class="sf_admin_heading">
-    <h3><?php echo __('Announcements', array(), 'messages') ?></h3>
+  <h3><?php echo __('Announcements', array(), 'messages') ?></h3>
 </div>
 <div id="sf_admin_container">
-    <div class="content-block">
-        <div class="top-actions">
-            <?php echo $helper->linkToAnnouncementNew() ?>
-        </div>
-        <div class="full-block">
-            <div id="announcements">
-                <h2>&nbsp;</h2>
-                <?php include_partial('announcement/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
-            </div>   
-        </div>
+  <div class="content-block">
+    <div class="top-actions">
+      <?php echo $helper->linkToAnnouncementNew() ?>
     </div>
+    <div id="announcements">
+      <?php include_partial('announcement/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
+    </div>  
+  </div>
 </div>
 <script type='text/javascript'>
-    $(document).ready(function(){    
-        $(".announcement").hover(function(){
-            $(this).children(".inline-content-actions").show();
-        },
-        function(){
-            $(this).children(".inline-content-actions").hide();
-        });
+  $(document).ready(function() {
+    $(".announcement").hover(function() {
+      $(this).children(".inline-content-actions").show();
+    },
+    function() {
+      $(this).children(".inline-content-actions").hide();
     });
+  });
 </script>

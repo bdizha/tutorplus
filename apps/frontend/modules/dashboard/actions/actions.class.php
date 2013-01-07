@@ -30,11 +30,11 @@ class dashboardActions extends sfActions {
         $this->courses = $this->getUser()->getProfile()->getCourses();
 
         $this->announcements = AnnouncementTable::getInstance()->retrieveLatest();
-        $this->newsItems = NewsTable::getInstance()->findLatest(100);
+        $this->newsItems = NewsItemTable::getInstance()->findLatest(100);
         //$this->events = CalendarEventTable::getInstance()->retrieveByVisibility(true);
-        $this->notifications = ActivityFeedTable::getInstance()->findByUserId($this->getUser()->getId(), 3);
-        $this->discussions = DiscussionTable::getInstance()->findPopularDiscussionsByUserId($this->getUser()->getId());
-        $this->peers = PeerTable::getInstance()->findByUserId($this->getUser()->getId());
+        $this->notifications = ActivityFeedTable::getInstance()->findByProfileId($this->getUser()->getId(), 3);
+        $this->discussions = DiscussionTable::getInstance()->findPopularDiscussionsByProfileId($this->getUser()->getId());
+        $this->peers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
     }
 
     public function preError404() {

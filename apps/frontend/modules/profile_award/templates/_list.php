@@ -1,6 +1,6 @@
 <?php $i = 0; ?>
-<?php foreach ($profile->getUser()->getAwards() as $award): ?>
-    <div class="award <?php echo fmod($i, 2) ? "odd" : "even" ?>-background">
+<?php foreach ($profile->getProfile()->getAwards() as $award): ?>
+    <div class="award">
         <div class="image">
             <img alt="<?php echo $award->getDescription() ?>, <?php echo $award->getInstitution() ?> <?php echo $award->getYear() ?>" src="/images/small-icon.hover.png"/>
         </div>
@@ -11,6 +11,10 @@
         <div class="award-year">
             <span><?php echo $award->getYear() ?></span>
         </div>
+        <div class="inline-content-actions">
+            <?php echo $helper->linkToAwardEdit($award, array()) ?>
+            <?php echo $helper->linkToAwardDelete($award, array("confirm" => "Are you sure?")) ?>
+        </div>
     </div>
     <?php $i++ ?>
 <?php endforeach; ?>
@@ -18,15 +22,20 @@
     <div class="no-result">No awards found.</div>
 <?php endif; ?>      
 <div class="clear"></div>
-<script type="text/javascript">      
-    $("#awards_list li").mouseover(function(){
-        $(this).children(".inline-actions").show();
-    }).mouseout(function(){
-        $(this).children(".inline-actions").hide();
+<script type='text/javascript'>
+    //<![DATA[
+    $(document).ready(function(){
+        $(".edit_profile_award").click(function(){
+            openPopup($(this).attr("href"), '410px', "480px", "Edit An Award");
+            return false;
+        });
+  
+        $(".award").hover(function(){
+            $(this).children(".inline-content-actions").show();
+        },
+        function(){
+            $(this).children(".inline-content-actions").hide();
+        });
     });
-    
-    $(".edit-award").click(function(){
-        myModal("Edit Award", $(this).attr("href"), 200, 510);
-        return false;
-    });
+    //]]
 </script>

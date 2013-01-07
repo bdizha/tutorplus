@@ -16,7 +16,7 @@ class calendarActions extends autoCalendarActions
     public function executeMySchedule(sfWebRequest $request)
     {        
         $ids = array();
-        $calendarIds = CalendarTable::getInstance()->retrieveByIdsUserIdAndVisibility($this->getUser()->getId());
+        $calendarIds = CalendarTable::getInstance()->retrieveByIdsProfileIdAndVisibility($this->getUser()->getId());
         
         foreach($calendarIds as $key => $calendarId)
         {

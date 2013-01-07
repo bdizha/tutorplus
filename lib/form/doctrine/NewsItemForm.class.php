@@ -15,8 +15,8 @@ class NewsItemForm extends BaseNewsItemForm {
                 $this['created_at'], $this['updated_at']
         );
 
-        $userId = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $profileId = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['lock_until'] = new tpWidgetFormDate();
         $this->widgetSchema['lock_after'] = new tpWidgetFormDate();
 
@@ -25,7 +25,7 @@ class NewsItemForm extends BaseNewsItemForm {
         $this->validatorSchema['body']->setMessage('required', 'The <b>Body</b> field is required.');
 
         $this->setDefaults(array(
-            'user_id' => $userId,
+            'profile_id' => $profileId,
         ));
     }
 

@@ -18,7 +18,7 @@ class CalendarEventTable extends Doctrine_Table
         return Doctrine_Core::getTable('CalendarEvent');
     }
 
-    public function retrieveByUserIdAndVisibility($user_id = null, $calendar_ids = array(), $is_public = true)
+    public function retrieveByProfileIdAndVisibility($profile_id = null, $calendar_ids = array(), $is_public = true)
     {
         if (count($calendar_ids) == 0)
             return array();
@@ -27,7 +27,7 @@ class CalendarEventTable extends Doctrine_Table
             ->select("ce.id, ce.name AS title, ce.from_date AS start, ce.to_date AS end, c.color AS backgroundColor, c.color AS borderColor")
             ->innerJoin('ce.Calendar c')
             ->innerJoin('c.Owner o')
-            ->where('(o.owner_id = ? OR c.is_public = ?)', array($user_id, $is_public))
+            ->where('(o.owner_id = ? OR c.is_public = ?)', array($profile_id, $is_public))
             ->andWhereIn('c.id', $calendar_ids)
             ->orderBy('ce.from_date, ce.to_date DESC');
 

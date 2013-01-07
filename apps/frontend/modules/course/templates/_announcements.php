@@ -15,7 +15,7 @@
                     <span class="datetime">
                         <?php echo false !== strtotime($announcement->getUpdatedAt()) ? distance_of_time_in_words(strtotime($announcement->getUpdatedAt())) . " ago" : '&nbsp;' ?> by
                     </span>
-                    <?php echo link_to($announcement->getUser(), "profile") ?>
+                    <?php echo link_to($announcement->getProfile(), "profile") ?>
                 </div>
             </div>
             <div class="actions">

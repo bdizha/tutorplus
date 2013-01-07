@@ -113,9 +113,9 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
         );
     }
 
-    public function findPeersContentActions() {
+    public function findPeers() {
         return array(
-            "find_peers" => array("title" => "+ Find Peers", "url" => "peer_find")
+            "find_peers" => array("title" => "+ Find Peers", "url" => "peer/find")
         );
     }
 

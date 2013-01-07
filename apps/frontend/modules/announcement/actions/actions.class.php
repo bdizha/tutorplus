@@ -27,7 +27,7 @@ class announcementActions extends autoAnnouncementActions {
 
     public function sendEmail($object) {
         $toEmails = $object->getToEmails();
-        $announcer = $object->getUser();
+        $announcer = $object->getProfile();
         $mailer = new tpMailer();
         $mailer->setTemplate('new-announcement');
         $mailer->setToEmails($toEmails);

@@ -21,7 +21,7 @@ class academic_infoActions extends sfActions {
 
     public function executeEdit(sfWebRequest $request) {
         $profile = $this->getUser()->getProfile();
-        $user = $this->getUser()->getProfile()->getUser();
+        $user = $this->getUser()->getProfile()->getProfile();
 
         // construct the academic info form based on the user type
         $academicInfoForm = $user->getType() . "AcademicInfoForm";
@@ -30,7 +30,7 @@ class academic_infoActions extends sfActions {
 
     public function executeUpdate(sfWebRequest $request) {
         $profile = $this->getUser()->getProfile();
-        $user = $this->getUser()->getProfile()->getUser();
+        $user = $this->getUser()->getProfile()->getProfile();
 
         // construct the academic info form based on the user type
         $academicInfoForm = $user->getType() . "AcademicInfoForm";

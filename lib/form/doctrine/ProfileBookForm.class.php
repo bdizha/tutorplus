@@ -11,8 +11,8 @@
 class ProfileBookForm extends BaseProfileBookForm {
 
     public function configure() {
-        $userId = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $profileId = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
 
         $this->validatorSchema['title']->setMessage('required', 'The <b>Title</b> field is required.');
         $this->validatorSchema['author']->setMessage('required', 'The <b>Author</b> field is required.');
@@ -20,7 +20,7 @@ class ProfileBookForm extends BaseProfileBookForm {
         $this->validatorSchema['author']->setMessage('max_length', 'Please specify the max length message here.');
 
         $this->setDefaults(array(
-            'user_id' => $userId
+            'profile_id' => $profileId
         ));
     }
 

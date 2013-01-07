@@ -23,10 +23,11 @@ input[type=button], input[type=submit] {
     cursor: hand;
     cursor: pointer;
     font-size: 11px;
+    border-radius: 3px;
 }
 
 .cancel, .done, .fc-header .fc-button, #calnext, #calprev{
-    background-color: #AB6634;
+    background-color: #856651;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #F7F8F8), color-stop(100%, #F1F2F3));
     background-image: -webkit-linear-gradient(#F7F8F8,#F1F2F3);
     background-image: -moz-linear-gradient(#F7F8F8,#F1F2F3);
@@ -85,7 +86,7 @@ input[type="text"], input[type="password"]{
 }
 
 input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
-    border: 1px solid #AB6634;
+    border: 1px solid #856651;
     outline: medium none;
 }
 
@@ -94,43 +95,16 @@ input[type="password"]:focus, input[type="text"]:focus, textarea:focus{
     outline: medium none;
 }
 
-.enrolled, .invite{
-    background-color: #337883;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#429CA9),to(#337883));
-    background-image: -webkit-linear-gradient(top,#429CA9,#337883);
-    background-image: -moz-linear-gradient(top,#429CA9,#337883);
-    background-image: -ms-linear-gradient(top,#429CA9,#337883);
-    background-image: -o-linear-gradient(top,#429CA9,#337883);
-    background-image: linear-gradient(top,#429CA9,#337883);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#429CA9',EndColorStr='#337883');
-    color: #FFF !important;
-    border: 1px solid #337883;
-    padding: 2px 10px 3px;
-    height: 22px;
-}
-
-.enrolled:hover, .invite:hover{
-    background-color: #429CA9;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#337883),to(#429CA9));
-    background-image: -webkit-linear-gradient(top,#337883,#429CA9);
-    background-image: -moz-linear-gradient(top,#337883,#429CA9);
-    background-image: -ms-linear-gradient(top,#337883,#429CA9);
-    background-image: -o-linear-gradient(top,#337883,#429CA9);
-    background-image: linear-gradient(top,#337883,#429CA9);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#337883',EndColorStr='#429CA9');
-    border: 1px solid #429CA9;
-}
-
 .save, .new, .button, .landing-button{
-    background-color: #AB6634;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#BB6E3C),to(#AB6634));
-    background-image: -webkit-linear-gradient(top,#BB6E3C,#AB6634);
-    background-image: -moz-linear-gradient(top,#BB6E3C,#AB6634);
-    background-image: -ms-linear-gradient(top,#BB6E3C,#AB6634);
-    background-image: -o-linear-gradient(top,#BB6E3C,#AB6634);
-    background-image: linear-gradient(top,#BB6E3C,#AB6634);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#BB6E3C',EndColorStr='#AB6634');
-    border: 1px solid #BB6E3C;
+    background-color: #856651;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#9A8268),to(#856651));
+    background-image: -webkit-linear-gradient(top,#9A8268,#856651);
+    background-image: -moz-linear-gradient(top,#9A8268,#856651);
+    background-image: -ms-linear-gradient(top,#9A8268,#856651);
+    background-image: -o-linear-gradient(top,#9A8268,#856651);
+    background-image: linear-gradient(top,#9A8268,#856651);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#9A8268',EndColorStr='#856651');
+    border: 1px solid #9A8268;
     color: #FFF !important;
     padding: 2px 10px 3px;
 }
@@ -151,11 +125,11 @@ input.button-edit, input.button-remove, input.button-view{
 
 a.button-edit, a.button-remove, a.button-view{
     display: inline-block;
-    margin-top: 5px;
+    margin-top: 1px;
 }
 
 .button-edit, .button-view{
-    background: #BB6E3C;
+    background: #9A8268;
     width: 55px;
 }
 
@@ -165,19 +139,19 @@ a.button-edit, a.button-remove, a.button-view{
 }
 
 .save:hover, .new:hover, .button:hover, .landing-button{
-    background-color: #BB6E3C;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#AB6634),to(#BB6E3C	));
-    background-image: -webkit-linear-gradient(top,#AB6634,#BB6E3C);
-    background-image: -moz-linear-gradient(top,#AB6634,#BB6E3C);
-    background-image: -ms-linear-gradient(top,#AB6634,#BB6E3C);
-    background-image: -o-linear-gradient(top,#AB6634,#BB6E3C);
-    background-image: linear-gradient(top,#AB6634,#BB6E3C);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#AB6634',EndColorStr='#BB6E3C');
+    background-color: #9A8268;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#856651),to(#9A8268	));
+    background-image: -webkit-linear-gradient(top,#856651,#9A8268);
+    background-image: -moz-linear-gradient(top,#856651,#9A8268);
+    background-image: -ms-linear-gradient(top,#856651,#9A8268);
+    background-image: -o-linear-gradient(top,#856651,#9A8268);
+    background-image: linear-gradient(top,#856651,#9A8268);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#856651',EndColorStr='#9A8268');
 }
 
 select{
     width: 338px;
-    height: 27px;
+    height: 22px;
 }
 
 select[size], select[multiple], select[size][multiple] {
@@ -248,7 +222,6 @@ select > option{
 
 #other_container_inner{
     min-height: 308px;
-    background-color: #FFFFFF;
     -webkit-border-radius: 10px;
     border-radius: 10px;
     padding: 20px;    
@@ -279,7 +252,8 @@ fieldset textarea{
 }
 
 #cboxLoadedContentInner textarea{
-    min-width: 325px;
+    min-width: 300px;
+    width: 325px !important;
 }
 
 #cboxLoadedContentInner input[type="text"], #cboxLoadedContentInner input[type="password"], #authenticate input[type="text"], #authenticate input[type="password"]{

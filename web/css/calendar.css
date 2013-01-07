@@ -28,9 +28,10 @@
 
 .sf_admin_form_field_name, .sf_admin_form_field_calendar_id,
 .sf_admin_form_field_from_date, .sf_admin_form_field_to_date,
-.sf_admin_form_field_location, .sf_admin_form_field_is_personal{
-    float: left;
-    width: 341px;
+.sf_admin_form_field_location, .sf_admin_form_field_is_personal,
+.sf_admin_form_field_is_personal, .sf_admin_form_field_notify_changes{
+    display: inline-block;
+    width: 338px;
 }
 
 .sf_admin_form_field_description{

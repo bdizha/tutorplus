@@ -64,7 +64,7 @@ class correspondenceActions extends autoCorrespondenceActions
             }
         }
 
-        $this->requested_correspondences = CorrespondenceTable::getInstance()->retrieveRequestsByUserIdAndStatus($this->getUser()->getId());
+        $this->requested_correspondences = CorrespondenceTable::getInstance()->retrieveRequestsByProfileIdAndStatus($this->getUser()->getId());
     }
 
     public function executeCorrespondents(sfWebRequest $request)

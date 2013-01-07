@@ -26,9 +26,9 @@ class discussionActions extends autoDiscussionActions {
         if (is_object($this->discussion)) {
             if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
                 $studentId = $this->getUser()->getStudentId();
-                $userId = $this->getUser()->getId();
+                $profileId = $this->getUser()->getId();
 
-                $this->suggestedFollowers = DiscussionMemberTable::getInstance()->retrieveSuggestionsByStudentIdAndUserId($studentId, $userId, $this->discussion->getId());
+                $this->suggestedFollowers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
             } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
                 $this->suggestedFollowers = null;
             }
@@ -38,7 +38,7 @@ class discussionActions extends autoDiscussionActions {
         }
     }
 
-    public function executeIndex(sfWebRequest $request) {
+    public function executeExplorer(sfWebRequest $request) {
         // sorting
         if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
             $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
@@ -47,11 +47,35 @@ class discussionActions extends autoDiscussionActions {
         // fetch discussions stats
         $this->discussionActivity = array();
         $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics()->count();
-        $this->discussionActivity["new_replies"] = DiscussionTopicReplyTable::getInstance()->getNbNewReplies()->count();
-        $this->discussionActivity["new_messages"] = DiscussionTopicMessageTable::getInstance()->getNbNewMessages()->count();
-        $this->discussionActivity["new_members"] = DiscussionMemberTable::getInstance()->getNbNewMembersJoined()->count();
+        $this->discussionActivity["new_replies"] = DiscussionCommentTable::getInstance()->getNbNewReplies()->count();
+        $this->discussionActivity["new_messages"] = DiscussionPostTable::getInstance()->getNbNewMessages()->count();
+        $this->discussionActivity["new_members"] = DiscussionPeerTable::getInstance()->getNbNewMembersJoined()->count();
 
-        $this->discussionTopic = DiscussionTopicTable::getInstance()->getTopicWithRecentActivity();
+        $this->discussionTopics = DiscussionTopicTable::getInstance()->findAll();
+
+        // pager
+        if ($request->getParameter('page')) {
+            $this->setPage($request->getParameter('page'));
+        }
+
+        $this->pager = $this->getPager();
+        $this->sort = $this->getSort();
+    }
+
+    public function executeMy(sfWebRequest $request) {
+        // sorting
+        if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
+            $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
+        }
+
+        // fetch discussions stats
+        $this->discussionActivity = array();
+        $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics()->count();
+        $this->discussionActivity["new_replies"] = DiscussionCommentTable::getInstance()->getNbNewReplies()->count();
+        $this->discussionActivity["new_messages"] = DiscussionPostTable::getInstance()->getNbNewMessages()->count();
+        $this->discussionActivity["new_members"] = DiscussionPeerTable::getInstance()->getNbNewMembersJoined()->count();
+
+        $this->discussionTopics = DiscussionTopicTable::getInstance()->findAll();
 
         // pager
         if ($request->getParameter('page')) {
@@ -69,7 +93,7 @@ class discussionActions extends autoDiscussionActions {
 
     public function sendEmail($object) {
         $toEmails = $object->getToEmails();
-        $owner = $object->getUser();
+        $owner = $object->getProfile();
         $mailer = new tpMailer();
         $mailer->setTemplate('new-discussion');
         $mailer->setToEmails($toEmails);
@@ -131,14 +155,14 @@ class discussionActions extends autoDiscussionActions {
                 ->createQuery('d');
 
         if (true) {
-            $userId = $this->getUser()->getMyAttribute('peer_show_id', null);
-            if (!$userId) {
-                $userId = $this->getUser()->getId();
+            $profileId = $this->getUser()->getMyAttribute('peer_show_id', null);
+            if (!$profileId) {
+                $profileId = $this->getUser()->getId();
             }
 
             $query
                     ->innerJoin('d.Members dm')
-                    ->addWhere("dm.user_id = ?", $userId)
+                    ->addWhere("dm.profile_id = ?", $profileId)
                     ->addOrderBy("d.updated_at Desc");
         }
 

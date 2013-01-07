@@ -19,7 +19,7 @@
 <?php include_partial('discussion_topic/flashes') ?>
 <div id="discussion-notice" class="notice">&nbsp;</div>
 <div class="sf_admin_heading">
-    <h3><?php echo __('Discussion Topic ~ %%name%%', array('%%name%%' => $discussionTopic->getSubject()), 'messages') ?></h3>
+    <h3><?php echo __('Topic ~ %%name%%', array('%%name%%' => $discussionTopic->getSubject()), 'messages') ?></h3>
 </div>
 <div id="sf_admin_form_container">
     <div id="sf_admin_content">
@@ -27,71 +27,41 @@
             <div class="top-actions">
                 <?php echo $helper->linkToInviteFollowers() ?>
             </div>
-            <div class="discussion-left-block">
-                <h2><?php echo $discussionTopic->getSubject() ?></h2>
-                <?php include_partial('discussion_topic/topic', array('discussionTopic' => $discussionTopic, "helper" => $helper)) ?>
-                <?php include_partial('common/actions', array('actions' => $helper->showContentActions($discussionTopic))) ?>
-            </div>
-            <div class="discussion-right-block">
-                <h2>Suggested Followers</h2>
-                <div id="suggested-followers">
-                    <?php if (count($suggestedFollowers) > 0): ?>
-                        <?php foreach ($suggestedFollowers as $suggestedFollower): ?>
-                            <div class="follower"> 
-                                <?php include_partial('personal_info/photo', array('user' => $suggestedFollower, "dimension" => 48)) ?>
-                                <div class="name"><?php echo link_to($suggestedFollower->getName(), 'profile_show', $suggestedFollower) ?></div>
-                                <div class="peer-actions">
-                                    <input class="invite" userid="<?php echo $suggestedFollower->getId() ?>" value="Accept" type="button">
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <div class="no-result">There's no followers to suggest.</div>
-                    <?php endif; ?>
+            <div id="discussion-topic">
+                <div class="snapshot">
+                    <div class="heading">
+                        <?php include_partial('personal_info/photo', array('profile' => $discussionTopic->getProfile(), "dimension" => 48)) ?>
+                        <div class="name"><?php echo link_to($discussionTopic->getProfile(), 'profile_show', $discussionTopic->getProfile()) ?></div> on
+                        <div class="datetime"><?php echo $discussionTopic->getUpdatedAt() ?></div> created topic:
+                    </div>
+                    <div class="body">
+                        <?php echo link_to($discussionTopic->getSubject(), 'discussion_topic_show', $discussionTopic) ?>
+                        <?php echo $discussionTopic->getMessage() ?>
+                    </div>
+                    <div class="statistics">
+                        <span class="list-count">125</span> posts <span class="list-count">999+</span> comments <span class="list-count">455</span> views
+                    </div>
                 </div>
             </div>
+            <?php include_partial('common/actions', array('actions' => $helper->showContentActions($discussionTopic))) ?>
         </div>
         <div class="content-block">
-            <div class="discussion-left-block">
-                <h2><span class="list-count" id="replies-count"><?php echo $discussionTopic->getNbReplies() ?></span> replies  of <span id="messages-count" class="list-count"><?php echo $discussionTopic->getNbMessages() ?></span> post(s)</h2>
-                <div id="discussion_topic_message_form_container">
-                    <div id="sf_admin_form_container">
-                        <?php include_partial('common/flashes', array('form' => $messageForm)) ?>
-                        <?php include_partial('discussion_topic_message/form', array('discussion_topic_message' => new DiscussionTopicMessage(), 'form' => $messageForm)) ?>
-                    </div>
-                </div>
-                <div class="full-block ">
-                    <div id="discussion-topic-replies">
-                        <?php foreach ($discussionTopic->retrieveMessages() as $discussionTopicMessage): ?>
-                            <?php include_partial('discussion_topic_message/message', array('discussionTopicMessage' => $discussionTopicMessage, "form" => $replyForm)) ?>
-                        <?php endforeach; ?>
-                    </div>
+            <div id="discussion_topic_message_form_container">
+                <div id="sf_admin_form_container">
+                    <?php include_partial('discussion_topic_message/form', array('discussion_topic_message' => new DiscussionPost(), 'form' => $messageForm)) ?>
                 </div>
             </div>
-            <div class="discussion-right-block">
-                <h2>Discussion Followers</h2>
-                <div id="discussion-followers">
-                    <?php $members = $discussionTopic->getDiscussion()->retrieveMembers(); ?>
-                    <?php if ($members->count() > 0): ?>
-                        <?php foreach ($members as $member): ?>
-                            <div class="participant">
-                                <?php include_partial('personal_info/photo', array('user' => $member->getUser(), "dimension" => 36)) ?>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <div class="no-result">There's no followers invited.</div>
-                    <?php endif; ?>
-                    <div class="clear">&nbsp;</div>
-                </div>
+            <div id="discussion-topic-replies">
+                <?php foreach ($discussionTopic->retrieveMessages() as $discussionTopicMessage): ?>
+                    <?php include_partial('discussion_topic_message/message', array('discussionTopicMessage' => $discussionTopicMessage, "replyForm" => $replyForm, "messageForm" => new DiscussionPostForm($discussionTopicMessage), "helper" => new discussion_topicGeneratorHelper())) ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </div>
 <script type='text/javascript'>
-    $(document).ready(function(){
-        $('#left-column').css("display", "none");
-        $('#middle-column').css("margin-left", "0");
-        $('#middle-column, #sf_admin_content').css("width", "940px");
+    $(document).ready(function(){ 
+        $('.message-edit textarea').redactor();
         
         $("a.reply").click(function(){
             $(".discussion_topic_reply").hide();            
@@ -139,8 +109,8 @@
         });       
         
         $(".peer-actions .invite").click(function(){
-            var userId = $(this).attr("userid");
-            $.get('/discussion/member/accept/' + userId, {}, function (response) {
+            var ProfileId = $(this).attr("ProfileId");
+            $.get('/discussion/member/accept/' + ProfileId, {}, function (response) {
                 $("#discussion-notice").html(response);
                 $(".notice").hide();
                 $("#discussion-notice").show();
@@ -150,5 +120,44 @@
                 $("#suggested-followers").load("/discussion/member/suggested");
             }, 'html');
         });
+        
+        $(".message").hover(function(){
+            if(!$(this).hasClass("editing")){
+                $(this).children(".inline-content-actions").show();            
+            }
+        },
+        function(){
+            $(this).children(".inline-content-actions").hide();
+        });
+        
+        $(".message .button-edit").click(function(){
+            $("#message-" + $(this).attr("id")).addClass("editing");
+            $("#message-" + $(this).attr("id") + " .view-mode").hide();
+            $("#message-" + $(this).attr("id") + " .edit-mode").show();
+            return false;
+        });   
+        
+        $('.update').click(function(){
+            var messageId =  $(this).attr("id");
+            var message = $("#discussion_topic_message_form_" + messageId + " textarea").val();            
+            if( $.trim(message) == ""){
+                alert("Please enter your discussion post!");
+                return;
+            }
+            
+            if($(this).val() != "Loading..."){
+                $(this).val("Loading...");
+                $("#discussion_topic_message_form_" + messageId).ajaxSubmit(function(data){                
+                    if(data == "success"){                    
+                        $("#message-" + messageId).html(message);
+                    }
+                    else{
+                        alert("Oops! Your post couldn't be edited at this time.");            
+                    }
+                });
+                $("#message-" + messageId).removeClass("editing");
+                $(this).val("Update");
+            }
+        }); 
     });
 </script>

@@ -21,14 +21,14 @@ class CourseTable extends Doctrine_Table {
         return Doctrine_Core::getTable('Course');
     }
 
-    public function findByUserId($userId, $limit = null) {
+    public function findByProfileId($profileId, $limit = null) {
         $q = $this->createQuery('c')
                 ->leftJoin('c.CourseStudents cs')
                 ->leftJoin('c.CourseInstructors ci')
                 ->innerJoin('ci.Instructor i')
                 ->innerJoin('cs.Instructor s')
-                ->addWhere('s.user_id = ?', $userId)
-                ->addWhere('i.user_id = ?', $userId);
+                ->addWhere('s.profile_id = ?', $profileId)
+                ->addWhere('i.profile_id = ?', $profileId);
         
         myToolkit::debug($q->getSqlQuery());
         return $q->execute();

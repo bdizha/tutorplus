@@ -1,24 +1,24 @@
 <?php
 
 /**
- * Description of DiscussionMemberInvitationForm
+ * Description of DiscussionPeerInvitationForm
  *
  * @author graphifox
  */
-class DiscussionMemberInvitationForm extends DiscussionMemberForm
+class DiscussionPeerInvitationForm extends DiscussionPeerForm
 {
 
     public function configure()
     {
         $this->useFields(array(
-            'user_id',
+            'profile_id',
             'discussion_id',
         ));
 
-        $userId = sfContext::getInstance()->getUser()->getId();
+        $profileId = sfContext::getInstance()->getUser()->getId();
         $discussionShowId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_show_id', "");
 
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['discussion_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['email_addresses'] = new sfWidgetFormInput(array(), array("class" => "hide"));
         $this->widgetSchema['message'] = new sfWidgetFormTextarea();
@@ -29,7 +29,7 @@ class DiscussionMemberInvitationForm extends DiscussionMemberForm
         $this->widgetSchema->setNameFormat('discussion_members[%s]');
 
         $this->setDefaults(array(
-            'user_id' => $userId,
+            'profile_id' => $profileId,
             'discussion_id' => $discussionShowId,
         ));
     }

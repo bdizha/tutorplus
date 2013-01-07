@@ -31,7 +31,7 @@
                         </div>
                         <div class="row-column">
                             <span class="label">Organizer:</span>
-                            <?php $user = $calendarEvent->getUser() ?>
+                            <?php $user = $calendarEvent->getProfile() ?>
                             <?php echo link_to($user, 'profile_show', $user) ?>
                         </div>
                     </div>

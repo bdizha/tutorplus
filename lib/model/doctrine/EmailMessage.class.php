@@ -15,25 +15,4 @@ class EmailMessage extends BaseEmailMessage {
     public function getFromEmails() {
         return preg_replace(array("/\[/", "/\]/"), array("<", ">"), parent::get("from_email"));
     }
-
-    public function getHtmlizedBody() {
-        return myToolkit::htmlString(parent::get("body"));
-    }
-
-    public function getPreviousBody() {
-        $body = parent::get("body");
-        $createdAt = format_date(parent::get("created_at"), "f");
-        $name = parent::getSender()->getName();
-        $fromEmail = parent::get("from_email");
-        return <<<EOF
-
-
-
-------------------------------------------------------------------------------------------------------------
-{$createdAt} "{$name}" <{$fromEmail}> wrote:
-{$body}
-
-EOF;
-    }
-
 }

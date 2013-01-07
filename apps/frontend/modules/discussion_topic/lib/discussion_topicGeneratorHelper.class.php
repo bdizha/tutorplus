@@ -51,7 +51,7 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
                 "Discussions" => "discussion",
                 "Discussion Explorer" => "discussion",
                 $discussion->getName() => "discussion/" . $discussion->getSlug(),
-                $discussionTopic->getSubject() => "discussion_topic/" . $discussionTopic->getSlug()
+                myToolkit::shortenString($discussionTopic->getSubject(), 40) => "discussion_topic/" . $discussionTopic->getSlug()
             )
         );
     }
@@ -71,26 +71,6 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         );
     }
 
-    public function timelineBreadcrumbs() {
-        return array('breadcrumbs' => array(
-                "Profile" => "profile_timeline",
-                "Timeline" => "email_template"
-            )
-        );
-    }
-
-    public function timelineLinks() {
-        $sfUser = sfContext::getInstance()->getUser();
-        $userId = $sfUser->getMyAttribute('profile_show_id', null);
-        return array(
-            "current_parent" => "profile",
-            "current_child" => "my_profile",
-            "current_link" => "my_discussions",
-            "slug" => $sfUser->getGuardUser()->getSlug(),
-            "ignore" => !$sfUser->isCurrent($userId)
-        );
-    }
-
     public function getPopupHeight() {
         return array("480px");
     }
@@ -104,14 +84,10 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
     }
 
     public function linkToDiscussionTopicEdit($object, $params) {
-        return link_to(__('Edit', array(), 'sf_admin'), "/discussion/topic/" . $object->getId() . "/edit", array("class" => "button-edit"));
+        return link_to(__('Edit', array(), 'sf_admin'), "/discussion/topic/" . $object->getId() . "/edit", array("class" => "button-edit edit_profile_publication"));
     }
 
     public function linkToDiscussionTopicDelete($object, $params) {
-        if ($object->isNew()) {
-            return '';
-        }
-
         if (!isset($params['type'])) {
             return link_to(__('Remove', array(), 'sf_admin'), 'discussion_topic_delete', $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], "class" => "button-remove"));
         } else {
@@ -121,6 +97,10 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
     
     public function linkToInviteFollowers(){
         return '<input id="invite_discussion_follower" type="button" class="button" href="/discussion/member/invite" value="+ Invite Followers"/>';
+    }
+
+    public function linkToDiscussionPostEdit($object, $params) {
+        return link_to(__('Edit', array(), 'sf_admin'), "/discussion/topic/message/" . $object->getId() . "/edit", array("class" => "button-edit", "id" => $object->getId()));
     }
 
 }

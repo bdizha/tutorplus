@@ -1,2 +1,2 @@
 all:
-  stylesheets: [news.css]
+  stylesheets: [news_item.css]

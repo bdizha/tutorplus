@@ -18,9 +18,9 @@ generator:
         class: false
       list:
         title:             Departments
-        display:           [ name, abbreviation, faculty ]
-        sort:              [ name, asc ]
-        batch_actions:     [ ]
+        display:           [name, abbreviation, faculty]
+        sort:              [name, asc ]
+        batch_actions:     []
         max_per_page:			 10
         actions:
           _new:              ~

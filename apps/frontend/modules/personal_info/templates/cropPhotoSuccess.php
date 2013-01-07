@@ -65,7 +65,7 @@
                     $("#cboxLoadedContentInner").hide();
                     $("#cboxLoadedContent").append(loadingHtml);           
                     if(isSuccess(data)){ 
-                        window.location.href = "/profile/<?php echo $sf_user->getGuardUser()->getSlug() ?>";   
+                        window.location.href = "/profile/<?php echo $sf_user->getProfile()->getSlug() ?>";   
                     }
                     else
                     { 

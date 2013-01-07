@@ -19,7 +19,7 @@ class profile_bookActions extends autoProfile_bookActions {
      * @param sfRequest $request A request object
      */
     public function executeIndex(sfWebRequest $request) {
-        $this->profile = $this->getUser()->getGuardUser();
+        $this->profile = $this->getUser()->getProfile();
     }
 
 }

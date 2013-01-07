@@ -58,7 +58,7 @@ class assignment_submissionActions extends autoAssignment_submissionActions
 
         if ($this->getUser()->getType() == "Student")
         {
-            $query->addWhere("a.user_id = ?", $this->getUser()->getId());
+            $query->addWhere("a.profile_id = ?", $this->getUser()->getId());
         }
 
         if ($tableMethod)

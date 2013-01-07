@@ -19,8 +19,5 @@ class profileComponents extends sfComponents
     public function executeInfo(sfWebRequest $request)
     {
        $this->profile = $this->getUser()->getProfile();
-       $this->profileType = strtolower($this->getUser()->getUserType());
-       
-       //$this->peers = CorrespondenceTable::getInstance()->retrieveCorrespondencesByUserId($this->getUser()->getId(), 12);
     }
 }

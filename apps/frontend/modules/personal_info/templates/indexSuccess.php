@@ -1,1 +1,1 @@
-<?php echo $sf_user->getGuardUser()->getProfile()->getAbout() ?>
+<?php echo $sf_user->getProfile()->getProfile()->getAbout() ?>

@@ -16,7 +16,7 @@
     <li class="sf_admin_action_member">
         <input type="button" class="button" onclick="document.location.href='/discussion_member';" value="Manage Followers" />
     </li>
-    <?php $member = $discussion->getMemberByUserId($sf_user->getId()); ?>
+    <?php $member = $discussion->getMemberByProfileId($sf_user->getId()); ?>
     <?php if ($member): ?>
         <li class="sf_admin_action_edit_member">
             <input type="button" class="button" href="/discussion/member/<?php echo $member->getId() ?>/edit" value="Edit Membership">
@@ -51,7 +51,7 @@
         });
     });
     
-    function fetchDiscussionMembers(){
+    function fetchDiscussionPeers(){
         $("#discussion_members").load("/discussion/members");
     }
 </script>

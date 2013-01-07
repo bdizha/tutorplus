@@ -16,19 +16,19 @@ class CalendarEventAttendeeTable extends Doctrine_Table {
         return Doctrine_Core::getTable('CalendarEventAttendee');
     }
 
-    public function deleteByEventIdsAndUserId($eventIds, $userId) {
+    public function deleteByEventIdsAndProfileId($eventIds, $profileId) {
         $query = $this->createQuery()
                 ->delete()
                 ->whereIn('calendar_event_id', $eventIds)
-                ->andWhere("user_id = ?", $userId);
+                ->andWhere("profile_id = ?", $profileId);
 
         return $query->execute();
     }
 
-    public function deleteByEventIdAndUserIds($eventId, $userIds = array()) {
+    public function deleteByEventIdAndProfileIds($eventId, $profileIds = array()) {
         $query = $this->createQuery()
                 ->delete()
-                ->whereIn('user_id', $userIds)
+                ->whereIn('profile_id', $profileIds)
                 ->andWhere("calendar_event_id = ?", $eventId);
 
         return $query->execute();

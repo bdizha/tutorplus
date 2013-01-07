@@ -1,5 +1,5 @@
 <?php if (count($peers) == 0): ?>
-    <div class="no-result no-padding">There's no peers linked currently.</div>
+    <div class="no-result">There's no peers linked currently.</div>
 <?php endif; ?>
 <?php if (!isset($isFinding)): ?>
     <?php foreach ($peers as $key => $peer): ?>
@@ -23,10 +23,12 @@
             <?php $myPeer = $peer->getInvitee(); ?>
         <?php endif; ?>
         <div class="peer"> 
-            <?php include_partial('personal_info/photo', array('user' => $myPeer, "dimension" => 48)) ?>
+            <?php include_partial('personal_info/photo', array('profile' => $myPeer, "dimension" => 48)) ?>
             <div class="name"><?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?></div>
             <div class="peer-actions">
-                <input type="button" class="peer-<?php echo $statusClass ?>" inviterid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
+                <div class="button-box-brown">
+                    <input type="button" class="peer-<?php echo $statusClass ?>" inviterid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
+                </div>
             </div>
         </div>
     <?php endforeach; ?>
@@ -35,10 +37,12 @@
         <?php $statusLabel = "+ Request"; ?>
         <?php $statusClass = "open"; ?>
         <div class="peer"> 
-            <?php include_partial('personal_info/photo', array('user' => $myPeer, "dimension" => 48)) ?>
+            <?php include_partial('personal_info/photo', array('profile' => $myPeer, "dimension" => 48)) ?>
             <div class="name"><?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?></div>
             <div class="peer-actions">
-                <input type="button" class="peer-<?php echo $statusClass ?>" inviteeid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
+                <div class="button-box-brown">
+                    <input type="button" class="peer-<?php echo $statusClass ?>" inviteeid="<?php echo $myPeer->getId() ?>" value="<?php echo $statusLabel ?>">
+                </div>
             </div>
         </div>
     <?php endforeach; ?>

@@ -33,7 +33,7 @@ class CalendarForm extends BaseCalendarForm
     {
         if ($this->getObject()->isNew())
         {
-            $user_id = sfContext::getInstance()->getUser()->getId();
+            $profile_id = sfContext::getInstance()->getUser()->getId();
             $is_new_calendar = true;
         }
 
@@ -41,7 +41,7 @@ class CalendarForm extends BaseCalendarForm
         if (isset($is_new_calendar))
         {
             // save the user calendar record
-            $this->saveUserCalendar($user_id, $calendar);
+            $this->saveUserCalendar($profile_id, $calendar);
         }
 
         // return the saved calendar
@@ -49,10 +49,10 @@ class CalendarForm extends BaseCalendarForm
     }
 
     // save the calendar owner.
-    public function saveUserCalendar($user_id, $calendar)
+    public function saveUserCalendar($profile_id, $calendar)
     {
         $user_calendar = new UserCalendar();
-        $user_calendar->setOwnerId($user_id);
+        $user_calendar->setOwnerId($profile_id);
         $user_calendar->setCalendar($calendar);
         $user_calendar->save();
     }

@@ -18,11 +18,11 @@
         </div>
         <div class="discussion-left-block">
             <div class="full-block">
-                <h2>By <?php echo link_to($discussion->getUser(), 'profile_show', $discussion->getUser()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussion->getUpdatedAt()) ?></span> - <a href="/discussion/topic/<?php echo $discussion->getSlug() ?>"><?php echo $discussion->getNbTopics() ?> topics of <?php echo $discussion->getNbTopics() ?> followers</a></h2>
+                <h2>By <?php echo link_to($discussion->getProfile(), 'profile_show', $discussion->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussion->getUpdatedAt()) ?></span> - <a href="/discussion/topic/<?php echo $discussion->getSlug() ?>"><?php echo $discussion->getNbTopics() ?> topics of <?php echo $discussion->getNbTopics() ?> followers</a></h2>
                 <div class="discussion-row"><?php echo $discussion->getDescription() ?></div>                
             </div>
             <ul class="sf_admin_actions" style="clear:both">
-                <li class="sf_admin_action_my_discussions">
+                <li class="sf_admin_action_my_timeline">
                     <?php if ($discussion->getCourseDiscussion()->getCourseId()): ?>
                         <?php echo $helper->linkToCourseDiscussion() ?>
                     <?php else: ?>
@@ -32,7 +32,7 @@
                 <li class="sf_admin_action_member">
                     <?php echo $helper->linkToManageFollowers($discussion) ?>
                 </li>
-                <?php $member = $discussion->getMemberByUserId($sf_user->getId()); ?>
+                <?php $member = $discussion->getMemberByProfileId($sf_user->getId()); ?>
                 <?php if ($member): ?>
                     <li class="sf_admin_action_edit_member">
                         <?php echo $helper->linkToEditMembership($member->getId()) ?>
@@ -53,10 +53,10 @@
                 <?php if (count($suggestedFollowers) > 0): ?>
                     <?php foreach ($suggestedFollowers as $suggestedFollower): ?>
                         <div class="follower"> 
-                            <?php include_partial('personal_info/photo', array('user' => $suggestedFollower, "dimension" => 48)) ?>
+                            <?php include_partial('personal_info/photo', array('profile' => $suggestedFollower, "dimension" => 48)) ?>
                             <div class="name"><?php echo link_to($suggestedFollower->getName(), 'profile_show', $suggestedFollower) ?></div>
-                            <div class="peer-actions">
-                                <input class="invite" userid="<?php echo $suggestedFollower->getId() ?>" value="Accept" type="button">
+                            <div class="button-box-blue">
+                                <input class="invite" ProfileId="<?php echo $suggestedFollower->getId() ?>" value="+ Invite" type="button">
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -83,7 +83,7 @@
                 <?php if ($members->count() > 0): ?>
                     <?php foreach ($members as $member): ?>
                         <div class="participant">
-                            <?php include_partial('personal_info/photo', array('user' => $member->getUser(), "dimension" => 36)) ?>
+                            <?php include_partial('personal_info/photo', array('profile' => $member->getProfile(), "dimension" => 36)) ?>
                         </div>  
                     <?php endforeach; ?>
                     <div class="clear">&nbsp;</div>
@@ -113,8 +113,8 @@
         });
         
         $(".peer-actions .invite").click(function(){
-            var userId = $(this).attr("userid");
-            $.get('/discussion/member/accept/' + userId, {}, function (response) {
+            var ProfileId = $(this).attr("ProfileId");
+            $.get('/discussion/member/accept/' + ProfileId, {}, function (response) {
                 $("#discussion-notice").html(response);
                 $(".notice").hide();
                 $("#discussion-notice").show();

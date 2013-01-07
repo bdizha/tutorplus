@@ -30,7 +30,7 @@ class sfGuardForgotPasswordActions extends BasesfGuardForgotPasswordActions
                     ->deleteByUser($this->user);
 
                 $forgotPassword = new sfGuardForgotPassword();
-                $forgotPassword->user_id = $this->user->id;
+                $forgotPassword->profile_id = $this->user->id;
                 $forgotPassword->unique_key = md5(rand() + time());
                 $forgotPassword->expires_at = new Doctrine_Expression('NOW()');
                 $forgotPassword->save();

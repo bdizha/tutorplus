@@ -13,9 +13,9 @@ class ProfileAwardForm extends BaseProfileAwardForm
 
     public function configure()
     {
-        $userId = sfContext::getInstance()->getUser()->getId();
+        $profileId = sfContext::getInstance()->getUser()->getId();
 
-        $this->widgetSchema["user_id"] = new sfWidgetFormInputHidden();
+        $this->widgetSchema["profile_id"] = new sfWidgetFormInputHidden();
         $this->widgetSchema['year'] = new sfWidgetFormChoice(array(
                 'choices' => array_combine(ProfileAwardTable::getInstance()->getYears(), ProfileQualificationTable::getInstance()->getYears()),
             ));
@@ -24,7 +24,7 @@ class ProfileAwardForm extends BaseProfileAwardForm
         $this->validatorSchema['description'] = new sfValidatorString(array('required' => true), array('required' => 'The <b>Description</b> field is required.'));
 
         $this->setDefaults(array(
-            'user_id' => $userId,
+            'profile_id' => $profileId,
         ));
     }
 

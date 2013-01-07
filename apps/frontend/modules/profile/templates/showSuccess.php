@@ -15,13 +15,10 @@
     <div class="content-block">      
         <h2>Personal Info <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><a id="edit_personal_info" href="/personal/info/<?php echo $user->getId() ?>/edit">Edit</a></span><?php endif; ?></h2>
         <div class="full-block"> 
-            <div class="even-row about-me">
-                <div class="row-column" id="personal_info">
-                    <?php echo $user->getProfile()->getAbout(); ?>
-                </div>
-                <div class="row-column">
+            <div class="profile-row about-me">
+                <div class="personal-info-column" id="perfonal-photo">
                     <div class="about-me-photo">
-                        <?php include_partial('personal_info/photo', array('user' => $user, "dimension" => 128)) ?>
+                        <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 128)) ?>
                     </div>
                     <div class="profile-photo-block">
                         <?php if ($sf_user->isCurrent($user->getId())): ?>
@@ -35,6 +32,21 @@
                             <input type="button" class="button" id="send_email" value="Send Email"></input>
                         <?php endif; ?>
                     </div>
+                    <div id="personal_details">
+                        <div class="personal-detail"><span class="label">DOB:</span> <span class="value">12 May 1984</span></div>
+                        <div class="personal-detail"><span class="label">Gender:</span> <span class="value">Male</span></div>    
+                    </div>
+                </div>
+                <div class="personal-info-column" id="personal_info">
+                    <?php if ($sf_user->isCurrent($user->getId())): ?>
+                        <?php if ($user->getProfile()->getAbout()): ?>
+                            <?php echo $user->getProfile()->getAbout(); ?>
+                        <?php else: ?>
+                            Click <a id="edit_personal_info" href="/personal/info/<?php echo $user->getId() ?>/edit">here</a>  to write about yourself.
+                        <?php endif; ?>                   
+                    <?php else: ?>
+                        <?php echo $user->getProfile()->getAbout() ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>  
@@ -42,25 +54,25 @@
     <div class="content-block">     
         <h2>Academic Info <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><a id="edit_academic_info" href="/academic/info/<?php echo $user->getId() ?>/edit">Edit</a></span><?php endif; ?></h2>
         <div class="full-block" id="academic_info">
-            <?php include_partial('academic_info/academic_info', array('user' => $user)) ?>
+            <?php include_partial('academic_info/academic_info', array('profile' => $user)) ?>
         </div>  
     </div>
     <div class="content-block">      
         <h2>Publications <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_publication_new", array("id" => "add_profile_publication")) ?></span><?php endif; ?></h2>
         <div class="full-block" id="profile_publications">  
-            <?php include_partial('profile_publication/list', array('publications' => $user->getPublications())) ?>
+            <?php include_partial('profile_publication/list', array('publications' => $user->getPublications(), "helper" => $helper)) ?>
         </div>
     </div>
     <div class="content-block">      
         <h2>Favourite Books <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_book_new", array("id" => "add_profile_book")) ?></span><?php endif; ?></h2>
         <div class="full-block" id="profile_books">  
-            <?php include_partial('profile_book/list', array('books' => $user->getFavouriteBooks())) ?>
+            <?php include_partial('profile_book/list', array('books' => $user->getFavouriteBooks(), "helper" => $helper)) ?>
         </div>
     </div>
     <div class="content-block">      
         <h2>Interests <?php if ($sf_user->isCurrent($user->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_interest_new", array("id" => "add_profile_interest")) ?></span><?php endif; ?></h2>
         <div class="full-block" id="profile_interests">  
-            <?php include_partial('profile_interest/list', array('interests' => $user->getInterests())) ?>  
+            <?php include_partial('profile_interest/list', array('interests' => $user->getInterests(), "helper" => $helper)) ?>  
         </div>
     </div>
 </div>
@@ -111,15 +123,15 @@
         $('#academic_info').load('/academic/info');
     }
 
-    function fetchPublications(){
+    function fetchProfilePublications(){
         $('#profile_publications').load('/profile/publication');
     }
     
-    function fetchFavouriteBooks(){
+    function fetchProfileBooks(){
         $('#profile_books').load('/profile/book');
     }
     
-    function fetchInterests(){
+    function fetchProfileInterests(){
         $('#profile_interests').load('/profile/interest');
     }
     //]]

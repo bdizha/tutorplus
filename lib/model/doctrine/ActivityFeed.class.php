@@ -23,7 +23,7 @@ class ActivityFeed extends BaseActivityFeed {
     }
 
     public function padPatterns($pattern) {
-        return "/" . $pattern . "/";
+        return "/##" . $pattern . "##/";
     }
 
 }

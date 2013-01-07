@@ -17,12 +17,12 @@ class MailingListForm extends BaseMailingListForm
             $this['created_at'], $this['updated_at']
         );
 
-        $user_id = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
+        $profile_id = sfContext::getInstance()->getUser()->getId();
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->validatorSchema['name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>name</b> field is required.'));
 
         $this->setDefaults(array(
-            'user_id' => $user_id,
+            'profile_id' => $profile_id,
         ));
     }
 

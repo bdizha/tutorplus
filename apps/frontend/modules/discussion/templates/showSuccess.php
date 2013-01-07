@@ -19,12 +19,17 @@
             <?php echo $helper->linkToInviteFollowers() ?>
         </div>
         <div class="discussion-left-block">
-            <div class="full-block">
-                <h2>By <?php echo link_to($discussion->getUser(), 'profile_show', $discussion->getUser()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussion->getUpdatedAt()) ?></span> - <a href="/discussion/topic/<?php echo $discussion->getSlug() ?>"><?php echo $discussion->getNbTopics() ?> topics of <?php echo $discussion->getNbTopics() ?> followers</a></h2>
-                <div class="discussion-row"><?php echo $discussion->getDescription() ?></div>                
+            <div id="discussion">
+                <div class="snapshot">
+                    <?php include_partial('personal_info/photo', array('profile' => $discussion->getProfile(), "dimension" => 36)) ?>
+                    <?php echo $discussion->getDescription() ?>
+                    <div class="statistics">
+                        <span class="list-count">56</span> topics <span class="list-count">125</span> posts <span class="list-count">999+</span> comments <span class="list-count">455</span> views
+                    </div>
+                </div>
             </div>
             <ul class="sf_admin_actions" style="clear:both">
-                <li class="sf_admin_action_my_discussions">
+                <li class="sf_admin_action_my_timeline">
                     <?php if ($discussion->getCourseDiscussion()->getCourseId()): ?>
                         <?php echo $helper->linkToCourseDiscussion() ?>
                     <?php else: ?>
@@ -34,7 +39,7 @@
                 <li class="sf_admin_action_member">
                     <?php echo $helper->linkToManageFollowers($discussion) ?>
                 </li>
-                <?php $member = $discussion->getMemberByUserId($sf_user->getId()); ?>
+                <?php $member = $discussion->getMemberByProfileId($sf_user->getId()); ?>
                 <?php if ($member): ?>
                     <li class="sf_admin_action_edit_member">
                         <?php echo $helper->linkToEditMembership($member->getId()) ?>
@@ -50,15 +55,15 @@
             </ul>
         </div>
         <div class="discussion-right-block">
-            <h2>Suggested Followers</h2>
+            <h3>Suggested Followers</h3>
             <div id="suggested-followers">
                 <?php if (count($suggestedFollowers) > 0): ?>
                     <?php foreach ($suggestedFollowers as $suggestedFollower): ?>
                         <div class="follower"> 
-                            <?php include_partial('personal_info/photo', array('user' => $suggestedFollower, "dimension" => 48)) ?>
+                            <?php include_partial('personal_info/photo', array('profile' => $suggestedFollower, "dimension" => 48)) ?>
                             <div class="name"><?php echo link_to($suggestedFollower->getName(), 'profile_show', $suggestedFollower) ?></div>
-                            <div class="peer-actions">
-                                <input class="invite" userid="<?php echo $suggestedFollower->getId() ?>" value="Accept" type="button">
+                            <div class="button-box-blue">
+                                <input class="invite" ProfileId="<?php echo $suggestedFollower->getId() ?>" value="+ Invite" type="button">
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -70,8 +75,10 @@
     </div>
     <div class="content-block">
         <div class="discussion-left-block">
-            <h2>Discussion Topics - <?php echo $discussion->getTopics()->count(); ?> topic(s)</h2>
-            <?php include_partial('discussion_topic/list', array('discussionTopics' => $discussion->getTopics(), 'helper' => $helper)) ?>
+            <h3>Discussion Topics - <?php echo $discussion->getTopics()->count(); ?> topic(s)</h3>
+            <div id="discussion-topics">
+                <?php include_partial('discussion_topic/list', array('discussionTopics' => $discussion->getTopics(), 'helper' => $helper)) ?>
+            </div>
             <ul class="sf_admin_actions" style="clear:both">
                 <li class="sf_admin_action_new_topic">
                     <?php echo $helper->linkToNewTopic() ?>
@@ -79,13 +86,13 @@
             </ul>
         </div>
         <div class="discussion-right-block">
-            <h2>Discussion Followers</h2>
+            <h3>Discussion Followers</h3>
             <div id="discussion-followers">
                 <?php $members = $discussion->retrieveMembers(); ?>
                 <?php if ($members->count() > 0): ?>
                     <?php foreach ($members as $member): ?>
                         <div class="participant">
-                            <?php include_partial('personal_info/photo', array('user' => $member->getUser(), "dimension" => 36)) ?>
+                            <?php include_partial('personal_info/photo', array('profile' => $member->getProfile(), "dimension" => 36)) ?>
                         </div>  
                     <?php endforeach; ?>
                     <div class="clear">&nbsp;</div>
@@ -104,7 +111,7 @@
             return false;
         });
 
-        $(".discussion_topic .button-edit").click(function () {
+        $(".discussion-topic .button-edit").click(function () {
             openPopup($(this).attr("href"), "605px", "605px", "Edit Discussion Topic");
             return false;
         });
@@ -115,23 +122,23 @@
         });
         
         $(".peer-actions .invite").click(function(){
-            var userId = $(this).attr("userid");
-            $.get('/discussion/member/accept/' + userId, {}, function (response) {
+            var ProfileId = $(this).attr("ProfileId");
+            $.get('/discussion/member/accept/' + ProfileId, {}, function (response) {
                 $("#discussion-notice").html(response);
                 $(".notice").hide();
                 $("#discussion-notice").show();
-                 setTimeout(function(){
+                setTimeout(function(){
                     $(".notice").hide();
                 },3000);
                 $("#suggested-followers").load("/discussion/member/suggested");
             }, 'html');
         });
         
-        $(".discussion_topic").hover(function(){
-            $(this).children(".discussion-actions").show();
+        $(".discussion-topic").hover(function(){
+            $(this).children(".inline-content-actions").show();
         },
         function(){
-            $(this).children(".discussion-actions").hide();
+            $(this).children(".inline-content-actions").hide();
         });
     });
 

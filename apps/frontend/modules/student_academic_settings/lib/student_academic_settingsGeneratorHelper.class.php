@@ -22,7 +22,7 @@ class student_academic_settingsGeneratorHelper extends BaseStudent_academic_sett
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "students",
             "is_profile" => false

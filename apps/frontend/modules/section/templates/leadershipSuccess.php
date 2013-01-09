@@ -1,16 +1,15 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array("current_parent" => "team")) ?>
+<?php include_component('common', 'publicMenu', array("currentParent" => "leadership")) ?>
 <?php end_slot() ?>
 
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h3>TutorPlus Team</h3>
+        <h1>Our Leadership</h1>
     </div>
     <div id="tp_admin_content">
         <div class="section-block">
-            <img src="/images/section_leadership.jpg">
             Diverse backgrounds, united cause. TutorPlus staff is characterized by excellence and a focused drive to bring innovation to the digitization, preservation, dissemination, and use of scholarly content. Get to know the senior leadership at TutorPlus, right.
         </div>
         <div class="section-block">

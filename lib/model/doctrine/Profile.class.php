@@ -15,12 +15,12 @@ class Profile extends BaseProfile {
   protected $_groups = null, $_allPermissions = null;
 
   /**
-   * Returns the string representation of the object: "Full Name (username)"
+   * Returns the string representation of the object: "Full Name"
    *
    * @return string
    */
   public function __toString() {
-    return (string) $this->getName() . ' (' . $this->getUsername() . ')';
+    return (string) $this->getName();
   }
 
   /**
@@ -43,7 +43,7 @@ class Profile extends BaseProfile {
     }
 
     if (!$salt = $this->getSalt()) {
-      $salt = md5(rand(100000, 999999) . $this->somethingname());
+      $salt = md5(rand(100000, 999999) . $this->getName());
       $this->setSalt($salt);
     }
     $modified = $this->getModified();

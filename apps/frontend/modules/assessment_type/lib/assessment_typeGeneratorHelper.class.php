@@ -29,7 +29,7 @@ class assessment_typeGeneratorHelper extends BaseAssessment_typeGeneratorHelper
         $courseId = sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null);
         $course = CourseTable::getInstance()->findOneById($courseId);
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "assessment_types",
             "slug" => $course->getSlug()

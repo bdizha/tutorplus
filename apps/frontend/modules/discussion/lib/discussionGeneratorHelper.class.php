@@ -20,7 +20,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
 
     public function explorerLinks() {
         return array(
-            "current_parent" => "discussions",
+            "currentParent" => "discussions",
             "current_child" => "discussions",
             "current_link" => "discussion_explorer"
         );
@@ -36,7 +36,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
 
     public function myLinks() {
         return array(
-            "current_parent" => "discussions",
+            "currentParent" => "discussions",
             "current_child" => "discussions",
             "current_link" => "my_discussions"
         );
@@ -53,7 +53,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "discussions",
+            "currentParent" => "discussions",
             "current_child" => "discussions",
             "current_link" => "discussion_explorer"
         );
@@ -70,7 +70,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "discussions",
+            "currentParent" => "discussions",
             "current_child" => "discussions",
             "current_link" => "discussion_explorer"
         );
@@ -87,7 +87,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
 
     public function showLinks() {
         return array(
-            "current_parent" => "discussions",
+            "currentParent" => "discussions",
             "current_child" => "discussions",
             "current_link" => "discussion_explorer"
         );

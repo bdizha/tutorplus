@@ -26,7 +26,7 @@ class message_sentGeneratorHelper extends BaseMessage_sentGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "messaging",
+            "currentParent" => "messaging",
             "current_child" => "my_messages",
             "current_link" => "message_sent");
     }

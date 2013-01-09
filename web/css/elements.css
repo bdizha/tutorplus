@@ -1,62 +1,64 @@
 *{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-size: 12px;
-    text-shadow: none;
-    line-height: 20px;
-    font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-size: 12px;
+  text-shadow: none;
+  line-height: 20px;
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
 }
 
 html{
-    overflow-y: scroll;
-    height: 100%;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 div, li {
-    line-height: 22px !important;
-    position: relative;
+  line-height: 22px;
+  position: relative;
 }
 
 .error li, .error b{
-    font-size: 11px;
+  font-size: 11px;
 }
 
 textarea{
-    line-height: 23px !important;
+  line-height: 23px !important;
 }
 
 body{
-    background-color: #F8F7F5;
-    font-size: 12px;
-    height: 100%;
-    width: 100%;
-    line-height: 20px;
-    margin: 0;
-    padding: 0
+  font-size: 12px;
+  height: 100%;
+  width: 100%;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 ol, ul{
-    list-style: none outside none;
+  list-style: none outside none;
 }
 
 fieldset, img{
-    border-color: transparent;
-    border-width: 0;
+  border-color: transparent;
+  border-width: 0;
 }
 
 a{
-    color: #9D774B;
-}
-
-a:hover{
-    text-decoration: underline !important;
+  color: #DCC170;
+  text-decoration: none;
 }
 
 p{
-    margin-bottom: 11px;
+  margin-bottom: 11px;
 }
 
 td p{
-    margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+h1{
+  color: #DCC170;
+  font-size: 30px;
+  font-weight: normal;
 }

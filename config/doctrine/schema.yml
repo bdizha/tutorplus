@@ -845,7 +845,6 @@ Profile:
     current_study:              { type: string(255) }
     title:                      { type: enum, values: [Mr, Mrs, Ms, Miss, Dr, Sir, Prof] }
     email:                      { type: string(255) }
-    username:                   { type: string(255) }
     password:                   { type: string(255) }
     algorithm:                  { type: string(255) }
     salt:                       { type: string(255) }

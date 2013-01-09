@@ -21,7 +21,7 @@ class program_levelGeneratorHelper extends BaseProgram_levelGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "program_levels"
         );

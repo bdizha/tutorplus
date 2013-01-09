@@ -20,7 +20,7 @@ class payment_schemeGeneratorHelper extends BasePayment_schemeGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "payments",
+            "currentParent" => "payments",
             "current_child" => "plans",
             "current_link" => "payment_scheme"
         );
@@ -37,7 +37,7 @@ class payment_schemeGeneratorHelper extends BasePayment_schemeGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "payments",
+            "currentParent" => "payments",
             "current_child" => "plans",
             "current_link" => "payment_scheme"
         );
@@ -54,7 +54,7 @@ class payment_schemeGeneratorHelper extends BasePayment_schemeGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "payments",
+            "currentParent" => "payments",
             "current_child" => "plans",
             "current_link" => "payment_scheme"
         );

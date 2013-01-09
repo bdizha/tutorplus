@@ -1,12 +1,12 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array()) ?>
+<?php include_component('common', 'publicMenu', array()) ?>
 <?php end_slot() ?>
 
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h3>Privacy policy</h3>
+        <h1>Privacy policy</h1>
     </div>
     <div id="tp_admin_content">
         <div class="section-block">

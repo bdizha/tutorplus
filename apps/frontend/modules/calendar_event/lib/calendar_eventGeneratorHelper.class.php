@@ -28,7 +28,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "calendar",
+            "currentParent" => "calendar",
             "current_child" => "my_calendar",
             "current_link" => "calendar_events"
         );
@@ -45,7 +45,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "calendar",
+            "currentParent" => "calendar",
             "current_child" => "my_calendar",
             "current_link" => "calendar_events"
         );
@@ -62,7 +62,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "calendar",
+            "currentParent" => "calendar",
             "current_child" => "my_calendar",
             "current_link" => "calendar_events"
         );
@@ -79,7 +79,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
 
     public function showLinks() {
         return array(
-            "current_parent" => "calendar",
+            "currentParent" => "calendar",
             "current_child" => "my_calendar",
             "current_link" => "calendar_events"
         );
@@ -95,7 +95,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
 
     public function myScheduleLinks() {
         return array(
-            "current_parent" => "dashboard",
+            "currentParent" => "dashboard",
             "current_child" => "my_calendar",
             "current_link" => "my_schedule"
         );

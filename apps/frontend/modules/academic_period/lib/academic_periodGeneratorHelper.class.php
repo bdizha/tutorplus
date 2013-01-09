@@ -21,7 +21,7 @@ class academic_periodGeneratorHelper extends BaseAcademic_periodGeneratorHelper 
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "academic_periods"
         );

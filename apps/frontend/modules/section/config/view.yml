@@ -1,5 +1,3 @@
 all:  
+  stylesheets:    [public.css]
   layout:         public
-
-indexSuccess:
-  stylesheets:    [scrollable-buttons.css]

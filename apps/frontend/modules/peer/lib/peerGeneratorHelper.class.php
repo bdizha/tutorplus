@@ -59,7 +59,7 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
 
     public function studentsLinks() {
         return array(
-            "current_parent" => "peers",
+            "currentParent" => "peers",
             "current_child" => "peers",
             "current_link" => "student_peers"
         );
@@ -75,7 +75,7 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
 
     public function instructorsLinks() {
         return array(
-            "current_parent" => "peers",
+            "currentParent" => "peers",
             "current_child" => "peers",
             "current_link" => "instructor_peers"
         );
@@ -91,7 +91,7 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
 
     public function findLinks() {
         return array(
-            "current_parent" => "peers",
+            "currentParent" => "peers",
             "current_child" => "peers",
             "current_link" => "find_peers"
         );
@@ -107,7 +107,7 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
 
     public function suggestedLinks() {
         return array(
-            "current_parent" => "peers",
+            "currentParent" => "peers",
             "current_child" => "peers",
             "current_link" => "suggested_peers"
         );

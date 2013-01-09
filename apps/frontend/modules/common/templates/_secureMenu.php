@@ -5,8 +5,7 @@
     <ul>
         <?php foreach ($menu as $key => $menuItem): ?>
             <li class="separator"></li>
-            <li class="<?php echo ($i == 1 || $i == $menuItemsCount) ? ($i == 1) ? "first " : "last "  : "" ?>
-                <?php echo (!empty($current_parent) && $current_parent == $key) ? "active" : "normal" ?>">
+            <li class="<?php echo (!empty($currentParent) && $currentParent == $key) ? "active" : "normal" ?>">
                     <?php $params = (isset($menuItem["param"])) ? "?" . $menuItem["param"] . "=" . $sf_user->getProfile()->getSlug() : "" ?>
                     <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"] . $params) ?>
             </li>
@@ -18,7 +17,7 @@
 <?php end_slot() ?>
 <?php slot('column') ?>
 <?php $i = 0; ?>	
-<?php $currentParentMenu = $menu[$current_parent]; ?>
+<?php $currentParentMenu = $menu[$currentParent]; ?>
 <div id="left-column">
     <ul>	
         <?php foreach ($currentParentMenu["children"] as $child => $childItem): ?>	

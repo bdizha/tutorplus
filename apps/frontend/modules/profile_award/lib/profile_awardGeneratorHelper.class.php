@@ -55,7 +55,7 @@ class profile_awardGeneratorHelper extends BaseProfile_awardGeneratorHelper {
         $sfUser = sfContext::getInstance()->getUser();
         $profileId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
-            "current_parent" => "profile",
+            "currentParent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_awards",
             "slug" => $sfUser->getProfile()->getSlug(),

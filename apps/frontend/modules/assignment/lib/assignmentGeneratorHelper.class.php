@@ -31,7 +31,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "assignments",
             "slug" => $this->course->getSlug()
@@ -50,7 +50,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "assignments",
             "slug" => $this->course->getSlug()
@@ -70,7 +70,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "assignments",
             "slug" => $this->course->getSlug()
@@ -92,7 +92,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
     public function showLinks($assignment) {
         $this->course = $assignment->getCourse();
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "assignments",
             "is_profile" => true,

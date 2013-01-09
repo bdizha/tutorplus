@@ -27,7 +27,7 @@ class course_meeting_timeGeneratorHelper extends BaseCourse_meeting_timeGenerato
 
     public function indexLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_meeting_times",
             "slug" => $this->course->getSlug()

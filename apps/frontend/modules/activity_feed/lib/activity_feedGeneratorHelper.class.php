@@ -20,7 +20,7 @@ class activity_feedGeneratorHelper extends BaseActivity_feedGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "timeline",
+            "currentParent" => "timeline",
             "current_child" => "timeline",
             "current_link" => "activity_feeds"
         );

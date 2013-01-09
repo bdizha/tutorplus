@@ -1,189 +1,201 @@
 #sf_admin_content{
-    padding: 10px 0 0;
+  padding: 10px 0 0;
 }
 
 .sf_admin_pagination ul li{
-    background-color: #F9F9F9;
-    border: 1px solid #FFFFFF;
-    display: inline;
-    float: left;
-    height: 20px;
-    margin-left: 3px;
-    padding: 0px 5px 0;
-    position: relative;
+  background-color: #F9F9F9;
+  border: 1px solid #FFFFFF;
+  display: inline;
+  float: left;
+  height: 20px;
+  margin-left: 3px;
+  padding: 0px 5px 0;
+  position: relative;
 }
 #sf_admin_heading, .sf_admin_heading{
-    height: 22px;
+  height: 22px;
 }
 #sf_admin_heading h3, .sf_admin_heading h3, h3{
-    color: #856651;
-    font-size: 13px;
+  color: #DCC170;
+  font-size: 15px;
+  font-weight: normal;
 }
+
+.right-block h3{
+  border-top: 1px solid #EEE;
+  padding-top: 10px;
+}
+
 .pager-current{
-    background-color: #856651 !important;
-    color: #FFFFFF;
+  background-color: #DCC170 !important;
+  color: #FFFFFF;
 }
 .sf_admin_pagination ul li a:hover{
-    color: #4B7092;
-    text-decoration: underline;
+  color: #4B7092;
+  text-decoration: underline;
 }
 .sf_admin_pagination ul li:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 .sf_admin_pagination ul li a{
-    color: #856651 !important;
+  color: #DCC170 !important;
 }
 #sf_admin_form_container{
-    display: table;
-    width: 100%;
+  display: table;
+  width: 100%;
 }
 .sf_admin_list{
-    display: table;
-    width: 100%;
-    overflow: hidden;
-    border: 1px solid #EBEAE9;
+  display: table;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #EBEAE9;
 }
 .sf_admin_list table{
-    width: 100%;
-    background-color: #F8F7F5;
+  width: 100%;
+  background-color: #F8F7F5;
 }
 .sf_admin_list th, #discussion_topics_footer{
-    background-color: #EBEAE9;
-    color: #7E7E7E;
-    font-size: 12px;
-    font-weight: normal;
-    padding: 5px 5px 5px 10px;
-    text-align: left;
+  background-color: #EBEAE9;
+  color: #7E7E7E;
+  font-size: 12px;
+  font-weight: normal;
+  padding: 5px 5px 5px 10px;
+  text-align: left;
 }
 .sf_admin_list th a{
-    font-size: 12px;
-    font-weight: normal;
-    color: #9D774B !important;
+  font-size: 12px;
+  font-weight: normal;
+  color: #9D774B !important;
 }
 .sf_admin_list th a:hover{
-    text-decoration: underline !important;
+  text-decoration: underline !important;
 }
 .sf_admin_list td a{
-    color: #0088CC;
+  color: #0088CC;
 }
 .sf_admin_list td a:hover{
-    color: #0088CC;
-    font-size: 12px;
-    text-decoration: underline;
+  color: #0088CC;
+  font-size: 12px;
+  text-decoration: underline;
 }
 .sf_admin_list td{
-    font-size: 12px;
-    padding: 5px 5px 5px 10px;
+  font-size: 12px;
+  padding: 5px 5px 5px 10px;
 }
 .sf_admin_heading{
-    color: #555555;
+  color: #555555;
 }
 #sf_admin_documents{
-    color: #555555;
-    height: 18px;
-    padding-bottom: 5px;
-    padding-top: 10px;
+  color: #555555;
+  height: 18px;
+  padding-bottom: 5px;
+  padding-top: 10px;
 }
 .sf_admin_pagination{
-    float: right;
-    margin-top: -3px;
-    padding: 5px 0;
+  float: right;
+  margin-top: -3px;
+  padding: 5px 0;
 }
 
 .sf_admin_form fieldset .sf_admin_form_row{
-    padding: 10px 10px;
-}
-
-.sf_admin_form_row{
-    font-size: 12px;
-    padding: 10px 0px;
+  padding: 5px 0;
+  font-size: 12px;
 }
 
 .sf_admin_form_row div.help{
-    color: #AAAAAA;
-    font-size: 11px;
-    padding-left: 12em !important;
+  color: #AAAAAA;
+  font-size: 11px;
+  padding-left: 12em !important;
 }
 .sf_admin_form_row label{
-    color: #666666;
-    display: block;
-    float: left;
-    font-weight: normal;
-    padding-bottom: 5px;
-    width: 140px;
+  color: #6B6B6B;
+  display: block;
+  float: left;
+  font-weight: normal;
+  padding-bottom: 5px;
+  width: 140px;
 }
 ul.sf_admin_actions{
-    height: 34px;
-    margin: 10px 0 0;
-    text-align: right;
+  height: 34px;
+  margin: 10px 0 0;
+  text-align: right;
 }
 #sf_admin_documents ul.sf_admin_actions{
-    height: 30px;
-    margin: 10px 0 -10px 20px;
+  height: 30px;
+  margin: 10px 0 -10px 20px;
 }
 ul.sf_admin_actions li{
-    float: right;
-    margin-left: 5px;
-    position: relative;
+  float: right;
+  margin-left: 5px;
+  position: relative;
 }
 .double_list_label{
-    color: #666666;
-    padding: 5px 0;
+  color: #666666;
+  padding: 5px 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_edit{
-    float: left;
-    margin-right: 5px;
+  float: left;
+  margin-right: 5px;
 }
 
 ul.sf_admin_td_actions li.sf_admin_action_delete{
-    float: left;
+  float: left;
 }
 
 .error .title{
-    font-weight: normal;
-    font-size: 12px;
-    background-color: #856651;
-    color: #FFFFFF;
-    font-size: 11px;
-    margin: 13px 0 0 !important;
-    padding: 3px 10px;
+  font-weight: normal;
+  font-size: 12px;
+  background-color: #B94A48;
+  color: white;
+  margin: 13px 0 0 !important;
+  padding: 3px 10px;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .error ol{	
-    background-color: #FCF0F0;
-    border: 1px solid #E2D0D0;
-    color: #856651 !important;
-    font-size: 11px;
-    margin: 0 0 3px;
-    padding: 3px 10px
+  border: 1px solid #EED3D7;
+  color: #B94A48 !important;
+  margin: 0 0 3px;
+  padding: 3px 10px;
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
 }
 
 .notice{
-    background-color: #FEEEAB;
-    font-size: 12px;
-    padding: 5px 30px;
-    text-align: center;
-    color: #856651;
-    margin-top: 10px;
-    position: fixed;
-    top: 95px;
-    z-index: 99999;
-    width: 880px;
+  background-color: #FEEEAB;
+  font-size: 12px;
+  padding: 5px 30px;
+  text-align: center;
+  color: #DCC170;
+  margin-top: 10px;
+  position: fixed;
+  top: 95px;
+  z-index: 99999;
+  width: 880px;
 }
 
 .sf_admin_td_actions img {
-    border-color: transparent;
-    border-width: 0;
+  border-color: transparent;
+  border-width: 0;
 }
 
 #sf_admin_content .sf_admin_form fieldset{
-    margin: 0 0 10px;
-    min-width: 300px;
-    border: 1px solid #EBEAE9;
-    border-radius: 3px;
+  margin: 0 0 10px;
+  min-width: 300px;
+  border: 1px solid #B94A48;
+  border-radius: 3px;
 }
 
 #sf_admin_list_th_actions{
-    width: 130px;
+  width: 130px;
+}
+
+.sf_admin_form_field_birth_date{
+  width: 335px;
 }

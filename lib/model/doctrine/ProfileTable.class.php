@@ -18,26 +18,26 @@ class ProfileTable extends Doctrine_Table {
 
   public function findByFields($exp, $excludedIds = array(), $limit = 100) {
     if ($exp == "%") {
-      return $users = $this->createQuery('u')
-          ->whereNotIn("u.id", $excludedIds)
-          ->orderby("u.first_name, u.last_name ASC")
+      return $users = $this->createQuery('p')
+          ->whereNotIn("p.id", $excludedIds)
+          ->orderby("p.first_name, p.last_name ASC")
           ->limit($limit)
           ->execute();
     } else {
-      return $this->createQuery('u')
-              ->where("(u.first_name LIKE '%{$exp}%' OR u.last_name LIKE '%{$exp}%' OR u.email LIKE '%{$exp}%')")
-              ->whereNotIn("u.id", $excludedIds)
-              ->orderby("u.first_name, u.last_name ASC")
+      return $this->createQuery('p')
+              ->where("(p.first_name LIKE '%{$exp}%' OR p.last_name LIKE '%{$exp}%' OR p.email LIKE '%{$exp}%')")
+              ->whereNotIn("p.id", $excludedIds)
+              ->orderby("p.first_name, p.last_name ASC")
               ->limit($limit)
               ->execute();
     }
   }
 
   public function findBySearch($exp, $previousEmailAddresses = array(), $limit = 100) {
-    return $this->createQuery('u')
-            ->where("(u.first_name LIKE '%{$exp}%' OR u.last_name LIKE '%{$exp}%' OR u.email LIKE '%{$exp}%')")
-            ->whereNotIn("u.email", $previousEmailAddresses)
-            ->orderby("u.first_name, u.last_name ASC")
+    return $this->createQuery('p')
+            ->where("(p.first_name LIKE '%{$exp}%' OR p.last_name LIKE '%{$exp}%' OR p.email LIKE '%{$exp}%')")
+            ->whereNotIn("p.email", $previousEmailAddresses)
+            ->orderby("p.first_name, p.last_name ASC")
             ->limit($limit)
             ->execute();
   }
@@ -46,18 +46,18 @@ class ProfileTable extends Doctrine_Table {
     if (count($ids) == 0) {
       return array();
     }
-    $query = $this->createQuery('u')
-        ->whereIn('u.id', $ids);
+    $query = $this->createQuery('p')
+        ->whereIn('p.id', $ids);
 
     return $query->execute();
   }
 
   public function retrieveProfileIdsByDiscussionId($discussionId = null, $isRemoved = 0) {
-    $query = $this->createQuery('u')
-        ->select('u.id')
-        ->innerJoin('u.DiscussionPeer dm')
-        ->where('dm.discussion_id = ?', $discussionId)
-        ->addWhere('dm.is_removed = ?', $isRemoved);
+    $query = $this->createQuery('p')
+        ->select('p.id')
+        ->innerJoin('p.DiscussionPeer dp')
+        ->where('dp.discussion_id = ?', $discussionId)
+        ->addWhere('dp.is_removed = ?', $isRemoved);
 
     return $query->execute()->getPrimaryKeys();
   }
@@ -67,40 +67,24 @@ class ProfileTable extends Doctrine_Table {
     if (count($emails) == 0) {
       return array();
     }
-    $query = $this->createQuery('u')
-        ->whereIn('u.email', $emails);
+    $query = $this->createQuery('p')
+        ->whereIn('p.email', $emails);
 
     return $query->execute();
   }
 
   /**
-   * Retrieves a Profile object by username and is_active flag.
+   * Retrieves a Profile object by email and is_active flag.
    *
-   * @param  string  $username The username
+   * @param  string  $email    The username
    * @param  boolean $isActive The user's status
    *
    * @return Profile
    */
-  public function retrieveByUsername($username, $isActive = true) {
-    $query = Doctrine_Core::getTable('Profile')->createQuery('u')
-        ->where('u.username = ?', $username)
-        ->addWhere('u.is_active = ?', $isActive);
-
-    return $query->fetchOne();
-  }
-
-  /**
-   * Retrieves a Profile object by username or email and is_active flag.
-   *
-   * @param  string  $username The username
-   * @param  boolean $isActive The user's status
-   *
-   * @return Profile
-   */
-  public function retrieveByUsernameOrEmailAddress($username, $isActive = true) {
-    $query = Doctrine_Core::getTable('Profile')->createQuery('u')
-        ->where('u.username = ? OR u.email = ?', array($username, $username))
-        ->addWhere('u.is_active = ?', $isActive);
+  public function retrieveByEmail($email, $isActive = true) {
+    $query = Doctrine_Core::getTable('Profile')->createQuery('p')
+        ->where('p.email = ?', $username)
+        ->addWhere('p.is_active = ?', $isActive);
 
     return $query->fetchOne();
   }

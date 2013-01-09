@@ -53,7 +53,7 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "programmes",
             "is_profile" => true
@@ -71,7 +71,7 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "programmes",
             "is_profile" => true
@@ -89,7 +89,7 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "programmes",
             "is_profile" => true

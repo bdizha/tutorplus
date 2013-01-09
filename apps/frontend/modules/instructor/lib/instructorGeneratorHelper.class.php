@@ -29,7 +29,7 @@ class instructorGeneratorHelper extends BaseInstructorGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "instructors"
         );
@@ -46,7 +46,7 @@ class instructorGeneratorHelper extends BaseInstructorGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "instructors"
         );
@@ -63,7 +63,7 @@ class instructorGeneratorHelper extends BaseInstructorGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "instructors"
         );

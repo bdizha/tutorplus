@@ -22,7 +22,7 @@ class sfGuardGroupGeneratorHelper extends BaseSfGuardGroupGeneratorHelper
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "groups"
         );
@@ -39,7 +39,7 @@ class sfGuardGroupGeneratorHelper extends BaseSfGuardGroupGeneratorHelper
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "groups"
         );
@@ -56,7 +56,7 @@ class sfGuardGroupGeneratorHelper extends BaseSfGuardGroupGeneratorHelper
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "groups"
         );

@@ -21,7 +21,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "courses"
         );
@@ -39,7 +39,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "courses"
         );
@@ -57,7 +57,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "courses"
         );
@@ -73,7 +73,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function showLinks($course) {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_info",
             "is_profile" => true,
@@ -91,7 +91,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function myCoursesLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "courses",
             "current_link" => "my_courses"
         );
@@ -107,7 +107,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function courseExplorerLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "courses",
             "current_link" => "course_explorer"
         );
@@ -124,7 +124,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 
     public function calendarLinks($course) {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_calendar",
             "slug" => $course->getSlug()

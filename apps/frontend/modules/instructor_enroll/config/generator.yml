@@ -1,7 +1,7 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           Instructor
+    model_class:           Profile
     theme:                 normal
     non_verbose_templates: true
     with_show:             false
@@ -13,33 +13,16 @@ generator:
 
     config:
       fields:
-        courses_list:             { label: Courses }
-        password_again:           { label: "Confirm password" }
-        permissions_list:         { lable: Roles }
-      actions: ~
+        birth_date:          { label: DOB }
+      actions:               ~
       form:
-        class:                    InstructorForm
+        class:               InstructorEnrollForm
         display:            
-         "Instructor Details":    [first_name, middle_name, last_name, date_of_birth, gender, employment, employment_start_date, employment_end_date, is_student, current_study]
-         "Account Details":       [username, email_address, password, password_again, is_active]
+         "Personal Details": [ first_name, last_name, birth_date, institution_id ]
+         "Credentials":      [ email, password, password_confirmation ]
       filter:
-        class: false
-      list:
-        title:                    Instructors
-        display:                  [first_name, last_name, email_address, employment, gender, _is_active, is_student]
-        sort:                     [gender, asc]
-        batch_actions:            []
-        max_per_page:			        10
-        actions:
-          _new:                   { label: " + Add Instructor" }
-      edit:
-        title:                    Edit Instructor ~ %%first_name%% %%last_name%%
-        actions:
-          cancel:                 []
-          done:                   []
-          _save:                  []
+        class:               false
       new:
-        title:                    "Enroll as an instructor to TutorPlus!"
+        title:               "Sign Up"
         actions:
-          cancel:                 []
-          _save:                  []
+          _save:             { label: "Enroll" }

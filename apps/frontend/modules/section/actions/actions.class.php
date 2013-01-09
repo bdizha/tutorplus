@@ -40,7 +40,7 @@ class sectionActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    public function executeTeam(sfWebRequest $request) {
+    public function executeLeadership(sfWebRequest $request) {
     }
 
     /**
@@ -48,11 +48,11 @@ class sectionActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    public function executeMission(sfWebRequest $request) {
+    public function executeStory(sfWebRequest $request) {
     }
 
     /**
-     * Executes affilited institutions action
+     * Executes institutions action
      *
      * @param sfRequest $request A request object
      */
@@ -61,27 +61,12 @@ class sectionActions extends sfActions {
     }
 
     /**
-     * Executes philosophy action
+     * Executes courses action
      *
      * @param sfRequest $request A request object
      */
-    public function executePhilosophy(sfWebRequest $request) {
-    }
-
-    /**
-     * Executes work action
-     *
-     * @param sfRequest $request A request object
-     */
-    public function executeWork(sfWebRequest $request) {
-    }
-
-    /**
-     * Executes students action
-     *
-     * @param sfRequest $request A request object
-     */
-    public function executeStudents(sfWebRequest $request) {
+    public function executeCourses(sfWebRequest $request) {
+        $this->courses = CourseTable::getInstance()->findAll();
     }
 
     /**
@@ -90,6 +75,7 @@ class sectionActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeInstructors(sfWebRequest $request) {
+        $this->instructors = ProfileTable::getInstance()->findAll();
     }
 
     /**

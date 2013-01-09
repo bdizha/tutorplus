@@ -21,7 +21,7 @@ class course_fileGeneratorHelper extends BaseCourse_fileGeneratorHelper {
 
     public function indexLinks($course) {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_files",
             "is_profile" => true,

@@ -21,7 +21,7 @@ class discussion_typeGeneratorHelper extends BaseDiscussion_typeGeneratorHelper 
 
   public function indexLinks() {
     return array(
-        "current_parent" => "settings",
+        "currentParent" => "settings",
         "current_child" => "communication_settings",
         "current_link" => "discussion_types",
     );

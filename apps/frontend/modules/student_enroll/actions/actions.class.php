@@ -17,25 +17,18 @@ class student_enrollActions extends autoStudent_enrollActions {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         if ($form->isValid()) {
             $isNew = $form->getObject()->isNew();
-            $notice = 'Congrats! You have been successfully enrolled as a TutorPlus student.';
+            $notice = 'Congrats! You have been successfully enrolled as our new student.';
 
             try {
-                $student = $form->save();
-
-                // save default student contact details
-                $student->saveDefaultContact($form->getValues());
-
-                // save student course
-                $student->saveDefaultCourses($form->getValues());
+                $profile = $form->save();
 
                 // send the student emails
                 if ($isNew) {
-                    $this->sendEmail($student);
+                    //$this->sendEmail($student);
                 }
             } catch (Doctrine_Validator_Exception $e) {
 
                 $errorStack = $form->getObject()->getErrorStack();
-
                 $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
                 foreach ($errorStack as $field => $errors) {
                     $message .= "$field (" . implode(", ", $errors) . "), ";
@@ -49,7 +42,7 @@ class student_enrollActions extends autoStudent_enrollActions {
             $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $student)));
 
             // automatically sign in the student
-            $this->getUser()->signin($student->getProfile(), false);
+            $this->getUser()->signin($profile, true);
 
             $this->getUser()->setFlash('notice', $notice);
 

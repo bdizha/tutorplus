@@ -20,7 +20,7 @@ class dashboardGeneratorHelper extends sfModelGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "dashboard",
+            "currentParent" => "dashboard",
             "current_child" => "my_dashboard",
             "current_link" => "my_dashboard"
         );

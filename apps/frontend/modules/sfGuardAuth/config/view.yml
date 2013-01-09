@@ -1,2 +1,3 @@
 all:  
-  layout:         other
+  stylesheets:    [ public.css ]
+  layout:         public

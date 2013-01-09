@@ -129,7 +129,7 @@ class myUser extends sfBasicSecurityUser {
       // save key
       $rk = new ProfileRememberKey();
       $rk->setRememberKey($key);
-      $rk->setUser($profile);
+      $rk->setProfile($profile);
       $rk->setIpAddress($_SERVER['REMOTE_ADDR']);
       $rk->save($con);
 

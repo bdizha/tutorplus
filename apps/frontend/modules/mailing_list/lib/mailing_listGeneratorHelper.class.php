@@ -21,7 +21,7 @@ class mailing_listGeneratorHelper extends BaseMailing_listGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "mailing_lists",
             "is_profile" => true
@@ -39,7 +39,7 @@ class mailing_listGeneratorHelper extends BaseMailing_listGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "mailing_lists",
             "is_profile" => true
@@ -57,7 +57,7 @@ class mailing_listGeneratorHelper extends BaseMailing_listGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "mailing_lists",
             "is_profile" => true

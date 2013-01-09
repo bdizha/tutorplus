@@ -29,7 +29,7 @@ class studentGeneratorHelper extends BaseStudentGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "students"
         );
@@ -46,7 +46,7 @@ class studentGeneratorHelper extends BaseStudentGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "students"
         );
@@ -63,7 +63,7 @@ class studentGeneratorHelper extends BaseStudentGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "students"
         );

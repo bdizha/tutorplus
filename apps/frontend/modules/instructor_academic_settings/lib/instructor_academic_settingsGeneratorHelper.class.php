@@ -45,7 +45,7 @@ class instructor_academic_settingsGeneratorHelper extends BaseInstructor_academi
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "instructors",
             "is_profile" => false

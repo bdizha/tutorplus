@@ -1,7 +1,7 @@
 [?php use_helper('I18N', 'Date') ?]
 
 [?php slot('nav_vertical') ?]
-[?php include_component('common', 'menu', $helper->indexLinks()) ?]
+[?php include_component('common', 'secureMenu', $helper->indexLinks()) ?]
 [?php end_slot() ?]
 
 [?php slot('breadcrumbs') ?]

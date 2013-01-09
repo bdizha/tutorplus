@@ -1,16 +1,15 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array("current_parent" => "philosophy")) ?>
+<?php include_component('common', 'publicMenu', array("currentParent" => "courses")) ?>
 <?php end_slot() ?>
 
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h3>Our Philosophy</h3>
+        <h1>Our Courses</h1>
     </div>
     <div id="tp_admin_content">
         <div class="section-block">
-            <img src="/images/section_philosophy.jpg">
             <h2>Academic values</h2>
             We are fully engaged members of the academic community, and our principles derive from the universities, colleges, libraries, scholarly societies and other institutions around the world that we serve. Our fundamental aim is to support student development in Higher Learning contexts worldwide.
         </div>

@@ -21,7 +21,7 @@ class activity_templateGeneratorHelper extends BaseActivity_templateGeneratorHel
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "activity_templates",
         );
@@ -39,7 +39,7 @@ class activity_templateGeneratorHelper extends BaseActivity_templateGeneratorHel
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "activity_templates",
         );
@@ -57,7 +57,7 @@ class activity_templateGeneratorHelper extends BaseActivity_templateGeneratorHel
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "activity_templates",
         );

@@ -21,7 +21,7 @@ class institutionGeneratorHelper extends BaseInstitutionGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "academic_settings",
             "current_link" => "institutions"
         );

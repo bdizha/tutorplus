@@ -1,12 +1,12 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array("current_parent" => "work")) ?>
+<?php include_component('common', 'publicMenu', array("currentParent" => "work")) ?>
 <?php end_slot() ?>
 
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h3>Our Work</h3>
+        <h1>Our Work</h1>
     </div>
     <div id="tp_admin_content">
         <div class="section-block">

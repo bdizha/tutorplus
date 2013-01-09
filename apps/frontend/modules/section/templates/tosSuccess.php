@@ -1,12 +1,12 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array()) ?>
+<?php include_component('common', 'publicMenu', array()) ?>
 <?php end_slot() ?>
 
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h3>Terms of service</h3>
+        <h1>Terms of service</h1>
     </div>
     <div id="tp_admin_content">
         <div class="section-block">

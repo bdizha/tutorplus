@@ -10,15 +10,19 @@
  */
 class commonComponents extends sfComponents {
 
-    public function executeMenu(sfWebRequest $request) {
-        $menu = sfYaml::load(dirname(__FILE__) . "/../config/menu.yml");
+  public function executePublicMenu(sfWebRequest $request) {
+    $menu = sfYaml::load(dirname(__FILE__) . "/../config/menu.yml");
+    $this->menu = $menu["public"];
+  }
 
-        $this->menu = $menu[$this->getUser()->isAuthenticated() ? "secure" : "public"];
-    }
+  public function executeSecureMenu(sfWebRequest $request) {
+    $menu = sfYaml::load(dirname(__FILE__) . "/../config/menu.yml");
+    $this->menu = $menu["secure"];
+  }
 
-    public function executeHeader(sfWebRequest $request) {
-        $this->totalInboxCount = EmailMessageTable::getInstance()->countInboxByEmail($this->getUser()->getEmail());
-        $this->totalNotificationCount = EmailMessageTable::getInstance()->countDraftsByEmail($this->getUser()->getEmail());
-    }
+  public function executeHeader(sfWebRequest $request) {
+//    $this->totalInboxCount = EmailMessageTable::getInstance()->countInboxByEmail($this->getUser()->getEmail());
+//    $this->totalNotificationCount = EmailMessageTable::getInstance()->countDraftsByEmail($this->getUser()->getEmail());
+  }
 
 }

@@ -1,16 +1,15 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array("current_parent" => "mission")) ?>
+<?php include_component('common', 'publicMenu', array("currentParent" => "story")) ?>
 <?php end_slot() ?>
 
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h3>Our Mission</h3>
+        <h1>Our Story</h1>
     </div>
     <div id="tp_admin_content">
         <div class="section-block">
-            <img src="/images/section_mission.jpg">
             <h2>Transformative uses of new technologies in higher education</h2>
             TutorPlus is a not-for-profit organization that helps the academic community use educational technologies to preserve the scholarly record and to advance research and learning in the Higher Education sector in sustainable ways. TutorPlus provides a collaborative learning platform that enables the academic community to fully engage its learners and instructors together in their discourse through a neutral and objective platform which is essential for collaborative learning.
         </div>
@@ -28,7 +27,7 @@
             <div class="section-row">
                 <div class="poem-body">
                     As we set out to make an impact in our educational territories
-                    the adventure is completely unknown, full of curves, up hills,
+                    the adventure is completely unknown, full of curves, uphills,
                     road blocks, side-liners, well wishers, sabotaging and creativity.
                 </div>
                 <div class="poem-body">

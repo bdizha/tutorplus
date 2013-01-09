@@ -20,7 +20,7 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "timeline",
+            "currentParent" => "timeline",
             "current_child" => "timeline",
             "current_link" => "news_items"
         );
@@ -37,7 +37,7 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "timeline",
+            "currentParent" => "timeline",
             "current_child" => "timeline",
             "current_link" => "news_items"
         );
@@ -54,7 +54,7 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "timeline",
+            "currentParent" => "timeline",
             "current_child" => "timeline",
             "current_link" => "news_items"
         );

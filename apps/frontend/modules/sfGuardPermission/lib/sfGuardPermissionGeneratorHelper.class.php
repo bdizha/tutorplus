@@ -21,7 +21,7 @@ class sfGuardPermissionGeneratorHelper extends BaseSfGuardPermissionGeneratorHel
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "permissions"
         );
@@ -38,7 +38,7 @@ class sfGuardPermissionGeneratorHelper extends BaseSfGuardPermissionGeneratorHel
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "permissions"
         );
@@ -55,7 +55,7 @@ class sfGuardPermissionGeneratorHelper extends BaseSfGuardPermissionGeneratorHel
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "permissions"
         );

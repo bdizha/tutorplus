@@ -21,7 +21,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "email_templates"
         );
@@ -38,7 +38,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "email_templates"
         );
@@ -56,7 +56,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "email_templates"
         );

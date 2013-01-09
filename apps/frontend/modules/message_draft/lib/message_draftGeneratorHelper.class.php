@@ -26,7 +26,7 @@ class message_draftGeneratorHelper extends BaseMessage_draftGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "messaging",
+            "currentParent" => "messaging",
             "current_child" => "my_messages",
             "current_link" => "message_draft");
     }

@@ -55,7 +55,7 @@ class profile_qualificationGeneratorHelper extends BaseProfile_qualificationGene
         $sfUser = sfContext::getInstance()->getUser();
         $profileId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
-            "current_parent" => "profile",
+            "currentParent" => "profile",
             "current_child" => "my_profile",
             "current_link" => "my_qualifications",
             "slug" => $sfUser->getProfile()->getSlug(),

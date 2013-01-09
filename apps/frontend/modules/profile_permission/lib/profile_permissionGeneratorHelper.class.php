@@ -22,7 +22,7 @@ class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorH
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "permissions"
         );
@@ -39,7 +39,7 @@ class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorH
 
     public function newLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "permissions"
         );
@@ -56,7 +56,7 @@ class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorH
 
     public function editLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "access_settings",
             "current_link" => "permissions"
         );

@@ -20,7 +20,7 @@ class calendarGeneratorHelper extends BaseCalendarGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "calendar",
+            "currentParent" => "calendar",
             "current_child" => "my_calendar",
             "current_link" => "calendars"
         );
@@ -36,7 +36,7 @@ class calendarGeneratorHelper extends BaseCalendarGeneratorHelper {
 
     public function myScheduleLinks() {
         return array(
-            "current_parent" => "calendar",
+            "currentParent" => "calendar",
             "current_child" => "my_calendar",
             "current_link" => "my_schedule"
         );

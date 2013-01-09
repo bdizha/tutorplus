@@ -20,7 +20,7 @@ class course_participantGeneratorHelper {
 
     public function participantsLinks($course) {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_participants",
             "slug" => $course->getSlug()

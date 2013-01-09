@@ -22,7 +22,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
     $sfUser = sfContext::getInstance()->getUser();
     $profileId = $sfUser->getMyAttribute('profile_show_id', null);
     return array(
-        "current_parent" => "profile",
+        "currentParent" => "profile",
         "current_child" => "my_profile",
         "current_link" => "my_timeline",
         "slug" => $sfUser->getProfile()->getSlug(),
@@ -43,7 +43,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
     $sfUser = sfContext::getInstance()->getUser();
     $profileId = $sfUser->getMyAttribute('profile_show_id', null);
     return array(
-        "current_parent" => "profile",
+        "currentParent" => "profile",
         "current_child" => "my_profile",
         "current_link" => "my_info",
         "slug" => $sfUser->getProfile()->getProfile()->getSlug(),
@@ -63,7 +63,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
     $sfUser = sfContext::getInstance()->getUser();
     $profileId = $sfUser->getMyAttribute('profile_show_id', null);
     return array(
-        "current_parent" => "profile",
+        "currentParent" => "profile",
         "current_child" => "my_profile",
         "current_link" => "my_timeline",
         "slug" => $sfUser->getProfile()->getProfile()->getSlug(),
@@ -83,7 +83,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
     $sfUser = sfContext::getInstance()->getUser();
     $profileId = $sfUser->getMyAttribute('profile_show_id', null);
     return array(
-        "current_parent" => "profile",
+        "currentParent" => "profile",
         "current_child" => "my_profile",
         "current_link" => "my_account_settings",
         "slug" => $sfUser->getProfile()->getSlug(),
@@ -103,7 +103,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
     $sfUser = sfContext::getInstance()->getUser();
     $profileId = $sfUser->getMyAttribute('profile_show_id', null);
     return array(
-        "current_parent" => "profile",
+        "currentParent" => "profile",
         "current_child" => "my_profile",
         "current_link" => "my_contact_details",
         "slug" => $sfUser->getProfile()->getSlug(),
@@ -123,7 +123,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
     $sfUser = sfContext::getInstance()->getUser();
     $profileId = $sfUser->getMyAttribute('profile_show_id', null);
     return array(
-        "current_parent" => "profile",
+        "currentParent" => "profile",
         "current_child" => "my_profile",
         "current_link" => "my_peers",
         "slug" => $sfUser->getProfile()->getSlug(),

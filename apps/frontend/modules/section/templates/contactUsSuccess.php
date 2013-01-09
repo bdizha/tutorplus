@@ -1,17 +1,16 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array("current_parent" => "contact_us")) ?>
+<?php include_component('common', 'publicMenu', array("currentParent" => "contact_us")) ?>
 <?php end_slot() ?>
 
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h3>Get in touch with us :)</h3>
+        <h1>Get in touch with us :)</h1>
     </div>
     <div id="tp_admin_content">
         <div class="section-block">
             <h2>Class Feedback</h2>
-            <img src="/images/secton_contac_us.jpg">
             We are always seeking feedback to improve our courses. If you are an enrolled student and have any questions, feedback, suggestions, or any other issues specific to a particular class, please post on the discussion forums of that class.
         </div>
         <div class="section-block">

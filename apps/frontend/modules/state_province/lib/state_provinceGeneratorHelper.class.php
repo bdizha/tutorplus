@@ -21,7 +21,7 @@ class state_provinceGeneratorHelper extends BaseState_provinceGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "location_settings",
             "current_link" => "state_provincies",
             "is_profile" => false

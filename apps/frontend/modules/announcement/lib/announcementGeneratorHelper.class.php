@@ -19,7 +19,7 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
 
     public function indexLinks() {
         return array(
-            "current_parent" => "timeline",
+            "currentParent" => "timeline",
             "current_child" => "timeline",
             "current_link" => "announcements"
         );
@@ -36,7 +36,7 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
 
     public function newLinks() {
         return array(
-            "current_parent" => "timeline",
+            "currentParent" => "timeline",
             "current_child" => "timeline",
             "current_link" => "announcements"
         );
@@ -53,7 +53,7 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
 
     public function editLinks() {
         return array(
-            "current_parent" => "timeline",
+            "currentParent" => "timeline",
             "current_child" => "timeline",
             "current_link" => "announcements"
         );

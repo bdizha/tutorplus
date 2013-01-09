@@ -27,7 +27,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 
     public function indexLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "announcements",
             "slug" => $this->course->getSlug()
@@ -46,7 +46,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 
     public function newLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "announcements",
             "slug" => $this->course->getSlug()
@@ -65,7 +65,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 
     public function editLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "announcements",
             "slug" => $this->course->getSlug()
@@ -84,7 +84,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 
     public function showLinks() {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "announcements",
             "slug" => $this->course->getSlug()

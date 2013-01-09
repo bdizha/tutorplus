@@ -18,20 +18,20 @@
 class myValidatorProfile extends sfValidatorBase {
 
   public function configure($options = array(), $messages = array()) {
-    $this->addOption('username_field', 'username');
+    $this->addOption('email_field', 'email');
     $this->addOption('password_field', 'password');
     $this->addOption('throw_global_error', false);
 
-    $this->setMessage('invalid', 'The Username and/or Password is invalid.');
+    $this->setMessage('invalid', 'The Email and/or Password is invalid.');
   }
 
   protected function doClean($values) {
-    $username = isset($values[$this->getOption('username_field')]) ? $values[$this->getOption('username_field')] : '';
+    $email = isset($values[$this->getOption('email_field')]) ? $values[$this->getOption('email_field')] : '';
     $password = isset($values[$this->getOption('password_field')]) ? $values[$this->getOption('password_field')] : '';
     
     // don't allow to sign in with an empty username
-    if ($username) {
-      $profile = $this->getTable()->retrieveByUsernameOrEmailAddress($username);
+    if ($email) {
+      $profile = $this->getTable()->retrieveByEmail($email);
       // user exists?
       if ($profile) {
         // password is ok?
@@ -45,7 +45,7 @@ class myValidatorProfile extends sfValidatorBase {
       throw new sfValidatorError($this, 'invalid');
     }
 
-    throw new sfValidatorErrorSchema($this, array($this->getOption('username_field') => new sfValidatorError($this, 'invalid')));
+    throw new sfValidatorErrorSchema($this, array($this->getOption('email_field') => new sfValidatorError($this, 'invalid')));
   }
 
   protected function getTable() {

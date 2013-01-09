@@ -164,15 +164,17 @@ secure:
 public:
   home:  
     details:                        { route: home, label: Home }
-  mission:  
-    details:                        { route: mission, label: Mission }
+  courses:  
+    details:                        { route: courses, label: Courses }
+  story:  
+    details:                        { route: story, label: "Our Story" }
   institutions:  
     details:                        { route: institutions, label: Institutions }
-  philosophy:  
-    details:                        { route: philosophy, label: Philosophy }
-  team:  
-    details:                        { route: team, label: "TutorPlus Team" }
+  instructors:  
+    details:                        { route: instructors, label: Instructors }
+  leadership:  
+    details:                        { route: leadership, label: "Leadership" }
+  faqs:  
+    details:                        { route: faqs, label: Faqs }
   contact_us:  
     details:                        { route: contact_us, label: "Contact Us" }
-  faq:  
-    details:                        { route: faqs, label: Faqs }

@@ -64,7 +64,7 @@ class roomGeneratorHelper extends BaseRoomGeneratorHelper
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "location_settings",
             "current_link" => "rooms",
             "is_profile" => false

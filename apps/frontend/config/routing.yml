@@ -1610,37 +1610,25 @@ contact_us:
   url:   /contact/us
   param: { module: section, action: contactUs }
   
-team:
-  url:   /team
-  param: { module: section, action: team }
+leadership:
+  url:   /our/leadership
+  param: { module: section, action: leadership }
   
-mission:
-  url:   /mission
-  param: { module: section, action: mission }
+story:
+  url:   /our/story
+  param: { module: section, action: story }
   
-offered_courses:
-  url:   /offered/courses
-  param: { module: section, action: offeredCourses }
-  
-students:
-  url:   /students
-  param: { module: section, action: students }
+courses:
+  url:   /our/courses
+  param: { module: section, action: courses }
   
 instructors:
-  url:   /instructors
+  url:   /our/instructors
   param: { module: section, action: instructors }
   
 institutions:
-  url:   /institutions
-  param: { module: section, action: institutions }  
-  
-philosophy:
-  url:   /philosophy
-  param: { module: section, action: philosophy }
-  
-work:
-  url:   /work
-  param: { module: section, action: work }
+  url:   /our/institutions
+  param: { module: section, action: institutions }
   
 tos:
   url:   /tos

@@ -39,7 +39,7 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
 
     public function courseLinks($course) {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_discussion"
         );
@@ -58,7 +58,7 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
 
     public function discussionLinks($discussionTopic) {
         return array(
-            "current_parent" => "discussions",
+            "currentParent" => "discussions",
             "current_child" => "discussions",
             "current_link" => "discussion_explorer"
         );

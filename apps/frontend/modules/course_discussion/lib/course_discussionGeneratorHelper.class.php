@@ -30,7 +30,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
     public function indexLinks()
     {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_discussion",
             "slug" => $this->course->getSlug()
@@ -51,7 +51,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
     public function newLinks()
     {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_discussion",
             "slug" => $this->course->getSlug(),
@@ -73,7 +73,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
     public function editLinks()
     {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_discussion",
             "slug" => $this->course->getSlug()

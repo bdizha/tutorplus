@@ -60,7 +60,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
     public function courseLinks($course)
     {
         return array(
-            "current_parent" => "courses",
+            "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_discussion"
         );
@@ -80,7 +80,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
     public function discussionLinks($discussionTopic)
     {
         return array(
-            "current_parent" => "discussions",
+            "currentParent" => "discussions",
             "current_child" => "discussions",
             "current_link" => "discussion_explorer"
         );
@@ -114,7 +114,7 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
     public function editLinks()
     {
         return array(
-            "current_parent" => "discussions",
+            "currentParent" => "discussions",
             "current_child" => "discussions",
             "current_link" => "discussion_explorer"
         );

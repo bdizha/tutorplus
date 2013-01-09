@@ -22,7 +22,7 @@ class faqGeneratorHelper extends BaseFaqGeneratorHelper
 
     public function indexLinks() {
         return array(
-            "current_parent" => "settings",
+            "currentParent" => "settings",
             "current_child" => "communication_settings",
             "current_link" => "faqs"
         );

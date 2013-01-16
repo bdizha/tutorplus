@@ -1,6 +1,0 @@
-all:
-  stylesheets: [bulletin_board.css, profile.css]
-  has_layout: false
-  
-indexSuccess:
-  has_layout: true

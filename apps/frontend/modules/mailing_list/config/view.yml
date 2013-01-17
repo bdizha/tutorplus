@@ -1,5 +1,5 @@
 all:
-  stylesheets: [mailing_list]
+  stylesheets: [ secure.css, mailing_list ]
   
 chooseStudentRecipientsSuccess:
   has_layout: false

@@ -13,12 +13,11 @@ generator:
 
     config:
       fields:
-        birth_date:          { label: DOB }
       actions:               ~
       form:
         class:               InstructorEnrollForm
         display:            
-         "Personal Details": [ first_name, last_name, birth_date, institution_id ]
+         "Personal Details": [ title, first_name, last_name, birth_date, institution_id ]
          "Credentials":      [ email, password, password_confirmation ]
       filter:
         class:               false

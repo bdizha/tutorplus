@@ -1,27 +1,26 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php $discussionTopicMessage = Doctrine_Core::getTable('DiscussionPost')->find($activityFeed->getItemId()) ?>
-<?php $replyForm = new DiscussionCommentForm() ?>
-<?php $replyForm->setDefault("discussion_topic_message_id", $discussionTopicMessage->getId()) ?>
-<?php if ($discussionTopicMessage): ?>
-  <div class="snapshot">
-    <div class="heading">
-      <?php include_partial('personal_info/photo', array('profile' => $discussionTopicMessage->getProfile(), "dimension" => 48)) ?>
-      <div class="name"><?php echo link_to($discussionTopicMessage->getProfile(), 'profile_show', $discussionTopicMessage->getProfile()) ?> on</div>
-      <div class="datetime"><?php echo $discussionTopicMessage->getUpdatedAt() ?></div> posted:
+<?php $discussionPost = Doctrine_Core::getTable('DiscussionPost')->find($activityFeed->getItemId()) ?>
+<?php $discussionCommentForm = new DiscussionCommentForm() ?>
+<?php $discussionCommentForm->setDefault("discussion_post_id", $discussionPost->getId()) ?>
+<?php if ($discussionPost): ?>  
+    <div class="thread discussion-post snapshot" id="discussion-post-<?php echo $discussionPost->getId() ?>">
+        <?php include_partial('personal_info/photo', array('profile' => $discussionPost->getProfile(), "dimension" => 36)) ?>
+        <div class="body" id="message-<?php echo $discussionPost->getId() ?>">
+            <?php echo $discussionPost->getMessage() ?>          
+            <div class="user-meta">By <?php echo link_to($discussionPost->getProfile(), 'profile_show', $discussionPost->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionPost->getUpdatedAt()) ?></span></div>
+        </div>
+        <div class="comments">
+            <div class="statistics">
+                <span class="stats-item comment-count">
+                    <span class="list-count" id="comment-count-<?php echo $discussionPost->getId() ?>"><?php echo $discussionPost->getComments()->count() ?></span> comment(s)
+                </span>
+            </div>
+            <div id="discussion-comments-<?php echo $discussionPost->getId() ?>">
+                <?php include_partial("discussion_comment/list", array("discussionComments" => $discussionPost->getComments())) ?>            
+            </div>
+            <div id="discussion-comment-form-holder-<?php echo $discussionPost->getId() ?>" class="comment reply-details">
+                <?php include_partial("discussion_comment/form", array("form" => $discussionCommentForm, "discussionPostId" => $discussionPost->getId())) ?>
+            </div>
+        </div>
     </div>
-    <div class="body"><?php echo $discussionTopicMessage->getMessage() ?></div>
-    <div class="comments">
-      <div class="statistics">
-        <span class="stats-item replies-count"><span class="list-count" id="replies-count-<?php echo $discussionTopicMessage->getId() ?>"><?php echo $discussionTopicMessage->getReplies()->count() ?></span> comment(s) &dArr;</span> 
-      </div>
-      <div id="discussion-topic-replies-<?php echo $discussionTopicMessage->getId() ?>">
-        <?php foreach ($discussionTopicMessage->getReplies() as $discussionTopicMessageReply): ?>
-          <?php include_partial("discussion_topic_reply/reply", array("discussionTopicMessageReply" => $discussionTopicMessageReply)) ?>
-        <?php endforeach; ?>
-      </div>
-      <div id="discussion-topic-reply-form-holder-<?php echo $discussionTopicMessage->getId() ?>" class="comment reply-details">
-        <?php include_partial("discussion_topic_reply/form", array("form" => $replyForm, "discussionTopicMessageId" => $discussionTopicMessage->getId())) ?>
-      </div>
-    </div>
-  </div>
 <?php endif; ?>

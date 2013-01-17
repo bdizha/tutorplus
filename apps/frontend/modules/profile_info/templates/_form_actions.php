@@ -11,18 +11,18 @@
 </ul>
 <script type='text/javascript'>
     $(document).ready(function(){        
-        $('#academic_info_form_holder .save').click(function(){    
+        $('#profile_info_form_holder .save').click(function(){    
             $("#cboxLoadedContentInner").hide();
             $("#cboxLoadedContent").append(loadingHtml);
             
-            $("#academic_info_form").ajaxSubmit(function(data){
+            $("#profile_info_form").ajaxSubmit(function(data){
                 $("#cboxLoadedContent").html(data);
                 $.fn.colorbox.resize();
             });
         });
         
-        $("#academic_info_form_holder .cancel, #academic_info_form_holder .done").click(function(){
-            fetchAcademicInfo();
+        $("#profile_info_form_holder .cancel, #profile_info_form_holder .done").click(function(){
+            fetchProfileInfo();
             $.fn.colorbox.close();
             return false;
         });

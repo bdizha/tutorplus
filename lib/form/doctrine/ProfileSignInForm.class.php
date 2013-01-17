@@ -15,13 +15,13 @@ class ProfileSignInForm extends BaseForm {
    */
   public function setup() {
     $this->setWidgets(array(
-        'username' => new sfWidgetFormInputText(),
+        'email' => new sfWidgetFormInputText(),
         'password' => new sfWidgetFormInputPassword(array('type' => 'password')),
         'remember' => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
-        'username' => new sfValidatorString(),
+        'email' => new sfValidatorString(),
         'password' => new sfValidatorString(),
         'remember' => new sfValidatorBoolean(),
     ));

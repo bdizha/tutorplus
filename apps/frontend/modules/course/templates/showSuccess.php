@@ -1,22 +1,18 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->showLinks($course)) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
+<?php include_component('common', 'secureMenu', $helper->showLinks($course)) ?>
 <?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs($course)) ?>
-<?php end_slot() ?>
-
 <div class="sf_admin_heading">
     <h3><?php echo __('%%code%% ~ %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?></h3>
 </div>
-<div id="sf_admin_form_container">
+<div id="sf_admin_container">
     <div id="sf_admin_content">
         <div class="content-block">
-            <h2>Course info <?php echo $helper->showToEdit($course) ?></h2>
+            <h4>Course info <?php echo $helper->showToEdit($course) ?></h4>
             <div class="full-block">
-                <div class="course_info ">
+                <div class="course-image">
+                    <img src="/profile/show/photo/3/128/1357767921" class="image" alt="<?php echo $course->getCode() ?>" title="<?php echo $course->getCode() ?>">
+                </div>
+                <div class="course-info">
                     <div class="course-row">
                         <div class="row-label">
                             Department:
@@ -75,19 +71,16 @@
             </div>
         </div>
         <div class="content-block">
-            <h2>About the instructor (s)</h2>
+            <h4>About the instructor (s)</h4>
             <div class="full-block">
-                <div class="course-row" id="instructor_background">
-                    <?php echo $course->getInstructorBackground() ?>
-                </div>            
                 <div id="course_instructors">
-                    <?php include_partial('course_participant/instructors', array('course' => $course)) ?>
+                    <?php include_partial('course_peer/instructors', array('courseInstructors' => $courseInstructors)) ?>
                 </div>
             </div>
             <?php include_partial('common/actions', array('actions' => array("manage_instructors" => array("title" => "Manage Instructors")))) ?>
         </div>
         <div class="content-block">
-            <h2>About the course</h2>
+            <h4>About the course</h4>
             <div class="full-block">
                 <div class="course-row" id="course_discription">
                     <?php echo $course->getDescription() ?>
@@ -100,7 +93,7 @@
 <script type="text/javascript">
     $(document).ready(function(){        
         $(".sf_admin_action_manage_instructors input").click(function(){
-            openPopup("/choose/course/instructors", '583px', '480px', "<?php echo __('Manage Instructor Followers', Array(), 'messages') ?>");
+            openPopup("/choose/course/instructors", '513px', '480px', "<?php echo __('Manage Course Instructors', Array(), 'messages') ?>");
             return false;
         });
     });

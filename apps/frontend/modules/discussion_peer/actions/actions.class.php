@@ -38,7 +38,7 @@ class discussion_memberActions extends autoDiscussion_memberActions {
         parent::executeIndex($request);
     }
 
-    public function executeFollowers(sfWebRequest $request) {
+    public function executePeers(sfWebRequest $request) {
         $this->beforeExecute();
     }
 
@@ -72,7 +72,7 @@ class discussion_memberActions extends autoDiscussion_memberActions {
             }
         } else {
             // fetch the current discussion members
-            $this->currentMemberIds = sfGuardUserTable::getInstance()->retrieveProfileIdsByDiscussionId($discussionId);
+            $this->currentMemberIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionId($discussionId);
         }
     }
 
@@ -88,7 +88,7 @@ class discussion_memberActions extends autoDiscussion_memberActions {
         }
 
         // fetch the current discussion members
-        $currentMembersIds = sfGuardUserTable::getInstance()->retrieveProfileIdsByDiscussionId($discussionId);
+        $currentMembersIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionId($discussionId);
 
         $toDelete = array_diff($currentMembersIds, $postedMemberIds);
         if (count($toDelete)) {
@@ -99,7 +99,7 @@ class discussion_memberActions extends autoDiscussion_memberActions {
 
         $toAdd = array_diff($postedMemberIds, $currentMembersIds);
         if (count($toAdd)) {
-            $users = sfGuardUserTable::getInstance()->retrieveByIds($toAdd);
+            $users = ProfileTable::getInstance()->retrieveByIds($toAdd);
             foreach ($users as $user) {
                 // make sure we don't add a member twice
                 if (!in_array($user->getId(), $currentMembersIds)) {
@@ -127,13 +127,13 @@ class discussion_memberActions extends autoDiscussion_memberActions {
     public function executeSuggested(sfWebRequest $request) {
 
         if ($this->discussion) {
-            if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
+            if ($this->getUser()->getType() == ProfileTable::TYPE_STUDENT) {
                 $studentId = $this->getUser()->getStudentId();
                 $profileId = $this->getUser()->getId();
 
-                $this->suggestedFollowers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
-            } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
-                $this->suggestedFollowers = null;
+                $this->suggestedPeers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
+            } elseif ($this->getUser()->getType() == ProfileTable::TYPE_INSTRUCTOR) {
+                $this->suggestedPeers = null;
             }
         } else {
             die("redirect");
@@ -143,7 +143,7 @@ class discussion_memberActions extends autoDiscussion_memberActions {
     public function executeAccept(sfWebRequest $request) {
         try {
             $profileId = $request->getParameter("profile_id");
-            $user = sfGuardUserTable::getInstance()->find($profileId);
+            $user = ProfileTable::getInstance()->find($profileId);
 
             if (!$this->discussion->hasJoined($profileId)) {
                 $discussionMemberPeer = new DiscussionPeer();

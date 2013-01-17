@@ -7,6 +7,48 @@
  */
 class ActivityFeedTable extends Doctrine_Table {
 
+    const TYPE_SENT_PEER_INVITATION = 0;
+    const TYPE_ACCEPTED_PEER_INVITATION = 1;
+    const TYPE_SUGGESTED_PEER = 2;
+    const TYPE_PEER_EMAIL = 3;
+    const TYPE_POSTED_ANNOUNCEMENT = 4;
+    const TYPE_POSTED_NEWS_ITEM = 5;
+    const TYPE_POSTED_DISCUSSION = 6;
+    const TYPE_POSTED_DISCUSSION_TOPIC = 7;
+    const TYPE_POSTED_DISCUSSION_POST = 8;
+    const TYPE_POSTED_DISCUSSION_COMMENT = 9;
+    const TYPE_SUBSCRIBED_DISCUSSION_PEER = 10;
+    const TYPE_UNSUBSCRIBED_DISCUSSION_PEER = 11;
+    const TYPE_PENDING_ASSINGMENT = 12;
+    const TYPE_SUBMITTED_ASSIGNMENT = 13;
+    const TYPE_SUBMITTED_ASSIGNMENT_FILE = 14;
+    const TYPE_SUBMITTED_COURSE_FILE = 15;
+    const TYPE_UPCOMING_ASSIGNMENT = 16;
+    const TYPE_UPCOMING_EVENT = 17;
+    const TYPE_RECEIVED_EMAIL = 18;
+
+    static public $types = array(
+        0 => 'Sent peer invitation',
+        1 => 'Accepted peer invitation',
+        2 => 'Suggested peer',
+        3 => 'Sent email',
+        4 => 'Posted announcenment',
+        5 => 'Posted news',
+        6 => 'Posted discussion',
+        7 => 'Posted discussion topic',
+        8 => 'Posted discussion message',
+        9 => 'Posted discussion reply',
+        10 => 'Subscribed discussion member',
+        11 => 'Unsubscribed discussion member',
+        12 => 'Pending assignment',
+        13 => 'Submitted assignment',
+        14 => 'Submitted assignment file',
+        15 => 'Submitted course file',
+        16 => 'Upcoming assignment',
+        17 => 'Upcoming event',
+        18 => 'Received email'
+    );
+
     /**
      * Returns an instance of this class.
      *

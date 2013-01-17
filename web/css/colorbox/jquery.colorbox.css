@@ -28,7 +28,7 @@
 #cboxBottomRight{width:15px; height:15px;}
 #cboxMiddleLeft{width:15px;}
 #cboxMiddleRight{width:15px;}
-#cboxContent{background:#fff; overflow:hidden; border: 1px solid #EBEAE9;}
+#cboxContent{background:#fff; overflow:hidden; border: 1px solid #F5F5F5;}
 .cboxIframe{background:#fff;}
 #cboxError{padding:50px; border:1px solid #ccc;}
 #cboxLoadedContent{
@@ -42,10 +42,9 @@
     text-align: left;
     width: 100%;
     height: 22px;
-    color: #856651;
+    color: #B5A072;
     font-size: 13px;
     padding: 10px 10px 5px 20px;
-    text-transform: uppercase;
 }
 #cboxCurrent{position:absolute; bottom:0px; left:100px; color:#999;}
 #cboxSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}

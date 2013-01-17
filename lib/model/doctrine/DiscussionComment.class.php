@@ -10,53 +10,34 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class DiscussionComment extends BaseDiscussionComment
-{
-
-    public function updateCounts() {
-        $this->getDiscussionPost()->getDiscussionTopic()->setNbReplies($this->getDiscussionPost()->getDiscussionTopic()->getNbReplies() + 1);
-        $this->getDiscussionPost()->getDiscussionTopic()->setLatestTopicReplyId($this->getId());
-        $this->getDiscussionPost()->getDiscussionTopic()->setUpdatedAt($this->getCreatedAt());
-        $this->getDiscussionPost()->getDiscussionTopic()->save();
-
-        $this->getDiscussionPost()->getDiscussionTopic()->getDiscussion()->setNbReplies($this->getDiscussionPost()->getDiscussionTopic()->getDiscussion()->getNbReplies() + 1);
-        $this->getDiscussionPost()->getDiscussionTopic()->getDiscussion()->setNbTopics($this->getDiscussionPost()->getDiscussionTopic()->getDiscussion()->getNbTopics() + 1);
-        $this->getDiscussionPost()->getDiscussionTopic()->getDiscussion()->setLatestTopicReplyId($this->getId());
-        $this->getDiscussionPost()->getDiscussionTopic()->getDiscussion()->setUpdatedAt($this->getCreatedAt());
-        $this->getDiscussionPost()->getDiscussionTopic()->getDiscussion()->save();
-    }
+class DiscussionComment extends BaseDiscussionComment {
 
     public function postInsert($event) {
-        // update counts
-        $this->updateCounts();
+        // update statistics
+        $discussionTopic = $this->getDiscussionPost()->getDiscussionTopic();
+        $discussionTopic->setCommentCount($discussionTopic->getCommentCount() + 1);
+        $discussionTopic->setLatestCommentId($this->getId());
+        $discussionTopic->setUpdatedAt($this->getCreatedAt());
+        $discussionTopic->save();
+
+        $discussion = $discussionTopic->getDiscussion();
+        $discussion->setCommentCount($discussion->getCommentCount() + 1);
+        $discussion->setLatestCommentId($this->getId());
+        $discussion->setUpdatedAt($this->getCreatedAt());
+        $discussion->save();
 
         // save this activity
-        $replacements = array(
-            $this->getProfile()->getSlug(),
-            $this->getProfile()->getName(),
-            $this->getDiscussionPost()->getDiscussionTopic()->getSlug(),
-            myToolkit::shortenString($this->getDiscussionPost()->getDiscussionTopic()->getSubject(), 50),
-            myToolkit::shortenString($this->getReply(), 50)
-        );
+        $activityFeed = new ActivityFeed();
+        $activityFeed->setProfileId($this->getProfileId());
+        $activityFeed->setItemId($this->getId());
+        $activityFeed->setType(ActivityFeedTable::TYPE_POSTED_DISCUSSION_COMMENT);
+        $activityFeed->save();
 
-        // find the activity template for this logging
-        $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_DISCUSSION_REPLY);
-
-        if ($activityTemplate) {
-            $activityFeed = new ActivityFeed();
-            $activityFeed->setActivityTemplate($activityTemplate);
-            $activityFeed->setReplacements(json_encode($replacements));
-            $activityFeed->setProfileId($this->getProfileId());
-            $activityFeed->setItemId($this->getId());
-            $activityFeed->save();
-
-            // link this activity with the current discussion users
-            foreach ($this->getDiscussionPost()->getDiscussionTopic()->getDiscussion()->getMembers() as $discussionMemberPeer) {
-                $profileActivityFeed = new ProfileActivityFeed();
-                $profileActivityFeed->setProfileId($discussionMemberPeer->getProfileId());
-                $profileActivityFeed->setActivityFeedId($activityFeed->getId());
-                $profileActivityFeed->save();
-            }
-        }
+        // link this activity with the current profile
+        $profileActivityFeed = new ProfileActivityFeed();
+        $profileActivityFeed->setProfileId($this->getProfileId());
+        $profileActivityFeed->setActivityFeedId($activityFeed->getId());
+        $profileActivityFeed->save();
     }
+
 }

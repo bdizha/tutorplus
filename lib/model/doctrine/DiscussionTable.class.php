@@ -36,7 +36,7 @@ class DiscussionTable extends Doctrine_Table {
             // save a discussion
             $discussion = new Discussion();
             $discussion->setName($course->getCode() . " - main discussion");
-            $discussion->setDescription("This a discussion goup for the " . $course->getCode() . " course. Essentially, all the instructors and students of this course are encouraged to participate and collaborate with other participants in order for each one involved to fully benefit from the rest of the participants.");
+            $discussion->setDescription("This a discussion goup for the " . $course->getCode() . " course. Essentially, all the instructors and profiles of this course are encouraged to participate and collaborate with other participants in order for each one involved to fully benefit from the rest of the participants.");
             $discussion->setProfileId($profileId);
             $discussion->setAccessLevel(DiscussionTable::ACCESS_LEVEL_RESTRICTED);
             $discussion->save();
@@ -47,43 +47,24 @@ class DiscussionTable extends Doctrine_Table {
             $courseDiscussion->setDiscussion($discussion);
             $courseDiscussion->save();
 
-            // save all course students to this discussion
-            $this->setStudentMembersByCourse($course, $discussion);
-
-            // save all course instructors to this discussion
-            $this->setInstructorMembersByCourse($course, $discussion);
+            // save all course profiles to this discussion
+            $this->setProfilePeersByCourse($course, $discussion);
         }
         return $courseDiscussion->getDiscussion();
     }
 
-    public function setStudentMembersByCourse($course, $discussion) {
-        foreach ($course->getCourseStudents() as $courseStudent) {
-            if (!is_object($discussionMemberPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($discussion->getId(), $courseStudent->getStudent()->getProfileId()))) {
-                $discussionMemberPeer = new DiscussionPeer();
-                $discussionMemberPeer->setDiscussionId($discussion);
-                $discussionMemberPeer->setProfileId($courseStudent->getStudent()->getProfileId());
-                $discussionMemberPeer->setNickname($courseStudent->getStudent()->getFirstName());
-                $discussionMemberPeer->setStatus(DiscussionPeerTable::POSTING_PERMISSION_TYPE_DEFAULT);
-                $discussionMemberPeer->setSubscriptionType(DiscussionPeerTable::SUBSCRIPTION_TYPE_PROMPT_EMAIL);
-                $discussionMemberPeer->setPostingPermissionType(DiscussionPeerTable::POSTING_PERMISSION_TYPE_DEFAULT);
-                $discussionMemberPeer->setMembershipType(DiscussionPeerTable::MEMBERSHIP_TYPE_ORDINARY);
-                $discussionMemberPeer->save();
-            }
-        }
-    }
-
-    public function setInstructorMembersByCourse($course, $discussion) {
-        foreach ($course->getCourseInstructors() as $courseInstructor) {
-            if (!is_object($discussionMemberPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($discussion->getId(), $courseInstructor->getInstructor()->getProfileId()))) {
-                $discussionMemberPeer = new DiscussionPeer();
-                $discussionMemberPeer->setDiscussionId($discussion);
-                $discussionMemberPeer->setProfileId($courseInstructor->getInstructor()->getProfileId());
-                $discussionMemberPeer->setNickname($courseInstructor->getInstructor()->getFirstName());
-                $discussionMemberPeer->setStatus(DiscussionPeerTable::POSTING_PERMISSION_TYPE_DEFAULT);
-                $discussionMemberPeer->setSubscriptionType(DiscussionPeerTable::SUBSCRIPTION_TYPE_PROMPT_EMAIL);
-                $discussionMemberPeer->setPostingPermissionType(DiscussionPeerTable::POSTING_PERMISSION_TYPE_OWNER);
-                $discussionMemberPeer->setMembershipType(DiscussionPeerTable::MEMBERSHIP_TYPE_OWNER);
-                $discussionMemberPeer->save();
+    public function setProfilePeersByCourse($course, $discussion) {
+        foreach ($course->getCourseProfiles() as $courseProfile) {
+            if (!is_object($discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($discussion->getId(), $courseProfile->getProfileId()))) {
+                $discussionPeer = new DiscussionPeer();
+                $discussionPeer->setDiscussionId($discussion);
+                $discussionPeer->setProfileId($courseProfile->getProfileId());
+                $discussionPeer->setNickname($courseProfile->getProfile()->getFirstName());
+                $discussionPeer->setStatus(DiscussionPeerTable::POSTING_PERMISSION_TYPE_DEFAULT);
+                $discussionPeer->setSubscriptionType(DiscussionPeerTable::SUBSCRIPTION_TYPE_PROMPT_EMAIL);
+                $discussionPeer->setPostingPermissionType(DiscussionPeerTable::POSTING_PERMISSION_TYPE_DEFAULT);
+                $discussionPeer->setMembershipType(DiscussionPeerTable::MEMBERSHIP_TYPE_ORDINARY);
+                $discussionPeer->save();
             }
         }
     }
@@ -102,32 +83,32 @@ class DiscussionTable extends Doctrine_Table {
         return $q->fetchOne();
     }
 
-    public function findOrCreatePrimaryDiscussionByProfileId($user) {
-        $discussion = DiscussionTable::getInstance()->findOneByProfileIdAndIsPrimary($user->getId(), true);
+    public function findOrCreatePrimaryDiscussionByProfile($profile) {
+        $discussion = DiscussionTable::getInstance()->findOneByProfileIdAndIsPrimary($profile->getId(), true);
         if (!is_object($discussion)) {
             $discussion = new Discussion();
-            $discussion->setName($user->getName() . "'s general discussion");
+            $discussion->setName($profile->getName() . "'s general discussion");
             $discussion->setIsPrimary(true);
-            $discussion->setProfileId($user->getId());
+            $discussion->setProfileId($profile->getId());
             $discussion->setAccessLevel(DiscussionTable::ACCESS_LEVEL_RESTRICTED);
-            $discussion->setDescription("This is " . $user->getName() . "'s general discussion and if you have anything to share with them please post it in this discussion.");
+            $discussion->setDescription("This is " . $profile->getName() . "'s general discussion and if you have anything to share with them please post it in this discussion.");
             $discussion->save();
 
-            $discussionMemberPeer = new DiscussionPeer();
-            $discussionMemberPeer->setNickname(strtolower($user->getFirstName()));
-            $discussionMemberPeer->setProfileId($user->getId());
-            $discussionMemberPeer->setDiscussionId($discussion->getId());
-            $discussionMemberPeer->setMembershipType(DiscussionPeerTable::MEMBERSHIP_TYPE_OWNER);
-            $discussionMemberPeer->setStatus(DiscussionPeerTable::STATUS_CREATOR);
-            $discussionMemberPeer->save();
+            $discussionPeer = new DiscussionPeer();
+            $discussionPeer->setNickname(strtolower($profile->getFirstName()));
+            $discussionPeer->setProfileId($profile->getId());
+            $discussionPeer->setDiscussionId($discussion->getId());
+            $discussionPeer->setMembershipType(DiscussionPeerTable::MEMBERSHIP_TYPE_OWNER);
+            $discussionPeer->setStatus(DiscussionPeerTable::STATUS_CREATOR);
+            $discussionPeer->save();
         }
         return $discussion;
     }
 
-    public function findPopularDiscussionsByProfileId($profileId, $limit = 3) {
+    public function findPopularDiscussionsByProfileId($profileId, $limit = 10) {
         $q = $this->createQuery('d')
-                ->innerJoin('d.Members dm')
-                ->andWhere('dm.profile_id = ?', $profileId);
+                ->innerJoin('d.Peers dp')
+                ->andWhere('dp.profile_id = ?', $profileId);
         $q->limit($limit);
         return $q->execute();
     }

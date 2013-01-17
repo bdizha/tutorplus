@@ -1,13 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->showLinks($assignment)) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
+<?php include_component('common', 'secureMenu', $helper->showLinks($assignment)) ?>
 <?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs($assignment)) ?>
-<?php end_slot() ?>
-
 <div class="sf_admin_heading">
     <h3>Assignment ~ <?php echo $assignment->getTitle() ?></h3>
 </div>

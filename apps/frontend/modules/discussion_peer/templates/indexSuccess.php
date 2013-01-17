@@ -2,9 +2,9 @@
 
 <?php slot('nav_vertical') ?>
 <?php if (!is_null($course)): ?>
-    <?php include_component('common', 'menu', $helper->courseLinks($discussion)) ?>
+    <?php include_component('common', 'secureMenu', $helper->courseLinks($discussion)) ?>
 <?php else: ?>
-    <?php include_component('common', 'menu', $helper->discussionLinks($discussion)) ?>
+    <?php include_component('common', 'secureMenu', $helper->discussionLinks($discussion)) ?>
 <?php endif; ?>
 <?php end_slot() ?>
 
@@ -19,7 +19,7 @@
 <?php include_partial('discussion_member/flashes') ?>
 
 <div class="sf_admin_heading">
-    <h3><?php echo __('Discussion ~ Followers', array(), 'messages') ?></h3>
+    <h3><?php echo __('Discussion ~ Peers', array(), 'messages') ?></h3>
 </div>
 <div id="sf_admin_content">
     <?php include_partial('discussion_member/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>

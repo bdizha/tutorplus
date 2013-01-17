@@ -14,12 +14,12 @@
         <form action="<?php echo url_for('@profile_sign_in') ?>" method="post">
           <?php include_partial('flashes', array('form' => $form)) ?>
           <?php echo $form->renderHiddenFields(false) ?>
-          <div class="row<?php $form["username"]->hasError() and print ' errors' ?>">
+          <div class="row<?php $form["email"]->hasError() and print ' errors' ?>">
             <div class="other-label">
-              <label for="signin_username" id="lbl_email">Email or username:</label>
+              <label for="signin_email" id="lbl_email">Email:</label>
             </div>
             <div class="input-elm">								
-              <?php echo $form["username"] ?>					
+              <?php echo $form["email"] ?>					
             </div>
           </div>
           <div class="row<?php $form["password"]->hasError() and print ' errors' ?>">
@@ -53,19 +53,13 @@
       <p>Freely and openly engage with other people's opinions.</p>
       <h3>Be a lifelong learner!</h3>
       <p>Ready to inspire others? Help us change our mutual living forever.</p>
-      <div class="enroll-block">
-        <div class="enroll-student">
-          <input class="button" value="Enroll as a Student!" type="button" onclick="document.location.href = '/user/sign/in';">
-        </div>
-        <div class="enroll-insructor">
-          <input class="button" value="Enroll as an Instructor!" type="button" onclick="document.location.href = '/user/sign/in';">
-        </div>
-      </div>
+      <?php include_partial('common/enroll_block') ?>
     </div>
   </div>
 </div>
+</div>
 <script type="text/javascript">
-        $(".button").click(function(){
-          $(this).val("Signing in...");
-        });
+  $(".button").click(function(){
+    $(this).val("Signing in...");
+  });
 </script>

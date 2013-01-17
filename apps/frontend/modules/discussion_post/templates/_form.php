@@ -1,6 +1,6 @@
 <div class="sf_admin_form">
-  <div id="discussion_topic_message_form_holder">
-    <?php echo form_tag_for($form, '@discussion_topic_message', array('id' => 'discussion_topic_message_form')) ?>
+  <div id="discussion_post_form_holder">
+    <?php echo form_tag_for($form, '@discussion_post', array('id' => 'discussion_post_form')) ?>
     <?php echo $form->renderHiddenFields(false) ?>
     <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_message">    
       <div class="content ">
@@ -17,10 +17,10 @@
 <script type='text/javascript'>
   //<![CDATA[
   $(document).ready(function() {
-    $('#discussion_topic_message_message').redactor();
+    $('#discussion_post_message').redactor();
 
-    var redactorPlaceholder = $('#discussion_topic_message_form .placeholder');
-    var redactorTextarea = $('#discussion_topic_message_form .redactor_editor');
+    var redactorPlaceholder = $('#discussion_post_form .placeholder');
+    var redactorTextarea = $('#discussion_post_form .redactor_editor');
 
     // make sure the placeholder is displayed accordingly
     redactorTextarea.focus(function() {
@@ -34,8 +34,8 @@
       }
     });
 
-    $('#discussion_topic_message_form_holder .save').click(function() {
-      var messageTextarea = $('#discussion_topic_message_message');
+    $('#discussion_post_form_holder .save').click(function() {
+      var messageTextarea = $('#discussion_post_message');
       var postButton = $(this);
       var message = messageTextarea.val();
       if ($.trim(message) == "") {
@@ -45,10 +45,10 @@
 
       if ($(this).val() != "Posting...") {
         $(this).val("Posting...");
-        $("#discussion_topic_message_form").ajaxSubmit(function(data) {
+        $("#discussion_post_form").ajaxSubmit(function(data) {
           if (data == "success") {
-            $.get('<?php echo url_for('@discussion_topic_message_show') ?>', {}, function(messageData) {
-              $('#discussion-topic-replies').prepend(messageData);
+            $.get('<?php echo url_for('@discussion_post_show') ?>', {}, function(messageData) {
+              $('#discussion-comments').prepend(messageData);
             }, 'html');
 
             // reset the form

@@ -2,7 +2,7 @@
 <div id="cboxLoadedContentInner">
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
-            <form id="discussion_member_invite_form" action="/discussion/member/invite" method="post">
+            <form id="discussion_member_invite_form" action="/discussion/peer/invite" method="post">
                 <div class="follower-filters">
                     <ul class="nav-tabs">
                         <li class="active-tab">
@@ -79,13 +79,13 @@
             $("#discussion_member_invite_form").ajaxSubmit(function(data){
                 $("#cboxLoadedContent").html(data);
                 $.fn.colorbox.resize();
-                $("#discussion-notice").html("Follower invitations have been sent successfully!");
+                $("#discussion-notice").html("Peer invitations have been sent successfully!");
                 $(".notice").hide();
                 $("#discussion-notice").show();
                  setTimeout(function(){
                     $(".notice").hide();
                 },10000);
-                 $("#discussion-followers").load("/discussion/member/followers");
+                 $("#discussion-followers").load("/discussion/peer/followers");
             });            
             return false;
         });

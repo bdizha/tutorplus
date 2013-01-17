@@ -12,6 +12,9 @@ class InstructorEnrollForm extends ProfileForm {
 
   public function configure() {
     parent::configure();
+    unset(
+        $this['permissions_list']
+    );
 
     $this->widgetSchema['is_instructor'] = new sfWidgetFormInputHidden();
     $this->setDefaults(array(

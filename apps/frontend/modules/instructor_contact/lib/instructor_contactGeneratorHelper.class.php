@@ -48,7 +48,7 @@ class instructor_contactGeneratorHelper extends BaseInstructor_contactGeneratorH
     public function newLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "instructors",
             "is_profile" => false
         );
@@ -68,7 +68,7 @@ class instructor_contactGeneratorHelper extends BaseInstructor_contactGeneratorH
     public function editLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "instructors",
             "is_profile" => false
         );

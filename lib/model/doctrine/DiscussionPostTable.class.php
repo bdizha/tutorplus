@@ -17,7 +17,7 @@ class DiscussionPostTable extends Doctrine_Table
         return Doctrine_Core::getTable('DiscussionPost');
     }
 
-    public function retrieveMessages(Doctrine_Query $q = null)
+    public function retrievePosts(Doctrine_Query $q = null)
     {
         if (is_null($q))
         {

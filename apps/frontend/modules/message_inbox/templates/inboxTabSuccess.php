@@ -1,7 +1,4 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('message_inbox/assets') ?>
-<?php include_partial('message_inbox/flashes') ?>
-
 <form action="<?php echo url_for('message_inbox_collection', array('action' => 'batch')) ?>" id="batch_form" method="post">
     <input type="hidden" name="batch_action" id="batch_action" value=""/>
     <?php include_partial('message_inbox/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>

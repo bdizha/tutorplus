@@ -24,16 +24,17 @@
           </div>
         </div>
         <div id="main-body">
+          <?php include_slot('notice') ?>
           <div class="wrapper">
             <div id="middle-column">
               <?php echo $sf_content ?>
             </div>
-            <div id="color-box-modal" style="display:none">&nbsp;</div>
           </div>
         </div>
         <div id="main-footer">
           <?php include_partial('common/footer') ?>
         </div>
-      </div>        
+      </div>   
+    </div>        
   </body>
 </html>

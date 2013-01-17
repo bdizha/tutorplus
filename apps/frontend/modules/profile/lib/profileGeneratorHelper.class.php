@@ -34,7 +34,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
     $sfUser = sfContext::getInstance()->getUser();
     return array('breadcrumbs' => array(
             "Profile" => "profile_timeline",
-            "Public Info" => "profile/" . $sfUser->getProfile()->getProfile()->getSlug()
+            "Public Info" => "profile/" . $sfUser->getProfile()->getSlug()
         )
     );
   }
@@ -46,7 +46,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
         "currentParent" => "profile",
         "current_child" => "my_profile",
         "current_link" => "my_info",
-        "slug" => $sfUser->getProfile()->getProfile()->getSlug(),
+        "slug" => $sfUser->getProfile()->getSlug(),
         "ignore" => !$sfUser->isCurrent($profileId)
     );
   }
@@ -66,7 +66,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
         "currentParent" => "profile",
         "current_child" => "my_profile",
         "current_link" => "my_timeline",
-        "slug" => $sfUser->getProfile()->getProfile()->getSlug(),
+        "slug" => $sfUser->getProfile()->getSlug(),
         "ignore" => !$sfUser->isCurrent($profileId)
     );
   }

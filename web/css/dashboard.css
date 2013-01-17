@@ -1,61 +1,130 @@
-.dashboard-block{
-    display: block;
-    width: 460px;
-    float: left;
-    margin-bottom: 20px !important;
+#middle-column {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  width: 940px;
+  margin-left: 0 !important;
 }
 
-.dashboard-row{
-    height: 150px;
-    position: relative;
-    padding: 5px 10px;
-    overflow: hidden;
-}
-
-#dashboard_container .left{
-    margin-right: 20px;
+.main-body{
+  padding-top: 10px !important;
 }
 
 .my-peer {
-    height: 38px !important;
-    width: 40px !important;
-    display: inline-block;
-    float: none;
+  height: 38px !important;
+  width: 40px !important;
+  display: inline-block;
+  float: none;
 }
 
-#notifications, #my_courses, #my_timeline, #news_items, #announcements{
-    padding: 0 0 12px 0 !important;
-    border: 1px solid #EBEAE9;
+#notifications, #my_courses, 
+#my_timeline, #news_items, 
+#announcements{
+  padding: 0 0 12px 0 !important;
+  border: 1px solid #F5F5F5;
 }
 
 #my_peers{
-    border: 1px solid #EBEAE9;    
+  border: 1px solid #F5F5F5;    
 }
 
 #my_messages{
-    text-align: center;
-    background-position: center 32px;
-    background-image: url("/images/icon_emails.png");
-    background-repeat: no-repeat;
-    height: 100px !important;
-    width: 438px;
-    border: 1px solid #EBEAE9;
+  text-align: center;
+  background-position: center 32px;
+  background-image: url("/images/icon_emails.png");
+  background-repeat: no-repeat;
+  height: 100px !important;
+  width: 438px;
+  border: 1px solid #F5F5F5;
 }
 
 #events{
-    text-align: center;
-    background-position: center 32px;
-    background-image: url("/images/icon_events.png");
-    background-repeat: no-repeat;
-    height: 100px !important;
-    width: 438px;
-    border: 1px solid #EBEAE9;
+  text-align: center;
+  background-position: center 32px;
+  background-image: url("/images/icon_events.png");
+  background-repeat: no-repeat;
+  height: 100px !important;
+  width: 438px;
+  border: 1px solid #F5F5F5;
 }
 
 .view-more{
-    height: 40px;
-    width: 80px;
-    position: absolute;
-    top: 5px;
-    right: 0px;
+  height: 40px;
+  width: 80px;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+
+.column-one, .column-two, .column-three{
+  display: inline-block;  
+  vertical-align: top;
+  margin-top: 20px;
+
+}
+
+.column-one{
+  width: 130px;
+}
+
+.column-one .row{
+  margin: 0 !important;
+  padding-top: 10px !important;
+}
+
+.column-two{
+  width: 500px;  
+  margin-left: 10px;
+}
+
+.column-three{
+  margin-top: 50px !important;
+  margin-left: 10px;
+  width: 282px;
+}
+
+.messages, .events{
+  width: 130px;
+  color: #B5A072;
+}
+
+.messages .caption, .events .caption{
+  width: 86px;
+  height: 40px;
+  display: inline-block;
+}
+
+.messages a, .events a{
+  background: url(/images/messaging_events.png) no-repeat; 
+  text-indent: -9999px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  overflow: hidden; 
+}
+
+.messages a{
+  background-position: 1px 0;
+}
+
+.events a{
+  background-position: 1px -48px;
+}
+
+.timeline-row, .courses-row{
+  padding: 10px;
+  border-bottom: 1px solid #EEEEEF;
+}
+
+#dashboard_peers{
+  padding: 7px 0;
+  margin-left: 10px;  
+}
+
+#dashboard_peers a{
+  margin-bottom: 5px;
+}
+
+.timeline-row .heading{
+  max-height: 24px;
+  overflow: hidden;
 }

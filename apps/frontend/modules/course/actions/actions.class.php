@@ -15,6 +15,7 @@ class courseActions extends autoCourseActions {
     public function executeShow(sfWebRequest $request) {
         $this->course = $this->getRoute()->getObject();
         $this->forward404Unless($this->course);
+        $this->courseInstructors = ProfileCourseTable::getInstance()->findByCourseIdAndIsInstructor($this->course->getId(), true);
         $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
     }
 
@@ -49,7 +50,7 @@ class courseActions extends autoCourseActions {
                 $courses = $request->getParameter('courses');
 
                 // save courses
-                $this->currentCourseIds = $this->saveOrGetObjectCourses($courses, $this->module, $this->objectId);
+                $this->currentCourseIds = $this->saveOrGetProfileCourses($courses, $this->module, $this->objectId);
 
                 // send new courses subscription
             } catch (Doctrine_Validator_Exception $e) {
@@ -59,14 +60,14 @@ class courseActions extends autoCourseActions {
             $this->getUser()->setFlash('notice', $notice, false);
         } else {
             // fetch the current course
-            $this->currentCourseIds = $this->saveOrGetObjectCourses(null, $this->module, $this->objectId);
+            $this->currentCourseIds = $this->saveOrGetProfileCourses(null, $this->module, $this->objectId);
         }
     }
 
-    protected function saveOrGetObjectCourses($postedCourseIds = null, $module, $objectId) {
+    protected function saveOrGetProfileCourses($postedCourseIds = null, $module, $objectId) {
         if ($module == CourseTable::MODULE_STUDENT) {
-            // fetch current courses by student id
-            $currentCourseIds = array_keys(StudentTable::getInstance()->find($objectId)->getCourses());
+            // fetch current courses by profile id
+            $currentCourseIds = array_keys(ProfileTable::getInstance()->find($objectId)->getCourses());
 
             if (!$postedCourseIds) {
                 return $currentCourseIds;
@@ -74,16 +75,16 @@ class courseActions extends autoCourseActions {
 
             $toDelete = array_diff($currentCourseIds, $postedCourseIds);
             if (count($toDelete)) {
-                StudentCourseTable::getInstance()->deleteByCoursesIdsAndStudentId($toDelete, $objectId);
+                ProfileCourseTable::getInstance()->deleteByCoursesIdsAndProfileId($toDelete, $objectId);
             }
 
             $toAdd = array_diff($postedCourseIds, $currentCourseIds);
             if (count($toAdd)) {
                 foreach ($toAdd as $courseId) {
-                    $studentCourse = new StudentCourse();
-                    $studentCourse->setStudentId($objectId);
-                    $studentCourse->setCourseId($courseId);
-                    $studentCourse->save();
+                    $profileCourse = new ProfileCourse();
+                    $profileCourse->setProfileId($objectId);
+                    $profileCourse->setCourseId($courseId);
+                    $profileCourse->save();
                 }
             }
         } elseif ($module == CourseTable::MODULE_INSTRUCTOR) {
@@ -175,18 +176,19 @@ class courseActions extends autoCourseActions {
         try {
             $courseId = $request->getParameter("course_id");
             $course = CourseTable::getInstance()->find($courseId);
+            $profile = $this->getUser()->getProfile();
 
-            if (!$this->student->isEnrolled($courseId)) {
-                $studentCourse = new StudentCourse();
-                $studentCourse->setStudentId($this->student->getId());
-                $studentCourse->setCourseId($courseId);
-                $studentCourse->save();
+            if (!$profile->isEnrolled($courseId)) {
+                $profileCourse = new ProfileCourse();
+                $profileCourse->setProfileId($profile->getId());
+                $profileCourse->setCourseId($courseId);
+                $profileCourse->save();
 
                 echo "success";
-                $this->getUser()->setFlash("notice", "Successfully enrolled into the {$course->getCode()} course!");
+                $this->getUser()->setFlash("notice", "Successfully enrolled into the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
             } else {
                 echo "error";
-                $this->getUser()->setFlash("notice", "It seems you're already enrolled into the {$course->getCode()} course!");
+                $this->getUser()->setFlash("notice", "It seems you're already enrolled into the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
             }
         } catch (Exception $e) {
             echo $e;

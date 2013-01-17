@@ -145,7 +145,7 @@ span.separator{
 
 .discussion_topic_reply{
     padding: 0 0 0 10px;
-    background-color: #EBEAE9EEE;
+    background-color: #F5F5F5EEE;
 }
 
 .user-meta{
@@ -164,15 +164,11 @@ span.separator{
 }
 
 #discussion_name{
-    width: 909px !important;
+    width: 687px !important;
 }
 
 #discussion_topic_subject{
-    width: 524px !important;
-}
-
-#discussion_topic_form_holder .sf_admin_form_field_message{
-    width: 535px !important;
+    width: 687px !important;
 }
 
 #discussion_topic_message_form_holder label, .reply-details label{
@@ -190,7 +186,7 @@ span.separator{
 }
 
 #discussion_description{
-    width: 909px !important;
+    width: 687px !important;
     max-height: 100px;
     height: 100px;
 }
@@ -222,7 +218,7 @@ span.separator{
     display: inline-block;
     clear: both !important;
     width: 465px;
-    border-bottom: 1px solid #EBEAE9;
+    border-bottom: 1px solid #F5F5F5;
     padding: 5px 0;
 }
 
@@ -346,7 +342,7 @@ span.separator{
 
 #discussion-topic-replies .comments{
     background-color: #F9F9F9;
-    border: 1px solid #EBEAE9;
+    border: 1px solid #F5F5F5;
     border-bottom: none !important;
 }
 
@@ -356,7 +352,7 @@ span.separator{
 
 .comment{
     padding: 10px 0 5px 10px;
-    border-bottom: 1px solid #EBEAE9;
+    border-bottom: 1px solid #F5F5F5;
     background-color: #FFFFFF;
 }
 
@@ -387,13 +383,12 @@ span.separator{
 }
 
 #suggested-followers{
-    border: 1px solid #EBEAE9;
+    border: 1px solid #F5F5F5;
     background-color: #FFFFFF;
-    border-radius: 3px;
 }
 
 #discussion-followers{
-    border: 1px solid #EBEAE9;
+    border: 1px solid #F5F5F5;
     padding: 10px;
     background-color: #FFFFFF;
     border-radius: 3px;
@@ -433,7 +428,7 @@ span.separator{
     background-color: white;
     padding: 5px;
     width: 60px;
-    border: 1px solid #EBEAE9;
+    border: 1px solid #F5F5F5;
     padding-top: 0px;
     display: none;
 }
@@ -461,11 +456,6 @@ span.separator{
     display: block;
 }
 
-.discussion, .discussion-topic, 
-.discussion-left-block .snapshot{
-    width: 450px !important;
-}
-
 .message-edit{
     padding: 0px;
 }
@@ -485,15 +475,14 @@ span.separator{
 }
 
 #discussion_stats, #recent-posting{
-    border: 1px solid #EBEAE9;
+    border: 1px solid #F5F5F5;
     margin-bottom: 20px;
     overflow: hidden;
     background-color: #FFF;
     border-radius: 3px;
 }
 
-#recent-topics,
-#discussion-topics,
+#discussion_topics,
 #discussion{
     margin-left: -10px;
 }
@@ -508,3 +497,12 @@ span.separator{
     width: 700px !important;
 }
 
+.sf_admin_form_field_message{
+    margin-bottom: 10px;
+}
+
+.discussion-post .body, #discussion-topic .body,
+#discussion_topics .body, #discussion .body{
+    margin: 0 0 0 43px !important;
+    border-bottom: 1px solid #FFF;
+}

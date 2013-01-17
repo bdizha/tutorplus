@@ -1,82 +1,79 @@
 <?php
 
-require_once dirname(__FILE__) . '/../lib/discussion_topic_messageGeneratorConfiguration.class.php';
-require_once dirname(__FILE__) . '/../lib/discussion_topic_messageGeneratorHelper.class.php';
+require_once dirname(__FILE__) . '/../lib/discussion_postGeneratorConfiguration.class.php';
+require_once dirname(__FILE__) . '/../lib/discussion_postGeneratorHelper.class.php';
 
 /**
- * discussion_topic_message actions.
+ * discussion_post actions.
  *
  * @package    tutorplus
- * @subpackage discussion_topic_message
+ * @subpackage discussion_post
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussion_topic_messageActions extends autoDiscussion_topic_messageActions {
+class discussion_postActions extends autodiscussion_postActions {
 
-  public function executeShow(sfWebRequest $request) {
-    $discussionTopicMessageId = $this->getUser()->getMyAttribute('discussion_topic_message_show_id', null);
-    $this->discussionTopicMessage = DiscussionPostTable::getInstance()->find($discussionTopicMessageId);
+    public function executeShow(sfWebRequest $request) {
+        $discussionPostId = $this->getUser()->getMyAttribute('discussion_post_show_id', null);
+        $this->discussionPost = DiscussionPostTable::getInstance()->find($discussionPostId);
 
-    if (!$this->discussionTopicMessage) {
-      die();
-    } else {
-      $this->replyForm = new DiscussionCommentForm();
-      $this->replyForm->setDefault("discussion_topic_message_id", $discussionTopicMessageId);
-    }
-  }
-
-  protected function processForm(sfWebRequest $request, sfForm $form) {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid()) {
-      $isNew = $form->getObject()->isNew();
-      $notice = $form->getObject()->isNew() ? 'Your message was created successfully.' : 'Your message was updated successfully.';
-
-      try {
-        $discussion_topic_message = $form->save();
-      } catch (Doctrine_Validator_Exception $e) {
-        $errorStack = $form->getObject()->getErrorStack();
-
-        $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
-        foreach ($errorStack as $field => $errors) {
-          $message .= "$field (" . implode(", ", $errors) . "), ";
+        if ($this->discussionPost) {
+            $this->discussionCommentForm = new DiscussionCommentForm();
         }
-        $message = trim($message, ', ');
-
-        $this->getUser()->setFlash('error', $message);
-        return sfView::SUCCESS;
-      }
-
-      // send the discussion_topic_message emails
-      if ($isNew) {
-        //$this->sendEmail($discussion_topic_message);
-      }
-
-      // session the new created discussion topic message id
-      $this->getUser()->setMyAttribute('discussion_topic_message_show_id', $discussion_topic_message->getId());
-
-      $this->getUser()->setFlash('notice', $notice);
-      die("success");
-    } else {
-      $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
     }
-  }
 
-  public function sendEmail($object) {
-    $discussionTopic = $object->getDiscussionTopic();
-    $toEmails = $discussionTopic->getToEmails();
-    $owner = $object->getProfile();
-    $mailer = new tpMailer();
-    $mailer->setTemplate('new-discussion-topic-message');
-    $mailer->setToEmails($toEmails);
-    $mailer->addValues(array(
-        "OWNER" => $owner->getName(),
-        "DISCUSSION_TOPIC_MESSAGE" => $object->getMessage(),
-        "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
-            'title' => $this->generateUrl('discussion_topic_show', array("slug" => $discussionTopic->getSlug()), 'absolute=true'),
-            'route' => "@discussion_topic_show?slug=" . $discussionTopic->getSlug())
-        )));
+    protected function processForm(sfWebRequest $request, sfForm $form) {
+        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+        if ($form->isValid()) {
+            $isNew = $form->getObject()->isNew();
+            $notice = $form->getObject()->isNew() ? 'Your message was created successfully.' : 'Your message was updated successfully.';
 
-    $mailer->send();
-  }
+            try {
+                $discussion_post = $form->save();
+            } catch (Doctrine_Validator_Exception $e) {
+                $errorStack = $form->getObject()->getErrorStack();
+
+                $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
+                foreach ($errorStack as $field => $errors) {
+                    $message .= "$field (" . implode(", ", $errors) . "), ";
+                }
+                $message = trim($message, ', ');
+
+                $this->getUser()->setFlash('error', $message);
+                return sfView::SUCCESS;
+            }
+
+            // send the discussion_post emails
+            if ($isNew) {
+                //$this->sendEmail($discussion_post);
+            }
+
+            // session the new created discussion topic message id
+            $this->getUser()->setMyAttribute('discussion_post_show_id', $discussion_post->getId());
+
+            $this->getUser()->setFlash('notice', $notice);
+            die("success");
+        } else {
+            $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+        }
+    }
+
+    public function sendEmail($object) {
+        $discussionTopic = $object->getDiscussionTopic();
+        $toEmails = $discussionTopic->getToEmails();
+        $owner = $object->getProfile();
+        $mailer = new tpMailer();
+        $mailer->setTemplate('new-discussion-topic-message');
+        $mailer->setToEmails($toEmails);
+        $mailer->addValues(array(
+            "OWNER" => $owner->getName(),
+            "discussion_post" => $object->getMessage(),
+            "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
+                'title' => $this->generateUrl('discussion_topic_show', array("slug" => $discussionTopic->getSlug()), 'absolute=true'),
+                'route' => "@discussion_topic_show?slug=" . $discussionTopic->getSlug())
+                )));
+
+        $mailer->send();
+    }
 
 }

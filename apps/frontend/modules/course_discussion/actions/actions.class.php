@@ -34,15 +34,6 @@ class course_discussionActions extends autoCourse_discussionActions {
             $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
         }
 
-        // fetch discussions stats
-        $this->discussionActivity = array();
-        $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics()->count();
-        $this->discussionActivity["new_replies"] = DiscussionCommentTable::getInstance()->getNbNewReplies()->count();
-        $this->discussionActivity["new_messages"] = DiscussionPostTable::getInstance()->getNbNewMessages()->count();
-        $this->discussionActivity["new_members"] = DiscussionPeerTable::getInstance()->getNbNewMembersJoined()->count();
-
-        $this->discussionTopic = DiscussionTopicTable::getInstance()->getTopicWithRecentActivity();
-
         // pager
         if ($request->getParameter('page')) {
             $this->setPage($request->getParameter('page'));
@@ -63,17 +54,17 @@ class course_discussionActions extends autoCourse_discussionActions {
         }
         
         if (is_object($this->discussion)) {
-            if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
+            if ($this->getUser()->getType() == ProfileTable::TYPE_STUDENT) {
                 $studentId = $this->getUser()->getStudentId();
                 $profileId = $this->getUser()->getId();
 
-                $this->suggestedFollowers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
-            } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
-                $this->suggestedFollowers = null;
+                $this->suggestedPeers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
+            } elseif ($this->getUser()->getType() == ProfileTable::TYPE_INSTRUCTOR) {
+                $this->suggestedPeers = null;
             }
         } else {
 
-            $this->suggestedFollowers = null;
+            $this->suggestedPeers = null;
         }
     }
 

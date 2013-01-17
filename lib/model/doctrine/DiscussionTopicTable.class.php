@@ -64,8 +64,7 @@ class DiscussionTopicTable extends Doctrine_Table {
         $discussionTopic = self::getInstance()->findOneByProfileId($profileId);
         if (!is_object($discussionTopic)) {
             $discussionTopic = new DiscussionTopic();
-            $discussionTopic->setDiscussionTypeId(DiscussionTypeTable::TYPE_DISCUSSION);
-            $discussionTopic->setSubject("Welcome message from the TutorPlus team!");
+            $discussionTopic->setSubject("Welcome to TutorPlus!");
             $discussionTopic->setMessage("Hi fellow participant, It's a great pleasure to have you as a part of this collaborative learning platform and we would like you to be readily available to share with your peers any relevant academic experiences we all have to endure in all our varied learning objectives. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!");
             $discussionTopic->setDiscussionId($discussionId);
             $discussionTopic->setIsPrimary(true);

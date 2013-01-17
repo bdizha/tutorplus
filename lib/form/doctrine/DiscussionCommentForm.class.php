@@ -19,7 +19,7 @@ class DiscussionCommentForm extends BaseDiscussionCommentForm
 
         $profileId = sfContext::getInstance()->getUser()->getId();
         $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema['discussion_topic_message_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['discussion_post_id'] = new sfWidgetFormInputHidden();
         
         $this->validatorSchema['reply']->setMessage('required', 'The <b>reply</b> field is required.');
 

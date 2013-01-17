@@ -1,4 +1,4 @@
-<h2>Discussion Followers</h2>
+<h2>Discussion Peers</h2>
 <div id="discussion_members" class="peer-block  padding-10">
     <?php include_partial('discussion_member/members', array('discussion' => $discussion)) ?>            
 </div> 
@@ -11,15 +11,15 @@
         <?php endif; ?>                
     </li>
     <li class="sf_admin_action_member_new">
-        <input type="button" class="button" href="/discussion/member/new" value="+ Invite Followers" />
+        <input type="button" class="button" href="/discussion/peer/new" value="+ Invite Peers" />
     </li>
     <li class="sf_admin_action_member">
-        <input type="button" class="button" onclick="document.location.href='/discussion_member';" value="Manage Followers" />
+        <input type="button" class="button" onclick="document.location.href='/discussion_member';" value="Manage Peers" />
     </li>
     <?php $member = $discussion->getMemberByProfileId($sf_user->getId()); ?>
     <?php if ($member): ?>
         <li class="sf_admin_action_edit_member">
-            <input type="button" class="button" href="/discussion/member/<?php echo $member->getId() ?>/edit" value="Edit Membership">
+            <input type="button" class="button" href="/discussion/peer/<?php echo $member->getId() ?>/edit" value="Edit Membership">
         </li>
     <?php endif; ?>
 </ul>
@@ -52,6 +52,6 @@
     });
     
     function fetchDiscussionPeers(){
-        $("#discussion_members").load("/discussion/members");
+        $("#discussion_members").load("/discussion/peers");
     }
 </script>

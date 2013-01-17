@@ -134,8 +134,8 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         return link_to(__('View Topic', array(), 'sf_admin'), "/discussion/topic/" . $object->getSlug(), array("class" => "button-view"));
     }
 
-    public function linkToManageFollowers() {
-        return '<input type="button" class="button" onclick="document.location.href=\'/discussion/member\';" value="Manage Followers"/>';
+    public function linkToManagePeers() {
+        return '<input type="button" class="button" onclick="document.location.href=\'/discussion/peer\';" value="Manage Peers"/>';
     }
     
     public function linkToDiscussions(){
@@ -143,15 +143,15 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
     }
     
     public function linkToEditMembership($memberId){
-        return '<input id="edit_discussion_membership" type="button" class="button" onClick="document.location.href=\'/discussion/member/'. $memberId .'/edit\'" value="Edit Membership">';
+        return '<input id="edit_discussion_membership" type="button" class="button" onClick="document.location.href=\'/discussion/peer/'. $memberId .'/edit\'" value="Edit Membership">';
     }
     
     public function linkToJoinDiscussion(){
-        return '<input type="button" class="button" href="/discussion/member/join" value="Join Discussion">';
+        return '<input type="button" class="button" href="/discussion/peer/join" value="Join Discussion">';
     }
     
-    public function linkToInviteFollowers(){
-        return '<input id="invite_discussion_follower" type="button" class="button" href="/discussion/member/invite" value="+ Invite Followers"/>';
+    public function linkToInvitePeers(){
+        return '<input id="invite_follower" type="button" class="button" href="/discussion/peer/invite" value="+ Invite Peers"/>';
     }
     
     public function linkToNewTopic(){

@@ -3,7 +3,7 @@
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
             <?php include_partial('common/flashes', array('form' => $form)) ?> 
-            <?php include_partial('academic_info/form', array('form' => $form)) ?>
+            <?php include_partial('profile_info/form', array('form' => $form)) ?>
         </div>  
     </div>
 </div>

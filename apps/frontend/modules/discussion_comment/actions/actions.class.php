@@ -1,28 +1,25 @@
 <?php
 
-require_once dirname(__FILE__) . '/../lib/discussion_topic_replyGeneratorConfiguration.class.php';
-require_once dirname(__FILE__) . '/../lib/discussion_topic_replyGeneratorHelper.class.php';
+require_once dirname(__FILE__) . '/../lib/discussion_commentGeneratorConfiguration.class.php';
+require_once dirname(__FILE__) . '/../lib/discussion_commentGeneratorHelper.class.php';
 
 /**
- * discussion_topic_reply actions.
+ * discussion_comment actions.
  *
  * @package    tutorplus
- * @subpackage discussion_topic_reply
+ * @subpackage discussion_comment
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussion_topic_replyActions extends autoDiscussion_topic_replyActions {
+class discussion_commentActions extends autodiscussion_commentActions {
 
     public function executeShow(sfWebRequest $request) {
-        $this->discussionTopicMessageReply = $this->getRoute()->getObject();
-        if (!$this->discussionTopicMessageReply) {
-            die();
-        }
+        $this->discussionComment = $this->getRoute()->getObject();
     }
 
     public function executeCreate(sfWebRequest $request) {
         $this->form = $this->configuration->getForm();
-        $this->discussion_topic_reply = $this->form->getObject();
+        $this->discussion_comment = $this->form->getObject();
 
         $this->processForm($request, $this->form);
         $this->setTemplate('new');
@@ -34,8 +31,8 @@ class discussion_topic_replyActions extends autoDiscussion_topic_replyActions {
         if ($request->getMethod() == "POST") {
             $this->processForm($request, $this->form);
         } else {
-            $discussionTopicMessageId = $this->getUser()->getMyAttribute('discussion_topic_message_show_id', null);
-            $this->discussionTopicMessage = DiscussionPostTable::getInstance()->find($discussionTopicMessageId);
+            $discussionPostId = $this->getUser()->getMyAttribute('discussion_post_show_id', null);
+            $this->discussionPost = DiscussionPostTable::getInstance()->find($discussionPostId);
         }
     }
 
@@ -44,11 +41,11 @@ class discussion_topic_replyActions extends autoDiscussion_topic_replyActions {
         $toEmails = $discussionTopic->getToEmails();
         $owner = $object->getProfile();
         $mailer = new tpMailer();
-        $mailer->setTemplate('new-discussion-topic-reply');
+        $mailer->setTemplate('new-discussion-comment');
         $mailer->setToEmails($toEmails);
         $mailer->addValues(array(
             "OWNER" => $owner->getName(),
-            "DISCUSSION_TOPIC_REPLY" => $object->getMessage(),
+            "discussion_comment" => $object->getMessage(),
             "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
                 'title' => $this->generateUrl('discussion_topic_show', array("slug" => $discussionTopic->getSlug()), 'absolute=true'),
                 'route' => "@discussion_topic_show?slug=" . $discussionTopic->getSlug())
@@ -63,20 +60,20 @@ class discussion_topic_replyActions extends autoDiscussion_topic_replyActions {
             try {
                 $isNew = $form->getObject()->isNew();
 
-                $this->discussion_topic_reply = $form->save();
-                $this->getUser()->setMyAttribute('discussion_topic_message_show_id', $this->discussion_topic_reply->getDiscussionPostId());
+                $this->discussion_comment = $form->save();
+                $this->getUser()->setMyAttribute('discussion_post_show_id', $this->discussion_comment->getDiscussionPostId());
 
-                // send the discussion_topic_message emails
+                // send the discussion_post emails
                 if ($isNew) {
-                    //$this->sendEmail($discussion_topic_message);
+                    //$this->sendEmail($discussion_post);
                 }
 
-                echo $this->discussion_topic_reply->getId();
+                echo $this->discussion_comment->getId();
                 exit;
             } catch (Doctrine_Validator_Exception $e) {
             }
 
-            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $this->discussion_topic_reply)));
+            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $this->discussion_comment)));
         } else {
             die("failure");
         }

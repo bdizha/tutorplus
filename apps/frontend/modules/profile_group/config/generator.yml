@@ -14,13 +14,13 @@ generator:
     config:
       actions: ~      
       fields:
-        permissions_list: { label: Permissions }
+        permissions_list:  { label: Permissions }
       form:
         display:           
-         "Details":        [name, description, permissions_list]
+         "Details":        [ name, description, permissions_list ]
       list:
         title:             Profile Groups
-        display:           [=name, description]
+        display:           [ =name, description ]
         batch_actions:     []
         max_per_page:      3
         actions:

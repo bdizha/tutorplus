@@ -14,7 +14,7 @@ generator:
     config:
       actions: ~
       fields:
-        user:                             { label: Follower }
+        user:                             { label: Peer }
         subscription_type:                { label: Subscription }
         membership_type:                  { label: Membership }
         posting_permission_type:          { label: Posting Permission }
@@ -39,15 +39,15 @@ generator:
           _edit:                       []
         actions:
           listDiscussion:              { label: < My Discussion }
-          _new:                        { label: + Invite Followers }
+          _new:                        { label: + Invite Peers }
       edit:
-        title:                         Edit Follower ~ %%nickname%%
+        title:                         Edit Peer ~ %%nickname%%
         actions:
           cancel:                      []
           done:                        []
           _save:                       []
       new:
-        title:                         Add Follower
+        title:                         Add Peer
         actions:
           cancel:                      []
           _save:                       []

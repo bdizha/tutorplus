@@ -1,8 +1,2 @@
-newSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false
-  
-indexSuccess:
-  stylesheets: [email_message.css]
+all:
+  stylesheets: [ secure.css, email_message.css, profile.css, course.css ]

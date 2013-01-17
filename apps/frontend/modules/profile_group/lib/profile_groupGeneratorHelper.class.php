@@ -23,7 +23,7 @@ class profile_groupGeneratorHelper extends BaseProfile_groupGeneratorHelper
     public function indexLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "groups"
         );
     }
@@ -40,7 +40,7 @@ class profile_groupGeneratorHelper extends BaseProfile_groupGeneratorHelper
     public function newLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "groups"
         );
     }
@@ -57,7 +57,7 @@ class profile_groupGeneratorHelper extends BaseProfile_groupGeneratorHelper
     public function editLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "groups"
         );
     }

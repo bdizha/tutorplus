@@ -30,12 +30,12 @@ secure:
         children:
           course_info:                { route: course_show, param: slug,  label: "Course Info" }
           announcements:              { route: course_announcement, label: "Announcements" }
-          course_participants:        { route: course_participant, label: "Course Peers" }
           course_calendar:            { route: course_calendar, label: "Calendar" }
-          assignments:                { route: assignment, label: "Assignments" }
+          course_peers:               { route: course_peer, label: "Course Peers" }
+          #assignments:                { route: assignment, label: "Assignments" }
           #assessment_types:           { route: assessment_type, label: "Assessment Types" }
           course_discussion:          { route: course_discussion, label: "Discussions" }
-          course_files:               { route: course_file, label: "Course Files" }
+          #course_files:               { route: course_file, label: "Course Files" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ student, instructor, staff ]
@@ -63,22 +63,22 @@ secure:
           calendar_events:            { route: calendar_event, label: "Events" }
           calendars:                  { route: calendar, label: "Calendars" }
   profile:                          
-    details:                          { route: profile_timeline, label: Profile }
+    details:                          { route: profile_show, param: slug, label: Profile }
     type:                             One
     param:                            slug
     children:
       my_profile:                   
-        details:                      { route: profile_timeline, label: "Profile" }
+        details:                      { route: profile_show, param: slug, label: "Profile" }
         credentials:                  [ student, instructor, staff ]
         param:                        slug
-        children:
-          my_timeline:                { route: profile_timeline, label: "Timeline" }                    
+        children:                 
           my_info:                    { route: profile_show, param: slug, label: "Public Info" }
+          my_timeline:                { route: profile_timeline, label: "Timeline" }   
           my_peers:                   { route: profile_peers, label: "Peers" }
           my_awards:                  { route: profile_award, label: "Awards" }
           my_qualifications:          { route: profile_qualification, label: "Qualifications" }
           my_account_settings:        { route: profile_account_settings, command: ignore, label: "Account Settings" }
-          my_contact_details:         { route: profile_contact_details, command: ignore, label: "Contact Details" }
+#          my_contact_details:         { route: profile_contact_details, command: ignore, label: "Contact Details" }
           my_notification_settings:   { route: notification_settings, command: ignore, label: "Notification Settings" }
   peers:   
     details:                          { route:  peer_students, label: Peers }
@@ -120,8 +120,8 @@ secure:
           courses:                    { route: course, label: Courses }
           academic_years:             { route: academic_year, label: "Academic Years" }
           academic_periods:           { route: academic_period, label: "Academic Periods" }
-      access_settings:                    
-        details:                      { route: student, label: "Access Settings" }
+      profile_settings:                    
+        details:                      { route: student, label: "Profile Settings" }
         credentials:                  [ administrator ]
         children:
           students:                   { route: student, label: "Students" }
@@ -135,8 +135,6 @@ secure:
         children:
           email_templates:            { route: email_template, label: "Email Templates" }
           mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
-          activity_templates:         { route: activity_template, label: "Activity Templates" }
-          discussion_types:           { route: discussion_type, label: "Discussion Types" }
           faqs:                       { route: faq, label: "Faqs" }
       location_settings:                    
         details:                      { route: country, label: "Location Settings" }
@@ -147,20 +145,6 @@ secure:
           buildings:                  { route: building, label: "Buildings" }
           campuses:                   { route: campus, label: "Campuses" }
           rooms:                      { route: room, label: "Rooms" }
-#  payments:
-#    details:                        { route: payment, label: Payments }
-#    type:                           Many
-#    children:
-#      history:
-#        details:                    { route: activity_feed, label: "History" }
-#        credentials:                [ staff ]
-#        children:
-#          received_payments:        { route: payment, label: "Received" }
-#      plans:
-#        details:                    { route: payment_scheme, label: "Plans" }
-#        credentials:                [ staff ]
-#        children:
-#          payment_scheme:           { route: payment_scheme, label: "Schemes" }
 public:
   home:  
     details:                        { route: home, label: Home }

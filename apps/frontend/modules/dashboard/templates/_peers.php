@@ -1,5 +1,3 @@
-<?php foreach ($myPeers as $myPeer): ?>
-    <div class="my-peer"> 
-        <?php include_partial('personal_info/photo', array('profile' => $myPeer, "dimension" => 36)) ?>
-    </div>
+<?php foreach ($peers as $peer): ?>
+  <?php include_partial('personal_info/photo', array('profile' => $peer, "dimension" => 48)) ?>
 <?php endforeach; ?>

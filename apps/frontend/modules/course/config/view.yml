@@ -1,12 +1,9 @@
 all:
-  stylesheets: [course.css, student.css, profile.css]
+  stylesheets: [ secure.css, course.css, student.css, profile.css ]
   
 chooseSuccess:
   has_layout: false
-
-currentSuccess:
-  stylesheets: [profile.css, student.css]
   
 calendarSuccess:  
-  stylesheets: [full_calendar_print, full_calendar, dashboard, calendar.css]
-  javascripts: [jquery/full_calendar.js]
+  stylesheets: [ secure.css, schedule.css, calendar.css ]
+  javascripts: [ jquery/schedule.js ]

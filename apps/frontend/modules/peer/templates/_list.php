@@ -22,7 +22,7 @@
             <?php endif; ?>
             <?php $myPeer = $peer->getInvitee(); ?>
         <?php endif; ?>
-        <div class="peer"> 
+        <div class="peer<?php echo fmod($key, 2) ? " last" : "" ?>"> 
             <?php include_partial('personal_info/photo', array('profile' => $myPeer, "dimension" => 48)) ?>
             <div class="name"><?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?></div>
             <div class="peer-actions">
@@ -33,10 +33,10 @@
         </div>
     <?php endforeach; ?>
 <?php else: ?>
-    <?php foreach ($peers as $myPeer): ?>
+    <?php foreach ($peers as $key => $myPeer): ?>
         <?php $statusLabel = "+ Request"; ?>
         <?php $statusClass = "open"; ?>
-        <div class="peer"> 
+        <div class="peer<?php echo fmod($key, 2) ? " last" : "" ?>"> 
             <?php include_partial('personal_info/photo', array('profile' => $myPeer, "dimension" => 48)) ?>
             <div class="name"><?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?></div>
             <div class="peer-actions">

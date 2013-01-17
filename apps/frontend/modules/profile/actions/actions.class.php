@@ -21,17 +21,17 @@ class profileActions extends autoProfileActions {
   public function executeShow(sfWebRequest $request) {
     $slug = $request->getParameter("slug");
     $this->profile = ProfileTable::getInstance()->findOneBy("slug", $slug);
-    $this->getUser()->setMyAttribute('profile_show_id', $this->user->getId());
+    $this->getUser()->setMyAttribute('profile_show_id', $this->profile->getId());
   }
 
   public function executeTimeline(sfWebRequest $request) {
-    $primaryDiscussion = DiscussionTable::getInstance()->findOrCreatePrimaryDiscussionByProfileId($this->getUser()->getProfile());
+    $primaryDiscussion = DiscussionTable::getInstance()->findOrCreatePrimaryDiscussionByProfile($this->getUser()->getProfile());
     $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->getUser()->getId(), $primaryDiscussion->getId());
 
     $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->getUser()->getId());
-    $this->replyForm = new DiscussionCommentForm();
-    $this->messageForm = new DiscussionPostForm();
-    $this->messageForm->setDefaults(array(
+    $this->discussionCommentForm = new DiscussionCommentForm();
+    $this->discussionPostForm = new DiscussionPostForm();
+    $this->discussionPostForm->setDefaults(array(
         "profile_id" => $this->getUser()->getId(),
         "discussion_topic_id" => $this->primaryDiscussionTopic->getId()
     ));
@@ -43,10 +43,8 @@ class profileActions extends autoProfileActions {
    * @param sfRequest $request A request object
    */
   public function executePeers(sfWebRequest $request) {
-    $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndTypes($this->getUser()->getId(), array(
-        PeerTable::TYPE_STUDENT_STUDENT, PeerTable::TYPE_INSTRUCTOR_STUDENT));
-    $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndTypes($this->getUser()->getId(), array(
-        PeerTable::TYPE_STUDENT_INSTRUCTOR, PeerTable::TYPE_INSTRUCTOR_INSTRUCTOR));
+    $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), false);
+    $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), true);
     $this->potentialPeers = PeerTable::getInstance()->findByNotProfileId($this->getUser()->getId());
   }
 
@@ -56,7 +54,7 @@ class profileActions extends autoProfileActions {
    * @param sfRequest $request A request object
    */
   public function executeAccountSettings(sfWebRequest $request) {
-    
+    $this->profile = $this->getUser()->getProfile();
   }
 
   /**
@@ -95,10 +93,10 @@ class profileActions extends autoProfileActions {
       $filename = sprintf($avatarFormat, "24");
     }
 
-    $file_info = getimagesize($filename);
+    $fileInfo = getimagesize($filename);
 
     $fp = fopen($filename, 'rb');
-    header("Content-Type: " . $file_info["mime"]);
+    header("Content-Type: " . $fileInfo["mime"]);
     header("Content-Length: " . filesize($filename));
     fpassthru($fp);
     exit;

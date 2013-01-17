@@ -9,15 +9,13 @@
       </div>
       <div class="body">
         <div class="course-info">
-          Course dates: 
+          <span>Course dates: </span>
           <span class="datetime">
-            <?php echo date("M jS Y", strtotime($course["start_date"])) ?>
-            -
-            <?php echo date("M jS Y", strtotime($course["end_date"])) ?>
+            <?php echo date("M jS Y", strtotime($course["start_date"])) ?> - <?php echo date("M jS Y", strtotime($course["end_date"])) ?>
           </span>          
         </div>
         <div class="course-info">
-          Institution:
+          <span>Institution:</span>
           <span class="institution">
             University of Cape Town
           </span>
@@ -41,12 +39,7 @@
     $(".course-enroll").click(function() {
       var courseId = $(this).attr("courseid");
       $.get('/course/enroll/' + courseId, {}, function(response) {
-        if (response == "success") {
-          document.location.href = '/my/courses';
-        }
-        else {
-          document.location.href = '/explore/courses';
-        }
+        document.location.href = '/explore/courses';
       }, 'html');
     });
 

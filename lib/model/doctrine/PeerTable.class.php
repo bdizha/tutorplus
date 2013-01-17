@@ -70,10 +70,10 @@ class PeerTable extends Doctrine_Table {
         return isset($flippedPeerTypes[$requestedType]) ? $flippedPeerTypes[$requestedType] : null;
     }
 
-    public function findByProfileIdAndTypes($profileId, $types) {
+    public function findByProfileIdAndIsInstructor($profileId, $isInstructor) {
         $q = $this->createQuery('p')
                 ->where('((p.inviter_id = ?) OR (p.invitee_id = ?))', array($profileId, $profileId))
-                ->whereIn('p.type', $types);
+                ->addWhere('((p.Invitee.is_instructor = ?) OR (p.Inviter.is_instructor = ?))', array($isInstructor, $isInstructor));
         return $q->execute();
     }
 
@@ -86,10 +86,10 @@ class PeerTable extends Doctrine_Table {
 
     public function findByNotProfileId($profileId) {
         $q = Doctrine_Query::create()
-                ->from("sfGuardUser u")
-                ->addWhere('(u.id NOT IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $profileId)
-                ->addWhere('(u.id NOT IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $profileId)
-                ->whereNotIn("u.id", array($profileId));
+                ->from("Profile p")
+                ->addWhere('(p.id NOT IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $profileId)
+                ->addWhere('(p.id NOT IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $profileId)
+                ->whereNotIn("p.id", array($profileId));
 
         return $q->execute();
     }
@@ -103,10 +103,10 @@ class PeerTable extends Doctrine_Table {
 
     public function findByProfileId($profileId, $limit = 22) {
         $q = Doctrine_Query::create()
-                ->from("sfGuardUser u")
-                ->addWhere('(u.id IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $profileId)
-                ->orWhere('(u.id IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $profileId)
-                ->whereNotIn("u.id", array($profileId))
+                ->from("Profile p")
+                ->addWhere('(p.id IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $profileId)
+                ->orWhere('(p.id IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $profileId)
+                ->whereNotIn("p.id", array($profileId))
                 ->limit($limit);
 
         return $q->execute();

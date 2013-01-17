@@ -4,6 +4,6 @@
     });
     
     $(".save").click(function(){
-        $(this).val("Loading...");
+        $(this).val("Saving...");
     });
 </script>

@@ -13,169 +13,143 @@ require_once dirname(__FILE__) . '/../lib/discussionGeneratorHelper.class.php';
  */
 class discussionActions extends autoDiscussionActions {
 
-    public function executeShow(sfWebRequest $request) {
-        $this->discussion = $this->getRoute()->getObject();
-        $this->forward404Unless($this->discussion);
-        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussion->getId());
+  public function executeShow(sfWebRequest $request) {
+    $this->discussion = $this->getRoute()->getObject();
+    $this->forward404Unless($this->discussion);
+    $this->getUser()->setMyAttribute('discussion_show_id', $this->discussion->getId());
 
-        $course = $this->discussion->getCourseDiscussion()->getCourse();
-        if ($course->getId()) {
-            $this->course = $course;
-            $this->getUser()->setMyAttribute('course_show_id', $course->getId());
-        }
-        if (is_object($this->discussion)) {
-            if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
-                $studentId = $this->getUser()->getStudentId();
-                $profileId = $this->getUser()->getId();
+    $this->discussion->setViewCount($this->discussion->getViewCount() + 1);
+    $this->discussion->save();
+    $course = $this->discussion->getCourseDiscussion()->getCourse();
+    if ($course->getId()) {
+      $this->course = $course;
+      $this->getUser()->setMyAttribute('course_show_id', $course->getId());
+    }
+  }
 
-                $this->suggestedFollowers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
-            } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
-                $this->suggestedFollowers = null;
-            }
-        } else {
-
-            $this->suggestedFollowers = null;
-        }
+  public function executeExplorer(sfWebRequest $request) {
+    // sorting
+    if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
+      $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
     }
 
-    public function executeExplorer(sfWebRequest $request) {
-        // sorting
-        if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
-            $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
-        }
+    $this->discussionTopics = DiscussionTopicTable::getInstance()->findAll();
 
-        // fetch discussions stats
-        $this->discussionActivity = array();
-        $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics()->count();
-        $this->discussionActivity["new_replies"] = DiscussionCommentTable::getInstance()->getNbNewReplies()->count();
-        $this->discussionActivity["new_messages"] = DiscussionPostTable::getInstance()->getNbNewMessages()->count();
-        $this->discussionActivity["new_members"] = DiscussionPeerTable::getInstance()->getNbNewMembersJoined()->count();
-
-        $this->discussionTopics = DiscussionTopicTable::getInstance()->findAll();
-
-        // pager
-        if ($request->getParameter('page')) {
-            $this->setPage($request->getParameter('page'));
-        }
-
-        $this->pager = $this->getPager();
-        $this->sort = $this->getSort();
+    // pager
+    if ($request->getParameter('page')) {
+      $this->setPage($request->getParameter('page'));
     }
 
-    public function executeMy(sfWebRequest $request) {
-        // sorting
-        if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
-            $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
-        }
+    $this->pager = $this->getPager();
+    $this->sort = $this->getSort();
+  }
 
-        // fetch discussions stats
-        $this->discussionActivity = array();
-        $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics()->count();
-        $this->discussionActivity["new_replies"] = DiscussionCommentTable::getInstance()->getNbNewReplies()->count();
-        $this->discussionActivity["new_messages"] = DiscussionPostTable::getInstance()->getNbNewMessages()->count();
-        $this->discussionActivity["new_members"] = DiscussionPeerTable::getInstance()->getNbNewMembersJoined()->count();
-
-        $this->discussionTopics = DiscussionTopicTable::getInstance()->findAll();
-
-        // pager
-        if ($request->getParameter('page')) {
-            $this->setPage($request->getParameter('page'));
-        }
-
-        $this->pager = $this->getPager();
-        $this->sort = $this->getSort();
+  public function executeMy(sfWebRequest $request) {
+    // sorting
+    if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
+      $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
     }
 
-    public function executeMembers(sfWebRequest $request) {
-        $discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
-        $this->discussion = DiscussionTable::getInstance()->find($discussionId);
+    $this->discussionTopics = DiscussionTopicTable::getInstance()->findAll();
+
+    // pager
+    if ($request->getParameter('page')) {
+      $this->setPage($request->getParameter('page'));
     }
 
-    public function sendEmail($object) {
-        $toEmails = $object->getToEmails();
-        $owner = $object->getProfile();
-        $mailer = new tpMailer();
-        $mailer->setTemplate('new-discussion');
-        $mailer->setToEmails($toEmails);
-        $mailer->addValues(array(
-            "OWNER" => $owner->getName(),
-            "DESCRIPTION" => $object->getDescription(),
-            "DISCUSSION_LINK" => $this->getPartial('email_template/link', array(
-                'title' => $this->generateUrl('discussion_show', array("slug" => $object->getSlug()), 'absolute=true'),
-                'route' => "@discussion_show?slug=" . $object->getSlug())
-                )));
+    $this->pager = $this->getPager();
+    $this->sort = $this->getSort();
+  }
 
-        $mailer->send();
-    }
+  public function executeMembers(sfWebRequest $request) {
+    $discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
+    $this->discussion = DiscussionTable::getInstance()->find($discussionId);
+  }
 
-    protected function processForm(sfWebRequest $request, sfForm $form) {
-        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-        if ($form->isValid()) {
-            $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
-            try {
-                $discussion = $form->save();
+  public function sendEmail($object) {
+    $toEmails = $object->getToEmails();
+    $owner = $object->getProfile();
+    $mailer = new tpMailer();
+    $mailer->setTemplate('new-discussion');
+    $mailer->setToEmails($toEmails);
+    $mailer->addValues(array(
+        "OWNER" => $owner->getName(),
+        "DESCRIPTION" => $object->getDescription(),
+        "DISCUSSION_LINK" => $this->getPartial('email_template/link', array(
+            'title' => $this->generateUrl('discussion_show', array("slug" => $object->getSlug()), 'absolute=true'),
+            'route' => "@discussion_show?slug=" . $object->getSlug())
+        )));
 
-                // save the owner of this group
-                $discussion->saveGroupOwner($this->getUser()->getId(), $this->getUser()->getName());
-            } catch (Doctrine_Validator_Exception $e) {
-                $errorStack = $form->getObject()->getErrorStack();
+    $mailer->send();
+  }
 
-                $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
-                foreach ($errorStack as $field => $errors) {
-                    $message .= "$field (" . implode(", ", $errors) . "), ";
-                }
-                $message = trim($message, ', ');
+  protected function processForm(sfWebRequest $request, sfForm $form) {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid()) {
+      $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
+      try {
+        $discussion = $form->save();
 
-                $this->getUser()->setFlash('error', $message);
-                return sfView::SUCCESS;
-            }
+        // save the owner of this group
+        $discussion->saveGroupOwner($this->getUser()->getId(), $this->getUser()->getName());
+      } catch (Doctrine_Validator_Exception $e) {
+        $errorStack = $form->getObject()->getErrorStack();
 
-
-            // send the descussion emails
-            //$this->sendEmail($discussion);
-
-            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $discussion)));
-
-            if ($request->hasParameter('_save_and_add')) {
-                $this->getUser()->setFlash('notice', $notice . ' You can add another one below.');
-
-                $this->redirect('@discussion_new');
-            } else {
-                $this->getUser()->setFlash('notice', $notice);
-                $this->redirect(array('sf_route' => 'discussion_edit', 'sf_subject' => $discussion));
-            }
-        } else {
-            $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+        $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
+        foreach ($errorStack as $field => $errors) {
+          $message .= "$field (" . implode(", ", $errors) . "), ";
         }
+        $message = trim($message, ', ');
+
+        $this->getUser()->setFlash('error', $message);
+        return sfView::SUCCESS;
+      }
+
+
+      // send the descussion emails
+      //$this->sendEmail($discussion);
+
+      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $discussion)));
+
+      if ($request->hasParameter('_save_and_add')) {
+        $this->getUser()->setFlash('notice', $notice . ' You can add another one below.');
+
+        $this->redirect('@discussion_new');
+      } else {
+        $this->getUser()->setFlash('notice', $notice);
+        $this->redirect(array('sf_route' => 'discussion_edit', 'sf_subject' => $discussion));
+      }
+    } else {
+      $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+    }
+  }
+
+  protected function buildQuery() {
+    $tableMethod = $this->configuration->getTableMethod();
+    $query = Doctrine_Core::getTable('Discussion')
+        ->createQuery('d');
+
+    if (false) {
+      $profileId = $this->getUser()->getMyAttribute('peer_show_id', null);
+      if (!$profileId) {
+        $profileId = $this->getUser()->getId();
+      }
+
+      $query->innerJoin('d.Peers dp')
+          ->addWhere("dp.profile_id = ?", $profileId)
+          ->addOrderBy("d.updated_at Desc");
     }
 
-    protected function buildQuery() {
-        $tableMethod = $this->configuration->getTableMethod();
-        $query = Doctrine_Core::getTable('Discussion')
-                ->createQuery('d');
-
-        if (true) {
-            $profileId = $this->getUser()->getMyAttribute('peer_show_id', null);
-            if (!$profileId) {
-                $profileId = $this->getUser()->getId();
-            }
-
-            $query
-                    ->innerJoin('d.Members dm')
-                    ->addWhere("dm.profile_id = ?", $profileId)
-                    ->addOrderBy("d.updated_at Desc");
-        }
-
-        if ($tableMethod) {
-            $query = Doctrine_Core::getTable('Discussion')->$tableMethod($query);
-        }
-
-        $this->addSortQuery($query);
-
-        $event = $this->dispatcher->filter(new sfEvent($this, 'admin.build_query'), $query);
-        $query = $event->getReturnValue();
-
-        return $query;
+    if ($tableMethod) {
+      $query = Doctrine_Core::getTable('Discussion')->$tableMethod($query);
     }
+
+    $this->addSortQuery($query);
+
+    $event = $this->dispatcher->filter(new sfEvent($this, 'admin.build_query'), $query);
+    $query = $event->getReturnValue();
+
+    return $query;
+  }
 
 }

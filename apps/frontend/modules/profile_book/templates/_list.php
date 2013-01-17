@@ -1,5 +1,5 @@
 <?php if (count($books) == 0): ?>
-    <span>There's currently no books added.</span>
+    <div class="no-result">There's no books added yet.</div>
 <?php else: ?>
     <ul>
         <?php foreach ($books as $book): ?>

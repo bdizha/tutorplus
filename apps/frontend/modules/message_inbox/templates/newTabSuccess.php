@@ -1,5 +1,4 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('message_inbox/flashes', array('form' => $form)) ?>
 <?php include_partial('message_inbox/form', array('email_message' => $email_message, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
 <script type="text/javascript">
     $(document).ready(function(){

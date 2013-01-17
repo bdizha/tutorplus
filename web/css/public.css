@@ -1,3 +1,85 @@
+#tutorplus{
+  margin: 0 auto;
+  width: 940px;
+}
+
+#main-header{
+  background-color: #FFF;
+  height: 97px;
+}
+
+#main-header .wrapper{
+  position: fixed;
+  width: 940px;
+  z-index: 99999;
+  top: 0;
+  background-color: #FFF;
+  border-bottom: 1px solid #B5A072;
+}
+
+#main-footer{
+  position: fixed;
+  width: 940px;
+  z-index: 99999;
+  bottom: 0;
+  height: 50px;
+  border-top: 1px solid #B5A072;
+  background-color: #FFF;
+}
+
+#main-logo div{
+  display: inline-block;
+  vertical-align: top;
+  height: 47px;
+}
+
+#bottom-menu{    
+  margin: 0 auto;
+  width: 940px;
+  padding-top: 10px;
+  position: relative;
+}
+
+#logo-wrapper{
+  width: 329px;
+  text-indent: -9999px;
+  margin-top: 10px;
+  height: 47px;
+  width: 260px;
+  background: url(/images/logo.png) no-repeat;
+  overflow: hidden;
+}
+
+#moto-wrapper{
+  margin-top: 10px;
+  width: 564px;
+}
+
+#sign-in-wrapper a{
+  font-size: 16px !important;
+  margin-top: 5px;
+  display: block;
+  height: 26px;
+  padding-left: 50px;
+}
+
+#sign-in-wrapper{
+  margin-top: 20px;
+  background: url(/images/cap.png) no-repeat;
+  color: #B5A072;
+}
+
+#sign-in-wrapper span{
+  margin-top: 5px;
+  display: block;
+  font-size: 20px;
+  width: 71px;
+}
+
+#header-wrapper{
+  margin: 0 auto;
+}
+
 #main-menu{
   height: 40px;
 }
@@ -20,10 +102,14 @@
 }
 
 #main-menu ul li.active a{
-  color: #DCC170 !important;
+  color: #B5A072 !important;
 }
 
 #main-menu ul li.normal a:hover,
 #main-footer ul li a:hover{
-  color: #DCC170 !important;
+  color: #B5A072 !important;
+}
+
+h3{
+  margin-bottom: 5px !important;
 }

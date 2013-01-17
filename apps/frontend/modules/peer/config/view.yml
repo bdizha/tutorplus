@@ -1,5 +1,5 @@
 all:
-  stylesheets:    [profile.css]
+  stylesheets: [ secure.css, profile.css ]
   
 resultSuccess:
   has_layout:     false

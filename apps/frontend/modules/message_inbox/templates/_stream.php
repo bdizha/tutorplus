@@ -12,7 +12,7 @@
             <label for="email_message_to_emails">To:</label>
             <div id="to_email_recipients">
                 <div id="recipients_holder_to_email">
-                    <?php foreach (sfGuardUserTable::getInstance()->retrieveByEmails($emailMessage->getToEmail()) as $user): ?>
+                    <?php foreach (ProfileTable::getInstance()->retrieveByEmails($emailMessage->getToEmail()) as $user): ?>
                         <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 24)) ?>
                     <?php endforeach; ?>
                 </div>

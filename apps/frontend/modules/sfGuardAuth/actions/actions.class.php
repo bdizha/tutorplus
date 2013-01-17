@@ -11,7 +11,7 @@ class sfGuardAuthActions extends sfActions {
   public function executeLogIn($request) {
     $user = $this->getUser();
     if ($user->isAuthenticated()) {
-      return $this->redirect('@home');
+      return $this->redirect('@dashboard');
     }
 
     $this->form = new ProfileSignInForm();
@@ -28,7 +28,7 @@ class sfGuardAuthActions extends sfActions {
         $this->getUser()->setFlash('notice', 'Greetings from the TutorPlus team, and we wish you a wonderful learning session.');
         $this->getUser()->setFlash('error', false, false);
 
-        return $this->redirect('' != $logInUrl ? $logInUrl : '@home');
+        return $this->redirect('' != $logInUrl ? $logInUrl : '@dashboard');
       }
     } else {
       if ($request->isXmlHttpRequest()) {

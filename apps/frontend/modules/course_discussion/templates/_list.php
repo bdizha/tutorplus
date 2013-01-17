@@ -3,7 +3,7 @@
 <?php else: ?>  
     <div id="discussions">
         <?php foreach ($pager->getResults() as $i => $discussion): $odd = fmod(++$i, 2) ? 'odd' : 'even' ?>
-            <div class="snapshot discussion"><?php include_partial('discussion/discussion', array('discussion' => $discussion, "helper" => $helper)) ?></div>
+            <div class="snapshot discussion"><?php include_partial('course_discussion/discussion', array('discussion' => $discussion, "helper" => $helper)) ?></div>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>

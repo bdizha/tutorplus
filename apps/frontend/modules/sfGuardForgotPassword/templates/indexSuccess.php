@@ -1,7 +1,7 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array("currentParent" => "home")) ?>
+<?php include_component('common', 'secureMenu', array("currentParent" => "home")) ?>
 <?php end_slot() ?>
 
 <div class="sf_admin_form">

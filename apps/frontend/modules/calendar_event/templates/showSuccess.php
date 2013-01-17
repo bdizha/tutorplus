@@ -1,13 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->showLinks($calendarEvent)) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
+<?php include_component('common', 'secureMenu', $helper->showLinks($calendarEvent)) ?>
 <?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs($calendarEvent)) ?>
-<?php end_slot() ?>
-
 <div id="sf_admin_container">
     <div id="sf_admin_heading">
         <h3><?php echo $calendarEvent->getName() ?></h3>

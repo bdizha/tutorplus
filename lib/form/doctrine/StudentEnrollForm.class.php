@@ -12,6 +12,9 @@ class StudentEnrollForm extends ProfileForm {
 
   public function configure() {
     parent::configure();
+    unset(
+        $this['permissions_list']
+    );
   }
 
 }

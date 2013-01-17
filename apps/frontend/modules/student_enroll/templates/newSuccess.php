@@ -1,20 +1,11 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
-<?php include_component('common', 'publicMenu', $helper->newLinks($form)) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', $helper->newBreadcrumbs($form)) ?>
-<?php end_slot() ?>
-
 <div id="tp_admin_container">
   <div id="tp_admin_heading">
     <h1><?php echo __('Sign Up', array(), 'messages') ?></h1>
   </div>
   <div id="tp_admin_content">
     <div class="left-block">
-      <?php include_partial('student_enroll/flashes', array('form' => $form)) ?>
+      <?php include_partial('common/flashes', array('form' => $form)) ?>
       <div id="sf_admin_form_container">
         <div id="sf_admin_content">
           <?php include_partial('student_enroll/form', array('profile' => $profile, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>

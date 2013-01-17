@@ -42,4 +42,13 @@ class ProfileCourseTable extends Doctrine_Table {
     return $query->fetchOne();
   }
 
+  public function findByCourseIdAndIsInstructor($courseId, $isInstructor) {
+    $query = $this->createQuery('pc')
+        ->innerJoin('pc.Profile p')
+        ->Where("course_id = ?", $courseId)
+        ->andWhere('p.is_instructor = ?', $isInstructor);
+
+    return $query->execute();
+  }
+
 }

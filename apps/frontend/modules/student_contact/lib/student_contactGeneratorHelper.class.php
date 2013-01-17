@@ -48,7 +48,7 @@ class student_contactGeneratorHelper extends BaseStudent_contactGeneratorHelper 
     public function newLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "students",
             "is_profile" => false
         );
@@ -68,7 +68,7 @@ class student_contactGeneratorHelper extends BaseStudent_contactGeneratorHelper 
     public function editLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "students",
             "is_profile" => false
         );

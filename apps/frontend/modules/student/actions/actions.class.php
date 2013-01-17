@@ -22,15 +22,6 @@ class studentActions extends autoStudentActions {
         $this->getUser()->setMyAttribute('student_show_id', $this->getRoute()->getObject()->getId());
         $this->student = $this->getRoute()->getObject();
         $this->form = $this->configuration->getForm($this->student);
-        $this->student->saveDefaultContact();
-    }
-
-    public function executeDetails(sfWebRequest $request) {
-        $studentId = $this->getUser()->getMyAttribute('student_show_id', null);
-        if ($studentId) {
-            $this->redirect('@student_edit?id=' . $studentId);
-        }
-        $this->redirect('@student_new');
     }
 
     public function executeInlineEdit(sfWebRequest $request) {
@@ -71,19 +62,5 @@ class studentActions extends autoStudentActions {
             $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
         }
     }
-
-//    protected function processForm(sfWebRequest $request, sfForm $form) {
-//        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-//        if ($form->isValid()) {
-//            
-//        } else {
-//            foreach ($form as $name => $field):
-//                if ($field->hasError()):
-//                    echo '<li>'. $name . " => " . $field->getError().'</li>';
-//                endif;
-//            endforeach;
-//            die;
-//        }
-//    }
 
 }

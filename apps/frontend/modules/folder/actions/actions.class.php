@@ -31,11 +31,11 @@ class folderActions extends autoFolderActions
         // find or create the default user "Courses" folder
         $coursesFolder = FolderTable::getInstance()->findOrCreateOneByNameAndParent(FolderTable::COURSES_FOLDER, $userFolder);
 
-        if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT)
+        if ($this->getUser()->getType() == ProfileTable::TYPE_STUDENT)
         {
             CourseFolderTable::getInstance()->findOrCreateByCoursesAndParentFolder($this->getUser()->getStudent()->getCourses(), $coursesFolder);
         }
-        elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR)
+        elseif ($this->getUser()->getType() == ProfileTable::TYPE_INSTRUCTOR)
         {
             CourseFolderTable::getInstance()->findOrCreateByCoursesAndParentFolder($this->getUser()->getInstructor()->getCourses(), $coursesFolder);
         }

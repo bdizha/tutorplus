@@ -1,5 +1,5 @@
 all:
-  stylesheets: [course.css, student.css]
+  stylesheets: [ secure.css, course.css, student.css]
   has_layout: false
  
 indexSuccess:
@@ -10,6 +10,3 @@ editSuccess:
  
 newSuccess:
   has_layout: true
- 
-registerSuccess:
-  layout: register

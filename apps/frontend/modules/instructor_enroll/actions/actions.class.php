@@ -21,10 +21,14 @@ class instructor_enrollActions extends autoInstructor_enrollActions {
 
       try {
         $profile = $form->save();
+        
+        // set instructor permissions
+        $profile->link("Permissions", array(ProfilePermissionTable::getInstance()->findInstructorPermissionId()));
+        $profile->save();
 
-        // send the student emails
+        // send the instructor emails
         if ($isNew) {
-          //$this->sendEmail($student);
+          //$this->sendEmail($profile);
         }
       } catch (Doctrine_Validator_Exception $e) {
 

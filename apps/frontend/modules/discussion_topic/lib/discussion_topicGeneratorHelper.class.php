@@ -67,7 +67,8 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
     public function showContentActions($discussionTopic) {
         return array(
             "my_discussion" => array("title" => "&lt; My Discussion", "url" => "discussion/" . $discussionTopic->getDiscussion()->getSlug()),
-            "manage_participants" => array("title" => "Manage Followers", "url" => "discussion_member"),
+            "manage_peers" => array("title" => "Manage Peers", "url" => "discussion/peer"),
+            "invite_follower" => array("title" => "+ Invite Peers", "url" => "/discussion/peer/invite"),
         );
     }
 
@@ -93,10 +94,6 @@ class discussion_topicGeneratorHelper extends BaseDiscussion_topicGeneratorHelpe
         } else {
             return '<li class="sf_admin_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
         }
-    }
-    
-    public function linkToInviteFollowers(){
-        return '<input id="invite_discussion_follower" type="button" class="button" href="/discussion/member/invite" value="+ Invite Followers"/>';
     }
 
     public function linkToDiscussionPostEdit($object, $params) {

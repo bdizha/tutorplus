@@ -129,28 +129,36 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
         return '<input type="button" class="button" onclick="document.location.href=\'/course/discussion\';" value="&lt; Course Discussions"/>';
     }
 
-    public function linkToManageFollowers() {
-        return '<input type="button" class="button" onclick="document.location.href=\'/discussion/member\';" value="Manage Followers"/>';
+    public function linkToManagePeers() {
+        return '<input type="button" class="button" onclick="document.location.href=\'/discussion/peer\';" value="Manage Peers"/>';
     }
 
     public function linkToDiscussions() {
         return '<input type="button" class="button" onclick="document.location.href=\'/discussion\';" value="&lt; Discussions"/>';
     }
 
-    public function linkToEditMembership($memberId) {
-        return '<input id="edit_discussion_membership" type="button" class="button" onClick="document.location.href=\'/discussion/member/' . $memberId . '/edit\'" value="Edit Membership">';
+    public function linkToEditMembership($discussionPeerId) {
+        return '<input id="edit_discussion_membership" type="button" class="button" onClick="document.location.href=\'/discussion/peer/' . $discussionPeerId . '/edit\'" value="Edit Membership">';
     }
 
     public function linkToJoinDiscussion() {
-        return '<input type="button" class="button" href="/discussion/member/join" value="Join Discussion">';
+        return '<input type="button" class="button" href="/discussion/peer/join" value="Join Discussion">';
     }
 
-    public function linkToInviteFollowers() {
-        return '<input id="invite_discussion_follower" type="button" class="button" href="/discussion/member/invite" value="+ Invite Followers"/>';
+    public function linkToInvitePeers() {
+        return '<input id="invite_follower" type="button" class="button" href="/discussion/peer/invite" value="+ Invite Peers"/>';
     }
 
     public function linkToNewTopic() {
         return '<input type="button" class="button" value="+ New Topic"/>';
+    }
+
+    public function linkToCancel($object, $params) {
+        return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/explore/discussions\'"/>';
+    }
+
+    public function linkToDone($object, $params) {
+        return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/explore/discussions\'"/>';
     }
 
 }

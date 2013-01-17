@@ -10,10 +10,25 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class CalendarEvent extends BaseCalendarEvent
-{
-    function getWhen()
-    {
+class CalendarEvent extends BaseCalendarEvent {
+
+    function getWhen() {
         return $this->getDateTimeObject('from_date')->format('d/m/Y') . " - " . $this->getDateTimeObject('to_date')->format('d/m/Y');
     }
+
+    public function postInsert($event) {
+        // save this activity
+        $activityFeed = new ActivityFeed();
+        $activityFeed->setProfileId($this->getProfileId());
+        $activityFeed->setItemId($this->getId());
+        $activityFeed->setType(ActivityFeedTable::TYPE_UPCOMING_EVENT);
+        $activityFeed->save();
+
+        // link this activity with the current profile
+        $profileActivityFeed = new ProfileActivityFeed();
+        $profileActivityFeed->setProfileId($this->getProfileId());
+        $profileActivityFeed->setActivityFeedId($activityFeed->getId());
+        $profileActivityFeed->save();
+    }
+
 }

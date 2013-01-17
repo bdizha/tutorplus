@@ -26,18 +26,18 @@ class announcementActions extends autoAnnouncementActions {
     }
 
     public function sendEmail($object) {
-        $toEmails = $object->getToEmails();
-        $announcer = $object->getProfile();
-        $mailer = new tpMailer();
-        $mailer->setTemplate('new-announcement');
-        $mailer->setToEmails($toEmails);
-        $mailer->addValues(array(
-            "ANNOUNCER" => $announcer->getName(),
-            "ANNOUNCEMENT_LINK" => $this->getPartial('email_template/link', array(
-                'title' => $this->generateUrl('announcement_show', array("slug" => $object->getSlug()), 'absolute=true'),
-                'route' => "@announcement_show?slug=" . $object->getSlug())
-                )));
-
-        $mailer->send();
+//        $toEmails = $object->getToEmails();
+//        $announcer = $object->getProfile();
+//        $mailer = new tpMailer();
+//        $mailer->setTemplate('new-announcement');
+//        $mailer->setToEmails($toEmails);
+//        $mailer->addValues(array(
+//            "ANNOUNCER" => $announcer->getName(),
+//            "ANNOUNCEMENT_LINK" => $this->getPartial('email_template/link', array(
+//                'title' => $this->generateUrl('announcement_show', array("slug" => $object->getSlug()), 'absolute=true'),
+//                'route' => "@announcement_show?slug=" . $object->getSlug())
+//                )));
+//
+//        $mailer->send();
     }
 }

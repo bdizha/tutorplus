@@ -17,14 +17,17 @@
       <div id="main-container">
         <div id="main-header">
           <div class="wrapper">
-            <?php include_partial('common/header') ?>
             <div id="main-menu">
-              <?php include_slot('menu') ?>
+              <?php include_slot('top-menu') ?>
             </div>                 
           </div>
         </div>
         <div id="main-body">
+          <?php include_slot('notice') ?>
           <div class="wrapper">
+            <div id="left-column">
+              <?php include_slot('left-column') ?>              
+            </div>
             <div id="middle-column">
               <?php echo $sf_content ?>
             </div>
@@ -34,6 +37,7 @@
         <div id="main-footer">
           <?php include_partial('common/footer') ?>
         </div>
-      </div>        
+      </div> 
+    </div>          
   </body>
 </html>

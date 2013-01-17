@@ -13,58 +13,70 @@ require_once dirname(__FILE__) . '/../lib/student_enrollGeneratorHelper.class.ph
  */
 class student_enrollActions extends autoStudent_enrollActions {
 
-    protected function processForm(sfWebRequest $request, sfForm $form) {
-        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-        if ($form->isValid()) {
-            $isNew = $form->getObject()->isNew();
-            $notice = 'Congrats! You have been successfully enrolled as our new student.';
+  protected function processForm(sfWebRequest $request, sfForm $form) {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid()) {
+      $isNew = $form->getObject()->isNew();
+      $notice = 'Congrats! You have been successfully enrolled as our new student.';
 
-            try {
-                $profile = $form->save();
+      try {
+        $profile = $form->save();
+        
+        // set student permissions
+        $profile->link("Permissions", array(ProfilePermissionTable::getInstance()->findStudentPermissionId()));
+        $profile->save();
 
-                // send the student emails
-                if ($isNew) {
-                    //$this->sendEmail($student);
-                }
-            } catch (Doctrine_Validator_Exception $e) {
-
-                $errorStack = $form->getObject()->getErrorStack();
-                $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
-                foreach ($errorStack as $field => $errors) {
-                    $message .= "$field (" . implode(", ", $errors) . "), ";
-                }
-                $message = trim($message, ', ');
-
-                $this->getUser()->setFlash('error', $message);
-                return sfView::SUCCESS;
-            }
-
-            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $student)));
-
-            // automatically sign in the student
-            $this->getUser()->signin($profile, true);
-
-            $this->getUser()->setFlash('notice', $notice);
-
-            // redirect them to their dashboard
-            $this->redirect('@dashboard');
-        } else {
-            $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+        // send the student emails
+        if ($isNew) {
+          //$this->sendEmail($student);
         }
-    }
+      } catch (Doctrine_Validator_Exception $e) {
 
-    public function sendEmail($object) {
-        $user = $object->getProfile();
-        $mailer = new tpMailer();
-        $mailer->setTemplate('student-enrollment');
-        $mailer->setToEmails($user->getName() . " <" . $user->getEmail() . ">");
-        $mailer->addValues(
-                array(
-                    "USER" => $user->getName()
-                )
-        );
+        $errorStack = $form->getObject()->getErrorStack();
+        $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
+        foreach ($errorStack as $field => $errors) {
+          $message .= "$field (" . implode(", ", $errors) . "), ";
+        }
+        $message = trim($message, ', ');
 
-        $mailer->send();
+        $this->getUser()->setFlash('error', $message);
+        return sfView::SUCCESS;
+      }
+
+      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $student)));
+
+      // automatically sign in the student
+      $this->getUser()->signin($profile, true);
+
+      $this->getUser()->setFlash('notice', $notice);
+
+      // redirect them to their dashboard
+      $this->redirect('@dashboard');
+    } else {
+
+      foreach ($form as $name => $field):
+        if ($field->hasError()):
+          echo '<li>' . $name . '</li>';
+        endif;
+      endforeach;
+      die;
+
+      $this->getUser()->setFlash('error', 'Your personal info has not been saved due to some errors.', false);
     }
+  }
+
+  public function sendEmail($object) {
+    $user = $object->getProfile();
+    $mailer = new tpMailer();
+    $mailer->setTemplate('student-enrollment');
+    $mailer->setToEmails($user->getName() . " <" . $user->getEmail() . ">");
+    $mailer->addValues(
+        array(
+            "USER" => $user->getName()
+        )
+    );
+
+    $mailer->send();
+  }
 
 }

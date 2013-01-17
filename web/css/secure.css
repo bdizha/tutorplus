@@ -1,29 +1,124 @@
+#main-header{
+  background-color: #F1F1F1;
+  color: #7F7F7F;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  height: 42px;
+  top: 0;
+  border: 1px solid #E8E8E8;
+}
+
+#main-footer{  
+  margin: 0 auto;
+  width: 940px;
+  padding-top: 10px;
+  position: relative;
+}
+
+#bottom-menu{  
+  position: fixed;
+  width: 940px;
+  z-index: 99999;
+  bottom: 0;
+  height: 44px;
+  border-top: 1px solid #B5A072;
+  background-color: #FFF;
+}
+
+#main-logo div{
+  display: inline-block;
+  vertical-align: top;
+  height: 61px;
+}
+
+#main-body{
+  margin: 0 auto;
+  width: 940px;
+  padding-top: 45px;
+}
+
+#logo-wrapper{
+  width: 329px;
+  text-indent: -9999px;
+  margin-top: 10px;
+  height: 61px;
+  width: 300px;
+  background: url(/images/logo.png) -4px 0 no-repeat;
+  overflow: hidden;
+}
+
+#moto-wrapper{
+  width: 508px;
+}
+
+#main-header .wrapper{
+  height: 42px;
+  margin: 0 auto;
+  width: 940px;    
+}
+
 #main-menu{
-  height: 40px;
+  margin-left: 220px;
+  width: 720px;   
 }
 
 #main-menu ul li{
-  display: inline;
+  margin: 0;
+  text-align: center;
+  display: block;
   float: left;
-  height: 20px;
-  text-align: left;
-  padding-right: 32px;
+  height: 22px;
+  padding: 10px 17px 10px 0;
+}
+
+#main-menu ul li.last a{
+  border-right: none !important;
+  overflow: hidden;
+}
+
+#main-menu ul li.last{
+  border-right: none !important;
+  overflow: hidden;
+}
+
+#main-menu ul li.first a{
+  border-right: none !important;
+  overflow: hidden;
+}
+
+#main-menu ul li.first{
+  overflow: hidden;
 }
 
 #main-menu a{
-  padding: 10px 9px 10px 0;
+  color: #6B6B6B;
+  cursor: pointer;
   display: block;
-  text-align: left;
-  color: #C6C8C8;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
+  height: 22px;
+  text-decoration: none;
+  text-align: left;
 }
 
 #main-menu ul li.active a{
-  color: #DCC170 !important;
+  color: #B5A072 !important;
+  border-bottom: 10px solid #B5A072;
+  height: 15px !important;
+  padding-bottom: 10px !important;
+  font-weight: bold;
 }
 
 #main-menu ul li.normal a:hover,
 #main-footer ul li a:hover{
-  color: #DCC170 !important;
+  color: #B5A072 !important;
+}
+
+#middle-column {
+  padding-top: 26px;
+  padding-bottom: 40px;
+  width: 720px;
+  margin-left: 220px;
 }

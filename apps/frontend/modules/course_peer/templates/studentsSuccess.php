@@ -1,1 +1,1 @@
-<?php include_partial('course_participant/students', array('course' => $course)) ?>
+<?php include_partial('course_peer/students', array('courseStudents' => $courseStudents)) ?>

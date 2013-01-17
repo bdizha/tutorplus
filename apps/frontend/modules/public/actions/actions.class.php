@@ -1,14 +1,14 @@
 <?php
 
 /**
- * section actions.
+ * public actions.
  *
  * @package    tutorplus.org
- * @subpackage section
+ * @subpackage public
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class sectionActions extends sfActions {
+class publicActions extends sfActions {
 
     /**
      * Executes index action

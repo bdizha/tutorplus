@@ -40,7 +40,7 @@ class message_inboxActions extends autoMessage_inboxActions {
             }
         }
 
-        $result = sfGuardUserTable::getInstance()->findBySearch($toEmails[count($toEmails) - 1], $previousEmailAddresses, 100)
+        $result = ProfileTable::getInstance()->findBySearch($toEmails[count($toEmails) - 1], $previousEmailAddresses, 100)
                 ->toKeyValueArray('email_address', 'name');
 
         return $this->renderText(json_encode($this->emailfyName($result)));

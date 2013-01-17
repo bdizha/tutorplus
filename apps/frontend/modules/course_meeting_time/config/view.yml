@@ -1,3 +1,0 @@
-all:
-  stylesheets: [course.css]
-  has_layout: true

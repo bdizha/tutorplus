@@ -14,8 +14,8 @@ require_once dirname(__FILE__) . '/../lib/activity_feedGeneratorHelper.class.php
 class activity_feedActions extends autoActivity_feedActions {
 
   public function executeIndex(sfWebRequest $request) {
-    $primaryDiscussion = DiscussionTable::getInstance()->findOrCreatePrimaryDiscussionByProfile($this->getUser()->getProfile());
-    $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->getUser()->getId(), $primaryDiscussion->getId());
+    $primaryDiscussionGroup = DiscussionGroupTable::getInstance()->findOrCreatePrimaryDiscussionGroupByProfile($this->getUser()->getProfile());
+    $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->getUser()->getId(), $primaryDiscussionGroup->getId());
 
     $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->getUser()->getId());
     $this->discussionCommentForm = new DiscussionCommentForm();

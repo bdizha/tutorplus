@@ -1,6 +1,6 @@
 <?php if (!$discussionTopics->count()): ?>
     <div class="no-result">
-        <?php echo __("There's no discussion topics posted yet.", array(), 'sf_admin') ?>
+        <?php echo __("There isn't any group topics posted yet.", array(), 'sf_admin') ?>
     </div>
 <?php else: ?>  
     <?php foreach ($discussionTopics as $i => $discussionTopic): ?>

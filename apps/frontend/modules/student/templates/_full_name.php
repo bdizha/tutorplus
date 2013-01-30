@@ -1,1 +1,0 @@
-<?php echo link_to($student->getFullname(), 'profile') ?>

@@ -20,11 +20,11 @@ class DiscussionComment extends BaseDiscussionComment {
         $discussionTopic->setUpdatedAt($this->getCreatedAt());
         $discussionTopic->save();
 
-        $discussion = $discussionTopic->getDiscussion();
-        $discussion->setCommentCount($discussion->getCommentCount() + 1);
-        $discussion->setLatestCommentId($this->getId());
-        $discussion->setUpdatedAt($this->getCreatedAt());
-        $discussion->save();
+        $discussionGroup = $discussionTopic->getDiscussionGroup();
+        $discussionGroup->setCommentCount($discussionGroup->getCommentCount() + 1);
+        $discussionGroup->setLatestCommentId($this->getId());
+        $discussionGroup->setUpdatedAt($this->getCreatedAt());
+        $discussionGroup->save();
 
         // save this activity
         $activityFeed = new ActivityFeed();

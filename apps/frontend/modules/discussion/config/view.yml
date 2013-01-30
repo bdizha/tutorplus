@@ -1,2 +1,0 @@
-all:
-  stylesheets: [ discussion.css, profile.css, secure.css ]

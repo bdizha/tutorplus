@@ -4,7 +4,7 @@
 <div class="sf_admin_heading">
   <h3>[?php echo <?php echo $this->getI18NString('list.title') ?> ?]</h3>
 </div>
-[?php include_partial('common/flashes', array('form' => $form)) ?]
+[?php include_partial('common/flashes_normal') ?]
 <?php if ($this->configuration->hasFilterForm()): ?>
   <!--
   <div id="sf_admin_bar">

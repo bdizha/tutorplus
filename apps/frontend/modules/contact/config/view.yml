@@ -1,8 +1,0 @@
-newSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false
-  
-indexSuccess:
-  stylesheets: [*, contact]

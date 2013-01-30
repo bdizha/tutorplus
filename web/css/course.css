@@ -214,14 +214,8 @@ select[size], select[multiple], select[size][multiple] {
     padding-top: 10px;
     display: block;
     position: relative;
-    border-top: 1px solid #F5F5F5;
     margin: 0 10px 0;
     max-height: 300px;
-}
-
-#choose_course_instructors_form_holder,
-#choose_course_students_form_holder{
-  padding-bottom: 20px;
 }
 
 .student-course{
@@ -253,7 +247,7 @@ select[size], select[multiple], select[size][multiple] {
     display: block;
     border: 1px solid #F5F5F5;
     margin: 0 0 10px 10px;
-    width: 700px;
+    width: 698px;
     vertical-align: top;
     background-color: #F5F5F5;
     min-height: 96px;
@@ -277,6 +271,7 @@ select[size], select[multiple], select[size][multiple] {
 
 .course-catalog input{
     width: 116px !important;
+    height: 20px !important
 }
 
 .course-action{
@@ -298,4 +293,8 @@ select[size], select[multiple], select[size][multiple] {
 
 .course-meeting-time{
     padding: 5px;
+}
+
+.course-row{
+  padding: 5px 0;
 }

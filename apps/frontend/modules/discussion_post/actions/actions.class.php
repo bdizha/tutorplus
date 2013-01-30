@@ -11,7 +11,7 @@ require_once dirname(__FILE__) . '/../lib/discussion_postGeneratorHelper.class.p
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussion_postActions extends autodiscussion_postActions {
+class discussion_postActions extends autoDiscussion_postActions {
 
     public function executeShow(sfWebRequest $request) {
         $discussionPostId = $this->getUser()->getMyAttribute('discussion_post_show_id', null);
@@ -48,7 +48,7 @@ class discussion_postActions extends autodiscussion_postActions {
                 //$this->sendEmail($discussion_post);
             }
 
-            // session the new created discussion topic message id
+            // session the new created DiscussionGroup topic message id
             $this->getUser()->setMyAttribute('discussion_post_show_id', $discussion_post->getId());
 
             $this->getUser()->setFlash('notice', $notice);
@@ -68,7 +68,7 @@ class discussion_postActions extends autodiscussion_postActions {
         $mailer->addValues(array(
             "OWNER" => $owner->getName(),
             "discussion_post" => $object->getMessage(),
-            "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
+            "discussion_topic_LINK" => $this->getPartial('email_template/link', array(
                 'title' => $this->generateUrl('discussion_topic_show', array("slug" => $discussionTopic->getSlug()), 'absolute=true'),
                 'route' => "@discussion_topic_show?slug=" . $discussionTopic->getSlug())
                 )));

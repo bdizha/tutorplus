@@ -1,0 +1,1 @@
+<?php include_partial('discussion_peer/list', array('discussionGroup' => $discussionGroup)) ?>

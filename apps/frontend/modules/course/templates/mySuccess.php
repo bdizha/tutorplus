@@ -7,7 +7,7 @@
 <div id="sf_admin_content">
   <div class="content-block">
     <div id="courses_list">
-      <?php include_partial('common/flashes') ?>
+      <?php include_partial('common/flashes_normal') ?>
       <?php include_partial('list', array('courses' => $courses, 'profile' => $sf_user->getProfile())) ?>
     </div>
   </div>

@@ -173,12 +173,12 @@ CourseMailingList:
     MailingList:                { class: MailingList, local: mailing_list_id, onDelete: CASCADE, foreignAlias: CourseMailingLists }
     Course:                     { class: Course, local: course_id, onDelete: CASCADE, foreignAlias: CourseMailingLists }
     
-Discussion:
+DiscussionGroup:
   actAs:       
     Timestampable:              ~
     Sluggable:
       fields:                   [ name ]
-  tableName:                    discussion
+  tableName:                    discussion_group
   columns:
     name:                       { type: string(255), notnull: true }
     profile_id:        				  { type: integer, notnull: true }
@@ -200,27 +200,27 @@ DiscussionPeer:
   tableName:                    discussion_peer
   columns:
     nickname:                   { type: string(255), notnull: true }
-    subscription_type:          { type: integer, notnull: true, default: 0 } #[Prompt Email, Summary Email, Digest Email]
-    membership_type:            { type: integer, notnull: true, default: 0 } #[Regular Member, Manager, Owner]
-    status:                     { type: integer, notnull: true, default: 0 } #[Joined, Waiting, Ignored, Unscribed]
-    discussion_id:              { type: integer, notnull: true }
+    subscription_type:          { type: integer, notnull: true, default: 0 } #[ Prompt Email, Summary Email, Digest Email ]
+    membership_type:            { type: integer, notnull: true, default: 0 } #[ Regular Member, Manager, Owner ]
+    status:                     { type: integer, notnull: true, default: 0 } #[ Joined, Waiting, Ignored, Unscribed ]
+    discussion_group_id:        { type: integer, notnull: true }
     profile_id:                 { type: integer, notnull: true }
     is_removed:                 { type: boolean, default: 0 }
   relations:
     Profile:                    { class: Profile, local: profile_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
-    Discussion:                 { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: Peers }
+    DiscussionGroup:            { class: DiscussionGroup, local: discussion_group_id, foreign: id, onDelete: CASCADE, foreignAlias: Peers }
     
 DiscussionTopic:
   actAs:       
     Timestampable:              ~
     Sluggable:
-      fields:                   [subject, discussion_id]
+      fields:                   [subject, discussion_group_id]
   tableName:                    discussion_topic
   columns:
     subject:                    { type: string(255), notnull: true }
     type:                       { type: enum, notnull: true, values: [ General, Question, Suggestion, Sharing, Insight, Compliment ], default: 'General' }
     message:        				    { type: clob, notnull: true }
-    discussion_id:              { type: integer, notnull: true }
+    discussion_group_id:        { type: integer, notnull: true }
     profile_id:                 { type: integer, notnull: true }
     latest_comment_id:          { type: integer, notnull: false }
     view_count:                 { type: integer, notnull: false, default: 0 }
@@ -228,7 +228,7 @@ DiscussionTopic:
     is_primary:                 { type: boolean, default: 0 }
   relations:
     Profile:                    { class: Profile, local: profile_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
-    Discussion:                 { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: Topics }
+    DiscussionGroup:            { class: DiscussionGroup, local: discussion_group_id, foreign: id, onDelete: CASCADE, foreignAlias: Topics }
  
 DiscussionPost:
   actAs:                        [ Timestampable ]
@@ -252,23 +252,23 @@ DiscussionComment:
     Profile:                    { class: Profile, local: profile_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
     DiscussionPost:             { class: DiscussionPost, local: discussion_post_id, foreign: id, onDelete: CASCADE, foreignAlias: Comments }
     
-CourseDiscussion:
-  tableName:                    course_discussion
+CourseDiscussionGroup:
+  tableName:                    course_discussion_group
   columns:
     course_id:                  { type: integer, notnull: true }
-    discussion_id:              { type: integer, notnull: true }
+    discussion_group_id:        { type: integer, notnull: true }
   relations:      
-    Course:                     { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussions }          
-    Discussion:                 { class: Discussion, local: discussion_id, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussion }
+    Course:                     { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussionGroups }          
+    DiscussionGroup:            { class: DiscussionGroup, local: discussion_group_id, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussionGroup }
     
-AssignmentDiscussion:
-  tableName:                    assignment_discussion
+AssignmentDiscussionGroup:
+  tableName:                    assignment_discussion_group
   columns:
     assignment_id:              { type: integer, notnull: true }
-    discussion_id:              { type: integer, notnull: true }
+    discussion_group_id:        { type: integer, notnull: true }
   relations:      
-    Assisgnment:                { class: Assisgnment, local: assignment_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: AssignmentDiscussions }          
-    Discussion:                 { class: Discussion, local: discussion_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: AssignmentDiscussion }
+    Assisgnment:                { class: Assisgnment, local: assignment_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: Groups }          
+    DiscussionGroup:            { class: DiscussionGroup, local: discussion_group_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: Assignment }
     
 Attendance:
   actAs:                        [ Timestampable ]
@@ -343,7 +343,7 @@ NotificationSettings:
     news_alerts:                { type: boolean, default: 0 }
     announcement_alerts:        { type: boolean, default: 0 }
     event_alerts:               { type: boolean, default: 0 }
-    discussion_updates:         { type: boolean, default: 0 }
+    discussion_group_updates:         { type: boolean, default: 0 }
     course_updates:             { type: boolean, default: 0 }
     assignment_due:             { type: boolean, default: 0 }
     system_updates:             { type: boolean, default: 0 }
@@ -820,6 +820,7 @@ Profile:
     first_name:                 { type: string(255) }
     last_name:                  { type: string(255) }
     middle_name:                { type: string(255) }
+    about_me:                   { type: clob, notnull: false }
     birth_date:                 { type: timestamp, notnull: false }
     gender:                     { type: enum, values: [Male, Female] }
     is_instructor:              { type: boolean, default: 0 }

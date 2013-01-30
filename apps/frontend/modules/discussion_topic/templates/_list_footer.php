@@ -1,22 +1,22 @@
-<h2>Discussion Peers</h2>
-<div id="discussion_members" class="peer-block  padding-10">
-    <?php include_partial('discussion_member/members', array('discussion' => $discussion)) ?>            
+<h2>DiscussionGroup Peers</h2>
+<div id="discussion_peers" class="peer-block  padding-10">
+    <?php include_partial('discussion_peer/members', array('DiscussionGroup' => $discussionGroup)) ?>            
 </div> 
 <ul class="sf_admin_actions" style="clear:both">
-    <li class="sf_admin_action_my_discussions">
-        <?php if ($discussion->getCourseDiscussion()->getCourseId()): ?>
-            <input type="button" class="button" onclick="document.location.href='/course/discussion';" value="&lt; Course Discussions" />
+    <li class="sf_admin_action_my_DiscussionGroups">
+        <?php if ($discussionGroup->getCourseDiscussionGroup()->getCourseId()): ?>
+            <input type="button" class="button" onclick="document.location.href='/course/DiscussionGroup';" value="&lt; Course DiscussionGroups" />
         <?php else: ?>
-            <input type="button" class="button" onclick="document.location.href='/discussion';" value="&lt; Discussions" />
+            <input type="button" class="button" onclick="document.location.href='/DiscussionGroup';" value="&lt; DiscussionGroups" />
         <?php endif; ?>                
     </li>
     <li class="sf_admin_action_member_new">
         <input type="button" class="button" href="/discussion/peer/new" value="+ Invite Peers" />
     </li>
     <li class="sf_admin_action_member">
-        <input type="button" class="button" onclick="document.location.href='/discussion_member';" value="Manage Peers" />
+        <input type="button" class="button" onclick="document.location.href='/discussion/peer';" value="Manage Peers" />
     </li>
-    <?php $member = $discussion->getMemberByProfileId($sf_user->getId()); ?>
+    <?php $member = $discussionGroup->getMemberByProfileId($sf_user->getId()); ?>
     <?php if ($member): ?>
         <li class="sf_admin_action_edit_member">
             <input type="button" class="button" href="/discussion/peer/<?php echo $member->getId() ?>/edit" value="Edit Membership">
@@ -26,12 +26,12 @@
 <script type='text/javascript'>
     $(document).ready(function(){
         $(".sf_admin_action_new input").click(function(){  
-            openPopup("/discussion/topic/new", "605px", "605px", "New Discussion Topic");
+            openPopup("/discussion/topic/new", "605px", "605px", "New DiscussionGroup Topic");
             return false;
         });
         
         $(".discussion_topic .edit").click(function(){            
-            openPopup($(this).attr("href"), "605px", "605px", "Edit Discussion Topic");
+            openPopup($(this).attr("href"), "605px", "605px", "Edit DiscussionGroup Topic");
             return false;
         });
         
@@ -45,13 +45,13 @@
             return false;
         });
         
-        $("a#discussion_member_new").click(function(){
-            openPopup("/discussion/topic/new", "600px", "", "New Discussion Topic");
+        $("a#discussion_peer_new").click(function(){
+            openPopup("/discussion/topic/new", "600px", "", "New DiscussionGroup Topic");
             return false;
         });
     });
     
     function fetchDiscussionPeers(){
-        $("#discussion_members").load("/discussion/peers");
+        $("#discussion_peers").load("/discussion/peers");
     }
 </script>

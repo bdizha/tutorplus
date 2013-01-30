@@ -36,6 +36,13 @@ class PeerTable extends Doctrine_Table {
         3 => 'Peered',
         4 => 'Declined'
     );
+    static public $labels = array(
+        0 => 'Open',
+        1 => 'Suggested',
+        2 => 'Invited',
+        3 => 'Peers',
+        4 => 'Declined'
+    );
 
     /**
      * Returns an instance of this class.
@@ -58,56 +65,63 @@ class PeerTable extends Doctrine_Table {
         return isset(self::$statuses[$key]) ? self::$statuses[$key] : "Undefined";
     }
 
-    public function getType($inviterType = "Student", $inviteeType = "Student") {
-        if ($inviterType == "" || $inviteeType == "") {
-            return null;
-        } else {
-            $requestedType = $inviterType . " " . $inviteeType;
+    public function findOrCreateSelfPeerByProfileId($profileId) {
+        $peer = self::getInstance()->findOneByPeers($profileId, $profileId);
+        if (!is_object($peer)) {
+            $peer = new Peer();
+            $peer->setInviteeId($profileId);
+            $peer->setInviterId($profileId);
+            $peer->save();
         }
-        $peerTypes = self::$types;
-        $flippedPeerTypes = array_flip($peerTypes);
-
-        return isset($flippedPeerTypes[$requestedType]) ? $flippedPeerTypes[$requestedType] : null;
+        return $peer;
     }
 
     public function findByProfileIdAndIsInstructor($profileId, $isInstructor) {
         $q = $this->createQuery('p')
-                ->where('((p.inviter_id = ?) OR (p.invitee_id = ?))', array($profileId, $profileId))
-                ->addWhere('((p.Invitee.is_instructor = ?) OR (p.Inviter.is_instructor = ?))', array($isInstructor, $isInstructor));
+            ->where('((p.inviter_id = ?) OR (p.invitee_id = ?))', array($profileId, $profileId))
+            ->addWhere('((p.Invitee.is_instructor = ?) OR (p.Inviter.is_instructor = ?))', array($isInstructor, $isInstructor));
+        return $q->execute();
+    }
+
+    public function findByCourseIdAndIsInstructor($profileId, $courseId, $isInstructor) {
+        $q = $this->createQuery('p')
+            ->where('(p.invitee_id <> ? AND (p.invitee_id IN (SELECT pc1.profile_id FROM ProfileCourse pc1 WHERE pc1.course_id = ?)) AND p.Invitee.is_instructor = ?)', array($profileId, $courseId, $isInstructor))
+            ->orWhere('(p.inviter_id <> ? AND (p.inviter_id IN (SELECT pc2.profile_id FROM ProfileCourse pc2 WHERE pc2.course_id = ?)) AND p.Inviter.is_instructor = ?)', array($profileId, $courseId, $isInstructor));
         return $q->execute();
     }
 
     public function findByInviteeIdAndStatus($inviteeId, $status) {
         $q = $this->createQuery('p')
-                ->where('p.inviter_id = ?', $inviteeId)
-                ->addWhere('p.status = ?', $status);
+            ->where('p.inviter_id = ?', $inviteeId)
+            ->addWhere('p.status = ?', $status);
         return $q->execute();
     }
 
     public function findByNotProfileId($profileId) {
         $q = Doctrine_Query::create()
-                ->from("Profile p")
-                ->addWhere('(p.id NOT IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $profileId)
-                ->addWhere('(p.id NOT IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $profileId)
-                ->whereNotIn("p.id", array($profileId));
+            ->from("Profile p")
+            ->addWhere('(p.id NOT IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $profileId)
+            ->andWhere('(p.id NOT IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $profileId)
+            ->whereNotIn("p.id", array($profileId));
 
         return $q->execute();
     }
 
     public function findOneByPeers($inviterId, $inviteeId) {
         $q = $this->createQuery('p')
-                ->where('(p.inviter_id = ? AND p.invitee_id = ?)', array($inviterId, $inviteeId))
-                ->orWhere('(p.inviter_id = ? AND p.invitee_id = ?)', array($inviteeId, $inviterId));
+            ->where('(p.inviter_id = ? AND p.invitee_id = ?)', array($inviterId, $inviteeId))
+            ->orWhere('(p.inviter_id = ? AND p.invitee_id = ?)', array($inviteeId, $inviterId));
         return $q->fetchOne();
     }
 
-    public function findByProfileId($profileId, $limit = 22) {
+    public function findSuggestionsByProfileId($profileId, $limit = 22) {
         $q = Doctrine_Query::create()
-                ->from("Profile p")
-                ->addWhere('(p.id IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $profileId)
-                ->orWhere('(p.id IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $profileId)
-                ->whereNotIn("p.id", array($profileId))
-                ->limit($limit);
+            ->from("Profile p")
+            ->addWhere('(p.id NOT IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = ?))', $profileId)
+            ->andWhere('(p.id NOT IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = ?))', $profileId)
+            ->orWhere('(p.id IN (SELECT p11.inviter_id FROM peer p11 WHERE p11.invitee_id IN (SELECT p111.inviter_id FROM peer p111 WHERE p11.invitee_id = ?)))', $profileId)
+            ->orWhere('(p.id IN (SELECT p22.invitee_id FROM peer p22 WHERE p22.inviter_id IN (SELECT p222.invitee_id FROM peer p222 WHERE p22.inviter_id = ?)))', $profileId)
+            ->limit($limit);
 
         return $q->execute();
     }

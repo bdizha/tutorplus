@@ -20,7 +20,7 @@ generator:
       filter:
         class: false
       list:
-        title:             My Discussion Topics
+        title:             My DiscussionGroup Topics
         display:           [type, message]
         sort:              [subject, asc]
         batch_actions:     []
@@ -28,14 +28,14 @@ generator:
         actions:
           _new:            ~
       edit:
-        title:             Edit Discussion Topic
+        title:             Edit DiscussionGroup Topic
         actions:
           _delete:         []
           cancel:          []
           done:            []
           _save:           []
       new:
-        title:             New Discussion Topic
+        title:             New DiscussionGroup Topic
         actions:
           _delete:         []
           cancel:          []

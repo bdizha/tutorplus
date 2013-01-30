@@ -23,8 +23,8 @@ class course_peerActions extends sfActions {
    * @param sfRequest $request A request object
    */
   public function executeIndex(sfWebRequest $request) {
-    $this->courseInstructors = ProfileCourseTable::getInstance()->findByCourseIdAndIsInstructor($this->course->getId(), true);
-    $this->courseStudents = ProfileCourseTable::getInstance()->findByCourseIdAndIsInstructor($this->course->getId(), false);
+    $this->courseInstructorPeers = PeerTable::getInstance()->findByCourseIdAndIsInstructor($this->getUser()->getId(), $this->course->getId(), true);
+    $this->courseStudentPeers = PeerTable::getInstance()->findByCourseIdAndIsInstructor($this->getUser()->getId(), $this->course->getId(), false);
   }
 
   /**
@@ -35,14 +35,16 @@ class course_peerActions extends sfActions {
   public function executeChooseStudents(sfWebRequest $request) {
     $this->currentStudentIds = array();
 
-    // fetch all profiles for now
-    $this->students = ProfileTable::getInstance()->findByIsInstructor(false);
+    $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), false);
 
     // look for the current course profiles
     $currentCourseStudents = ProfileCourseTable::getInstance()->findByCourseId($this->course->getId());
 
     foreach ($currentCourseStudents as $currentCourseStudent) {
-      $this->currentStudentIds[] = $currentCourseStudent->getProfileId();
+      // make sure only course students can be delt with
+      if (!$currentCourseStudent->getProfile()->getIsInstructor()) {
+        $this->currentStudentIds[] = $currentCourseStudent->getProfileId();
+      }
     }
 
     $studentIds = $request->getParameter("student", array());
@@ -74,14 +76,16 @@ class course_peerActions extends sfActions {
   public function executeChooseInstructors(sfWebRequest $request) {
     $this->currentInstructorIds = array();
 
-    // fetch all instructors for now
-    $this->instructors = ProfileTable::getInstance()->findByIsInstructor(true);
+    $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), true);
 
     // look for the current course profiles
     $currentCourseInstructors = ProfileCourseTable::getInstance()->findByCourseId($this->course->getId());
 
     foreach ($currentCourseInstructors as $currentCourseInstructor) {
-      $this->currentInstructorIds[] = $currentCourseInstructor->getProfileId();
+      // make sure only course instructors can be delt with
+      if ($currentCourseInstructor->getProfile()->getIsInstructor()) {
+        $this->currentInstructorIds[] = $currentCourseInstructor->getProfileId();
+      }
     }
 
     $instructorIds = $request->getParameter("instructor", array());
@@ -111,7 +115,7 @@ class course_peerActions extends sfActions {
    * @param sfRequest $request A request object
    */
   public function executeStudents(sfWebRequest $request) {
-    $this->courseStudents = ProfileCourseTable::getInstance()->findByCourseIdAndIsInstructor($this->course->getId(), false);    
+    $this->courseStudentPeers = PeerTable::getInstance()->findByCourseIdAndIsInstructor($this->getUser()->getId(), $this->course->getId(), false);
   }
 
   /**
@@ -120,7 +124,7 @@ class course_peerActions extends sfActions {
    * @param sfRequest $request A request object
    */
   public function executeInstructors(sfWebRequest $request) {
-    $this->courseInstructors = ProfileCourseTable::getInstance()->findByCourseIdAndIsInstructor($this->course->getId(), true);
+    $this->courseInstructorPeers = PeerTable::getInstance()->findByCourseIdAndIsInstructor($this->getUser()->getId(), $this->course->getId(), true);
   }
 
 }

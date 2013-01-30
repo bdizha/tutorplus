@@ -3,7 +3,7 @@
 <script type='text/javascript'>
     //<![CDATA[
     $(document).ready(function(){
-        // submit a discussion comment
+        // submit a DiscussionGroup comment
         $('.submit-discussion-comment').click(function() {
             var $this = $(this);
             var messageId = $this.attr('messageid'); 
@@ -13,7 +13,7 @@
                 $this.val("Commenting...");          
                 $('#discussion-comment-form-' + messageId).ajaxSubmit(function(data){             
                     if(data != 'failure'){
-                        $.get('/discussion_comment/' + data, {}, function(replyData){   
+                        $.get('/discussion/comment/' + data, {}, function(replyData){   
                             $('#discussion-comments-' + messageId).append(replyData);
                         }, 'html');                    
                     
@@ -25,7 +25,7 @@
                 
                         $('#comment-count-' + messageId).html(postCommentCount);
                         $('#comment-count').html(topicCommentCount);
-                        $('#discussion-comment-form-holder-' + messageId).load('/discussion_comment/new');                
+                        $('#discussion-comment-form-holder-' + messageId).load('/discussion/comment/new');                
                     }
                 });
                 return false;

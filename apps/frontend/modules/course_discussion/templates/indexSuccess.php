@@ -2,11 +2,11 @@
 <?php include_component('common', 'secureMenu', $helper->indexLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <div class="sf_admin_heading">
-    <h3><?php echo __('Discussions', array(), 'messages') ?></h3>
+    <h3><?php echo __('Course Discussions', array(), 'messages') ?></h3>
 </div>
 <div id="sf_admin_content">
     <div class="content-block">
-        <div id="discussion_container">
+        <div id="discussion_group_container">
             <ul class="top-actions">
                 <?php include_partial('course_discussion/list_actions', array('helper' => $helper)) ?>
             </ul>

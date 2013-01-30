@@ -5,7 +5,8 @@
         <div id="choose_course_students_form_holder">
           <form id="choose_course_students_form" action="<?php echo url_for("@choose_course_students") ?>" method="post">
             <fieldset id="sf_fieldset_none">             
-              <?php foreach ($students as $student): ?>
+              <?php foreach ($studentPeers as $peer): ?>
+                <?php $student = ($peer->getInviterId() == $sf_user->getId()) ? $peer->getInvitee() : $peer->getInviter() ?>
                 <div class="course-follower">
                   <?php include_partial('personal_info/photo', array('profile' => $student, "dimension" => 36)) ?>
                   <div class="name"><?php echo $student ?></div>
@@ -15,17 +16,7 @@
                 </div> 
               <?php endforeach; ?>
             </fieldset>
-            <ul class="sf_admin_actions">
-              <li class="sf_admin_action_cancel">
-                <input class="cancel" type="button" value="Cancel"/>                                    
-              </li>     
-              <li class="sf_admin_action_done">
-                <input class="done" type="button" value="Done"/>                                    
-              </li>
-              <li class="sf_admin_action_save_students">
-                <input class="save" type="button" value="Save"/>                    
-              </li>
-            </ul>
+            <?php include_partial('common/form_actions') ?>
           </form>
         </div>
       </div>
@@ -40,10 +31,10 @@
 
       $("#choose_course_students_form").ajaxSubmit(function(data){
         $("#cboxLoadedContent").html(data);
-      });
 
-      // fetch course students
-      fetchCourseStudents();
+        // fetch course students
+        fetchCourseStudents();
+      });
 
       return false;
     });

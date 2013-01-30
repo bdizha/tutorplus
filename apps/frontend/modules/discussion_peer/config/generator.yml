@@ -7,7 +7,7 @@ generator:
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          discussion_member
+    route_prefix:          discussion_peer
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
@@ -17,20 +17,18 @@ generator:
         user:                             { label: Peer }
         subscription_type:                { label: Subscription }
         membership_type:                  { label: Membership }
-        posting_permission_type:          { label: Posting Permission }
         subscription_type_display:        { label: Subscription }
         membership_type_display:          { label: Membership }
-        posting_permission_type_display:  { label: Posting Permission }
         status_display:                   { label: Status }
 
       form:
         display:            
          "Parcipant Details":          [ nickname, status, is_removed ]
-         "Membership Settings":        [ subscription_type, membership_type, posting_permission_type ]
+         "Membership Settings":        [ subscription_type, membership_type ]
       filter:
         class:                         false
       list:
-        title:                         Discussion Members
+        title:                         DiscussionGroup Members
         display:                       [ =user, nickname, membership_type_display, status_display, is_removed ]
         sort:                          [ nickname, asc ]
         batch_actions:                 []
@@ -38,7 +36,7 @@ generator:
         object_actions:
           _edit:                       []
         actions:
-          listDiscussion:              { label: < My Discussion }
+          listDiscussionGroup:              { label: < My DiscussionGroup }
           _new:                        { label: + Invite Peers }
       edit:
         title:                         Edit Peer ~ %%nickname%%

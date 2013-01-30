@@ -1,13 +1,29 @@
 .profile-info {
   margin-top: 5px;
   display: inline-block;
-  width: 490px;
+  width: 451px;
+  vertical-align: top;
 }
 
 .profile-image {
+  vertical-align: top;
   display: inline-block;
-  width: 176px;
+  width: 243px;
   padding: 10px;
+}
+
+.profile-biography{
+  height: 130px;
+  padding: 10px;
+  display: inline-block;
+  width: 128px;
+}
+
+#profile_about_me{
+  vertical-align: top;
+  display: inline-block;
+  padding: 10px 10px 10px 0;
+  width: 556px;
 }
 
 .account-settings-block {
@@ -53,11 +69,17 @@
 .peer{
   display: inline-block;
   height: 58px;
-  margin: 10px 10px 0px 0;
+  margin: 1px -3px 0px 0px;
   padding: 10px 10px 0px 10px;
-  width: 322px;
+  width: 328px;
   word-break: break-all;
   background-color: #F5F5F5;
+  border-radius: 2px;
+  position: relative;
+}
+
+.peer a{
+  color: #6B6B6B !important;
 }
 
 .last{
@@ -113,13 +135,17 @@
   position: relative;
   display: block;
   border: 1px solid #F5F5F5;
-  margin: 0 0 10px 10px;
+  margin: 0 0 10px 0;
   vertical-align: top;
   background-color: #F5F5F5;
 }
 
 .snapshot .heading{
   border-bottom: 1px solid #F5F5F5;
+}
+
+.snapshot .name a, .snapshot .heading a{
+  font-size: 13px !important;
 }
 
 .snapshot .body{
@@ -137,18 +163,6 @@
   border: 1px solid #F5F5F5;
   border-bottom: none !important;
   margin-left: 43px;
-}
-
-.comments .statistics{
-  background-color: #F5F5F5;
-  border-top: none !important;
-  border-bottom: 1px solid #F5F5F5;
-  margin-left: 0 !important;
-}
-
-.snapshot .comment .heading{
-  height: 45px !important;
-  border-bottom: 1px solid #F5F5F5;
 }
 
 .left-timeline, .right-timeline{
@@ -175,4 +189,35 @@
 
 .qualification .body, .award .body {
   padding-top: 5px;
+}
+
+#notification_settings_form .sf_admin_boolean label{
+  position: absolute;
+  left: 30px;
+  top: 6px;
+}
+
+#notification_settings_form .sf_admin_boolean .content{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+#notification_settings_form .sf_admin_form_row{
+  height: 22px;
+}
+
+#profile_biography_form_holder .redactor_editor {
+  max-height: 150px;
+  height: 200px;
+}
+
+.profile-image .button{
+  width: 100px;
+  margin-bottom: 5px;
+}
+
+#profile_details .row-value,
+#profile_credentials .row-value{
+    width: 226px !important;
 }

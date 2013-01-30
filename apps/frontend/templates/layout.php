@@ -17,8 +17,11 @@
       <div id="main-container">
         <div id="main-header">
           <div class="wrapper">
+            <div id="main-logo">
+              <a href="/" title="">TutorPlus.org</a>
+            </div>
             <div id="main-menu">
-              <?php include_slot('top-menu') ?>
+              <?php include_slot('main-menu') ?>
             </div>                 
           </div>
         </div>
@@ -31,7 +34,6 @@
             <div id="middle-column">
               <?php echo $sf_content ?>
             </div>
-            <div id="color-box-modal" style="display:none">&nbsp;</div>
           </div>
         </div>
         <div id="main-footer">

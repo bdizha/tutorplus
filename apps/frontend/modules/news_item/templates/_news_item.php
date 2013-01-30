@@ -1,7 +1,7 @@
 <?php use_helper('I18N', 'Date') ?>
 <div class="news-item">
   <div class="heading">
-    <?php include_partial('personal_info/photo', array('profile' => $newsItem->getProfile(), "dimension" => 96)) ?>
+    <?php include_partial('personal_info/photo', array('profile' => $newsItem->getProfile(), "dimension" => 36)) ?>
     <?php echo $newsItem->getHeading() ?>
   </div>
   <div class="body">

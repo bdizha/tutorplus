@@ -13,10 +13,10 @@
 class DiscussionPost extends BaseDiscussionPost {
 
     public function postInsert($event) {        
-        $discussion = $this->getDiscussionTopic()->getDiscussion();
-        $discussion->setPostCount($discussion->getPostCount() + 1);
-        $discussion->setUpdatedAt($this->getCreatedAt());
-        $discussion->save();
+        $discussionGroup = $this->getDiscussionTopic()->getDiscussionGroup();
+        $discussionGroup->setPostCount($discussionGroup->getPostCount() + 1);
+        $discussionGroup->setUpdatedAt($this->getCreatedAt());
+        $discussionGroup->save();
         
         // save this activity
         $activityFeed = new ActivityFeed();

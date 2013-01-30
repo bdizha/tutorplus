@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * @package    symfony
@@ -10,9 +11,7 @@ class sfGuardAuthActions extends sfActions {
 
   public function executeLogIn($request) {
     $user = $this->getUser();
-    if ($user->isAuthenticated()) {
-      return $this->redirect('@dashboard');
-    }
+    $this->redirectIf($this->getUser()->isAuthenticated(), "@dashboard");
 
     $this->form = new ProfileSignInForm();
 

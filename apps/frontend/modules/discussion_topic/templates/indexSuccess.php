@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <div class="sf_admin_heading">
-    <h3>Discussion ~ <?php echo $discussion->getName() ?></h3>
+    <h3>DiscussionGroup ~ <?php echo $discussionGroup->getName() ?></h3>
 </div>
 <div id="sf_admin_content">
     <div class="content-block">
@@ -12,6 +12,6 @@
         </ul>
     </div>
     <div class="content-block">
-        <?php include_partial('discussion_topic/list_footer', array('discussion' => $discussion)) ?>
+        <?php include_partial('discussion_topic/list_footer', array('DiscussionGroup' => $discussionGroup)) ?>
     </div>
 </div>

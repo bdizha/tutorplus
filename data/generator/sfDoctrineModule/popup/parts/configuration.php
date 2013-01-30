@@ -8,7 +8,7 @@
  * @author     ##AUTHOR_NAME##
  * @version    SVN: $Id: configuration.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfiguration extends sfModelGeneratorConfiguration
+abstract class Base<?php echo ucwords($this->getModuleName()) ?>GeneratorConfiguration extends sfModelGeneratorConfiguration
 {
 <?php include dirname(__FILE__).'/actionsConfiguration.php' ?>
 
@@ -55,5 +55,11 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorConfigu
   {
     return '<?php echo isset($this->config['list']['table_count_method']) ? $this->config['list']['table_count_method'] : null ?>';
 <?php unset($this->config['list']['table_count_method']) ?>
+  }
+
+  public function getNotice()
+  {
+    return '<?php echo isset($this->config['extra']['notice']) ? $this->config['extra']['notice'] : null ?>';
+<?php unset($this->config['extra']['notice']) ?>
   }
 }

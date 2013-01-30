@@ -1,58 +1,58 @@
 <?php
 
 /**
- * discussion_member module helper.
+ * discussion_peer module helper.
  *
  * @package    tutorplus
- * @subpackage discussion_member
+ * @subpackage discussion_peer
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHelper
+class discussion_peerGeneratorHelper extends Basediscussion_peerGeneratorHelper
 {
-    public $discussion = null;
+    public $discussionGroup = null;
 
-    public function setDiscussion($discussion)
+    public function setDiscussionGroup($discussionGroup)
     {
-        $this->discussion = $discussion;
+        $this->discussionGroup = $discussionGroup;
     }
 
-    public function linkToMyDiscussion($object, $params)
+    public function linkToMyDiscussionGroup($object, $params)
     {
-        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/discussion/' . $object->getDiscussion()->getSlug() . '\';return false"/>';
+        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/discussion/group/' . $object->getDiscussionGroup()->getSlug() . '\';return false"/>';
     }
 
-    public function linkToListDiscussion($params)
+    public function linkToListDiscussionGroup($params)
     {
-        $discussionId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_show_id', null);
-        $discussion = DiscussionTable::getInstance()->find($discussionId);
-        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/discussion/' . $discussion->getSlug() . '\';return false"/>';
+        $discussionGroupId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_group_show_id', null);
+        $discussionGroup = DiscussionGroupTable::getInstance()->find($discussionGroupId);
+        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/discussion/group/' . $discussionGroup->getSlug() . '\';return false"/>';
     }
 
-    public function linkToMembers($object, $params)
+    public function linkToPeers($object, $params)
     {
-        return '<li class="sf_admin_action_show">' . link_to(__($params['label'], array(), 'sf_admin'), "/discussion_member", array("onclick" => "document.location.href='/discussion_member';return false")) . '</li>';
+        return '<li class="sf_admin_action_show">' . link_to(__($params['label'], array(), 'sf_admin'), "/discussion/peer", array("onclick" => "document.location.href='/discussion/peer';return false")) . '</li>';
     }
 
     public function linkToManagePeers($object, $params)
     {
-        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/discussion_member\';return false"/>';
+        return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/discussion/peer\';return false"/>';
     }
 
     public function linkToShow($object, $params)
     {
-        return '<li class="sf_admin_action_show">' . link_to(__($params['label'], array(), 'sf_admin'), "/discussion/" . $object->getId(), array("onclick" => "document.location.href='/discussion/'" . $object->getSlug() . ";return false")) . '</li>';
+        return '<li class="sf_admin_action_show">' . link_to(__($params['label'], array(), 'sf_admin'), "/discussion/group/" . $object->getId(), array("onclick" => "document.location.href='/discussion/group/'" . $object->getSlug() . ";return false")) . '</li>';
     }
 
-    public function courseBreadcrumbs($discussion)
+    public function courseBreadcrumbs($discussionGroup)
     {
-        $course = $discussion->getCourse();
+        $course = $discussionGroup->getCourse();
         return array('breadcrumbs' => array(
             "Courses" => "course",
             $course->getCode() . " ~ " . myToolkit::shortenString($course->getName(), 50) => "course/" . $course->getSlug(),
-            "Discussions" => "course_discussion",
-            myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
-            "Peers" => "discussion_member"
+            "DiscussionGroups" => "course_discussion",
+            myToolkit::shortenString($discussionGroup->getName(), 50) => "discussion/group/" . $discussionGroup->getSlug(),
+            "Peers" => "discussion_peer"
         )
         );
     }
@@ -66,35 +66,34 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
         );
     }
 
-    public function discussionBreadcrumbs($discussion)
+    public function DiscussionGroupBreadcrumbs($discussionGroup)
     {
         return array('breadcrumbs' => array(
-            "Discussions" => "discussion",
-            "Discussion Explorer" => "discussion",
-            myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
-            "Peers" => "discussion_member"
+            "DiscussionGroups" => "discussion_group",
+            "DiscussionGroup Explorer" => "discussion_group",
+            myToolkit::shortenString($discussionGroup->getName(), 50) => "discussion/group/" . $discussionGroup->getSlug(),
+            "Peers" => "discussion_peer"
         )
         );
     }
 
-    public function discussionLinks($discussionTopic)
+    public function DiscussionGroupLinks($discussionTopic)
     {
         return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_explorer"
+            "currentParent" => "DiscussionGroups",
+            "current_child" => "DiscussionGroups",
+            "current_link" => "group_explorer"
         );
     }
 
     public function editBreadcrumbs($object)
     {
-        $discussion = $object->getDiscussion();
+        $discussionGroup = $object->getDiscussionGroup();
         return array('breadcrumbs' => array(
-            "Discussions" => "discussion",
-            "Discussion Explorer" => "discussion",
-            myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
-            "Peers" => "discussion_member",
-            "Edit Participant ~ " . $object->getNickname() => "discussion/member/" . $object->getId() . "/edit"
+            "Group Explorer" => "discussion_group",
+            myToolkit::shortenString($discussionGroup->getName(), 50) => "discussion/group/" . $discussionGroup->getSlug(),
+            "Peers" => "discussion/peer",
+            "Edit Participant ~ " . $object->getNickname() => "discussion/peer/" . $object->getId() . "/edit"
         )
         );
     }
@@ -102,11 +101,10 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
     public function newBreadcrumbs()
     {
         return array('breadcrumbs' => array(
-            "Discussions" => "discussion",
-            "Discussion Explorer" => "discussion",
-            myToolkit::shortenString($this->discussion->getName(), 50) => "discussion/" . $this->discussion->getSlug(),
-            "Peers" => "discussion_member",
-            "New Participant" => "discussion/member/new"
+            "DiscussionGroup Explorer" => "discussion/group",
+            myToolkit::shortenString($this->discussionGroup->getName(), 50) => "discussion/group/" . $this->discussionGroup->getSlug(),
+            "Peers" => "discussion/peer",
+            "New Participant" => "discussion/peer/new"
         )
         );
     }
@@ -114,9 +112,9 @@ class discussion_memberGeneratorHelper extends BaseDiscussion_memberGeneratorHel
     public function editLinks()
     {
         return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_explorer"
+            "currentParent" => "groups",
+            "current_child" => "groups",
+            "current_link" => "group_explorer"
         );
     }
 

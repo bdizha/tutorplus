@@ -2,7 +2,7 @@
 <div id="cboxLoadedContentInner">
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
-            <?php include_partial('common/flashes') ?>
+            <?php include_partial('common/flashes_normal') ?>
             <form id="<?php echo $module ?>_choose_course_form" action="<?php echo url_for2('choose_course', array("module_name" => $module, "object_id" => $objectId)) ?>" method="post">
                 <?php foreach ($courses as $key => $course): ?>
                     <div class="student-course">

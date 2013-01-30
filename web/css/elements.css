@@ -1,77 +1,83 @@
 *{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-size: 12px;
-    text-shadow: none;
-    line-height: 20px;
-    font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-size: 12px;
+  text-shadow: none;
+  line-height: 20px;
+  font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
 }
 
 html{
-    overflow-y: scroll;
-    height: 100%;
+  overflow-y: scroll;
+  height: 100%;
 }
 
-div, li {
-    line-height: 22px;
-    position: relative;
-    vertical-align: top;
+li {
+  line-height: 22px;
+  position: relative;
 }
 
 .error li, .error b{
-    font-size: 11px;
+  font-size: 11px;
 }
 
 textarea{
-    line-height: 23px !important;
+  line-height: 23px !important;
 }
 
 body{
-    font-size: 12px;
-    height: 100%;
-    width: 100%;
-    line-height: 20px;
-    margin: 0;
-    padding: 0;
+  color: #6B6B6B;
+  font-size: 12px;
+  height: 100%;
+  width: 100%;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 ol, ul{
-    list-style: none outside none;
+  list-style: none outside none;
 }
 
 fieldset, img{
-    border-color: transparent;
-    border-width: 0;
+  border-color: transparent;
+  border-width: 0;
 }
 
 a{
-    color: #b5a072;
-    text-decoration: none;
+  color: #b5a072;
+  text-decoration: none;
 }
 
 p{
-    margin-bottom: 11px;
+  margin-bottom: 11px;
 }
 
 td p{
-    margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 h1{
-    color: #B5A072;
-    font-size: 30px;
-    font-weight: normal;
+  color: #B5A072;
+  font-size: 30px;
+  font-weight: normal;
 }
 
 h2{
-    font-size: 20px;
-    font-weight: normal;
+  font-size: 20px;
+  font-weight: normal;
 }
 
 h4{
-    background-color: #F5F5F5;
-    padding: 5px 10px;
-    font-weight: normal;
-    border: 1px solid #F1F1F1;
+  background-color: #F5F5F5;
+  padding: 5px 10px;
+  font-weight: normal;
+  border: 1px solid #F1F1F1;
+}
+
+h5{
+  color: #B5A072;
+  font-weight: normal;
 }

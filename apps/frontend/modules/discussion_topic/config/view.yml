@@ -1,5 +1,5 @@
 all:
-  stylesheets: [secure.css, discussion.css, profile.css ]
+  stylesheets: [secure.css, discussion_group.css, profile.css ]
   has_layout: false
   
 showSuccess:

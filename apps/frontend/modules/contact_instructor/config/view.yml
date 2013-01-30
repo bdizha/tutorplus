@@ -1,8 +1,0 @@
-all:
-  stylesheets: [bulletin_board.css, profile.css]
-  
-newSuccess:
-  layout: false
-  
-editSuccess:
-  layout: false

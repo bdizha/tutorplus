@@ -32,10 +32,10 @@ class DiscussionPostTable extends Doctrine_Table
     {
         $q = $this->createQuery('dtm')
             ->innerJoin('dtm.DiscussionTopic dt')
-            ->innerJoin('dt.Discussion d');
+            ->innerJoin('dt.DiscussionGroup d');
         if ($courseId)
         {
-            $q->innerJoin('d.CourseDiscussion cd')
+            $q->innerJoin('d.CourseDiscussionGroup cd')
                 ->addWhere('cd.course_id = ?', $courseId);
         }
         $q->addWhere('dtm.created_at > ?', date('Y-m-d H:i:s', strtotime("NOW - 7 days")));

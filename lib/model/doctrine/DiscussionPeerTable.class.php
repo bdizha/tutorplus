@@ -13,11 +13,6 @@ class DiscussionPeerTable extends Doctrine_Table {
   const MEMBERSHIP_TYPE_ORDINARY = 0;
   const MEMBERSHIP_TYPE_MANAGER = 1;
   const MEMBERSHIP_TYPE_OWNER = 2;
-  const POSTING_PERMISSION_TYPE_DEFAULT = 0;
-  const POSTING_PERMISSION_TYPE_OWNER = 1;
-  const POSTING_PERMISSION_TYPE_CO_OWNER = 2;
-  const POSTING_PERMISSION_TYPE_RESTRICTED = 3;
-  const POSTING_PERMISSION_TYPE_GUEST = 4;
   const STATUS_JOINED = 0;
   const STATUS_WAITING = 1;
   const STATUS_IGNORED = 2;
@@ -26,20 +21,13 @@ class DiscussionPeerTable extends Doctrine_Table {
 
   static public $subscription_types = array(
       0 => 'Prompt Email - can promptly receive emails for every activity.',
-      1 => 'Summary Email - can only recieve discussion activity summary.',
-      2 => 'Digest Email - can only recieve daily discussion activity summary.'
+      1 => 'Summary Email - can only recieve group activity summary.',
+      2 => 'Digest Email - can only recieve daily group activity summary.'
   );
   static public $membership_types = array(
       0 => 'Ordinary - can only read and post messages',
       1 => 'Manager - can change any group setting.',
       2 => 'Owner - can change any group setting.'
-  );
-  static public $posting_permission_types = array(
-      0 => 'Default - member is allowed to post',
-      1 => 'Owner - member has all the rights to this group',
-      2 => 'Co-owner - member is allowed to act as the group owner',
-      3 => 'Restricted - member is not allowed to post',
-      4 => 'Guest - member\'s posts are moderated'
   );
   static public $statues = array(
       0 => 'Joined - member accepted the invitation and has since joined.',
@@ -66,48 +54,44 @@ class DiscussionPeerTable extends Doctrine_Table {
     return self::$membership_types;
   }
 
-  public function getPostingPermissionsType() {
-    return self::$posting_permission_types;
-  }
-
   public function getStatues() {
     return self::$statues;
   }
 
-  public function retrievePeers($discussionId, $isRemoved = 0) {
+  public function retrievePeers($discussionGroupId, $isRemoved = 0) {
     $q = Doctrine_Query::create()
         ->from('DiscussionPeer dp')
-        ->addWhere('dp.discussion_id = ?', $discussionId)
+        ->addWhere('dp.discussion_group_id = ?', $discussionGroupId)
         ->addWhere('dp.is_removed = ?', $isRemoved);
 
     return $q->execute();
   }
 
-  public function unSubscribeByProfileIdsAndDiscussionId($profileIds, $discussionId) {
+  public function unSubscribeByProfileIdsAndDiscussionGroupId($profileIds, $discussionGroupId) {
     $query = $this->createQuery()
         ->update()
         ->set("is_removed", "?", 1)
         ->whereIn('profile_id', $profileIds)
-        ->andWhere("discussion_id = ?", $discussionId);
+        ->andWhere("discussion_group_id = ?", $discussionGroupId);
 
     return $query->execute();
   }
 
-  public function getPeersByDiscussionIdAndProfileId($discussionId, $profileId) {
+  public function getPeersByDiscussionGroupIdAndProfileId($discussionGroupId, $profileId) {
     $q = $this->createQuery('dp')
-        ->addWhere('dp.discussion_id = ?', $discussionId)
+        ->addWhere('dp.discussion_group_id = ?', $discussionGroupId)
         ->andWhere('dp.profile_id = ?', $profileId);
 
     return $q->fetchOne();
   }
 
-  public function retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $discussionId, $limit = 2) {
+  public function retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $discussionGroupId, $limit = 2) {
     $randomizedSuggestions = array();
 
     $where = "(id IN (SELECT st.profile_id FROM Student st WHERE st.id IN (SELECT sc.student_id FROM StudentCourse sc WHERE sc.course_id IN (SELECT sc2.course_id FROM Studentcourse sc2 WHERE sc2.student_id = $studentId))) ";
     $where .= "OR (p.id IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = $profileId)) ";
     $where .= "OR (p.id IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = $profileId))) ";
-    $where .= "AND (p.id NOT IN (SELECT dp.profile_id FROM DiscussionPeer dp WHERE dp.discussion_id = $discussionId))";
+    $where .= "AND (p.id NOT IN (SELECT dp.profile_id FROM DiscussionPeer dp WHERE dp.discussion_group_id = $discussionGroupId))";
     $q = Doctrine_Query::create()
         ->select('p.id, p.first_name, p.last_name')
         ->from("Profile p")
@@ -133,9 +117,9 @@ class DiscussionPeerTable extends Doctrine_Table {
     return $suggestedProfiles;
   }
 
-  public function findOneByDiscussionIdAndProfileId($discussionId, $profileId) {
+  public function findOneByDiscussionGroupIdAndProfileId($discussionGroupId, $profileId) {
     $query = $this->createQuery()
-        ->where('discussion_id = ?', $discussionId)
+        ->where('discussion_group_id = ?', $discussionGroupId)
         ->andWhere("profile_id = ?", $profileId);
 
     return $query->fetchOne();

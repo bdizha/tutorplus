@@ -2,7 +2,7 @@
 <?php include_component('common', 'secureMenu', $helper->editLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs($notification_settings)) ?>
 <div class="sf_admin_heading">
-  <h3><?php echo __('Notification Settings', array(), 'messages') ?></h3>
+  <h3><?php echo __('Email Settings', array(), 'messages') ?></h3>
 </div>
 <div id="sf_admin_form_container">
   <div id="sf_admin_content">

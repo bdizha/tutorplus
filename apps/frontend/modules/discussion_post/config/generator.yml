@@ -20,7 +20,7 @@ generator:
       filter:
         class: false
       list:
-        title:             My Topic Messages
+        title:             My Posts
         display:           [message]
         sort:              [name, asc]
         batch_actions:     []
@@ -28,13 +28,13 @@ generator:
         actions:
           _new:            []
       edit:
-        title:             Edit Discussion: %%name%%
+        title:             Edit Post: %%name%%
         actions:
           _delete:         []
           cancel:          []
           done:            []
           _save:           []
       new:
-        title:             New Discussion
+        title:             New Post
         actions:
           _save:           [label: Send]

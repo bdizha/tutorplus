@@ -11,7 +11,7 @@ require_once dirname(__FILE__) . '/../lib/discussion_commentGeneratorHelper.clas
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussion_commentActions extends autodiscussion_commentActions {
+class discussion_commentActions extends autoDiscussion_commentActions {
 
     public function executeShow(sfWebRequest $request) {
         $this->discussionComment = $this->getRoute()->getObject();
@@ -46,7 +46,7 @@ class discussion_commentActions extends autodiscussion_commentActions {
         $mailer->addValues(array(
             "OWNER" => $owner->getName(),
             "discussion_comment" => $object->getMessage(),
-            "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
+            "discussion_topic_LINK" => $this->getPartial('email_template/link', array(
                 'title' => $this->generateUrl('discussion_topic_show', array("slug" => $discussionTopic->getSlug()), 'absolute=true'),
                 'route' => "@discussion_topic_show?slug=" . $discussionTopic->getSlug())
                 )));

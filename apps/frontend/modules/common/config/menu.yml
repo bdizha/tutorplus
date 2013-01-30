@@ -2,59 +2,61 @@ secure:
   dashboard:  
     details:                          { route: dashboard, label: Dashboard }
     type:                             Many
+    credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:                         {}
   timeline:                          
     details:                          { route: activity_feed, label: Timeline }
     type:                             One
+    credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       timeline:                                     
         details:                      { route: activity_feed, label: Timeline }
-        credentials:                  [ student, instructor, staff ]
+        credentials:                  [ Student, Instructor, Staff ]
         children:
           activity_feeds:             { route: activity_feed, label: "Activity Feeds" }
           news_items:                 { route: news_item, label: "News Items" }
           announcements:              { route: announcement, label: "Announcements" }
   courses:                          
-    details:                          { route: course_explorer, label: Courses }
+    details:                          { route: my_courses, label: Courses }
     type:                             One
+    credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       courses:                                        
         details:                      { route: my_courses, label: "Courses" }
-        credentials:                  [ student, instructor, staff ]
+        credentials:                  [ Student, Instructor, Staff ]
         children:
-          course_explorer:            { route: course_explorer, label: "Course Explorer" }
           my_courses:                 { route: my_courses, label: "My Courses" }
+          course_explorer:            { route: course_explorer, label: "Course Explorer" }
       my_course:                                        
         details:                      { route: course_show, label: "Course Home" }
-        credentials:                  [ student, instructor, staff ]
+        credentials:                  [ Student, Instructor, Staff ]
         children:
           course_info:                { route: course_show, param: slug,  label: "Course Info" }
           announcements:              { route: course_announcement, label: "Announcements" }
-          course_calendar:            { route: course_calendar, label: "Calendar" }
+          #course_calendar:            { route: course_calendar, label: "Calendar" }
+          course_discussions:         { route: course_discussion, label: "Course Discussions" }
           course_peers:               { route: course_peer, label: "Course Peers" }
-          #assignments:                { route: assignment, label: "Assignments" }
-          #assessment_types:           { route: assessment_type, label: "Assessment Types" }
-          course_discussion:          { route: course_discussion, label: "Discussions" }
-          #course_files:               { route: course_file, label: "Course Files" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
-        credentials:                  [ student, instructor, staff ]
+        credentials:                  [ Student, Instructor, Staff ]
         children:
           assignment_info:            { route: assignment_show, label: "Assignment Info" }
-          assignment_discussion:      { route: course_discussion, label: "Discussions" }
-  discussions:                          
-    details:                          { route: discussion_explorer, label: Discussions }
+          assignment_group:           { route: course_group, label: "groups" }
+  groups:                          
+    details:                          { route: my_groups, label: Groups }
     type:                             One
+    credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
-      discussions:                                     
-        details:                      { route: discussion_explorer, label: "Discussions" }
-        credentials:                  [ student, instructor, staff ]
+      groups:                                     
+        details:                      { route: group_explorer, label: "Groups" }
+        credentials:                  [ Student, Instructor, Staff ]
         children:
-          discussion_explorer:        { route: discussion_explorer, label: "Discussion Explorer" }
-          my_discussions:             { route: my_discussions, label: "My Discussions" }
+          my_groups:                  { route: my_groups, label: "My Groups" }
+          group_explorer:             { route: group_explorer, label: "Group Explorer" }
   calendar:                          
     details:                          { route: my_schedule, label: Calendar }
     type:                             One
+    credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       my_calendar:                                        
         details:                      { route: my_schedule, label: "Calendar" }
@@ -64,29 +66,36 @@ secure:
           calendars:                  { route: calendar, label: "Calendars" }
   profile:                          
     details:                          { route: profile_show, param: slug, label: Profile }
-    type:                             One
+    type:                             Many
+    credentials:                      [ Student, Instructor, Staff, Administrator ]
     param:                            slug
     children:
       my_profile:                   
-        details:                      { route: profile_show, param: slug, label: "Profile" }
-        credentials:                  [ student, instructor, staff ]
+        details:                      { route: profile_show, param: slug, label: "Profile Info" }
+        credentials:                  [ Student, Instructor, Staff ]
         param:                        slug
         children:                 
           my_info:                    { route: profile_show, param: slug, label: "Public Info" }
-          my_timeline:                { route: profile_timeline, label: "Timeline" }   
+          my_biography:               { route: profile_biography, label: "Biography" }   
           my_peers:                   { route: profile_peers, label: "Peers" }
           my_awards:                  { route: profile_award, label: "Awards" }
           my_qualifications:          { route: profile_qualification, label: "Qualifications" }
-          my_account_settings:        { route: profile_account_settings, command: ignore, label: "Account Settings" }
-#          my_contact_details:         { route: profile_contact_details, command: ignore, label: "Contact Details" }
-          my_notification_settings:   { route: notification_settings, command: ignore, label: "Notification Settings" }
+      my_settings:                   
+        details:                      { route: profile_details, param: slug, label: "Settings" }
+        credentials:                  [ Student, Instructor, Staff ]
+        param:                        slug
+        children:                 
+          my_details:                 { route: profile_details, label: "Personal Details" }
+          my_credentials:             { route: profile_credentials, label: "Access Settings" }
+          my_email_settings:          { route: notification_settings, label: "Email Settings" }
   peers:   
     details:                          { route:  peer_students, label: Peers }
     type:                             One
+    credentials:                      [ Student, Instructor, Staff ]
     children:
       peers:                   
         details:                      { route: peer_students, label: "Peers" }
-        credentials:                  [ student, instructor, staff ]
+        credentials:                  [ Student, Instructor, Staff ]
         children:                    
           student_peers:              { route: peer_students, label: "Students" }
           instructor_peers:           { route: peer_instructors, label: "Instructors" }
@@ -95,10 +104,11 @@ secure:
   messaging:                          
     details:                          { route: message_inbox, label: Messaging }
     type:                             One
+    credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       my_messages:                    
         details:                      { route: message_inbox, label: "Messaging" }
-        credentials:                  [ student, instructor, staff ]
+        credentials:                  [ Student, Instructor, Staff ]
         children:
           message_inbox:              { route: message_inbox, label: "Inbox" }
           message_sent:               { route: message_sent, label: "Sent" }
@@ -107,10 +117,11 @@ secure:
   settings:    
     details:                          { route: course, label: Settings }
     type:                             Many
+    credentials:                      [ Administrator ]
     children:
       academic_settings:                   
         details:                      { route: course, label: "Academic Settings" }
-        credentials:                  [ administrator ]
+        credentials:                  [ Administrator ]
         children:                    
           institutions:               { route: institution, label: Institutions }
           faculties:                  { route: faculty, label: "Faculties" }
@@ -122,7 +133,7 @@ secure:
           academic_periods:           { route: academic_period, label: "Academic Periods" }
       profile_settings:                    
         details:                      { route: student, label: "Profile Settings" }
-        credentials:                  [ administrator ]
+        credentials:                  [ Administrator ]
         children:
           students:                   { route: student, label: "Students" }
           instructors:                { route: instructor, label: "Instructors" }
@@ -131,14 +142,14 @@ secure:
           permissions:                { route: profile_permission, label: "Permissions" }
       communication_settings:                    
         details:                      { route: email_template, label: "Communication Settings" }
-        credentials:                  [ administrator ]
+        credentials:                  [ Administrator ]
         children:
           email_templates:            { route: email_template, label: "Email Templates" }
           mailing_lists:              { route: mailing_list, label: "Mailing Lists" }
           faqs:                       { route: faq, label: "Faqs" }
       location_settings:                    
         details:                      { route: country, label: "Location Settings" }
-        credentials:                  [ administrator ]
+        credentials:                  [ Administrator ]
         children:
           countries:                  { route: country, label: "Countries" }
           state_provincies:           { route: state_province, label: "State Provinces" }
@@ -150,8 +161,8 @@ public:
     details:                        { route: home, label: Home }
   courses:  
     details:                        { route: courses, label: Courses }
-  story:  
-    details:                        { route: story, label: "Our Story" }
+  vision:  
+    details:                        { route: vision, label: "Our Story" }
   institutions:  
     details:                        { route: institutions, label: Institutions }
   instructors:  

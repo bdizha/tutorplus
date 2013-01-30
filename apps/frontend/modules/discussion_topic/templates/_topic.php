@@ -19,6 +19,6 @@
         <span class="list-count"><?php echo $discussionTopic->getPosts()->count() ?></span> posts 
         <span class="list-count"><?php echo $discussionTopic->getCommentCount() ?></span> comments
         <span class="list-count"><?php echo $discussionTopic->getViewCount() ?></span> views
-        <span class="list-count"><?php echo $discussionTopic->getDiscussion()->getPeers()->count() ?></span> peers
+        <span class="list-count"><?php echo $discussionTopic->getDiscussionGroup()->getPeers()->count() ?></span> peers
     </div>
 <?php endif; ?>

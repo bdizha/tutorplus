@@ -54,7 +54,7 @@
 .sf_admin_list table{
   width: 100%;
 }
-.sf_admin_list th, #discussion_topics_footer{
+.sf_admin_list th, #discussion_tops_footer{
   background-color: #F5F5F5;
   color: #7E7E7E;
   font-size: 12px;
@@ -65,7 +65,7 @@
 .sf_admin_list th a{
   font-size: 12px;
   font-weight: normal;
-  color: #9D774B !important;
+  color: #B5A072 !important;
 }
 .sf_admin_list th a:hover{
   text-decoration: underline !important;
@@ -112,8 +112,7 @@
   padding-bottom: 2px;
 }
 ul.sf_admin_actions{
-  height: 34px;
-  margin: 10px 0 0;
+  margin: 10px 0 10px;
   text-align: right;
 }
 #sf_admin_documents ul.sf_admin_actions{
@@ -121,7 +120,7 @@ ul.sf_admin_actions{
   margin: 10px 0 -10px 20px;
 }
 ul.sf_admin_actions li{
-  float: right;
+  display: inline-block;
   margin-left: 5px;
   position: relative;
 }
@@ -143,8 +142,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
   font-weight: normal;
   font-size: 12px;
   background-color: #B94A48;
-  color: white;
-  margin: 13px 0 0 !important;
+  color: #FFF;
   padding: 3px 10px;
 }
 
@@ -156,17 +154,11 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
 }
 
 .notice{
-  background-color: #429CA9;
+  background-color: #a2df8e;
   font-size: 12px;
-  padding: 5px 30px;
-  text-align: center;
-  color: white;
-  margin-top: 10px;
-  position: fixed;
-  top: 34px;
-  z-index: 99999;
-  width: 880px;
-  border: 1px solid #337883;
+  padding: 5px 10px;
+  color: #037D52;
+  border: 1px solid #037D52;
 }
 
 .sf_admin_td_actions img {
@@ -228,4 +220,8 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
 
 #sf_admin_container .attribute-value{
   display: block;    
+}
+
+.value{
+  position: relative;
 }

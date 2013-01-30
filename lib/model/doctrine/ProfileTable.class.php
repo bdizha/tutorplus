@@ -42,11 +42,11 @@ class ProfileTable extends Doctrine_Table {
             ->execute();
   }
 
-  public function retrieveProfileIdsByDiscussionId($discussionId = null, $isRemoved = 0) {
+  public function retrieveProfileIdsByDiscussionGroupId($discussionGroupId = null, $isRemoved = 0) {
     $query = $this->createQuery('p')
         ->select('p.id')
         ->innerJoin('p.DiscussionPeer dp')
-        ->where('dp.discussion_id = ?', $discussionId)
+        ->where('dp.discussion_group_id = ?', $discussionGroupId)
         ->addWhere('dp.is_removed = ?', $isRemoved);
 
     return $query->execute()->getPrimaryKeys();
@@ -86,6 +86,14 @@ class ProfileTable extends Doctrine_Table {
         ->where('pc.course_id = ?', $courseId);
 
     return $query->execute();
+  }
+
+  public function getInstructorQuery($query) {
+    return $query->addWhere("a.is_instructor = ?", true);
+  }
+
+  public function getStudentQuery($query) {
+    return $query->addWhere("a.is_instructor = ?", false);
   }
 
 }

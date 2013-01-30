@@ -1,15 +1,11 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php if ($course->getId()): ?>
     <?php include_component('common', 'secureMenu', $helper->courseLinks($discussionTopic)) ?>
-    <?php include_component('common', 'secureMenu', $helper->discussionLinks($discussionTopic)) ?>
-<?php else: ?>
-<?php endif; ?>
-<?php if ($course->getId()): ?>
     <?php include_partial('common/breadcrumbs', $helper->courseBreadcrumbs($discussionTopic)) ?>
-    <?php include_partial('common/breadcrumbs', $helper->discussionBreadcrumbs($discussionTopic)) ?>
 <?php else: ?>
+    <?php include_component('common', 'secureMenu', $helper->showLinks($discussionTopic)) ?>
+    <?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs($discussionTopic)) ?>
 <?php endif; ?>
-<div id="discussion-notice" class="notice">&nbsp;</div>
 <div class="sf_admin_heading">
     <h3><?php echo __('Topic ~ %%name%%', array('%%name%%' => $discussionTopic->getSubject()), 'messages') ?></h3>
 </div>
@@ -21,16 +17,17 @@
                     <?php include_partial('personal_info/photo', array('profile' => $discussionTopic->getProfile(), "dimension" => 36)) ?>
                     <div class="body">
                         <?php echo $discussionTopic->getMessage() ?>
+                        <div class="user-meta">Started by <?php echo link_to($discussionTopic->getProfile(), 'profile_show', $discussionTopic->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionTopic->getCreatedAt()) ?></span></div>
                     </div>
                     <div class="statistics">
                         <span class="list-count"><?php echo $discussionTopic->getPosts()->count() ?></span> posts 
                         <span class="list-count"><?php echo $discussionTopic->getCommentCount() ?></span> comments
                         <span class="list-count"><?php echo $discussionTopic->getViewCount() ?></span> views
-                        <span class="list-count"><?php echo $discussionTopic->getDiscussion()->getPeers()->count() ?></span> peers
+                        <span class="list-count"><?php echo $discussionTopic->getDiscussionGroup()->getPeers()->count() ?></span> peers
                     </div>
                 </div>
             </div>
-            <?php include_partial('common/actions', array('actions' => $helper->showContentActions($discussionTopic))) ?>
+            <?php include_partial('common/actions', array('actions' => $helper->showActions($discussionTopic))) ?>
         </div>
         <div class="content-block">
             <div id="discussion_post_form_container">
@@ -57,16 +54,16 @@
         });
 
         $(".discussion_topic .edit").click(function(){
-            openPopup($(this).attr("href"),"600px","600px","Edit Discussion Topic");
+            openPopup($(this).attr("href"),"600px","600px","Edit Topic");
             return false;
         });
 
         $("#invite_follower ").click(function(){
-            openPopup($(this).attr("href"),'556px','556px','+ Invite Discussion Peers');
+            openPopup($(this).attr("href"),'556px','556px','+ Invite Group Peers');
             return false;
         });
 
-        // submit discussion topic comments
+        // submit discussion comments
         $('.submit-discussion-comment').click(function(){
             $this = $(this);
             var messageId = $this.attr('messageid');
@@ -75,7 +72,7 @@
                 $this.val("Commenting...");
                 $('#discussion-comment-form-' + messageId).ajaxSubmit(function(data){
                     if (data != 'failure') {
-                        $.get('/discussion_comment/' + data,{},function(replyData){
+                        $.get('/discussion/comment/' + data,{},function(replyData){
                             $('#discussion-comments-' + messageId).append(replyData);
                         },'html');
 
@@ -88,19 +85,30 @@
                         $('#comment-count-' + messageId).html(postCommentCount);
                         $('#comment-count').html(topicCommentCount);
 
-                        $('#discussion-comment-form-holder-' + messageId).load('/discussion_comment/new');
+                        $('#discussion-comment-form-holder-' + messageId).load('/discussion/comment/new');
                     }
                 });
                 return false;
             }
         });
 
+        $(".comment-toggler").click(function(){
+            var postId = $(this).attr("postid");
+            var discussionDomments = $("#discussion-comments-" + postId);
+            if (discussionDomments.hasClass("hide")) {
+                discussionDomments.removeClass("hide");
+            }
+            else{
+                discussionDomments.addClass("hide");
+            }
+        });
+
         $(".peer-actions .invite").click(function(){
             var ProfileId = $(this).attr("ProfileId");
             $.get('/discussion/peer/accept/' + ProfileId,{},function(response){
-                $("#discussion-notice").html(response);
+                $("#discussion-group-notice").html(response);
                 $(".notice").hide();
-                $("#discussion-notice").show();
+                $("#discussion-group-notice").show();
                 setTimeout(function(){
                     $(".notice").hide();
                 },3000);
@@ -113,9 +121,9 @@
                 $(this).children(".inline-content-actions").show();
             }
         },
-        function(){
-            $(this).children(".inline-content-actions").hide();
-        });
+            function(){
+                $(this).children(".inline-content-actions").hide();
+            });
 
         $(".message .button-edit").click(function(){
             $("#message-" + $(this).attr("id")).addClass("editing");
@@ -128,7 +136,7 @@
             var messageId = $(this).attr("id");
             var message = $("#discussion_post_form_" + messageId + " textarea").val();
             if ($.trim(message) == "") {
-                alert("Please enter your discussion post!");
+                alert("Please enter your post!");
                 return;
             }
 

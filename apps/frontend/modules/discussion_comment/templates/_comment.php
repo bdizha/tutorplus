@@ -3,6 +3,6 @@
     <?php include_partial('personal_info/photo', array('profile' => $discussionComment->getProfile(), "dimension" => 36)) ?>
     <div class="body">
         <?php echo $discussionComment->getReply() ?>
-        <div class="user-meta">By <?php echo link_to($discussionComment->getProfile(), 'profile_show', $discussionComment->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionComment->getUpdatedAt()) ?></span></div>
+        <div class="user-meta">By <?php echo link_to($discussionComment->getProfile(), 'profile_show', $discussionComment->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionComment->getCreatedAt()) ?></span></div>
     </div>
 </div>

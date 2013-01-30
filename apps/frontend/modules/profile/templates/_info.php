@@ -1,11 +1,11 @@
 <div class="profile-row">
   <div class="row-label">
-    Gender:
+    Institution:
   </div>
   <div class="row-value">
-    <?php echo $profile->getGender() ?>            
+    <?php echo $profile->getInstitution() ?>                 
   </div>
-</div>                
+</div>
 <div class="profile-row">
   <div class="row-label">
     High school:
@@ -14,7 +14,6 @@
     <?php echo $profile->getHighSchool() ?>                        
   </div>
 </div>
-
 <div class="profile-row">
   <div class="row-label">
     Studied at:
@@ -30,12 +29,4 @@
   <div class="row-value">
     <?php echo $profile->getCurrentStudy() ?>        
   </div>          
-</div>  
-<div class="profile-row">
-  <div class="row-label">
-    Institution:
-  </div>
-  <div class="row-value">
-    <?php echo $profile->getInstitution() ?>                 
-  </div>
 </div>                     

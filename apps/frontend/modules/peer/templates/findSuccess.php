@@ -11,7 +11,7 @@
     </ul>
     <div class="peer-block  padding-10" id="my_peers">
       <?php if (count($potentialPeers) == 0): ?>
-        <div class="tip">Oops, there's not any peers available on this platform yet :)</div>
+        <div class="tip">Oops, there isn't any peers available on this platform yet :)</div>
       <?php else: ?> 
         <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
       </div> 

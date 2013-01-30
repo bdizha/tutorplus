@@ -5,20 +5,20 @@
   <div class="column-one">
     <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 128)) ?>
     <div class="row">
-      <div class="messages">        
-        <div class="caption">Messages</div>
-        <a href="/message/inbox">Messages</a>
+      <?php echo link_to('New Messages', 'message_inbox') ?> <span class="list-count"><?php echo $totalInboxCount ?></span>
+    </div>
+    <div class="row">
+     <?php echo link_to('Events', 'calendar_event') ?> <span class="list-count"><?php echo $totalInboxCount ?></span>
+    </div>
+    <div class="row">
+      <div class="underlined"><h5>You may know</h5></div>
+      <div id="dashboard_suggested_peers" class="dashboard_peers">
+        <?php include_partial('suggestions', array("peers" => $suggestedPeers, "profile" => $profile)) ?>
       </div>
     </div>
     <div class="row">
-      <div class="events">
-        <div class="caption">Events</div>
-        <a href="/calendar/event">Events</a>
-      </div>
-    </div>
-    <div class="row">
-      <h4>My Peers</h4>
-      <div id="dashboard_peers">
+      <div class="underlined"><h5>My Peers <span class="list-count"><?php echo $peers->count() ?></span></h5></div>
+      <div id="dashboard_my_peers" class="dashboard_peers">
         <?php include_partial('peers', array("peers" => $peers, "profile" => $profile)) ?>
       </div>
     </div>
@@ -34,9 +34,9 @@
       </div>
     </div>
     <div class="row">
-      <h4>My Discussions</h4>
+      <h4>My Groups</h4>
       <div id="dashboad_news_items">
-        <?php include_partial('discussions', array("discussions" => $discussions)) ?>
+        <?php include_partial('discussion_groups', array("discussionGroups" => $discussionGroups)) ?>
       </div>
     </div>
   </div>
@@ -55,9 +55,3 @@
     </div>
   </div>
 </div>
-<script type='text/javascript'>
-  //<![DATA[
-  $(document).ready(function(){
-  });
-  //]]
-</script>

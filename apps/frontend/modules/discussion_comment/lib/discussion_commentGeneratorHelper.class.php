@@ -8,7 +8,7 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussion_commentGeneratorHelper extends Basediscussion_commentGeneratorHelper
+class discussion_commentGeneratorHelper extends BaseDiscussion_commentGeneratorHelper
 {
     public function linkToNew($params)
     {

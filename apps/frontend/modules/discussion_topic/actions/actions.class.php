@@ -13,12 +13,12 @@ require_once dirname(__FILE__) . '/../lib/discussion_topicGeneratorHelper.class.
  */
 class discussion_topicActions extends autoDiscussion_topicActions {
 
-    protected $discussionId = "";
+    protected $discussionGroupId = "";
 
     public function executeIndex(sfWebRequest $request) {
-        $this->discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
-        $this->forward404Unless($this->discussion = Doctrine_Core::getTable('Discussion')->find(array(
-            $this->discussionId)), sprintf('Object Course does not exist (%s).', $this->getUser()->getMyAttribute('discussion_show_id', null)));
+        $this->discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
+        $this->forward404Unless($this->discussionGroup = Doctrine_Core::getTable('DiscussionGroup')->find(array(
+            $this->discussionGroupId)), sprintf('Object Course does not exist (%s).', $this->getUser()->getMyAttribute('discussion_group_show_id', null)));
 
         // sorting
         if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
@@ -42,8 +42,8 @@ class discussion_topicActions extends autoDiscussion_topicActions {
         $mailer->setToEmails($toEmails);
         $mailer->addValues(array(
             "OWNER" => $announcer->getName(),
-            "DISCUSSION_TOPIC" => $object->getMessage(),
-            "DISCUSSION_TOPIC_LINK" => $this->getPartial('email_template/link', array(
+            "discussion_topic" => $object->getMessage(),
+            "discussion_topic_LINK" => $this->getPartial('email_template/link', array(
                 'title' => $this->generateUrl('discussion_topic_show', array("slug" => $object->getSlug()), 'absolute=true'),
                 'route' => "@discussion_topic_show?slug=" . $object->getSlug())
                 )));
@@ -54,11 +54,11 @@ class discussion_topicActions extends autoDiscussion_topicActions {
     public function executeShow(sfWebRequest $request) {
         $this->forward404Unless($this->discussionTopic = $this->getRoute()->getObject());
         $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussionTopic->getId());
-        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussionTopic->getDiscussionId());
+        $this->getUser()->setMyAttribute('discussion_group_show_id', $this->discussionTopic->getDiscussionGroupId());
 
         $this->discussionTopic->setViewCount($this->discussionTopic->getViewCount() + 1);
         $this->discussionTopic->save();
-        $this->course = $this->discussionTopic->getDiscussion()->getCourseDiscussion()->getCourse();
+        $this->course = $this->discussionTopic->getDiscussionGroup()->getCourseDiscussionGroup()->getCourse();
         if ($this->course->getId()) {
             $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
         }
@@ -71,17 +71,17 @@ class discussion_topicActions extends autoDiscussion_topicActions {
     }
 
     public function executeNew(sfWebRequest $request) {
-        $this->forward404Unless($this->discussion = Doctrine_Core::getTable('Discussion')->find(array(
-            $this->getUser()->getMyAttribute('discussion_show_id', null))), sprintf('Object does not exist (%s).', $this->getUser()->getMyAttribute('discussion_show_id', null)));
+        $this->forward404Unless($this->discussionGroup = Doctrine_Core::getTable('DiscussionGroup')->find(array(
+            $this->getUser()->getMyAttribute('discussion_group_show_id', null))), sprintf('Object does not exist (%s).', $this->getUser()->getMyAttribute('discussion_group_show_id', null)));
         $this->form = $this->configuration->getForm();
         $this->discussion_topic = $this->form->getObject();
     }
 
     public function executeCreate(sfWebRequest $request) {
-        $this->forward404Unless($this->discussion = DiscussionTable::getInstance()->find(
+        $this->forward404Unless($this->discussionGroup = DiscussionGroupTable::getInstance()->find(
                 array(
-                    $this->getUser()->getMyAttribute('discussion_show_id', null)
-                )), sprintf('Object does not exist (%s).', $this->getUser()->getMyAttribute('discussion_show_id', null)
+                    $this->getUser()->getMyAttribute('discussion_group_show_id', null)
+                )), sprintf('Object does not exist (%s).', $this->getUser()->getMyAttribute('discussion_group_show_id', null)
                 ));
         $this->form = $this->configuration->getForm();
         $this->discussion_topic = $this->form->getObject();
@@ -98,13 +98,13 @@ class discussion_topicActions extends autoDiscussion_topicActions {
             $this->getUser()->setFlash('notice', 'The topic was deleted successfully.');
         }
 
-        $this->redirect('@discussion_show?slug=' . $discussionTopic->getDiscussion()->getSlug());
+        $this->redirect('@discussion_group_show?slug=' . $discussionTopic->getDiscussionGroup()->getSlug());
     }
 
     public function executeTopics(sfWebRequest $request) {
-        $this->discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
-        $this->forward404Unless($this->discussion = Doctrine_Core::getTable('Discussion')->find(array(
-            $this->discussionId)), sprintf('Object Course does not exist (%s).', $this->getUser()->getMyAttribute('discussion_show_id', null)));
+        $this->discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
+        $this->forward404Unless($this->discussionGroup = Doctrine_Core::getTable('DiscussionGroup')->find(array(
+            $this->discussionGroupId)), sprintf('Object Course does not exist (%s).', $this->getUser()->getMyAttribute('discussion_group_show_id', null)));
 
         // sorting
         if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
@@ -124,7 +124,7 @@ class discussion_topicActions extends autoDiscussion_topicActions {
         $tableMethod = $this->configuration->getTableMethod();
         $query = Doctrine_Core::getTable('DiscussionTopic')
                 ->createQuery('a')
-                ->addWhere("a.discussion_id = ?", $this->discussionId)
+                ->addWhere("a.discussion_group_id = ?", $this->discussionGroupId)
                 ->addOrderBy("a.updated_at Desc");
 
         if ($tableMethod) {

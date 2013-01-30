@@ -1,15 +1,38 @@
-<?php slot('top-menu') ?>
+<?php slot('main-menu') ?>
 <?php $i = 0; ?>	
-<?php $menuItemsCount = count($menu) ?>	
+<?php $menuItemsCount = count($menu) ?>
+<?php if ($sf_user->isAuthenticated()): ?>
+    <?php $profile = $sf_user->getProfile() ?>
+<?php endif; ?>		
 <ul>
-  <?php foreach ($menu as $key => $menuItem): ?>
-    <?php $i++ ?>
-    <li class="<?php echo (!empty($currentParent) && $currentParent == $key) ? "active" : "normal" ?><?php echo ($i == 1) ? " first" : "" ?>">
-      <?php $params = (isset($menuItem["param"])) ? "?" . $menuItem["param"] . "=" . $sf_user->getProfile()->getSlug() : "" ?>
-      <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"] . $params) ?>
-    </li>
-  <?php endforeach; ?>
+  <?php if (!isset($hideMenu)): ?>
+    <?php foreach ($menu as $key => $menuItem): ?>
+      <?php if ($sf_user->hasCredential($menuItem["credentials"])): ?>
+        <?php $i++ ?>
+        <li class="<?php echo (!empty($currentParent) && $currentParent == $key) ? "active" : "normal" ?><?php echo ($i == 1) ? " first" : "" ?>">
+          <?php $params = (isset($menuItem["param"])) ? "?" . $menuItem["param"] . "=" . $profile->getSlug() : "" ?>
+          <?php echo link_to(__($menuItem["details"]["label"]), '@' . $menuItem["details"]["route"] . $params) ?>
+        </li>
+      <?php endif; ?>	
+    <?php endforeach; ?>
+  <?php endif; ?>	
 </ul>
+<?php if ($sf_user->isAuthenticated()): ?>
+  <?php include_partial('profile/overlay') ?>
+  <div class="profile-identity">
+    <div class="actions">
+      <input type="button" class="button" onclick="document.location.href = '<?php echo url_for('@activity_feed') ?>';" value="99+"></input>
+      <input type="button" class="button" onclick="document.location.href = '<?php echo url_for('@activity_feed') ?>';" value="+ Share"></input>
+    </div>
+    <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 24, "cssClass" => "profile-photo")) ?>
+    <span class="dropdown"></span>
+  </div>
+<?php else: ?>	
+  <div id="signing-wrapper">
+    <input class="button sign-up" value="Sign Up" type="button" onclick="document.location.href = '<?php echo url_for('@profile_enroll_new') ?>';"/>
+    <input class="button" value="Sign In" type="button" onclick="document.location.href = '<?php echo url_for('@profile_sign_in') ?>';"/>
+  </div>
+<?php endif; ?>	
 <?php end_slot() ?>
 <?php slot('left-column') ?>
 <?php $i = 0; ?>	
@@ -46,29 +69,29 @@
   </ul>			
 </div>
 <script type='text/javascript'>
-  $(document).ready(function(){
-    $(".menu-item").click(function(){
-      var childItemId = $(this).next().attr("id");
-      hideMenuItemsChildren(childItemId);
-      $(this).next().toggle();
+        $(document).ready(function(){
+          $(".menu-item").click(function(){
+            var childItemId = $(this).next().attr("id");
+            hideMenuItemsChildren(childItemId);
+            $(this).next().toggle();
 
-      if ($(this).parent().attr("id") == "nav-selected") {
-        $(this).parent().attr("id","");
-      }
-      else{
-        $(this).parent().attr("id","nav-selected");
-      }
-      return false;
-    });
+            if ($(this).parent().attr("id") === "nav-selected") {
+              $(this).parent().attr("id","");
+            }
+            else{
+              $(this).parent().attr("id","nav-selected");
+            }
+            return false;
+          });
 
-    function hideMenuItemsChildren(childItemId){
-      $(".menu-item-children").each(function(){
-        if (childItemId != this.id) {
-          $(this).hide();
-          $(this).parent().attr("id","");
-        }
-      });
-    }
-  });
+          function hideMenuItemsChildren(childItemId){
+            $(".menu-item-children").each(function(){
+              if (childItemId != this.id) {
+                $(this).hide();
+                $(this).parent().attr("id","");
+              }
+            });
+          }
+        });
 </script>
 <?php end_slot() ?>

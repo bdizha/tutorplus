@@ -31,13 +31,12 @@ generator:
         sort:                       [ first_name, asc ]
         batch_actions:              []
         max_per_page:			          10
+        table_method:               getStudentQuery
         actions:
           _new:                     { label: "+ Add Student" }
       edit:
         title:                      Edit Student
         actions:
-          _academic:                []
-          _contact:                 []
           cancel:                   []
           done:                     []
           _save:                    []
@@ -45,4 +44,4 @@ generator:
         title:                      New Student
         actions:
           cancel:                   []
-          _save:                    { label: "Enroll Now!" }
+          _save:                    ~

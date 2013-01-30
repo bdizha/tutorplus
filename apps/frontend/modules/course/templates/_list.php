@@ -9,7 +9,7 @@
       </div>
       <div class="body">
         <div class="course-info">
-          <span>Course dates: </span>
+          <span>Active dates: </span>
           <span class="datetime">
             <?php echo date("M jS Y", strtotime($course["start_date"])) ?> - <?php echo date("M jS Y", strtotime($course["end_date"])) ?>
           </span>          
@@ -21,11 +21,11 @@
           </span>
         </div>
         <?php if ($profile->isEnrolled($course->getId())): ?>
-          <div class="button-box-brown course-action">
+          <div class="button-box-enter course-action">
             <input class="enrolled" title="Enter course!" href="/my/course/<?php echo $course->getSlug() ?>" value="Enter course!" type="button"/>
           </div>
         <?php else: ?>
-          <div class="button-box-blue course-action">
+          <div class="button-box-enroll course-action">
             <input class="course-enroll" title="+ Enroll Now!" courseid="<?php echo $course->getId() ?>" value="+ Enroll Now!" type="button"/>
           </div>                        
         <?php endif; ?>

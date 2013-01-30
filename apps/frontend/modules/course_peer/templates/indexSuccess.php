@@ -10,7 +10,7 @@
       <h4>Course Instructors</h4>
       <div class="full-block">
         <div id="course_instructors">
-          <?php include_partial('course_peer/instructors', array('courseInstructors' => $courseInstructors)) ?>              
+          <?php include_partial('peer/list', array("peers" => $courseInstructorPeers)) ?>            
         </div>
       </div>
       <?php include_partial('common/actions', array('actions' => array("manage_instructors" => array("title" => "Manage Instructors"), "manage_students" => array("title" => "Manage Students")))) ?>
@@ -19,7 +19,7 @@
       <h4>Course Students</h4>
       <div class="full-block">
         <div id="course_students">
-          <?php include_partial('course_peer/students', array('courseStudents' => $courseStudents)) ?>              
+          <?php include_partial('peer/list', array("peers" => $courseStudentPeers)) ?>          
         </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
 
   function fetchCourseStudents(){
     $('#course_students').html(loadingHtml);
-    $.get('/course/student',showCourseStudents);
+    $.get('/course/student', showCourseStudents);
   }
 
   function showCourseStudents(res){
@@ -48,7 +48,7 @@
 
   function fetchCourseInstructors(){
     $('#course_instructors').html(loadingHtml);
-    $.get('/course/instructor',showCourseInstructors);
+    $.get('/course/instructor', showCourseInstructors);
   }
 
   function showCourseInstructors(res){

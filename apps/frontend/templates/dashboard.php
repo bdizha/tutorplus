@@ -17,12 +17,16 @@
       <div id="main-container">
         <div id="main-header">
           <div class="wrapper">
+            <div id="main-logo">
+              <a href="/" title="">TutorPlus.org</a>
+            </div>
             <div id="main-menu">
-              <?php include_slot('top-menu') ?>
+              <?php include_slot('main-menu') ?>
             </div>                 
           </div>
         </div>
         <div id="main-body" class="main-body">
+          <?php include_partial('profile/overlay') ?>
           <?php include_slot('notice') ?>
           <div class="wrapper">
             <div id="middle-column">

@@ -13,7 +13,7 @@ class ActivityFeedTable extends Doctrine_Table {
     const TYPE_PEER_EMAIL = 3;
     const TYPE_POSTED_ANNOUNCEMENT = 4;
     const TYPE_POSTED_NEWS_ITEM = 5;
-    const TYPE_POSTED_DISCUSSION = 6;
+    const TYPE_POSTED_DISCUSSION_GROUP = 6;
     const TYPE_POSTED_DISCUSSION_TOPIC = 7;
     const TYPE_POSTED_DISCUSSION_POST = 8;
     const TYPE_POSTED_DISCUSSION_COMMENT = 9;
@@ -34,12 +34,12 @@ class ActivityFeedTable extends Doctrine_Table {
         3 => 'Sent email',
         4 => 'Posted announcenment',
         5 => 'Posted news',
-        6 => 'Posted discussion',
+        6 => 'Posted discussion group',
         7 => 'Posted discussion topic',
-        8 => 'Posted discussion message',
-        9 => 'Posted discussion reply',
-        10 => 'Subscribed discussion member',
-        11 => 'Unsubscribed discussion member',
+        8 => 'Posted discussion post',
+        9 => 'Posted discussion comment',
+        10 => 'Subscribed discussion peer',
+        11 => 'Unsubscribed discussion peer',
         12 => 'Pending assignment',
         13 => 'Submitted assignment',
         14 => 'Submitted assignment file',

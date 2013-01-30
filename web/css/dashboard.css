@@ -115,16 +115,31 @@
   border-bottom: 1px solid #EEEEEF;
 }
 
-#dashboard_peers{
-  padding: 7px 0;
-  margin-left: 10px;  
+.dashboard_peers{
+  padding: 10px 0; 
 }
 
-#dashboard_peers a{
+.dashboard_peers a{
   margin-bottom: 5px;
 }
 
 .timeline-row .heading{
   max-height: 24px;
   overflow: hidden;
+}
+
+#dashboard_suggested_peers .actions{
+  padding-top: 5px;
+  text-align: right;
+}
+
+.suggested-peer{
+  clear: both;
+  position: relative;
+}
+
+.suggested-peer .button-box{
+  position: absolute;
+  right: 0px;
+  top: -5px;
 }

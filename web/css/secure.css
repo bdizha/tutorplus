@@ -10,25 +10,7 @@
   border: 1px solid #E8E8E8;
 }
 
-#main-footer{  
-  margin: 0 auto;
-  width: 940px;
-  padding-top: 10px;
-  position: relative;
-}
-
-#bottom-menu{  
-  position: fixed;
-  width: 940px;
-  z-index: 99999;
-  bottom: 0;
-  height: 44px;
-  border-top: 1px solid #B5A072;
-  background-color: #FFF;
-}
-
 #main-logo div{
-  display: inline-block;
   vertical-align: top;
   height: 61px;
 }
@@ -39,18 +21,21 @@
   padding-top: 45px;
 }
 
-#logo-wrapper{
-  width: 329px;
+#main-logo{
+  display: inline-block;
+  vertical-align: top;
+  width: 190px;
   text-indent: -9999px;
-  margin-top: 10px;
-  height: 61px;
-  width: 300px;
+  margin-top: 5px;
+  height: 32px;
   background: url(/images/logo.png) -4px 0 no-repeat;
   overflow: hidden;
 }
 
-#moto-wrapper{
-  width: 508px;
+#main-logo a{
+  width: 215px;
+  height: 32px;
+  display: block;
 }
 
 #main-header .wrapper{
@@ -60,8 +45,14 @@
 }
 
 #main-menu{
-  margin-left: 220px;
-  width: 720px;   
+  vertical-align: top;
+  display: inline-block;
+  width: 746px;   
+}
+
+#main-menu ul{
+  display: inline-block;
+  width: 615px;
 }
 
 #main-menu ul li{
@@ -70,7 +61,7 @@
   display: block;
   float: left;
   height: 22px;
-  padding: 10px 17px 10px 0;
+  padding: 10px 14px 10px 0;
 }
 
 #main-menu ul li.last a{

@@ -110,7 +110,7 @@ class Profile extends BaseProfile {
       throw new sfException(sprintf('The permission "%s" does not exist.', $name));
     }
 
-    $up = new ProfileProfilePermission();
+    $up = new ProfilePermission();
     $up->setProfile($this);
     $up->setPermission($permission);
 

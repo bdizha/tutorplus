@@ -1,5 +1,5 @@
 <?php echo $form->setDefault("discussion_post_id", $discussionPostId) ?>
-<form id="discussion-comment-form-<?php echo $discussionPostId ?>" action="<?php echo url_for('@discussion_comment_new') ?>" method="post">
+<form id="discussion-comment-form-<?php echo $discussionPostId ?>" action="<?php echo url_for('@discussion_comment') ?>" method="post">
     <?php echo $form->renderHiddenFields(true) ?>
     <?php include_partial('personal_info/photo', array('profile' => $sf_user->getProfile(), "dimension" => 36)) ?>
     <div class="value">

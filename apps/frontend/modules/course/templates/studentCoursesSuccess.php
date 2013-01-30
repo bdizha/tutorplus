@@ -1,5 +1,5 @@
 <div id="sf_admin_form_container"> 
-    <?php include_partial('common/flashes', array('form' => $form)) ?>
+    <?php include_partial('common/flashes_normal', array('form' => $form)) ?>
     <form id="course_form" action="/courses_student" method="post">
         <div id="sf_admin_container">
             <div class="student_form_row">    

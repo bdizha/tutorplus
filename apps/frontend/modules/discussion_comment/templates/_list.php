@@ -1,3 +1,3 @@
-<?php foreach ($discussionTopicMessageReplies as $discussionTopicMessageReply): ?>
-    <?php include_partial("discussion_topic_reply/reply", array("discussionTopicMessageReply" => $discussionTopicMessageReply)) ?>
+<?php foreach ($discussionComments as $discussionComment): ?>
+    <?php include_partial("discussion_comment/comment", array("discussionComment" => $discussionComment)) ?>
 <?php endforeach; ?>

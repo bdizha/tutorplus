@@ -1,68 +1,57 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
 <?php include_component('common', 'secureMenu', $helper->indexLinks()) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
 <?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
-<?php end_slot() ?>
-
-<?php include_partial('common/flashes') ?>
-<div id="sf_admin_content" style="width:940px !important;">
-    <div id="dashboard_container">
-        <div class="content-block dashboard-block left">
-            <h2>Timeline <a href="/activity_feed" class="view-more">View More</a></h2>
-            <div id="notifications" class="dashboard-row">
-                <?php include_partial('activity_feeds', array("activityFeeds" => $notifications)) ?>
-            </div>
-        </div>
-        <div class="content-block dashboard-block">        
-            <h2>My Peers <span class="list-count"><?php echo count($peers) ?></span> <a href="/peer_students" class="view-more"></a></h2>
-            <div id="my_peers" class="dashboard-row">
-                <?php include_partial('peers', array('myPeers' => $peers)) ?>
-            </div>
-        </div>
-        <div class="content-block dashboard-block left">
-            <h2>My Courses <a href="/my/courses" class="view-more">View More</a></h2>
-            <div id="my_courses" class="dashboard-row">
-                <?php include_partial('courses', array('myCourses' => $courses)) ?>
-            </div>
-        </div>
-        <div class="content-block dashboard-block">
-            <h2>My Discussions <a href="/discussion" class="view-more">View More</a></h2>
-            <div id="my_timeline" class="dashboard-row">
-                <?php include_partial('discussions', array('discussions' => $discussions)) ?>
-            </div>
-        </div>
-        <div class="content-block dashboard-block left">
-            <h2>My Messages <a href="/message/inbox" class="view-more">View More</a></h2>
-            <div id="my_messages" class="dashboard-row"></div>
-        </div>
-        <div class="content-block dashboard-block">
-            <h2>My Events <a href="/my/schedule" class="view-more">View More</a></h2>
-            <div id="events" class="dashboard-row"></div>
-        </div>
-        <div class="content-block dashboard-block left">
-            <h2>Announcements <a href="/announcement" class="view-more">View More</a></h2>
-            <div id="announcements" class="dashboard-row">
-                <?php include_partial('announcements', array('announcements' => $announcements)) ?>
-            </div>
-        </div>
-        <div class="content-block dashboard-block">
-            <h2>News Updates <a href="/news/item" class="view-more">View More</a></h2>
-            <div id="news_items" class="dashboard-row">
-                <?php include_partial('news_items', array('newsItems' => $newsItems)) ?>
-            </div>
-        </div>            
-    </div>   
+<div id="sf_admin_content" class="dashboard">
+  <div class="column-one">
+    <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 128)) ?>
+    <div class="row">
+      <?php echo link_to('New Messages', 'message_inbox') ?> <span class="list-count"><?php echo $totalInboxCount ?></span>
+    </div>
+    <div class="row">
+     <?php echo link_to('Events', 'calendar_event') ?> <span class="list-count"><?php echo $totalInboxCount ?></span>
+    </div>
+    <div class="row">
+      <div class="underlined"><h5>You may know</h5></div>
+      <div id="dashboard_suggested_peers" class="dashboard_peers">
+        <?php include_partial('suggestions', array("peers" => $suggestedPeers, "profile" => $profile)) ?>
+      </div>
+    </div>
+    <div class="row">
+      <div class="underlined"><h5>My Peers <span class="list-count"><?php echo $peers->count() ?></span></h5></div>
+      <div id="dashboard_my_peers" class="dashboard_peers">
+        <?php include_partial('peers', array("peers" => $peers, "profile" => $profile)) ?>
+      </div>
+    </div>
+  </div>
+  <div class="column-two">
+    <div class="row">
+      <h2>Welcome, <?php echo $profile->getTitle() . " " . $profile->getName() ?>!</h2>
+    </div>
+    <div class="row">
+      <h4>My Courses</h4>
+      <div id="dashboard-courses">
+        <?php include_partial('courses', array("courses" => $courses, "profile" => $profile)) ?>
+      </div>
+    </div>
+    <div class="row">
+      <h4>My Groups</h4>
+      <div id="dashboad_news_items">
+        <?php include_partial('discussion_groups', array("discussionGroups" => $discussionGroups)) ?>
+      </div>
+    </div>
+  </div>
+  <div class="column-three">
+    <div class="row">
+      <h4>News Updates</h4>
+      <div id="dashboad_news_items">
+        <?php include_partial('news_items', array("newsItems" => $newsItems)) ?>
+      </div>
+    </div>
+    <div class="row">
+      <h4>Announcements</h4>
+      <div id="dashboard_announcements">
+        <?php include_partial('announcements', array("announcements" => $announcements)) ?>
+      </div>
+    </div>
+  </div>
 </div>
-<script type='text/javascript'>
-    //<![DATA[
-    $(document).ready(function(){     
-        $('#left-column').css("display", "none");
-        $('#middle-column').css("margin-left", "0");
-        $('#middle-column, #sf_admin_content').css("width", "940px");
-    });
-    //]]
-</script>

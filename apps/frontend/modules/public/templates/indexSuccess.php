@@ -1,9 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
+<?php include_component('common', 'secureMenu', array("hideMenu" => true)) ?>
 <?php include_component('common', 'publicMenu', array("currentParent" => "home")) ?>
-<?php end_slot() ?>
-
 <div class="home-top-row">
   <div class="testimonial">
     <a class="photo-link" style="width:50px;height:50px;" href="/profile/batanayi-matuku">
@@ -12,9 +9,9 @@
     <div class="text">
       <h3 class="name">Batanayi Matuku</h3>
       <h5 class="institution">University of South Africa</h5>
-      <p class="says">
+      <div class="says">
         TutorPlus is such a platform where one learns real life matters.
-      </p>
+      </div>
     </div>
   </div>
   <div class="testimonial">
@@ -24,10 +21,10 @@
     <div class="text">
       <h3 class="name">David Austin</h3>
       <h5 class="institution">University of Pretoria</h5>
-      <p class="says">
+      <div class="says">
         We were very happy with TutorPlus in our first online course so I'd give it a strong
         positive recommendation
-      </p>
+      </div>
     </div>
   </div>
   <div class="testimonial">
@@ -37,13 +34,12 @@
     <div class="text">
       <h3 class="name">David Austin</h3>
       <h5 class="institution">University of Pretoria</h5>
-      <p class="says">
+      <div class="says">
         We were very happy with TutorPlus in our first online course so I'd give it a strong
         positive recommendation
-      </p>
+      </div>
     </div>
   </div>
-  <?php include_partial('common/enroll_block') ?>
 </div>
 <div class="home-bottom-row">
   <h1>Welcome to TutorPlus!</h1>
@@ -54,8 +50,8 @@
 <script type='text/javascript'>
   //<![DATA[
   $(document).ready(function(){
-    $("body").css("background","url('/images/watermark_home.png') no-repeat scroll center 108px #FFF");
-    $("#middle-column").css("min-height","555px");
+    $("body").css("background","url('/images/watermark_home.png') no-repeat scroll center 55px #FFF");
+    $("#middle-column").css("min-height","585px");
   });
   //]]
 </script>

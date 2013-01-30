@@ -1,7 +1,7 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           Staff
+    model_class:           Profile
     theme:                 normal
     non_verbose_templates: true
     with_show:             false
@@ -13,32 +13,36 @@ generator:
 
     config:
       fields:
-        courses_list:             { label: Courses }
-        password_again:           { label: "Confirm password" }
-        permissions_list:         { lable: Roles }
+        password_again:             { label: "Password confirmation" }
+        permissions_list:           { label: Permissions }
       actions: ~
       form:
-        class:                    StaffForm
+        class:                      ProfileForm
         display:            
-         "Staff Details":         [first_name, middle_name, last_name, date_of_birth, employment_start_date, employment_end_date, employment, gender, is_student]
-         "Account Details":       [username, email_address, password, password_again, is_active]
+         "Personal Details":        [ first_name, middle_name, last_name, title, gender, birth_date ]
+         "Access Details":          [ email, password, password_confirmation, is_active ]
+         "Academic Details":        [ high_school, studied_at, current_study, institution_id ]
+         "Staff Permissions":       [ is_instructor, permissions_list ] 
       filter:
         class: false
       list:
-        title:                    Staff
-        display:                  [first_name, last_name, email_address, employment, _is_active]
-        sort:                     [gender, asc]
-        batch_actions:            []
-        max_per_page:			        10
+        title:                      Staff
+        display:                    [ first_name, last_name, email, gender ]
+        sort:                       [ first_name, asc ]
+        batch_actions:              []
+        max_per_page:			          10
         actions:
-          _new:                   { label: " + Add Staff" }
+          _new:                     { label: "+ Add Staff" }
       edit:
-        title:                    Edit Staff ~ %%first_name%% %%last_name%%
+        title:                      Edit Staff
         actions:
-          cancel:                 []
-          done:                   []
-          _save:                  []
+          _academic:                []
+          _contact:                 []
+          cancel:                   []
+          done:                     []
+          _save:                    []
       new:
+        title:                      New Staff
         actions:
-          cancel:                 []
-          _save:                  []
+          cancel:                   []
+          _save:                    ~

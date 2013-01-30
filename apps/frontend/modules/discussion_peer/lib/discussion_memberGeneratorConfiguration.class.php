@@ -1,13 +1,13 @@
 <?php
 
 /**
- * discussion_member module configuration.
+ * discussion_peer module configuration.
  *
  * @package    tutorplus
- * @subpackage discussion_member
+ * @subpackage discussion_peer
  * @author     Batanayi Matuku
  * @version    SVN: $Id: configuration.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussion_memberGeneratorConfiguration extends BaseDiscussion_memberGeneratorConfiguration
+class discussion_peerGeneratorConfiguration extends Basediscussion_peerGeneratorConfiguration
 {
 }

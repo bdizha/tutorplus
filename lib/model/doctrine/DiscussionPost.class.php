@@ -10,36 +10,26 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class DiscussionPost extends BaseDiscussionPost
-{
+class DiscussionPost extends BaseDiscussionPost {
 
-    public function postInsert($event) {
+    public function postInsert($event) {        
+        $discussionGroup = $this->getDiscussionTopic()->getDiscussionGroup();
+        $discussionGroup->setPostCount($discussionGroup->getPostCount() + 1);
+        $discussionGroup->setUpdatedAt($this->getCreatedAt());
+        $discussionGroup->save();
+        
         // save this activity
-        $replacements = array(
-            $this->getProfile()->getName(),
-            $this->getProfile()->getSlug(),
-            $this->getDiscussionTopic()->getSlug(),
-            $this->getDiscussionTopic()->getSubject(),
-            $this->getMessage(),
-        );
+        $activityFeed = new ActivityFeed();
+        $activityFeed->setProfileId($this->getProfileId());
+        $activityFeed->setItemId($this->getId());
+        $activityFeed->setType(ActivityFeedTable::TYPE_POSTED_DISCUSSION_POST);
+        $activityFeed->save();
 
-        $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_DISCUSSION_MESSAGE);
-
-        if ($activityTemplate) {
-            $activityFeed = new ActivityFeed();
-            $activityFeed->setActivityTemplate($activityTemplate);
-            $activityFeed->setReplacements(json_encode($replacements));
-            $activityFeed->setProfileId($this->getProfileId());
-            $activityFeed->setItemId($this->getId());
-            $activityFeed->save();
-
-            // link this activity with the current discussion users
-            foreach ($this->getDiscussionTopic()->getDiscussion()->getMembers() as $discussionMemberPeer) {
-                $profileActivityFeed = new ProfileActivityFeed();
-                $profileActivityFeed->setProfileId($discussionMemberPeer->getProfileId());
-                $profileActivityFeed->setActivityFeedId($activityFeed->getId());
-                $profileActivityFeed->save();
-            }
-        }
+        // link this activity with the current profile
+        $profileActivityFeed = new ProfileActivityFeed();
+        $profileActivityFeed->setProfileId($this->getProfileId());
+        $profileActivityFeed->setActivityFeedId($activityFeed->getId());
+        $profileActivityFeed->save();
     }
+
 }

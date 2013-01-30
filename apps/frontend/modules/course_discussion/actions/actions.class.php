@@ -19,29 +19,17 @@ class course_discussionActions extends autoCourse_discussionActions {
         $this->course = CourseTable::getInstance()->find(array($courseId));
 
         $this->helper->setCourse($this->course);
-        $this->forward404Unless($this->course, sprintf('Object Course does not exist (%s).', $courseId));
+        $this->forward404Unless($this->course, sprintf('The requested course does not exist (%s).', $courseId));
     }
 
     public function executeIndex(sfWebRequest $request) {
-        // set the discussion module i.e for the menu to know what links to show
-        $this->getUser()->setMyAttribute('discussion_module_id', DiscussionTable::MODULE_COURSE);
-
-        $this->discussion = DiscussionTable::getInstance()->findOrCreateOneByCourse($this->course, $this->getUser()->getId());
-        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussion->getId());
+        $this->discussionGroup = DiscussionGroupTable::getInstance()->findOrCreateOneByCourse($this->course, $this->getUser()->getId());
+        $this->getUser()->setMyAttribute('discussion_group_show_id', $this->discussionGroup->getId());
 
         // sorting
         if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
             $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
         }
-
-        // fetch discussions stats
-        $this->discussionActivity = array();
-        $this->discussionActivity["new_topics"] = DiscussionTopicTable::getInstance()->getNbNewTopics()->count();
-        $this->discussionActivity["new_replies"] = DiscussionCommentTable::getInstance()->getNbNewReplies()->count();
-        $this->discussionActivity["new_messages"] = DiscussionPostTable::getInstance()->getNbNewMessages()->count();
-        $this->discussionActivity["new_members"] = DiscussionPeerTable::getInstance()->getNbNewMembersJoined()->count();
-
-        $this->discussionTopic = DiscussionTopicTable::getInstance()->getTopicWithRecentActivity();
 
         // pager
         if ($request->getParameter('page')) {
@@ -53,27 +41,13 @@ class course_discussionActions extends autoCourse_discussionActions {
     }
 
     public function executeShow(sfWebRequest $request) {
-        $this->discussion = $this->getRoute()->getObject();
-        $this->forward404Unless($this->discussion);
-        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussion->getId());
+        $this->discussionGroup = $this->getRoute()->getObject();
+        $this->forward404Unless($this->discussionGroup);
+        $this->getUser()->setMyAttribute('discussion_group_show_id', $this->discussionGroup->getId());
 
-        $courseDiscussion = $this->discussion->getCourseDiscussion();
-        if ($courseDiscussion) {
-            $this->getUser()->setMyAttribute('course_show_id', $courseDiscussion->getCourseId());
-        }
-        
-        if (is_object($this->discussion)) {
-            if ($this->getUser()->getType() == sfGuardUserTable::TYPE_STUDENT) {
-                $studentId = $this->getUser()->getStudentId();
-                $profileId = $this->getUser()->getId();
-
-                $this->suggestedFollowers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussion->getId());
-            } elseif ($this->getUser()->getType() == sfGuardUserTable::TYPE_INSTRUCTOR) {
-                $this->suggestedFollowers = null;
-            }
-        } else {
-
-            $this->suggestedFollowers = null;
+        $courseDiscussionGroup = $this->discussionGroup->getCourseDiscussionGroup();
+        if ($courseDiscussionGroup) {
+            $this->getUser()->setMyAttribute('course_show_id', $courseDiscussionGroup->getCourseId());
         }
     }
 
@@ -82,14 +56,14 @@ class course_discussionActions extends autoCourse_discussionActions {
         if ($form->isValid()) {
             $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
             try {
-                // save the discussion
-                $discussion = $form->save();
+                // save the DiscussionGroup
+                $discussionGroup = $form->save();
 
                 // save a course discussion
-                $courseDiscussion = new CourseDiscussion();
-                $courseDiscussion->setCourse($this->course);
-                $courseDiscussion->setDiscussion($discussion);
-                $courseDiscussion->save();
+                $courseDiscussionGroup = new CourseDiscussionGroup();
+                $courseDiscussionGroup->setCourse($this->course);
+                $courseDiscussionGroup->setDiscussionGroup($discussionGroup);
+                $courseDiscussionGroup->save();
             } catch (Doctrine_Validator_Exception $e) {
                 $errorStack = $form->getObject()->getErrorStack();
 
@@ -103,7 +77,7 @@ class course_discussionActions extends autoCourse_discussionActions {
                 return sfView::SUCCESS;
             }
 
-            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $discussion)));
+            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $discussionGroup)));
 
             if ($request->hasParameter('_save_and_add')) {
                 $this->getUser()->setFlash('notice', $notice . ' You can add another one below.');
@@ -111,7 +85,7 @@ class course_discussionActions extends autoCourse_discussionActions {
                 $this->redirect('@course_discussion_new');
             } else {
                 $this->getUser()->setFlash('notice', $notice);
-                $this->redirect(array('sf_route' => 'course_discussion_edit', 'sf_subject' => $discussion));
+                $this->redirect(array('sf_route' => 'course_discussion_edit', 'sf_subject' => $discussionGroup));
             }
         } else {
             $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
@@ -120,14 +94,14 @@ class course_discussionActions extends autoCourse_discussionActions {
 
     protected function buildQuery() {
         $tableMethod = $this->configuration->getTableMethod();
-        $query = Doctrine_Core::getTable('Discussion')
+        $query = Doctrine_Core::getTable('DiscussionGroup')
                 ->createQuery('d');
 
-        $query->innerJoin('d.CourseDiscussion cd')
+        $query->innerJoin('d.CourseDiscussionGroup cd')
                 ->andWhere('cd.course_id = ?', $this->course->getId());
 
         if ($tableMethod) {
-            $query = Doctrine_Core::getTable('Discussion')->$tableMethod($query);
+            $query = Doctrine_Core::getTable('DiscussionGroup')->$tableMethod($query);
         }
 
         $this->addSortQuery($query);

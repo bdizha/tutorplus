@@ -1,2 +1,2 @@
 all:
-  stylesheets: [calendar.css, profile.css]
+  stylesheets: [ secure.css, calendar.css, profile.css ]

@@ -34,12 +34,4 @@ class ProfileCourseTable extends Doctrine_Table {
     return $query->execute();
   }
 
-  public function findOneByProfileIdAndCourseId($profileId, $courseId) {
-    $query = $this->createQuery()
-        ->where('profile_id = ?', $profileId)
-        ->andWhere("course_id = ?", $courseId);
-
-    return $query->fetchOne();
-  }
-
 }

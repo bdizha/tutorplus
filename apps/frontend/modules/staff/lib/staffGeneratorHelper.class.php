@@ -22,7 +22,7 @@ class staffGeneratorHelper extends BaseStaffGeneratorHelper {
     public function indexLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "staff",
             "is_profile" => false
         );
@@ -40,7 +40,7 @@ class staffGeneratorHelper extends BaseStaffGeneratorHelper {
     public function newLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "staff",
             "is_profile" => false
         );
@@ -58,7 +58,7 @@ class staffGeneratorHelper extends BaseStaffGeneratorHelper {
     public function editLinks() {
         return array(
             "currentParent" => "settings",
-            "current_child" => "access_settings",
+            "current_child" => "profile_settings",
             "current_link" => "staff",
             "is_profile" => false
         );

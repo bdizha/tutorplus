@@ -1,5 +1,5 @@
 all:
-  stylesheets: [calendar.css]
+  stylesheets: [ secure.css, calendar.css ]
   
 newSuccess:
   layout: false
@@ -8,5 +8,5 @@ editSuccess:
   layout: false
   
 myScheduleSuccess:  
-  stylesheets: [full_calendar_print, full_calendar, dashboard, calendar.css]
-  javascripts: [jquery/full_calendar.js]
+  stylesheets: [ secure.css, schedule.css, calendar.css ]
+  javascripts: [ jquery/schedule.js ]

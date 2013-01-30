@@ -1,14 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->indexLinks()) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
+<?php include_component('common', 'secureMenu', $helper->indexLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
-<?php end_slot() ?>
-
-<?php include_partial('message_trash/flashes') ?>
 <div id="sf_admin_content">
     <div class="content-block">
         <ul class="nav-tabs" id="inbox_nav_tabs">
@@ -17,7 +9,7 @@
                 <span class="list-count"><?php echo $totalTrashCount ?></span>
             </li>
         </ul>
-        <div id="email_container" class=""></div>
+        <div id="email_container"></div>
     </div>
 </div>
 <script type="text/javascript">

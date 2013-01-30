@@ -1,5 +1,5 @@
 <?php if (count($interests) == 0): ?>
-    <span>There's currently no interests added.</span>
+    <div class="no-result">There's no interests added yet.</div>
 <?php else: ?>
     <ul>
         <?php foreach ($interests as $interest): ?>

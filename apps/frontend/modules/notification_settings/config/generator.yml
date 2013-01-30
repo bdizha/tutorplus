@@ -14,30 +14,30 @@ generator:
     config:
       actions:                  ~      
       fields:
-        can_receive_email:                  { label: "I'm sent a direct message" }
-        can_receive_reply:                  { label: "I'm sent a reply or mentioned" }
-        can_receive_request:                { label: "I'm followed by someone new" }
-        can_receive_news_alerts:            { label: "There's any news alerts" }
-        can_receive_announcement_alerts:    { label: "There's any announcement alerts" }
-        can_receive_event_alerts:           { label: "There's any event alerts" }
-        can_receive_peer_activities:        { label: "There's any new peer activities" }
-        can_receive_discussion_updates:     { label: "My discussions or topics are updated" }
-        can_receive_course_updates:         { label: "There's any course material changes/uploads" }
-        can_receive_assignment_due:         { label: "Assignments are due for submissions" }
-        can_receive_system_updates:         { label: "New changes have been applied to the TutorPlus system" }
-        can_receive_system_maintenance:     { label: "System is going to be down for maintenance purposes" }
+        email:                  { label: "I'm sent a direct message" }
+        reply:                  { label: "I'm sent a reply or mentioned" }
+        request:                { label: "I'm followed by someone new" }
+        news_alerts:            { label: "There's any news alerts" }
+        announcement_alerts:    { label: "There's any announcement alerts" }
+        event_alerts:           { label: "There's any event alerts" }
+        peer_activities:        { label: "There's any new peer activities" }
+        discussion_group_updates:     { label: "My DiscussionGroups or topics are updated" }
+        course_updates:         { label: "There's any course material changes/uploads" }
+        assignment_due:         { label: "Assignments are due for submissions" }
+        system_updates:         { label: "New changes have been applied to the TutorPlus system" }
+        system_maintenance:     { label: "System is going to be down for maintenance purposes" }
         
       form:
         display:            
-         "Messages - Receive notification when:":            [can_receive_email, can_receive_reply]
-         "Alerts - Receive notification when:":              [can_receive_news_alerts, can_receive_announcement_alerts, can_receive_event_alerts]
-         "Activities - Receive notification when:":          [can_receive_peer_activities, can_receive_discussion_updates, can_receive_course_updates, can_receive_assignment_due]
-         "Updates - Receive notification when:":             [can_receive_system_updates, can_receive_system_maintenance]
+         "Messages - Receive notification when:":            [email, reply]
+         "Alerts - Receive notification when:":              [news_alerts, announcement_alerts, event_alerts]
+         "Activities - Receive notification when:":          [peer_activities, discussion_group_updates, course_updates, assignment_due]
+         "Updates - Receive notification when:":             [system_updates, system_maintenance]
       filter:
         class: false
       list:
         title:                  Notification Settings
-        sort:                   [can_receive_email, asc]
+        sort:                   [email, asc]
         batch_actions:          []
         object_actions:        
           _edit: ~

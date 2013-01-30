@@ -1,4 +1,4 @@
-<?php $members = $discussion->retrieveMembers(); ?>
+<?php $members = $discussionGroup->retrieveMembers(); ?>
 <?php if ($members->count() > 0): ?>
     <?php foreach ($members as $member): ?>
         <div class="participant">

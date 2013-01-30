@@ -2,7 +2,7 @@
 <div id="cboxLoadedContentInner">
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
-            <?php include_partial('common/flashes') ?>
+            <?php include_partial('common/flashes_normal') ?>
             <form id="event_attendees_choose_form" action="/event/attendees/choose" method="post">
                 <div class="choose-participants">
                     <?php foreach ($users as $user): ?>

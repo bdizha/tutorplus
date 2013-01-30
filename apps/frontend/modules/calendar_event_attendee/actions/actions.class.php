@@ -36,7 +36,7 @@ class calendar_event_attendeeActions extends autoCalendar_event_attendeeActions 
         $this->currentProfileIds = array();
 
         // fetch all students for now
-        $this->users = sfGuardUserTable::getInstance()->findAll();
+        $this->users = ProfileTable::getInstance()->findAll();
 
         //myToolkit::debug($this->event->toArray());
         // look for the current course students

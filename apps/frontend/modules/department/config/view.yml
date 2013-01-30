@@ -1,5 +1,5 @@
 all:
-  has_layout: true
+  stylesheets: [ secure.css ]
   
 newSuccess:
   layout: false

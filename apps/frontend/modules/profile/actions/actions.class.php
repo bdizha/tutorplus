@@ -21,17 +21,15 @@ class profileActions extends autoProfileActions {
   public function executeShow(sfWebRequest $request) {
     $slug = $request->getParameter("slug");
     $this->profile = ProfileTable::getInstance()->findOneBy("slug", $slug);
-    $this->getUser()->setMyAttribute('profile_show_id', $this->user->getId());
-  }
-
-  public function executeTimeline(sfWebRequest $request) {
-    $primaryDiscussion = DiscussionTable::getInstance()->findOrCreatePrimaryDiscussionByProfileId($this->getUser()->getProfile());
-    $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->getUser()->getId(), $primaryDiscussion->getId());
+    $this->getUser()->setMyAttribute('profile_show_id', $this->profile->getId());
+    
+    $primaryDiscussionGroup = DiscussionGroupTable::getInstance()->findOrCreatePrimaryDiscussionGroupByProfile($this->getUser()->getProfile());
+    $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->getUser()->getId(), $primaryDiscussionGroup->getId());
 
     $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->getUser()->getId());
-    $this->replyForm = new DiscussionCommentForm();
-    $this->messageForm = new DiscussionPostForm();
-    $this->messageForm->setDefaults(array(
+    $this->discussionCommentForm = new DiscussionCommentForm();
+    $this->discussionPostForm = new DiscussionPostForm();
+    $this->discussionPostForm->setDefaults(array(
         "profile_id" => $this->getUser()->getId(),
         "discussion_topic_id" => $this->primaryDiscussionTopic->getId()
     ));
@@ -43,20 +41,9 @@ class profileActions extends autoProfileActions {
    * @param sfRequest $request A request object
    */
   public function executePeers(sfWebRequest $request) {
-    $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndTypes($this->getUser()->getId(), array(
-        PeerTable::TYPE_STUDENT_STUDENT, PeerTable::TYPE_INSTRUCTOR_STUDENT));
-    $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndTypes($this->getUser()->getId(), array(
-        PeerTable::TYPE_STUDENT_INSTRUCTOR, PeerTable::TYPE_INSTRUCTOR_INSTRUCTOR));
+    $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), false);
+    $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), true);
     $this->potentialPeers = PeerTable::getInstance()->findByNotProfileId($this->getUser()->getId());
-  }
-
-  /**
-   * Executes settings action
-   *
-   * @param sfRequest $request A request object
-   */
-  public function executeAccountSettings(sfWebRequest $request) {
-    
   }
 
   /**
@@ -95,10 +82,10 @@ class profileActions extends autoProfileActions {
       $filename = sprintf($avatarFormat, "24");
     }
 
-    $file_info = getimagesize($filename);
+    $fileInfo = getimagesize($filename);
 
     $fp = fopen($filename, 'rb');
-    header("Content-Type: " . $file_info["mime"]);
+    header("Content-Type: " . $fileInfo["mime"]);
     header("Content-Length: " . filesize($filename));
     fpassthru($fp);
     exit;
@@ -112,46 +99,6 @@ class profileActions extends autoProfileActions {
 
     $this->getUser()->setFlash('notice', 'Your profile photo has been deleted successfully.');
     $this->redirect("personal_info");
-  }
-
-  public function executeEditAccountSettings(sfWebRequest $request) {
-    $this->profile = $this->getUser()->getProfile();
-    $this->form = new ProfileAccountSettingsForm($this->profile);
-  }
-
-  public function executeUpdateAccountSettings(sfWebRequest $request) {
-    $this->profile = $this->getUser()->getProfile();
-    $this->form = new ProfileAccountSettingsForm($this->profile);
-    $this->processInlineForm($request, $this->form, "@profile_account_settings_edit?id=" . $this->profile->getId());
-
-    $this->setTemplate('editAccountSettings');
-  }
-
-  protected function processInlineForm(sfWebRequest $request, sfForm $form, $route) {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid()) {
-      $notice = 'Your credentials have been updated successfully.';
-      try {
-        $student = $form->save();
-      } catch (Doctrine_Validator_Exception $e) {
-        $errorStack = $form->getObject()->getErrorStack();
-
-        $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ? 's' : null) . " with validation errors: ";
-        foreach ($errorStack as $field => $errors) {
-          $message .= "$field (" . implode(", ", $errors) . "), ";
-        }
-        $message = trim($message, ', ');
-
-        $this->getUser()->setFlash('error', $message);
-      }
-
-      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $student)));
-
-      $this->getUser()->setFlash('notice', $notice);
-      $this->redirect($route);
-    } else {
-      $this->getUser()->setFlash('error', 'Your credentials have not been saved due to some errors.', false);
-    }
   }
 
 }

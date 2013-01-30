@@ -16,54 +16,44 @@ class ProfileTable extends Doctrine_Table {
     return Doctrine_Core::getTable('Profile');
   }
 
-  public function findByFields($exp, $excludedIds = array(), $limit = 100) {
-    if ($exp == "%") {
+  public function findByFields($likeExpression, $notIds = array(), $limit = 100) {
+    if ($likeExpression == "%") {
       return $users = $this->createQuery('p')
-          ->whereNotIn("p.id", $excludedIds)
+          ->whereNotIn("p.id", $notIds)
           ->orderby("p.first_name, p.last_name ASC")
           ->limit($limit)
           ->execute();
     } else {
       return $this->createQuery('p')
-              ->where("(p.first_name LIKE '%{$exp}%' OR p.last_name LIKE '%{$exp}%' OR p.email LIKE '%{$exp}%')")
-              ->whereNotIn("p.id", $excludedIds)
+              ->where("(p.first_name LIKE '%{$likeExpression}%' OR p.last_name LIKE '%{$likeExpression}%' OR p.email LIKE '%{$likeExpression}%')")
+              ->whereNotIn("p.id", $notIds)
               ->orderby("p.first_name, p.last_name ASC")
               ->limit($limit)
               ->execute();
     }
   }
 
-  public function findBySearch($exp, $previousEmailAddresses = array(), $limit = 100) {
+  public function findBySearch($likeExpression, $previousEmails = array(), $limit = 100) {
     return $this->createQuery('p')
-            ->where("(p.first_name LIKE '%{$exp}%' OR p.last_name LIKE '%{$exp}%' OR p.email LIKE '%{$exp}%')")
-            ->whereNotIn("p.email", $previousEmailAddresses)
+            ->where("(p.first_name LIKE '%{$likeExpression}%' OR p.last_name LIKE '%{$likeExpression}%' OR p.email LIKE '%{$likeExpression}%')")
+            ->whereNotIn("p.email", $previousEmails)
             ->orderby("p.first_name, p.last_name ASC")
             ->limit($limit)
             ->execute();
   }
 
-  public function retrieveByIds($ids = array()) {
-    if (count($ids) == 0) {
-      return array();
-    }
-    $query = $this->createQuery('p')
-        ->whereIn('p.id', $ids);
-
-    return $query->execute();
-  }
-
-  public function retrieveProfileIdsByDiscussionId($discussionId = null, $isRemoved = 0) {
+  public function retrieveProfileIdsByDiscussionGroupId($discussionGroupId = null, $isRemoved = 0) {
     $query = $this->createQuery('p')
         ->select('p.id')
         ->innerJoin('p.DiscussionPeer dp')
-        ->where('dp.discussion_id = ?', $discussionId)
+        ->where('dp.discussion_group_id = ?', $discussionGroupId)
         ->addWhere('dp.is_removed = ?', $isRemoved);
 
     return $query->execute()->getPrimaryKeys();
   }
 
-  public function retrieveByEmails($emails = "") {
-    $emails = explode(";", $emails);
+  public function retrieveByEmails($emails = array()) {
+    //$emails = explode(";", $emails);
     if (count($emails) == 0) {
       return array();
     }
@@ -76,17 +66,34 @@ class ProfileTable extends Doctrine_Table {
   /**
    * Retrieves a Profile object by email and is_active flag.
    *
-   * @param  string  $email    The username
+   * @param  string  $email    The email
    * @param  boolean $isActive The user's status
    *
    * @return Profile
    */
   public function retrieveByEmail($email, $isActive = true) {
     $query = Doctrine_Core::getTable('Profile')->createQuery('p')
-        ->where('p.email = ?', $username)
+        ->where('p.email = ?', $email)
         ->addWhere('p.is_active = ?', $isActive);
 
     return $query->fetchOne();
+  }
+
+  public function retrieveByCourseId($courseId) {
+    $query = $this->createQuery('p')
+        ->select('p.id')
+        ->innerJoin('p.ProfileCourses pc')
+        ->where('pc.course_id = ?', $courseId);
+
+    return $query->execute();
+  }
+
+  public function getInstructorQuery($query) {
+    return $query->addWhere("a.is_instructor = ?", true);
+  }
+
+  public function getStudentQuery($query) {
+    return $query->addWhere("a.is_instructor = ?", false);
   }
 
 }

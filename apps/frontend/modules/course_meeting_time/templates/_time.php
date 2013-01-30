@@ -1,1 +1,0 @@
-<?php echo $course_meeting_time->getFromTime() ?> - <?php echo $course_meeting_time->getToTime() ?>

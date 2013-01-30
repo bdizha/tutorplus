@@ -1,7 +1,7 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           Discussion
+    model_class:           DiscussionGroup
     theme:                 normal
     non_verbose_templates: true
     with_show:             false
@@ -23,7 +23,7 @@ generator:
       filter:
         class: false
       list:
-        title:             My Discussions
+        title:             Course Discussions
         display:           [=name, user, access_level, nb_topics, nb_members, last_visit]
         sort:              [name, asc]
         batch_actions:     []

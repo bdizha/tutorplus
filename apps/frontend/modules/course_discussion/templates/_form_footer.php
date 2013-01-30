@@ -1,5 +1,5 @@
 <script type='text/javascript'>
     $(document).ready(function(){	
-        $('#discussion_description').redactor();
+        $('#discussion_group_description').redactor();
     });
 </script>

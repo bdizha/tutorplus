@@ -1,2 +1,2 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial("discussion_topic_reply/reply", array("discussionTopicMessageReply" => $discussionTopicMessageReply)) ?>
+<?php include_partial("discussion_comment/comment", array("discussionComment" => $discussionComment)) ?>

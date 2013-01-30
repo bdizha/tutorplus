@@ -1,2 +1,2 @@
 all:
-  stylesheets: [email_template.css]
+  stylesheets: [ secure.css, email_template.css ]

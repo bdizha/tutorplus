@@ -1,24 +1,10 @@
-/* instructor fields */
-.sf_admin_form_field_first_name, .sf_admin_form_field_middle_name, .sf_admin_form_field_last_name, .sf_admin_form_field_number,
-.sf_admin_form_field_phone_mobile, .sf_admin_form_field_phone_work, .sf_admin_form_field_phone_home,
-.sf_admin_form_field_address_line_one, .sf_admin_form_field_address_line_two, .sf_admin_form_field_postcode,
-.sf_admin_form_field_city, .sf_admin_form_field_state_province_id, .sf_admin_form_field_date_of_birth,
-.sf_admin_form_field_program_id, .sf_admin_form_field_start_period, .sf_admin_form_field_country_id,
-.sf_admin_form_field_username, .sf_admin_form_field_password, .sf_admin_form_field_password_again,
-.sf_admin_form_field_email_address, .sf_admin_form_field_gender, .sf_admin_form_field_address_line_1,
-.sf_admin_form_field_address_line_1, .sf_admin_form_field_address_line_2, .sf_admin_form_field_postal_address_line_1,
-.sf_admin_form_field_postal_postcode, .sf_admin_form_field_postal_city,
-.sf_admin_form_field_postal_address_line_2, .sf_admin_form_field_postal_postcode, .sf_admin_text sf_admin_form_field_postal_city,
-.sf_admin_form_field_postal_country_id, .sf_admin_form_field_postal_state_province_id, .sf_admin_form_field_postal_postcode,
-.sf_admin_form_field_postal_postcode, .sf_admin_form_field_guardian_first_name, .sf_admin_form_field_guardian_last_name,
-.sf_admin_form_field_guardian_email_address, .sf_admin_form_field_guardian_phone_work, .sf_admin_form_field_guardian_phone_home,
-.sf_admin_form_field_guardian_phone_mobile, .sf_admin_form_field_guardian_address_line_1, .sf_admin_form_field_guardian_address_line_2,
-.sf_admin_form_field_guardian_postcode, .sf_admin_form_field_guardian_city, .sf_admin_form_field_guardian_country_id,
-.sf_admin_form_field_guardian_state_province_id, .sf_admin_form_field_high_school, .sf_admin_form_field_current_qualification,
-.sf_admin_form_field_enrollment, .sf_admin_form_field_status, .sf_admin_form_field_employment,
-.sf_admin_form_field_is_instructor, .sf_admin_form_field_employment_start_date, .sf_admin_form_field_employment_end_date,
-.sf_admin_form_field_is_active, .sf_admin_form_field_current_study, .sf_admin_form_field_is_student{
-    width: 338px;
+.sf_admin_form_field_first_name, .sf_admin_form_field_middle_name, .sf_admin_form_field_last_name,
+.sf_admin_form_field_title, .sf_admin_form_field_gender, .sf_admin_form_field_birth_date,
+.sf_admin_form_field_email, .sf_admin_form_field_password, .sf_admin_form_field_password_confirmation,
+.sf_admin_form_field_is_active, .sf_admin_form_field_high_school, .sf_admin_form_field_studied_at,
+.sf_admin_form_field_current_study, .sf_admin_form_field_institution_id
+{
+    width: 337px;
     display: inline-block;	
 }
 
@@ -70,7 +56,6 @@
 
 #heading-tabs li {
     border-left: 1px solid #CCCCCC;
-    border-radius: 5px 5px 0 0;
     border-right: 1px solid #CCCCCC;
     border-top: 1px solid #CCCCCC;
     display: block;
@@ -160,7 +145,7 @@
 }
 
 #choose_programes li {
-    border-bottom: 1px solid #EBEAE9DDD;
+    border-bottom: 1px solid #F5F5F5DDD;
     display: block;
     float: left;
     height: 20px;
@@ -196,7 +181,7 @@
 }
 
 #choose_courses li {
-    border-bottom: 1px solid #EBEAE9DDD;
+    border-bottom: 1px solid #F5F5F5DDD;
     display: block;
     float: left;
     height: 20px;
@@ -213,7 +198,7 @@
 }
 
 #choose_mailing_lists li {
-    border-bottom: 1px solid #EBEAE9DDD;
+    border-bottom: 1px solid #F5F5F5DDD;
     display: block;
     float: left;
     height: 20px;

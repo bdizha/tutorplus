@@ -1,4 +1,4 @@
-<?php slot('menu') ?>
+<?php slot('public-menu') ?>
 <?php $menuItemsCount = count($menu) ?>	
 <ul>
   <?php foreach ($menu as $key => $menuItem): ?>

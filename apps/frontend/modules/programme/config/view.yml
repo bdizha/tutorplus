@@ -1,3 +1,6 @@
+all:
+  stylesheets: [ secure.css ]
+  
 chooseSuccess:
   has_layout: false
 

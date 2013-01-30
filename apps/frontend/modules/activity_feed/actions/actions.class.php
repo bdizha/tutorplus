@@ -14,13 +14,13 @@ require_once dirname(__FILE__) . '/../lib/activity_feedGeneratorHelper.class.php
 class activity_feedActions extends autoActivity_feedActions {
 
   public function executeIndex(sfWebRequest $request) {
-    $primaryDiscussion = DiscussionTable::getInstance()->findOrCreatePrimaryDiscussionByProfileId($this->getUser()->getProfile());
-    $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->getUser()->getId(), $primaryDiscussion->getId());
+    $primaryDiscussionGroup = DiscussionGroupTable::getInstance()->findOrCreatePrimaryDiscussionGroupByProfile($this->getUser()->getProfile());
+    $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->getUser()->getId(), $primaryDiscussionGroup->getId());
 
     $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->getUser()->getId());
-    $this->replyForm = new DiscussionCommentForm();
-    $this->messageForm = new DiscussionPostForm();
-    $this->messageForm->setDefaults(array(
+    $this->discussionCommentForm = new DiscussionCommentForm();
+    $this->discussionPostForm = new DiscussionPostForm();
+    $this->discussionPostForm->setDefaults(array(
         "profile_id" => $this->getUser()->getId(),
         "discussion_topic_id" => $this->primaryDiscussionTopic->getId()
     ));

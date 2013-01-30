@@ -1,2 +1,2 @@
 all:
-  stylesheets:    [profile.css, discussion.css]
+  stylesheets:    [ secure.css, profile.css, discussion_group.css ]

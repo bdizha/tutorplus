@@ -1,32 +1,33 @@
 <?php use_helper('I18N', 'Date') ?>
-<div class="thread discussion-reply snapshot" id="discussion-reply-<?php echo $discussionTopicMessage->getId() ?>">
-    <div class="heading">
-        <?php include_partial('personal_info/photo', array('profile' => $discussionTopicMessage->getProfile(), "dimension" => 48)) ?>
-        <div class="name"><?php echo link_to($discussionTopicMessage->getProfile(), 'profile_show', $discussionTopicMessage->getProfile()) ?> on</div>
-        <div class="datetime"><?php echo $discussionTopicMessage->getUpdatedAt() ?></div> posted:
-    </div>
-    <div class="body message" id="message-<?php echo $discussionTopicMessage->getId() ?>">
+<div class="thread discussion-group-post snapshot" id="discussion-group-post-<?php echo $discussionPost->getId() ?>">
+    <?php include_partial('personal_info/photo', array('profile' => $discussionPost->getProfile(), "dimension" => 36)) ?>
+    <div class="body" id="message-<?php echo $discussionPost->getId() ?>">
         <div class="view-mode">
-            <?php echo $discussionTopicMessage->getMessage() ?>            
+            <?php echo $discussionPost->getMessage() ?>            
         </div>
         <div class="edit-mode">
-            <div class="message-edit" id="message-edit-<?php echo $discussionTopicMessage->getId() ?>">
-                <?php include_partial('discussion_topic_message/inline_form', array('discussionTopicMessage' => $discussionTopicMessage, 'form' => $messageForm)) ?>
+            <div class="message-edit" id="message-edit-<?php echo $discussionPost->getId() ?>">
+                <?php include_partial('discussion_post/inline_form', array('discussionPost' => $discussionPost, 'form' => $discussionPostForm)) ?>
             </div>            
         </div>
-        <div class="inline-content-actions">
-            <?php echo $helper->linkToDiscussionPostEdit($discussionTopicMessage, array()) ?>
-        </div>
+        <div class="user-meta">By <?php echo link_to($discussionPost->getProfile(), 'profile_show', $discussionPost->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionPost->getCreatedAt()) ?></span></div>
     </div>
     <div class="comments">
         <div class="statistics">
-            <span class="stats-item replies-count"><span class="list-count" id="replies-count-<?php echo $discussionTopicMessage->getId() ?>"><?php echo $discussionTopicMessage->getReplies()->count() ?></span> comment(s)</span>
+            <span class="stats-item comment-count">
+                <span class="list-count" id="comment-count-<?php echo $discussionPost->getId() ?>"><?php echo $discussionPost->getComments()->count() ?></span> <span class="comment-toggler" postid="<?php echo $discussionPost->getId() ?>">Show comment(s)</span>
+            </span>
         </div>
-        <div id="discussion-topic-replies-<?php echo $discussionTopicMessage->getId() ?>">
-            <?php include_partial("discussion_topic_reply/replies", array("discussionTopicMessageReplies" => $discussionTopicMessage->getReplies())) ?>            
+        <div class="discussion-comment-holder-<?php echo $discussionPost->getId() ?>">
+            <div id="discussion-comments-<?php echo $discussionPost->getId() ?>" class="hide">
+                <?php include_partial("discussion_comment/list", array("discussionComments" => $discussionPost->getComments())) ?>            
+            </div>
+            <div id="discussion-comment-form-holder-<?php echo $discussionPost->getId() ?>" class="comment comment-details">
+                <?php include_partial("discussion_comment/form", array("form" => $discussionCommentForm, "discussionPostId" => $discussionPost->getId())) ?>
+            </div>
         </div>
-        <div id="discussion-topic-reply-form-holder-<?php echo $discussionTopicMessage->getId() ?>" class="comment reply-details">
-            <?php include_partial("discussion_topic_reply/form", array("form" => $replyForm, "discussionTopicMessageId" => $discussionTopicMessage->getId())) ?>
-        </div>
+    </div>
+    <div class="inline-content-actions">
+        <?php echo $helper->linkToDiscussionPostEdit($discussionPost, array()) ?>
     </div>
 </div>

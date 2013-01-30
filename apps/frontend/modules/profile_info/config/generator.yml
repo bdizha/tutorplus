@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Profile
+    theme:                 popup
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          profile_info
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      fields:
+      actions:             ~
+      form:
+        class:             ProfileInfoForm
+        display:           [ institution_id, high_school, studied_at, current_study ]
+      filter:
+        class:             false
+      edit:
+        actions:
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        actions:
+          cancel:          []
+          save:            []

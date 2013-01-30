@@ -1,2 +1,2 @@
 all:
-  stylesheets: [email_message.css, profile.css, course.css]
+  stylesheets: [ secure.css, email_message.css, profile.css, course.css ]

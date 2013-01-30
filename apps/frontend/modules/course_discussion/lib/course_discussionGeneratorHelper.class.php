@@ -8,85 +8,76 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHelper
-{
+class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHelper {
+
     public $course = null;
 
-    public function setCourse($course)
-    {
+    public function setCourse($course) {
         $this->course = $course;
     }
 
-    public function indexBreadcrumbs()
-    {
+    public function indexBreadcrumbs() {
         return array('breadcrumbs' => array(
-            "Courses" => "course",
-            $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
-            "Course Discussions" => "course_discussion"
-        )
+                "Courses" => "course",
+                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                "Course Discussion" => "course_discussion"
+            )
         );
     }
 
-    public function indexLinks()
-    {
+    public function indexLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
-            "current_link" => "course_discussion",
+            "current_link" => "course_discussions",
             "slug" => $this->course->getSlug()
         );
     }
 
-    public function newBreadcrumbs()
-    {
+    public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
-            "Courses" => "course",
-            $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
-            "Course Discussions" => "course_discussion",
-            "+ New Discussion" => "course/discussion/new"
-        )
+                "Courses" => "course",
+                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                "+ New Discussion" => "course/discussion/new"
+            )
         );
     }
 
-    public function newLinks()
-    {
+    public function newLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
-            "current_link" => "course_discussion",
+            "current_link" => "course_discussions",
             "slug" => $this->course->getSlug(),
-            "New Discussion" => "discussion/new"
+            "New Discussion" => "course/discussion/new"
         );
     }
 
-    public function editBreadcrumbs($object)
-    {
+    public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
-            "Courses" => "course",
-            $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
-            "Course Discussions" => "course_discussion",
-            "Edit Discussion" => "course/discussion/" . $object->getId() . "/edit"
-        )
+                "Courses" => "course",
+                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                "Discussions" => "course_discussion",
+                $object->getName() => "course/discussion/" . $object->getSlug(),
+                "Edit Discussion" => "course/discussion/group/" . $object->getId() . "/edit"
+            )
         );
     }
 
-    public function editLinks()
-    {
+    public function editLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
-            "current_link" => "course_discussion",
+            "current_link" => "course_discussions",
             "slug" => $this->course->getSlug()
         );
     }
 
-    public function showBreadcrumbs($discussion)
-    {
+    public function showBreadcrumbs($discussionGroup) {
         return array('breadcrumbs' => array(
-            "Discussions" => "discussion",
-            "Discussion Explorer" => "discussion",
-            $discussion->getName() => "discussion/" . $discussion->getSlug()
-        )
+                "Course Discussions" => "course_discussion",
+                $discussionGroup->getName() => "course/discussion/" . $discussionGroup->getSlug()
+            )
         );
     }
 
@@ -105,56 +96,52 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
             return '<li class="sf_admin_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
         }
     }
-    
-    public function linkToDiscussionView($object, $params) {
+
+    public function linkToDiscussionGroupView($object, $params) {
         return link_to(__('View Discussion', array(), 'sf_admin'), "/course/discussion/" . $object->getSlug(), array("class" => "button-view"));
     }
 
-    public function linkToDiscussionEdit($object, $params) {
+    public function linkToDiscussionGroupEdit($object, $params) {
         return link_to(__('Edit', array(), 'sf_admin'), "/course/discussion/" . $object->getId() . "/edit", array("class" => "button-edit"));
     }
 
-    public function linkToDiscussionDelete($object, $params) {
+    public function linkToDiscussionGroupDelete($object, $params) {
         if ($object->isNew()) {
             return '';
         }
 
         if (!isset($params['type'])) {
-            return link_to(__('Remove', array(), 'sf_admin'), 'discussion_delete', $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], "class" => "button-remove"));
+            return link_to(__('Remove', array(), 'sf_admin'), 'course_discussion_delete', $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], "class" => "button-remove"));
         } else {
             return '<li class="sf_admin_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
         }
     }
 
-    public function linkToCourseDiscussion() {
+    public function linkToDiscussionGroup() {
         return '<input type="button" class="button" onclick="document.location.href=\'/course/discussion\';" value="&lt; Course Discussions"/>';
     }
-    
+
     public function linkToDiscussionTopicView($object, $params) {
         return link_to(__('View Topic', array(), 'sf_admin'), "/discussion/topic/" . $object->getSlug(), array("class" => "button-view"));
     }
 
-    public function linkToManageFollowers() {
-        return '<input type="button" class="button" onclick="document.location.href=\'/discussion/member\';" value="Manage Followers"/>';
+    public function linkToManagePeers() {
+        return '<input type="button" class="button" onclick="document.location.href=\'/discussion/peer\';" value="Manage Peers"/>';
     }
-    
-    public function linkToDiscussions(){
-        return '<input type="button" class="button" onclick="document.location.href=\'/discussion\';" value="&lt; Discussions"/>';
+
+    public function linkToEditMembership($memberId) {
+        return '<input id="edit_discussion_peership" type="button" class="button" onClick="document.location.href=\'/discussion/peer/' . $memberId . '/edit\'" value="Edit Membership">';
     }
-    
-    public function linkToEditMembership($memberId){
-        return '<input id="edit_discussion_membership" type="button" class="button" onClick="document.location.href=\'/discussion/member/'. $memberId .'/edit\'" value="Edit Membership">';
+
+    public function linkToJoinDiscussionGroup() {
+        return '<input type="button" class="button" href="/discussion/peer/join" value="Join Discussion">';
     }
-    
-    public function linkToJoinDiscussion(){
-        return '<input type="button" class="button" href="/discussion/member/join" value="Join Discussion">';
+
+    public function linkToInvitePeers() {
+        return '<input id="invite_follower" type="button" class="button" href="/discussion/peer/invite" value="+ Invite Peers"/>';
     }
-    
-    public function linkToInviteFollowers(){
-        return '<input id="invite_discussion_follower" type="button" class="button" href="/discussion/member/invite" value="+ Invite Followers"/>';
-    }
-    
-    public function linkToNewTopic(){
+
+    public function linkToNewTopic() {
         return '<input type="button" class="button" value="+ New Topic"/>';
     }
 

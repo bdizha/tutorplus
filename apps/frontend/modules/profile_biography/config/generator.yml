@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Profile
+    theme:                 popup
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          profile_biography
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    
+    config:
+      fields:
+      actions:             ~
+      form:
+        class:             ProfileBiographyForm
+        display:           [ about_me ]
+      filter:
+        class:             false
+      edit:
+        actions:
+          cancel:          []
+          done:            []
+          _save:           []
+      new:
+        actions:
+          cancel:          []
+          save:            []

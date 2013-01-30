@@ -3,7 +3,7 @@
 <?php decorate_with(sfConfig::get("sf_app_dir").'/templates/public.php') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', array()) ?>
+<?php include_component('common', 'secureMenu', array()) ?>
 <?php end_slot() ?>
 
 <div id="tp_admin_container">

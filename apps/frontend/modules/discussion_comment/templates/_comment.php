@@ -1,11 +1,8 @@
-<?php $user = $discussionTopicMessageReply->getProfile() ?>
+<?php $user = $discussionComment->getProfile() ?>
 <div class="comment">
-    <div class="heading">
-        <?php include_partial('personal_info/photo', array('profile' => $discussionTopicMessageReply->getProfile(), "dimension" => 36)) ?>
-        <div class="name"><?php echo link_to($discussionTopicMessageReply->getProfile(), 'profile_show', $discussionTopicMessageReply->getProfile()) ?></div>
-        <div class="datetime"><?php echo $discussionTopicMessageReply->getUpdatedAt() ?></div> commented:
-    </div>
+    <?php include_partial('personal_info/photo', array('profile' => $discussionComment->getProfile(), "dimension" => 36)) ?>
     <div class="body">
-        <?php echo $discussionTopicMessageReply->getReply() ?>
+        <?php echo $discussionComment->getReply() ?>
+        <div class="user-meta">By <?php echo link_to($discussionComment->getProfile(), 'profile_show', $discussionComment->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionComment->getCreatedAt()) ?></span></div>
     </div>
 </div>

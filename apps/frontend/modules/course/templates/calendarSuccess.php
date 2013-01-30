@@ -1,13 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->calendarLinks($course)) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
+<?php include_component('common', 'secureMenu', $helper->calendarLinks($course)) ?>
 <?php include_partial('common/breadcrumbs', $helper->calendarBreadcrumbs($course)) ?>
-<?php end_slot() ?>
-
 <div id="sf_admin_heading">
     <h3><?php echo __('Calendar', array(), 'messages') ?></h3>
 </div>

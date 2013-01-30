@@ -31,11 +31,7 @@ html .fc,
     vertical-align: top;
 }
 
-
-
-/* Header
-------------------------------------------------------------------------*/
-
+/* ------------------------------------------------------------------------ */
 .fc-header td {
     white-space: nowrap;
 }
@@ -60,7 +56,6 @@ html .fc,
 }
 
 .fc-header-title h2 {
-    color: #393939;
     font-size: 14px;
     font-weight: normal;
     margin-top: 0;
@@ -77,13 +72,11 @@ html .fc,
 }
 
 /* buttons edges butting together */
-
 .fc-header .fc-button {
-    background: url("/images/button-bg.png") repeat-x scroll 0 0 transparent !important;
+    padding: 0 !important;
 }
 
 .fc-header .fc-corner-right {
-    margin: 0 1px; /* back to normal */
 }
 
 .fc-header .ui-corner-right {
@@ -91,7 +84,6 @@ html .fc,
 }
 
 /* button layering (for border precedence) */
-
 .fc-header .fc-state-hover,
 .fc-header .ui-state-hover {
     z-index: 2;
@@ -106,35 +98,28 @@ html .fc,
     z-index: 4;
 }
 
-
-
 /* Content
 ------------------------------------------------------------------------*/
-
 .fc-content {
     background-color: #F9F9F9;
 }
 
 .fc-view {
-    width: 100%; /* needed for view switching (when view is absolute) */
+    width: 100%;
     overflow: hidden;
     height: 100%;
 }
 
 .fc-content tfoot{
-    /*    display: none;*/
 }
 
 td.fc-first{
     height: 16% !important;
 }
 
-
 /* Cell Styles
 ------------------------------------------------------------------------*/
-
-.fc-widget-content {  /* <td>, usually */
-    /*    border: 1px solid #FFF;*/
+.fc-widget-content {
 }
 
 .fc-widget-header{
@@ -147,7 +132,7 @@ td.fc-first{
 }
 
 .fc-state-highlight, .fc-today { /* <td> today cell */ /* TODO: add .fc-today to <th> */
-    background: none repeat scroll 0 0 #BB6E3C !important;
+    background: none repeat scroll 0 0 #B5A072 !important;
     color: #FFFFFF !important;
     z-index: 1000;
 }
@@ -158,11 +143,8 @@ td.fc-first{
     filter: alpha(opacity=20); /* for IE */
 }
 
-
-
 /* Buttons
 ------------------------------------------------------------------------*/
-
 .fc-button {
     position: relative;
     display: inline-block;
@@ -177,12 +159,11 @@ td.fc-first{
 
 .fc-button-agendaWeek {
     border-right: medium none !important;
-    margin-left: 1px;
+    margin: 0 1px;
 }
 
 .fc-button-today{
     border-right: medium none !important;
-    margin-left: 1px;
 }
 
 .fc-button-next {
@@ -191,9 +172,6 @@ td.fc-first{
 }
 
 .fc-state-default { 
-    /*
-        non-theme 
-    */
     border-style: solid;
     border-width: 1px 0;
 }
@@ -234,7 +212,6 @@ td.fc-first{
 }
 
 /* icon (for jquery ui) */
-
 .fc-button-content .fc-icon-wrap {
     position: relative;
     float: left;
@@ -245,12 +222,9 @@ td.fc-first{
     position: relative;
     float: left;
     margin-top: -50%;
-    *margin-top: 0;
-    *top: -50%;
 }
 
 /* gloss effect */
-
 .fc-state-default .fc-button-effect {
     position: absolute;
     top: 50%;
@@ -269,20 +243,18 @@ td.fc-first{
 
 .fc-state-down,
 .fc-state-down .fc-button-inner {
-    border-color: #B87341;
-    background: #B87341;
+    border-color: #B5A072;
+    background: #B5A072;
 }
 
 .fc-state-active,
 .fc-state-active .fc-button-inner {
-    background: none repeat scroll 0 0 #B87341;
+    background: none repeat scroll 0 0 #B5A072;
     color: white !important;
 }
 
 .fc-state-disabled,
 .fc-state-disabled .fc-button-inner {
-    border-color: #B6B6B6;
-    color: #555555 !important;
 }
 
 .fc-state-disabled {
@@ -295,7 +267,6 @@ td.fc-first{
 
 /* Global Event Styles
 ------------------------------------------------------------------------*/
-
 .fc-event {
     border-style: solid;
     border-width: 0;
@@ -334,7 +305,8 @@ a.fc-event {
     padding: 0 1px;
 }
 
-.fc .ui-resizable-handle { /*** TODO: don't use ui-resizable anymore, change class ***/
+.fc .ui-resizable-handle {
+    /*** TODO: don't use ui-resizable anymore, change class ***/
     display: block;
     position: absolute;
     z-index: 99999;
@@ -347,7 +319,6 @@ a.fc-event {
 
 /* Horizontal Events
 ------------------------------------------------------------------------*/
-
 .fc-event-hori {
     border-width: 1px 0;
     margin-bottom: 1px;
@@ -375,22 +346,12 @@ a.fc-event {
     _padding-bottom: 14px; /* IE6 had 0 height */
 }
 
-
-
-/* Fake Rounded Corners (for buttons and events)
-------------------------------------------------------------*/
-
-.fc-corner-left {
-    margin-left: 1px;
-}
-
 .fc-corner-left .fc-button-inner,
 .fc-corner-left .fc-event-inner {
     margin-left: -1px;
 }
 
 .fc-corner-right {
-    margin-right: 1px;
 }
 
 .fc-corner-right .fc-button-inner,
@@ -408,7 +369,6 @@ a.fc-event {
 
 /* Fake Rounded Corners SPECIFICALLY FOR EVENTS
 -----------------------------------------------------------------*/
-
 .fc-corner-left .fc-event-inner {
     border-left-width: 1px;
 }
@@ -425,11 +385,8 @@ a.fc-event {
     border-bottom-width: 1px;
 }
 
-
-
 /* Reusable Separate-border Table
 ------------------------------------------------------------*/
-
 table.fc-border-separate {
     border-collapse: separate;
     height: 390px;
@@ -447,7 +404,6 @@ table.fc-border-separate {
 
 .fc-border-separate th,
 .fc-border-separate td {
-    /*    border-width: 1px 0 0 1px;*/
 }
 
 .fc-border-separate th.fc-last,
@@ -465,11 +421,8 @@ table.fc-border-separate {
     border-top-width: 0;
 }
 
-
-
 /* Month View, Basic Week View, Basic Day View
 ------------------------------------------------------------------------*/
-
 .fc-grid th {
     background-color: #DCDCDC;
     color: #FFFFFF;
@@ -489,10 +442,7 @@ table.fc-border-separate {
     font-size: 12px;
     opacity: 0.6;
     padding: 3px;
-    filter: alpha(opacity=60); /* for IE */
-    /* opacity with small font can sometimes look too faded
-           might want to set the 'color' property instead
-           making day-numbers bold also fixes the problem */
+    filter: alpha(opacity=60);
 }
 
 .fc-grid .fc-day-content {
@@ -581,7 +531,7 @@ table.fc-border-separate {
 }
 
 .fc-widget-header .fc-agenda-divider-inner {
-    background: #EBEAE9;
+    background: #F5F5F5;
 }
 
 /* slot rows */

@@ -1,2 +1,2 @@
 all:
-  stylesheets: [ staff.css ]
+  stylesheets: [ secure.css, staff.css ]

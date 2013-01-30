@@ -4,7 +4,7 @@
         <div class="content">
             <?php $sender = $emailMessage->getSender(); ?>
             <?php include_partial('personal_info/photo', array('profile' => $sender, "dimension" => 24)) ?>
-            <?php echo $sender->getName() . "&nbsp;&lt;" . $sender->getEmail() . "&gt;" ?>
+            <?php echo $sender->getName() ?>
         </div>
     </div>
     <div class="sf_admin_form_row sf_admin_text sf_admin_form_field_to_emails">    
@@ -12,8 +12,8 @@
             <label for="email_message_to_emails">To:</label>
             <div id="to_email_recipients">
                 <div id="recipients_holder_to_email">
-                    <?php foreach (sfGuardUserTable::getInstance()->retrieveByEmails($emailMessage->getToEmail()) as $user): ?>
-                        <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 24)) ?>
+                    <?php foreach (ProfileTable::getInstance()->retrieveByEmails($emailMessage->getToEmail()) as $profile): ?>
+                        <div class="added-recipient"><?php echo $profile->getName() ?></div>
                     <?php endforeach; ?>
                 </div>
             </div>

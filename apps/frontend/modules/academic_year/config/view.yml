@@ -1,3 +1,6 @@
+all:
+  stylesheets: [ secure.css ]
+  
 newSuccess:
   layout: false
   

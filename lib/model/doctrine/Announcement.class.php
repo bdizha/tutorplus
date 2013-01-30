@@ -10,34 +10,31 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Announcement extends BaseAnnouncement
-{
-    public function postSave($event)
-    {
-        $replacements = array($this->getSubject());
-        $activityTemplate = ActivityTemplateTable::getInstance()->findOneByType(ActivityTemplateTable::TYPE_POSTED_ANNOUNCEMENT);
+class Announcement extends BaseAnnouncement {
 
-        if ($activityTemplate)
-        {
-            $activityFeed = new ActivityFeed();
-            $activityFeed->setActivityTemplate($activityTemplate);
-            $activityFeed->setReplacements(json_encode($replacements));
-            $activityFeed->setProfileId($this->somethingId());
-            $activityFeed->save();
-        }
-    }
+    public function postInsert($event) {
+        // save this activity
+        $activityFeed = new ActivityFeed();
+        $activityFeed->setProfileId($this->getProfileId());
+        $activityFeed->setItemId($this->getId());
+        $activityFeed->setType(ActivityFeedTable::TYPE_POSTED_ANNOUNCEMENT);
+        $activityFeed->save();
 
-    public function getHtmlizedMessage() {
-        return myToolkit::htmlString($this->getMessage());
+        // link this activity with the current profile
+        $profileActivityFeed = new ProfileActivityFeed();
+        $profileActivityFeed->setProfileId($this->getProfileId());
+        $profileActivityFeed->setActivityFeedId($activityFeed->getId());
+        $profileActivityFeed->save();
     }
 
     public function getToEmails() {
         $toEmails = "";
-        foreach (sfGuardUserTable::getInstance()->findAll() as $user) {
+        foreach (ProfileTable::getInstance()->findAll() as $user) {
             $toEmails .= $user->getName() . " <" . $user->getEmail() . ">,";
         }
-        
+
         $toEmails = trim($toEmails, ",");
         return $toEmails;
     }
+
 }

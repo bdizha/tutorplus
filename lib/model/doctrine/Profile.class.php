@@ -46,15 +46,12 @@ class Profile extends BaseProfile {
       $salt = md5(rand(100000, 999999) . $this->getName());
       $this->setSalt($salt);
     }
-    $modified = $this->getModified();
-    if ((!$algorithm = $this->getAlgorithm()) || (isset($modified['algorithm']) && $modified['algorithm'] == $this->getTable()->getDefaultValueOf('algorithm'))) {
-      $algorithm = 'sha1';
-    }
-    $algorithmAsStr = is_array($algorithm) ? $algorithm[0] . '::' . $algorithm[1] : $algorithm;
+    
+    $algorithm = $this->getTable()->getDefaultValueOf('algorithm');
     if (!is_callable($algorithm)) {
-      throw new sfException(sprintf('The algorithm callable "%s" is not callable.', $algorithmAsStr));
+      throw new sfException(sprintf('The algorithm callable "%s" is not callable.', $algorithm));
     }
-    $this->setAlgorithm($algorithmAsStr);
+    $this->setAlgorithm($algorithm);
 
     $this->_set('password', call_user_func_array($algorithm, array($salt . $password)));
   }
@@ -67,9 +64,6 @@ class Profile extends BaseProfile {
    */
   public function checkPassword($password) {
     $algorithm = $this->getAlgorithm();
-    if (false !== $pos = strpos($algorithm, '::')) {
-      $algorithm = array(substr($algorithm, 0, $pos), substr($algorithm, $pos + 2));
-    }
     if (!is_callable($algorithm)) {
       throw new sfException(sprintf('The algorithm callable "%s" is not callable.', $algorithm));
     }
@@ -116,7 +110,7 @@ class Profile extends BaseProfile {
       throw new sfException(sprintf('The permission "%s" does not exist.', $name));
     }
 
-    $up = new ProfileProfilePermission();
+    $up = new ProfilePermission();
     $up->setProfile($this);
     $up->setPermission($permission);
 

@@ -1,13 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->instructorsLinks()) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
+<?php include_component('common', 'secureMenu', $helper->instructorsLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->instructorsBreadcrumbs()) ?>
-<?php end_slot() ?>
-
 <div id="sf_admin_content">
     <div class="content-block">
         <div class="peer-filters">

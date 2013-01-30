@@ -1,33 +1,31 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial("discussion_topic_reply/form", array("form" => $form, "discussionTopicMessageId" => $discussionTopicMessage->getId())) ?>
+<?php include_partial("discussion_comment/form", array("form" => $form, "discussionPostId" => $discussionPost->getId())) ?>
 <script type='text/javascript'>
     //<![CDATA[
     $(document).ready(function(){
-        // submit discussion topic replies
-        $('.submit-discussion-topic-reply').click(function() {
-            $this = $(this);
-            $messageId = $this.attr('messageid');  
+        // submit a DiscussionGroup comment
+        $('.submit-discussion-comment').click(function() {
+            var $this = $(this);
+            var messageId = $this.attr('messageid'); 
+            var comment = $.trim($('#discussion-comment-form-' + messageId + ' textarea').val());
             
-            $replyValue = trim($('#discussion-topic-reply-form-' + $messageId + ' textarea').val());
-            
-            if($this.val() != "Loading..." && $replyValue != ""){
-                $this.val("Loading...");          
-                $('#discussion-topic-reply-form-' + $messageId).ajaxSubmit(function(data){             
+            if($this.val() != "Commenting..." && comment != ""){
+                $this.val("Commenting...");          
+                $('#discussion-comment-form-' + messageId).ajaxSubmit(function(data){             
                     if(data != 'failure'){
-                        $.get('/discussion_topic_reply/' + data, {}, function(replyData){   
-                            $('#discussion-topic-replies-' + $messageId).append(replyData);
+                        $.get('/discussion/comment/' + data, {}, function(replyData){   
+                            $('#discussion-comments-' + messageId).append(replyData);
                         }, 'html');                    
                     
-                        // increment the replies count
-                        var $messageRepliesCount = $('#replies-count-' + $messageId).html();           
-                        var $topicRepliesCount = $('#replies-count').html();           
-                        $messageRepliesCount = parseInt($messageRepliesCount) + 1;  
-                        $topicRepliesCount = parseInt($topicRepliesCount) + 1;
+                        // increment the comment count
+                        var postCommentCount = $('#comment-count-' + messageId).html();           
+                        var topicCommentCount = $('#comment-count').html();           
+                        postCommentCount = parseInt(postCommentCount) + 1;  
+                        topicCommentCount = parseInt(topicCommentCount) + 1;
                 
-                        $('#replies-count-' + $messageId).html($messageRepliesCount);
-                        $('#replies-count').html($topicRepliesCount);
-                
-                        $('#discussion-topic-reply-form-holder-' + $messageId).load('/discussion_topic_reply/new');                
+                        $('#comment-count-' + messageId).html(postCommentCount);
+                        $('#comment-count').html(topicCommentCount);
+                        $('#discussion-comment-form-holder-' + messageId).load('/discussion/comment/new');                
                     }
                 });
                 return false;

@@ -1,16 +1,12 @@
-<?php $courseStudents = $course->getCourseStudents(); ?>
 <?php if ($courseStudents->count() > 0): ?>
-    <div class="peer-block  padding-10">
-        <?php foreach ($courseStudents as $courseStudent): ?>
-            <?php $user = $courseStudent->getStudent()->getProfile() ?>
-            <div class="peer" id="course-student-<?php echo $courseStudent->getStudent()->getId() ?>">
-                <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 48)) ?>
-                <div class="name"><?php echo link_to($user->getName(), 'profile_show', $user) ?></div>
-                <div class="type"><?php echo $user->getType() ?></h4>
-                </div>
-            </div>
-        <?php endforeach; ?>
+  <?php foreach ($courseStudents as $key => $courseStudent): ?>
+    <div class="peer<?php echo fmod($key, 2) ? " last" : "" ?>"> 
+      <?php $profile = $courseStudent->getProfile() ?>
+      <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 48)) ?>
+      <div class="name"><?php echo link_to($profile->getTitle() . " " . $profile->getName(), 'profile_show', $profile) ?></div>
+      <div class="institution"><?php echo $profile->getInstitution() ?></div>
     </div>
+  <?php endforeach; ?>
 <?php else: ?>
-    <div class="no-result">There's no student followers added to this course currently</div>
+  <div class="course-row">There's not any students enrolled into this course yet</div>
 <?php endif; ?>

@@ -1,8 +1,73 @@
-#main-menu{
-  height: 40px;
+#main-header{
+  background-color: #F1F1F1;
+  color: #7F7F7F;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  height: 42px;
+  top: 0;
+  border: 1px solid #E8E8E8;
 }
 
-#main-menu ul li{
+#main-logo div{
+  vertical-align: top;
+  height: 61px;
+}
+
+#main-body{
+  margin: 0 auto;
+  width: 940px;
+  padding-top: 45px;
+}
+
+#main-logo{
+  display: inline-block;
+  vertical-align: top;
+  width: 190px;
+  text-indent: -9999px;
+  margin-top: 5px;
+  height: 32px;
+  background: url(/images/logo.png) -4px 0 no-repeat;
+  overflow: hidden;
+}
+
+#main-logo a{
+  width: 215px;
+  height: 32px;
+  display: block;
+}
+
+#main-header .wrapper{
+  height: 42px;
+  margin: 0 auto;
+  width: 940px;    
+}
+
+#main-menu{
+  vertical-align: top;
+  display: inline-block;
+  width: 746px;   
+}
+
+#main-menu ul{
+  display: inline-block;
+  width: 615px;
+  height: 42px;
+}
+
+#signing-wrapper{
+  width: 126px;
+  display: inline-block;
+  margin-top: 7px;
+  text-align: right;
+}
+
+#header-wrapper{
+  margin: 0 auto;
+}
+
+#public-menu ul li{
   display: inline;
   float: left;
   height: 20px;
@@ -10,8 +75,33 @@
   padding-right: 32px;
 }
 
-#main-menu a{
-  padding: 10px 9px 10px 0;
+#public-menu{
+  height: 40px;
+  width: 100%;
+  z-index: 999;
+  background-color: #FFF;
+  position: fixed;
+  top: 42px;
+}
+
+#public-menu ul{
+  background-color: #FFF;
+  border-bottom: 1px solid #E5E5E5;
+  width: 940px;
+  height: 40px;
+  margin: 0 auto;  
+}
+
+#public-menu ul li{
+  display: inline;
+  float: left;
+  height: 20px;
+  text-align: left;
+  padding-right: 32px;  
+}
+
+#public-menu a{
+  padding: 10px 4px 10px 0;
   display: block;
   text-align: left;
   color: #C6C8C8;
@@ -19,11 +109,79 @@
   font-weight: 400;
 }
 
-#main-menu ul li.active a{
-  color: #DCC170 !important;
+#public-menu ul li.active a, #public-menu ul li.active a{
+  color: #B5A072 !important;
 }
 
-#main-menu ul li.normal a:hover,
+#public-menu ul li.normal a:hover,
 #main-footer ul li a:hover{
-  color: #DCC170 !important;
+  color: #B5A072 !important;
+}
+
+h3{
+  margin-bottom: 5px !important;
+}
+
+.sf_admin_boolean{
+  height: 32px;
+}
+
+#profile_sign_in_form_holder .sf_admin_boolean label {
+  position: absolute;
+  left: 20px;
+  top: 7px;
+}
+
+#profile_sign_in_form_holder .sf_admin_boolean .content {
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+
+#sign-in{
+  float: right;
+}
+
+#tp_admin_content{
+  clear: both;
+}
+
+.left-block .error{
+  width: 337px;
+  margin-top: 10px;
+}
+
+.profile-overlap{
+  top: 82px !important;
+}
+
+.public-left{
+  display: inline-block;
+  width: 125px;
+  vertical-align: top;
+}
+
+.public-right{
+  display: inline-block;
+  width: 800px;
+  vertical-align: top;
+  margin-top: -15px;
+}
+
+#secondary-menu{
+  width: 125px;
+  vertical-align: top;
+}
+
+#secondary-menu ul li{
+  height: 24px;
+}
+
+#secondary-menu ul li a{
+  color: #C6C8C8;
+  font-size: 13px;
+}
+
+#secondary-menu ul li.active a{
+  color: #B5A072 !important;
 }

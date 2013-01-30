@@ -1,0 +1,8 @@
+all:
+  stylesheets:    [ secure.css, profile.css ]
+  
+newSuccess:
+  has_layout:     false
+  
+editSuccess:
+  has_layout:     false

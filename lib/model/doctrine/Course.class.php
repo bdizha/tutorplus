@@ -79,10 +79,10 @@ class Course extends BaseCourse {
         return AssignmentTable::getInstance()->retrieveUpcomingAssignments($q);
     }
 
-    public function getDiscussion() {
-        $courseDiscussion = CourseDiscussionTable::getInstance()->findOneByCourseId($this->getId());
-        if (is_object($courseDiscussion)) {
-            return $courseDiscussion->getDiscussion();
+    public function getDiscussionGroup() {
+        $courseDiscussionGroup = CourseDiscussionGroupTable::getInstance()->findOneByCourseId($this->getId());
+        if (is_object($courseDiscussionGroup)) {
+            return $courseDiscussionGroup->getDiscussionGroup();
         }
         return null;
     }

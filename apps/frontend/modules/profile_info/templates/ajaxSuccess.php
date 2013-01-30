@@ -1,0 +1,1 @@
+<?php include_partial('profile/info', array('profile' => $profile)) ?>

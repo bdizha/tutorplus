@@ -1,0 +1,4 @@
+all:
+  popup:
+    height: 200
+    width: 500

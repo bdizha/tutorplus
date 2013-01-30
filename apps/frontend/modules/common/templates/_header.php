@@ -5,11 +5,10 @@
   </div>
   <div id="moto-wrapper"></div>
   <?php if ($isAuthenticated): ?>
-    <?php $profile = $sf_user->getProfile(); ?>
-    <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 24, "cssClass" => "menu-photo")) ?>
   <?php else: ?>
-    <div id="sign-in-wrapper">
-      <a href="<?php echo url_for('@profile_sign_in') ?>">Sign In</a>
+    <div id="signing-wrapper">
+      <input class="button sign-up" value="Sign Up" type="button" onclick="document.location.href = '<?php echo url_for('@profile_enroll_new') ?>';"/>
+      <input class="button" value="Sign In" type="button" onclick="document.location.href = '<?php echo url_for('@profile_sign_in') ?>';"/>
     </div>
   <?php endif; ?>
 </div>

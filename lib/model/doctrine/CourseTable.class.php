@@ -7,31 +7,29 @@
  */
 class CourseTable extends Doctrine_Table {
 
-    const MODULE_STUDENT = "student";
-    const MODULE_INSTRUCTOR = "instructor";
-    const MODULE_STAFF = "staff";
-    const MODULE_MAILING_LIST = "mailing_list";
+  const MODULE_STUDENT = "student";
+  const MODULE_INSTRUCTOR = "instructor";
+  const MODULE_STAFF = "staff";
+  const MODULE_MAILING_LIST = "mailing_list";
 
-    /**
-     * Returns an instance of this class.
-     *
-     * @return object CourseTable
-     */
-    public static function getInstance() {
-        return Doctrine_Core::getTable('Course');
-    }
+  /**
+   * Returns an instance of this class.
+   *
+   * @return object CourseTable
+   */
+  public static function getInstance() {
+    return Doctrine_Core::getTable('Course');
+  }
 
-    public function findByProfileId($profileId, $limit = null) {
-        $q = $this->createQuery('c')
-                ->leftJoin('c.CourseStudents cs')
-                ->leftJoin('c.CourseInstructors ci')
-                ->innerJoin('ci.Instructor i')
-                ->innerJoin('cs.Instructor s')
-                ->addWhere('s.profile_id = ?', $profileId)
-                ->addWhere('i.profile_id = ?', $profileId);
-        
-        myToolkit::debug($q->getSqlQuery());
-        return $q->execute();
+  public function findByPeerId($profileId, $limit = null) {
+    $q = $this->createQuery('c')
+        ->innerJoin('c.CourseProfiles cp')
+        ->addWhere('cp.profile_id = ?', $profileId);
+
+    if ($limit) {
+      $q->limit($limit);
     }
+    return $q->execute();
+  }
 
 }

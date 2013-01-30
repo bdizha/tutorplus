@@ -27,10 +27,9 @@
   padding: 10px 10px;
   position: relative;
   display: block;
-  border: 1px solid #EBEAE9;
+  border: 1px solid #F5F5F5;
   margin: 0 0 10px 10px;
   width: 700px;
-  border-radius: 3px;
   vertical-align: top;
   background-color: white;
   min-height: 96px;    
@@ -39,10 +38,9 @@
 .news-item .meta-info {
   height: 45px;
   margin-left: 105px;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #F5F5F5;
 }
 
 #news_items .heading{
-  color: #856651;
-  font-weight: bold;
+  color: #B5A072;
 }

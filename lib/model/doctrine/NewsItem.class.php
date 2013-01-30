@@ -10,6 +10,21 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class NewsItem extends BaseNewsItem
-{
+class NewsItem extends BaseNewsItem {
+
+    public function postInsert($event) {
+        // save this activity
+        $activityFeed = new ActivityFeed();
+        $activityFeed->setProfileId($this->getProfileId());
+        $activityFeed->setItemId($this->getId());
+        $activityFeed->setType(ActivityFeedTable::TYPE_POSTED_NEWS_ITEM);
+        $activityFeed->save();
+
+        // link this activity with the current profile
+        $profileActivityFeed = new ProfileActivityFeed();
+        $profileActivityFeed->setProfileId($this->getProfileId());
+        $profileActivityFeed->setActivityFeedId($activityFeed->getId());
+        $profileActivityFeed->save();
+    }
+
 }

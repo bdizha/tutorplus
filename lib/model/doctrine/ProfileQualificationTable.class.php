@@ -10,7 +10,7 @@ class ProfileQualificationTable extends Doctrine_Table
     /**
      * Returns an instance of this class.
      *
-     * @return object DiscussionTable
+     * @return object DiscussionGroupTable
      */
     public static function getInstance()
     {

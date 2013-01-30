@@ -1,9 +1,0 @@
-all:
-  stylesheets: [course.css, instructor.css]
-  has_layout: false
- 
-editSuccess:
-  has_layout: true
- 
-newSuccess:
-  has_layout: true

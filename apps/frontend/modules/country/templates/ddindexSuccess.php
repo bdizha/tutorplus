@@ -4,7 +4,7 @@
 <?php //print_r(sfConfig::get("app_popup_country")); die; ?>
 
 <div id="sf_admin_container">
-  <?php include_partial('country/flashes') ?>
+  <?php include_partial('country/flashes_normal') ?>
 	<div class="sf_admin_heading">
   	<h3><?php echo __('Country List', array(), 'messages') ?></h3>
   </div>

@@ -7,7 +7,7 @@ generator:
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          discussion_topic_reply
+    route_prefix:          discussion_comment
     with_doctrine_route:   true
     actions_base_class:    sfActions
 

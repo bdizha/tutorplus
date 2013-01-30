@@ -2,7 +2,7 @@
 <div id="cboxLoadedContentInner">
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
-            <form id="discussion_member_invite_form" action="/discussion/member/invite" method="post">
+            <form id="discussion_peer_invite_form" action="/discussion/peer/invite" method="post">
                 <div class="follower-filters">
                     <ul class="nav-tabs">
                         <li class="active-tab">
@@ -18,7 +18,7 @@
                         <div class="no-result">There's no students to invite currently.</div>
                     <?php else: ?>
                         <?php foreach ($students as $student): ?>
-                            <div class="discussion-potential-member">
+                            <div class="discussion-group-potential-member">
                                 <div class="image">
                                     <?php include_partial('personal_info/photo', array('profile' => $student->getProfile(), "dimension" => 24)) ?>
                                 </div>
@@ -35,7 +35,7 @@
                         <div class="no-result">There's no instructors to invite currently.</div>
                     <?php else: ?>
                         <?php foreach ($instructors as $instructor): ?>
-                            <div class="discussion-potential-member">
+                            <div class="discussion-group-potential-member">
                                 <div class="image">
                                     <?php include_partial('personal_info/photo', array('profile' => $instructor->getProfile(), "dimension" => 24)) ?>
                                 </div>
@@ -76,16 +76,16 @@
         $(".sf_admin_action_invite .save").click(function(){
             $("#cboxLoadedContentInner").hide();
             $("#cboxLoadedContent").append(loadingHtml);            
-            $("#discussion_member_invite_form").ajaxSubmit(function(data){
+            $("#discussion_peer_invite_form").ajaxSubmit(function(data){
                 $("#cboxLoadedContent").html(data);
                 $.fn.colorbox.resize();
-                $("#discussion-notice").html("Follower invitations have been sent successfully!");
+                $("#discussion-group-notice").html("Peer invitations have been sent successfully!");
                 $(".notice").hide();
-                $("#discussion-notice").show();
+                $("#discussion-group-notice").show();
                  setTimeout(function(){
                     $(".notice").hide();
                 },10000);
-                 $("#discussion-followers").load("/discussion/member/followers");
+                 $("#discussion-group-followers").load("/discussion/peer/followers");
             });            
             return false;
         });

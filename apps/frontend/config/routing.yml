@@ -1,3 +1,55 @@
+profile_info:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               profile_info
+    prefix_path:          /profile/info
+    column:               id
+    with_wildcard_routes: true
+  
+profile_info_ajax:
+  url: /profile/info/ajax
+  param: { module: profile_info, action: ajax }
+
+profile_credentials:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               profile_credentials
+    prefix_path:          /profile/credentials
+    column:               id
+    with_wildcard_routes: true
+  
+profile_credentials_ajax:
+  url: /profile/credentials/ajax
+  param: { module: profile_credentials, action: ajax }
+
+profile_biography:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               profile_biography
+    prefix_path:          /profile/biography
+    column:               id
+    with_wildcard_routes: true
+  
+profile_biography_ajax:
+  url: /profile/biography/ajax
+  param: { module: profile_biography, action: ajax }
+
+profile_details:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               profile_details
+    prefix_path:          /profile/details
+    column:               id
+    with_wildcard_routes: true
+  
+profile_details_ajax:
+  url: /profile/details/ajax
+  param: { module: profile_details, action: ajax }
+
 institution:
   class: sfDoctrineRouteCollection
   options:
@@ -13,15 +65,6 @@ news_item:
     model:                NewsItem
     module:               news_item
     prefix_path:          /news/item
-    column:               id
-    with_wildcard_routes: true
-
-discussion_type:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                DiscussionType
-    module:               discussion_type
-    prefix_path:          /discussion/type
     column:               id
     with_wildcard_routes: true
 
@@ -70,21 +113,12 @@ faq:
     column:               id
     with_wildcard_routes: true
 
-instructor_enroll:
+profile_enroll:
   class: sfDoctrineRouteCollection
   options:
-    model:                Instructor
-    module:               instructor_enroll
-    prefix_path:          /instructor/enroll
-    column:               id
-    with_wildcard_routes: true
-
-student_enroll:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                Student
-    module:               student_enroll
-    prefix_path:          /student/enroll
+    model:                Profile
+    module:               profile_enroll
+    prefix_path:          /profile/enroll
     column:               id
     with_wildcard_routes: true
 
@@ -114,7 +148,7 @@ profile_publication:
     prefix_path:          /profile/publication
     column:               id
     with_wildcard_routes: true
-
+    
 profile_interest:
   class: sfDoctrineRouteCollection
   options:
@@ -142,55 +176,10 @@ peer:
     column:               id
     with_wildcard_routes: true
 
-staff_contact:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                StaffContact
-    module:               staff_contact
-    prefix_path:          /staff/contact
-    column:               id
-    with_wildcard_routes: true
-
-instructor_contact:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                InstructorContact
-    module:               instructor_contact
-    prefix_path:          /instructor/contact
-    column:               id
-    with_wildcard_routes: true
-    
-student_contact:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                StudentContact
-    module:               student_contact
-    prefix_path:          /student_contact
-    column:               id
-    with_wildcard_routes: true
-
-student_academic_settings:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                Student
-    module:               student_academic_settings
-    prefix_path:          /student_academic_settings
-    column:               id
-    with_wildcard_routes: true
-
-instructor_academic_settings:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                Instructor
-    module:               instructor_academic_settings
-    prefix_path:          /instructor/academic/settings
-    column:               id
-    with_wildcard_routes: true
-
 staff:
   class: sfDoctrineRouteCollection
   options:
-    model:                Staff
+    model:                Profile
     module:               staff
     prefix_path:          /staff
     column:               id
@@ -217,7 +206,7 @@ activity_feed:
 course_discussion:
   class: sfDoctrineRouteCollection
   options:
-    model:                Discussion
+    model:                discussion
     module:               course_discussion
     prefix_path:          /course/discussion
     column:               id
@@ -241,12 +230,12 @@ course_announcement:
     column:               id
     with_wildcard_routes: true
 
-discussion_topic_message:
+discussion_post:
   class: sfDoctrineRouteCollection
   options:
     model:                DiscussionPost
-    module:               discussion_topic_message
-    prefix_path:          /discussion/topic/message
+    module:               discussion_post
+    prefix_path:          /discussion/topic
     column:               id
     with_wildcard_routes: true
 
@@ -350,15 +339,6 @@ file:
     column:               id
     with_wildcard_routes: true
 
-discussion_topic_reply:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                DiscussionComment
-    module:               discussion_topic_reply
-    prefix_path:          /discussion_topic_reply
-    column:               id
-    with_wildcard_routes: true
-
 folder:
   class: sfDoctrineRouteCollection
   options:
@@ -389,45 +369,9 @@ contact_instructor:
 instructor:
   class: sfDoctrineRouteCollection
   options:
-    model:                Instructor
+    model:                Profile
     module:               instructor
     prefix_path:          /instructor
-    column:               id
-    with_wildcard_routes: true
-    
-student_contact_inline_new:
-  url:     /student/contact/inline/new/:fieldset
-  param:   { module: student_contact, action: inlineNew }
-  
-student_contact_inline_edit:
-  url:     /student/contact/inline/edit/:fieldset
-  param:   { module: student_contact, action: inlineEdit }
-  
-student_contact_inline_create:
-  url:     /student/contact/inline/create
-  param:   { module: student_contact, action: inlineUpdate }
-  requirements: { sf_method: put } 
-  
-student_contact_inline_update:
-  url:     /student/contact/inline/update
-  param:   { module: student_contact, action: inlineUpdate }
-  requirements: { sf_method: put } 
-
-enrollment:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                Enrollment
-    module:               enrollment
-    prefix_path:          /enrollment
-    column:               id
-    with_wildcard_routes: true
-
-contact:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                Contact
-    module:               contact
-    prefix_path:          /contact
     column:               id
     with_wildcard_routes: true
 
@@ -476,47 +420,38 @@ email_message:
     column:               id
     with_wildcard_routes: true
 
-discussion_member:
+discussion_peer:
   class: sfDoctrineRouteCollection
   options:
     model:                DiscussionPeer
-    module:               discussion_member
-    prefix_path:          /discussion/member
+    module:               discussion_peer
+    prefix_path:          /discussion/peer
     column:               id
     with_wildcard_routes: true
   
-discussion_members:
-  url:   /discussion/members
+discussion_peers:
+  url:   /discussion/peers
   param: { module: discussion, action: members }
   
-discussion_member_invite:
-  url:   /discussion/member/invite
-  param: { module: discussion_member, action: invite }
+discussion_peer_invite:
+  url:   /discussion/peer/invite
+  param: { module: discussion_peer, action: invite }
   
-discussion_member_followers:
-  url:   /discussion/member/followers
-  param: { module: discussion_member, action: followers }
+discussion_peer_followers:
+  url:   /discussion/peer/followers
+  param: { module: discussion_peer, action: followers }
   
-discussion_member_accept:
-  url:   /discussion/member/accept/:profile_id
-  param: { module: discussion_member, action: accept }
+discussion_peer_accept:
+  url:   /discussion/peer/accept/:profile_id
+  param: { module: discussion_peer, action: accept }
   
-discussion_member_suggested:
-  url:   /discussion/member/suggested
-  param: { module: discussion_member, action: suggested }
+discussion_peer_suggested:
+  url:   /discussion/peer/suggested
+  param: { module: discussion_peer, action: suggested }
   
-discussion_topic_message_show:
-  url:   /discussion/topic/message/show
-  param: { module: discussion_topic_message, action: show }
-
-discussion_reply:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                DiscussionReply
-    module:               discussion_reply
-    prefix_path:          /discussion/reply
-    column:               id
-    with_wildcard_routes: true
+discussion_post_show:
+  url:   /discussion/topic/show
+  param: { module: discussion_post, action: show }
 
 discussion_topic:
   class: sfDoctrineRouteCollection
@@ -527,12 +462,12 @@ discussion_topic:
     column:               id
     with_wildcard_routes: true
 
-discussion:
+discussion_comment:
   class: sfDoctrineRouteCollection
   options:
-    model:                Discussion
-    module:               discussion
-    prefix_path:          /discussion
+    model:                DiscussionComment
+    module:               discussion_comment
+    prefix_path:          /discussion/comment
     column:               id
     with_wildcard_routes: true
 
@@ -542,15 +477,6 @@ course_link:
     model:                CourseLink
     module:               course_link
     prefix_path:          /course/link
-    column:               id
-    with_wildcard_routes: true
-
-application:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                Application
-    module:               application
-    prefix_path:          /application
     column:               id
     with_wildcard_routes: true
 
@@ -604,51 +530,6 @@ calendar:
     model:                Calendar
     module:               calendar
     prefix_path:          /calendar
-    column:               id
-    with_wildcard_routes: true
-    
-document:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                Document
-    module:               document
-    prefix_path:          /document
-    column:               id
-    with_wildcard_routes: true
-
-sfGuardPermission:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                sfGuardPermission
-    module:               sfGuardPermission
-    prefix_path:          /user/permission
-    column:               id
-    with_wildcard_routes: true
-
-sfGuardGroup:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                sfGuardGroup
-    module:               sfGuardGroup
-    prefix_path:          /user/group
-    column:               id
-    with_wildcard_routes: true
-
-sfGuardUser:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                sfGuardUser
-    module:               sfGuardUser
-    prefix_path:          /user
-    column:               id
-    with_wildcard_routes: true
-    
-course_meeting_time:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                CourseMeetingTime
-    module:               course_meeting_time
-    prefix_path:          /course/meeting/time
     column:               id
     with_wildcard_routes: true
 
@@ -706,15 +587,6 @@ academic_period:
     column:               id
     with_wildcard_routes: true
 
-academic_info:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                AcademicPeriod
-    module:               academic_info
-    prefix_path:          /academic/info
-    column:               id
-    with_wildcard_routes: true
-
 academic_year:
   class: sfDoctrineRouteCollection
   options:
@@ -763,39 +635,11 @@ assignment:
 student:
   class: sfDoctrineRouteCollection
   options:
-    model:                Student
+    model:                Profile
     module:               student
     prefix_path:          /student
     column:               id
     with_wildcard_routes: true
-  
-instructor_register_create:
-  url:     /instructor/register.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: Instructor, type: object }
-  param:   { module: enroll, action: instructorCreate, sf_format: html }
-  requirements: { sf_method: post }
-  
-instructor_register_new:
-  url:     /instructor/register/new.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: Instructor, type: object }
-  param:   { module: enroll, action: instructorRegister, sf_format: html }
-  requirements: { sf_method: get }
-    
-student_inline_update:
-  url:     /student/inline/:id.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: Student, type: object }
-  param:   { module: student, action: inlineUpdate, sf_format: html }
-  requirements: { sf_method: put } 
-  
-student_inline_edit:
-  url:     /student/inline/:id/edit.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: Student, type: object }
-  param:   { module: student, action: inlineEdit, sf_format: html }
-  requirements: { sf_method: get }
 
 state_province:
   class: sfDoctrineRouteCollection
@@ -847,97 +691,9 @@ programmes_student:
   url: /programmes/student
   param: { module: program, action: studentProgrammes } 
   
-student_contact_details_edit:
-  url:     /student/contact/details/:id/edit.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: StudentContact, type: object }
-  param:   { module: student_contact, action: edit, sf_format: html }
-  requirements: { sf_method: get }
-  
-student_contact_details_new:
-  url:     /student/contact/details/new.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: StudentContact, type: object }
-  param:   { module: student_contact, action: new, sf_format: html }
-  requirements: { sf_method: get }
-  
 notification_settings_details:
   url: /notification/settings/details
-  param: { module: notification_settings, action: profileDetails }
-  
-account_settings_details:
-  url: /account/settings/details
-  param: { module: account_settings, action: details }
-    
-profile_account_settings_update:
-  url:     /profile/account/settings/:id.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: sfGuardUser, type: object }
-  param:   { module: profile, action: updateAccountSettings, sf_format: html }
-  requirements: { sf_method: put } 
-  
-profile_account_settings_edit:
-  url:     /profile/account/settings/:id/edit.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: sfGuardUser, type: object }
-  param:   { module: profile, action: editAccountSettings, sf_format: html }
-  requirements: { sf_method: get }
-    
-personal_info_update:
-  url:     /personal/info/:id.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: sfGuardUser, type: object }
-  param:   { module: personal_info, action: update, sf_format: html }
-  requirements: { sf_method: put } 
-  
-personal_info_edit:
-  url:     /personal/info/:id/edit.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: sfGuardUser, type: object }
-  param:   { module: personal_info, action: edit, sf_format: html }
-  requirements: { sf_method: get }
-  
-academic_info_update:
-  url:     /academic/info/:id.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: sfGuardUser, type: object }
-  param:   { module: academic_info, action: update, sf_format: html }
-  requirements: { sf_method: put } 
-  
-academic_info_edit:
-  url:     /academic/info/:id/edit.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: sfGuardUser, type: object }
-  param:   { module: academic_info, action: edit, sf_format: html }
-  requirements: { sf_method: get }  
-  
-instructor_contact_details:
-  url: /instructor/details
-  param: { module: instructor, action: details }
-  
-student_academic_details:
-  url: /student/details
-  param: { module: student, action: details }
-  
-instructor_academic_details:
-  url: /instructor/details
-  param: { module: instructor, action: details }
-  
-academics_student:
-  url: /student/details
-  param: { module: student, action: details }
-  
-academics_instructor:
-  url: /instructor_details
-  param: { module: instructor, action: details }
-  
-profile_student_details:
-  url: /profile/student/details
-  param: { module: personal_info, action: studentDetails }
-  
-profile_instructor_details:
-  url: /profile/instructor/details
-  param: { module: personal_info, action: instructorDetails }
+  param: { module: notification_settings, action: profileDetails }  
   
 profile_photo:
   url:   /profile/photo
@@ -963,21 +719,9 @@ profile_qualifications:
   url: /profile/qualifications
   param: { module: achievement, action: qualifications }
   
-profile_timeline:
-  url: /profile/timeline
-  param: { module: profile, action: timeline }
-  
 profile_peers:
   url: /profile/peers
   param: { module: profile, action: peers }
-  
-profile_account_settings:
-  url: /profile/account/settings
-  param: { module: profile, action: accountSettings }
-  
-profile_contact_details:
-  url: /profile/contact/details
-  param: { module: profile, action: contactDetails }
   
 profile_award_ajax:
   url: /profile/award/ajax
@@ -993,15 +737,7 @@ profile_account_settings_ajax:
   
 profile_peer:
   url: /profile/peer
-  param: { module: profile, action: index }
-    
-profile_show:
-  url:     /profile/:slug
-  class:   sfDoctrineRoute
-  options: { model: sfGuardUser, type: object }
-  param:   { module: profile, action: show }
-  requirements:
-    sf_method: [get] 
+  param: { module: profile, action: index } 
   
 peer_profile:
   url: /peer/profile/:peer_id
@@ -1087,62 +823,6 @@ contact_instructor_edit:
   url:   /contact/instructor/edit/:fieldset
   param: { module: contact_instructor, action: edit } 
   
-instructor_academic_details_create:
-  url:     /instructor/academic/details.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: Instructor, type: object }
-  param:   { module: instructor, action: editAcademicDetails, sf_format: html }
-  requirements: { sf_method: post } 
-  
-instructor_academic_details_update:
-  url:     /instructor/academic/details/:id.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: Instructor, type: object }
-  param:   { module: instructor, action: updateAcademicDetails, sf_format: html }
-  requirements: { sf_method: put }  
-  
-instructor_academic_details_show:
-  url:     /instructor/academic/details/:id.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: Instructor, type: object }
-  param:   { module: instructor, action: showAcademicDetails, sf_format: html }
-  requirements: { sf_method: get } 
-  
-instructor_academic_details_edit:
-  url:     /instructor_academic_details/:id/edit.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: Instructor, type: object }
-  param:   { module: instructor, action: editAcademicDetails, sf_format: html }
-  requirements: { sf_method: get }
-  
-instructor_contact_details_create:
-  url:     /instructor/contact/details.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: ContactInstructor, type: object }
-  param:   { module: contact_instructor, action: createContactDetails, sf_format: html }
-  requirements: { sf_method: post } 
-  
-instructor_contact_details_update:
-  url:     /instructor/contact/details/:id.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: ContactInstructor, type: object }
-  param:   { module: contact_instructor, action: updateContactDetails, sf_format: html }
-  requirements: { sf_method: put } 
-  
-instructor_contact_details_edit:
-  url:     /instructor/contact/details/:id/edit.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: ContactInstructor, type: object }
-  param:   { module: contact_instructor, action: editContactDetails, sf_format: html }
-  requirements: { sf_method: get }
-  
-instructor_contact_details_new:
-  url:     /instructor/contact/details/new.:sf_format
-  class:   sfDoctrineRoute
-  options: { model: ContactInstructor, type: object }
-  param:   { module: contact_instructor, action: newContactDetails, sf_format: html }
-  requirements: { sf_method: get }
-  
 peers:
   url: /peers
   param: { module: peer, action: index }
@@ -1154,10 +834,6 @@ peer_home:
 peer_peers:
   url: /peers
   param: { module: peer, action: index }
-  
-my_document:
-  url:   /folder
-  param: { module: folder, action: index }
 
 payment_received:
   url:   /payment/received
@@ -1211,14 +887,6 @@ course_files:
   url:   /course/files
   param: { module: course_file, action: files }
   
-profile_settings:
-  url:   /profile/settings
-  param: { module: profile, action: settings }
-  
-achievement:
-  url:   /achievement
-  param: { module: achievement, action: index }
-  
 profile_course:
   url:   /achievement
   param: { module: achievement, action: index }
@@ -1243,21 +911,21 @@ my_messages:
   url:   /message/inbox
   param: { module: message_inbox, action: index }
   
-my_discussions:
-  url:   /my/discussions
-  param: { module: discussion, action: my }  
+my_groups:
+  url:   /my/groups
+  param: { module: discussion_group, action: my }  
 
 my_courses:
   url:   /my/courses
   param: { module: course, action: my }
   
 course_explorer:
-  url:   /explore/courses
+  url:   /course/explorer
   param: { module: course, action: explorer }
   
-discussion_explorer:
-  url:   /explore/discussions
-  param: { module: discussion, action: explorer }
+group_explorer:
+  url:   /group/explorer
+  param: { module: discussion_group, action: explorer }
   
 enroll_course:
   url:   /course/enroll/:course_id
@@ -1316,14 +984,6 @@ message_draft_edit_tab:
   options: { model: EmailMessage, type: object }
   param:   { module: message_draft, action: editTab, sf_format: html }
   requirements: { sf_method: get }
-  
-contact_instructor_details:
-  url:   /contact/instructor/details
-  param: { module: contact_instructor, action: index }
-  
-student_contact_details:
-  url:   /student/contact/details
-  param: { module: student_contact, action: new } 
     
 settings:
   url:   /country
@@ -1369,17 +1029,17 @@ course_home:
   url:   /course/detail
   param: { module: course, action: detail }
     
-course_participant:
-  url:   /course/participant
-  param: { module: course_participant, action: index }
+course_peer:
+  url:   /course/peer
+  param: { module: course_peer, action: index }
   
 course_student:
   url:   /course/student
-  param: { module: course_participant, action: students }
+  param: { module: course_peer, action: students }
   
 course_instructor:
   url:   /course/instructor
-  param: { module: course_participant, action: instructors }
+  param: { module: course_peer, action: instructors }
     
 course_show:
   url:     /my/course/:slug
@@ -1403,19 +1063,11 @@ choose_mailing_list:
   
 choose_course_instructors:
   url:   /choose/course/instructors
-  param: { module: course_participant, action: chooseInstructors }
+  param: { module: course_peer, action: chooseInstructors }
   
 choose_course_students:
   url:   /choose/course/students
-  param: { module: course_participant, action: chooseStudents }
-    
-academics:
-  url:   /student
-  param: { module: student, action: index }  
-    
-documents:
-  url:   /folder
-  param: { module: folder, action: index }
+  param: { module: course_peer, action: chooseStudents }
     
 file_system:
   url:   /folder
@@ -1424,19 +1076,20 @@ file_system:
 course_home:
   url:   /course/info
   param: { module: course, action: info }
-    
-discussion_show:
-  url:     /discussion/:slug
-  class:   sfDoctrineRoute
-  options: { model: Discussion, type: object }
-  param:   { module: discussion, action: show }
-  requirements:
-    sf_method: [get]
+
+discussion_group:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionModel
+    module:               discussion_group
+    prefix_path:          /discussion/group
+    column:               id
+    with_wildcard_routes: true
     
 course_discussion_show:
   url:     /course/discussion/:slug
   class:   sfDoctrineRoute
-  options: { model: Discussion, type: object }
+  options: { model: discussion, type: object }
   param:   { module: course_discussion, action: show }
   requirements:
     sf_method: [get]
@@ -1448,14 +1101,6 @@ discussion_topic_show:
   param:   { module: discussion_topic, action: show }
   requirements:
     sf_method: [get]
-  
-discussion_home:
-  url: /discussion
-  param: { module: discusion, action: index }
-  
-recent_announcement:
-  url:   /announcement/recent
-  param: { module: announcement, action: recent }
     
 announcement_show:
   url:     /announcement/:slug
@@ -1472,14 +1117,14 @@ news_item_show:
   param:   { module: news_item, action: show }
   requirements:
     sf_method: [get]
-  
-dashboard_events:
-  url:   /dashboard/events
-  param: { module: dashboard, action: news }
-  
-dashboard_assignment:
-  url:   /assignment
-  param: { module: assignment, action: index }  
+    
+discussion_group_show:
+  url:     /discussion/group/:slug
+  class:   sfDoctrineRoute
+  options: { model: DiscussionGroup, type: object }
+  param:   { module: discussion_group, action: show }
+  requirements:
+    sf_method: [get] 
     
 course_info:
   url:   /course/info
@@ -1492,10 +1137,6 @@ schedule:
 home:
   url:   /dashboard
   param: { module: dashboard, action: index }
-  
-academic_personnel:
-  url:   /academic/personnel
-  param: { module: student, action: index }
   
 upload_photo:
   url:     /upload/photo
@@ -1539,34 +1180,6 @@ academic_settings:
   url:   /academic/settings
   param: { module: course, action: index }
   
-general_tools:
-  url:   /academic/info
-  param: { module: academic_info, action: index }
-  
-academic_staff:
-  url:   /academic/staff
-  param: { module: academic_staff, action: index }
-  
-general_settings:
-  url:   /program
-  param: { module: program, action: index }
-  
-email_settings:
-  url:   /email/template
-  param: { module: email_template, action: index }
-  
-academic_report:
-  url:   /report/financial
-  param: { module: report, action: financial }
-  
-report_performance:
-  url:   /report/performance
-  param: { module: report, action: performance }
-  
-report_finance:
-  url:   /report/financial
-  param: { module: report, action: financial }
-  
 location_settings:
   url:   /country
   param: { module: country, action: index }
@@ -1603,44 +1216,59 @@ profile_forgot_password_change:
   
 faqs:
   url:   /faqs
-  param: { module: section, action: faq }
-  
+  param: { module: public, action: faq }  
   
 contact_us:
   url:   /contact/us
-  param: { module: section, action: contactUs }
+  param: { module: public, action: contactUs }
   
 leadership:
   url:   /our/leadership
-  param: { module: section, action: leadership }
+  param: { module: public, action: leadership }
   
-story:
-  url:   /our/story
-  param: { module: section, action: story }
+vision:
+  url:   /our/vision
+  param: { module: public, action: vision }
+  
+pedagogy:
+  url:   /pedagogy
+  param: { module: public, action: pedagogy }
   
 courses:
   url:   /our/courses
-  param: { module: section, action: courses }
+  param: { module: public, action: courses }
   
 instructors:
   url:   /our/instructors
-  param: { module: section, action: instructors }
+  param: { module: public, action: instructors }
   
 institutions:
   url:   /our/institutions
-  param: { module: section, action: institutions }
+  param: { module: public, action: institutions }
+  
+lifelong_learning:
+  url:   /lifelong/learning
+  param: { module: public, action: lifelongLearning }
   
 tos:
   url:   /tos
-  param: { module: section, action: tos }
+  param: { module: public, action: tos }
   
 privacy_policy:
   url:   /privacy/policy
-  param: { module: section, action: privacyPolicy }
+  param: { module: public, action: privacyPolicy }
+    
+profile_show:
+  url:     /:slug
+  class:   sfDoctrineRoute
+  options: { model: Profile, type: object }
+  param:   { module: profile, action: show }
+  requirements:
+    sf_method: [get]
   
 home:
   url:   /
-  param: { module: section, action: index }
+  param: { module: public, action: index }
   
 default_index:
   url:   /:module

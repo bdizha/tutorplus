@@ -1,5 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('gradebook_item/flashes') ?>
+<?php include_partial('gradebook_item/flashes_normal') ?>
 <?php include_partial('gradebook_item/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
 <ul class="sf_admin_actions">
     <?php include_partial('gradebook_item/list_batch_actions', array('helper' => $helper)) ?>

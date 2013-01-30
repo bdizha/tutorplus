@@ -1,8 +1,8 @@
 <?php use_helper('I18N', 'Date') ?>
 <div class="profile-row">
     <div class="profile-column">    
-        <label>Username:</label>
-        <div class="content"><?php echo $profile->getProfile()->getUsername() ?></div>
+        <label>Title:</label>
+        <div class="content"><?php echo $profile->getTitle() ?></div>
     </div>
      <div class="profile-column">    
         <label>Password:</label>
@@ -11,9 +11,9 @@
 </div>
 <div class="profile-row">
     <div class="profile-column">    
-        <label>Email address:</label>
+        <label>Email:</label>
         <div class="content">
-            <?php echo $profile->getProfile()->getEmailAddress() ?>
+            <?php echo $profile->getEmail() ?>
         </div>
     </div>   
     <div class="profile-column">    

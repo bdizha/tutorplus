@@ -110,15 +110,6 @@ Contact:
   relations:
     Country:                    { local: country_id, foreign: id, type: one, foreignType: one }
     StateProvince:              { local: state_province_id, foreign: id, type: one, foreignType: one }
-
-ActivityTemplate:
-  actAs:
-    Timestampable:              ~
-  tableName:                    activity_template
-  columns:
-    patterns:                   { type: string(500) }
-    content:                    { type: clob, notnull: true }
-    type:                       { type: integer, default: 0, notnull: true } #[Global, Email, Event, News, Assignment, Discussion, Document]
     
 ActivityFeed:
   actAs:
@@ -127,11 +118,9 @@ ActivityFeed:
   columns:
     profile_id:                 { type: integer, notnull: true }
     item_id:                    { type: integer, notnull: true }
-    replacements:        				{ type: clob, notnull: true }
-    activity_template_id:       { type: integer, notnull: true }
+    type:                       { type: integer, default: 0, notnull: true }
   relations:
-    ActivityTemplate:           { class: ActivityTemplate, local: activity_template_id, foreign: id, onDelete: CASCADE, foreignAlias: ActivityFeeds }
-    Doer:                       { class: Profile, local: profile_id, foreign: id, foreignAlias: MyActivityFeeds, onDelete: CASCADE }
+    Doer:                       { class: Profile, local: profile_id, foreign: id, foreignAlias: MyActivities, onDelete: CASCADE }
     
 ProfileActivityFeed:
   actAs:
@@ -184,12 +173,12 @@ CourseMailingList:
     MailingList:                { class: MailingList, local: mailing_list_id, onDelete: CASCADE, foreignAlias: CourseMailingLists }
     Course:                     { class: Course, local: course_id, onDelete: CASCADE, foreignAlias: CourseMailingLists }
     
-Discussion:
+DiscussionGroup:
   actAs:       
     Timestampable:              ~
     Sluggable:
       fields:                   [ name ]
-  tableName:                    discussion
+  tableName:                    discussion_group
   columns:
     name:                       { type: string(255), notnull: true }
     profile_id:        				  { type: integer, notnull: true }
@@ -197,9 +186,9 @@ Discussion:
     access_level:               { type: integer, notnull: true }
     last_visit:                 { type: timestamp, notnull: false }
     latest_comment_id:          { type: integer, notnull: false }
-    nb_topics:                  { type: integer, notnull: false, default: 0 }
-    nb_members:                 { type: integer, notnull: false, default: 1 }
-    nb_replies:                 { type: integer, notnull: false, default: 1 }
+    comment_count:              { type: integer, notnull: false, default: 0 }
+    post_count:                 { type: integer, notnull: false, default: 0 }
+    view_count:                 { type: integer, notnull: false, default: 0 }
     is_primary:                 { type: boolean, default: 0 }
     is_removed:                 { type: boolean, default: 0 }
   relations:
@@ -211,43 +200,36 @@ DiscussionPeer:
   tableName:                    discussion_peer
   columns:
     nickname:                   { type: string(255), notnull: true }
-    subscription_type:          { type: integer, notnull: true, default: 0 } #[Prompt Email, Summary Email, Digest Email]
-    membership_type:            { type: integer, notnull: true, default: 0 } #[Regular Member, Manager, Owner]
-    status:                     { type: integer, notnull: true, default: 0 } #[Joined, Waiting, Ignored, Unscribed]
-    discussion_id:              { type: integer, notnull: true }
+    subscription_type:          { type: integer, notnull: true, default: 0 } #[ Prompt Email, Summary Email, Digest Email ]
+    membership_type:            { type: integer, notnull: true, default: 0 } #[ Regular Member, Manager, Owner ]
+    status:                     { type: integer, notnull: true, default: 0 } #[ Joined, Waiting, Ignored, Unscribed ]
+    discussion_group_id:        { type: integer, notnull: true }
     profile_id:                 { type: integer, notnull: true }
     is_removed:                 { type: boolean, default: 0 }
   relations:
     Profile:                    { class: Profile, local: profile_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
-    Discussion:                 { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: Peers }
+    DiscussionGroup:            { class: DiscussionGroup, local: discussion_group_id, foreign: id, onDelete: CASCADE, foreignAlias: Peers }
     
 DiscussionTopic:
   actAs:       
     Timestampable:              ~
     Sluggable:
-      fields:                   [subject, discussion_id]
+      fields:                   [subject, discussion_group_id]
   tableName:                    discussion_topic
   columns:
     subject:                    { type: string(255), notnull: true }
-    discussion_type_id:         { type: integer, notnull: true }
+    type:                       { type: enum, notnull: true, values: [ General, Question, Suggestion, Sharing, Insight, Compliment ], default: 'General' }
     message:        				    { type: clob, notnull: true }
-    discussion_id:              { type: integer, notnull: true }
+    discussion_group_id:        { type: integer, notnull: true }
     profile_id:                 { type: integer, notnull: true }
     latest_comment_id:          { type: integer, notnull: false }
-    nb_replies:                 { type: integer, notnull: false, default: 0 }
-    nb_views:                   { type: integer, notnull: false, default: 0 }
+    view_count:                 { type: integer, notnull: false, default: 0 }
+    comment_count:              { type: integer, notnull: false, default: 0 }
     is_primary:                 { type: boolean, default: 0 }
   relations:
     Profile:                    { class: Profile, local: profile_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
-    Discussion:                 { class: Discussion, local: discussion_id, foreign: id, onDelete: CASCADE, foreignAlias: Topics }
-    DiscussionType:             { class: DiscussionType, local: discussion_type_id, foreign: id, onDelete: CASCADE, alias: Type, foreignAlias: Topics }
-    
-DiscussionType:
-  actAs:                        [ Timestampable ]
-  tableName:                    discussion_type
-  columns:
-    name:                       { type: string(255), notnull: true }
-    
+    DiscussionGroup:            { class: DiscussionGroup, local: discussion_group_id, foreign: id, onDelete: CASCADE, foreignAlias: Topics }
+ 
 DiscussionPost:
   actAs:                        [ Timestampable ]
   tableName:                    discussion_post
@@ -268,25 +250,25 @@ DiscussionComment:
     discussion_post_id:         { type: integer, notnull: true }
   relations:
     Profile:                    { class: Profile, local: profile_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }
-    DiscussionPost:             { class: DiscussionPost, local: discussion_post_id, foreign: id, onDelete: CASCADE, foreignAlias: Replies }
+    DiscussionPost:             { class: DiscussionPost, local: discussion_post_id, foreign: id, onDelete: CASCADE, foreignAlias: Comments }
     
-CourseDiscussion:
-  tableName:                    course_discussion
+CourseDiscussionGroup:
+  tableName:                    course_discussion_group
   columns:
     course_id:                  { type: integer, notnull: true }
-    discussion_id:              { type: integer, notnull: true }
+    discussion_group_id:        { type: integer, notnull: true }
   relations:      
-    Course:                     { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussions }          
-    Discussion:                 { class: Discussion, local: discussion_id, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussion }
+    Course:                     { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussionGroups }          
+    DiscussionGroup:            { class: DiscussionGroup, local: discussion_group_id, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: CourseDiscussionGroup }
     
-AssignmentDiscussion:
-  tableName:                    assignment_discussion
+AssignmentDiscussionGroup:
+  tableName:                    assignment_discussion_group
   columns:
     assignment_id:              { type: integer, notnull: true }
-    discussion_id:              { type: integer, notnull: true }
+    discussion_group_id:        { type: integer, notnull: true }
   relations:      
-    Assisgnment:                { class: Assisgnment, local: assignment_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: AssignmentDiscussions }          
-    Discussion:                 { class: Discussion, local: discussion_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: AssignmentDiscussion }
+    Assisgnment:                { class: Assisgnment, local: assignment_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: Groups }          
+    DiscussionGroup:            { class: DiscussionGroup, local: discussion_group_id, type: one, foreignType: one, foreign: id, onDelete: CASCADE, foreignAlias: Assignment }
     
 Attendance:
   actAs:                        [ Timestampable ]
@@ -361,7 +343,7 @@ NotificationSettings:
     news_alerts:                { type: boolean, default: 0 }
     announcement_alerts:        { type: boolean, default: 0 }
     event_alerts:               { type: boolean, default: 0 }
-    discussion_updates:         { type: boolean, default: 0 }
+    discussion_group_updates:         { type: boolean, default: 0 }
     course_updates:             { type: boolean, default: 0 }
     assignment_due:             { type: boolean, default: 0 }
     system_updates:             { type: boolean, default: 0 }
@@ -834,23 +816,24 @@ Profile:
       fields:                   [ first_name, last_name ]
       uniqueBy:                 [ first_name, last_name ]
   columns:
+    title:                      { type: enum, values: [Mr, Mrs, Ms, Miss, Dr, Sir, Prof] }
     first_name:                 { type: string(255) }
     last_name:                  { type: string(255) }
     middle_name:                { type: string(255) }
+    about_me:                   { type: clob, notnull: false }
     birth_date:                 { type: timestamp, notnull: false }
     gender:                     { type: enum, values: [Male, Female] }
     is_instructor:              { type: boolean, default: 0 }
     high_school:                { type: string(255) }
     studied_at:                 { type: string(255) }
     current_study:              { type: string(255) }
-    title:                      { type: enum, values: [Mr, Mrs, Ms, Miss, Dr, Sir, Prof] }
     email:                      { type: string(255) }
     password:                   { type: string(255) }
-    algorithm:                  { type: string(255) }
+    algorithm:                  { type: string(255), default: "sha1" }
     salt:                       { type: string(255) }
     is_super_admin:             { type: boolean, default: 0 }
     is_active:                  { type: boolean, default: 1 }
-    institution_id:             { type: integer, notnull: true }
+    institution_id:             { type: integer, notnull: true, default: "1" }
     last_login:                 { type: timestamp, notnull: false }  
   indexes:                      
     is_active_idx:

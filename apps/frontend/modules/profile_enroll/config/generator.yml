@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Profile
+    theme:                 normal
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          profile_enroll
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      fields:
+        is_instructor:       { label: "I'm an instructor" }
+      actions:               ~
+      form:
+        class:               ProfileEnrollForm
+        display:            
+         "Personal Details": [ title, first_name, last_name, birth_date, is_instructor, institution_id ]
+         "Credentials":      [ email, password, password_confirmation ]
+      filter:
+        class:               false
+      new:
+        title:               "Enroll Up"
+        actions:
+          _save:             { label: "Enroll" }

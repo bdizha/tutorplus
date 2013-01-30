@@ -29,7 +29,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
 
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array(
-                "Setting" => "profile_discussions",
+                "Setting" => "profile_DiscussionGroups",
                 "Communication Settings" => "communication_settings",
                 "Email Templates" => "email_template"
             )
@@ -46,7 +46,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
 
     public function editBreadcrumbs($object) {
         return array('breadcrumbs' => array(
-                "Setting" => "profile_discussions",
+                "Setting" => "profile_DiscussionGroups",
                 "Communication Settings" => "communication_settings",
                 "Email Templates" => "email_template",
                 "Edit Email Template ~ " . $object->getSubject() => "email/template/" . $object->getId() . "/edit",

@@ -17,7 +17,7 @@ class DiscussionPostTable extends Doctrine_Table
         return Doctrine_Core::getTable('DiscussionPost');
     }
 
-    public function retrieveMessages(Doctrine_Query $q = null)
+    public function retrievePosts(Doctrine_Query $q = null)
     {
         if (is_null($q))
         {
@@ -32,10 +32,10 @@ class DiscussionPostTable extends Doctrine_Table
     {
         $q = $this->createQuery('dtm')
             ->innerJoin('dtm.DiscussionTopic dt')
-            ->innerJoin('dt.Discussion d');
+            ->innerJoin('dt.DiscussionGroup d');
         if ($courseId)
         {
-            $q->innerJoin('d.CourseDiscussion cd')
+            $q->innerJoin('d.CourseDiscussionGroup cd')
                 ->addWhere('cd.course_id = ?', $courseId);
         }
         $q->addWhere('dtm.created_at > ?', date('Y-m-d H:i:s', strtotime("NOW - 7 days")));

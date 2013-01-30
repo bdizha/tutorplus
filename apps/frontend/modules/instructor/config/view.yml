@@ -1,2 +1,2 @@
 all:
-  stylesheets: [course, instructor]
+  stylesheets: [ secure.css, course.css, instructor.css ]

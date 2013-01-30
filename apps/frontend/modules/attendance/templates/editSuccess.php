@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_partial('attendance/assets') ?>
-<?php include_partial('attendance/flashes', array('form' => $form)) ?>
+<?php include_partial('attendance/flashes_normal', array('form' => $form)) ?>
 <div id="sf_admin_content">
     <div class="content-block">
         <div class="left-block">

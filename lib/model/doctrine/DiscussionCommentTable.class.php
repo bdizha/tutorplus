@@ -22,24 +22,24 @@ class DiscussionCommentTable extends Doctrine_Table
         if (is_null($q))
         {
             $q = Doctrine_Query::create()
-                ->from('DiscussionComment dtr');
+                ->from('DiscussionComment dc');
         }
-        $q->addOrderBy('dtr.created_at DESC');
+        $q->addOrderBy('dc.created_at DESC');
         return $q->execute();
     }
 
     public function getNbNewReplies($courseId = null)
     {
-        $q = $this->createQuery('dtr')
-            ->innerJoin('dtr.DiscussionPost dtm')
-            ->innerJoin('dtm.DiscussionTopic dt')
-            ->innerJoin('dt.Discussion d');
+        $q = $this->createQuery('dc')
+            ->innerJoin('dc.DiscussionPost dp')
+            ->innerJoin('dp.DiscussionTopic dt')
+            ->innerJoin('dt.DiscussionGroup dg');
         if ($courseId)
         {
-            $q->innerJoin('d.CourseDiscussion cd')
-                ->addWhere('cd.course_id = ?', $courseId);
+            $q->innerJoin('d.CourseDiscussionGroup cdg')
+                ->addWhere('cdg.course_id = ?', $courseId);
         }
-        $q->addWhere('dtr.created_at > ?', date('Y-m-d H:i:s', strtotime("NOW - 7 days")));
+        $q->addWhere('dc.created_at > ?', date('Y-m-d H:i:s', strtotime("NOW - 7 days")));
         return $q->execute();
     }
 }

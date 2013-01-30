@@ -1,13 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-
-<?php slot('nav_vertical') ?>
-<?php include_component('common', 'menu', $helper->myScheduleLinks()) ?>
-<?php end_slot() ?>
-
-<?php slot('breadcrumbs') ?>
+<?php include_component('common', 'secureMenu', $helper->myScheduleLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->myScheduleBreadcrumbs()) ?>
-<?php end_slot() ?>
-
 <div id="sf_admin_heading">
     <h3><?php echo __('My Schedule', array(), 'messages') ?></h3>
 </div>
@@ -20,7 +13,7 @@
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay'
+                right: 'onth,agendaWeek,agendaDay'
             },
             selectable: true,
             selectHelper: true,

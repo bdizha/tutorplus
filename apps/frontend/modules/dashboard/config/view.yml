@@ -1,3 +1,3 @@
 all:
-  stylesheets:    [ public.css, dashboard.css ]
-  layout:         secure
+  stylesheets:    [ secure.css, dashboard.css ]
+  layout:         dashboard

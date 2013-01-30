@@ -1,5 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('gradebook/flashes', array('form' => $form)) ?>           
+<?php include_partial('gradebook/flashes_normal', array('form' => $form)) ?>           
 <h2>Course Grades</h2>
 <div id="gradebook_form_holder">
     <div class="sf_admin_list">

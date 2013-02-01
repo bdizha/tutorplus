@@ -86,11 +86,11 @@ class DiscussionGroupTable extends Doctrine_Table {
         $discussionGroup = DiscussionGroupTable::getInstance()->findOneByProfileIdAndIsPrimary($profile->getId(), true);
         if (!is_object($discussionGroup)) {
             $discussionGroup = new DiscussionGroup();
-            $discussionGroup->setName($profile->getName() . "'s general group");
+            $discussionGroup->setName($profile->getName() . "'s general discussion");
             $discussionGroup->setIsPrimary(true);
             $discussionGroup->setProfileId($profile->getId());
             $discussionGroup->setAccessLevel(DiscussionGroupTable::ACCESS_LEVEL_RESTRICTED);
-            $discussionGroup->setDescription("This is " . $profile->getName() . "'s general group in which you can share anything with them.");
+            $discussionGroup->setDescription("This is " . $profile->getName() . "'s general discussion in which you can share anything with them.");
             $discussionGroup->save();
 
             $DiscussionPeer = new DiscussionPeer();

@@ -3,7 +3,7 @@
 <?php include_component('common', 'publicMenu', array("currentParent" => "faqs")) ?>
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h1>Frequently asked questions</h1>
+        <h1>Frequently Asked Questions</h1>
     </div>
     <div id="tp_admin_content">
         <?php foreach ($faqs as $faq): ?>

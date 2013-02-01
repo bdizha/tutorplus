@@ -343,7 +343,7 @@ NotificationSettings:
     news_alerts:                { type: boolean, default: 0 }
     announcement_alerts:        { type: boolean, default: 0 }
     event_alerts:               { type: boolean, default: 0 }
-    discussion_group_updates:         { type: boolean, default: 0 }
+    discussion_updates:         { type: boolean, default: 0 }
     course_updates:             { type: boolean, default: 0 }
     assignment_due:             { type: boolean, default: 0 }
     system_updates:             { type: boolean, default: 0 }

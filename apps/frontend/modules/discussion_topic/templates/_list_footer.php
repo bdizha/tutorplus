@@ -1,6 +1,6 @@
-<h2>DiscussionGroup Peers</h2>
+<h2>Discussion Peers</h2>
 <div id="discussion_peers" class="peer-block  padding-10">
-    <?php include_partial('discussion_peer/members', array('DiscussionGroup' => $discussionGroup)) ?>            
+    <?php include_partial('discussion_peer/members', array('discussionGroup' => $discussionGroup)) ?>            
 </div> 
 <ul class="sf_admin_actions" style="clear:both">
     <li class="sf_admin_action_my_DiscussionGroups">

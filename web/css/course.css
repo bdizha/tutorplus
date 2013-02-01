@@ -246,8 +246,7 @@ select[size], select[multiple], select[size][multiple] {
     position: relative;
     display: block;
     border: 1px solid #F5F5F5;
-    margin: 0 0 10px 10px;
-    width: 698px;
+    margin: 0 0 10px 0;
     vertical-align: top;
     background-color: #F5F5F5;
     min-height: 96px;

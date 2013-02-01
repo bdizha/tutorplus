@@ -11,7 +11,7 @@
      <?php echo link_to('Events', 'calendar_event') ?> <span class="list-count"><?php echo $totalInboxCount ?></span>
     </div>
     <div class="row">
-      <div class="underlined"><h5>You may know</h5></div>
+      <div class="underlined"><h5>Suggestions</h5></div>
       <div id="dashboard_suggested_peers" class="dashboard_peers">
         <?php include_partial('suggestions', array("peers" => $suggestedPeers, "profile" => $profile)) ?>
       </div>

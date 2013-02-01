@@ -7,6 +7,8 @@
 }
 
 textarea{
+  line-height: 23px !important;
+  color: #6B6B6B;
   padding: 5px;
   border: 1px solid #C0C0C0;    
   font-size: 12px;
@@ -34,6 +36,7 @@ input[type=button], input[type=submit] {
 }
 
 input[type="text"], input[type="password"]{
+  color: #6B6B6B;
   min-width: 325px;
   border: 1px solid #DFDFDF;
   background: white;
@@ -159,19 +162,6 @@ fieldset textarea{
   width: 341px !important;
 }
 
-.peer-accept{
-  line-height: 15px !important;
-  background-color: #FBB60F;
-  border: 1px solid #FBB60F;
-  color: white !important;
-  font-size: 11px;
-  padding: 1px 10px !important;
-}
-
-.peer-accept:hover{
-  background-color: #FFA500;
-}
-
 .course-enroll{
   color: #FFF !important;
   cursor: pointer;
@@ -193,8 +183,12 @@ fieldset textarea{
   border: 1px solid #037D52;
 }
 
-.button-box-invited, .button-box-accept, .button-box-enroll{
+.button-box-invited, .button-box-enroll{
   border: 1px solid #DDBA0C;
+}
+
+.button-box-accept{
+    border: 1px solid #909;
 }
 
 .enrolled{
@@ -203,7 +197,7 @@ fieldset textarea{
 
 .button-box-open, .button-box-invited, .button-box-enter,
 .button-box-blue, .button-box-brown, .button-box-peered,
-.button-box-enroll{
+.button-box-enroll, .button-box-accept{
   border-radius: 2px;
   margin: 10px 10px 0 0;
   padding: 1px;
@@ -212,7 +206,8 @@ fieldset textarea{
 }
 
 .peer-peered, .peer-open, .peer-suggested,
-.peer-declined, .enrolled, .peer-invited{
+.peer-declined, .enrolled, .peer-invited,
+.peer-accept{
   line-height: 15px !important;
   height: 20px !important;
   width: 70px !important;
@@ -232,12 +227,20 @@ fieldset textarea{
   background-color: #DDBA0C;
 }
 
-.peer-invited{
+.peer-accept{
+    background-color: #909;
+}
+
+.peer-suggested{
+  background-color: #DDBA0C;
+}
+
+.peer-invited, .peer-peered{
   cursor: default !important;
 }
 
 .peer-actions{
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
 }

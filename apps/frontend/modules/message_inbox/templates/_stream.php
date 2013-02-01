@@ -60,6 +60,6 @@
         </form>
     </div>
     <div class="message_actions">
-        <input type="button" id="reply" messageid="<?php echo $emailMessage->getId() ?>" value="Reply" class="save"/>
+        <input type="button" id="reply" postid="<?php echo $emailMessage->getId() ?>" value="Reply" class="save"/>
     </div>
 </div>

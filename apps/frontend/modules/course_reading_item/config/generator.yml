@@ -19,10 +19,10 @@ generator:
       form:    ~
       edit:
         actions:
-          cancel:               []
-          done:                 []
-          save:                 []
+          cancel:               [ ]
+          done:                 [ ]
+          save:                 [ ]
       new:
         actions:
-          cancel:               []
-          _save:                []
+          cancel:               [ ]
+          _save:                [ ]

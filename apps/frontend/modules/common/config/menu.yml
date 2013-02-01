@@ -81,7 +81,7 @@ secure:
           my_awards:                  { route: profile_award, label: "Awards" }
           my_qualifications:          { route: profile_qualification, label: "Qualifications" }
       my_settings:                   
-        details:                      { route: profile_details, param: slug, label: "Settings" }
+        details:                      { route: profile_details, param: slug, ignore: true, label: "Settings" }
         credentials:                  [ Student, Instructor, Staff ]
         param:                        slug
         children:                 

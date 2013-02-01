@@ -43,6 +43,7 @@
         </div>
     </div>
 </div>
+<?php include_partial('discussion_comment/js') ?>
 <script type='text/javascript'>
     $(document).ready(function(){
         $('.message-edit textarea').redactor();
@@ -61,46 +62,6 @@
         $("#invite_follower ").click(function(){
             openPopup($(this).attr("href"),'556px','556px','+ Invite Group Peers');
             return false;
-        });
-
-        // submit discussion comments
-        $('.submit-discussion-comment').click(function(){
-            $this = $(this);
-            var messageId = $this.attr('messageid');
-
-            if ($this.val() != "Commenting..." && $('#discussion-comment-form-' + messageId + ' textarea').val() != "") {
-                $this.val("Commenting...");
-                $('#discussion-comment-form-' + messageId).ajaxSubmit(function(data){
-                    if (data != 'failure') {
-                        $.get('/discussion/comment/' + data,{},function(replyData){
-                            $('#discussion-comments-' + messageId).append(replyData);
-                        },'html');
-
-                        // increment the replies count
-                        var postCommentCount = $('#comment-count-' + messageId).html();
-                        var topicCommentCount = $('#comment-count').html();
-                        postCommentCount = parseInt(postCommentCount) + 1;
-                        topicCommentCount = parseInt(topicCommentCount) + 1;
-
-                        $('#comment-count-' + messageId).html(postCommentCount);
-                        $('#comment-count').html(topicCommentCount);
-
-                        $('#discussion-comment-form-holder-' + messageId).load('/discussion/comment/new');
-                    }
-                });
-                return false;
-            }
-        });
-
-        $(".comment-toggler").click(function(){
-            var postId = $(this).attr("postid");
-            var discussionDomments = $("#discussion-comments-" + postId);
-            if (discussionDomments.hasClass("hide")) {
-                discussionDomments.removeClass("hide");
-            }
-            else{
-                discussionDomments.addClass("hide");
-            }
         });
 
         $(".peer-actions .invite").click(function(){
@@ -133,8 +94,8 @@
         });
 
         $('.update').click(function(){
-            var messageId = $(this).attr("id");
-            var message = $("#discussion_post_form_" + messageId + " textarea").val();
+            var postid = $(this).attr("id");
+            var message = $("#discussion_post_form_" + postid + " textarea").val();
             if ($.trim(message) == "") {
                 alert("Please enter your post!");
                 return;
@@ -142,15 +103,15 @@
 
             if ($(this).val() != "Loading...") {
                 $(this).val("Loading...");
-                $("#discussion_post_form_" + messageId).ajaxSubmit(function(data){
+                $("#discussion_post_form_" + postid).ajaxSubmit(function(data){
                     if (data == "success") {
-                        $("#message-" + messageId).html(message);
+                        $("#message-" + postid).html(message);
                     }
                     else{
                         alert("Oops! Your post couldn't be edited at this time.");
                     }
                 });
-                $("#message-" + messageId).removeClass("editing");
+                $("#message-" + postid).removeClass("editing");
                 $(this).val("Update");
             }
         });

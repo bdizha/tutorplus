@@ -21,7 +21,7 @@ generator:
         announcement_alerts:    { label: "There's any announcement alerts" }
         event_alerts:           { label: "There's any event alerts" }
         peer_activities:        { label: "There's any new peer activities" }
-        discussion_group_updates:     { label: "My DiscussionGroups or topics are updated" }
+        discussion_updates:     { label: "My DiscussionGroups or topics are updated" }
         course_updates:         { label: "There's any course material changes/uploads" }
         assignment_due:         { label: "Assignments are due for submissions" }
         system_updates:         { label: "New changes have been applied to the TutorPlus system" }
@@ -29,16 +29,16 @@ generator:
         
       form:
         display:            
-         "Messages - Receive notification when:":            [email, reply]
-         "Alerts - Receive notification when:":              [news_alerts, announcement_alerts, event_alerts]
-         "Activities - Receive notification when:":          [peer_activities, discussion_group_updates, course_updates, assignment_due]
-         "Updates - Receive notification when:":             [system_updates, system_maintenance]
+         "Messages - Receive notification when:":   [ email, reply ]
+         "Alerts - Receive notification when:":     [ news_alerts, announcement_alerts, event_alerts ]
+         "Activities - Receive notification when:": [ peer_activities, discussion_updates, course_updates, assignment_due ]
+         "Updates - Receive notification when:":    [ system_updates, system_maintenance ]
       filter:
         class: false
       list:
         title:                  Notification Settings
-        sort:                   [email, asc]
-        batch_actions:          []
+        sort:                   [ email, asc ]
+        batch_actions:          [ ]
         object_actions:        
           _edit: ~
           _delete: ~

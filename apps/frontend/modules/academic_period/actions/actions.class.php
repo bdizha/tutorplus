@@ -13,15 +13,4 @@ require_once dirname(__FILE__).'/../lib/academic_periodGeneratorHelper.class.php
  */
 class academic_periodActions extends autoAcademic_periodActions
 {
-	public function executeShow(sfWebRequest $request)
-  {
-    $this->academic_period = $this->getRoute()->getObject();
-    $this->forward404Unless($this->academic_period);
-    
-    $this->course_meeting_times = CourseMeetingTimeTable::getInstance()->findByCourse(1);
-    $this->course_links = CourseLinkTable::getInstance()->findByCourse(1);
-    
-    /*echo "<pre>";    
-    print_r($this->course_meeting_times);die("</pre>");*/
-  }	
 }

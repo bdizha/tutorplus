@@ -14,6 +14,7 @@ require_once dirname(__FILE__) . '/../lib/discussion_postGeneratorHelper.class.p
 class discussion_postActions extends autoDiscussion_postActions {
 
     public function executeShow(sfWebRequest $request) {
+        $this->getUser()->setMyAttribute('profile_show_id', $this->getUser()->getId());
         $discussionPostId = $this->getUser()->getMyAttribute('discussion_post_show_id', null);
         $this->discussionPost = DiscussionPostTable::getInstance()->find($discussionPostId);
 

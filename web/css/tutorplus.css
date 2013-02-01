@@ -320,10 +320,6 @@
   float: left;
 }
 
-#programmes_list, #courses_list, #mailing_lists_list{
-  margin-left: -10px;
-}
-
 #programmes_list li {
   display: block;
   float: left;

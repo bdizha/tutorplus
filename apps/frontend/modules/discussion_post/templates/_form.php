@@ -1,13 +1,17 @@
 <div class="sf_admin_form">
     <div id="discussion_post_form_holder">
+        <?php $discussionTopicId = $form->getDefault("discussion_topic_id") ?>
         <?php echo form_tag_for($form, '@discussion_post', array('id' => 'discussion_post_form')) ?>
         <?php echo $form->renderHiddenFields(false) ?>
         <?php include_partial('personal_info/photo', array('profile' => $sf_user->getProfile(), "dimension" => 36)) ?>
         <div class="post_input_holder">
-            <div class="value ">
-                <span class="placeholder">What do you have to share with your peers?</span>
-                <div class="input"><?php echo $form["message"] ?></div>
+            <div class="value">
+                <div class="input" id="redactor_post_holder_<?php echo $discussionTopicId ?>">
+                    <span class="placeholder">What do you have to share with your peers?</span>
+                    <?php echo $form["message"] ?>
+                </div>
             </div>
+            <input type="text" class="discussion_post_placeholder hide" name="discussion_post_placeholder" value="What do you have to share with your peers?" id="discussion_post_placeholder" topicid="<?php echo $discussionTopicId ?>">
             <div class="discussion_topic_actions">
                 <input type="button" class="save" value="Post" />
             </div>

@@ -1,3 +1,3 @@
 all:  
-  stylesheets:    [public.css]
+  stylesheets:    [ public.css, course.css, profile.css ]
   layout:         public

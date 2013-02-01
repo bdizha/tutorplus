@@ -8,7 +8,7 @@
   <div class="content-block">
     <div id="courses_list">
       <?php include_partial('common/flashes_normal') ?>
-      <?php include_partial('list', array('courses' => $courses, 'profile' => $sf_user->getProfile())) ?>
+      <?php include_partial('list', array('courses' => $courses)) ?>
     </div>
   </div>
 </div>

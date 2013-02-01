@@ -32,10 +32,6 @@
     position: relative;
 }
 
-.sf_admin_form_field_access_level label{
-    float: none !important;
-}
-
 #cboxLoadedContentInner ul.radio_list li input[type=radio]{
     position: absolute;
     left: 0px;
@@ -72,21 +68,6 @@ span.separator{
     width: 100%;
 }
 
-#discussion_group_stats a{
-    cursor: pointer;
-    cursor: hand;
-    font-size: 12px !important;
-}
-
-#dashboard_feeds .user_image{
-    float: left;
-    padding: 10px 10px 0 0;
-}
-
-.content li{
-    line-height: 18px;
-}
-
 #group_members li{
     display: block;
     float: left;
@@ -96,16 +77,11 @@ span.separator{
 }
 
 .discussion_topic_actions a,
-.discussion_tops a{
+.discussion_topics a{
     color: #0088CC;
     cursor: pointer;
     cursor: hand;
     font-size: 12px !important;    
-}
-
-.user-image{
-    float: left;
-    padding: 0 10px 0 0;
 }
 
 #group_members .access_level{
@@ -119,11 +95,6 @@ span.separator{
 #discussion_topic, #discussion_topic_replies{
     max-height: 450px;
     overflow-y: auto;
-}
-
-#discussion_group_form_holder .sf_admin_form_row label,
-#course_discussion_form_holder .sf_admin_form_row label{
-    float: none !important;
 }
 
 .discussion_topic_reply ul.sf_admin_actions{
@@ -469,4 +440,14 @@ span.separator{
     margin: 0 0 0 45px;
     background-color: #FFF;
     padding: 10px 10px 5px 10px;
+}
+
+.discussion_post_placeholder{
+    width: 623px;
+    color: #777;
+}
+
+.discussion_comment_placeholder{
+    width: 576px;
+    color: #777;
 }

@@ -191,13 +191,14 @@
   padding-top: 5px;
 }
 
-#notification_settings_form .sf_admin_boolean label{
+.sf_admin_boolean label, .radio_list label{
   position: absolute;
   left: 30px;
   top: 6px;
+  height: 22px;
 }
 
-#notification_settings_form .sf_admin_boolean .content{
+.sf_admin_boolean .content, .radio_list input{
   position: absolute;
   left: 10px;
   top: 10px;

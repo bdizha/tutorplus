@@ -25,47 +25,47 @@ class Course extends BaseCourse {
             $gradebook->setItems(0);
             $gradebook->save();
 
-            $gradebook_scale = new GradebookScale();
-            $gradebook_scale->setGradebookId($gradebook->get("id"));
-            $gradebook_scale->setMinPoints(75);
-            $gradebook_scale->setMaxPoints(100);
-            $gradebook_scale->setCode("A");
-            $gradebook_scale->save();
+            $gradebookScale = new GradebookScale();
+            $gradebookScale->setGradebookId($gradebook->get("id"));
+            $gradebookScale->setMinPoints(75);
+            $gradebookScale->setMaxPoints(100);
+            $gradebookScale->setCode("A");
+            $gradebookScale->save();
 
-            $gradebook_scale = new GradebookScale();
-            $gradebook_scale->setGradebookId($gradebook->get("id"));
-            $gradebook_scale->setMinPoints(65);
-            $gradebook_scale->setMaxPoints(74);
-            $gradebook_scale->setCode("B");
-            $gradebook_scale->save();
+            $gradebookScale = new GradebookScale();
+            $gradebookScale->setGradebookId($gradebook->get("id"));
+            $gradebookScale->setMinPoints(65);
+            $gradebookScale->setMaxPoints(74);
+            $gradebookScale->setCode("B");
+            $gradebookScale->save();
 
-            $gradebook_scale = new GradebookScale();
-            $gradebook_scale->setGradebookId($gradebook->get("id"));
-            $gradebook_scale->setMinPoints(55);
-            $gradebook_scale->setMaxPoints(64);
-            $gradebook_scale->setCode("C");
-            $gradebook_scale->save();
+            $gradebookScale = new GradebookScale();
+            $gradebookScale->setGradebookId($gradebook->get("id"));
+            $gradebookScale->setMinPoints(55);
+            $gradebookScale->setMaxPoints(64);
+            $gradebookScale->setCode("C");
+            $gradebookScale->save();
 
-            $gradebook_scale = new GradebookScale();
-            $gradebook_scale->setGradebookId($gradebook->get("id"));
-            $gradebook_scale->setMinPoints(45);
-            $gradebook_scale->setMaxPoints(54);
-            $gradebook_scale->setCode("D");
-            $gradebook_scale->save();
+            $gradebookScale = new GradebookScale();
+            $gradebookScale->setGradebookId($gradebook->get("id"));
+            $gradebookScale->setMinPoints(45);
+            $gradebookScale->setMaxPoints(54);
+            $gradebookScale->setCode("D");
+            $gradebookScale->save();
 
-            $gradebook_scale = new GradebookScale();
-            $gradebook_scale->setGradebookId($gradebook->get("id"));
-            $gradebook_scale->setMinPoints(35);
-            $gradebook_scale->setMaxPoints(44);
-            $gradebook_scale->setCode("E");
-            $gradebook_scale->save();
+            $gradebookScale = new GradebookScale();
+            $gradebookScale->setGradebookId($gradebook->get("id"));
+            $gradebookScale->setMinPoints(35);
+            $gradebookScale->setMaxPoints(44);
+            $gradebookScale->setCode("E");
+            $gradebookScale->save();
 
-            $gradebook_scale = new GradebookScale();
-            $gradebook_scale->setGradebookId($gradebook->get("id"));
-            $gradebook_scale->setMinPoints(0);
-            $gradebook_scale->setMaxPoints(34);
-            $gradebook_scale->setCode("F");
-            $gradebook_scale->save();
+            $gradebookScale = new GradebookScale();
+            $gradebookScale->setGradebookId($gradebook->get("id"));
+            $gradebookScale->setMinPoints(0);
+            $gradebookScale->setMaxPoints(34);
+            $gradebookScale->setCode("F");
+            $gradebookScale->save();
         }
     }
 
@@ -86,9 +86,4 @@ class Course extends BaseCourse {
         }
         return null;
     }
-
-    public function getHtmlizedDescription() {
-        return myToolkit::htmlString(parent::get("description"));
-    }
-
 }

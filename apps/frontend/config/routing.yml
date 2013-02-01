@@ -676,7 +676,7 @@ peer_suggested:
   param: { module: peer, action: suggested }
     
 peer_invite:
-  url: /peer/invite/:invitee_id
+  url: /peer/invite/:inviter_id/:invitee_id
   param: { module: peer, action: invite }
     
 peer_accept:
@@ -1080,7 +1080,7 @@ course_home:
 discussion_group:
   class: sfDoctrineRouteCollection
   options:
-    model:                DiscussionModel
+    model:                DiscussionGroup
     module:               discussion_group
     prefix_path:          /discussion/group
     column:               id

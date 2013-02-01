@@ -2,7 +2,7 @@
 <?php include_component('common', 'secureMenu', $helper->indexLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <div class="sf_admin_heading">
-    <h3>Activity Feeds ~ <?php echo $sf_user->getProfile()->getCreatedAt("Y") ?> to this day</h3>
+    <h3>Activity Feeds ~ <?php echo date("M, j Y", strtotime($sf_user->getProfile()->getCreatedAt())) ?> to this day</h3>
 </div>
 <div id="sf_admin_content">
     <div class="content-block" id="timeline">
@@ -16,46 +16,4 @@
         </div>
     </div>
 </div>
-<script type='text/javascript'>
-    $(document).ready(function() {
-        // submit a DiscussionGroup comment
-        $('.submit-discussion-comment').click(function() {
-            var $this = $(this);
-            var messageId = $this.attr('messageid'); 
-            var comment = $.trim($('#discussion-comment-form-' + messageId + ' textarea').val());
-            
-            if($this.val() != "Commenting..." && comment != ""){
-                $this.val("Commenting...");          
-                $('#discussion-comment-form-' + messageId).ajaxSubmit(function(data){             
-                    if(data != 'failure'){
-                        $.get('/discussion/comment/' + data, {}, function(replyData){   
-                            $('#discussion-comments-' + messageId).append(replyData);
-                        }, 'html');                    
-                    
-                        // increment the comment count
-                        var postCommentCount = $('#comment-count-' + messageId).html();           
-                        var topicCommentCount = $('#comment-count').html();           
-                        postCommentCount = parseInt(postCommentCount) + 1;  
-                        topicCommentCount = parseInt(topicCommentCount) + 1;
-                
-                        $('#comment-count-' + messageId).html(postCommentCount);
-                        $('#comment-count').html(topicCommentCount);
-                        $('#discussion-comment-form-holder-' + messageId).load('/discussion/comment/new');                
-                    }
-                });
-                return false;
-            }
-        });
-
-        $(".comment-toggler").click(function(){
-            var postId = $(this).attr("postid");
-            var discussionDomments = $("#discussion-comments-" + postId);
-            if (discussionDomments.hasClass("hide")) {
-                discussionDomments.removeClass("hide");
-            }
-            else{
-                discussionDomments.addClass("hide");
-            }
-        });
-    });
-</script>
+<?php include_partial('discussion_comment/js') ?>

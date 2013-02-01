@@ -39,6 +39,7 @@
     </div>
   </div>    
 </div>
+<?php include_partial('discussion_comment/js') ?>
 <script type='text/javascript'>
   //<![DATA[
   $(document).ready(function(){

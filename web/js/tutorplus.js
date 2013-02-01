@@ -45,7 +45,7 @@ function isSuccess(value){
 function reloadWindow(){
   setTimeout(function(){
     window.location.reload();
-  },5000);
+  }, 5000);
 }
 
 function fetchContent(url){

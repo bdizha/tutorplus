@@ -8,7 +8,9 @@
     <?php foreach ($courses as $course): ?>
         <div class="course-catalog">
             <div class="heading">
-                <a class="photo-link" style="width:96px;height:96px;" href="/musavengana-zirebwa"><img src="/profile/show/photo/3/96/1357352576" class="image" alt="Musavengana Zirebwa" title="Musavengana Zirebwa"></a>
+                <a class="photo-link" style="width:96px;height:96px;" href="/musavengana-zirebwa">
+                    <img src="/uploads/users/3/normal-96.jpg" class="image" alt="Musavengana Zirebwa" title="Musavengana Zirebwa">
+                </a>
                 <div class="name"><?php echo link_to($course->getCode(), 'course_show', $course) ?> - <?php echo$course->getName() ?></div>
             </div>
             <div class="body">

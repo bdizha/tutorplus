@@ -10,7 +10,7 @@
             <div class="section-block">
                 <div class="founder">
                     <div class="heading">
-                        <a class="photo-link" style="width:128px;height:128px;" href="/batanayi-matuku"><img src="/profile/show/photo/3/128/1357352576" class="image" alt="Batanayi Matuku" title="Batanayi Matuku"></a>
+                        <a class="photo-link" style="width:128px;height:128px;" href="/batanayi-matuku"><img src="/uploads/users/3/normal-128.jpg" class="image" alt="Batanayi Matuku" title="Batanayi Matuku"></a>
                     </div>
                     <div class="body">
                         <p><a href="/batanayi-matuku">Batanayi Matuku</a> Hello world! I'm a co-founder of TutorPlus - Connected Learning, and envisioned the future of learning in Higher Education. I spent two years trying out novel ideas about how best I could develop a neutral yet collaborative platform in order to foster an enhanced learning experience to every learner in the African continent. Back then, I would obsess about anything that I felt would enable me to come up with such a great solution that I felt was inspired by a striking and untold essentiality of fully realizing a non-authoritative and bi-directional exchange of knowledge in our institutions and our society at large. And now all this endless endeavor has brought about this platform through which, we believe, every participant will enormously and positively contribute to a collective body of language. And yet the journey has only begun, not only because learning is lifelong, but also learning is entirely about learning how to learn learning itself as an unending and holistic process.</p>

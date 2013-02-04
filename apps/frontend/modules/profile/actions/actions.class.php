@@ -12,6 +12,15 @@ require_once dirname(__FILE__) . '/../lib/profileGeneratorHelper.class.php';
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class profileActions extends autoProfileActions {
+    
+    public function beforeExecute() {
+        $this->profileId = $this->getUser()->getMyAttribute('profile_show_id', null);
+        $this->profile = ProfileTable::getInstance()->findOneById($this->profileId);
+        $this->showActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_GROUP);
+        $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_GROUP);
+        $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_TOPIC);
+        $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_POST);
+    }
 
     /**
      * Executes show action
@@ -22,32 +31,47 @@ class profileActions extends autoProfileActions {
         $slug = $request->getParameter("slug");
         $this->profile = ProfileTable::getInstance()->findOneBy("slug", $slug);
         $this->getUser()->setMyAttribute('profile_show_id', $this->profile->getId());
+        
+        $this->beforeExecute();
 
         // suggest this profile some peers
         $this->profile->suggestPeers();
+    }
+
+    /**
+     * Executes groups action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeGroups(sfWebRequest $request) {
+        $this->beforeExecute();
+    }
+
+    /**
+     * Executes topics action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeTopics(sfWebRequest $request) {
+        $this->beforeExecute();
+    }
+
+    /**
+     * Executes posts action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executePosts(sfWebRequest $request) {
+        $this->beforeExecute();
 
         $primaryDiscussionGroup = DiscussionGroupTable::getInstance()->findOrCreatePrimaryDiscussionGroupByProfile($this->profile);
         $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->profile->getId(), $primaryDiscussionGroup->getId());
-
-        $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profile->getId());
         $this->discussionCommentForm = new DiscussionCommentForm();
         $this->discussionPostForm = new DiscussionPostForm();
         $this->discussionPostForm->setDefaults(array(
             "profile_id" => $this->getUser()->getId(),
             "discussion_topic_id" => $this->primaryDiscussionTopic->getId()
         ));
-    }
-
-    /**
-     * Executes peers action
-     *
-     * @param sfRequest $request A request object
-     */
-    public function executePeers(sfWebRequest $request) {
-        $profileId = $this->getUser()->getMyAttribute('profile_show_id', null);
-        $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($profileId, false);
-        $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($profileId, true);
-        $this->potentialPeers = PeerTable::getInstance()->findByNotProfileId($profileId);
     }
 
     public function executeShowPhoto(sfWebRequest $request) {

@@ -1,8 +1,7 @@
-<?php $discussionGroupMembers = $discussionGroup->retrieveMembers(); ?>
-<?php if ($discussionGroupMembers->count() > 0): ?>
-    <?php foreach ($discussionGroupMembers as $discussionPeer): ?>
+<?php if ($discussionPeers->count() > 0): ?>
+    <?php foreach ($discussionPeers as $discussionPeer): ?>
         <?php include_partial('discussion_peer/peer', array('peer' => $discussionPeer)) ?>
     <?php endforeach; ?>
 <?php else: ?>
-    <div class="no-result">There isn't any group peers currently.</div>
+    There isn't any discussion peers yet.
 <?php endif; ?>

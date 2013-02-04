@@ -16,7 +16,7 @@
           <a id="message_read" href="/message/read/tab">&nbsp;</a>
         </li>
       </ul>
-      <div id="email_container" class="peer-block "></div>
+      <div id="email_container" class="tab-block "></div>
     </div>
   </div>
 </div>

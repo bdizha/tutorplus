@@ -34,7 +34,7 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "timeline",
             "current_child" => "timeline",
@@ -42,7 +42,7 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Timeline" => "activity_feed",
                 "Announcements" => "announcement",
@@ -51,7 +51,7 @@ class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "timeline",
             "current_child" => "timeline",

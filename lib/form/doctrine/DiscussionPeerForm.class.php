@@ -10,35 +10,36 @@
  */
 class DiscussionPeerForm extends BaseDiscussionPeerForm {
 
-  public function configure() {
-    unset(
-        $this['created_at'], $this['updated_at']
-    );
+    public function configure() {
+        unset(
+            $this['created_at'], $this['updated_at']
+        );
 
-    $profileId = sfContext::getInstance()->getUser()->getId();
-    $discussionGroupId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_group_show_id', "");
+        $profile = sfContext::getInstance()->getUser()->getProfile();
+        $discussionGroupId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_group_show_id', "");
 
-    $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
-    $this->widgetSchema['discussion_group_id'] = new sfWidgetFormInputHidden();
-    $this->widgetSchema['subscription_type'] = new sfWidgetFormChoice(array(
-        'choices' => DiscussionPeerTable::getInstance()->getSubscriptionTypes(),
-        "expanded" => true, "multiple" => false
+        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['discussion_group_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['subscription_type'] = new sfWidgetFormChoice(array(
+            'choices' => DiscussionPeerTable::getInstance()->getSubscriptionTypes(),
+            "expanded" => true, "multiple" => false
+            ));
+        $this->widgetSchema['membership_type'] = new sfWidgetFormChoice(array(
+            'choices' => DiscussionPeerTable::getInstance()->getMembershipTypes(),
+            "expanded" => true, "multiple" => false
+            ));
+        $this->widgetSchema['status'] = new sfWidgetFormChoice(array(
+            'choices' => DiscussionPeerTable::getInstance()->getStatuses(),
+            "expanded" => true, "multiple" => false
+            ));
+
+        $this->validatorSchema['nickname']->setMessage('required', 'The <b>Nickname</b> field is required.');
+
+        $this->setDefaults(array(
+            'profile_id' => $profile->getId(),
+            'nickname' => $this->isNew() ? $profile->getFirstName() : $this->getObject()->getNickname(),
+            'discussion_group_id' => $discussionGroupId,
         ));
-    $this->widgetSchema['membership_type'] = new sfWidgetFormChoice(array(
-        'choices' => DiscussionPeerTable::getInstance()->getMembershipTypes(),
-        "expanded" => true, "multiple" => false
-        ));
-    $this->widgetSchema['status'] = new sfWidgetFormChoice(array(
-        'choices' => DiscussionPeerTable::getInstance()->getStatues(),
-        "expanded" => true, "multiple" => false
-        ));
-
-    $this->validatorSchema['nickname']->setMessage('required', 'The <b>Nickname</b> field is required.');
-
-    $this->setDefaults(array(
-        'profile_id' => $profileId,
-        'discussion_group_id' => $discussionGroupId,
-    ));
-  }
+    }
 
 }

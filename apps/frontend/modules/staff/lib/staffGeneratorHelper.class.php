@@ -37,7 +37,7 @@ class staffGeneratorHelper extends BaseStaffGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "profile_settings",
@@ -46,7 +46,7 @@ class staffGeneratorHelper extends BaseStaffGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "staff",
@@ -55,7 +55,7 @@ class staffGeneratorHelper extends BaseStaffGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "profile_settings",

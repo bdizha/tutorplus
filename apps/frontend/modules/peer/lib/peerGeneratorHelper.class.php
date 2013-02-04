@@ -10,58 +10,11 @@
  */
 class peerGeneratorHelper extends BasePeerGeneratorHelper {
 
-    public function linkToNew($params) {
-        return '<li class="sf_admin_action_new">' . button_to(__($params['label'], array(), 'sf_admin'), "/peer/new", array()) . '</li>';
-    }
-
-    public function linkToEdit($object, $params) {
-        return '<li class="sf_admin_action_edit">' . link_to(__('<img src="/images/icons/14x14/edit.png" title="Edit" alt="Edit">', array(), 'sf_admin'), "/peer/" . $object->getId() . "/edit") . '</li>';
-    }
-
-    public function linkToDelete($object, $params, $is_form_action = false) {
-        if ($object->isNew()) {
-            return '';
-        }
-
-        if (!$is_form_action) {
-            return '<li class="sf_admin_action_delete">' . link_to(__('<img src="/images/icons/14x14/delete.png" title="Delete" alt="Delete">', array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
-        } else {
-            return '<li class="sf_admin_form_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
-        }
-    }
-
-    public function linkToSave($object, $params) {
-        return '<li class="sf_admin_action_save"><input type="submit" value=" ' . __($params['label'], array(), 'sf_admin') . ' " class="save"></li>';
-    }
-
-    public function linkToSaveAndAdd($object, $params) {
-        if (!$object->isNew()) {
-            return '';
-        }
-        return '<li class="sf_admin_action_save_and_add"><input id="link_to_save_and_add" type="button" value=" ' . __($params['label'], array(), 'sf_admin') . ' " class="save"></li>';
-    }
-
-    public function linkToCancel($object, $params) {
-        return '<input class="cancel" type="button" onclick="document.location.href=\'/peer\' value="Cancel"/>';
-    }
-
-    public function linkToDone($object, $params) {
-        return '<input class="cancel" type="button" onclick="document.location.href=\'/peer\' value="Cancel"/>';
-    }
-
     public function studentsBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Peers" => "peer",
                 "Student Peers" => "peer"
             )
-        );
-    }
-
-    public function studentsLinks() {
-        return array(
-            "currentParent" => "peers",
-            "current_child" => "peers",
-            "current_link" => "student_peers"
         );
     }
 
@@ -73,27 +26,11 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
         );
     }
 
-    public function instructorsLinks() {
-        return array(
-            "currentParent" => "peers",
-            "current_child" => "peers",
-            "current_link" => "instructor_peers"
-        );
-    }
-
     public function findBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Peers" => "peer",
                 "Find Peers" => "peer"
             )
-        );
-    }
-
-    public function findLinks() {
-        return array(
-            "currentParent" => "peers",
-            "current_child" => "peers",
-            "current_link" => "find_peers"
         );
     }
 
@@ -105,18 +42,59 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
         );
     }
 
-    public function suggestedLinks() {
+    public function allLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $profileId = $sfUser->getMyAttribute('profile_show_id', null);
         return array(
-            "currentParent" => "peers",
-            "current_child" => "peers",
-            "current_link" => "suggested_peers"
+            "currentParent" => "profile",
+            "current_child" => "my_profile",
+            "current_link" => "my_peers",
+            "slug" => $sfUser->getProfile()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($profileId)
         );
     }
 
     public function findPeers() {
         return array(
-            "find_peers" => array("title" => "+ Find Peers", "url" => "peer/find")
+            "actions" => array(
+                "find_peers" => array("title" => "+ Find Peers", "url" => "peer/find")
+            )
         );
+    }
+
+    public function getAllTabs($activeTab, $studentPeers, $instructorPeers, $suggestedPeers) {
+        $tabs = array(
+            "students" => array(
+                "label" => "Students",
+                "href" => "/peer/students",
+                "count" => $studentPeers->count()
+            ),
+            "instructors" => array(
+                "label" => "Instructors",
+                "href" => "/peer/instructors",
+                "count" => $instructorPeers->count()
+            ),
+            "suggested" => array(
+                "label" => "Suggested",
+                "href" => "/peer/suggested",
+                "count" => $suggestedPeers->count()
+            ),
+            "requests" => array(
+                "label" => "Requests",
+                "href" => "/peer/requests",
+                "count" => $suggestedPeers->count()
+            ),
+            "find" => array(
+                "label" => "Find",
+                "href" => "/peer/find"
+            )
+        );
+
+        if (isset($tabs[$activeTab])) {
+            $tabs[$activeTab]["is_active"] = true;
+        }
+
+        return $tabs;
     }
 
 }

@@ -11,7 +11,7 @@
 class course_peerActions extends sfActions {
 
   public function preExecute() {
-    $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
+    $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course_explorer");
     $this->course = Doctrine_Core::getTable('Course')->find(array($courseId));
     $this->forward404Unless($this->course, sprintf('Course does not exist (%s).', $courseId));
     $this->helper = new course_peerGeneratorHelper();
@@ -23,8 +23,8 @@ class course_peerActions extends sfActions {
    * @param sfRequest $request A request object
    */
   public function executeIndex(sfWebRequest $request) {
-    $this->courseInstructorPeers = PeerTable::getInstance()->findByCourseIdAndIsInstructor($this->getUser()->getId(), $this->course->getId(), true);
-    $this->courseStudentPeers = PeerTable::getInstance()->findByCourseIdAndIsInstructor($this->getUser()->getId(), $this->course->getId(), false);
+    $this->courseInstructorProfiles = ProfileTable::getInstance()->findByCourseId($this->course->getId(), true);
+    $this->courseStudentProfiles = ProfileTable::getInstance()->findByCourseId($this->course->getId(), false);
   }
 
   /**
@@ -35,7 +35,7 @@ class course_peerActions extends sfActions {
   public function executeChooseStudents(sfWebRequest $request) {
     $this->currentStudentIds = array();
 
-    $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), false);
+    $this->courseStudentProfiles = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), false);
 
     // look for the current course profiles
     $currentCourseStudents = ProfileCourseTable::getInstance()->findByCourseId($this->course->getId());
@@ -76,7 +76,7 @@ class course_peerActions extends sfActions {
   public function executeChooseInstructors(sfWebRequest $request) {
     $this->currentInstructorIds = array();
 
-    $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), true);
+    $this->courseInstructorProfiles = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->getUser()->getId(), true);
 
     // look for the current course profiles
     $currentCourseInstructors = ProfileCourseTable::getInstance()->findByCourseId($this->course->getId());

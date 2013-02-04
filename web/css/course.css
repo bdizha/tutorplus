@@ -185,10 +185,6 @@ select[size], select[multiple], select[size][multiple] {
     padding: 10px;
 }
 
-#course_instructors, #course_students{
-  padding: 10px;
-}
-
 .course-follower{
     display: inline-block;
     clear: both !important;
@@ -211,11 +207,10 @@ select[size], select[multiple], select[size][multiple] {
 #choose_course_students_form fieldset,
 #choose_course_instructors_form fieldset{
     overflow: auto;
-    padding-top: 10px;
     display: block;
     position: relative;
     margin: 0 10px 0;
-    max-height: 300px;
+    max-height: 346px;
 }
 
 .student-course{
@@ -242,7 +237,7 @@ select[size], select[multiple], select[size][multiple] {
 }
 
 .course-catalog{
-    padding: 10px 10px;
+    padding: 10px 10px 20px;
     position: relative;
     display: block;
     border: 1px solid #F5F5F5;
@@ -295,5 +290,5 @@ select[size], select[multiple], select[size][multiple] {
 }
 
 .course-row{
-  padding: 5px 0;
+    padding: 5px 0;
 }

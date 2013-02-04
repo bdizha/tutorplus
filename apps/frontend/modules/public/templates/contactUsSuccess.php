@@ -3,7 +3,7 @@
 <?php include_component('common', 'publicMenu', array("currentParent" => "contact_us")) ?>
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
-        <h1>Get in touch with us :)</h1>
+        <h1>Contact Us</h1>
     </div>
     <div id="tp_admin_content">
         <div class="section-block">

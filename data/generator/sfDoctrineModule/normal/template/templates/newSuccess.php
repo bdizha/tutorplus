@@ -1,5 +1,5 @@
 [?php use_helper('I18N', 'Date') ?]
-[?php include_component('common', 'secureMenu', $helper->newLinks($form)) ?]
+[?php include_component('common', 'secureMenu', $helper->getNewLinks($form)) ?]
 [?php include_partial('common/breadcrumbs', $helper->newBreadcrumbs($form)) ?]
 <div class="sf_admin_heading">
   <h3>[?php echo <?php echo $this->getI18NString('new.title') ?> ?]</h3>

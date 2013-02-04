@@ -35,7 +35,7 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "timeline",
             "current_child" => "timeline",
@@ -43,7 +43,7 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Timeline" => "activity_feed",
                 "News Items" => "news_item",
@@ -52,7 +52,7 @@ class news_itemGeneratorHelper extends BaseNews_itemGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "timeline",
             "current_child" => "timeline",

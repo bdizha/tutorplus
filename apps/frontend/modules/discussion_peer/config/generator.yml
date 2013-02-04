@@ -14,17 +14,14 @@ generator:
     config:
       actions: ~
       fields:
-        user:                             { label: Peer }
-        subscription_type:                { label: Subscription }
-        membership_type:                  { label: Membership }
-        subscription_type_display:        { label: Subscription }
-        membership_type_display:          { label: Membership }
-        status_display:                   { label: Status }
+        user:                         { label: Peer }
+        subscription_type:            { label: Subscription }
+        membership_type:              { label: Membership }
 
       form:
         display:            
-         "Parcipant Details":          [ nickname, status, is_removed ]
-         "Membership Settings":        [ subscription_type, membership_type ]
+         "Parcipant Details":          [ nickname ]
+         "Membership Settings":        [ subscription_type ]
       filter:
         class:                         false
       list:
@@ -36,16 +33,16 @@ generator:
         object_actions:
           _edit:                       []
         actions:
-          listDiscussionGroup:              { label: < My DiscussionGroup }
+          listDiscussionGroup:         { label: < My Discussion }
           _new:                        { label: + Invite Peers }
       edit:
-        title:                         Edit Peer ~ %%nickname%%
+        title:                         Edit Membership
         actions:
           cancel:                      []
           done:                        []
           _save:                       []
       new:
-        title:                         Add Peer
+        title:                         Join Group
         actions:
           cancel:                      []
           _save:                       []

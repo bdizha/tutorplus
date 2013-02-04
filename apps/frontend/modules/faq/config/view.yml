@@ -1,8 +1,2 @@
 all:
   stylesheets: [ secure.css ]
-  
-newSuccess:
-  has_layout: false
-  
-editSuccess:
-  has_layout: false

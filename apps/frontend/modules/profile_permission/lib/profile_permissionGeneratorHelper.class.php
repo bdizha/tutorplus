@@ -37,7 +37,7 @@ class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorH
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "profile_settings",
@@ -45,7 +45,7 @@ class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorH
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "course",
@@ -54,7 +54,7 @@ class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorH
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "profile_settings",

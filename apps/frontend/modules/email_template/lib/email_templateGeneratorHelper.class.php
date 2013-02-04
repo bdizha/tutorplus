@@ -36,7 +36,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "communication_settings",
@@ -44,7 +44,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Setting" => "profile_DiscussionGroups",
                 "Communication Settings" => "communication_settings",
@@ -54,7 +54,7 @@ class email_templateGeneratorHelper extends BaseEmail_templateGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "communication_settings",

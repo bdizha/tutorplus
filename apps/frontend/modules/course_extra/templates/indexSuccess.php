@@ -12,7 +12,7 @@
     $(document).ready(function(){
         
         resizeWidths();
-        fetchCourseLinks();
+        fetchgetCourseLinks();
         fetchReadingItems();
         
         $("#add_course_link").click(function(){
@@ -26,15 +26,15 @@
         });
     });
 
-    function fetchCourseLinks(){
-        $.get('/course_link/links', showCourseLinks);
+    function fetchgetCourseLinks(){
+        $.get('/course_link/links', showgetCourseLinks);
     }
 
     function fetchReadingItems(){
         $.get('/course_reading_item/readingItems', showReadingItems);
     }
 
-    function showCourseLinks(res){
+    function showgetCourseLinks(res){
         $('#course_links').html(res);
     }
 

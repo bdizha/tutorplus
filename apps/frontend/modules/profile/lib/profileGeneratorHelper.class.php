@@ -10,65 +10,80 @@
  */
 class profileGeneratorHelper extends BaseProfileGeneratorHelper {
 
-  public function publicInfoBreadcrumbs() {
-    $sfUser = sfContext::getInstance()->getUser();
-    return array('breadcrumbs' => array(
-            "Profile" => "profile_show",
-            "Public Info" => "profile/" . $sfUser->getProfile()->getSlug()
-        )
-    );
-  }
+    public function allLinks() {
+        $sfUser = sfContext::getInstance()->getUser();
+        $profileId = $sfUser->getMyAttribute('profile_show_id', null);
+        return array(
+            "currentParent" => "profile",
+            "current_child" => "my_profile",
+            "current_link" => "my_info",
+            "slug" => $sfUser->getProfile()->getSlug(),
+            "ignore" => !$sfUser->isCurrent($profileId)
+        );
+    }
 
-  public function publicInfoLinks() {
-    $sfUser = sfContext::getInstance()->getUser();
-    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
-    return array(
-        "currentParent" => "profile",
-        "current_child" => "my_profile",
-        "current_link" => "my_info",
-        "slug" => $sfUser->getProfile()->getSlug(),
-        "ignore" => !$sfUser->isCurrent($profileId)
-    );
-  }
+    public function getShowBreadcrumbs() {
+        $sfUser = sfContext::getInstance()->getUser();
+        return array('breadcrumbs' => array(
+                "Profile" => "profile_show",
+                "Public Info" => "profile/" . $sfUser->getProfile()->getSlug()
+            )
+        );
+    }
 
-  public function DiscussionGroupBreadcrumbs() {
-    return array('breadcrumbs' => array(
-            "Profile" => "profile_timeline",
-            "DiscussionGroups" => "profile_timeline"
-        )
-    );
-  }
+    public function getGroupsBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Profile" => "profile_timeline",
+                "DiscussionGroups" => "profile_timeline"
+            )
+        );
+    }
 
-  public function DiscussionGroupLinks() {
-    $sfUser = sfContext::getInstance()->getUser();
-    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
-    return array(
-        "currentParent" => "profile",
-        "current_child" => "my_profile",
-        "current_link" => "my_timeline",
-        "slug" => $sfUser->getProfile()->getSlug(),
-        "ignore" => !$sfUser->isCurrent($profileId)
-    );
-  }
+    public function getTopicsBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Profile" => "profile_timeline",
+                "Peers" => "my_peers"
+            )
+        );
+    }
 
-  public function peersBreadcrumbs() {
-    return array('breadcrumbs' => array(
-            "Profile" => "profile_timeline",
-            "Peers" => "my_peers"
-        )
-    );
-  }
+    public function getPostsBreadcrumbs() {
+        return array('breadcrumbs' => array(
+                "Profile" => "profile_timeline",
+                "Peers" => "my_peers"
+            )
+        );
+    }
 
-  public function peersLinks() {
-    $sfUser = sfContext::getInstance()->getUser();
-    $profileId = $sfUser->getMyAttribute('profile_show_id', null);
-    return array(
-        "currentParent" => "profile",
-        "current_child" => "my_profile",
-        "current_link" => "my_peers",
-        "slug" => $sfUser->getProfile()->getSlug(),
-        "ignore" => !$sfUser->isCurrent($profileId)
-    );
-  }
+    public function getAllTabs($activeTab, $profile, $showActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds) {
+        $tabs = array(
+            "show" => array(
+                "label" => "Activity Feeds",
+                "href" => "/" . $profile->getSlug(),
+                "count" => $showActivityFeeds->count()
+            ),
+            "groups" => array(
+                "label" => "Groups",
+                "href" => "/profile/groups",
+                "count" => $groupActivityFeeds->count()
+            ),
+            "topics" => array(
+                "label" => "Topics",
+                "href" => "/profile/topics",
+                "count" => $topicActivityFeeds->count()
+            ),
+            "posts" => array(
+                "label" => "Posts",
+                "href" => "/profile/posts",
+                "count" => $postActivityFeeds->count()
+            )
+        );
+
+        if (isset($tabs[$activeTab])) {
+            $tabs[$activeTab]["is_active"] = true;
+        }
+
+        return $tabs;
+    }
 
 }

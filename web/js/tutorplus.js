@@ -53,6 +53,11 @@ function fetchContent(url){
   $.get(url,showContent);
 }
 
+function loadUrl(url){
+    document.location.href = url;
+    return false
+}
+
 function showContent(res){
   $('#sf_admin_container').html(res);
 }

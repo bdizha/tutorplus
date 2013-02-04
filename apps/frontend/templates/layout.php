@@ -17,9 +17,7 @@
       <div id="main-container">
         <div id="main-header">
           <div class="wrapper">
-            <div id="main-logo">
-              <a href="/" title="">TutorPlus.org</a>
-            </div>
+            <div id="main-logo"><a href="/" title="TutorPlus" alt="TutorPlus">TutorPlus.org</a></div>
             <div id="main-menu">
               <?php include_slot('main-menu') ?>
             </div>                 

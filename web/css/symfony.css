@@ -106,23 +106,26 @@
   font-size: 11px;
   padding-left: 12em !important;
 }
+
 .sf_admin_form_row label{
   color: #6B6B6B;
   display: block;
   font-weight: normal;
   padding-bottom: 2px;
 }
+
 ul.sf_admin_actions{
   margin: 10px 0 10px;
   text-align: right;
 }
+
 #sf_admin_documents ul.sf_admin_actions{
   height: 30px;
   margin: 10px 0 -10px 20px;
 }
+
 ul.sf_admin_actions li{
   display: inline-block;
-  margin-left: 5px;
   position: relative;
 }
 .double_list_label{
@@ -183,18 +186,18 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
   width: 335px;
 }
 
-#sf_admin_container .left-block{
+#sf_admin_content .left-block{
   float: left;
   margin-right: 10px;
   width: 356px;
 }
 
-#sf_admin_container .right-block{
+#sf_admin_content .right-block{
   float: left;
   width: 356px;  
 }
 
-#sf_admin_container .content-block h2, .sf_admin_form fieldset h2{
+.content-block h2, .sf_admin_form fieldset h2{
   background-color: #F5F5F5;
   height: 20px;
   font-weight: normal;
@@ -202,16 +205,17 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
   padding: 5px 10px;
 }
 
-#sf_admin_container .content-block h2 .actions, #sf_admin_form_container h2 .actions{
+.content-block h2 .actions,
+#sf_admin_form_container h2 .actions{
   float: right;
   display: block;
 }
 
-#sf_admin_container .content-row{
+#sf_admin_content .content-row{
   padding: 5px 5px 5px 0;
 }
 
-#sf_admin_container .attribute-label{
+#sf_admin_content .attribute-label{
   color: #666666;
   display: block;
   float: left;
@@ -220,7 +224,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete{
   width: 170px;
 }
 
-#sf_admin_container .attribute-value{
+#sf_admin_content .attribute-value{
   display: block;    
 }
 

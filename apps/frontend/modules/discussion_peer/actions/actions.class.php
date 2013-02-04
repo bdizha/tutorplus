@@ -1,7 +1,7 @@
 <?php
 
-require_once dirname(__FILE__) . '/../lib/discussion/peerGeneratorConfiguration.class.php';
-require_once dirname(__FILE__) . '/../lib/discussion/peerGeneratorHelper.class.php';
+require_once dirname(__FILE__) . '/../lib/discussion_peerGeneratorConfiguration.class.php';
+require_once dirname(__FILE__) . '/../lib/discussion_peerGeneratorHelper.class.php';
 
 /**
  * discussion_peer actions.
@@ -11,13 +11,14 @@ require_once dirname(__FILE__) . '/../lib/discussion/peerGeneratorHelper.class.p
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussion_peerActions extends autodiscussion_peerActions {
+class discussion_peerActions extends autoDiscussion_peerActions {
 
     public function preExecute() {
         parent::preExecute();
         $discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
         $this->redirectUnless($discussionGroupId, "@discussion_group");
         $this->discussionGroup = DiscussionGroupTable::getInstance()->find($discussionGroupId);
+        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionGroupIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
 
         $this->helper->setDiscussionGroup($this->discussionGroup);
         $this->forward404Unless($this->discussionGroup);
@@ -35,7 +36,9 @@ class discussion_peerActions extends autodiscussion_peerActions {
 
     public function executeIndex(sfWebRequest $request) {
         $this->beforeExecute();
-        parent::executeIndex($request);
+        
+        // get all discussion peers
+        $this->discussionPeers = $this->discussionGroup->getPeers();
     }
 
     public function executePeers(sfWebRequest $request) {
@@ -50,78 +53,64 @@ class discussion_peerActions extends autodiscussion_peerActions {
 
     public function executeInvite(sfWebRequest $request) {
         $discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
-        $this->currentMemberIds = array();
-
-        // fetch all students for now
-        $this->students = StudentTable::getInstance()->findAll();
-
-        // fetch all instructors for now
-        $this->instructors = InstructorTable::getInstance()->findAll();
-
+        $this->currentPeerIds = array();
+        
+        $this->discussionPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
         if ($request->getMethod() == "POST") {
             try {
-                $members = $request->getParameter('members');
+                $peers = $request->getParameter('peers');
 
-                // save members
-                $this->currentMemberIds = $this->saveMemberInvitations($discussionGroupId, $members);
+                // save peers
+                $this->currentPeerIds = $this->savePeerInvitations($discussionGroupId, $peers);
 
                 // send invitation emails
-                // $this->sendMemberInvitations($form, $members);
+                // $this->sendPeerInvitations($form, $peers);
             } catch (Doctrine_Validator_Exception $e) {
                 
             }
         } else {
-            // fetch the current DiscussionGroup members
-            $this->currentMemberIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
+            // fetch the current discussion peers
+            $this->currentPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
         }
     }
 
-    protected function saveMemberInvitations($discussionGroupId, $members = array()) {
-        // initialise the members ids holder
-        $postedMemberIds = array();
-        foreach (array('student', 'instructor') as $memberType) {
-            if ((isset($members[$memberType]) && is_array($members[$memberType]))) {
-                foreach ($members[$memberType] as $memberProfileId) {
-                    $postedMemberIds[] = $memberProfileId;
-                }
-            }
-        }
+    protected function savePeerInvitations($discussionGroupId, $postedPeerIds = array()) {
+        // fetch the current discussion peers
+        $currentPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
 
-        // fetch the current DiscussionGroup members
-        $currentMembersIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
-
-        $toDelete = array_diff($currentMembersIds, $postedMemberIds);
+        
+        
+        $toDelete = array_diff($currentPeerIds, $postedPeerIds);
         if (count($toDelete)) {
-            DiscussionPeerTable::getInstance()->unSubscribeByProfileIdsAndDiscussionGroupId($toDelete, $discussionGroupId);
+            DiscussionPeerTable::getInstance()->deleteByProfileIdsAndDiscussionGroupId($toDelete, $discussionGroupId);
         }
 
-        //myToolkit::debug($toDelete);
-
-        $toAdd = array_diff($postedMemberIds, $currentMembersIds);
+        $toAdd = array_diff($postedPeerIds, $currentPeerIds);
+        
         if (count($toAdd)) {
-            $users = ProfileTable::getInstance()->retrieveByIds($toAdd);
-            foreach ($users as $user) {
-                // make sure we don't add a member twice
-                if (!in_array($user->getId(), $currentMembersIds)) {
+            $profiles = ProfileTable::getInstance()->findByIds($toAdd);
+            foreach ($profiles as $profile) {
+                // make sure we don't add a peer twice
+                if (!in_array($profile->getId(), $currentPeerIds)) {
 
-                    $profileId = $user->getId();
-                    if ($this->discussionGroup->hasJoined($profileId)) {
+                    $profileId = $profile->getId();
+                    if ($this->discussionGroup->hasProfile($profileId)) {
                         $discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionGroupIdAndProfileId($discussionGroupId, $profileId);
                         $discussionPeer->setIsRemoved(false);
                         $discussionPeer->save();
                     } else {
                         $discussionPeer = new DiscussionPeer();
-                        $discussionPeer->setNickname(strtolower($user->getFirstName()));
+                        $discussionPeer->setNickname(strtolower($profile->getFirstName()));
                         $discussionPeer->setStatus(DiscussionPeerTable::MEMBERSHIP_TYPE_ORDINARY);
                         $discussionPeer->setDiscussionGroupId($discussionGroupId);
-                        $discussionPeer->setProfileId($user->getId());
+                        $discussionPeer->setProfileId($profile->getId());
                         $discussionPeer->save();
                     }
                 }
             }
         }
 
-        return $postedMemberIds;
+        return $postedPeerIds;
     }
 
     public function executeSuggested(sfWebRequest $request) {
@@ -143,41 +132,22 @@ class discussion_peerActions extends autodiscussion_peerActions {
     public function executeAccept(sfWebRequest $request) {
         try {
             $profileId = $request->getParameter("profile_id");
-            $user = ProfileTable::getInstance()->find($profileId);
+            $profile = ProfileTable::getInstance()->find($profileId);
 
-            if (!$this->discussionGroup->hasJoined($profileId)) {
+            if (!$this->discussionGroup->hasProfile($profileId)) {
                 $discussionPeer = new DiscussionPeer();
-                $discussionPeer->setNickname(strtolower($user->getFirstName()));
+                $discussionPeer->setNickname(strtolower($profile->getFirstName()));
                 $discussionPeer->setProfileId($profileId);
                 $discussionPeer->setDiscussionGroupId($this->discussionGroup->getId());
                 $discussionPeer->save();
 
-                echo "{$user->getName()} has been added to this DiscussionGroup successfully.";
+                echo "{$profile->getName()} has been added to this discussion successfully.";
             } else {
-                echo "It seems {$user->getName()} is already following this discusison!";
+                echo "It seems {$profile->getName()} is already following this discusison!";
             }
         } catch (Exception $e) {
-            echo "User could not be added to this DiscussionGroup.";
+            echo "User could not be added to this discussion.";
         }
-    }
-
-    protected function buildQuery() {
-        $tableMethod = $this->configuration->getTableMethod();
-        $query = Doctrine_Core::getTable('DiscussionPeer')
-                ->createQuery('a')
-                ->addWhere("a.discussion_group_id = ?", $this->getUser()->getMyAttribute('discussion_group_show_id', null))
-                ->addOrderBy("a.updated_at Desc");
-
-        if ($tableMethod) {
-            $query = Doctrine_Core::getTable('DiscussionPeer')->$tableMethod($query);
-        }
-
-        $this->addSortQuery($query);
-
-        $event = $this->dispatcher->filter(new sfEvent($this, 'admin.build_query'), $query);
-        $query = $event->getReturnValue();
-
-        return $query;
     }
 
 }

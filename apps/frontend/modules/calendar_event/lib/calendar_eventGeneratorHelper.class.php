@@ -43,7 +43,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "calendar",
             "current_child" => "my_calendar",
@@ -51,7 +51,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
                 "Events" => "calendar_event",
@@ -60,7 +60,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "calendar",
             "current_child" => "my_calendar",
@@ -68,7 +68,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
         );
     }
 
-    public function showBreadcrumbs($object) {
+    public function getShowBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
                 "Events" => "calendar_event",
@@ -77,7 +77,7 @@ class calendar_eventGeneratorHelper extends BaseCalendar_eventGeneratorHelper {
         );
     }
 
-    public function showLinks() {
+    public function getShowLinks() {
         return array(
             "currentParent" => "calendar",
             "current_child" => "my_calendar",

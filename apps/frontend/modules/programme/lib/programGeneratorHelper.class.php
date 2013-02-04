@@ -69,7 +69,7 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "academic_settings",
@@ -78,7 +78,7 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Academic Settings" => "academic_settings",
@@ -87,7 +87,7 @@ class programGeneratorHelper extends BaseProgramGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "academic_settings",

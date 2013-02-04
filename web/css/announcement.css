@@ -1,62 +1,46 @@
 #course_announcements{
-  padding: 0;
+    padding: 0;
 }
 
 .announcement .user-meta{
-  color: #666666;
-  padding: 5px 0;
+    color: #666666;
+    padding: 5px 0;
 }
 
 .announcement-action .more-link{
-  margin-top: -30px
+    margin-top: -30px
 }
 
 /* announcement fields */
 #announcement_subject{
-  width: 688px !important;
+    width: 688px !important;
 }
 
 #announcement_message{
-  width: 688px !important;
-  height: 150px
+    width: 688px !important;
+    height: 150px
 }
 
 .announcement-row{
-  border-bottom: 1px dashed #C0C0C0;
-  padding: 5px 0;
+    border-bottom: 1px dashed #C0C0C0;
+    padding: 5px 0;
 }
 
 #course_announcement_form_holder .sf_admin_form_row label, 
 #announcement_form_holder .sf_admin_form_row label {
-  float: none !important;
+    float: none !important;
 }
 
-#announcements {
-  margin-left: -10px;
-}
-
-.announcement{
-  padding: 10px 10px;
-  position: relative;
-  display: block;
-  border: 1px solid #F5F5F5;
-  margin: 0 0 10px 10px;
-  width: 700px;
-  vertical-align: top;
-  background-color: #FFF;
-  min-height: 96px;    
-}
-
-.announcement .subject{
-  color: #B5A072;
+.snapshot .subject{
+    color: #b5a072;
 }
 
 .announcement .meta-info {
-  height: 45px;
-  margin-left: 105px;
-  border-bottom: 1px solid #F5F5F5;
+    height: 45px;
+    margin-left: 105px;
+    border-bottom: 1px solid #F5F5F5;
 }
 
 .announcement .heading{
-  color: #B5A072;
+    color: #B5A072;
 }

@@ -1,14 +1,14 @@
 #colorbox, #cboxOverlay, #cboxWrapper{
-  position:absolute; top:0; left:0; z-index:999999; overflow:hidden;
+    position:absolute; top:0; left:0; z-index:999999; overflow:hidden;
 }
 
 #colorbox{
-  border: 1px solid #B5A072;
+    border: 1px solid #B5A072;
 }
 #cboxOverlay{position:fixed; width:100%; height:100%;}
 #cboxMiddleLeft, #cboxBottomLeft{clear:left;}
 #cboxContent{
-  position:relative;
+    position:relative;
 }
 #cboxLoadedContent{overflow:auto;}
 #cboxTitle{margin:0;}
@@ -30,24 +30,24 @@
 .cboxIframe{background:#fff;}
 #cboxError{padding:50px; border:1px solid #ccc;}
 #cboxLoadedContent{
-  padding: 38px 10px 10px;
-  position: relative;
+    padding: 38px 10px 20px;
+    position: relative;
 }
 #cboxTitle{
-  position: absolute;
-  top: 0px;
-  left: 0;
-  text-align: left;
-  width: 100%;
-  height: 34px;
-  color: #FFF;
-  font-size: 13px;
-  background-color: #B5A072;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    text-align: left;
+    width: 100%;
+    height: 34px;
+    color: #FFF;
+    font-size: 13px;
+    background-color: #B5A072;
 }
 #cboxTitle span{
-  margin: 5px 20px;
-  display: block;
-  font-size: 14px;
+    margin: 5px 20px;
+    display: block;
+    font-size: 14px;
 }
 #cboxCurrent{position:absolute; bottom:0px; left:100px; color:#999;}
 #cboxSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}
@@ -55,12 +55,12 @@
 #cboxNext{position:absolute; bottom:0px; left:63px; color:#444;}
 #cboxLoadingOverlay{background:#fff url(/images/loading.gif) no-repeat center;}
 #cboxClose{
-  color: #FFFFFF;
-  display: block;
-  padding: 0 0 5px 5px;
-  position: absolute;
-  right: 3px;
-  top: 3px;
+    color: #FFFFFF;
+    display: block;
+    padding: 0 0 5px 5px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
 }
 .cboxIE #cboxTopLeft,
 .cboxIE #cboxTopCenter,
@@ -70,7 +70,7 @@
 .cboxIE #cboxBottomRight,
 .cboxIE #cboxMiddleLeft,
 .cboxIE #cboxMiddleRight {
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
 }
 .cboxIE6 #cboxTopLeft{}
 .cboxIE6 #cboxTopCenter{}
@@ -82,24 +82,29 @@
 .cboxIE6 #cboxMiddleRight{}
 
 #cboxLoadedContent .sf_admin_actions{
-  margin: 10px 10px 0 !important;
-  right: 20px;
-  clear: both;
+    margin: 0 !important;
 }
 
 #cboxLoadedContentInner{
-  height: 100%;
-  min-height: 100px;
+    padding: 20px 0px 40px;
+    min-height: 100px;
+}
+
+#cboxLoadedActions{
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: 8px;
+    right: 20px;
 }
 
 #cboxLoadedContent .error, #cboxLoadedContent .notice{
-  margin: 0 10px;
+    margin: 0 10px;
 }
 
 #cboxLoadedContentInner .right {
-  margin-left: 30px;
+    margin-left: 30px;
 }
 
 #cboxLoadedContentInner label{
-  float: none !important;
+    float: none !important;
 }

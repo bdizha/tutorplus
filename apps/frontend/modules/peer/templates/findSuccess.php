@@ -1,20 +1,20 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_partial('common/breadcrumbs', $helper->findBreadcrumbs()) ?>
-<?php include_component('common', 'secureMenu', $helper->findLinks()) ?>
+<?php include_component('common', 'secureMenu', $helper->allLinks()) ?>
+<div class="sf_admin_heading">
+    <h3><?php echo __('Peers') ?></h3>
+</div>
 <div id="sf_admin_content">
-  <div class="content-block">
-    <ul class="nav-tabs">
-      <li class="active-tab">
-        <a href="#" tab="potential_peers" class="tab-title">Find Peers</a>
-        <span class="list-count"><?php echo count($potentialPeers) ?></span>
-      </li>
-    </ul>
-    <div class="peer-block  padding-10" id="my_peers">
-      <?php if (count($potentialPeers) == 0): ?>
-        <div class="tip">Oops, there isn't any peers available on this platform yet :)</div>
-      <?php else: ?> 
-        <?php include_partial('peer/list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
-      </div> 
-    <?php endif; ?>
-  </div>
+    <?php include_partial('common/flashes_normal') ?>
+    <div class="content-block">
+        <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("find", $studentPeers, $instructorPeers, $suggestedPeers, $requestingPeers))) ?>
+        <div class="tab-block">
+            <?php if ($studentPeers->count() == 0): ?>
+                <div>There isn't any potential peers available currently.</div>
+                <?php include_partial('common/actions', $helper->findPeers()) ?>
+            <?php else: ?>
+                <?php include_partial('list', array("peers" => $potentialPeers, "isFinding" => true)) ?>
+            <?php endif; ?>
+        </div>
+    </div>
 </div>

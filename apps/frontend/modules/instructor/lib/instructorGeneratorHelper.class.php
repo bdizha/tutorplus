@@ -44,7 +44,7 @@ class instructorGeneratorHelper extends BaseInstructorGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "profile_settings",
@@ -52,7 +52,7 @@ class instructorGeneratorHelper extends BaseInstructorGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "instructor",
@@ -61,7 +61,7 @@ class instructorGeneratorHelper extends BaseInstructorGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "profile_settings",

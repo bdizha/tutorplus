@@ -28,9 +28,8 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
     public function indexLinks() {
         return array(
             "currentParent" => "courses",
-            "current_child" => "my_course",
-            "current_link" => "course_discussions",
-            "slug" => $this->course->getSlug()
+            "current_child" => "courses",
+            "current_link" => "my_courses"
         );
     }
 
@@ -43,7 +42,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
@@ -53,7 +52,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
@@ -64,7 +63,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
@@ -73,7 +72,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         );
     }
 
-    public function showBreadcrumbs($discussionGroup) {
+    public function getShowBreadcrumbs($discussionGroup) {
         return array('breadcrumbs' => array(
                 "Course Discussions" => "course_discussion",
                 $discussionGroup->getName() => "course/discussion/" . $discussionGroup->getSlug()
@@ -143,6 +142,28 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 
     public function linkToNewTopic() {
         return '<input type="button" class="button" value="+ New Topic"/>';
+    }
+
+    public function getIndexTabs($course) {
+        return array(
+            "posts" => array(
+                "label" => "Course Info",
+                "href" => "/my/course/" . $course->getSlug()
+            ),
+            "announcements" => array(
+                "label" => "Announcements",
+                "href" => "/course/announcement"
+            ),
+            "discussions" => array(
+                "label" => "Discussions",
+                "href" => "/course/discussion",
+                "is_active" => true
+            ),
+            "peers" => array(
+                "label" => "Peers",
+                "href" => "/course/peer"
+            )
+        );
     }
 
 }

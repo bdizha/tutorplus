@@ -10,7 +10,7 @@
  */
 class notification_settingsGeneratorHelper extends BaseNotification_settingsGeneratorHelper {
 
-  public function editBreadcrumbs($object) {
+  public function getEditBreadcrumbs($object) {
     $sfUser = sfContext::getInstance()->getUser();
     return array('breadcrumbs' => array(
             "Profile" => "profile/" . $sfUser->getProfile()->getSlug(),
@@ -19,7 +19,7 @@ class notification_settingsGeneratorHelper extends BaseNotification_settingsGene
     );
   }
 
-  public function editLinks() {
+  public function getEditLinks() {
     $sfUser = sfContext::getInstance()->getUser();
     return array(
         "currentParent" => "profile",

@@ -7,9 +7,6 @@
     </div>
     <div id="tp_admin_content">
         <div class="section-block">
-            Below is a list of our currently running courses:
-        </div>
-        <div class="section-block">
             <div id="courses_list">
                 <?php include_partial('common/flashes_normal') ?>
                 <?php include_partial('course/list', array('courses' => $courses)) ?>

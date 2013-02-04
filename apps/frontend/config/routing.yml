@@ -202,11 +202,23 @@ activity_feed:
     prefix_path:          /activity/feed
     column:               id
     with_wildcard_routes: true
+  
+activity_feed_groups:
+  url: /activity/feed/groups
+  param: { module: activity_feed, action: groups }
+  
+activity_feed_topics:
+  url: /activity/feed/topics
+  param: { module: activity_feed, action: topics }
+  
+activity_feed_posts:
+  url: /activity/feed/posts
+  param: { module: activity_feed, action: posts }
 
 course_discussion:
   class: sfDoctrineRouteCollection
   options:
-    model:                discussion
+    model:                DiscussionGroup
     module:               course_discussion
     prefix_path:          /course/discussion
     column:               id
@@ -675,6 +687,10 @@ peer_suggested:
   url: /peer/suggested
   param: { module: peer, action: suggested }
     
+peer_requests:
+  url: /peer/requests
+  param: { module: peer, action: requests }
+    
 peer_invite:
   url: /peer/invite/:inviter_id/:invitee_id
   param: { module: peer, action: invite }
@@ -719,9 +735,17 @@ profile_qualifications:
   url: /profile/qualifications
   param: { module: achievement, action: qualifications }
   
-profile_peers:
-  url: /profile/peers
-  param: { module: profile, action: peers }
+profile_groups:
+  url: /profile/groups
+  param: { module: profile, action: groups }
+  
+profile_topics:
+  url: /profile/topics
+  param: { module: profile, action: topics }
+  
+profile_posts:
+  url: /profile/posts
+  param: { module: profile, action: posts }
   
 profile_award_ajax:
   url: /profile/award/ajax
@@ -910,10 +934,6 @@ admissions:
 my_messages:
   url:   /message/inbox
   param: { module: message_inbox, action: index }
-  
-my_groups:
-  url:   /my/groups
-  param: { module: discussion_group, action: my }  
 
 my_courses:
   url:   /my/courses
@@ -922,10 +942,6 @@ my_courses:
 course_explorer:
   url:   /course/explorer
   param: { module: course, action: explorer }
-  
-group_explorer:
-  url:   /group/explorer
-  param: { module: discussion_group, action: explorer }
   
 enroll_course:
   url:   /course/enroll/:course_id
@@ -1076,6 +1092,14 @@ file_system:
 course_home:
   url:   /course/info
   param: { module: course, action: info }
+  
+discussion_my_groups:
+  url:   /my/groups
+  param: { module: discussion_group, action: my }  
+  
+discussion_group_explorer:
+  url:   /group/explorer
+  param: { module: discussion_group, action: explorer }
 
 discussion_group:
   class: sfDoctrineRouteCollection

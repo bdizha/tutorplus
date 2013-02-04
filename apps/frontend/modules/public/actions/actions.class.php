@@ -25,7 +25,7 @@ class publicActions extends sfActions {
      * @param sfRequest $request A request object
      */
     public function executeFaq(sfWebRequest $request) {
-        $this->faqs = FaqTable::getInstance()->findAll();
+        $this->faqs = FaqTable::getInstance()->findByIsPublished(true);
     }
 
     /**

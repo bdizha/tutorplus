@@ -1,17 +1,19 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php if ($course->getId()): ?>
-    <?php include_component('common', 'secureMenu', $helper->courseLinks($discussionTopic)) ?>
-    <?php include_partial('common/breadcrumbs', $helper->courseBreadcrumbs($discussionTopic)) ?>
+<?php if (is_object($course) && $course->getId()): ?>
+    <?php include_component('common', 'secureMenu', $helper->getCourseLinks($discussionTopic)) ?>
+    <?php include_partial('common/breadcrumbs', $helper->getCourseBreadcrumbs($discussionTopic)) ?>
 <?php else: ?>
-    <?php include_component('common', 'secureMenu', $helper->showLinks($discussionTopic)) ?>
-    <?php include_partial('common/breadcrumbs', $helper->showBreadcrumbs($discussionTopic)) ?>
+    <?php include_component('common', 'secureMenu', $helper->getShowLinks($discussionTopic)) ?>
+    <?php include_partial('common/breadcrumbs', $helper->getShowBreadcrumbs($discussionTopic)) ?>
 <?php endif; ?>
 <div class="sf_admin_heading">
     <h3><?php echo __('Topic ~ %%name%%', array('%%name%%' => $discussionTopic->getSubject()), 'messages') ?></h3>
 </div>
-<div id="sf_admin_form_container">
-    <div id="sf_admin_content">
-        <div class="content-block">
+<div id="sf_admin_content">
+    <?php include_partial('common/flashes_normal') ?>
+    <div class="content-block">
+        <?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($discussionTopic))) ?>
+        <div class="tab-block">
             <div id="discussion-topic">
                 <div class="snapshot">
                     <?php include_partial('personal_info/photo', array('profile' => $discussionTopic->getProfile(), "dimension" => 36)) ?>
@@ -27,9 +29,7 @@
                     </div>
                 </div>
             </div>
-            <?php include_partial('common/actions', array('actions' => $helper->showActions($discussionTopic))) ?>
-        </div>
-        <div class="content-block">
+            <?php include_partial('common/actions', array('actions' => $helper->getShowActions($discussionGroup, $discussionPeer, $discussionGroup->hasProfile($sf_user->getId())))) ?>
             <div id="discussion_post_form_container">
                 <div id="sf_admin_form_container">
                     <?php include_partial('discussion_post/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>
@@ -44,76 +44,4 @@
     </div>
 </div>
 <?php include_partial('discussion_comment/js') ?>
-<script type='text/javascript'>
-    $(document).ready(function(){
-        $('.message-edit textarea').redactor();
-
-        $("a.reply").click(function(){
-            $(".discussion_comment").hide();
-            $("#discussion_topic_" + $(this).attr("id")).show();
-            return false;
-        });
-
-        $(".discussion_topic .edit").click(function(){
-            openPopup($(this).attr("href"),"600px","600px","Edit Topic");
-            return false;
-        });
-
-        $("#invite_follower ").click(function(){
-            openPopup($(this).attr("href"),'556px','556px','+ Invite Group Peers');
-            return false;
-        });
-
-        $(".peer-actions .invite").click(function(){
-            var ProfileId = $(this).attr("ProfileId");
-            $.get('/discussion/peer/accept/' + ProfileId,{},function(response){
-                $("#discussion-group-notice").html(response);
-                $(".notice").hide();
-                $("#discussion-group-notice").show();
-                setTimeout(function(){
-                    $(".notice").hide();
-                },3000);
-                $("#suggested-followers").load("/discussion/peer/suggested");
-            },'html');
-        });
-
-        $(".message").hover(function(){
-            if (!$(this).hasClass("editing")) {
-                $(this).children(".inline-content-actions").show();
-            }
-        },
-            function(){
-                $(this).children(".inline-content-actions").hide();
-            });
-
-        $(".message .button-edit").click(function(){
-            $("#message-" + $(this).attr("id")).addClass("editing");
-            $("#message-" + $(this).attr("id") + " .view-mode").hide();
-            $("#message-" + $(this).attr("id") + " .edit-mode").show();
-            return false;
-        });
-
-        $('.update').click(function(){
-            var postid = $(this).attr("id");
-            var message = $("#discussion_post_form_" + postid + " textarea").val();
-            if ($.trim(message) == "") {
-                alert("Please enter your post!");
-                return;
-            }
-
-            if ($(this).val() != "Loading...") {
-                $(this).val("Loading...");
-                $("#discussion_post_form_" + postid).ajaxSubmit(function(data){
-                    if (data == "success") {
-                        $("#message-" + postid).html(message);
-                    }
-                    else{
-                        alert("Oops! Your post couldn't be edited at this time.");
-                    }
-                });
-                $("#message-" + postid).removeClass("editing");
-                $(this).val("Update");
-            }
-        });
-    });
-</script>
+<?php include_partial('discussion_group/js', array("helper" => $helper)) ?>

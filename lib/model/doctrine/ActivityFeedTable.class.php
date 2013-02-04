@@ -60,9 +60,23 @@ class ActivityFeedTable extends Doctrine_Table {
 
     public function findByProfileId($profileId, $limit = null) {
         $q = Doctrine_Query::create()
-                ->from('ActivityFeed af')
-                ->innerJoin('af.ActivityFeedProfiles afu')
-                ->andWhere('afu.profile_id = ?', $profileId);
+            ->from('ActivityFeed af')
+            ->innerJoin('af.ActivityFeedProfiles afu')
+            ->andWhere('afu.profile_id = ?', $profileId);
+        if ($limit) {
+            $q->limit($limit);
+        }
+
+        $q->addOrderBy('af.created_at DESC');
+        return $q->execute();
+    }
+
+    public function findByProfileIdAndType($profileId, $type, $limit = null) {
+        $q = Doctrine_Query::create()
+            ->from('ActivityFeed af')
+            ->innerJoin('af.ActivityFeedProfiles afu')
+            ->andWhere('afu.profile_id = ?', $profileId)
+            ->andWhere('af.type = ?', $type);
         if ($limit) {
             $q->limit($limit);
         }

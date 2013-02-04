@@ -28,9 +28,8 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     public function indexLinks() {
         return array(
             "currentParent" => "courses",
-            "current_child" => "my_course",
-            "current_link" => "announcements",
-            "slug" => $this->course->getSlug()
+            "current_child" => "courses",
+            "current_link" => "my_courses"
         );
     }
 
@@ -44,7 +43,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
@@ -53,7 +52,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Modules" => "course",
                 $this->course->getCode() . " ~ " . myToolkit::shortenString($this->course->getName(), 30) => "course/" . $this->course->getSlug(),
@@ -63,7 +62,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
@@ -72,7 +71,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
         );
     }
 
-    public function showBreadcrumbs($object) {
+    public function getShowBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Modules" => "course",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
@@ -82,7 +81,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
         );
     }
 
-    public function showLinks() {
+    public function getShowLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
@@ -113,5 +112,27 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     
     public function linkToAnnouncementNew(){
         return '<input id="new_course_announcement" type="button" class="button" onClick="document.location.href=\'/course/announcement/new\'" value="+ Add Announcement">';
+    }
+
+    public function getIndexTabs($course) {
+        return array(
+            "posts" => array(
+                "label" => "Course Info",
+                "href" => "/my/course/" . $course->getSlug()
+            ),
+            "announcements" => array(
+                "label" => "Announcements",
+                "href" => "/course/announcement",
+                "is_active" => true
+            ),
+            "discussions" => array(
+                "label" => "Discussions",
+                "href" => "/course/discussion"
+            ),
+            "peers" => array(
+                "label" => "Peers",
+                "href" => "/course/peer"
+            )
+        );
     }
 }

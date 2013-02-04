@@ -10,7 +10,7 @@
         <?php echo $discussionGroup->getDescription() ?>
         <div class="user-meta">Started by <?php echo link_to($discussionGroup->getProfile(), 'profile_show', $discussionGroup->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionGroup->getCreatedAt()) ?></span></div>
     </div>
-    <?php if ($discussionGroup->getProfileId() == $sf_user->getId() && !isset($showActions)): ?>
+    <?php if ($discussionGroup->getProfileId() == $sf_user->getId() && !isset($getShowActions)): ?>
         <div class="inline-content-actions">
             <?php echo $helper->linkToDiscussionGroupView($discussionGroup, array()) ?>
             <?php echo $helper->linkToDiscussionGroupEdit($discussionGroup, array()) ?>

@@ -47,7 +47,7 @@
                 return false;
             }
             else{                
-                fetchCourseLinks();
+                fetchgetCourseLinks();
                 $("#simplemodal-close").click();
                 return false;
             }

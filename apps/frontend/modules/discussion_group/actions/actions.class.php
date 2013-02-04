@@ -15,6 +15,10 @@ class discussion_groupActions extends autoDiscussion_groupActions {
 
     protected $canExplore = true;
 
+    public function executeIndex(sfWebRequest $request) {
+        $this->forward('discussion_group', 'explorer');
+    }
+
     public function executeShow(sfWebRequest $request) {
         $this->discussionGroup = $this->getRoute()->getObject();
         $this->forward404Unless($this->discussionGroup);
@@ -27,9 +31,11 @@ class discussion_groupActions extends autoDiscussion_groupActions {
             $this->course = $course;
             $this->getUser()->setMyAttribute('course_show_id', $course->getId());
         }
+
+        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionGroupIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
     }
 
-    public function executeExplorer(sfWebRequest $request) {        
+    public function executeExplorer(sfWebRequest $request) {
         // sorting
         if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
             $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
@@ -65,7 +71,7 @@ class discussion_groupActions extends autoDiscussion_groupActions {
         $this->sort = $this->getSort();
     }
 
-    public function executeMembers(sfWebRequest $request) {
+    public function executePeers(sfWebRequest $request) {
         $discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
         $this->discussionGroup = DiscussionGroupTable::getInstance()->find($discussionGroupId);
     }

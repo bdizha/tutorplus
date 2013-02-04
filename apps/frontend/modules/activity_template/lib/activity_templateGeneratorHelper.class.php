@@ -37,7 +37,7 @@ class activity_templateGeneratorHelper extends BaseActivity_templateGeneratorHel
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "communication_settings",
@@ -45,7 +45,7 @@ class activity_templateGeneratorHelper extends BaseActivity_templateGeneratorHel
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Communication Settings" => "communication_settings",
@@ -55,7 +55,7 @@ class activity_templateGeneratorHelper extends BaseActivity_templateGeneratorHel
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "communication_settings",

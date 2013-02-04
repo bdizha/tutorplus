@@ -1,2 +1,2 @@
 all:
-  stylesheets: [ secure.css, announcement.css ]
+  stylesheets: [ secure.css, announcement.css, profile.css ]

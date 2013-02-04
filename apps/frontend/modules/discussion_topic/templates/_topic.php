@@ -8,7 +8,7 @@
         <?php echo $discussionTopic->getMessage() ?>
         <div class="user-meta">Posted by <?php echo link_to($discussionTopic->getProfile(), 'profile_show', $discussionTopic->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionTopic->getUpdatedAt()) ?></span></div>
     </div>
-    <?php if ($discussionTopic->getProfileId() == $sf_user->getId() && !isset($showActions)): ?>
+    <?php if ($discussionTopic->getProfileId() == $sf_user->getId() && !isset($getShowActions)): ?>
         <div class="inline-content-actions">
             <?php echo $helper->linkToDiscussionTopicView($discussionTopic, array()) ?>
             <?php echo $helper->linkToDiscussionTopicEdit($discussionTopic, array()) ?>

@@ -88,6 +88,21 @@ class ProfileTable extends Doctrine_Table {
         return $query->execute();
     }
 
+    public function findByCourseId($courseId, $isInstructor) {
+        $q = $this->createQuery('p')
+            ->innerJoin('p.ProfileCourses pc')
+            ->where('pc.course_id = ?', $courseId)
+            ->andWhere('p.is_instructor = ?', $isInstructor);
+        return $q->execute();
+    }
+    
+    public function findByIds($ids){
+        $query = $this->createQuery('p')
+            ->whereIn('p.id', $ids);
+
+        return $query->execute();        
+    }
+
     public function getInstructorQuery($query) {
         return $query->addWhere("a.is_instructor = ?", true);
     }

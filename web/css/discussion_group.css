@@ -124,15 +124,14 @@ span.separator{
     height: 100px;
 }
 
+#discussion_topic_subject,
+#discussion_peer_nickname,
 #discussion_group_name{
     width: 687px !important;
 }
 
-#discussion_topic_subject{
-    width: 687px !important;
-}
-
-#discussion_topic_message_form_holder label, .comment-details label{
+#discussion_topic_message_form_holder label, 
+.comment-details label{
     display: none !important;
 }
 
@@ -410,11 +409,6 @@ span.separator{
     display: none;
 }
 
-#discussion-topic .snapshot, 
-#discussion-topic-replies .snapshot{
-    width: 700px !important;
-}
-
 .sf_admin_form_field_message{
     margin-bottom: 10px;
 }
@@ -448,6 +442,14 @@ span.separator{
 }
 
 .discussion_comment_placeholder{
-    width: 576px;
+    width: 553px;
     color: #777;
+}
+
+#discussion_peer_invite_form fieldset{
+    overflow: auto;
+    display: block;
+    position: relative;
+    margin: 0 10px 0;
+    max-height: 346px;
 }

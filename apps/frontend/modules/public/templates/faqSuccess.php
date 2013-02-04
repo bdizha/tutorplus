@@ -8,8 +8,8 @@
     <div id="tp_admin_content">
         <?php foreach ($faqs as $faq): ?>
             <div class="section-block">
-                <h2><?php echo $faq->getQuestion() ?></h2>
-                <?php echo $faq->getAnswer() ?>
+                <h2><span class="q-and-a">Q:</span> <?php echo $faq->getQuestion() ?></h2>
+                <span class="q-and-a">A:</span> <?php echo $faq->getAnswer() ?>
             </div>        
         <?php endforeach; ?>
     </div>

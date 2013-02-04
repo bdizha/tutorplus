@@ -63,7 +63,7 @@ class DiscussionGroup extends BaseDiscussionGroup {
     return $toEmails;
   }
 
-  public function hasJoined($profileId) {
+  public function hasProfile($profileId) {
     return is_object(DiscussionPeerTable::getInstance()->findOneByDiscussionGroupIdAndProfileId($this->getId(), $profileId));
   }
 

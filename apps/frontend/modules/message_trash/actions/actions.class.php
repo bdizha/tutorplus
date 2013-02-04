@@ -50,9 +50,9 @@ class message_trashActions extends autoMessage_trashActions {
     protected function buildQuery() {
         $tableMethod = $this->configuration->getTableMethod();
         $query = Doctrine_Core::getTable('EmailMessage')
-                ->createQuery('a')
-                ->addWhere("from_email like ? OR to_email like ?", array("%{$this->getUser()->getEmail()}%", "%{$this->getUser()->getEmail()}%"))
-                ->andWhere("is_trashed = ?", 1);
+            ->createQuery('a')
+            ->addWhere("from_email like ? OR to_email like ?", array("%{$this->getUser()->getEmail()}%", "%{$this->getUser()->getEmail()}%"))
+            ->andWhere("is_trashed = ?", 1);
 
         if ($tableMethod) {
             $query = Doctrine_Core::getTable('EmailMessage')->$tableMethod($query);
@@ -97,13 +97,10 @@ class message_trashActions extends autoMessage_trashActions {
         $ids = $request->getParameter('ids');
 
         $records = Doctrine_Query::create()
-                ->from('EmailMessage')
-                ->whereIn('id', $ids)
-                ->execute();
-
-        foreach ($records as $record) {
-            $record->delete();
-        }
+            ->delete()
+            ->from('EmailMessage')
+            ->whereIn('id', $ids)
+            ->execute();
 
         $this->getUser()->setFlash('notice', 'The selected items have been permanently deleted.');
     }

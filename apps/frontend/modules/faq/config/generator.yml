@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           Faq
-    theme:                 popup
+    theme:                 normal
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -18,7 +18,7 @@ generator:
         class:             false
       list:
         title:             Faqs
-        display:           [ question, answer, is_published ]
+        display:           [ question, is_published ]
         sort:              [ question, asc ]
         batch_actions:     []
         max_per_page:      5 

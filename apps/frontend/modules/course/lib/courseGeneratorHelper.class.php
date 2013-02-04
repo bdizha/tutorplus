@@ -37,7 +37,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "academic_settings",
@@ -45,7 +45,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         return array('breadcrumbs' => array(
                 "Setting" => "course",
                 "Academic Settings" => "academic_settings",
@@ -55,7 +55,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "academic_settings",
@@ -63,7 +63,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function showBreadcrumbs($course) {
+    public function getShowBreadcrumbs($course) {
         return array('breadcrumbs' => array(
                 "Course" => "course",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
@@ -71,13 +71,11 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function showLinks($course) {
+    public function getShowLinks($course) {
         return array(
             "currentParent" => "courses",
-            "current_child" => "my_course",
-            "current_link" => "course_info",
-            "is_profile" => true,
-            "slug" => $course->getSlug()
+            "current_child" => "courses",
+            "current_link" => "my_courses"
         );
     }
 
@@ -131,8 +129,34 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function showToEdit($object) {
-        return '<span class="actions"><a id="edit_course" href="/course/' . $object->getId() . '/edit">Edit</a></span>';
+    public function showToEdit($object, $sf_user) {
+        if ($sf_user->isSuperAdmin()) {
+            return '<span class="actions"><a id="edit_course" href="/course/' . $object->getId() . '/edit">Edit</a></span>';
+        } else {
+            return '';
+        }
+    }
+
+    public function getShowTabs($course) {
+        return array(
+            "posts" => array(
+                "label" => "Course Info",
+                "href" => "/my/course/" . $course->getSlug(),
+                "is_active" => true
+            ),
+            "announcements" => array(
+                "label" => "Announcements",
+                "href" => "/course/announcement"
+            ),
+            "discussions" => array(
+                "label" => "Discussions",
+                "href" => "/course/discussion"
+            ),
+            "peers" => array(
+                "label" => "Peers",
+                "href" => "/course/peer"
+            )
+        );
     }
 
 }

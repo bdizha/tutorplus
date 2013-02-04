@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->myLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->myBreadcrumbs()) ?>
+<?php include_component('common', 'secureMenu', $helper->geMyLinks()) ?>
+<?php include_partial('common/breadcrumbs', $helper->getMyBreadcrumbs()) ?>
 <div class="sf_admin_heading">
     <h3><?php echo __('My Groups', array(), 'messages') ?></h3>
 </div>

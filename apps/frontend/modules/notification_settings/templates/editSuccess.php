@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->editLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs($notification_settings)) ?>
+<?php include_component('common', 'secureMenu', $helper->getEditLinks()) ?>
+<?php include_partial('common/breadcrumbs', $helper->getEditBreadcrumbs($notification_settings)) ?>
 <div class="sf_admin_heading">
   <h3><?php echo __('Email Settings', array(), 'messages') ?></h3>
 </div>

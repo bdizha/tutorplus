@@ -1,6 +1,6 @@
 [?php use_helper('I18N', 'Date') ?]
-[?php include_component('common', 'secureMenu', $helper->editLinks($<?php echo $this->getSingularName() ?>)) ?]
-[?php include_partial('common/breadcrumbs', $helper->editBreadcrumbs($<?php echo $this->getSingularName() ?>)) ?]
+[?php include_component('common', 'secureMenu', $helper->getEditLinks($<?php echo $this->getSingularName() ?>)) ?]
+[?php include_partial('common/breadcrumbs', $helper->getEditBreadcrumbs($<?php echo $this->getSingularName() ?>)) ?]
 <div class="sf_admin_heading">
     <h3>[?php echo <?php echo $this->getI18NString('edit.title') ?> ?]</h3>
 </div>

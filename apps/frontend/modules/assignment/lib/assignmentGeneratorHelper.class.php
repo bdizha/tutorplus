@@ -48,7 +48,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
         );
     }
 
-    public function newLinks() {
+    public function getNewLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
@@ -57,7 +57,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
         );
     }
 
-    public function editBreadcrumbs($object) {
+    public function getEditBreadcrumbs($object) {
         $this->course = $object->getCourse();
         return array('breadcrumbs' => array(
                 "Courses" => "my_courses",
@@ -68,7 +68,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
         );
     }
 
-    public function editLinks() {
+    public function getEditLinks() {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
@@ -77,7 +77,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
         );
     }
 
-    public function showBreadcrumbs($assignment) {
+    public function getShowBreadcrumbs($assignment) {
         $this->course = $assignment->getCourse();
         return array('breadcrumbs' => array(
                 "Courses" => "course",
@@ -89,7 +89,7 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
         );
     }
 
-    public function showLinks($assignment) {
+    public function getShowLinks($assignment) {
         $this->course = $assignment->getCourse();
         return array(
             "currentParent" => "courses",
@@ -100,8 +100,12 @@ class assignmentGeneratorHelper extends BaseAssignmentGeneratorHelper {
         );
     }
 
-    public function showToEdit($object) {
-        return '<span class="actions"><a id="edit_assignment" href="/assignment/' . $object->getId() . '/edit">Edit</a></span>';
+    public function showToEdit($object, $sf_user) {
+        if ($sf_user->isSuperAdmin()) {
+            return '<span class="actions"><a id="edit_assignment" href="/assignment/' . $object->getId() . '/edit">Edit</a></span>';
+        } else {
+            return '';
+        }
     }
 
 }

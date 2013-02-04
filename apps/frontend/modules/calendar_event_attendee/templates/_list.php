@@ -1,6 +1,6 @@
 <?php $eventAttendees = $event->getAttendees(); ?>
 <?php if ($eventAttendees->count() > 0): ?>
-    <div class="peer-block  padding-10">
+    <div class="tab-block  padding-10">
         <?php foreach ($eventAttendees as $eventAttendee): ?>
             <?php $user = $eventAttendee->getProfile() ?>
             <div class="peer" id="event-attendee-<?php echo $eventAttendee->getId() ?>">

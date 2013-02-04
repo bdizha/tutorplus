@@ -1,8 +1,8 @@
 <?php use_helper('I18N', 'Date') ?>
-<div class="announcement">
+<div class="snapshot">
   <div class="heading">
     <?php include_partial('personal_info/photo', array('profile' => $announcement->getProfile(), "dimension" => 36)) ?>
-    <?php echo $announcement->getSubject() ?>
+      <span class="subject"><?php echo $announcement->getSubject() ?></span>
   </div>
   <div class="body">
     <?php echo $announcement->getMessage() ?>

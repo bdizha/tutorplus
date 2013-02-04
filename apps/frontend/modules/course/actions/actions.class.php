@@ -16,7 +16,7 @@ class courseActions extends autoCourseActions {
     public function executeShow(sfWebRequest $request) {
         $this->course = $this->getRoute()->getObject();
         $this->forward404Unless($this->course);
-        $this->courseInstructorPeers = PeerTable::getInstance()->findByCourseIdAndIsInstructor($this->getUser()->getId(), $this->course->getId(), true);
+        $this->courseInstructorProfiles = ProfileTable::getInstance()->findByCourseId($this->course->getId(), true);
         $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
     }
 

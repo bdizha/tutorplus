@@ -43,16 +43,16 @@ secure:
           assignment_info:            { route: assignment_show, label: "Assignment Info" }
           assignment_group:           { route: course_group, label: "groups" }
   groups:                          
-    details:                          { route: my_groups, label: Groups }
+    details:                          { route: discussion_my_groups, label: Groups }
     type:                             One
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       groups:                                     
-        details:                      { route: group_explorer, label: "Groups" }
+        details:                      { route: discussion_group_explorer, label: "Groups" }
         credentials:                  [ Student, Instructor, Staff ]
         children:
-          my_groups:                  { route: my_groups, label: "My Groups" }
-          group_explorer:             { route: group_explorer, label: "Group Explorer" }
+          discussion_my_groups:                  { route: discussion_my_groups, label: "My Groups" }
+          discussion_group_explorer:             { route: discussion_group_explorer, label: "Group Explorer" }
   calendar:                          
     details:                          { route: my_schedule, label: Calendar }
     type:                             One
@@ -75,9 +75,9 @@ secure:
         credentials:                  [ Student, Instructor, Staff ]
         param:                        slug
         children:                 
-          my_info:                    { route: profile_show, param: slug, label: "Public Info" }
+          my_info:                    { route: profile_show, param: slug, label: "Timeline" }
           my_biography:               { route: profile_biography, label: "Biography" }   
-          my_peers:                   { route: profile_peers, label: "Peers" }
+          my_peers:                   { route: peer_students, label: "Peers" }
           my_awards:                  { route: profile_award, label: "Awards" }
           my_qualifications:          { route: profile_qualification, label: "Qualifications" }
       my_settings:                   
@@ -163,10 +163,10 @@ public:
     details:                        { route: courses, label: Courses }
   vision:  
     details:                        { route: vision, label: "Our Story" }
-  institutions:  
-    details:                        { route: institutions, label: Institutions }
-  instructors:  
-    details:                        { route: instructors, label: Instructors }
+#  institutions:  
+#    details:                        { route: institutions, label: Institutions }
+#  instructors:  
+#    details:                        { route: instructors, label: Instructors }
   leadership:  
     details:                        { route: leadership, label: "Leadership" }
   faqs:  

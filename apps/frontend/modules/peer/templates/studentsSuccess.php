@@ -1,23 +1,20 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->studentsLinks()) ?>
+<?php include_component('common', 'secureMenu', $helper->allLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->studentsBreadcrumbs()) ?>
+<div class="sf_admin_heading">
+    <h3><?php echo __('Peers') ?></h3>
+</div>
 <div id="sf_admin_content">
+    <?php include_partial('common/flashes_normal') ?>
     <div class="content-block">
-        <div class="peer-filters">
-            <ul class="nav-tabs">
-                <li class="active-tab">
-                    <a href="#" tab="student_peers" class="tab-title">Student Peers</a>
-                    <span class="list-count"><?php echo count($studentPeers) ?></span>
-                </li>
-            </ul>
-        </div>
-        <?php if (count($studentPeers) == 0): ?>
-            <div class="no-result">There's no student peers linked currently.</div>
-            <?php include_partial('common/actions', array('actions' => $helper->findPeers())) ?>
-        <?php else: ?>
-            <div class="peer-block  padding-10" id="my_peers">
+        <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("students", $studentPeers, $instructorPeers, $suggestedPeers, $requestingPeers))) ?>
+        <div class="tab-block">
+            <?php if ($studentPeers->count() == 0): ?>
+                <div>You currently don't have any student peers.</div>
+                <?php include_partial('common/actions', array('actions' => $helper->findPeers())) ?>
+            <?php else: ?>
                 <?php include_partial('list', array("peers" => $studentPeers)) ?>
-            </div> 
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </div>
 </div>

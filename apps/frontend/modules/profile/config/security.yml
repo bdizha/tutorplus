@@ -1,0 +1,5 @@
+checkLogIn:
+  is_secure: false
+  
+showPhoto:
+  is_secure: false

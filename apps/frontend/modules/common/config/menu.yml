@@ -53,17 +53,17 @@ secure:
         children:
           discussion_my_groups:                  { route: discussion_my_groups, label: "My Groups" }
           discussion_group_explorer:             { route: discussion_group_explorer, label: "Group Explorer" }
-  calendar:                          
-    details:                          { route: my_schedule, label: Calendar }
-    type:                             One
-    credentials:                      [ Student, Instructor, Staff, Administrator ]
-    children:
-      my_calendar:                                        
-        details:                      { route: my_schedule, label: "Calendar" }
-        children:
-          my_schedule:                { route: my_schedule, label: "My Schedule" }
-          calendar_events:            { route: calendar_event, label: "Events" }
-          calendars:                  { route: calendar, label: "Calendars" }
+#  calendar:                          
+#    details:                          { route: my_schedule, label: Calendar }
+#    type:                             One
+#    credentials:                      [ Student, Instructor, Staff, Administrator ]
+#    children:
+#      my_calendar:                                        
+#        details:                      { route: my_schedule, label: "Calendar" }
+#        children:
+#          my_schedule:                { route: my_schedule, label: "My Schedule" }
+#          calendar_events:            { route: calendar_event, label: "Events" }
+#          calendars:                  { route: calendar, label: "Calendars" }
   profile:                          
     details:                          { route: profile_show, param: slug, label: Profile }
     type:                             Many

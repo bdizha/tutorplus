@@ -140,6 +140,10 @@
   background-color: #F5F5F5;
 }
 
+.snapshot h3{
+    font-size: 13px !important;
+}
+
 .snapshot .heading{
   border-bottom: 1px solid #F5F5F5;
 }

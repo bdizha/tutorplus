@@ -23,7 +23,6 @@ input[type=button], input[type=submit] {
     height: 25px;
     height: 25px;
     font-size: 11px;
-    border-radius: 2px;
 }
 
 .sf_admin_action_join_group input,

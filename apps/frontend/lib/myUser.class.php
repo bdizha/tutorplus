@@ -122,6 +122,14 @@ class myUser extends sfBasicSecurityUser {
         // make sure the this profile has a peer of themselves
         PeerTable::getInstance()->findOrCreateSelfPeerByProfileId($profile->getId());
 
+        // create a default primary discussion group
+        $primaryDiscussionGroup = DiscussionGroupTable::getInstance()->findOrCreatePrimaryDiscussionGroupByProfile($profile);
+
+        if ($primaryDiscussionGroup) {
+            // create a default primary discussion topic
+            DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($profile->getId(), $primaryDiscussionGroup->getId());
+        }
+
         // should we remember this profile
         if ($remember) {
             $expirationAge = 15 * 24 * 3600;

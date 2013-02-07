@@ -181,10 +181,6 @@ select[size], select[multiple], select[size][multiple] {
     padding: 10px;
 }
 
-#course_discription{
-    padding: 10px;
-}
-
 .course-follower{
     display: inline-block;
     clear: both !important;
@@ -263,8 +259,8 @@ select[size], select[multiple], select[size][multiple] {
     padding-top: 5px;
 }
 
-.course-catalog input{
-    width: 116px !important;
+.course-catalog input, .course-action-bottom input{
+    width: 128px !important;
     height: 20px !important
 }
 
@@ -281,14 +277,16 @@ select[size], select[multiple], select[size][multiple] {
 
 .course-image{
     display: inline-block;
-    width: 176px;   
-    padding: 10px;
-}
-
-.course-meeting-time{
-    padding: 5px;
+    width: 176px;  
 }
 
 .course-row{
-    padding: 5px 0;
+    padding: 0 0 5px;
+}
+
+.course-action-bottom{
+    display: block;
+    position: relative;
+    height: 45px;
+    width: 140px;
 }

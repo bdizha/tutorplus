@@ -143,3 +143,8 @@
   right: 0px;
   top: -5px;
 }
+
+#dashboard-feeds .heading{
+    max-height: 44px !important;
+    height: 44px;
+}

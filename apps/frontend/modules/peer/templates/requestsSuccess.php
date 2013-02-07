@@ -9,7 +9,7 @@
     <div class="content-block">
         <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("requests", $studentPeers, $instructorPeers, $suggestedPeers, $requestingPeers))) ?>
         <div class="tab-block">
-            <?php if ($suggestedPeers->count() == 0): ?>
+            <?php if ($requestingPeers->count() == 0): ?>
                 <div>There isn't any peer requests currently.</div>
                 <?php include_partial('common/actions', $helper->findPeers()) ?>
             <?php else: ?>

@@ -705,11 +705,7 @@ peer_result:
     
 programmes_student:
   url: /programmes/student
-  param: { module: program, action: studentProgrammes } 
-  
-notification_settings_details:
-  url: /notification/settings/details
-  param: { module: notification_settings, action: profileDetails }  
+  param: { module: program, action: studentProgrammes }  
   
 profile_photo:
   url:   /profile/photo
@@ -761,7 +757,11 @@ profile_account_settings_ajax:
   
 profile_peer:
   url: /profile/peer
-  param: { module: profile, action: index } 
+  param: { module: profile, action: index }
+  
+profile_check_login:
+  url:   /profile/check/login
+  param: { module: profile, action: checkLogIn } 
   
 peer_profile:
   url: /peer/profile/:peer_id

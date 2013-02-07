@@ -52,8 +52,8 @@
                 $(this).val("Posting...");
                 $("#discussion_post_form").ajaxSubmit(function(data){
                     if (data == "success") {
-                        $.get('<?php echo url_for('@discussion_post_show') ?>',{},function(messageData){
-                            $('#discussion-comments').prepend(messageData);
+                        $.get('<?php echo url_for('@discussion_post_show') ?>',{},function(post){
+                            $('#discussion-posts').prepend(post);
                         },'html');
 
                         // reset the form

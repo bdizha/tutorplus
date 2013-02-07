@@ -1,5 +1,5 @@
 <?php if (count($discussionGroups) == 0): ?>
-  <div class="no-result">You've not joined any DiscussionGroups yet</div>
+  <div class="no-result">You haven't joined any discussion groups yet</div>
 <?php endif; ?>
 <?php foreach ($discussionGroups as $discussionGroup): ?>
   <div class="timeline-row">

@@ -3,7 +3,7 @@
 <?php include_component('common', 'publicMenu', array("currentParent" => "home")) ?>
 <div class="home-top-row">
   <div class="testimonial">
-    <a class="photo-link" style="width:50px;height:50px;" href="/profile/batanayi-matuku">
+    <a class="photo-link" style="width:50px;height:50px;" href="/batanayi-matuku">
       <img src="/uploads/users/3/normal-50.jpg " class="image" alt="Batanayi Matuku" title="Batanayi Matuku">
     </a>
     <div class="text">

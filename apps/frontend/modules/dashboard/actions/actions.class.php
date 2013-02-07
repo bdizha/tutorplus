@@ -26,6 +26,12 @@ class dashboardActions extends sfActions {
      */
     public function executeIndex(sfWebRequest $request) {
         $this->totalInboxCount = EmailMessageTable::getInstance()->countInboxByEmail($this->getUser()->getEmail());
+        $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profile->getId(), 15);
+        
+        
+//        myToolkit::debug($this->activityFeeds->toArray());
+        
+        
         $this->courses = CourseTable::getInstance()->findByPeerId($this->profile->getId(), 3);
         $this->discussionGroups = DiscussionGroupTable::getInstance()->findPopularDiscussionGroupsByProfileId($this->profile->getId());
         $this->announcements = AnnouncementTable::getInstance()->findLatest(20);

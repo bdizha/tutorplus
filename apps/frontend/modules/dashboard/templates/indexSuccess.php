@@ -12,13 +12,13 @@
         </div>
         <div class="row">
             <div class="underlined"><h5>Suggestions</h5></div>
-            <div id="dashboard_suggested_peers" class="dashboard_peers">
+            <div class="dashboard_peers">
                 <?php include_partial('suggestions', array("peers" => $suggestedPeers, "profile" => $profile)) ?>
             </div>
         </div>
         <div class="row">
             <div class="underlined"><h5>My Peers <span class="list-count"><?php echo $peers->count() ?></span></h5></div>
-            <div id="dashboard_my_peers" class="dashboard_peers">
+            <div class="dashboard_peers">
                 <?php include_partial('peers', array("peers" => $peers, "profile" => $profile)) ?>
             </div>
         </div>
@@ -30,77 +30,10 @@
         <div class="row">
             <h4>Activity Feeds</h4>
             <div id="dashboard-feeds">
-                <div class="timeline-row">
-                    <div class="heading">
-                        <a class="photo-link" style="width:24px;height:24px;" href="/lufuno-sadiki"><img src="/profile/show/photo/10/24/1359821562" class="image" alt="Lufuno Sadiki" title="Lufuno Sadiki"></a>
-                        has sent you a message <a href="/my/course/fundamentals-of-online-education-planning-and-application">Fundamentals of Online Education: Planning and Application ~ (FOEPA)</a>    </div>
-                    <div class="body">
-                        <div class="user-meta">
-                            Sent by <a href="/lufuno-sadiki">Lufuno Sadiki</a> - <span class="datetime">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="heading">
-                        <a class="photo-link" style="width:24px;height:24px;" href="/lufuno-sadiki"><img src="/profile/show/photo/10/24/1359821562" class="image" alt="Lufuno Sadiki" title="Lufuno Sadiki"></a>
-                        has requested you as a peer <a href="/my/course/fundamentals-of-online-education-planning-and-application">here</a>    </div>
-                    <div class="body">
-                        <div class="user-meta">
-                            Request by <a href="/lufuno-sadiki">Lufuno Sadiki</a> - <span class="datetime">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="heading">
-                        <a class="photo-link" style="width:24px;height:24px;" href="/lufuno-sadiki"><img src="/profile/show/photo/10/24/1359821562" class="image" alt="Lufuno Sadiki" title="Lufuno Sadiki"></a>
-                        has enrolled into course: <a href="/my/course/fundamentals-of-online-education-planning-and-application">here</a>    </div>
-                    <div class="body">
-                        <div class="user-meta">
-                            Enrollment by <a href="/lufuno-sadiki">Lufuno Sadiki</a> - <span class="datetime">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="heading">
-                        <a class="photo-link" style="width:24px;height:24px;" href="/lufuno-sadiki"><img src="/profile/show/photo/10/24/1359821562" class="image" alt="Lufuno Sadiki" title="Lufuno Sadiki"></a>
-                        has created a new discussion group: <a href="/my/course/fundamentals-of-online-education-planning-and-application">here</a>    </div>
-                    <div class="body">
-                        <div class="user-meta">
-                            Created by <a href="/lufuno-sadiki">Lufuno Sadiki</a> - <span class="datetime">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="heading">
-                        <a class="photo-link" style="width:24px;height:24px;" href="/lufuno-sadiki"><img src="/profile/show/photo/10/24/1359821562" class="image" alt="Lufuno Sadiki" title="Lufuno Sadiki"></a>
-                        has started a discussion topic: <a href="/my/course/fundamentals-of-online-education-planning-and-application">here</a>    </div>
-                    <div class="body">
-                        <div class="user-meta">
-                            Created by <a href="/lufuno-sadiki">Lufuno Sadiki</a> - <span class="datetime">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="heading">
-                        <a class="photo-link" style="width:24px;height:24px;" href="/lufuno-sadiki"><img src="/profile/show/photo/10/24/1359821562" class="image" alt="Lufuno Sadiki" title="Lufuno Sadiki"></a>
-                        has submitted a discussion post: <a href="/my/course/fundamentals-of-online-education-planning-and-application">here</a>    </div>
-                    <div class="body">
-                        <div class="user-meta">
-                            Submitted by <a href="/lufuno-sadiki">Lufuno Sadiki</a> - <span class="datetime">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-row">
-                    <div class="heading">
-                        <a class="photo-link" style="width:24px;height:24px;" href="/lufuno-sadiki"><img src="/profile/show/photo/10/24/1359821562" class="image" alt="Lufuno Sadiki" title="Lufuno Sadiki"></a>
-                        has posted a discussion comment: <a href="/my/course/fundamentals-of-online-education-planning-and-application">here</a>    </div>
-                    <div class="body">
-                        <div class="user-meta">
-                            Posted by <a href="/lufuno-sadiki">Lufuno Sadiki</a> - <span class="datetime">1 day ago</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <?php foreach ($activityFeeds as $activityFeed): ?>
+                    <?php include_partial('activity_feed/activity_feed', array("activityFeed" => $activityFeed)) ?>
+                <?php endforeach; ?>
+            </div> 
         </div>
         <div class="row">
             <h4>My Courses</h4>

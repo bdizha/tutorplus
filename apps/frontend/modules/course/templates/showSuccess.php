@@ -8,62 +8,52 @@
     <div class="content-block">
         <?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($course))) ?>
         <div class="tab-block">
-            <div class="course-image">
-                <img src="/profile/show/photo/3/128/1357767921" class="image" alt="<?php echo $course->getCode() ?>" title="<?php echo $course->getCode() ?>">
+            <div class="snapshot">
+                <div class="course-image">
+                    <img src="/profile/show/photo/3/128/1357767921" class="image" alt="<?php echo $course->getCode() ?>" title="<?php echo $course->getCode() ?>">
+                    <div class="course-action-bottom">
+                        <div class="button-box-enter course-action">
+                            <input class="enrolled" title="Enter Course!" href="/my/course/introduction-to-philosophy" value="Enter Course!" type="button"/>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="course-info">
+                    <div class="course-row">
+                        <div class="row-label">Institution:</div>
+                        <div class="row-value">
+                            <?php echo $course->getDepartment()->getFaculty()->getInstitution() ?>                 
+                        </div>
+                    </div>
+                    <div class="course-row">
+                        <div class="row-label">Department:</div>
+                        <div class="row-value"><?php echo $course->getDepartment() ?></div>
+                    </div>                    
+                    <div class="course-row">
+                        <div class="row-label">Active dates:</div>
+                        <div class="row-value">
+                            <?php echo $course->getDateTimeObject('start_date')->format('M jS Y') ?> - <?php echo $course->getDateTimeObject('end_date')->format('M jS Y') ?>                          
+                        </div>
+                    </div>
+                    <div class="course-row">
+                        <div class="row-label">Is active:</div>
+                        <div class="row-value">
+                            <?php echo $course->getIsFinalized() ? "Yes" : "No" ?>                 
+                        </div>
+                    </div>  
+                    <div class="course-row">
+                        <div class="row-label">Duration:</div>
+                        <div class="row-value"><?php echo (int) ($course->getHours() / 24 / 7) ?> weeks long</div>
+                    </div>
+                    <div class="course-row">
+                        <div class="row-label">Max enrolled:</div>
+                        <div class="row-value"><?php echo $course->getMaxEnrolled() ?> students</div>
+                    </div>                       
+                </div>
             </div>
-            <div class="course-info">
-                <div class="course-row">
-                    <div class="row-label">
-                        Institution:
-                    </div>
-                    <div class="row-value">
-                        <?php echo $course->getDepartment()->getFaculty()->getInstitution() ?>                 
-                    </div>
-                </div>
-                <div class="course-row">
-                    <div class="row-label">
-                        Department:
-                    </div>
-                    <div class="row-value">
-                        <?php echo $course->getDepartment() ?>                 
-                    </div>
-                </div>                    
-                <div class="course-row">
-                    <div class="row-label">
-                        Active dates:
-                    </div>
-                    <div class="row-value">
-                        <?php echo $course->getDateTimeObject('start_date')->format('M jS Y') ?> - <?php echo $course->getDateTimeObject('end_date')->format('M jS Y') ?>                          
-                    </div>
-                </div>
-                <div class="course-row">
-                    <div class="row-label">
-                        Is active:
-                    </div>
-                    <div class="row-value">
-                        <?php echo $course->getIsFinalized() ? "Yes" : "No" ?>                 
-                    </div>
-                </div>  
-                <div class="course-row">
-                    <div class="row-label">
-                        Duration:
-                    </div>
-                    <div class="row-value">
-                        <?php echo (int) ($course->getHours() / 24 / 7) ?> weeks long             
-                    </div>
-                </div>
-                <div class="course-row">
-                    <div class="row-label">
-                        Max enrolled:
-                    </div>
-                    <div class="row-value">
-                        <?php echo $course->getMaxEnrolled() ?> students              
-                    </div>
-                </div>                       
-            </div>
-            <div class="course-row" id="course_discription">
-                <?php echo $course->getDescription() ?>
-            </div>         
+            <div class="snapshot">
+                <h3>What is this course about?</h3>
+                <?php echo $course->getDescription() ?>  
+            </div>     
         </div>
         <?php include_partial('common/actions', array('actions' => array("my_courses" => array("title" => "< My Courses", "url" => "my/courses")))) ?>
     </div>

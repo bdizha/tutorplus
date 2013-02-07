@@ -10,7 +10,7 @@
         <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("groups", $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
         <div class="tab-block">
             <?php foreach ($groupActivityFeeds as $key => $activityFeed): ?>
-                <?php include_partial('activity_feed/snapshot', array('activityFeed' => $activityFeed)) ?>
+                <?php include_partial('activity_feed/group', array('activityFeed' => $activityFeed)) ?>
             <?php endforeach; ?>
         </div>
     </div>  

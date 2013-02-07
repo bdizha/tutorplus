@@ -30,7 +30,7 @@ class DiscussionComment extends BaseDiscussionComment {
         $activityFeed = new ActivityFeed();
         $activityFeed->setProfileId($this->getProfileId());
         $activityFeed->setItemId($this->getId());
-        $activityFeed->setType(ActivityFeedTable::TYPE_POSTED_DISCUSSION_COMMENT);
+        $activityFeed->setType(ActivityFeedTable::TYPE_DISCUSSION_COMMENT_SUBMITTED);
         $activityFeed->save();
 
         // link this activity with the current profile

@@ -1,5 +1,5 @@
 all:
-  stylesheets:    [ secure.css, profile.css, discussion_group.css, jquery.jcrop.css]
+  stylesheets:    [ secure.css, profile.css, discussion_group.css, jquery.jcrop.css ]
   javascripts:    [ jquery.jcrop.min.js, jquery.color.js ]
   
 newSuccess:

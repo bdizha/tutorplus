@@ -21,10 +21,11 @@
                 </div>
                 <div id="discussion-comments">
                     <?php foreach ($postActivityFeeds as $key => $activityFeed): ?>
-                        <?php include_partial('activity_feed/topic', array('activityFeed' => $activityFeed)) ?>
+                        <?php include_partial('activity_feed/post', array('activityFeed' => $activityFeed, "discussionCommentForm" => $discussionCommentForm)) ?>
                     <?php endforeach; ?>
                 </div>
             </div>
         </div>
     </div>  
 </div>
+<?php include_partial('discussion_comment/js') ?>

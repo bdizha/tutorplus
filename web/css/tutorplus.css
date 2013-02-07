@@ -1125,3 +1125,17 @@ ul.department-course, .section-block ul{
     height: 48px !important;
     border-bottom: 1px solid #F5F5F5;
 }
+
+.timeline-row, .courses-row{
+    padding: 10px;
+    border-bottom: 1px solid #EEEEEF;
+}
+
+.timeline-row .heading{
+    max-height: 44px !important;
+    height: 44px;    
+}
+
+.tab-block .timeline-row{
+    padding: 10px 0 !important;
+}

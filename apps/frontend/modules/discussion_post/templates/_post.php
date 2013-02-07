@@ -5,11 +5,16 @@
         <div class="view-mode">
             <?php echo $discussionPost->getMessage() ?>            
         </div>
-        <div class="edit-mode">
-            <div class="message-edit" id="message-edit-<?php echo $discussionPost->getId() ?>">
-                <?php include_partial('discussion_post/inline_form', array('discussionPost' => $discussionPost, 'form' => $discussionPostForm)) ?>
-            </div>            
-        </div>
+        <?php if (!isset($showActions)): ?>
+            <div class="inline-content-actions">
+                <?php echo $helper->linkToDiscussionPostEdit($discussionPost, array()) ?>
+            </div>
+            <div class="edit-mode">
+                <div class="message-edit" id="message-edit-<?php echo $discussionPost->getId() ?>">
+                    <?php include_partial('discussion_post/inline_form', array('discussionPost' => $discussionPost, 'form' => $discussionPostForm)) ?>
+                </div>            
+            </div>
+        <?php endif; ?>
         <div class="user-meta">By <?php echo link_to($discussionPost->getProfile(), 'profile_show', $discussionPost->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionPost->getCreatedAt()) ?></span></div>
     </div>
     <div class="comments">
@@ -26,8 +31,5 @@
                 <?php include_partial("discussion_comment/form", array("form" => $discussionCommentForm, "discussionPostId" => $discussionPost->getId())) ?>
             </div>
         </div>
-    </div>
-    <div class="inline-content-actions">
-        <?php echo $helper->linkToDiscussionPostEdit($discussionPost, array()) ?>
     </div>
 </div>

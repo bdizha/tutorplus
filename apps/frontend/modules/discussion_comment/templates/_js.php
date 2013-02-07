@@ -31,12 +31,12 @@
 
         $(".comment-toggler").live("click",function(){
             var postId = $(this).attr("postid");
-            var discussionDomments = $("#discussion-comments-" + postId);
-            if (discussionDomments.hasClass("hide")) {
-                discussionDomments.removeClass("hide");
+            var discussionComments = $("#discussion-comments-" + postId);
+            if (discussionComments.hasClass("hide")) {
+                discussionComments.removeClass("hide");
             }
             else{
-                discussionDomments.addClass("hide");
+                discussionComments.addClass("hide");
             }
         });
 

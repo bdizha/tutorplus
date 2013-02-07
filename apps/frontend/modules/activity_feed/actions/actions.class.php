@@ -17,10 +17,10 @@ class activity_feedActions extends autoActivity_feedActions {
         parent::preExecute();
         $this->profileId = $this->getUser()->getMyAttribute('profile_show_id', null);
         $this->profile = ProfileTable::getInstance()->findOneById($this->profileId);
-        $this->indexActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_GROUP);
-        $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_GROUP);
-        $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_TOPIC);
-        $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_POST);
+        $this->indexActivityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profileId);
+        $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_GROUP_CREATED);
+        $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_TOPIC_SUBMITTED);
+        $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_POST_SUBMITTED);
     }
 
     public function executeIndex(sfWebRequest $request) {

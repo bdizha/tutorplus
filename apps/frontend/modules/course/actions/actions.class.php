@@ -185,6 +185,19 @@ class courseActions extends autoCourseActions {
                 $profileCourse->setCourseId($courseId);
                 $profileCourse->save();
 
+                // save this activity
+                $activityFeed = new ActivityFeed();
+                $activityFeed->setProfileId($profile->getId());
+                $activityFeed->setItemId($courseId);
+                $activityFeed->setType(ActivityFeedTable::TYPE_COURSE_ENROLLED);
+                $activityFeed->save();
+
+                // link this activity with the current profile
+                $profileActivityFeed = new ProfileActivityFeed();
+                $profileActivityFeed->setProfileId($profile->getId());
+                $profileActivityFeed->setActivityFeedId($activityFeed->getId());
+                $profileActivityFeed->save();
+
                 echo "success";
                 $this->getUser()->setFlash("notice", "Congrats! You've successfully enrolled into the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
             } else {
@@ -194,6 +207,41 @@ class courseActions extends autoCourseActions {
         } catch (Exception $e) {
             echo "error";
             $this->getUser()->setFlash("notice", "You could not be enrolled into this course! Please try gain or contact us.");
+        }
+    }
+
+    public function executeUnregistered(sfWebRequest $request) {
+        try {
+            $courseId = $request->getParameter("course_id");
+            $course = CourseTable::getInstance()->find($courseId);
+            $profile = $this->getUser()->getProfile();
+
+            if ($profile->isEnrolled($courseId)) {
+                
+                $course = ProfileCourseTable::getInstance()->unRegisterProfileId($profile->getId());
+
+                // save this activity
+                $activityFeed = new ActivityFeed();
+                $activityFeed->setProfileId($profile->getId());
+                $activityFeed->setItemId($courseId);
+                $activityFeed->setType(ActivityFeedTable::TYPE_COURSE_UNREGISTERED);
+                $activityFeed->save();
+
+                // link this activity with the current profile
+                $profileActivityFeed = new ProfileActivityFeed();
+                $profileActivityFeed->setProfileId($profile->getId());
+                $profileActivityFeed->setActivityFeedId($activityFeed->getId());
+                $profileActivityFeed->save();
+
+                echo "success";
+                $this->getUser()->setFlash("notice", "You've successfully unregistered from the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
+            } else {
+                echo "error";
+                $this->getUser()->setFlash("notice", "You've already unregistered from the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
+            }
+        } catch (Exception $e) {
+            echo "error";
+            $this->getUser()->setFlash("notice", "You course not be unregistered from course! Please try gain or contact us.");
         }
     }
 

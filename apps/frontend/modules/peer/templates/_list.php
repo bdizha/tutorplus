@@ -61,6 +61,10 @@
             var inviterId = $(this).attr("inviterid");
             $(this).addClass("peer-peered");
             $(this).removeClass("peer-accept");
+
+            $(this).parent().removeClass("button-box-accept");
+            $(this).parent().addClass("button-box-peered");
+            
             $(this).attr("value","Peers");
             $.get('/peer/accept/' + inviterId, {}, function(response){
                 if (response == "success") {

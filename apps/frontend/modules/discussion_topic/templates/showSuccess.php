@@ -35,7 +35,7 @@
                     <?php include_partial('discussion_post/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>
                 </div>
             </div>
-            <div id="discussion-comments">
+            <div id="discussion-posts">
                 <?php foreach ($discussionTopic->getPosts() as $discussionPost): ?>
                     <?php include_partial('discussion_post/post', array('discussionPost' => $discussionPost, "discussionCommentForm" => $discussionCommentForm, "discussionPostForm" => new DiscussionPostForm($discussionPost), "helper" => new discussion_topicGeneratorHelper())) ?>
                 <?php endforeach; ?>

@@ -22,7 +22,7 @@ class DiscussionPost extends BaseDiscussionPost {
         $activityFeed = new ActivityFeed();
         $activityFeed->setProfileId($this->getProfileId());
         $activityFeed->setItemId($this->getId());
-        $activityFeed->setType(ActivityFeedTable::TYPE_POSTED_DISCUSSION_POST);
+        $activityFeed->setType(ActivityFeedTable::TYPE_DISCUSSION_POST_SUBMITTED);
         $activityFeed->save();
 
         // link this activity with the current profile

@@ -12,14 +12,18 @@ require_once dirname(__FILE__) . '/../lib/profileGeneratorHelper.class.php';
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class profileActions extends autoProfileActions {
-    
+
+    public function executeCheckLogIn() {
+        die(json_encode(array("status" => $this->getUser()->isAuthenticated() ? "200" : "401")));
+    }
+
     public function beforeExecute() {
         $this->profileId = $this->getUser()->getMyAttribute('profile_show_id', null);
         $this->profile = ProfileTable::getInstance()->findOneById($this->profileId);
-        $this->showActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_GROUP);
-        $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_GROUP);
-        $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_TOPIC);
-        $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($profileId, ActivityFeedTable::TYPE_POSTED_DISCUSSION_POST);
+        $this->showActivityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profileId);
+        $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_GROUP_CREATED);
+        $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_TOPIC_SUBMITTED);
+        $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_POST_SUBMITTED);
     }
 
     /**
@@ -31,7 +35,7 @@ class profileActions extends autoProfileActions {
         $slug = $request->getParameter("slug");
         $this->profile = ProfileTable::getInstance()->findOneBy("slug", $slug);
         $this->getUser()->setMyAttribute('profile_show_id', $this->profile->getId());
-        
+
         $this->beforeExecute();
 
         // suggest this profile some peers
@@ -75,16 +79,16 @@ class profileActions extends autoProfileActions {
     }
 
     public function executeShowPhoto(sfWebRequest $request) {
-        $photo_exentions = array("png", "gif", "jpg");
+        $photoExtentions = array("png", "gif", "jpg");
         $avatarFormat = sfConfig::get("sf_web_dir") . "/avatars/%s.png";
 
         if ($request->hasParameter("profile_id") && $request->hasParameter("size")) {
-            $photo_name = sprintf(sfConfig::get("sf_web_dir") . "/uploads/users/" . $request->getParameter("profile_id") . "/normal-%s.", $request->getParameter("size"));
+            $photoName = sprintf(sfConfig::get("sf_web_dir") . "/uploads/users/" . $request->getParameter("profile_id") . "/normal-%s.", $request->getParameter("size"));
             $filename = "";
 
-            foreach ($photo_exentions as $ext) {
-                if (is_file($photo_name . $ext)) {
-                    $filename = $photo_name . $ext;
+            foreach ($photoExtentions as $ext) {
+                if (is_file($photoName . $ext)) {
+                    $filename = $photoName . $ext;
                     break;
                 }
             }

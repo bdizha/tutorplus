@@ -10,13 +10,14 @@
         <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("posts", $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
         <div class="tab-block">
             <div id="discussion_post_form_container">
-                    <?php include_partial('discussion_post/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>
-                </div>
-                <div id="discussion-comments">
-                    <?php foreach ($postActivityFeeds as $key => $activityFeed): ?>
-                        <?php include_partial('activity_feed/topic', array('activityFeed' => $activityFeed)) ?>
-                    <?php endforeach; ?>
-                </div>
+                <?php include_partial('discussion_post/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>
+            </div>
+            <div id="discussion-posts">
+                <?php foreach ($postActivityFeeds as $key => $activityFeed): ?>
+                    <?php include_partial('activity_feed/post', array('activityFeed' => $activityFeed, "discussionCommentForm" => $discussionCommentForm)) ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>  
 </div>
+<?php include_partial('discussion_comment/js') ?>

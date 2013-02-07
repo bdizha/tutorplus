@@ -72,7 +72,7 @@ class DiscussionGroup extends BaseDiscussionGroup {
     $activityFeed = new ActivityFeed();
     $activityFeed->setProfileId($this->getProfileId());
     $activityFeed->setItemId($this->getId());
-    $activityFeed->setType(ActivityFeedTable::TYPE_POSTED_DISCUSSION_GROUP);
+    $activityFeed->setType(ActivityFeedTable::TYPE_DISCUSSION_GROUP_CREATED);
     $activityFeed->save();
 
     // link this activity with the current profile

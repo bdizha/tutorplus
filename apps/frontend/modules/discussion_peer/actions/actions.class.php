@@ -18,8 +18,8 @@ class discussion_peerActions extends autoDiscussion_peerActions {
         $discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
         $this->redirectUnless($discussionGroupId, "@discussion_group");
         $this->discussionGroup = DiscussionGroupTable::getInstance()->find($discussionGroupId);
-        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionGroupIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
-
+        $this->discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionGroupIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
+        $this->myPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
         $this->helper->setDiscussionGroup($this->discussionGroup);
         $this->forward404Unless($this->discussionGroup);
     }
@@ -45,23 +45,21 @@ class discussion_peerActions extends autoDiscussion_peerActions {
         $this->beforeExecute();
     }
 
-    public function executeEdit(sfWebRequest $request) {
-        $this->discussion_peer = $this->getRoute()->getObject();
-        $this->getUser()->setMyAttribute('discussion_peer_show_id', $this->discussion_peer->getId());
-        $this->form = $this->configuration->getForm($this->discussion_peer);
-    }
+//     public function executeEdit(sfWebRequest $request) {
+//         $this->discussion_peer = $this->getRoute()->getObject();
+//         $this->getUser()->setMyAttribute('discussion_peer_show_id', $this->discussion_peer->getId());
+//         $this->form = $this->configuration->getForm($this->discussion_peer);
+//     }
 
     public function executeInvite(sfWebRequest $request) {
         $discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
-        $this->currentPeerIds = array();
-        
-        $this->discussionPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
+        $this->discussionPeerIds = array();
         if ($request->getMethod() == "POST") {
             try {
                 $peers = $request->getParameter('peers');
 
                 // save peers
-                $this->currentPeerIds = $this->savePeerInvitations($discussionGroupId, $peers);
+                $this->discussionPeerIds = $this->savePeerInvitations($discussionGroupId, $peers);
 
                 // send invitation emails
                 // $this->sendPeerInvitations($form, $peers);
@@ -70,29 +68,35 @@ class discussion_peerActions extends autoDiscussion_peerActions {
             }
         } else {
             // fetch the current discussion peers
-            $this->currentPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
+            $this->discussionPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
         }
     }
 
     protected function savePeerInvitations($discussionGroupId, $postedPeerIds = array()) {
         // fetch the current discussion peers
-        $currentPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
-
+        $discussionPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
         
+        // make sure a use can only mange their own peers
+        $myDiscussionPeerIds = array();        
+        foreach($discussionPeerIds as $discussionPeerId){
+        	if(in_array($discussionPeerId, $this->myPeers)){
+        		$myDiscussionPeerIds[] = $discussionPeerId;
+        	}        	
+        }
         
-        $toDelete = array_diff($currentPeerIds, $postedPeerIds);
+        // determine what do delete
+        $toDelete = array_diff($myDiscussionPeerIds, $postedPeerIds);
         if (count($toDelete)) {
             DiscussionPeerTable::getInstance()->deleteByProfileIdsAndDiscussionGroupId($toDelete, $discussionGroupId);
         }
 
-        $toAdd = array_diff($postedPeerIds, $currentPeerIds);
-        
+        // determine what do delete
+        $toAdd = array_diff($postedPeerIds, $myDiscussionPeerIds);        
         if (count($toAdd)) {
             $profiles = ProfileTable::getInstance()->findByIds($toAdd);
             foreach ($profiles as $profile) {
                 // make sure we don't add a peer twice
-                if (!in_array($profile->getId(), $currentPeerIds)) {
-
+                if (!in_array($profile->getId(), $discussionPeerIds)) {
                     $profileId = $profile->getId();
                     if ($this->discussionGroup->hasProfile($profileId)) {
                         $discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionGroupIdAndProfileId($discussionGroupId, $profileId);
@@ -109,24 +113,7 @@ class discussion_peerActions extends autoDiscussion_peerActions {
                 }
             }
         }
-
         return $postedPeerIds;
-    }
-
-    public function executeSuggested(sfWebRequest $request) {
-
-        if ($this->discussionGroup) {
-            if ($this->getUser()->getType() == ProfileTable::TYPE_STUDENT) {
-                $studentId = $this->getUser()->getStudentId();
-                $profileId = $this->getUser()->getId();
-
-                $this->suggestedPeers = DiscussionPeerTable::getInstance()->retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $this->discussionGroup->getId());
-            } elseif ($this->getUser()->getType() == ProfileTable::TYPE_INSTRUCTOR) {
-                $this->suggestedPeers = null;
-            }
-        } else {
-            die("redirect");
-        }
     }
 
     public function executeAccept(sfWebRequest $request) {
@@ -143,10 +130,10 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 
                 echo "{$profile->getName()} has been added to this discussion successfully.";
             } else {
-                echo "It seems {$profile->getName()} is already following this discusison!";
+                echo "It seems {$profile->getName()}'s already joined this discusison!";
             }
         } catch (Exception $e) {
-            echo "User could not be added to this discussion.";
+            echo "User could not be subscribed to this discussion.";
         }
     }
 

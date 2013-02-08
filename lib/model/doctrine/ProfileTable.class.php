@@ -46,8 +46,7 @@ class ProfileTable extends Doctrine_Table {
         $query = $this->createQuery('p')
             ->select('p.id')
             ->innerJoin('p.DiscussionPeer dp')
-            ->where('dp.discussion_group_id = ?', $discussionGroupId)
-            ->addWhere('dp.is_removed = ?', $isRemoved);
+            ->where('dp.discussion_group_id = ?', $discussionGroupId);
 
         return $query->execute()->getPrimaryKeys();
     }

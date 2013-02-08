@@ -8,7 +8,7 @@
     <?php include_partial('common/flashes_normal') ?>
     <div class="content-block">
         <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("index", $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
-        <div class="tab-block">
+        <div class="tab-block" id="activity_feeds">
             <?php foreach ($indexActivityFeeds as $key => $activityFeed): ?>
                 <?php include_partial('activity_feed/activity_feed', array('activityFeed' => $activityFeed)) ?>
             <?php endforeach; ?>

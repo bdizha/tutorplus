@@ -68,7 +68,7 @@
 
 .peer{
   display: inline-block;
-  height: 58px;
+  height: 45px;
   margin: 1px -3px 0px 0px;
   padding: 10px 10px 0px 10px;
   width: 328px;
@@ -154,7 +154,6 @@
 
 .snapshot .body{
   margin: 0 0 0 43px !important;
-  border-bottom: 1px solid white;
 }
 
 .statistics{

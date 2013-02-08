@@ -15,7 +15,7 @@ class activity_feedActions extends autoActivity_feedActions {
     
     public function preExecute() {
         parent::preExecute();
-        $this->profileId = $this->getUser()->getMyAttribute('profile_show_id', null);
+        $this->profileId = $this->getUser()->getId();
         $this->profile = ProfileTable::getInstance()->findOneById($this->profileId);
         $this->indexActivityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profileId);
         $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_GROUP_CREATED);

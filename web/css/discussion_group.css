@@ -156,62 +156,6 @@ span.separator{
     height: 150px;
 }
 
-.discussion-group-peer{
-    margin: 10px 0 0;
-    display: inline-block;
-    clear: both !important;
-    width: 265px;
-}
-
-.member-meta{
-    float: left;
-    width: 180px;
-    padding-left: 10px;
-}
-
-.member-image{
-    float: left;
-    margin-left: 10px;
-}
-
-.discussion-group-potential-member{
-    display: inline-block;
-    clear: both !important;
-    width: 465px;
-    border-bottom: 1px solid #F5F5F5;
-    padding: 5px 0;
-}
-
-.discussion-group-potential-member .image{
-    float: left;
-}
-
-.discussion-group-potential-member .name{
-    float: left;
-    width: 180px;
-    padding-left: 10px;
-}
-
-.discussion-group-potential-member .input{
-    float: left;
-    margin-top: 5px;
-}
-
-#discussion_peers{
-    display: block;
-}
-
-.discussion-group-peer-field{
-    position: relative;
-    margin-top: 20px;
-}
-
-.choose-members{
-    position: absolute;
-    left: 110px;
-    top: 0;
-}
-
 .sf_admin_form_field_nickname{
     margin-top: 10px;
 }
@@ -452,4 +396,17 @@ span.separator{
     position: relative;
     margin: 0 10px 0;
     max-height: 346px;
+}
+
+#discussion_peer_invite_form_holder input[type="checkbox"]{
+    position: absolute;
+    left: 10px;
+    top: 20px;
+}
+
+#discussion_peer_invite_form_holder .description{
+    position: absolute;;
+    left: 35px;
+    top: 10px;
+	width: 303px;
 }

@@ -26,7 +26,7 @@ class dashboardActions extends sfActions {
      */
     public function executeIndex(sfWebRequest $request) {
         $this->totalInboxCount = EmailMessageTable::getInstance()->countInboxByEmail($this->getUser()->getEmail());
-        $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profile->getId(), 15);
+        $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profile->getId(), 3);
         
         
 //        myToolkit::debug($this->activityFeeds->toArray());
@@ -36,8 +36,9 @@ class dashboardActions extends sfActions {
         $this->discussionGroups = DiscussionGroupTable::getInstance()->findPopularDiscussionGroupsByProfileId($this->profile->getId());
         $this->announcements = AnnouncementTable::getInstance()->findLatest(20);
         $this->newsItems = NewsItemTable::getInstance()->findLatest(3);
-        $this->peers = PeerTable::getInstance()->findByNotProfileId($this->getUser()->getId());
-        $this->suggestedPeers = PeerTable::getInstance()->findSuggestedByProfileId($this->profile->getId(), 2);
+        $this->peers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
+        $this->suggestedPeers = PeerTable::getInstance()->findByProfileIdAndStatus($this->profile->getId(), PeerTable::STATUS_SUGGESTED);
+        $this->requestedPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->profile->getId(), PeerTable::STATUS_REQUESTED);
     }
 
 }

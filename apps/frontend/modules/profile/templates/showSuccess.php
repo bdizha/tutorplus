@@ -14,7 +14,7 @@
     </div>
     <div class="content-block">
         <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("show", $profile, $showActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
-        <div class="tab-block">
+        <div class="tab-block" id="activity_feeds">
             <?php foreach ($showActivityFeeds as $key => $activityFeed): ?>
                 <?php include_partial('activity_feed/activity_feed', array('activityFeed' => $activityFeed)) ?>
             <?php endforeach; ?>

@@ -6,6 +6,6 @@
         <input class="done" type="button" value="Done"/>                                    
     </li>
     <li class="sf_admin_action_save">
-        <input class="save" type="button" value="Save"/>                    
+        <input class="save" type="submit" value="Save"/>                    
     </li>
 </ul>

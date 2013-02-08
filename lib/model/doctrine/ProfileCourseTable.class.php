@@ -34,4 +34,13 @@ class ProfileCourseTable extends Doctrine_Table {
     return $query->execute();
   }
 
+  public function deleteByCourseIdAndProfileId($courseId, $profileId) {
+    $query = $this->createQuery()
+        ->delete()
+        ->where('profile_id = ?', $profileId)
+        ->andWhere("course_id = ?", $courseId);
+
+    return $query->execute();
+  }
+
 }

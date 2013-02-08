@@ -10,18 +10,6 @@
 <script type='text/javascript'>
     //<![DATA[
     $(document).ready(function(){
-        $(".peer-accept").live("click",function(){
-            var inviterId = $(this).attr("inviterid");
-            $(this).addClass("peer-peered");
-            $(this).removeClass("peer-accept");
-            $(this).attr("value","Peers");
-            $.get('/peer/accept/' + inviterId,{},function(response){
-                if (response == "success") {
-                    // display a notice
-                }
-            },'html');
-        });
-
         $(".peer-open").live("click",function(){
             var inviterId = $(this).attr("inviterid");
             var inviteeId = $(this).attr("inviteeid");

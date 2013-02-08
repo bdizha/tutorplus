@@ -17,8 +17,8 @@ class peerActions extends autoPeerActions {
         $this->profile = $this->getUser()->getProfile();
         $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->profile->getId(), false);
         $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->profile->getId(), true);
-        $this->suggestedPeers = PeerTable::getInstance()->findSuggestedByProfileId($this->profile->getId());
-        $this->requestingPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->profile->getId(), PeerTable::STATUS_INVITED);
+        $this->suggestedPeers = PeerTable::getInstance()->findByProfileIdAndStatus($this->profile->getId(), PeerTable::STATUS_SUGGESTED);
+        $this->requestingPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->profile->getId(), PeerTable::STATUS_REQUESTED);
         $this->potentialPeers = PeerTable::getInstance()->findByNotProfileId($this->profile->getId());
         parent::preExecute();
     }
@@ -69,7 +69,7 @@ class peerActions extends autoPeerActions {
 
             $peer->setInviteeId($inviteeId);
             $peer->setInviterId($inviterId);
-            $peer->setStatus(PeerTable::STATUS_INVITED);
+            $peer->setStatus(PeerTable::STATUS_REQUESTED);
             $peer->save();
 
             // save this activity
@@ -106,7 +106,7 @@ class peerActions extends autoPeerActions {
                 $peer = new Peer();
                 $peer->setInviteeId($inviteeId);
                 $peer->setInviterId($inviterId);
-                $peer->setStatus(PeerTable::STATUS_INVITED);
+                $peer->setStatus(PeerTable::STATUS_REQUESTED);
                 $peer->save();
 
                 $activityFeed->setItemId($peer->getId());

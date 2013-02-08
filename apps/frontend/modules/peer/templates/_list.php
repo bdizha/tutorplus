@@ -5,7 +5,7 @@
     <?php foreach ($peers as $key => $peer): ?>
         <?php if ($peer->getInviteeId() == $sf_user->getId()): ?>
             <?php $myPeer = $peer->getInviter(); ?>
-            <?php if ($peer->getStatus() == PeerTable::STATUS_INVITED): ?>
+            <?php if ($peer->getStatus() == PeerTable::STATUS_REQUESTED): ?>
                 <?php $statusLabel = "+ Accept"; ?>
                 <?php $statusClass = "accept"; ?>
             <?php elseif ($peer->getStatus() == PeerTable::STATUS_SUGGESTED): ?>
@@ -17,7 +17,7 @@
             <?php endif; ?>
         <?php else: ?>
             <?php $myPeer = $peer->getInvitee(); ?>
-            <?php if ($peer->getStatus() == PeerTable::STATUS_INVITED): ?>
+            <?php if ($peer->getStatus() == PeerTable::STATUS_REQUESTED): ?>
                 <?php $statusLabel = "Invited"; ?>
                 <?php $statusClass = "invited"; ?>
             <?php elseif ($peer->getStatus() == PeerTable::STATUS_SUGGESTED): ?>

@@ -162,7 +162,7 @@ fieldset textarea{
     width: 341px !important;
 }
 
-.course-enroll{
+.enroll{
     color: #FFF !important;
     cursor: pointer;
 }
@@ -191,13 +191,21 @@ fieldset textarea{
     border: 1px solid #909;
 }
 
-.enrolled{
+.enter{
     background-color: #037D52
+}
+
+.unregister{
+	background-color: #60A4E7;
+}
+
+.button-box-unregister{
+    border: 1px solid #60A4E7;
 }
 
 .button-box-open, .button-box-invited, .button-box-enter,
 .button-box-blue, .button-box-brown, .button-box-peered,
-.button-box-enroll, .button-box-accept{
+.button-box-enroll, .button-box-accept, .button-box-unregister{
     border-radius: 2px;
     margin: 10px 10px 0 0;
     padding: 1px;
@@ -206,8 +214,8 @@ fieldset textarea{
 }
 
 .peer-peered, .peer-open, .peer-suggested,
-.peer-declined, .enrolled, .peer-invited,
-.peer-accept{
+.peer-declined, .enter, .peer-invited,
+.peer-accept, .unregister{
     line-height: 15px !important;
     height: 20px !important;
     width: 70px !important;
@@ -223,7 +231,7 @@ fieldset textarea{
     background-color: #037D52  
 }
 
-.peer-invited, .peer-accept, .course-enroll{
+.peer-invited, .peer-accept, .enroll{
     background-color: #DDBA0C;
 }
 

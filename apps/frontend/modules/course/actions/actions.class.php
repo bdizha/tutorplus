@@ -15,6 +15,7 @@ class courseActions extends autoCourseActions {
 
     public function executeShow(sfWebRequest $request) {
         $this->course = $this->getRoute()->getObject();
+        $this->profile = $this->getUser()->getProfile();
         $this->forward404Unless($this->course);
         $this->courseInstructorProfiles = ProfileTable::getInstance()->findByCourseId($this->course->getId(), true);
         $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
@@ -208,17 +209,17 @@ class courseActions extends autoCourseActions {
             echo "error";
             $this->getUser()->setFlash("notice", "You could not be enrolled into this course! Please try gain or contact us.");
         }
+        die;
     }
 
-    public function executeUnregistered(sfWebRequest $request) {
+    public function executeUnregister(sfWebRequest $request) {
         try {
             $courseId = $request->getParameter("course_id");
             $course = CourseTable::getInstance()->find($courseId);
             $profile = $this->getUser()->getProfile();
 
-            if ($profile->isEnrolled($courseId)) {
-                
-                $course = ProfileCourseTable::getInstance()->unRegisterProfileId($profile->getId());
+            if ($profile->isEnrolled($courseId)) {                
+                ProfileCourseTable::getInstance()->deleteByCourseIdAndProfileId($courseId, $profile->getId());
 
                 // save this activity
                 $activityFeed = new ActivityFeed();
@@ -243,6 +244,7 @@ class courseActions extends autoCourseActions {
             echo "error";
             $this->getUser()->setFlash("notice", "You course not be unregistered from course! Please try gain or contact us.");
         }
+        die;
     }
 
 }

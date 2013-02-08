@@ -5,19 +5,22 @@
     <div class="column-one">
         <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 128)) ?>
         <div class="row">
-            <?php echo link_to('New Messages', 'message_inbox') ?> <span class="list-count"><?php echo $totalInboxCount ?></span>
+            <?php echo link_to('Message Inbox (' . $totalInboxCount . ')', 'message_inbox') ?>
         </div>
         <div class="row">
-            <?php echo link_to('Events', 'calendar_event') ?> <span class="list-count"><?php echo $totalInboxCount ?></span>
-        </div>
-        <div class="row">
-            <div class="underlined"><h5>Suggestions</h5></div>
+            <div class="underlined"><h5>Suggestions (<?php echo $suggestedPeers->count() ?>)</h5></div>
             <div class="dashboard_peers">
                 <?php include_partial('suggestions', array("peers" => $suggestedPeers, "profile" => $profile)) ?>
             </div>
         </div>
         <div class="row">
-            <div class="underlined"><h5>My Peers <span class="list-count"><?php echo $peers->count() ?></span></h5></div>
+            <div class="underlined"><h5>Requests (<?php echo $requestedPeers->count() ?>)</h5></div>
+            <div class="dashboard_peers">
+                <?php include_partial('requests', array("peers" => $requestedPeers, "profile" => $profile)) ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="underlined"><h5>My Peers (<?php echo $peers->count() ?>)</h5></div>
             <div class="dashboard_peers">
                 <?php include_partial('peers', array("peers" => $peers, "profile" => $profile)) ?>
             </div>

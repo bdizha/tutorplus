@@ -943,9 +943,13 @@ course_explorer:
   url:   /course/explorer
   param: { module: course, action: explorer }
   
-enroll_course:
+course_enroll:
   url:   /course/enroll/:course_id
   param: { module: course, action: enroll }
+  
+course_unregister:
+  url:   /course/unregister/:course_id
+  param: { module: course, action: unregister }
   
 archived_courses:
   url:   /archived/courses

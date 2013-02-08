@@ -12,8 +12,8 @@
             <div id="announcements">
                 <?php include_partial('announcement/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
             </div>
-            <?php echo $helper->linkToAnnouncementNew() ?>  
         </div>
+		<?php include_partial('common/actions', $helper->getIndexActions()) ?>
     </div>
 </div>
 <script type='text/javascript'>

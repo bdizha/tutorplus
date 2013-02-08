@@ -26,11 +26,11 @@
                 </div>
                 <?php if ($isAuthenticated && $profile->isEnrolled($course->getId())): ?>
                     <div class="button-box-enter course-action">
-                        <input class="enrolled" title="Enter Course!" href="/my/course/<?php echo $course->getSlug() ?>" value="Enter Course!" type="button"/>
+                        <input class="enter" title="Enter Course!" href="/my/course/<?php echo $course->getSlug() ?>" value="Enter Course!" type="button"/>
                     </div>
                 <?php else: ?>
                     <div class="button-box-enroll course-action">
-                        <input class="course-enroll" title="+ Enroll Now!" href="/my/course/<?php echo $course->getSlug() ?>" courseid="<?php echo $course->getId() ?>" value="+ Enroll Now!" type="button"/>
+                        <input class="enroll" title="+ Enroll Now!" href="/course/enroll/<?php echo $course->getId() ?>" value="+ Enroll Now!" type="button"/>
                     </div>                        
                 <?php endif; ?>
             </div>          
@@ -40,24 +40,22 @@
 <script type='text/javascript'>
     //<![DATA[
     $(document).ready(function(){
-        $(".course-enroll").click(function(){
+        $(".enroll").click(function(){
         <?php if (!$isAuthenticated): ?>
             document.location.href = $(this).attr("href");  
             return false;
         <?php endif; ?>
             if ($(this).attr("value") !== 'Enrolling...') {
-                var courseId = $(this).attr("courseid");
-                $(this).attr("value","Enrolling...");
-
+                $(this).attr("value", "Enrolling...");
                 var $this = $(this);
-                $.get('/course/enroll/' + courseId,{},function(response){
+                $.get($(this).attr("href"), {}, function(response){
                     if (response == "success") {
-                        $this.removeClass("course-enroll");
-                        $this.addClass("enrolled");
+                        $this.removeClass("enroll");
+                        $this.addClass("enter");
                         $this.parent().removeClass("button-box-enroll");
                         $this.parent().addClass("button-box-enter");
 
-                        $this.attr("value","Enter Course!");
+                        $this.attr("value", "Enter Course!");
                         reloadWindow();
                     }
                     else{
@@ -67,7 +65,7 @@
             }
         });
 
-        $(".enrolled").click(function(){
+        $(".enter").click(function(){
             document.location.href = $(this).attr("href");
         })
     });

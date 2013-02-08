@@ -9,7 +9,7 @@ class PeerTable extends Doctrine_Table {
 
     const STATUS_OPEN = 0;
     const STATUS_SUGGESTED = 1;
-    const STATUS_INVITED = 2;
+    const STATUS_REQUESTED = 2;
     const STATUS_PEERED = 3;
     const STATUS_DECLINED = 4;
 
@@ -60,20 +60,30 @@ class PeerTable extends Doctrine_Table {
     public function findByProfileIdAndIsInstructor($profileId, $isInstructor) {
         $q = $this->createQuery('p')
             ->where('(p.inviter_id <> ? AND p.invitee_id = ? AND p.Inviter.is_instructor = ?) OR (p.invitee_id <> ? AND p.inviter_id = ? AND p.Invitee.is_instructor = ?)', array($profileId, $profileId, $isInstructor, $profileId, $profileId, $isInstructor))
-            ->andwhere('(p.status = ? OR p.status = ?)', array(self::STATUS_PEERED, self::STATUS_INVITED));
+            ->andwhere('(p.status = ? OR p.status = ?)', array(self::STATUS_PEERED, self::STATUS_REQUESTED));
         return $q->execute();
     }
 
     public function findByProfileId($profileId) {
         $q = $this->createQuery('p')
-            ->where('(p.inviter_id <> ? AND p.invitee_id = ?) OR (p.invitee_id <> ? AND p.inviter_id = ?)', array($profileId, $profileId,$profileId, $profileId))
-            ->andwhere('(p.status = ? OR p.status = ?)', array(self::STATUS_PEERED, self::STATUS_INVITED));
+            ->where('(p.inviter_id <> ? AND p.invitee_id = ?) OR (p.invitee_id <> ? AND p.inviter_id = ?)', array($profileId, $profileId, $profileId, $profileId))
+            ->andwhere('(p.status = ? OR p.status = ?)', array(self::STATUS_PEERED, self::STATUS_REQUESTED));
+        return $q->execute();
+    }
+    
+    public function findByInviteeIdAndStatus($inviteeId, $status, $limit = null) {
+        $q = $this->createQuery('p')
+            ->where('p.invitee_id = ?',$inviteeId)
+            ->addWhere('p.status = ?', $status);
+        if ($limit) {
+            $q->limit($limit);
+        }
         return $q->execute();
     }
 
-    public function findByInviteeIdAndStatus($inviteeId, $status, $limit = null) {
+    public function findByProfileIdAndStatus($profileId, $status, $limit = null) {
         $q = $this->createQuery('p')
-            ->where('p.invitee_id = ?', $inviteeId)
+            ->where('p.invitee_id = ? OR p.inviter_id = ?', array($profileId, $profileId))
             ->addWhere('p.status = ?', $status);
         if ($limit) {
             $q->limit($limit);

@@ -12,7 +12,7 @@
 <div id="sf_admin_content">
     <?php include_partial('common/flashes_normal') ?>
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getIndexTabs($discussionGroup))) ?>
+        <?php include_partial('common/tabs', array('tabs' => $helper->getIndexTabs($discussionGroup, $myPeers))) ?>
         <div class="tab-block" id="my_peers">
             <div id="discussion_group">
                 <div class="snapshot">

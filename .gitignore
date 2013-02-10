@@ -15,3 +15,15 @@ lib/model/map/*
 /nbproject/private/
 nbproject/
 test/
+.buildpath
+.idea/.name
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/
+.idea/tutorplus.org.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.project
+.settings/
+

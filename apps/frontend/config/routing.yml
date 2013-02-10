@@ -247,7 +247,7 @@ discussion_post:
   options:
     model:                DiscussionPost
     module:               discussion_post
-    prefix_path:          /discussion/topic
+    prefix_path:          /discussion/post
     column:               id
     with_wildcard_routes: true
 
@@ -1097,11 +1097,11 @@ course_home:
   url:   /course/info
   param: { module: course, action: info }
   
-discussion_my_groups:
+discussion_my:
   url:   /my/groups
   param: { module: discussion_group, action: my }  
   
-discussion_group_explorer:
+discussion_explorer:
   url:   /group/explorer
   param: { module: discussion_group, action: explorer }
 

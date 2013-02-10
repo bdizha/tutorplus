@@ -6,7 +6,7 @@
         <div class="input hide" id="redactor_comment_holder_<?php echo $discussionPostId ?>">
             <?php echo $form["reply"] ?>
         </div>
-        <input type="text" class="discussion_comment_placeholder" value="Don't you want to comment on this post?" name="discussion_comment_placeholder" id="discussion_comment_placeholder" postid="<?php echo $discussionPostId ?>"> 
+        <input type="text" class="discussion_comment_placeholder" value="Leave a comment." name="discussion_comment_placeholder" id="discussion_comment_placeholder" postid="<?php echo $discussionPostId ?>"> 
         <div class="discussion_topic_actions">
             <input postid="<?php echo $discussionPostId ?>" class="button submit-discussion-comment" type="button" value="Comment" />
         </div>

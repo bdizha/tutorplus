@@ -160,18 +160,21 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 						"label" => "Course Info",
 						"href" => "/my/course/" . $course->getSlug(),
 						"is_active" => true
-				),
+				),	
 				"announcements" => array(
 						"label" => "Announcements",
-						"href" => "/course/announcement"
+						"href" => "/course/announcement",
+						"count" => $course->getCourseAnnouncements()->count(),
 				),
-				"discussions" => array(
-						"label" => "Discussions",
-						"href" => "/course/discussion"
+				"groups" => array(
+						"label" => "Groups",
+						"href" => "/course/discussion",
+						"count" => $course->getCourseDiscussionGroups()->count(),
 				),
 				"peers" => array(
 						"label" => "Peers",
-						"href" => "/course/peer"
+						"href" => "/course/peer",
+						"count" => $course->getCourseProfiles()->count(),
 				)
 		);
 	}

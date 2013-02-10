@@ -18,8 +18,7 @@ generator:
         nb_members:        { label: Members }
         nb_topics:         { label: Total topics }
       form:
-        display:
-          "Details":       [name, description, access_level]
+        display:           [ name, description, access_level ]
       filter:
         class: false
       list:

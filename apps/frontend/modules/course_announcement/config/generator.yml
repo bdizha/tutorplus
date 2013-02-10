@@ -25,9 +25,9 @@ generator:
         object_actions:        
           _edit: ~
           _delete: ~
-        max_per_page:			      10
+        max_per_page:	        10
         actions:
-          _new: ~  
+          _new:                 { label: "+ New Announcement" }
       form:
         display:
           "Details":            [ subject, message, is_published, lock_until, lock_after ]

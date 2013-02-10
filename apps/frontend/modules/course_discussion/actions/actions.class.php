@@ -17,27 +17,15 @@ class course_discussionActions extends autoCourse_discussionActions {
         parent::preExecute();
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
         $this->course = CourseTable::getInstance()->find(array($courseId));
-
         $this->helper->setCourse($this->course);
         $this->forward404Unless($this->course, sprintf('The requested course does not exist (%s).', $courseId));
+
+        // ensure there's a primary course discussion group
+        DiscussionGroupTable::getInstance()->findOrCreateOneByCourse($this->course, $this->getUser()->getId());
+    	$this->courseDiscussionGroups = DiscussionGroupTable::getInstance()->findByCourseId($courseId);
     }
 
     public function executeIndex(sfWebRequest $request) {
-        $this->discussionGroup = DiscussionGroupTable::getInstance()->findOrCreateOneByCourse($this->course, $this->getUser()->getId());
-        $this->getUser()->setMyAttribute('discussion_group_show_id', $this->discussionGroup->getId());
-
-        // sorting
-        if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort'))) {
-            $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
-        }
-
-        // pager
-        if ($request->getParameter('page')) {
-            $this->setPage($request->getParameter('page'));
-        }
-
-        $this->pager = $this->getPager();
-        $this->sort = $this->getSort();
     }
 
     public function executeShow(sfWebRequest $request) {
@@ -90,26 +78,6 @@ class course_discussionActions extends autoCourse_discussionActions {
         } else {
             $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
         }
-    }
-
-    protected function buildQuery() {
-        $tableMethod = $this->configuration->getTableMethod();
-        $query = Doctrine_Core::getTable('DiscussionGroup')
-                ->createQuery('d');
-
-        $query->innerJoin('d.CourseDiscussionGroup cd')
-                ->andWhere('cd.course_id = ?', $this->course->getId());
-
-        if ($tableMethod) {
-            $query = Doctrine_Core::getTable('DiscussionGroup')->$tableMethod($query);
-        }
-
-        $this->addSortQuery($query);
-
-        $event = $this->dispatcher->filter(new sfEvent($this, 'admin.build_query'), $query);
-        $query = $event->getReturnValue();
-
-        return $query;
     }
 
 }

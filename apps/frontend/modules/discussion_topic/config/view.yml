@@ -1,9 +1,2 @@
 all:
   stylesheets: [secure.css, discussion_group.css, profile.css ]
-  has_layout: false
-  
-showSuccess:
-  has_layout: true
-  
-timelineSuccess:
-  has_layout: true

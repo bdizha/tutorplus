@@ -433,7 +433,7 @@ CourseAnnouncement:
     course_id:                  { type: integer, notnull: true }
     announcement_id:            { type: integer, notnull: true }
   relations:      
-    Course:                     { class: Course, local: course_id, foreign: id, onDelete: CASCADE }          
+    Course:                     { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignAlias: CourseAnnouncements }          
     Announcement:               { class: Announcement, local: announcement_id, foreign: id, onDelete: CASCADE }
     
 Campus:

@@ -1,9 +1,7 @@
-<?php if (!$pager->getNbResults()): ?>
-  <div class="no-result">
-    <?php echo __("There's no announcements currently.", array(), 'sf_admin') ?>
-  </div>
+<?php if (!$announcements->count()): ?>
+<?php echo __("There isn't any announcements made yet.", array(), 'sf_admin') ?>
 <?php else: ?>  
-  <?php foreach ($pager->getResults() as $i => $announcement): $odd = fmod(++$i, 2) ? 'odd' : 'even' ?>
+  <?php foreach ($announcements as $announcement): ?>
     <?php include_partial('announcement/announcement', array('announcement' => $announcement, "helper" => $helper)) ?>
   <?php endforeach; ?>
 <?php endif; ?>

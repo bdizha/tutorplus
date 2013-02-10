@@ -1,11 +1,8 @@
-<?php if (count($profiles) == 0): ?>
-    There isn't any course peers that are enrolled into this course yet.
-<?php endif; ?>
 <?php foreach ($profiles as $key => $profile): ?>
     <?php $peer = PeerTable::getInstance()->findOneByPeers($sf_user->getId(), $profile->getId()); ?>
     <?php if ($peer->getInviteeId() == $sf_user->getId()): ?>
         <?php $myPeer = $peer->getInviter(); ?>
-        <?php if ($peer->getStatus() == PeerTable::STATUS_INVITED): ?>
+        <?php if ($peer->getStatus() == PeerTable::STATUS_SUGGESTED): ?>
             <?php $statusLabel = "+ Accept"; ?>
             <?php $statusClass = "accept"; ?>
         <?php elseif ($peer->getStatus() == PeerTable::STATUS_SUGGESTED): ?>
@@ -17,7 +14,7 @@
         <?php endif; ?>
     <?php else: ?>
         <?php $myPeer = $peer->getInvitee(); ?>
-        <?php if ($peer->getStatus() == PeerTable::STATUS_INVITED): ?>
+        <?php if ($peer->getStatus() == PeerTable::STATUS_SUGGESTED): ?>
             <?php $statusLabel = "Invited"; ?>
             <?php $statusClass = "invited"; ?>
         <?php elseif ($peer->getStatus() == PeerTable::STATUS_SUGGESTED): ?>

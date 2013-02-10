@@ -124,23 +124,27 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 
     public function getIndexTabs($course) {
         return array(
-            "posts" => array(
-                "label" => "Course Info",
-                "href" => "/my/course/" . $course->getSlug()
-            ),
-            "announcements" => array(
-                "label" => "Announcements",
-                "href" => "/course/announcement",
-                "is_active" => true
-            ),
-            "discussions" => array(
-                "label" => "Discussions",
-                "href" => "/course/discussion"
-            ),
-            "peers" => array(
-                "label" => "Peers",
-                "href" => "/course/peer"
-            )
+            
+				"posts" => array(
+						"label" => "Course Info",
+						"href" => "/my/course/" . $course->getSlug()
+				),	
+				"announcements" => array(
+						"label" => "Announcements",
+						"href" => "/course/announcement",
+						"count" => $course->getCourseAnnouncements()->count(),
+						"is_active" => true
+				),
+				"groups" => array(
+						"label" => "Groups",
+						"href" => "/course/discussion",
+						"count" => $course->getCourseDiscussionGroups()->count(),
+				),
+				"peers" => array(
+						"label" => "Peers",
+						"href" => "/course/peer",
+						"count" => $course->getCourseProfiles()->count(),
+				)
         );
     }
 }

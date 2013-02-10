@@ -2,22 +2,24 @@
 <?php include_component('common', 'secureMenu', $helper->explorerLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->explorerBreadcrumbs()) ?>
 <div class="sf_admin_heading">
-    <h3><?php echo __('Group Explorer', array(), 'messages') ?></h3>
+	<h3>
+		<?php echo __('Groups', array(), 'messages') ?>
+	</h3>
 </div>
 <div id="sf_admin_content">
-    <div class="content-block">
-        <div id="discussion_group_container">
-            <ul class="top-actions">
-                <?php include_partial('discussion_group/list_actions', array('helper' => $helper)) ?>
-            </ul>
-            <?php include_partial('discussion_group/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
-            <ul class="sf_admin_actions">
-                <?php include_partial('discussion_group/list_batch_actions', array('helper' => $helper)) ?>
-                <?php include_partial('discussion_group/list_actions', array('helper' => $helper)) ?>
-                <?php include_partial('discussion_group/list_footer', array('helper' => $helper)) ?>
-            </ul>
-        </div>
-    </div>
+	<?php include_partial('common/flashes_normal') ?>
+	<div class="content-block">
+		<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($myDiscussions, $exploreDiscussions, "explorer"))) ?>
+		<div class="tab-block">
+			<ul class="sf_admin_actions">
+				<?php include_partial('discussion_group/list_actions', array('helper' => $helper)) ?>
+			</ul>
+			<?php include_partial('discussion_group/list', array('discussionGroups' => $exploreDiscussions, 'helper' => $helper)) ?>
+			<ul class="sf_admin_actions">
+				<?php include_partial('discussion_group/list_actions', array('helper' => $helper)) ?>
+			</ul>
+		</div>
+	</div>
 </div>
 <script type='text/javascript'>
     $(document).ready(function(){    

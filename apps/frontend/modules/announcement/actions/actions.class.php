@@ -12,19 +12,11 @@ require_once dirname(__FILE__) . '/../lib/announcementGeneratorHelper.class.php'
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class announcementActions extends autoAnnouncementActions {
-
-    public function executeDisplay(sfWebRequest $request) {
-        $this->announcements = AnnouncementTable::getInstance()->retrieveOrdered();
+    
+    public function executeIndex(sfWebRequest $request){
+    	$this->announcements = AnnouncementTable::getInstance()->findAll();
     }
-
-    public function executeRecent(sfWebRequest $request) {
-        $this->announcements = AnnouncementTable::getInstance()->retrieveLatest(null, 3);
-    }
-
-    public function executeShow(sfWebRequest $request) {
-        $this->forward404Unless($this->announcement = $this->getRoute()->getObject());
-    }
-
+	
     public function sendEmail($object) {
 //        $toEmails = $object->getToEmails();
 //        $announcer = $object->getProfile();

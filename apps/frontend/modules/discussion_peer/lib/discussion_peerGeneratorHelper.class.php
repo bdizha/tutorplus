@@ -35,7 +35,7 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
         return array(
             "currentParent" => "groups",
             "current_child" => "groups",
-            "current_link" => "discussion_group_explorer"
+            "current_link" => "discussion_explorer"
         );
     }
 
@@ -73,7 +73,7 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
         return array(
             "currentParent" => "groups",
             "current_child" => "groups",
-            "current_link" => "discussion_group_explorer"
+            "current_link" => "discussion_explorer"
         );
     }
 
@@ -81,7 +81,7 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
         return array(
             "currentParent" => "groups",
             "current_child" => "groups",
-            "current_link" => "discussion_group_explorer"
+            "current_link" => "discussion_explorer"
         );
     }
 
@@ -118,6 +118,10 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
                 "href" => "/discussion/group/" . $discussionGroup->getSlug(),
                 "count" => $discussionGroup->getTopics()->count()
             ),
+            "new_topic" => array(
+                "label" => "+ New Topic",
+                "href" => "/discussion/topic/new"
+            ),
             "peers" => array(
                 "label" => "Peers",
                 "href" => "/discussion/peer",
@@ -138,6 +142,10 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
                 "label" => "Topics",
                 "href" => "/discussion/group/" . $discussionGroup->getSlug(),
                 "count" => $discussionGroup->getTopics()->count()
+            ),
+            "new_topic" => array(
+                "label" => "+ New Topic",
+                "href" => "/discussion/topic/new"
             ),
             "peers" => array(
                 "label" => "Peers",

@@ -7,7 +7,7 @@
 <div id="sf_admin_content">
     <?php include_partial('common/flashes_normal') ?>
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("students", $studentPeers, $instructorPeers, $suggestedPeers, $requestingPeers))) ?>
+        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs("students", $studentPeers, $instructorPeers, $suggestedPeers, $requestingPeers))) ?>
         <div class="tab-block">
             <?php if ($studentPeers->count() == 0): ?>
                 <div>You currently don't have any student peers.</div>

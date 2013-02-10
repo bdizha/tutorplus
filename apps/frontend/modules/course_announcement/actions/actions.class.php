@@ -16,10 +16,14 @@ class course_announcementActions extends autoCourse_announcementActions {
     public function preExecute() {
         parent::preExecute();
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
-        $this->course = CourseTable::getInstance()->find(array($courseId));
+        $this->course = CourseTable::getInstance()->find($courseId);
 
         $this->helper->setCourse($this->course);
         $this->forward404Unless($this->course, sprintf('Object Course does not exist (%s).', $courseId));
+    }
+    
+    public function executeIndex(sfWebRequest $request){
+    	$this->courseAnnouncements = AnnouncementTable::getInstance()->findByCourseId($this->course->getId());
     }
 
     public function executeShow(sfWebRequest $request) {

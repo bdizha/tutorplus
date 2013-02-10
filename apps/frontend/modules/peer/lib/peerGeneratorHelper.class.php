@@ -62,7 +62,7 @@ class peerGeneratorHelper extends BasePeerGeneratorHelper {
         );
     }
 
-    public function getAllTabs($activeTab, $studentPeers, $instructorPeers, $suggestedPeers, $requestingPeers) {
+    public function getTabs($activeTab, $studentPeers, $instructorPeers, $suggestedPeers, $requestingPeers) {
         $tabs = array(
             "students" => array(
                 "label" => "Students",

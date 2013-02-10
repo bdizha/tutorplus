@@ -26,7 +26,7 @@ class activity_feedGeneratorHelper extends BaseActivity_feedGeneratorHelper {
         );
     }
 
-    public function getAllTabs($activeTab, $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds) {
+    public function getTabs($activeTab, $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds) {
         $tabs = array(
             "index" => array(
                 "label" => "Activity Feeds",

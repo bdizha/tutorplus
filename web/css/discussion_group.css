@@ -358,9 +358,8 @@ span.separator{
 }
 
 .discussion-group-post .body, #discussion-topic .body,
-#discussion_tops .body, #DiscussionGroup .body{
+#discussion_tops .body, #discussion .body{
     margin: 0 0 0 43px !important;
-    border-bottom: 1px solid #FFF;
 }
 
 .comment-toggler{

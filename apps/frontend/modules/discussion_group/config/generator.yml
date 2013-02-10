@@ -18,8 +18,7 @@ generator:
         nb_members:        { label: Members }
         nb_topics:         { label: Total topics }
       form:
-        display: 
-          "Details":       [ name, description, access_level ]
+        display:           [ name, description, access_level ]   
       filter:
         class: false
       list:
@@ -29,7 +28,7 @@ generator:
         batch_actions:     [ ]
         object_actions:     
           _edit:           [ ]
-        max_per_page:			 10
+        max_per_page:      10
         actions:
           _new:            { label: "+ New Group" }
       edit:

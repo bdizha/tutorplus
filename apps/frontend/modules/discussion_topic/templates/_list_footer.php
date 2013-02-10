@@ -24,17 +24,7 @@
     <?php endif; ?>
 </ul>
 <script type='text/javascript'>
-    $(document).ready(function(){
-        $(".sf_admin_action_new input").click(function(){  
-            openPopup("/discussion/topic/new", "605px", "605px", "New DiscussionGroup Topic");
-            return false;
-        });
-        
-        $(".discussion_topic .edit").click(function(){            
-            openPopup($(this).attr("href"), "605px", "605px", "Edit DiscussionGroup Topic");
-            return false;
-        });
-        
+    $(document).ready(function(){        
         $(".sf_admin_pagination li").click(function(){
             fetchContent($(this).children('a').attr("href"));
             return false;
@@ -42,11 +32,6 @@
         
         $(".sf_admin_action_edit_member input").live("click", function(){
             openPopup($(this).attr("href"), '640px', '480px', 'Edit Membership');
-            return false;
-        });
-        
-        $("a#discussion_peer_new").click(function(){
-            openPopup("/discussion/topic/new", "600px", "", "New DiscussionGroup Topic");
             return false;
         });
     });

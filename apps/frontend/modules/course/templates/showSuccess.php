@@ -9,7 +9,7 @@
 <div id="sf_admin_content">
 	<div class="content-block">
 		<?php include_partial('common/flashes_normal') ?>
-		<?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($course))) ?>
+		<?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($course, $courseDiscussionGroups))) ?>
 		<div class="tab-block">
 			<div class="snapshot">
 				<div class="course-image">

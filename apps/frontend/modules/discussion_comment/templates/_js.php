@@ -22,6 +22,13 @@
 
                         $('#comment-count-' + postId).html(postCommentCount);
                         $('#comment-count').html(topicCommentCount);
+
+                        // show post comments
+                        var discussionComments = $("#discussion-comments-" + postId);
+			            if (discussionComments.hasClass("hide")) {
+			                discussionComments.removeClass("hide");
+			            }
+                        
                         $('#discussion-comment-form-holder-' + postId).load('/discussion/comment/new');
                     }
                 });
@@ -41,10 +48,10 @@
         });
 
         $(".discussion_post_placeholder").live("focus",function(){
-            var topicid = $(this).attr("topicid");
-            if (topicid !== "" && topicid !== 'undefined') {
+            var topicId = $(this).attr("topicid");
+            if (topicId !== "" && topicId !== 'undefined') {
                 $(this).hide();
-                var redactorPostHolder = $("#redactor_post_holder_" + topicid);
+                var redactorPostHolder = $("#redactor_post_holder_" + topicId);
                 if (redactorPostHolder !== 'undefined' && redactorPostHolder.hasClass("hide")) {
                     redactorPostHolder.removeClass("hide");
                 }

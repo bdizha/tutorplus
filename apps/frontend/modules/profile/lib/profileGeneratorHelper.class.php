@@ -55,7 +55,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
         );
     }
 
-    public function getAllTabs($activeTab, $profile, $showActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds) {
+    public function getTabs($activeTab, $profile, $showActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds) {
         $tabs = array(
             "show" => array(
                 "label" => "Activity Feeds",

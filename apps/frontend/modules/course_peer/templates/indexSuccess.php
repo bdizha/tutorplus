@@ -2,19 +2,22 @@
 <?php include_component('common', 'secureMenu', $helper->indexLinks($course)) ?>
 <?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs($course)) ?>
 <div class="sf_admin_heading">
-    <h3><?php echo __('%%code%% ~ %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?></h3>
+	<h3>
+		<?php echo __('%%code%% ~ %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?>
+	</h3>
 </div>
 <div id="sf_admin_content">
-    <?php include_partial('common/flashes_normal') ?>
-    <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getIndexTabs($course))) ?>
-        <div class="tab-block">
-            <div id="course_instructors">
-                <?php include_partial('course_peer/list', array("profiles" => $courseInstructorProfiles)) ?>           
-            </div>
-        </div>
-        <?php //include_partial('common/actions', array('actions' => array("manage_instructors" => array("title" => "Manage Instructors"), "manage_students" => array("title" => "Manage Students")))) ?>
-    </div>
+	<?php include_partial('common/flashes_normal') ?>
+	<div class="content-block">
+		<?php include_partial('common/tabs', array('tabs' => $helper->getIndexTabs($course))) ?>
+		<div class="tab-block">
+			<?php if (!$courseInstructorProfiles->count() && !$courseStudentProfiles->count()): ?>
+			There isn't any course peers yet.
+			<?php endif; ?>
+			<?php include_partial('course_peer/list', array("profiles" => $courseInstructorProfiles)) ?>
+			<?php include_partial('course_peer/list', array("profiles" => $courseStudentProfiles)) ?>
+		</div>
+	</div>
 </div>
 <script type="text/javascript">
     $(document).ready(function(){

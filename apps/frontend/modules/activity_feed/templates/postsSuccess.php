@@ -7,7 +7,7 @@
 <div id="sf_admin_content">
     <?php include_partial('common/flashes_normal') ?>
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getAllTabs("posts", $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
+        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs("posts", $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
         <div class="tab-block">
             <div id="discussion_post_form_container">
                 <?php include_partial('discussion_post/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>

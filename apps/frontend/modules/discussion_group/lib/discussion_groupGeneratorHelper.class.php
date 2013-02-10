@@ -13,7 +13,7 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 	public function explorerBreadcrumbs() {
 		return array('breadcrumbs' => array(
 				"Group" => "group",
-				"DiscussionGroup Explorer" => "group"
+				"Discussion Explorer" => "group"
 		)
 		);
 	}
@@ -22,14 +22,14 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 		return array(
 				"currentParent" => "groups",
 				"current_child" => "groups",
-				"current_link" => "discussion_group_explorer"
+				"current_link" => "discussion_explorer"
 		);
 	}
 
 	public function getMyBreadcrumbs() {
 		return array('breadcrumbs' => array(
 				"Group" => "group",
-				"My Group" => "discussion_my_groups"
+				"My Group" => "discussion_my"
 		)
 		);
 	}
@@ -38,7 +38,7 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 		return array(
 				"currentParent" => "groups",
 				"current_child" => "groups",
-				"current_link" => "discussion_my_groups"
+				"current_link" => "discussion_my"
 		);
 	}
 
@@ -48,14 +48,6 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 				"DiscussionGroup Explorer" => "discussion_group",
 				$discussionGroup->getName() => "discussion/group/" . $discussionGroup->getSlug()
 		)
-		);
-	}
-
-	public function getCourseLinks() {
-		return array(
-				"currentParent" => "courses",
-				"current_child" => "courses",
-				"current_link" => "my_courses"
 		);
 	}
 
@@ -71,7 +63,7 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 		return array(
 				"currentParent" => "groups",
 				"current_child" => "groups",
-				"current_link" => "discussion_group_explorer"
+				"current_link" => "discussion_explorer"
 		);
 	}
 
@@ -87,7 +79,7 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 		return array(
 				"currentParent" => "groups",
 				"current_child" => "groups",
-				"current_link" => "discussion_group_explorer"
+				"current_link" => "discussion_explorer"
 		);
 	}
 
@@ -103,7 +95,7 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 		return array(
 				"currentParent" => "groups",
 				"current_child" => "groups",
-				"current_link" => "discussion_group_explorer"
+				"current_link" => "discussion_explorer"
 		);
 	}
 
@@ -144,7 +136,7 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 				"my_discussion_group" => array("title" => "&lt; My Groups", "url" => "/my/groups"),
 				"manage_peers" => array("title" => "Manage Peers", "url" => "/discussion/peer"),
 				"invite_peers" => array("title" => "+ Invite Peers", "url" => "/discussion/peer/invite"),
-				"new_topic" => array("title" => "+ New Topic", "href" => "/discussion/topic/new")
+				"new_topic" => array("title" => "+ New Topic", "url" => "/discussion/topic/new")
 		);
 		if ($hasProfile) {
 			$actions["edit_membership"] = array("title" => "Edit Membership", "url" => "/discussion/peer/" . $discussionPeer->getId() . "/edit");
@@ -156,51 +148,60 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 	}
 
 	public function getShowTabs($discussionGroup, $course) {
-		if (is_object($course) && $course->getId()) {
-			return array(
-					"posts" => array(
-							"label" => "Course Info",
-							"href" => "/my/course/" . $course->getSlug()
-					),
-					"announcements" => array(
-							"label" => "Announcements",
-							"href" => "/course/announcement"
-					),
-					"discussions" => array(
-							"label" => "Discussions",
-							"href" => "/course/discussion",
-							"is_active" => true
-					),
-					"peers" => array(
-							"label" => "Peers",
-							"href" => "/course/peer"
-					),
-					"invite_peers" => array(
-							"label" => "Invite Peers",
-							"href" => "/discussion/peer/invite",
-							"count" => $discussionGroup->getPeers()->count()
-					)
-			);
-		} else {
-			return array(
-					"posts" => array(
-							"label" => "Topics",
-							"href" => "/discussion/group/" . $discussionGroup->getSlug(),
-							"count" => $discussionGroup->getTopics()->count(),
-							"is_active" => true
-					),
-					"peers" => array(
-							"label" => "Peers",
-							"href" => "/discussion/peer",
-							"count" => $discussionGroup->getPeers()->count()
-					),
-					"invite_peers" => array(
-							"label" => "+ Invite Peers",
-							"href" => "/discussion/peer/invite",
-							"count" => $discussionGroup->getPeers()->count()
-					)
+		return array(
+				"posts" => array(
+						"label" => "Topics",
+						"href" => "/discussion/group/" . $discussionGroup->getSlug(),
+						"count" => $discussionGroup->getTopics()->count(),
+						"is_active" => true
+				),
+				"new_topics" => array(
+						"label" => "+ New Topic",
+						"href" => "/discussion/topic/new"
+				),
+				"peers" => array(
+						"label" => "Peers",
+						"href" => "/discussion/peer",
+						"count" => $discussionGroup->getPeers()->count()
+				),
+				"invite_peers" => array(
+						"label" => "+ Invite Peers",
+						"href" => "/discussion/peer/invite",
+						"count" => $discussionGroup->getPeers()->count()
+				)
+		);
+	}
+
+	public function getTabs($myDiscussions, $exploreDiscussions, $activeTab, $discussionGroup) {
+		$tabs = array(
+				"explore_discussions" => array(
+						"label" => "Group Explorer",
+						"href" => "/group/explorer",
+						"count" => $exploreDiscussions->count(),
+						"is_active" => $activeTab == "explorer"
+				),
+				"my_discussions" => array(
+						"label" => "My Groups",
+						"href" => "/my/groups",
+						"count" => $myDiscussions->count(),
+						"is_active" => $activeTab == "my"
+				),
+				"new_group" => array(
+						"label" => "+ New Group",
+						"href" => "/discussion/group/new",
+						"is_active" => $activeTab == "new"
+				),
+		);
+
+		if($activeTab == "edit"){
+			$tabs["edit_group"] =  array(
+					"label" => "Edit Group",
+					"href" => "/course/discussion/" . $discussionGroup->getId() . "/edit",
+					"is_active" => true
 			);
 		}
+
+		return $tabs;
 	}
 
 	public function linkToEditMembership($DiscussionPeerId) {

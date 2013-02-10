@@ -43,16 +43,16 @@ secure:
           assignment_info:            { route: assignment_show, label: "Assignment Info" }
           assignment_group:           { route: course_group, label: "groups" }
   groups:                          
-    details:                          { route: discussion_my_groups, label: Groups }
+    details:                          { route: discussion_my, label: Groups }
     type:                             One
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       groups:                                     
-        details:                      { route: discussion_group_explorer, label: "Groups" }
+        details:                      { route: discussion_explorer, label: "Groups" }
         credentials:                  [ Student, Instructor, Staff ]
         children:
-          discussion_my_groups:                  { route: discussion_my_groups, label: "My Groups" }
-          discussion_group_explorer:             { route: discussion_group_explorer, label: "Group Explorer" }
+          discussion_my:                  { route: discussion_my, label: "My Groups" }
+          discussion_explorer:             { route: discussion_explorer, label: "Group Explorer" }
 #  calendar:                          
 #    details:                          { route: my_schedule, label: Calendar }
 #    type:                             One

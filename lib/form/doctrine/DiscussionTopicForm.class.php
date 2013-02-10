@@ -20,9 +20,9 @@ class DiscussionTopicForm extends BaseDiscussionTopicForm {
         $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['discussion_group_id'] = new sfWidgetFormInputHidden();
 
-        $this->validatorSchema['type']->setMessage('required', 'The <b>Post type</b> field is required.');
+        $this->validatorSchema['type']->setMessage('required', 'The <b>Genre</b> field is required.');
         $this->validatorSchema['subject']->setMessage('required', 'The <b>Subject</b> field is required.');
-        $this->validatorSchema['message']->setMessage('required', 'The <b>Message</b> field is required.');
+        $this->validatorSchema['message']->setMessage('required', 'The <b>Topic</b> field is required.');
 
         $this->setDefaults(array(
             'profile_id' => $profileId,

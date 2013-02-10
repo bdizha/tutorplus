@@ -2,7 +2,7 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           DiscussionTopic
-    theme:                 popup
+    theme:                 normal
     non_verbose_templates: true
     with_show:             true
     singular:              ~
@@ -14,7 +14,8 @@ generator:
     config:
       actions:             ~
       fields:
-        message:           { label: Post }
+        type:              { label: Genre }
+        message:           { label: Topic }
       form:
         display:           [type, subject, message]
       filter:
@@ -28,15 +29,15 @@ generator:
         actions:
           _new:            ~
       edit:
-        title:             Edit DiscussionGroup Topic
+        title:             Edit Topic
         actions:
           _delete:         []
           cancel:          []
           done:            []
           _save:           []
       new:
-        title:             New DiscussionGroup Topic
+        title:             New Topic
         actions:
           _delete:         []
           cancel:          []
-          _save:           []
+          _save:           { label: Post }

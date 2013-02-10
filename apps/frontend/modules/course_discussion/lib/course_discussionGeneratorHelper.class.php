@@ -33,20 +33,28 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 		);
 	}
 
+	public function getNewLinks() {
+		return array(
+				"currentParent" => "groups",
+				"current_child" => "groups",
+				"current_link" => "discussion_my"
+		);
+	}
+
+	public function getEditLinks() {
+		return array(
+				"currentParent" => "groups",
+				"current_child" => "groups",
+				"current_link" => "discussion_my"
+		);
+	}
+
 	public function newBreadcrumbs() {
 		return array('breadcrumbs' => array(
 				"Courses" => "course",
 				$this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
 				"+ New Discussion" => "course/discussion/new"
 		)
-		);
-	}
-
-	public function getNewLinks() {
-		return array(
-				"currentParent" => "courses",
-				"current_child" => "courses",
-				"current_link" => "my_courses"
 		);
 	}
 
@@ -58,14 +66,6 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 				$object->getName() => "course/discussion/" . $object->getSlug(),
 				"Edit Discussion" => "course/discussion/group/" . $object->getId() . "/edit"
 		)
-		);
-	}
-
-	public function getEditLinks() {
-		return array(
-				"currentParent" => "courses",
-				"current_child" => "courses",
-				"current_link" => "my_courses"
 		);
 	}
 
@@ -141,26 +141,41 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 		return '<input type="button" class="button" value="+ New Topic"/>';
 	}
 
-	public function getIndexTabs($course) {
-		return array(
+	public function getTabs($course, $courseDiscussionGroups, $activeTab, $courseDiscussionGroup = null) {
+		$tabs = array(
 				"posts" => array(
 						"label" => "Course Info",
 						"href" => "/my/course/" . $course->getSlug()
 				),
-				"announcements" => array(
-						"label" => "Announcements",
-						"href" => "/course/announcement"
-				),
-				"discussions" => array(
-						"label" => "Discussions",
+				"groups" => array(
+						"label" => "Groups",
 						"href" => "/course/discussion",
-						"is_active" => true
+						"count" => $courseDiscussionGroups->count(),
+						"is_active" => $activeTab == "index"
 				),
 				"peers" => array(
 						"label" => "Peers",
-						"href" => "/course/peer"
+						"href" => "/course/peer",
+						"count" => $course->getCourseProfiles()->count()
 				)
 		);
+
+		if($activeTab == "new"){
+			$tabs["new_group"] =  array(
+					"label" => "+ New Group",
+					"href" => "/course/discussion/new",
+					"is_active" => $activeTab == "new"
+			);
+		}
+		elseif($activeTab == "edit"){
+			$tabs["edit_group"] =  array(
+					"label" => "Edit Group",
+					"href" => "/course/discussion/" . $courseDiscussionGroup->getId() . "/edit",
+					"is_active" => $activeTab == "edit"
+			);
+		}
+
+		return $tabs;
 	}
 
 }

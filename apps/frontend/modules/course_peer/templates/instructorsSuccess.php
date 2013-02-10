@@ -1,1 +1,0 @@
-<?php include_partial('course_peer/list', array("profiles" => $courseInstructorProfiles)) ?>

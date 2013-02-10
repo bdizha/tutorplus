@@ -17,6 +17,10 @@ class discussion_topicActions extends autoDiscussion_topicActions
     public function preExecute()
     {
         parent::preExecute();
+		$discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
+		$this->redirectUnless($discussionGroupId, "@discussion_group");
+		$this->discussionGroup = DiscussionGroupTable::getInstance()->find($discussionGroupId);
+		$this->helper->setDiscussionGroup($this->discussionGroup);
         $this->myPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
     }
 
@@ -26,7 +30,6 @@ class discussion_topicActions extends autoDiscussion_topicActions
         $this->discussionGroup = $this->discussionTopic->getDiscussionGroup();
         $this->redirectUnless($this->discussionGroup, "@discussion_explorer");
         
-        $this->helper->setDiscussionGroup($this->discussionGroup);
         $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussionTopic->getId());
         $this->getUser()->setMyAttribute('discussion_group_show_id', $this->discussionTopic->getDiscussionGroupId());
 

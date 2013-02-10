@@ -6,17 +6,21 @@
 		<?php echo __('Announcements', array(), 'messages') ?>
 	</h3>
 </div>
-<div id="sf_admin_container">
+<?php include_partial('common/flashes_normal') ?>
+<div id="sf_admin_content">
 	<div class="content-block">
-		<ul class="sf_admin_actions">
-			<?php include_partial('announcement/list_actions', array('helper' => $helper)) ?>
-		</ul>
-		<div id="announcements">
-			<?php include_partial('announcement/list', array('announcements' => $announcements, 'helper' => $helper)) ?>
+		<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($announcements, $newsItems, "index"))) ?>
+		<div class="tab-block">
+			<ul class="sf_admin_actions">
+				<?php include_partial('announcement/list_actions', array('helper' => $helper)) ?>
+			</ul>
+			<div id="announcements">
+				<?php include_partial('announcement/list', array('announcements' => $announcements, 'helper' => $helper)) ?>
+			</div>
+			<ul class="sf_admin_actions">
+				<?php include_partial('announcement/list_actions', array('helper' => $helper)) ?>
+			</ul>
 		</div>
-		<ul class="sf_admin_actions">
-			<?php include_partial('announcement/list_actions', array('helper' => $helper)) ?>
-		</ul>
 	</div>
 </div>
 <script type='text/javascript'>

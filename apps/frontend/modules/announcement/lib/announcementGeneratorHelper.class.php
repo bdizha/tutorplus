@@ -9,74 +9,91 @@
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class announcementGeneratorHelper extends BaseAnnouncementGeneratorHelper {
-    public function indexBreadcrumbs() {
-        return array('breadcrumbs' => array(
-                  "Timeline" => "activity_feed",
-                "Announcements" => "announcement"
-            )
-        );
-    }
+	public function indexBreadcrumbs() {
+		return array('breadcrumbs' => array(
+				"Timeline" => "activity_feed",
+				"Announcements" => "announcement"
+		)
+		);
+	}
 
-    public function indexLinks() {
-        return array(
-            "currentParent" => "timeline",
-            "current_child" => "timeline",
-            "current_link" => "announcements"
-        );
-    }
+	public function indexLinks() {
+		return array(
+				"currentParent" => "timeline",
+				"current_child" => "timeline",
+				"current_link" => "announcements"
+		);
+	}
 
-    public function newBreadcrumbs() {
-        return array('breadcrumbs' => array(
-                "Timeline" => "activity_feed",
-                "Announcements" => "announcement",
-                "New Announcement" => "announcement/new"
-            )
-        );
-    }
+	public function newBreadcrumbs() {
+		return array('breadcrumbs' => array(
+				"Timeline" => "activity_feed",
+				"Announcements" => "announcement",
+				"New Announcement" => "announcement/new"
+		)
+		);
+	}
 
-    public function getNewLinks() {
-        return array(
-            "currentParent" => "timeline",
-            "current_child" => "timeline",
-            "current_link" => "announcements"
-        );
-    }
+	public function getNewLinks() {
+		return array(
+				"currentParent" => "timeline",
+				"current_child" => "timeline",
+				"current_link" => "announcements"
+		);
+	}
 
-    public function getEditBreadcrumbs($object) {
-        return array('breadcrumbs' => array(
-                "Timeline" => "activity_feed",
-                "Announcements" => "announcement",
-                "Edit Announcement ~ " . $object->getSubject() => "announcement/" . $object->getId() . "/edit",
-            )
-        );
-    }
+	public function getEditBreadcrumbs($object) {
+		return array('breadcrumbs' => array(
+				"Timeline" => "activity_feed",
+				"Announcements" => "announcement",
+				"Edit Announcement ~ " . $object->getSubject() => "announcement/" . $object->getId() . "/edit",
+		)
+		);
+	}
 
-    public function getEditLinks() {
-        return array(
-            "currentParent" => "timeline",
-            "current_child" => "timeline",
-            "current_link" => "announcements"
-        );
-    }
+	public function getEditLinks() {
+		return array(
+				"currentParent" => "timeline",
+				"current_child" => "timeline",
+				"current_link" => "announcements"
+		);
+	}
 
-    public function linkToAnnouncementEdit($object, $params) {
-        return link_to(__('Edit', array(), 'sf_admin'), "/announcement/" . $object->getId() . "/edit", array("class" => "button-edit"));
-    }
+	public function linkToEdit($object, $params) {
+		return link_to(__('Edit', array(), 'sf_admin'), "/announcement/" . $object->getId() . "/edit", array("class" => "button-edit"));
+	}
 
-    public function linkToAnnouncementDelete($object, $params) {
-        if ($object->isNew()) {
-            return '';
-        }
+	public function getTabs($announcements, $newsItems, $activeTab, $announcement = null) {
+		$tabs = array(
+				"announcements" => array(
+						"label" => "Announcements",
+						"href" => "/announcement/",
+						"count" => $announcements->count(),
+						"is_active" => true
+				),
+				"news_items" => array(
+						"label" => "News Items",
+						"href" => "/news/item",
+						"count" => $newsItems->count()
+				)
+		);
 
-        if (!isset($params['type'])) {
-            return link_to(__('Remove', array(), 'sf_admin'), 'announcement_delete', $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'], "class" => "button-remove"));
-        } else {
-            return '<li class="sf_admin_action_delete">' . link_to(__($params['label'], array(), 'sf_admin'), $this->getUrlForAction('delete'), $object, array('method' => 'delete', 'confirm' => !empty($params['confirm']) ? __($params['confirm'], array(), 'sf_admin') : $params['confirm'])) . '</li>';
-        }
-    }
-    
-    public function linkToAnnouncementNew(){
-        return '<input id="new_course_announcement" type="button" class="button" onClick="document.location.href=\'/announcement/new\'" value="+ Add Announcement">';
-    }
+		if($activeTab == "new"){
+			$tabs["new_announcement"] =  array(
+					"label" => "+ New Announcement",
+					"href" => "/announcement/new",
+					"is_active" => $activeTab == "new"
+			);
+		}
+		elseif($activeTab == "edit"){
+			$tabs["edit_edit"] =  array(
+					"label" => "Edit Announcement",
+					"href" => "/announcement/" . $announcement->getId() . "/edit",
+					"is_active" => $activeTab == "edit"
+			);
+		}
+
+		return $tabs;
+	}
 
 }

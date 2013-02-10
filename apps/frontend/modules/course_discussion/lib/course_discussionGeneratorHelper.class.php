@@ -143,9 +143,14 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 
 	public function getTabs($course, $courseDiscussionGroups, $activeTab, $courseDiscussionGroup = null) {
 		$tabs = array(
-				"posts" => array(
+				"course_info" => array(
 						"label" => "Course Info",
 						"href" => "/my/course/" . $course->getSlug()
+				),
+				"announcements" => array(
+						"label" => "Announcements",
+						"href" => "/course/announcement",
+						"count" => $course->getCourseAnnouncements()->count()
 				),
 				"groups" => array(
 						"label" => "Groups",

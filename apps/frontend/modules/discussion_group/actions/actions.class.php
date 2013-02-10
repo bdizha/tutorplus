@@ -40,6 +40,14 @@ class discussion_groupActions extends autoDiscussion_groupActions {
         $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionGroupIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
     }
 
+    public function executeTopics(sfWebRequest $request) {
+        $discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
+        $this->discussionGroup = DiscussionGroupTable::getInstance()->find($discussionGroupId);
+        $this->redirectUnless($this->discussionGroup, "@discussion_explorer");
+
+        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionGroupIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
+    }
+
     public function executeExplorer(sfWebRequest $request) {
     }
 

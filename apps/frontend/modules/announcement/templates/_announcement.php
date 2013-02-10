@@ -10,8 +10,8 @@
   </div>
   <?php if ($announcement->getProfileId() == $sf_user->getId()): ?>
     <div class="inline-content-actions">
-      <?php echo $helper->linkToAnnouncementEdit($announcement, array()) ?>
-      <?php echo $helper->linkToAnnouncementDelete($announcement, array("confirm" => "Are you sure?")) ?>
+      <?php echo $helper->linkToEdit($announcement, array()) ?>
+      <?php echo $helper->linkToDelete($announcement, array("confirm" => "Are you sure?")) ?>
     </div>
   <?php endif; ?>
 </div>

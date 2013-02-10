@@ -1,46 +1,59 @@
-#course_announcements{
-    padding: 0;
+#course_announcements {
+	padding: 0;
 }
 
-.announcement .user-meta{
-    color: #666666;
-    padding: 5px 0;
+.announcement .user-meta {
+	color: #666666;
+	padding: 5px 0;
 }
 
-.announcement-action .more-link{
-    margin-top: -30px
+.announcement-action .more-link {
+	margin-top: -30px
 }
 
 /* announcement fields */
-#announcement_subject{
-    width: 688px !important;
+#announcement_subject {
+	width: 688px !important;
 }
 
-#announcement_message{
-    width: 688px !important;
-    height: 150px
+#announcement_message {
+	width: 688px !important;
+	height: 150px
 }
 
-.announcement-row{
-    border-bottom: 1px dashed #C0C0C0;
-    padding: 5px 0;
+.announcement-row {
+	border-bottom: 1px dashed #C0C0C0;
+	padding: 5px 0;
 }
 
-#course_announcement_form_holder .sf_admin_form_row label, 
-#announcement_form_holder .sf_admin_form_row label {
-    float: none !important;
+#course_announcement_form_holder .sf_admin_form_row label,#announcement_form_holder .sf_admin_form_row label
+	{
+	float: none !important;
 }
 
-.snapshot .subject{
-    color: #b5a072;
+.snapshot .subject {
+	color: #b5a072;
 }
 
 .announcement .meta-info {
-    height: 45px;
-    margin-left: 105px;
-    border-bottom: 1px solid #F5F5F5;
+	height: 45px;
+	margin-left: 105px;
+	border-bottom: 1px solid #F5F5F5;
 }
 
-.announcement .heading{
-    color: #B5A072;
+.announcement .heading {
+	color: #B5A072;
+}
+
+.sf_admin_boolean .content,.radio_list input {
+	position: absolute;
+	left: 0px !important;
+	top: 10px;
+}
+
+.sf_admin_boolean label,.radio_list label {
+	position: absolute;
+	left: 20px !important;
+	top: 6px;
+	height: 22px;
 }

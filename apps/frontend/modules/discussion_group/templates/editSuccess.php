@@ -3,7 +3,7 @@
 <?php include_partial('common/breadcrumbs', $helper->getEditBreadcrumbs($discussion_group)) ?>
 <div class="sf_admin_heading">
 	<h3>
-		<?php echo __('Edit Group', array(), 'messages') ?>
+		<?php echo __('Groups', array(), 'messages') ?>
 	</h3>
 </div>
 <?php include_partial('common/flashes_normal', array('form' => $form)) ?>

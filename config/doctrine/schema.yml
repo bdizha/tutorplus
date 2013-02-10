@@ -683,6 +683,7 @@ Faq:
     profile_id:                 { type: integer, notnull: true }
     question:                   { type: string(255), notnull: true }
     answer:                     { type: clob, notnull: true }
+    position:                   { type: integer, default: 1, notnull: true }
     is_published:               { type: boolean, default: 0, notnull: true }
   relations:
     Profile:                    { class: Profile, local: profile_id, foreign: id, foreignType: one, type: one, onDelete: CASCADE }

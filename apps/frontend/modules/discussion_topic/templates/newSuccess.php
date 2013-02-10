@@ -1,7 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_component('common', 'secureMenu', $helper->getNewLinks($form)) ?>
 <?php include_partial('common/breadcrumbs', $helper->newBreadcrumbs($form)) ?>
-<?php $discussionGroup = $discussion_topic->getDiscussionGroup(); ?>
 <div class="sf_admin_heading">
 	<h3>
 		Group ~

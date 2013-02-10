@@ -9,7 +9,7 @@
 <div id="sf_admin_content">
 	<?php include_partial('common/flashes_normal') ?>
 	<div class="content-block">
-		<?php include_partial('common/tabs', array('tabs' => $helper->getIndexTabs($course))) ?>
+		<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($course, "index"))) ?>
 		<div class="tab-block">
 			<ul class="sf_admin_actions">
 				<?php include_partial('course_announcement/list_actions', array('helper' => $helper)) ?>

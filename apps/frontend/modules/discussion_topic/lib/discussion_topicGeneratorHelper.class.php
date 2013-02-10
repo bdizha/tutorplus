@@ -123,9 +123,14 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 
 	public function getTabs($discussionGroup, $myPeers, $activeTab, $discussionTopic = null) {
 		$tabs = array(
-				"posts" => array(
-						"label" => "Topics",
+				"group_info" => array(
+						"label" => "Info",
 						"href" => "/discussion/group/" . $discussionGroup->getSlug(),
+						"is_active" => $activeTab == "show"
+				),
+				"topics" => array(
+						"label" => "Topics",
+						"href" => "/discussion/group/" . $discussionGroup->getSlug() . "/topics",
 						"count" => $discussionGroup->getTopics()->count()
 				),
 				"new_topic" => array(
@@ -154,31 +159,6 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 		}
 
 		return $tabs;
-	}
-
-	public function getEditTabs($discussionGroup, $myPeers, $discussionTopic) {
-		return array(
-				"posts" => array(
-						"label" => "Topics",
-						"href" => "/discussion/group/" . $discussionGroup->getSlug(),
-						"count" => $discussionGroup->getTopics()->count()
-				),
-				"edit_topic" => array(
-						"label" => "Edit Topic",
-						"href" => "/discussion/topic/" . $discussionTopic->getId() . "/edit",
-						"is_active" => true
-				),
-				"peers" => array(
-						"label" => "Peers",
-						"href" => "/discussion/peer",
-						"count" => $discussionGroup->getPeers()->count()
-				),
-				"invite_peers" => array(
-						"label" => "+ Invite Peers",
-						"href" => "/discussion/peer/invite",
-						"count" => $myPeers->count()
-				)
-		);
 	}
 
 	public function getPopupHeight() {

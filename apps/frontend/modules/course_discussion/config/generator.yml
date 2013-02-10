@@ -22,23 +22,23 @@ generator:
       filter:
         class: false
       list:
-        title:             Course Discussions
-        display:           [=name, user, access_level, nb_topics, nb_members, last_visit]
-        sort:              [name, asc]
-        batch_actions:     []
-        max_per_page:			 10
+        title:             Course Groups
+        display:           [ =name, user, access_level, nb_topics, nb_members, last_visit ]
+        sort:              [ name, asc ]
+        batch_actions:     [ ]
+        max_per_page:	   10
         object_actions:
           _edit:           ~
         actions:
-          _new:            { label: "+ New Discussion" }
+          _new:            { label: "+ New Group" }
       edit:
-        title:             Edit Discussion
+        title:             Edit Group
         actions:
           cancel:          []
           done:            []
           _save:           []
       new:
-        title:             New Discussion
+        title:             New Group
         actions:
           cancel:          []
           _save:           ~

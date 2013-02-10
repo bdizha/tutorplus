@@ -147,13 +147,18 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 		return $actions;
 	}
 
-	public function getShowTabs($discussionGroup, $course) {
+	public function getShowTabs($discussionGroup, $activeTab) {
 		return array(
-				"posts" => array(
-						"label" => "Topics",
+				"group_info" => array(
+						"label" => "Info",
 						"href" => "/discussion/group/" . $discussionGroup->getSlug(),
+						"is_active" => $activeTab == "show"
+				),
+				"topics" => array(
+						"label" => "Topics",
+						"href" => "/discussion/group/" . $discussionGroup->getSlug() . "/topics",
 						"count" => $discussionGroup->getTopics()->count(),
-						"is_active" => true
+						"is_active" => $activeTab == "topics"
 				),
 				"new_topics" => array(
 						"label" => "+ New Topic",

@@ -21,10 +21,13 @@
         $this->getUser()->setFlash('error', $message);
         return sfView::SUCCESS;
       }
+      
+      if($isNew){      
+	      // process any extra work on the object
+	      $this->processUpdates($<?php echo $this->getSingularName() ?>);
 
-       // send the <?php echo $this->getSingularName() ?> emails
-      if($isNew){
-        $this->sendEmail($<?php echo $this->getSingularName() ?>);
+		  // send the <?php echo $this->getSingularName() ?> emails      
+		  $this->processEmails($<?php echo $this->getSingularName() ?>);
       }
       
       $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $<?php echo $this->getSingularName() ?>)));
@@ -48,5 +51,8 @@
     }
   }
   
-  public function sendEmail($object) {
+  public function processEmails($object) {
+  }    
+  
+  public function processUpdates($object){    	
   }

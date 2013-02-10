@@ -18,14 +18,14 @@ generator:
         class:             false
       list:
         title:             Faqs
-        display:           [ question, is_published ]
+        display:           [ question, position, is_published ]
         sort:              [ question, asc ]
         batch_actions:     []
         max_per_page:      5 
         actions:
           _new:            ~
       form:
-        display:           [ question, answer, is_published ]
+        display:           [ question, answer, position, is_published ]
       edit:
         title:             Edit Faq
         actions:

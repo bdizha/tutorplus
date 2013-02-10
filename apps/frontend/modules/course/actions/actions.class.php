@@ -23,11 +23,13 @@ class courseActions extends autoCourseActions {
     }
 
     public function executeExplorer(sfWebRequest $request) {
-        $this->courses = CourseTable::getInstance()->findAll();
+        $this->exploreCourses = CourseTable::getInstance()->findAll();
+        $this->myCourses = $this->getUser()->getProfile()->getCourses();
     }
 
     public function executeMy(sfWebRequest $request) {
-        $this->courses = $this->getUser()->getProfile()->getCourses();
+    	$this->exploreCourses = CourseTable::getInstance()->findAll();
+        $this->myCourses = $this->getUser()->getProfile()->getCourses();
     }
 
     public function executeInfo(sfWebRequest $request) {

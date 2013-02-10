@@ -14,7 +14,8 @@ generator:
     config:
       actions: ~
       fields:
-        user:                   { label: Announcer }
+        user:                   { label: Announcer }       
+        message:                { label: Announcement }
       filter:
         class: false
       list:
@@ -29,8 +30,8 @@ generator:
         actions:
           _new:                 { label: "+ New Announcement" }
       form:
-        display:
-          "Details":            [ subject, message, is_published, lock_until, lock_after ]
+        class:                  CourseAnnouncementForm
+        display:                [ subject, message, lock_until, lock_after, is_published ]
       edit:
         actions:          
           cancel:               []

@@ -1,6 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_component('common', 'secureMenu', $helper->getEditLinks($discussion_topic)) ?>
-<?php $discussionGroup = $discussion_topic->getDiscussionGroup(); ?>
 <div class="sf_admin_heading">
 	<h3>
 		Group ~

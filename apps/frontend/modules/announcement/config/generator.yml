@@ -14,7 +14,8 @@ generator:
     config:
       actions: ~
       fields:
-        user:                   { label: Announcer }
+        user:                   { label: Announcer }      
+        message:                { label: Announcement }
       filter:
         class: false
       list:
@@ -25,12 +26,12 @@ generator:
         object_actions:        
           _edit: ~
           _delete: ~
-        max_per_page:			      10
+        max_per_page:	        10
         actions:
-          _new: ~  
+          _new:                 { label: "+ Add Announcement" }
       form:
-        display:
-          "Details":            [ subject, message, is_published, lock_until, lock_after ]
+      form:
+        display:                [ subject, message, lock_until, lock_after, is_published ]
       edit:
         actions:          
           cancel:               []

@@ -34,6 +34,8 @@ class profileActions extends autoProfileActions {
     public function executeShow(sfWebRequest $request) {
         $slug = $request->getParameter("slug");
         $this->profile = ProfileTable::getInstance()->findOneBy("slug", $slug);
+
+        $this->forward404Unless($this->profile);        
         $this->getUser()->setMyAttribute('profile_show_id', $this->profile->getId());
 
         $this->beforeExecute();

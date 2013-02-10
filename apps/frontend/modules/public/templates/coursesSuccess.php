@@ -9,7 +9,7 @@
         <div class="section-block">
             <div id="courses_list">
                 <?php include_partial('common/flashes_normal') ?>
-                <?php include_partial('course/list', array('courses' => $courses)) ?>
+                <?php include_partial('course/courses', array('courses' => $courses)) ?>
             </div>
         </div>
     </div>

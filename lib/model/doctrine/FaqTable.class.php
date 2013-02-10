@@ -16,4 +16,17 @@ class FaqTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Faq');
     }
+
+    public function getPositions()
+    {
+    	$positions = range(1,  self::getInstance()->findAll()->count() + 1);
+        return array_combine($positions, $positions);
+    }
+
+    public function findByIsPublishedAndSortedByPosition($isPublished = true, $sort = "ASC") {
+        $q = $this->createQuery('f')
+        ->where('f.is_published = ?', $isPublished)
+        ->addOrderBy('f.position ' . $sort);
+        return $q->execute();
+    }
 }

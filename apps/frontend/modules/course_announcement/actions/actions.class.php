@@ -15,6 +15,7 @@ class course_announcementActions extends autoCourse_announcementActions {
 
     public function preExecute() {
         parent::preExecute();
+                
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
         $this->course = CourseTable::getInstance()->find($courseId);
 
@@ -28,6 +29,15 @@ class course_announcementActions extends autoCourse_announcementActions {
 
     public function executeShow(sfWebRequest $request) {
         $this->forward404Unless($this->announcement = $this->getRoute()->getObject());
+    }
+    
+    public function processUpdates($announcement){    
+    	
+    	// save a course announcement link
+    	$courseAnnouncement = new CourseAnnouncement();
+    	$courseAnnouncement->setCourse($this->course);
+    	$courseAnnouncement->setAnnouncement($announcement);
+    	$courseAnnouncement->save();
     }
 
 }

@@ -17,7 +17,7 @@ class Announcement extends BaseAnnouncement {
         $activityFeed = new ActivityFeed();
         $activityFeed->setProfileId($this->getProfileId());
         $activityFeed->setItemId($this->getId());
-        $activityFeed->setType(ActivityFeedTable::TYPE_POSTED_ANNOUNCEMENT);
+        $activityFeed->setType(ActivityFeedTable::TYPE_ANNOUNCEMENT_POSTED);
         $activityFeed->save();
 
         // link this activity with the current profile

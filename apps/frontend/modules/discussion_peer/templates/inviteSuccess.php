@@ -12,11 +12,11 @@
 		<?php echo $discussionGroup->getName() ?>
 	</h3>
 </div>
+<?php include_partial('common/flashes_normal') ?>
 <div id="sf_admin_content">
-	<?php include_partial('common/flashes_normal') ?>
 	<div class="content-block">
-		<?php include_partial('common/tabs', array('tabs' => $helper->getInviteTabs($discussionGroup, $myPeers))) ?>
-		<div class="tab-block" id="my_peers">
+		<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($discussionGroup, $myPeers, "invite"))) ?>
+		<div class="tab-block">
 			<div id="discussion_peer_invite_form_holder">
 				<form id="discussion_peer_invite_form"
 					action="<?php echo url_for('@discussion_peer_invite') ?>"

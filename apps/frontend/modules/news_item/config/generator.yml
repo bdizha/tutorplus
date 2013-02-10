@@ -14,7 +14,7 @@ generator:
     config:
       actions: ~
       fields:
-        user:                  { label: Reporter }
+        user:                   { label: Reporter }
       filter:
         class: false
       list:
@@ -25,12 +25,11 @@ generator:
         object_actions:        
           _edit: ~
           _delete: ~
-        max_per_page:			      10
+        max_per_page:           10
         actions:
-          _new: ~  
+          _new:                 { label: "+ Add News Item" }
       form:
-        display:        
-          "Details":            [heading, blurb, body, is_published, lock_until, lock_after]
+        display:                [ heading, blurb, body, lock_until, lock_after, is_published ]
       edit:
         actions:          
           cancel:               []

@@ -1,9 +1,7 @@
-<?php if (!$pager->getNbResults()): ?>
-  <div class="no-result">
-    <?php echo __("There's no news items currently.", array(), 'sf_admin') ?>
-  </div>
+<?php if (!$newsItems->count()): ?>
+<?php echo __("There isn't any news items yet.", array(), 'sf_admin') ?>
 <?php else: ?>  
-  <?php foreach ($pager->getResults() as $i => $newsItem): $odd = fmod(++$i, 2) ? 'odd' : 'even' ?>
+  <?php foreach ($newsItems as $i => $newsItem): ?>
     <?php include_partial('news_item/news_item', array('newsItem' => $newsItem, "helper" => $helper)) ?>
   <?php endforeach; ?>
 <?php endif; ?>

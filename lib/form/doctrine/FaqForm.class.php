@@ -10,17 +10,27 @@
  */
 class FaqForm extends BaseFaqForm {
 
-    public function configure() {
-        unset(
-                $this['created_at'], $this['updated_at']
-        );
+	public function configure() {
+		unset(
+				$this['created_at'], $this['updated_at']
+		);
 
-        $profileId = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
+		$profileId = sfContext::getInstance()->getUser()->getId();
+		$this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
 
-        $this->setDefaults(array(
-            'profile_id' => $profileId
-        ));
-    }
+		$this->widgetSchema['position'] = new sfWidgetFormChoice(array(
+				'choices' => FaqTable::getInstance()->getPositions(),
+		)
+		);
+		
+		$this->validatorSchema['position'] = new sfValidatorChoice(array(
+				'choices' => FaqTable::getInstance()->getPositions()
+		)
+		);
+
+		$this->setDefaults(array(
+				'profile_id' => $profileId
+		));
+	}
 
 }

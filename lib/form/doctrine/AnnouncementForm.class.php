@@ -11,21 +11,23 @@
 class AnnouncementForm extends BaseAnnouncementForm
 {
 
-    public function configure()
-    {
-        unset(
-            $this['created_at'], $this['updated_at']
-        );
+	public function configure()
+	{
+		unset(
+				$this['created_at'], $this['updated_at']
+		);
+		
+		$user = sfContext::getInstance()->getUser();
+		$profileId = $user->getId();
+		
+		$this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
+		$this->widgetSchema['lock_until'] = new tpWidgetFormDate();
+		$this->widgetSchema['lock_after'] = new tpWidgetFormDate();
 
-        $profileId = sfContext::getInstance()->getUser()->getId();
-        $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema['lock_until'] = new tpWidgetFormDate();
-        $this->widgetSchema['lock_after'] = new tpWidgetFormDate();
-            
-        $this->validatorSchema['subject']->setMessage('required', 'The <b>Subject</b> field is required.');
-        $this->validatorSchema['message']->setMessage('required', 'The <b>Message</b> field is required.');
-        $this->setDefaults(array(
-            'profile_id' => $profileId,
-        ));
-    }
+		$this->validatorSchema['subject']->setMessage('required', 'The <b>Subject</b> field is required.');
+		$this->validatorSchema['message']->setMessage('required', 'The <b>Announcement</b> field is required.');
+		$this->setDefaults(array(
+				'profile_id' => $profileId
+		));
+	}
 }

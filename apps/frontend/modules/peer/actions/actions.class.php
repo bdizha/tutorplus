@@ -118,7 +118,7 @@ class peerActions extends autoPeerActions {
                 $peer->save();
                 $activityFeed->setType(ActivityFeedTable::TYPE_PEER_ACCEPTED);
 
-                $this->getUser()->setFlash('notice', 'You\'ve accepted your peer invitation successfully.');
+                $this->getUser()->setFlash('notice', 'You\'ve accepted peer invitation successfully.');
             }
 
             $activityFeed->setItemId($peer->getId());

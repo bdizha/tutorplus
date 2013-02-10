@@ -2,17 +2,24 @@
 <?php include_component('common', 'secureMenu', $helper->indexLinks()) ?>
 <?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
 <div class="sf_admin_heading">
-  <h3><?php echo __('News Items', array(), 'messages') ?></h3>
+	<h3>
+		<?php echo __('News Items', array(), 'messages') ?>
+	</h3>
 </div>
-<div id="sf_admin_container">
-  <div class="content-block">
-    <div class="top-actions">
-      <?php echo $helper->linkToNewsItemNew() ?>
-    </div>
-    <div id="news_items">
-      <?php include_partial('news_item/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>
-    </div> 
-  </div>
+<?php include_partial('common/flashes_normal') ?>
+<div id="sf_admin_content">
+	<div class="content-block">
+		<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($announcements, $newsItems, "index"))) ?>
+		<div class="tab-block">
+			<ul class="sf_admin_actions">
+				<?php include_partial('news_item/list_actions', array('helper' => $helper)) ?>
+			</ul>
+			<?php include_partial('news_item/list', array('newsItems' => $newsItems, 'helper' => $helper)) ?>
+			<ul class="sf_admin_actions">
+				<?php include_partial('news_item/list_actions', array('helper' => $helper)) ?>
+			</ul>
+		</div>
+	</div>
 </div>
 <script type='text/javascript'>
   $(document).ready(function(){

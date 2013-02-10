@@ -6,8 +6,8 @@
 		<?php echo __('%%code%% ~ %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?>
 	</h3>
 </div>
+<?php include_partial('common/flashes_normal') ?>
 <div id="sf_admin_content">
-	<?php include_partial('common/flashes_normal') ?>
 	<div class="content-block">
 		<?php include_partial('common/tabs', array('tabs' => $helper->getIndexTabs($course))) ?>
 		<div class="tab-block">

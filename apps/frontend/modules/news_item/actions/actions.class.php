@@ -13,4 +13,12 @@ require_once dirname(__FILE__).'/../lib/news_itemGeneratorHelper.class.php';
  */
 class news_itemActions extends autoNews_itemActions
 {
+    public function preExecute() {
+        parent::preExecute();
+    	$this->announcements = AnnouncementTable::getInstance()->findAll();
+    	$this->newsItems = NewsItemTable::getInstance()->findAll();
+    }
+
+	public function executeIndex(sfWebRequest $request){
+	}
 }

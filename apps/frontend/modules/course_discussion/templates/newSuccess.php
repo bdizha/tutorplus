@@ -13,9 +13,9 @@
 			<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($course, $courseDiscussionGroups, "new"))) ?>
 			<div class="tab-block">
 				<?php include_partial('course_discussion/form', array('course' => $course, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
-			</div>
-			<div id="sf_admin_footer">
-				<?php include_partial('course_discussion/form_footer', array('course' => $course, 'form' => $form, 'configuration' => $configuration)) ?>
+				<div id="sf_admin_footer">
+					<?php include_partial('course_discussion/form_footer', array('course' => $course, 'form' => $form, 'configuration' => $configuration)) ?>
+				</div>
 			</div>
 		</div>
 	</div>

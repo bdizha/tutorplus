@@ -13,10 +13,10 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 	public function indexBreadcrumbs() {
 		return array(
 				'breadcrumbs' => array(
-				"Setting" => "course",
-				"Academic Settings" => "academic_settings",
-				"Courses" => "course"
-		)
+						"Setting" => "course",
+						"Academic Settings" => "academic_settings",
+						"Courses" => "course"
+				)
 		);
 	}
 
@@ -49,11 +49,11 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 	public function getEditBreadcrumbs($object) {
 		return array(
 				'breadcrumbs' => array(
-				"Setting" => "course",
-				"Academic Settings" => "academic_settings",
-				"Courses" => "course",
-				"Edit Course ~ " . $object->getCode() . " ~ " . $object->getName() => "course/" . $object->getId() . "/edit",
-		)
+						"Setting" => "course",
+						"Academic Settings" => "academic_settings",
+						"Courses" => "course",
+						"Edit Course ~ " . $object->getCode() . " ~ " . $object->getName() => "course/" . $object->getId() . "/edit",
+				)
 		);
 	}
 
@@ -68,9 +68,9 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 	public function getShowBreadcrumbs($course) {
 		return array(
 				'breadcrumbs' => array(
-				"Course" => "course",
-				$course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
-		)
+						"Course" => "course",
+						$course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
+				)
 		);
 	}
 
@@ -85,9 +85,9 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 	public function myCoursesBreadcrumbs() {
 		return array(
 				'breadcrumbs' => array(
-				"Courses" => "courses",
-				"My Courses" => "my_courses"
-			)
+						"Courses" => "courses",
+						"My Courses" => "my_courses"
+				)
 		);
 	}
 
@@ -102,9 +102,9 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 	public function exploreCoursesBreadcrumbs() {
 		return array(
 				'breadcrumbs' => array(
-				"Courses" => "my_courses",
-				"Course Explorer" => "course_explorer"
-			)
+						"Courses" => "my_courses",
+						"Course Explorer" => "course_explorer"
+				)
 		);
 	}
 
@@ -157,10 +157,10 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 	public function getShowTabs($course) {
 		return array(
 				"posts" => array(
-						"label" => "Course Info",
+						"label" => "Info",
 						"href" => "/my/course/" . $course->getSlug(),
 						"is_active" => true
-				),	
+				),
 				"announcements" => array(
 						"label" => "Announcements",
 						"href" => "/course/announcement",
@@ -175,6 +175,23 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
 						"label" => "Peers",
 						"href" => "/course/peer",
 						"count" => $course->getCourseProfiles()->count(),
+				)
+		);
+	}
+
+	public function getTabs($exploreCourses, $myCourses, $activeTab) {
+		return array(
+				"explore_courses" => array(
+						"label" => "Course Explorer",
+						"href" => "/course/explorer",
+						"count" => $exploreCourses->count(),
+						"is_active" => $activeTab == "explorer"
+				),
+				"my_courses" => array(
+						"label" => "My Courses",
+						"href" => "/my/courses",
+						"count" => count($myCourses),
+						"is_active" => $activeTab == "my"
 				)
 		);
 	}

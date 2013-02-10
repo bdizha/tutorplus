@@ -46,9 +46,8 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     public function getNewLinks() {
         return array(
             "currentParent" => "courses",
-            "current_child" => "my_course",
-            "current_link" => "announcements",
-            "slug" => $this->course->getSlug()
+            "current_child" => "courses",
+            "current_link" => "my_courses"
         );
     }
 
@@ -65,9 +64,8 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     public function getEditLinks() {
         return array(
             "currentParent" => "courses",
-            "current_child" => "my_course",
-            "current_link" => "announcements",
-            "slug" => $this->course->getSlug()
+            "current_child" => "courses",
+            "current_link" => "my_courses"
         );
     }
 
@@ -94,11 +92,11 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
         return '<span class="actions"><a id="edit_course" href="/course/announcement/'. $object->getId() .'/edit">Edit</a></span>';
     }
 
-    public function linkToAnnouncementEdit($object, $params) {
+    public function linkToEdit($object, $params) {
         return link_to(__('Edit', array(), 'sf_admin'), "/course/announcement/" . $object->getId() . "/edit", array("class" => "button-edit"));
     }
 
-    public function linkToAnnouncementDelete($object, $params) {
+    public function linkToDelete($object, $params) {
         if ($object->isNew()) {
             return '';
         }
@@ -122,29 +120,46 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 		);
 	}
 
-    public function getIndexTabs($course) {
-        return array(
-            
-				"posts" => array(
-						"label" => "Course Info",
-						"href" => "/my/course/" . $course->getSlug()
-				),	
+    public function getTabs($course, $activeTab, $courseAnnouncement = null) {
+    	$tabs = array(
+    			"course_info" => array(
+    					"label" => "Info",
+    					"href" => "/my/course/" . $course->getSlug()
+    			),	
 				"announcements" => array(
 						"label" => "Announcements",
 						"href" => "/course/announcement",
 						"count" => $course->getCourseAnnouncements()->count(),
-						"is_active" => true
+						"is_active" => $activeTab == "index"
 				),
 				"groups" => array(
 						"label" => "Groups",
 						"href" => "/course/discussion",
 						"count" => $course->getCourseDiscussionGroups()->count(),
+						"is_active" => $activeTab == "groups"
 				),
-				"peers" => array(
-						"label" => "Peers",
-						"href" => "/course/peer",
-						"count" => $course->getCourseProfiles()->count(),
-				)
-        );
+    			"peers" => array(
+    					"label" => "Peers",
+    					"href" => "/course/peer",
+    					"count" => $course->getCourseProfiles()->count()
+    			)
+    	);
+    	
+    	if($activeTab == "new"){
+    		$tabs["new_announcement"] =  array(
+    				"label" => "+ New Announcement",
+    				"href" => "/course/announcement/new",
+    				"is_active" => $activeTab == "new"
+    		);
+    	}
+    	elseif($activeTab == "edit"){
+    		$tabs["edit_announcement"] =  array(
+    				"label" => "Edit Announcement",
+    				"href" => "/course/announcement/" . $courseAnnouncement->getId() . "/edit",
+    				"is_active" => $activeTab == "edit"
+    		);
+    	}
+    	
+    	return $tabs;
     }
 }

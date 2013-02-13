@@ -10,64 +10,69 @@
  */
 class testActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->countrys = Doctrine_Core::getTable('Country')
-      ->createQuery('a')
-      ->execute();
-  }
+	public function executeIndex(sfWebRequest $request)
+	{
+		$this->countrys = Doctrine_Core::getTable('Country')
+		->createQuery('a')
+		->execute();
+	}
 
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->form = new CountryForm();
-  }
+	public function executeNew(sfWebRequest $request)
+	{
+		$this->form = new CountryForm();
+	}
 
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+	public function executeCreate(sfWebRequest $request)
+	{
+		$this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new CountryForm();
+		$this->form = new CountryForm();
 
-    $this->processForm($request, $this->form);
+		$this->processForm($request, $this->form);
 
-    $this->setTemplate('new');
-  }
+		$this->setTemplate('new');
+	}
 
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($country = Doctrine_Core::getTable('Country')->find(array($request->getParameter('id'))), sprintf('Object country does not exist (%s).', $request->getParameter('id')));
-    $this->form = new CountryForm($country);
-  }
+	public function executeEdit(sfWebRequest $request)
+	{
+		$this->forward404Unless($country = Doctrine_Core::getTable('Country')->find(array($request->getParameter('id'))), sprintf('Object country does not exist (%s).', $request->getParameter('id')));
+		$this->form = new CountryForm($country);
+	}
 
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($country = Doctrine_Core::getTable('Country')->find(array($request->getParameter('id'))), sprintf('Object country does not exist (%s).', $request->getParameter('id')));
-    $this->form = new CountryForm($country);
+	public function executeUpdate(sfWebRequest $request)
+	{
+		$this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+		$this->forward404Unless($country = Doctrine_Core::getTable('Country')->find(array($request->getParameter('id'))), sprintf('Object country does not exist (%s).', $request->getParameter('id')));
+		$this->form = new CountryForm($country);
 
-    $this->processForm($request, $this->form);
+		$this->processForm($request, $this->form);
 
-    $this->setTemplate('edit');
-  }
+		$this->setTemplate('edit');
+	}
 
-  public function executeDelete(sfWebRequest $request)
-  {
-    $request->checkCSRFProtection();
+	public function executeDelete(sfWebRequest $request)
+	{
+		$request->checkCSRFProtection();
 
-    $this->forward404Unless($country = Doctrine_Core::getTable('Country')->find(array($request->getParameter('id'))), sprintf('Object country does not exist (%s).', $request->getParameter('id')));
-    $country->delete();
+		$this->forward404Unless($country = Doctrine_Core::getTable('Country')->find(array($request->getParameter('id'))), sprintf('Object country does not exist (%s).', $request->getParameter('id')));
+		$country->delete();
 
-    $this->redirect('test/index');
-  }
+		$this->redirect('test/index');
+	}
 
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $country = $form->save();
+	protected function processForm(sfWebRequest $request, sfForm $form)
+	{
+		$form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+		if ($form->isValid())
+		{
+			$country = $form->save();
 
-      $this->redirect('test/edit?id='.$country->getId());
-    }
-  }
+			$this->redirect('test/edit?id='.$country->getId());
+		}
+	}
+
+	public function executeMailer(sfWebRequest $request)
+	{
+
+	}
 }

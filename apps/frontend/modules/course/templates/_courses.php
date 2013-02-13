@@ -30,7 +30,7 @@
                     </div>
                 <?php else: ?>
                     <div class="button-box-enroll course-action">
-                        <input class="enroll" title="+ Enroll Now!" href="/course/enroll/<?php echo $course->getId() ?>" value="+ Enroll Now!" type="button"/>
+                        <input class="enroll" title="+ Enroll Now!" href="/my/course/<?php echo $course->getSlug() ?>" url="/course/enroll/<?php echo $course->getId() ?>" value="+ Enroll Now!" type="button"/>
                     </div>                        
                 <?php endif; ?>
             </div>          
@@ -48,7 +48,7 @@
             if ($(this).attr("value") !== 'Enrolling...') {
                 $(this).attr("value", "Enrolling...");
                 var $this = $(this);
-                $.get($(this).attr("href"), {}, function(response){
+                $.get($(this).attr("url"), {}, function(response){
                     if (response == "success") {
                         $this.removeClass("enroll");
                         $this.addClass("enter");

@@ -18,4 +18,12 @@ class defaultActions extends sfActions {
         
     }
 
+    /**
+     * Error page for page not found (500) error
+     *
+     */
+    public function executeError500() {
+        
+    }
+
 }

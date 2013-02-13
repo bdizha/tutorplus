@@ -17,12 +17,12 @@ secure:
           news_items:                 { route: news_item, label: "News Items" }
           announcements:              { route: announcement, label: "Announcements" }
   courses:                          
-    details:                          { route: my_courses, label: Courses }
+    details:                          { route: course_explorer, label: Courses }
     type:                             One
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       courses:                                        
-        details:                      { route: my_courses, label: "Courses" }
+        details:                      { route: course_explorer, label: Courses }
         credentials:                  [ Student, Instructor, Staff ]
         children:
           my_courses:                 { route: my_courses, label: "My Courses" }
@@ -43,7 +43,7 @@ secure:
           assignment_info:            { route: assignment_show, label: "Assignment Info" }
           assignment_group:           { route: course_group, label: "groups" }
   groups:                          
-    details:                          { route: discussion_my, label: Groups }
+    details:                          { route: discussion_explorer, label: Groups }
     type:                             One
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:

@@ -1218,7 +1218,7 @@ location_settings:
   
 mail_test:
   url:   /mail_test
-  param: { module: email_template, action: test }
+  param: { module: test, action: mailer }
   
 profile_sign_in:
   url:   /user/sign/in

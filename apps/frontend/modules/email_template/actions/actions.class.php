@@ -25,9 +25,6 @@ class email_templateActions extends autoEmail_templateActions {
                 )));
 
         $mailer->render();
-
-        // send the asker the doctors response
-        $this->getUser()->setFlash('notice', 'Thanks for submitting your question. Please note that you will be automatically sent an email once our experts have answered your question :)');
     }
 
 }

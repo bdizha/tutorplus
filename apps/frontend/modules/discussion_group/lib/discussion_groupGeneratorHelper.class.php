@@ -177,7 +177,7 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 		);
 	}
 
-	public function getTabs($myDiscussions, $exploreDiscussions, $activeTab, $discussionGroup) {
+	public function getTabs($myDiscussions, $exploreDiscussions, $activeTab, $discussionGroup = null) {
 		$tabs = array(
 				"explore_discussions" => array(
 						"label" => "Group Explorer",

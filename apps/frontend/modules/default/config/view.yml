@@ -1,3 +1,3 @@
 error404Success:  
-  stylesheets:    [ public.css, course.css, profile.css ]
+  stylesheets:    [ public.css, error.css ]
   layout:         public

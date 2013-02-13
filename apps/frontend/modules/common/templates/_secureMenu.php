@@ -5,7 +5,7 @@
     <?php $profile = $sf_user->getProfile() ?>
 <?php endif; ?>		
 <ul>
-    <?php if (!isset($hideMenu)): ?>
+    <?php if (!isset($hideMenu) || !$hideMenu): ?>
         <?php foreach ($menu as $key => $menuItem): ?>
             <?php if ($sf_user->hasCredential($menuItem["credentials"])): ?>
                 <?php $i++ ?>

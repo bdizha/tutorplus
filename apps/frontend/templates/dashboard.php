@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head> 	
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
-    <title>TutorPlus - lifelong learning</title>
-    <meta name="description" content="TutorPlus - lifelong learning"/>
+    <title>TutorPlus - connected learning</title>
+    <meta name="description" content="TutorPlus - TutorPlus - connected learning"/>
     <meta name="robots" content="follow" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_http_metas() ?>
@@ -17,7 +17,7 @@
       <div id="main-container">
         <div id="main-header">
           <div class="wrapper">
-            <div id="main-logo"><a href="/" title="TutorPlus" alt="TutorPlus">TutorPlus.org</a></div>
+            <div id="main-logo"><a href="/" title="TutorPlus - connected learning" alt="TutorPlus - connected learning">TutorPlus.org</a></div>
             <div id="main-menu"><?php include_slot('main-menu') ?></div>                 
           </div>
         </div>

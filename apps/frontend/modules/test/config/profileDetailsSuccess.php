@@ -1,1 +1,0 @@
-<?php include_partial('details', array("notification_settings" => $notification_settings)); ?>

@@ -25,4 +25,4 @@ generator:
       new:
         title:               "Enroll Up"
         actions:
-          _save:             { label: "Enroll" }
+          _save:             { label: "Sign Up" }

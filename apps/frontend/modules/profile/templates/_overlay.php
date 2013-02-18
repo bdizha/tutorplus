@@ -8,9 +8,9 @@
       <div class="name"><?php echo $profile->getName() ?></div>  
       <div class="email"><?php echo $profile->getEmail() ?></div>
       <div class="actions">
-        <input type="button" class="button" onclick="document.location.href = '/activity/feed';" value="+ Share"></input>
+        <input type="button" class="button" onclick="document.location.href = '<?php echo url_for('@activity_feed') ?>';" value="+ Share"></input>
         <input type="button" class="button" onclick="document.location.href = '/<?php echo $profile->getSlug() ?>';" value="Profile"></input>
-        <input type="button" class="button" onclick="document.location.href = '/user/sign/out';" value="Sign Out"></input>
+        <input type="button" class="button" onclick="document.location.href = '<?php echo url_for('@profile_sign_out') ?>';" value="Sign Out"></input>
       </div>
     </div>
   </div>

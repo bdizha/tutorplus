@@ -1221,29 +1221,29 @@ mail_test:
   param: { module: test, action: mailer }
   
 profile_sign_in:
-  url:   /user/sign/in
-  param: { module: sfGuardAuth, action: logIn }
+  url:   /profile/sign/in
+  param: { module: profile_auth, action: signIn }
 
 profile_sign_out:
-  url:   /user/sign/out
-  param: { module: sfGuardAuth, action: signOut }
+  url:   /profile/sign/out
+  param: { module: profile_auth, action: signOut }
 
-profile_forgot_password:
-  url:   /user/request/password
-  param: { module: ProfileForgotPassword, action: index }
+profile_request_password:
+  url:   /profile/request/password
+  param: { module: profile_auth, action: requestPassword }
   
-profile_forgot_password_update:
+profile_reset_password_update:
   url:     /user/reset/password/:unique_key
   class:   sfDoctrineRoute
-  options: { model: ProfileForgotPassword, type: object }
-  param:   { module: ProfileForgotPassword, action: change }
+  options: { model: profile_auth, type: object }
+  param:   { module: profile_auth, action: resest }
   requirements: { sf_method: post }
   
-profile_forgot_password_change:
-  url:     /user/reset/password/:unique_key
+profile_reset_password_change:
+  url:     /profile/reset/password/:unique_key
   class:   sfDoctrineRoute
-  options: { model: ProfileForgotPassword, type: object }
-  param:   { module: ProfileForgotPassword, action: change }
+  options: { model: profile_auth, type: object }
+  param:   { module: profile_auth, action: resest }
   requirements: { sf_method: get }
   
 faqs:

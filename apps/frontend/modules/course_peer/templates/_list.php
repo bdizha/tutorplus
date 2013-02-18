@@ -15,8 +15,8 @@
     <?php else: ?>
         <?php $myPeer = $peer->getInvitee(); ?>
         <?php if ($peer->getStatus() == PeerTable::STATUS_SUGGESTED): ?>
-            <?php $statusLabel = "Invited"; ?>
-            <?php $statusClass = "invited"; ?>
+            <?php $statusLabel = "+ Request"; ?>
+            <?php $statusClass = "open"; ?>
         <?php elseif ($peer->getStatus() == PeerTable::STATUS_SUGGESTED): ?>
             <?php $statusLabel = "+ Request"; ?>
             <?php $statusClass = "open"; ?>

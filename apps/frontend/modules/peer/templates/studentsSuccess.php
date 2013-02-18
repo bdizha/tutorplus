@@ -11,7 +11,7 @@
         <div class="tab-block">
             <?php if ($studentPeers->count() == 0): ?>
                 <div>You currently don't have any student peers.</div>
-                <?php include_partial('common/actions', array('actions' => $helper->findPeers())) ?>
+                <?php include_partial('common/actions', $helper->findPeers()) ?>
             <?php else: ?>
                 <?php include_partial('list', array("peers" => $studentPeers)) ?>
             <?php endif; ?>

@@ -122,26 +122,6 @@ h3{
     margin-bottom: 5px !important;
 }
 
-.sf_admin_boolean{
-    height: 32px;
-}
-
-#profile_sign_in_form_holder .sf_admin_boolean label {
-    position: absolute;
-    left: 20px;
-    top: 7px;
-}
-
-#profile_sign_in_form_holder .sf_admin_boolean .content {
-    position: absolute;
-    left: 0;
-    top: 10px;
-}
-
-#sign-in{
-    float: right;
-}
-
 #tp_admin_content{
     clear: both;
 }

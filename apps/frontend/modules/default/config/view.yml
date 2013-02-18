@@ -1,3 +1,0 @@
-error404Success:  
-  stylesheets:    [ public.css, error.css ]
-  layout:         public

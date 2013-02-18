@@ -184,6 +184,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete {
 	color: #B94A48 !important;
 	margin: 0 0 3px;
 	padding: 3px 10px;
+	background-color: #FFF;
 }
 
 .notice {

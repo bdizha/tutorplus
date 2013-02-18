@@ -1,19 +1,9 @@
 <?php
-
-/*
- * This file is part of the symfony package.
- * (c) Fabien Potencier <fabien.potencier@symfony-project.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 /**
  *
- * @package    symfony
- * @subpackage plugin
- * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: sfGuardValidatorUser.class.php 31850 2011-01-18 17:22:08Z gimler $
+ * @package    tutorplus
+ * @subpackage form
+ * @author     Batanayi Matuku <batanayi@tutorplus.org>
  */
 class myValidatorProfile extends sfValidatorBase {
 
@@ -22,7 +12,7 @@ class myValidatorProfile extends sfValidatorBase {
     $this->addOption('password_field', 'password');
     $this->addOption('throw_global_error', false);
 
-    $this->setMessage('invalid', 'The Email and/or Password is invalid.');
+    $this->setMessage('invalid', 'Incorrect <b>Email</b> and/or <b>Password</b>.');
   }
 
   protected function doClean($values) {

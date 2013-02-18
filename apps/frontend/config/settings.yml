@@ -35,8 +35,12 @@ all:
     use_database:           true
     
     enabled_modules:       [ default ]
+
+    error_404_module:       error   # To be called when a 404 error is raised
+    error_404_action:       error404  # Or when the requested URL doesn't match any route
+
     
-    login_module:          sfGuardAuth
-    login_action:          logIn
+    login_module:          profile_auth
+    login_action:          signIn
     secure_module:         public
     secure_action:         index

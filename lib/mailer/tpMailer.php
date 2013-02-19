@@ -207,7 +207,7 @@ class tpMailer {
         $template = $this->getTemplate();
         $replacements = $this->getReplacements();
         $message = $this->getMessage();
-        $body = $this->htmlize(strtr($this->getMailerTemplate(), $replacements));
+        $body = strtr($this->getMailerTemplate(), $replacements);
 
         $toEmail = "Batanayi Matuku <bdizha@gmail.com>";
         $message

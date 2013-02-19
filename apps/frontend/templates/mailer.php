@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head></head>
 <body style="font: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;">
 	<div style="width: 650px; background-color: #F1F1F1; margin: 0 auto;">
 		<div

@@ -18,7 +18,7 @@ generator:
       form:
         class:               ProfileEnrollForm
         display:            
-         "Personal Details": [ title, first_name, last_name, birth_date, is_instructor, institution_id ]
+         "Personal Details": [ first_name, last_name, title, gender, birth_date, is_instructor, institution_id ]
          "Credentials":      [ email, password, password_confirmation ]
       filter:
         class:               false

@@ -89,7 +89,7 @@ class profile_enrollActions extends autoProfile_enrollActions {
 		$mailer->addValues(
 				array(
 						"USER" => $profile->getName(),
-						"EMAIL" => $fdsf,
+						"EMAIL" => $profile->getEmail(),
 						"PASSWORD" => $values["password"]
 				)
 		);

@@ -1,40 +1,53 @@
-<?php
 <?php use_helper('I18N', 'Date') ?>
 <?php include_component('common', 'secureMenu', array("hideMenu" => true)) ?>
-<?php include_component('common', 'publicMenu', array()) ?>
-<div class="sf_admin_form">
-    <div id="authenticate">
-        <fieldset>
-            <h2><?php echo __('Hello %name%', array('%name%' => $user->getName()), 'sf_guard') ?></h2>
-            <form action="<?php echo url_for('@sf_guard_forgot_password_update?unique_key=' . $sf_request->getParameter('unique_key')) ?>" method="post">
-                <?php include_partial('sfGuardForgotPassword/flashes_normal', array('form' => $form)) ?>
-                <?php echo $form->renderHiddenFields(false) ?>
-                <div class="row">
-                    <?php echo __('Enter your new password in the form below.', null, 'sf_guard') ?> 
-                </div>
-                <div class="row">
-                    <div class="other-label">
-                        <label for="sf_guard_user_password" id="lbl_email">Password:</label>
-                    </div>
-                    <div class="input-elm">								
-                        <?php echo $form["password"] ?>					
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="other-label">
-                        <label for="sf_guard_user_password_again" id="lbl_email">Confirm password:</label>
-                    </div>
-                    <div class="input-elm">								
-                        <?php echo $form["password_again"] ?>					
-                    </div>
-                </div>
-                <div style="clear: both;"></div>
-                <div class="row">
-                    <div id="recover-password">
-                        <input type="submit" class="save" value="Change">      
-                    </div>
-                </div>
-            </form>
-        </fieldset>
-    </div>
+<?php include_component('common', 'publicMenu', array("hideMenu" => true)) ?>
+<div id="tp_admin_container">
+	<div id="tp_admin_heading">
+		<h1>Forgot your password?</h1>
+	</div>
+	<div id="tp_admin_content">
+		<div class="left-block">
+			<p>Please enter your new password in the form right.</p>
+		</div>
+		<div class="right-block">
+			<div id="profile_sign_in_form_holder">
+				<form
+					action="<?php echo url_for('@profile_reset_password_update?unique_key=' . $sf_request->getParameter('unique_key')) ?>"
+					method="post">
+					<fieldset>
+						<?php include_partial('common/flashes_normal', array('form' => $form)) ?>
+						<?php echo $form->renderHiddenFields(false) ?>
+						<div class="row">
+							<div class="other-label">
+								<label for="sf_guard_user_password" id="lbl_email">Password:</label>
+							</div>
+							<div class="input-elm">
+								<?php echo $form["password"] ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="other-label">
+								<label for="sf_guard_user_password_again" id="lbl_email">Confirm
+									password:</label>
+							</div>
+							<div class="input-elm">
+								<?php echo $form["password_again"] ?>
+							</div>
+						</div>
+						<div style="clear: both;"></div>
+						<div class="row">
+							<div id="recover-password">
+								<input type="submit" class="save" value="Change">
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
+<script type="text/javascript">
+  $("#recover-password .button").click(function(){
+    $(this).val("Saving ...");
+  });
+</script>

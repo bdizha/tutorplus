@@ -1,0 +1,39 @@
+#tp_admin_container {
+	margin-top: 40px !important;
+	padding: 0 !important;
+}
+
+.left-block {
+	width: 510px !important;
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 20px;
+}
+
+.right-block {
+	padding: 5px 20px 15px !important;
+	width: 340px !important;
+	display: inline-block;
+	vertical-align: top;
+	background-color: #F1F1F1;
+}
+
+.sf_admin_boolean{
+    height: 32px;
+}
+
+#profile_sign_in_form_holder .sf_admin_boolean label {
+    position: absolute;
+    left: 20px;
+    top: 7px;
+}
+
+#profile_sign_in_form_holder .sf_admin_boolean .content {
+    position: absolute;
+    left: 0;
+    top: 10px;
+}
+
+#sign-in, #request-password{
+    float: right;
+}

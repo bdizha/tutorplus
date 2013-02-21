@@ -194,7 +194,7 @@ class profile_authActions extends sfActions
 	{
 		$toEmails = array($profile->getEmail() => $profile->getName());
 		$mailer = new tpMailer();
-		$mailer->setTemplate('password-change-request');
+		$mailer->setTemplate('password-change-confirmation');
 		$mailer->setToEmails($toEmails);
 		$mailer->addValues(
 				array(

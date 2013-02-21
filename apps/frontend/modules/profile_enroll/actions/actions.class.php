@@ -26,7 +26,7 @@ class profile_enrollActions extends autoProfile_enrollActions {
 
 			try {
 				$profile = $form->save();
-				$values = $this->form->getValues();
+				$values = $form->getValues();
 
 				if ($values["is_instructor"]) {
 					// set instructor permissions

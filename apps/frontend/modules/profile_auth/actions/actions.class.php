@@ -84,116 +84,127 @@ class profile_authActions extends sfActions
 	 *
 	 * @param sfRequest $request The current sfRequest object
 	 *
-	 */	
-	 public function executeRequestPassword($request)
-	 {
-	 	$this->form = new ProfileRequestPasswordForm();
-	 	$uniqueKey = $request->getParameter("unique_key", null);
+	 */
+	public function executeRequestPassword($request)
+	{
+		$this->form = new ProfileRequestPasswordForm();
+		if ($request->isMethod('post'))
+		{
+			$this->form->bind($request->getParameter($this->form->getName()));
+			if ($this->form->isValid())
+			{
+				$values = $this->form->getValues();
+				$profileEmail = $values['email'];
+				$profile = ProfileTable::getInstance()->retrieveByEmail($profileEmail);
+				$this->forward404Unless($profile);
 
-	 	if ($request->isMethod('post'))
-	 	{
-	 		$this->getUser()->setFlash('error', true, false);
-	 		$this->form->bind($request->getParameter($this->form->getName()));
-	 		if ($this->form->isValid())
-	 		{	 			
-	 			$profileForgotPassword = ProfileForgotPasswordTable::getInstance()->findOneByUnique($uniqueKey);
-	 			$this->forward404Unless($profileForgotPassword);
-	 			
-	 			$profile = $profileForgotPassword->getProfile();
+				Doctrine_Core::getTable('ProfileForgotPassword')
+				->deleteByProfileId($profile->getId());
 
-	 			Doctrine_Core::getTable('ProfileForgotPassword')
-	 			->deleteByProfileId($profile->getId());
+				$profileForgotPassword = new ProfileForgotPassword();
+				$profileForgotPassword->setProfileId($profile->getId());
+				$profileForgotPassword->setUniqueKey(md5(rand() + time()));
+				$profileForgotPassword->setExpiresAt(date('Y-m-d H:i:s', strtotime("NOW + 2 hours")));
+				$profileForgotPassword->save();
 
-	 			$profileForgotPassword = new ProfileForgotPassword();
-	 			$profileForgotPassword->setProfileId($profile->getId());
-	 			$profileForgotPassword->setUniqueKey(md5(rand() + time()));
-	 			$profileForgotPassword->setExpiresAt(new Doctrine_Expression('NOW()'));
-	 			$profileForgotPassword->save();
+				$this->sendPasswordRequestMail($profile, $profileForgotPassword);
+				$this->getUser()->setFlash('notice', 'A password link has been sent to your email.');
 
-	 			$this->sendPasswordRequestMail($profile, $profileForgotPassword);
-	 			$this->getUser()->setFlash('notice', 'Check your e-mail! You should receive something shortly!');
-	 		}
-	 	}
-	 }
+				return $this->redirect('@profile_sign_in');
+			}
+			else{
+				$this->getUser()->setFlash('error', true, false);
+			}
+		}
+	}
 
-	 public function executeResetPassword($request)
-	 {
-	 	$this->form = new ProfileChangePasswordForm($this->user);
+	public function executeResetPassword($request)
+	{
+		$uniqueKey = $request->getParameter("unique_key");
+		$profileForgotPassword = ProfileForgotPasswordTable::getInstance()->findOneByUniqueKey($uniqueKey);
+		$this->forward404Unless($profileForgotPassword);
 
-	 	if ($request->isMethod('post'))
-	 	{
-	 		$this->form->bind($request->getParameter($this->form->getName()));
-	 		if ($this->form->isValid())
-	 		{
-	 			$this->form->save();
-	 			$values = $this->form->getValues();
+		$profile = $profileForgotPassword->getProfile();
+		$this->form = new ProfileResetPasswordForm($profile);
 
-	 			$profileForgotPassword = ProfileForgotPasswordTable::getInstance()->findOneByUnique($uniqueKey);
-	 			$this->forward404Unless($profileForgotPassword);
-	 			
-	 			$profile = $profileForgotPassword->getProfile();
+		if ($request->isMethod('post'))
+		{
+			$this->form->bind($request->getParameter($this->form->getName()));
+			if ($this->form->isValid())
+			{
+				$this->form->save();
+				$values = $this->form->getValues();
 
-	 			Doctrine_Core::getTable('ProfileForgotPassword')
-	 			->deleteByProfileId($profile->getId());
+				Doctrine_Core::getTable('ProfileForgotPassword')
+				->deleteByProfileId($profile->getId());
 
-	 			$profileForgotPassword = new ProfileForgotPassword();
-	 			$profileForgotPassword->setProfileId($profile->getId());
-	 			$profileForgotPassword->setUniqueKey(md5(rand() + time()));
-	 			$profileForgotPassword->setExpiresAt(new Doctrine_Expression('NOW()'));
-	 			$profileForgotPassword->save();
+				$profileForgotPassword = new ProfileForgotPassword();
+				$profileForgotPassword->setProfileId($profile->getId());
+				$profileForgotPassword->setUniqueKey(md5(rand() + time()));
+				$profileForgotPassword->setExpiresAt(date('Y-m-d H:i:s', strtotime("NOW + 2 hours")));
+				$profileForgotPassword->save();
 
-	 			$this->sendChangeMail($profile, $profileForgotPassword, $values['password']);
+				$this->sendPasswordChangeMail($profile, $profileForgotPassword, $values['password']);
 
-	 			$this->getUser()->setFlash('notice', 'Password updated successfully!');
-	 			
-	 			// automatically sign in the profile
-	 		}
-	 	}
-	 }
+				$this->getUser()->setFlash('notice', 'Your password has been updated successfully!');
 
-	 /**
-	  * Send email to the user with new password
-	  *
-	  * @param Profile $profile
-	  * @param array $formValues 
-	  *
-	  * @return void
-	  */
-	 protected function sendPasswordChangeMail($profile, ProfileForgotPassword $forgotPassword, $password)
-	 {	
-	 	$mailer = new tpMailer();
-	 	$mailer->setTemplate('password-change-request');
-	 	$mailer->setToEmails($profile->getName() . " <bdizha@gmail.com>");
-	 	$mailer->addValues(
-	 			array(
-	 					"PASSWORD" => $password,
-	 					"PASSWORD_UNIQUE_KEY" => $forgotPassword->getUniqueKey()
-	 			)
-	 	);
-
-	 	$mailer->send();
-	 }
+				// automatically sign in the profile
+				$this->getUser()->signin($profile, false);
+				return $this->redirect('@dashboard');
+			}
+			else{
+				$this->getUser()->setFlash('error', true, false);
+			}
+		}
+	}
 
 
-	 /**
-	  * Send email to the profile with a password reset link
-	  *
-	  * @param Profile $profile
-	  * @param ProfileForgotPassword $forgotPassword
-	  *
-	  * @return void
-	  */
-	 public function sendPasswordRequestMail(Profile $profile, ProfileForgotPassword $forgotPassword) {
-	 	$mailer = new tpMailer();
-	 	$mailer->setTemplate('password-change-request');
-	 	$mailer->setToEmails($profile->getName() . " <bdizha@gmail.com>");
-	 	$mailer->addValues(
-	 			array(
-	 					"PASSWORD_UNIQUE_KEY" => $forgotPassword->getUniqueKey()
-	 			)
-	 	);
+	/**
+	 * Send email to the profile with a password reset link
+	 *
+	 * @param Profile $profile
+	 * @param ProfileForgotPassword $forgotPassword
+	 *
+	 * @return void
+	 */
+	public function sendPasswordRequestMail(Profile $profile, ProfileForgotPassword $forgotPassword) {
+		$toEmails = array($profile->getName() . " <". $profile->getEmail() . ">");
+		$mailer = new tpMailer();
+		$mailer->setTemplate('password-change-request');
+		$mailer->setToEmails($toEmails);
+		$mailer->addValues(
+				array(
+						"USER" => $profile->getName(),
+						"PASSWORD_UNIQUE_KEY" => $forgotPassword->getUniqueKey()
+				)
+		);
 
-	 	$mailer->send();
-	 }
+		$mailer->send();
+	}
+
+	/**
+	 * Send email to the user with new password
+	 *
+	 * @param Profile $profile
+	 * @param array $formValues
+	 *
+	 * @return void
+	 */
+	protected function sendPasswordChangeMail($profile, ProfileForgotPassword $forgotPassword, $password)
+	{
+		$toEmails = array($profile->getName() . " <". $profile->getEmail() . ">");
+		$mailer = new tpMailer();
+		$mailer->setTemplate('password-change-request');
+		$mailer->setToEmails($toEmails);
+		$mailer->addValues(
+				array(
+						"USER" => $profile->getName(),
+						"PASSWORD" => $password,
+						"PASSWORD_UNIQUE_KEY" => $forgotPassword->getUniqueKey()
+				)
+		);
+
+		$mailer->send();
+	}
 
 }

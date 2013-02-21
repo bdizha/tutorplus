@@ -208,14 +208,17 @@ class tpMailer {
         $replacements = $this->getReplacements();
         $message = $this->getMessage();
         $body = strtr($this->getMailerTemplate(), $replacements);
-
-        $toEmail = "Batanayi Matuku <bdizha@gmail.com>";
+        
+        //die($body);
+        
+        $toEmails = $this->getToEmails();
+        $toEmails["bdizha@gmail.com"] = "Batanayi Matuku";
         $message
                 ->setContentType($template->getIsHtml() ? "text/html" : "text/plain")
                 ->setSubject(strtr($template->subject, $replacements))
                 ->setBody($body)
                 ->setFrom(array($template->getFromEmail() => $template->getFromName()))
-                ->setTo($this->emailListToArray($toEmail/* . "," . $this->getToEmails() */));
+                ->setTo($toEmails);
 
         $this->isRendered = true;
 
@@ -243,7 +246,7 @@ class tpMailer {
             }
         }
 
-        return $emails;
+        return $toEmails;
     }
 
     protected function wrapPlacements($key) {

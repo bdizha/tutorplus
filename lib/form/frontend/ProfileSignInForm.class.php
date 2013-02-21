@@ -21,12 +21,13 @@ class ProfileSignInForm extends BaseForm {
     ));
 
     $this->setValidators(array(
-        'email' => new sfValidatorString(),
+        'email' => new sfValidatorEmail(),
         'password' => new sfValidatorString(),
         'remember' => new sfValidatorBoolean(),
     ));
     
     $this->validatorSchema['email']->setMessage('required', 'The <b>Email</b> field is required.');
+    $this->validatorSchema['email']->setMessage('invalid', 'The <b>Email</b> field is invalid.');
     $this->validatorSchema['password']->setMessage('required', 'The <b>Password</b> field is required.');
 
     $this->validatorSchema->setPostValidator(new myValidatorProfile());

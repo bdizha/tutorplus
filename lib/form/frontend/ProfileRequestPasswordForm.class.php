@@ -10,25 +10,25 @@
  */
 class ProfileRequestPasswordForm extends BaseForm {
 
-  /**
-   * @see sfForm
-   */
-  public function setup() {
-    $this->setWidgets(array(
-        'email' => new sfWidgetFormInputText(),
-    ));
+	/**
+	 * @see sfForm
+	 */
+	public function setup() {
+		$this->setWidgets(array(
+				'email' => new sfWidgetFormInputText(),
+		));
 
-    $this->setValidators(array(
-        'email' => new sfValidatorString()
-    ));
-    
-    $this->validatorSchema['email']->setMessage('required', 'The <b>Email</b> field is required.');
+		$this->setValidators(array(
+				'email' => new sfValidatorEmail()
+		));
 
-    $this->validatorSchema->setPostValidator(new myValidatorEmail());
+		$this->validatorSchema['email']->setMessage('required', 'The <b>Email</b> field is required.');
+		$this->validatorSchema['email']->setMessage('invalid', 'The <b>Email</b> field is invalid.');
 
-    $this->widgetSchema->setNameFormat('request_password[%s]');
-
-    parent::setup();
-  }
+		$this->validatorSchema->setPostValidator(new myValidatorEmail());
+		
+		$this->widgetSchema->setNameFormat('request_password[%s]');
+		parent::setup();
+	}
 
 }

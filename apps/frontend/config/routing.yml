@@ -1233,17 +1233,13 @@ profile_request_password:
   param: { module: profile_auth, action: requestPassword }
   
 profile_reset_password_update:
-  url:     /profile/reset/password/:unique_key
-  class:   sfDoctrineRoute
-  options: { model: profile_auth, type: object }
-  param:   { module: profile_auth, action: resest }
+  url:   /profile/reset/password/:unique_key
+  param: { module: profile_auth, action: resetPassword }
   requirements: { sf_method: post }
   
 profile_reset_password:
-  url:     /profile/reset/password/:unique_key
-  class:   sfDoctrineRoute
-  options: { model: profile_auth, type: object }
-  param:   { module: profile_auth, action: resest }
+  url:  /profile/reset/password/:unique_key
+  param: { module: profile_auth, action: resetPassword }
   requirements: { sf_method: get }
   
 faqs:

@@ -12,16 +12,14 @@ class myValidatorEmail extends sfValidatorBase {
   }
 
   protected function doClean($value) {
-    $clean = (string) $value;
-
     // does this email exist
     $profile = Doctrine_Core::getTable('Profile')
-        ->retrieveByEmail($clean);
-    if ($profile) {
+        ->retrieveByEmail($value['email']);
+    if ($profile || empty($value['email'])) {
       return $value;
     }
 
-    throw new sfValidatorError($this, 'invalid', array('value' => $value));
+    throw new sfValidatorError($this, 'invalid');
   }
 
 }

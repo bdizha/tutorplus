@@ -3,7 +3,7 @@
 <?php include_component('common', 'publicMenu', array("hideMenu" => true)) ?>
 <div id="tp_admin_container">
 	<div id="tp_admin_heading">
-		<h1>Forgot your password?</h1>
+		<h1>Choose your new password.</h1>
 	</div>
 	<div id="tp_admin_content">
 		<div class="left-block">
@@ -16,7 +16,7 @@
 					method="post">
 					<fieldset>
 						<?php include_partial('common/flashes_normal', array('form' => $form)) ?>
-						<?php echo $form->renderHiddenFields(false) ?>
+						<?php echo $form->renderHiddenFields(true) ?>
 						<div class="row">
 							<div class="other-label">
 								<label for="sf_guard_user_password" id="lbl_email">Password:</label>
@@ -31,7 +31,7 @@
 									password:</label>
 							</div>
 							<div class="input-elm">
-								<?php echo $form["password_again"] ?>
+								<?php echo $form["password_confirmation"] ?>
 							</div>
 						</div>
 						<div style="clear: both;"></div>

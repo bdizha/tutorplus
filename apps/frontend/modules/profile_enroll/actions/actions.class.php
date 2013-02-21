@@ -83,9 +83,10 @@ class profile_enrollActions extends autoProfile_enrollActions {
 	}
 
 	public function sendEmail($profile, $values) {
+		$toEmails = array($profile->getName() . " <". $profile->getEmail() . ">");
 		$mailer = new tpMailer();
 		$mailer->setTemplate('welcome-to-tutorplus');
-		$mailer->setToEmails($profile->getName() . " <bdizha@gmail.com>");
+		$mailer->setToEmails($toEmails);
 		$mailer->addValues(
 				array(
 						"USER" => $profile->getName(),

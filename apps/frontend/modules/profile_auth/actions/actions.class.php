@@ -168,7 +168,7 @@ class profile_authActions extends sfActions
 	 * @return void
 	 */
 	public function sendPasswordRequestMail(Profile $profile, ProfileForgotPassword $forgotPassword) {
-		$toEmails = array($profile->getName() . " <". $profile->getEmail() . ">");
+		$toEmails = array($profile->getEmail() => $profile->getName());
 		$mailer = new tpMailer();
 		$mailer->setTemplate('password-change-request');
 		$mailer->setToEmails($toEmails);
@@ -192,7 +192,7 @@ class profile_authActions extends sfActions
 	 */
 	protected function sendPasswordChangeMail($profile, ProfileForgotPassword $forgotPassword, $password)
 	{
-		$toEmails = array($profile->getName() . " <". $profile->getEmail() . ">");
+		$toEmails = array($profile->getEmail() => $profile->getName());
 		$mailer = new tpMailer();
 		$mailer->setTemplate('password-change-request');
 		$mailer->setToEmails($toEmails);

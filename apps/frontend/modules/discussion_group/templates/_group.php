@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php if ($discussionGroup): ?>
-    <div class="snapshot discussion_group">
+    <div class="snapshot<?php echo $discussionGroup->getProfileId() == $sf_user->getId() ? " current" : "" ?>">
         <div class="heading">
             <?php include_partial('personal_info/photo', array('profile' => $discussionGroup->getProfile(), "dimension" => 36)) ?>
             <div class="name">
@@ -9,7 +9,7 @@
         </div>
         <div class="body">
             <?php echo $discussionGroup->getDescription() ?>
-            <div class="user-meta">By <?php echo link_to($discussionGroup->getProfile(), 'profile_show', $discussionGroup->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionGroup->getCreatedAt()) ?></span></div>
+            <div class="user-meta">Created by <?php echo link_to($discussionGroup->getProfile(), 'profile_show', $discussionGroup->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionGroup->getCreatedAt()) ?></span></div>
         </div>
         <?php if ($discussionGroup->getProfileId() == $sf_user->getId() && !isset($showActions)): ?>
             <div class="inline-content-actions">

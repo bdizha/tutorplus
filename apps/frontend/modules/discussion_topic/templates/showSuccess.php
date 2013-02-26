@@ -15,7 +15,7 @@
         <?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($discussionTopic, $myPeers))) ?>
         <div class="tab-block">
             <div id="discussion-topic">
-                <div class="snapshot">
+                <div class="snapshot<?php echo $discussionTopic->getProfileId() == $sf_user->getId() ? " current" : "" ?>">
                     <?php include_partial('personal_info/photo', array('profile' => $discussionTopic->getProfile(), "dimension" => 36)) ?>
                     <div class="body">
                         <?php echo $discussionTopic->getMessage() ?>

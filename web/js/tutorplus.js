@@ -2,21 +2,6 @@ var closeHtml = "<img src=\"/css/colorbox/images/close.png\" alt=\"Close\" width
 var loadingHtml = "<div class=\"loading\"><img src=\"/images/loading.gif\" alt=\"Loading...\"></div>";
 var redactorDefaultHtml = "<p><br></p>";
 var middleContentWidth = 940;
-$(document).ready(function(){
-    $(".prompt").live('focus',function(){
-        if ($(this).val() == this.title) {
-            $(this).val("");
-            $(this).height(50);
-        }
-    });
-
-    $(".prompt").live('blur',function(){
-        if ($(this).val() == "") {
-            $(this).val(this.title);
-            $(this).height(15);
-        }
-    });
-});
 
 function convertToDecimal(val){
 
@@ -105,4 +90,20 @@ function convertToDecimal(val){
 function isNumeric(value){
     var regex = /^[0-9]{1,3}(\.([0-9]{1,2}))?$/;
     return regex.test(value);
+}
+
+function showSuccess(notice){
+	$(".ajax-success").html(notice);
+	$(".ajax-success").show();
+	setTimeout(function(){
+		$(".ajax-success").slideUp("slow");
+    }, 5000);
+}
+
+function showFailure(notice){
+	$(".ajax-failure").html(notice);
+	$(".ajax-failure").show();
+	setTimeout(function(){
+		$(".ajax-failure").slideUp("slow");
+    }, 5000);
 }

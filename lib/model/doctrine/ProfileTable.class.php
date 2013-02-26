@@ -87,11 +87,15 @@ class ProfileTable extends Doctrine_Table {
 		return $query->execute();
 	}
 
-	public function findByCourseId($courseId, $isInstructor) {
+	public function findByCourseId($courseId, $isInstructor, $limit = null) {
 		$q = $this->createQuery('p')
 		->innerJoin('p.ProfileCourses pc')
 		->where('pc.course_id = ?', $courseId)
 		->andWhere('p.is_instructor = ?', $isInstructor);
+
+		if($limit){
+			$q->limit($limit);
+		}
 		return $q->execute();
 	}
 

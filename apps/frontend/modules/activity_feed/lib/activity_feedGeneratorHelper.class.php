@@ -28,10 +28,10 @@ class activity_feedGeneratorHelper extends BaseActivity_feedGeneratorHelper {
 
     public function getTabs($activeTab, $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds) {
         $tabs = array(
-            "index" => array(
-                "label" => "Activity Feeds",
-                "href" => "/activity/feed",
-                "count" => $indexActivityFeeds->count()
+            "posts" => array(
+                "label" => "Posts",
+                "href" => "/activity/feed/posts",
+                "count" => $postActivityFeeds->count()
             ),
             "groups" => array(
                 "label" => "Groups",
@@ -43,10 +43,10 @@ class activity_feedGeneratorHelper extends BaseActivity_feedGeneratorHelper {
                 "href" => "/activity/feed/topics",
                 "count" => $topicActivityFeeds->count()
             ),
-            "posts" => array(
-                "label" => "Posts",
-                "href" => "/activity/feed/posts",
-                "count" => $postActivityFeeds->count()
+            "index" => array(
+                "label" => "Activity Feeds",
+                "href" => "/activity/feed",
+                "count" => $indexActivityFeeds->count()
             )
         );
 

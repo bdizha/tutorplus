@@ -691,9 +691,17 @@ peer_requests:
   url: /peer/requests
   param: { module: peer, action: requests }
     
+peer_invitations:
+  url: /peer/invitations
+  param: { module: peer, action: invitations }
+    
 peer_invite:
   url: /peer/invite/:inviter_id/:invitee_id
   param: { module: peer, action: invite }
+    
+peer_decline:
+  url: /peer/decline/:inviter_id/:invitee_id
+  param: { module: peer, action: decline }
     
 peer_accept:
   url: /peer/accept/:inviter_id
@@ -947,6 +955,18 @@ course_enroll:
   url:   /course/enroll/:course_id
   param: { module: course, action: enroll }
   
+course_syllabus:
+  url:   /course/syllabus
+  param: { module: course, action: syllabus }
+  
+course_videos:
+  url:   /course/videos
+  param: { module: course, action: videos }
+  
+course_instructors:
+  url:   /course/instructors
+  param: { module: course_peer, action: instructors }
+  
 course_unregister:
   url:   /course/unregister/:course_id
   param: { module: course, action: unregister }
@@ -1080,14 +1100,6 @@ choose_program:
 choose_mailing_list:
   url:   /choose/mailing/list/:module_name/:object_id
   param: { module: mailing_list, action: choose }
-  
-choose_course_instructors:
-  url:   /choose/course/instructors
-  param: { module: course_peer, action: chooseInstructors }
-  
-choose_course_students:
-  url:   /choose/course/students
-  param: { module: course_peer, action: chooseStudents }
     
 file_system:
   url:   /folder

@@ -13,241 +13,239 @@ require_once dirname(__FILE__) . '/../lib/courseGeneratorHelper.class.php';
  */
 class courseActions extends autoCourseActions {
 
-    public function executeShow(sfWebRequest $request) {
-        $this->course = $this->getRoute()->getObject();
-        $this->profile = $this->getUser()->getProfile();
-        $this->forward404Unless($this->course);
-        $this->courseInstructorProfiles = ProfileTable::getInstance()->findByCourseId($this->course->getId(), true);
-        $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
-    	$this->courseDiscussionGroups = DiscussionGroupTable::getInstance()->findByCourseId($this->course->getId());
-    }
+	public function preExecute()
+	{
+		parent::preExecute();
+		$this->helper->setProfile($this->getUser()->getProfile());
+	}
 
-    public function executeExplorer(sfWebRequest $request) {
-        $this->exploreCourses = CourseTable::getInstance()->findAll();
-        $this->myCourses = $this->getUser()->getProfile()->getCourses();
-    }
+	public function executeShow(sfWebRequest $request) {
+		$this->course = $this->getRoute()->getObject();
+		$this->profile = $this->getUser()->getProfile();
+		$this->forward404Unless($this->course);
+		$this->courseInstructorProfiles = ProfileTable::getInstance()->findByCourseId($this->course->getId(), true);
+		$this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
+		$this->courseDiscussionGroups = DiscussionGroupTable::getInstance()->findByCourseId($this->course->getId());
+	}
 
-    public function executeMy(sfWebRequest $request) {
-    	$this->exploreCourses = CourseTable::getInstance()->findAll();
-        $this->myCourses = $this->getUser()->getProfile()->getCourses();
-    }
+	public function executeExplorer(sfWebRequest $request) {
+		$this->exploreCourses = CourseTable::getInstance()->findAll();
+		$this->myCourses = $this->getUser()->getProfile()->getCourses();
+	}
 
-    public function executeInfo(sfWebRequest $request) {
-        $this->redirectIf($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course_show?id=" . $courseId);
-    }
+	public function executeMy(sfWebRequest $request) {
+		$this->exploreCourses = CourseTable::getInstance()->findAll();
+		$this->myCourses = $this->getUser()->getProfile()->getCourses();
+	}
 
-    public function executeFiles(sfWebRequest $request) {
-        $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
-        $this->course_files = FileTable::getInstance()->findByCourse($courseId);
-    }
+	public function executeInfo(sfWebRequest $request) {
+		$this->redirectIf($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course_show?id=" . $courseId);
+	}
 
-    public function executeChoose(sfWebRequest $request) {
-        $this->module = $request->getParameter("module_name");
-        $this->objectId = $request->getParameter("object_id");
+	public function executeFiles(sfWebRequest $request) {
+		$this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
+		$this->course_files = FileTable::getInstance()->findByCourse($courseId);
+	}
 
-        // fetch all courses for now
-        $this->courses = CourseTable::getInstance()->findAll();
-        $this->currentCourseIds = array();
+	public function executeVideos(sfWebRequest $request) {
+		$this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
+		$this->course = CourseTable::getInstance()->find(array($courseId));
+	}
 
-        if ($request->getMethod() == "POST") {
-            $notice = 'The course(s) were added successfully.';
-            try {
-                $courses = $request->getParameter('courses');
+	public function executeInstructors(sfWebRequest $request) {
+		$this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
+		$this->course = CourseTable::getInstance()->find(array($courseId));
+	}
 
-                // save courses
-                $this->currentCourseIds = $this->saveOrGetProfileCourses($courses, $this->module, $this->objectId);
+	public function executeSyllabus(sfWebRequest $request) {
+		$this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
+		$this->course = CourseTable::getInstance()->find(array($courseId));
+	}
 
-                // send new courses subscription
-            } catch (Doctrine_Validator_Exception $e) {
-                $this->getUser()->setFlash('error', 'The course(s) have not been added due to some errors.', false);
-            }
+	protected function saveOrGetProfileCourses($postedCourseIds = null, $module, $objectId) {
+		if ($module == CourseTable::MODULE_STUDENT) {
+			// fetch current courses by profile id
+			$currentCourseIds = array_keys(ProfileTable::getInstance()->find($objectId)->getCourses());
 
-            $this->getUser()->setFlash('notice', $notice, false);
-        } else {
-            // fetch the current course
-            $this->currentCourseIds = $this->saveOrGetProfileCourses(null, $this->module, $this->objectId);
-        }
-    }
+			if (!$postedCourseIds) {
+				return $currentCourseIds;
+			}
 
-    protected function saveOrGetProfileCourses($postedCourseIds = null, $module, $objectId) {
-        if ($module == CourseTable::MODULE_STUDENT) {
-            // fetch current courses by profile id
-            $currentCourseIds = array_keys(ProfileTable::getInstance()->find($objectId)->getCourses());
+			$toDelete = array_diff($currentCourseIds, $postedCourseIds);
+			if (count($toDelete)) {
+				ProfileCourseTable::getInstance()->deleteByCoursesIdsAndProfileId($toDelete, $objectId);
+			}
 
-            if (!$postedCourseIds) {
-                return $currentCourseIds;
-            }
+			$toAdd = array_diff($postedCourseIds, $currentCourseIds);
+			if (count($toAdd)) {
+				foreach ($toAdd as $courseId) {
+					$profileCourse = new ProfileCourse();
+					$profileCourse->setProfileId($objectId);
+					$profileCourse->setCourseId($courseId);
+					$profileCourse->save();
+				}
+			}
+		} elseif ($module == CourseTable::MODULE_INSTRUCTOR) {
+			// fetch current courses by instructor id
+			$currentCourseIds = array_keys(InstructorTable::getInstance()->find($objectId)->getCourses());
 
-            $toDelete = array_diff($currentCourseIds, $postedCourseIds);
-            if (count($toDelete)) {
-                ProfileCourseTable::getInstance()->deleteByCoursesIdsAndProfileId($toDelete, $objectId);
-            }
+			if (!$postedCourseIds) {
+				return $currentCourseIds;
+			}
 
-            $toAdd = array_diff($postedCourseIds, $currentCourseIds);
-            if (count($toAdd)) {
-                foreach ($toAdd as $courseId) {
-                    $profileCourse = new ProfileCourse();
-                    $profileCourse->setProfileId($objectId);
-                    $profileCourse->setCourseId($courseId);
-                    $profileCourse->save();
-                }
-            }
-        } elseif ($module == CourseTable::MODULE_INSTRUCTOR) {
-            // fetch current courses by instructor id
-            $currentCourseIds = array_keys(InstructorTable::getInstance()->find($objectId)->getCourses());
+			$toDelete = array_diff($currentCourseIds, $postedCourseIds);
+			if (count($toDelete)) {
+				InstructorCourseTable::getInstance()->deleteByCoursesIdsAndInstructorId($toDelete, $objectId);
+			}
 
-            if (!$postedCourseIds) {
-                return $currentCourseIds;
-            }
+			$toAdd = array_diff($postedCourseIds, $currentCourseIds);
+			if (count($toAdd)) {
+				foreach ($toAdd as $courseId) {
+					$instructorCourse = new InstructorCourse();
+					$instructorCourse->setInstructorId($objectId);
+					$instructorCourse->setCourseId($courseId);
+					$instructorCourse->save();
+				}
+			}
+		} elseif ($module == CourseTable::MODULE_STAFF) {
+			// fetch current courses by staff id
+			$currentCourseIds = array_keys(StaffTable::getInstance()->find($objectId)->getCourses());
 
-            $toDelete = array_diff($currentCourseIds, $postedCourseIds);
-            if (count($toDelete)) {
-                InstructorCourseTable::getInstance()->deleteByCoursesIdsAndInstructorId($toDelete, $objectId);
-            }
+			if (!$postedCourseIds) {
+				return $currentCourseIds;
+			}
 
-            $toAdd = array_diff($postedCourseIds, $currentCourseIds);
-            if (count($toAdd)) {
-                foreach ($toAdd as $courseId) {
-                    $instructorCourse = new InstructorCourse();
-                    $instructorCourse->setInstructorId($objectId);
-                    $instructorCourse->setCourseId($courseId);
-                    $instructorCourse->save();
-                }
-            }
-        } elseif ($module == CourseTable::MODULE_STAFF) {
-            // fetch current courses by staff id
-            $currentCourseIds = array_keys(StaffTable::getInstance()->find($objectId)->getCourses());
+			$toDelete = array_diff($currentCourseIds, $postedCourseIds);
+			if (count($toDelete)) {
+				StaffCourseTable::getInstance()->deleteByCoursesIdsAndStaffId($toDelete, $objectId);
+			}
 
-            if (!$postedCourseIds) {
-                return $currentCourseIds;
-            }
+			$toAdd = array_diff($postedCourseIds, $currentCourseIds);
+			if (count($toAdd)) {
+				foreach ($toAdd as $courseId) {
+					$staffCourse = new StaffCourse();
+					$staffCourse->setStaffId($objectId);
+					$staffCourse->setCourseId($courseId);
+					$staffCourse->save();
+				}
+			}
+		} elseif ($module == CourseTable::MODULE_MAILING_LIST) {
+			// fetch current courses by mailing list id
+			$currentCourseIds = array_keys(MailingListTable::getInstance()->find($objectId)->getCourses());
 
-            $toDelete = array_diff($currentCourseIds, $postedCourseIds);
-            if (count($toDelete)) {
-                StaffCourseTable::getInstance()->deleteByCoursesIdsAndStaffId($toDelete, $objectId);
-            }
+			if (!$postedCourseIds) {
+				return $currentCourseIds;
+			}
 
-            $toAdd = array_diff($postedCourseIds, $currentCourseIds);
-            if (count($toAdd)) {
-                foreach ($toAdd as $courseId) {
-                    $staffCourse = new StaffCourse();
-                    $staffCourse->setStaffId($objectId);
-                    $staffCourse->setCourseId($courseId);
-                    $staffCourse->save();
-                }
-            }
-        } elseif ($module == CourseTable::MODULE_MAILING_LIST) {
-            // fetch current courses by mailing list id
-            $currentCourseIds = array_keys(MailingListTable::getInstance()->find($objectId)->getCourses());
+			$toDelete = array_diff($currentCourseIds, $postedCourseIds);
+			if (count($toDelete)) {
+				MailingListCourseTable::getInstance()->deleteByCoursesIdsAndMailingListId($toDelete, $objectId);
+			}
 
-            if (!$postedCourseIds) {
-                return $currentCourseIds;
-            }
+			$toAdd = array_diff($postedCourseIds, $currentCourseIds);
+			if (count($toAdd)) {
+				foreach ($toAdd as $courseId) {
+					$mailingListCourse = new MailingListCourse();
+					$mailingListCourse->setMailingListId($objectId);
+					$mailingListCourse->setCourseId($courseId);
+					$mailingListCourse->save();
+				}
+			}
+		}
 
-            $toDelete = array_diff($currentCourseIds, $postedCourseIds);
-            if (count($toDelete)) {
-                MailingListCourseTable::getInstance()->deleteByCoursesIdsAndMailingListId($toDelete, $objectId);
-            }
+		return $postedCourseIds;
+	}
 
-            $toAdd = array_diff($postedCourseIds, $currentCourseIds);
-            if (count($toAdd)) {
-                foreach ($toAdd as $courseId) {
-                    $mailingListCourse = new MailingListCourse();
-                    $mailingListCourse->setMailingListId($objectId);
-                    $mailingListCourse->setCourseId($courseId);
-                    $mailingListCourse->save();
-                }
-            }
-        }
+	public function executeCalendar(sfWebRequest $request) {
+		$this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
+		$this->course = CourseTable::getInstance()->find(array($courseId));
 
-        return $postedCourseIds;
-    }
+		$ids = array();
+		$calendarIds = CalendarTable::getInstance()->retrieveByIdsProfileIdAndVisibility($this->getUser()->getId());
 
-    public function executeCalendar(sfWebRequest $request) {
-        $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
-        $this->course = CourseTable::getInstance()->find(array($courseId));
+		foreach ($calendarIds as $key => $calendarId) {
+			$ids[] = $calendarId["id"];
+		}
 
-        $ids = array();
-        $calendarIds = CalendarTable::getInstance()->retrieveByIdsProfileIdAndVisibility($this->getUser()->getId());
+		$this->getUser()->setMyAttribute('calendar_ids', array_values($ids));
+	}
 
-        foreach ($calendarIds as $key => $calendarId) {
-            $ids[] = $calendarId["id"];
-        }
+	public function executeEnroll(sfWebRequest $request) {
+		$response = array();
+		$response["status"] = '';
+		$response["notice"] = '';
+		try {
+			$courseId = $request->getParameter("course_id");
+			$course = CourseTable::getInstance()->find($courseId);
+			$profile = $this->getUser()->getProfile();
 
-        $this->getUser()->setMyAttribute('calendar_ids', array_values($ids));
-    }
+			if (!$profile->isEnrolled($courseId)) {
+				$profileCourse = new ProfileCourse();
+				$profileCourse->setProfileId($profile->getId());
+				$profileCourse->setCourseId($courseId);
+				$profileCourse->save();
 
-    public function executeEnroll(sfWebRequest $request) {
-        try {
-            $courseId = $request->getParameter("course_id");
-            $course = CourseTable::getInstance()->find($courseId);
-            $profile = $this->getUser()->getProfile();
+				// save this activity
+				$activityFeed = new ActivityFeed();
+				$activityFeed->setProfileId($profile->getId());
+				$activityFeed->setItemId($courseId);
+				$activityFeed->setType(ActivityFeedTable::TYPE_COURSE_ENROLLED);
+				$activityFeed->save();
 
-            if (!$profile->isEnrolled($courseId)) {
-                $profileCourse = new ProfileCourse();
-                $profileCourse->setProfileId($profile->getId());
-                $profileCourse->setCourseId($courseId);
-                $profileCourse->save();
+				// link this activity with the current profile
+				$profileActivityFeed = new ProfileActivityFeed();
+				$profileActivityFeed->setProfileId($profile->getId());
+				$profileActivityFeed->setActivityFeedId($activityFeed->getId());
+				$profileActivityFeed->save();
+					
+				$response["status"] = 'success';
+				$response["notice"] = "Congrats! You've successfully enrolled into the \"{$course->getName()} ~ ({$course->getCode()})\" course!";
+			} else {
+				$response["status"] = 'failure';
+				$response["notice"] = "It seems you're already enrolled into the \"{$course->getName()} ~ ({$course->getCode()})\" course!";
+			}
+		} catch (Exception $e) {
+			$response["notice"] = 'Oops, an error has occurred and been sent to our support team.';
+		}
+		die(json_encode($response));
+	}
 
-                // save this activity
-                $activityFeed = new ActivityFeed();
-                $activityFeed->setProfileId($profile->getId());
-                $activityFeed->setItemId($courseId);
-                $activityFeed->setType(ActivityFeedTable::TYPE_COURSE_ENROLLED);
-                $activityFeed->save();
+	public function executeUnregister(sfWebRequest $request) {
+		$response = array();
+		$response["status"] = '';
+		$response["notice"] = '';
+		try {
+			$courseId = $request->getParameter("course_id");
+			$course = CourseTable::getInstance()->find($courseId);
+			$profile = $this->getUser()->getProfile();
 
-                // link this activity with the current profile
-                $profileActivityFeed = new ProfileActivityFeed();
-                $profileActivityFeed->setProfileId($profile->getId());
-                $profileActivityFeed->setActivityFeedId($activityFeed->getId());
-                $profileActivityFeed->save();
+			if ($profile->isEnrolled($courseId)) {
+				ProfileCourseTable::getInstance()->deleteByCourseIdAndProfileId($courseId, $profile->getId());
 
-                echo "success";
-                $this->getUser()->setFlash("notice", "Congrats! You've successfully enrolled into the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
-            } else {
-                echo "error";
-                $this->getUser()->setFlash("notice", "It seems you're already enrolled into the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
-            }
-        } catch (Exception $e) {
-            echo "error";
-            $this->getUser()->setFlash("notice", "You could not be enrolled into this course! Please try gain or contact us.");
-        }
-        die;
-    }
+				// save this activity
+				$activityFeed = new ActivityFeed();
+				$activityFeed->setProfileId($profile->getId());
+				$activityFeed->setItemId($courseId);
+				$activityFeed->setType(ActivityFeedTable::TYPE_COURSE_UNREGISTERED);
+				$activityFeed->save();
 
-    public function executeUnregister(sfWebRequest $request) {
-        try {
-            $courseId = $request->getParameter("course_id");
-            $course = CourseTable::getInstance()->find($courseId);
-            $profile = $this->getUser()->getProfile();
+				// link this activity with the current profile
+				$profileActivityFeed = new ProfileActivityFeed();
+				$profileActivityFeed->setProfileId($profile->getId());
+				$profileActivityFeed->setActivityFeedId($activityFeed->getId());
+				$profileActivityFeed->save();
 
-            if ($profile->isEnrolled($courseId)) {                
-                ProfileCourseTable::getInstance()->deleteByCourseIdAndProfileId($courseId, $profile->getId());
-
-                // save this activity
-                $activityFeed = new ActivityFeed();
-                $activityFeed->setProfileId($profile->getId());
-                $activityFeed->setItemId($courseId);
-                $activityFeed->setType(ActivityFeedTable::TYPE_COURSE_UNREGISTERED);
-                $activityFeed->save();
-
-                // link this activity with the current profile
-                $profileActivityFeed = new ProfileActivityFeed();
-                $profileActivityFeed->setProfileId($profile->getId());
-                $profileActivityFeed->setActivityFeedId($activityFeed->getId());
-                $profileActivityFeed->save();
-
-                echo "success";
-                $this->getUser()->setFlash("notice", "You've successfully unregistered from the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
-            } else {
-                echo "error";
-                $this->getUser()->setFlash("notice", "You've already unregistered from the \"{$course->getName()} ~ ({$course->getCode()})\" course!");
-            }
-        } catch (Exception $e) {
-            echo "error";
-            $this->getUser()->setFlash("notice", "You course not be unregistered from course! Please try gain or contact us.");
-        }
-        die;
-    }
+				$response["notice"] = "You've successfully unregistered from the \"{$course->getName()} ~ ({$course->getCode()})\" course!";
+				$response["status"] = 'success';
+			} else {
+				$response["notice"] = "You've already unregistered from the \"{$course->getName()} ~ ({$course->getCode()})\" course!";
+				$response["status"] = 'failure';
+			}
+		} catch (Exception $e) {
+			$response["status"] = 'failure';
+			$response["notice"] = "You course not be unregistered from course! Please try gain or contact us.";
+		}
+		die(json_encode($response));
+	}
 
 }

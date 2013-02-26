@@ -1,5 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
-<div class="thread discussion-group-post snapshot" id="discussion-group-post-<?php echo $discussionPost->getId() ?>">
+<div class="thread discussion-group-post snapshot<?php echo $discussionPost->getProfileId() == $sf_user->getId() ? " current" : "" ?>" id="discussion-group-post-<?php echo $discussionPost->getId() ?>">
     <?php include_partial('personal_info/photo', array('profile' => $discussionPost->getProfile(), "dimension" => 36)) ?>
     <div class="body" id="message-<?php echo $discussionPost->getId() ?>">
         <div class="view-mode">
@@ -15,7 +15,7 @@
                 </div>            
             </div>
         <?php endif; ?>
-        <div class="user-meta">By <?php echo link_to($discussionPost->getProfile(), 'profile_show', $discussionPost->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionPost->getCreatedAt()) ?></span></div>
+        <div class="user-meta">Posted by <?php echo link_to($discussionPost->getProfile(), 'profile_show', $discussionPost->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussionPost->getCreatedAt()) ?></span></div>
     </div>
     <div class="comments">
         <div class="statistics">

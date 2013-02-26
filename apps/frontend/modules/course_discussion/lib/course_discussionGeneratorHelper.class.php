@@ -147,6 +147,15 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 						"label" => "Course Info",
 						"href" => "/my/course/" . $course->getSlug()
 				),
+				"syllabus" => array(
+						"label" => "Syllabus",
+						"href" => "/course/syllabus"
+				),
+				"videos" => array(
+						"label" => "Videos",
+						"href" => "/course/videos",
+						"count" => 0
+				),
 				"announcements" => array(
 						"label" => "Announcements",
 						"href" => "/course/announcement",
@@ -166,6 +175,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 		);
 
 		if($activeTab == "new"){
+    		unset($tabs["peers"]);
 			$tabs["new_group"] =  array(
 					"label" => "+ New Group",
 					"href" => "/course/discussion/new",
@@ -173,6 +183,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 			);
 		}
 		elseif($activeTab == "edit"){
+    		unset($tabs["peers"]);
 			$tabs["edit_group"] =  array(
 					"label" => "Edit Group",
 					"href" => "/course/discussion/" . $courseDiscussionGroup->getId() . "/edit",

@@ -42,6 +42,8 @@ input[type="text"],input[type="password"] {
 	background: white;
 	padding: 3px 5px;
 	outline: 0;
+	height: 20px;
+    line-height: 20px !important;
 }
 
 input[type="password"]:focus,input[type="text"]:focus,textarea:focus {
@@ -188,6 +190,10 @@ fieldset textarea {
 	border: 1px solid #B5A072;
 }
 
+.button-box-decline {
+	border: 1px solid #B94A48;
+}
+
 .button-box-peered,.button-box-enter {
 	border: 1px solid #037D52;
 }
@@ -212,7 +218,7 @@ fieldset textarea {
 	border: 1px solid #60A4E7;
 }
 
-.button-box-open,.button-box-invited,.button-box-enter,.button-box-blue,.button-box-brown,.button-box-peered,.button-box-enroll,.button-box-accept,.button-box-unregister
+.button-box-open,.button-box-invited,.button-box-enter,.button-box-blue,.button-box-decline,.button-box-brown,.button-box-peered,.button-box-enroll,.button-box-accept,.button-box-unregister
 	{
 	border-radius: 2px;
 	margin: 10px 10px 0 0;
@@ -221,11 +227,17 @@ fieldset textarea {
 	display: inline-block;
 }
 
-.peer-peered,.peer-open,.peer-suggested,.peer-declined,.enter,.peer-invited,.peer-accept,.unregister
+.peer-peered,.peer-open,.peer-suggested,.enter,.peer-invited,.peer-accept,.unregister
 	{
-	line-height: 15px !important;
 	height: 20px !important;
 	width: 70px !important;
+	color: #FFF !important;
+	font-size: 11px;
+}
+
+.peer-decline{	
+	height: 20px !important;
+	width: 20px !important;
 	color: #FFF !important;
 	font-size: 11px;
 }
@@ -240,6 +252,11 @@ fieldset textarea {
 
 .peer-invited,.peer-accept,.enroll {
 	background-color: #DDBA0C;
+}
+
+.peer-decline{
+	background-color: #B94A48;
+	color: #FFFFFF;
 }
 
 .peer-accept {

@@ -1,11 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_component('common', 'secureMenu', $helper->getEditLinks($discussion_group)) ?>
 <?php include_partial('common/breadcrumbs', $helper->getEditBreadcrumbs($discussion_group)) ?>
-<div class="sf_admin_heading">
-	<h3>
-		<?php echo __('Groups', array(), 'messages') ?>
-	</h3>
-</div>
 <?php include_partial('common/flashes_normal', array('form' => $form)) ?>
 <div id="sf_admin_form_container">
 	<div id="sf_admin_content">

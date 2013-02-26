@@ -35,7 +35,7 @@ input[type="text"], input[type="password"] {
 
 #bottom-actions{
   width: 700px;
-  margin: 0 10px !important;
+  margin-bottom: -10px;
 }
 
 #email_message_body_parent,
@@ -228,11 +228,10 @@ span.separator {
   padding-top: 10px;
   padding-bottom: 10px;
   border: 1px solid #F5F5F5;
-  width: 720px;
+  width: 700px;
 }
 
 .sf_admin_list{
-  margin: 0 10px !important;
   width: 700px;
 }
 

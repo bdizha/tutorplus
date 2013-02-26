@@ -70,7 +70,7 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 		// fetch the current discussion peers
 		$discussionPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
 
-		// make sure a use can only mange their own peers
+		// make sure a profile can only manage their own peers
 		$myDiscussionPeerIds = array();
 		$peers = array();
 		foreach($this->myPeers as $myPeer){
@@ -91,7 +91,7 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 			$this->getUser()->setFlash("notice", "Your discussion peers were managed successfully!");
 		}
 
-		// determine what do delete
+		// determine what do add
 		$toAdd = array_diff($postedPeerIds, $myDiscussionPeerIds);
 		if (count($toAdd)) {
 			$profiles = ProfileTable::getInstance()->findByIds($toAdd);

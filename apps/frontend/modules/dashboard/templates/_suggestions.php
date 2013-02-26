@@ -1,31 +1,18 @@
 <?php foreach ($peers as $peer): ?>
-    <?php $profile = ($peer->getInviteeId() == $sf_user->getId()) ? $peer->getInviter() : $peer->getInvitee(); ?>
-    <div class="suggested-peer">
-        <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 36)) ?>
-        <div class="button-box-open button-box">
-            <input type="button" class="peer-open" inviterid="<?php echo $peer->getInviterId() ?>" inviteeid="<?php echo $peer->getInviteeId() ?>" value="+ Request">
-        </div>  
-    </div>
+<?php $profile = ($peer->getInviteeId() == $sf_user->getId()) ? $peer->getInviter() : $peer->getInvitee(); ?>
+<div class="suggested-peer" id="peer-<?php echo $peer->getId() ?>">
+	<?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 24)) ?>
+	<div class="button-box-open button-box">
+		<input type="button" class="peer-open"
+			peerid="<?php echo $peer->getId() ?>"
+			inviterid="<?php echo $peer->getInviterId() ?>"
+			inviteeid="<?php echo $peer->getInviteeId() ?>" value="+ Request"></input>
+	</div>
+	<div class="button-box-decline button-box">
+		<input type="button" class="peer-decline"
+			peerid="<?php echo $peer->getId() ?>" title="Decline"
+			inviterid="<?php echo $peer->getInviterId() ?>"
+			inviteeid="<?php echo $peer->getInviteeId() ?>" value="x"></input>
+	</div>
+</div>
 <?php endforeach; ?>
-<script type='text/javascript'>
-    //<![DATA[
-    $(document).ready(function(){
-        $(".peer-open").live("click",function(){
-            var inviterId = $(this).attr("inviterid");
-            var inviteeId = $(this).attr("inviteeid");
-            $(this).removeClass("peer-open");
-            $(this).addClass("peer-invited");
-
-            $(this).parent().removeClass("button-box-open");
-            $(this).parent().addClass("button-box-invited");
-
-            $(this).attr("value","Invited");
-            $.get('/peer/invite/' + inviterId + '/' + inviteeId,{},function(response){
-                if (response == "success") {
-                    // display a notice
-                }
-            },'html');
-        });
-    });
-    //]]
-</script>

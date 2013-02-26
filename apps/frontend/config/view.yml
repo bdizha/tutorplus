@@ -11,8 +11,8 @@ default:
     #language:     en
     #robots:       index, follow
     
-  stylesheets:    [fonts.css, elements.css, tutorplus.css, left-menu.css, form.css, symfony.css, colorbox/jquery.colorbox.css, redactor.css]
-  javascripts:    [jquery/jquery.tools.min.js, jquery.form.js, tutorplus.js, jquery/jquery.validate.min.js, jquery.colorbox-min.js, editors/redactor/redactor.min.js]
+  stylesheets:    [fonts.css, elements.css, tutorplus.css, left-menu.css, form.css, symfony.css, colorbox/jquery.colorbox.css, redactor.css, jScrollPane.css, demoStyles.css]
+  javascripts:    [jquery/jquery-1.6.2.min.js, jquery/jScrollPane.js, jquery/jquery.mousewheel.js, jquery.form.js, tutorplus.js, jquery/jquery.validate.min.js, jquery.colorbox-min.js, editors/redactor/redactor.min.js]
 
   has_layout:     true
   layout:         layout

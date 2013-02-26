@@ -150,7 +150,7 @@ class discussion_groupGeneratorHelper extends BaseDiscussion_groupGeneratorHelpe
 	public function getShowTabs($discussionGroup, $activeTab) {
 		return array(
 				"group_info" => array(
-						"label" => "Info",
+						"label" => "Group Info",
 						"href" => "/discussion/group/" . $discussionGroup->getSlug(),
 						"is_active" => $activeTab == "show"
 				),

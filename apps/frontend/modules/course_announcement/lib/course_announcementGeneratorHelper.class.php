@@ -123,9 +123,20 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     public function getTabs($course, $activeTab, $courseAnnouncement = null) {
     	$tabs = array(
     			"course_info" => array(
-    					"label" => "Info",
+    					"label" => "Course Info",
     					"href" => "/my/course/" . $course->getSlug()
-    			),	
+    			),
+				"syllabus" => array(
+						"label" => "Syllabus",
+						"href" => "/course/syllabus",
+						"is_active" => $activeTab == "syllabus"
+				),
+				"videos" => array(
+						"label" => "Videos",
+						"href" => "/course/videos",
+						"count" => 0,
+						"is_active" => $activeTab == "videos"
+				),	
 				"announcements" => array(
 						"label" => "Announcements",
 						"href" => "/course/announcement",
@@ -146,6 +157,8 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     	);
     	
     	if($activeTab == "new"){
+    		unset($tabs["peers"]);
+    		unset($tabs["groups"]);
     		$tabs["new_announcement"] =  array(
     				"label" => "+ New Announcement",
     				"href" => "/course/announcement/new",
@@ -153,6 +166,8 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
     		);
     	}
     	elseif($activeTab == "edit"){
+    		unset($tabs["peers"]);
+    		unset($tabs["groups"]);
     		$tabs["edit_announcement"] =  array(
     				"label" => "Edit Announcement",
     				"href" => "/course/announcement/" . $courseAnnouncement->getId() . "/edit",

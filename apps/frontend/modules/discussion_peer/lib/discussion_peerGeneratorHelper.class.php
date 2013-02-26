@@ -114,7 +114,7 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
 	public function getTabs($discussionGroup, $myPeers, $activeTab) {
 		return array(
 				"group_info" => array(
-						"label" => "Info",
+						"label" => "Group Info",
 						"href" => "/discussion/group/" . $discussionGroup->getSlug()
 				),
 				"topics" => array(

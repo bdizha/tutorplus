@@ -13,131 +13,199 @@ require_once dirname(__FILE__) . '/../lib/peerGeneratorHelper.class.php';
  */
 class peerActions extends autoPeerActions {
 
-    public function preExecute() {
-        $this->profile = $this->getUser()->getProfile();
-        $this->studentPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->profile->getId(), false);
-        $this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->profile->getId(), true);
-        $this->suggestedPeers = PeerTable::getInstance()->findByProfileIdAndStatus($this->profile->getId(), PeerTable::STATUS_SUGGESTED);
-        $this->requestingPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->profile->getId(), PeerTable::STATUS_REQUESTED);
-        $this->potentialPeers = PeerTable::getInstance()->findByNotProfileId($this->profile->getId());
-        parent::preExecute();
-    }
+	public function preExecute() {
+		$this->profile = $this->getUser()->getProfile();
+		$this->studentPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->profile->getId(), false);
+		$this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->profile->getId(), true);
+		$this->suggestedPeers = PeerTable::getInstance()->findByProfileIdAndStatus($this->profile->getId(), PeerTable::STATUS_SUGGESTED);
+		$this->requestingPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->profile->getId(), PeerTable::STATUS_REQUESTED);
+		$this->invitedPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->profile->getId(), PeerTable::STATUS_REQUESTED);
+		$this->potentialPeers = PeerTable::getInstance()->findByNotProfileId($this->profile->getId());
+		parent::preExecute();
+	}
 
-    public function executeStudents(sfWebRequest $request) {
-        
-    }
+	public function executeStudents(sfWebRequest $request) {
 
-    public function executeInstructors(sfWebRequest $request) {
-        
-    }
+	}
 
-    public function executeSuggested(sfWebRequest $request) {
-        
-    }
+	public function executeInstructors(sfWebRequest $request) {
 
-    public function executeRequests(sfWebRequest $request) {
-        
-    }
+	}
 
-    public function executeFind(sfWebRequest $request) {
-        
-    }
+	public function executeSuggested(sfWebRequest $request) {
 
-    public function executeInvite(sfWebRequest $request) {
-        $inviteeId = $request->getParameter("invitee_id");
-        $inviterId = $request->getParameter("inviter_id");
-        if ($inviteeId & $inviterId) {
-            // check if this pair is already peered up
-            $peer = PeerTable::getInstance()->findOneByPeers($inviterId, $inviteeId);
-            if (is_object($peer)) {
-                if ($this->profile->getId() != $peer->getInviterId()) {
+	}
 
-                    $tempId = $inviteeId;
-                    $inviteeId = $inviterId;
-                    $inviterId = $tempId;
+	public function executeRequests(sfWebRequest $request) {
 
-                    // get rid of this peer
-                    $peer->delete();
+	}
 
-                    // create new peer
-                    $peer = new Peer();
-                }
-            } else {
-                // create new peer
-                $peer = new Peer();
-            }
+	public function executeInvitations(sfWebRequest $request) {
 
-            $peer->setInviteeId($inviteeId);
-            $peer->setInviterId($inviterId);
-            $peer->setStatus(PeerTable::STATUS_REQUESTED);
-            $peer->save();
+	}
 
-            // save this activity
-            $activityFeed = new ActivityFeed();
-            $activityFeed->setProfileId($inviteeId);
-            $activityFeed->setItemId($peer->getId());
-            $activityFeed->setType(ActivityFeedTable::TYPE_PEER_INVITED);
-            $activityFeed->save();
+	public function executeFind(sfWebRequest $request) {
 
-            // link this activity with the current profile
-            $profileActivityFeed = new ProfileActivityFeed();
-            $profileActivityFeed->setProfileId($inviteeId);
-            $profileActivityFeed->setActivityFeedId($activityFeed->getId());
-            $profileActivityFeed->save();
+	}
 
-            $this->getUser()->setFlash('notice', 'Peer invitation has been sent successfully.');
-            die("success");
-        }
-        die("failure");
-    }
+	public function executeInvite(sfWebRequest $request) {
+		$inviteeId = $request->getParameter("invitee_id");
+		$inviterId = $request->getParameter("inviter_id");
+		$response = array();
+		$response["status"] = '';
+		$response["notice"] = '';
 
-    public function executeAccept(sfWebRequest $request) {
-        $inviterId = $request->getParameter("inviter_id");
-        if ($inviterId) {
-            $inviteeId = $this->profile->getId();
+		try {
+			if ($inviteeId & $inviterId) {
+				// check if this pair is already peered up
+				$peer = PeerTable::getInstance()->findOneByPeers($inviterId, $inviteeId);
+				if (is_object($peer)) {
+					if ($this->profile->getId() != $peer->getInviterId()) {
 
-            // save this activity
-            $activityFeed = new ActivityFeed();
-            $activityFeed->setProfileId($inviteeId);
+						$tempId = $inviteeId;
+						$inviteeId = $inviterId;
+						$inviterId = $tempId;
 
-            // make sure these peers are already linked
-            $peer = PeerTable::getInstance()->findOneByPeers($inviterId, $inviteeId);
-            if (!is_object($peer)) {
-                $peer = new Peer();
-                $peer->setInviteeId($inviteeId);
-                $peer->setInviterId($inviterId);
-                $peer->setStatus(PeerTable::STATUS_REQUESTED);
-                $peer->save();
+						// get rid of this peer
+						$peer->delete();
 
-                $activityFeed->setItemId($peer->getId());
-                $activityFeed->setType(ActivityFeedTable::TYPE_PEER_INVITED);
+						// create new peer
+						$peer = new Peer();
+					}
+				} else {
+					// create new peer
+					$peer = new Peer();
+				}
 
-                $this->getUser()->setFlash('notice', 'Peer invitation has been sent successfully.');
-            } else {
-                $peer->setStatus(PeerTable::STATUS_PEERED);
-                $peer->save();
-                $activityFeed->setType(ActivityFeedTable::TYPE_PEER_ACCEPTED);
+				$peer->setInviteeId($inviteeId);
+				$peer->setInviterId($inviterId);
+				$peer->setStatus(PeerTable::STATUS_REQUESTED);
+				$peer->save();
 
-                $this->getUser()->setFlash('notice', 'You\'ve accepted peer invitation successfully.');
-            }
+				// save this activity
+				$activityFeed = new ActivityFeed();
+				$activityFeed->setProfileId($inviteeId);
+				$activityFeed->setItemId($peer->getId());
+				$activityFeed->setType(ActivityFeedTable::TYPE_PEER_INVITED);
+				$activityFeed->save();
 
-            $activityFeed->setItemId($peer->getId());
-            $activityFeed->save();
+				// link this activity with the current profile
+				$profileActivityFeed = new ProfileActivityFeed();
+				$profileActivityFeed->setProfileId($inviteeId);
+				$profileActivityFeed->setActivityFeedId($activityFeed->getId());
+				$profileActivityFeed->save();
 
-            // link this activity with the invitee profile
-            $profileActivityFeed = new ProfileActivityFeed();
-            $profileActivityFeed->setProfileId($inviterId);
-            $profileActivityFeed->setActivityFeedId($activityFeed->getId());
-            $profileActivityFeed->save();
-            
-            // link this activity with the inviter profile
-            $profileActivityFeed = new ProfileActivityFeed();
-            $profileActivityFeed->setProfileId($inviteeId);
-            $profileActivityFeed->setActivityFeedId($activityFeed->getId());
-            $profileActivityFeed->save();
-            die("success");
-        }
-        die("failure");
-    }
+				$response["notice"] = 'Peer invitation has been sent successfully.';
+				$response["status"] = 'success';
+			}
+			else{
+				$response["status"] = 'failure';
+			}
+		} catch (Exception $e) {
+			$response["status"] = 'failure';
+			$response["notice"] = 'Oops, an error has occurred and been sent to our support team.';
+		}
+		die(json_encode($response));
+	}
+
+	public function executeAccept(sfWebRequest $request) {
+		$inviterId = $request->getParameter("inviter_id");
+		$response = array();
+		$response["status"] = '';
+		$response["notice"] = '';
+
+		try {
+			if ($inviterId) {
+				$inviteeId = $this->profile->getId();
+
+				// save this activity
+				$activityFeed = new ActivityFeed();
+				$activityFeed->setProfileId($inviteeId);
+
+				// make sure these peers are already linked
+				$peer = PeerTable::getInstance()->findOneByPeers($inviterId, $inviteeId);
+				if (!is_object($peer)) {
+					$peer = new Peer();
+					$peer->setInviteeId($inviteeId);
+					$peer->setInviterId($inviterId);
+					$peer->setStatus(PeerTable::STATUS_REQUESTED);
+					$peer->save();
+
+					$activityFeed->setItemId($peer->getId());
+					$activityFeed->setType(ActivityFeedTable::TYPE_PEER_INVITED);
+
+					$response["notice"] = 'Peer invitation has been sent successfully.';
+				} else {
+					$peer->setStatus(PeerTable::STATUS_PEERED);
+					$peer->save();
+					$activityFeed->setType(ActivityFeedTable::TYPE_PEER_ACCEPTED);
+
+					$response["notice"] = 'You\'ve accepted peer invitation successfully.';
+				}
+
+				$activityFeed->setItemId($peer->getId());
+				$activityFeed->save();
+
+				// link this activity with the invitee profile
+				$profileActivityFeed = new ProfileActivityFeed();
+				$profileActivityFeed->setProfileId($inviterId);
+				$profileActivityFeed->setActivityFeedId($activityFeed->getId());
+				$profileActivityFeed->save();
+
+				// link this activity with the inviter profile
+				$profileActivityFeed = new ProfileActivityFeed();
+				$profileActivityFeed->setProfileId($inviteeId);
+				$profileActivityFeed->setActivityFeedId($activityFeed->getId());
+				$profileActivityFeed->save();
+
+				$response["status"] = 'success';
+			}
+			else{
+				$response["status"] = 'failure';
+			}
+		} catch (Exception $e) {
+			$response["status"] = 'failure';
+			$response["notice"] = 'Oops, an error has occurred and been sent to our support team.';
+		}
+		die(json_encode($response));
+	}
+
+	public function executeDecline(sfWebRequest $request) {
+		$response = array();
+		$response["status"] = '';
+		$response["notice"] = '';
+
+		try {
+			$inviterId = $request->getParameter("inviter_id");
+			if ($inviterId) {
+				$inviteeId = $this->profile->getId();
+
+				// make sure these peers are already linked
+				$peer = PeerTable::getInstance()->findOneByPeers($inviterId, $inviteeId);
+				if (!is_object($peer)) {
+					$peer = new Peer();
+					$peer->setInviteeId($inviteeId);
+					$peer->setInviterId($inviterId);
+					$peer->setStatus(PeerTable::STATUS_DECLINED);
+					$peer->save();
+
+					$response["notice"] = 'Peer invitation has been declined successfully.';
+				} else {
+					$peer->setStatus(PeerTable::STATUS_DECLINED);
+					$peer->save();
+
+					$response["notice"] = 'You\'ve accepted peer declined successfully.';
+				}
+				$response["status"] = 'success';
+			}
+			else{
+				$response["status"] = 'failure';
+			}
+		} catch (Exception $e) {
+			$response["status"] = 'failure';
+			$response["notice"] = 'Oops, an error has occurred and been sent to our support team.';
+		}
+		die(json_encode($response));
+	}
 
 }

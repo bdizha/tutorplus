@@ -7,11 +7,17 @@
       $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
       try {
-        $<?php echo $this->getSingularName() ?> = $form->save();
+          $<?php echo $this->getSingularName() ?> = $form->save();
+          $values = $form->getValues();
+         
+	      // process any extra work on the values
+	      $this->processUpdates($<?php echo $this->getSingularName() ?>, $values, $request, $isNew);
+	      
+		  // send the <?php echo $this->getSingularName() ?> emails      
+		  $this->processEmails($<?php echo $this->getSingularName() ?>, $values, $request, $isNew);
       } catch (Doctrine_Validator_Exception $e) {
 
         $errorStack = $form->getObject()->getErrorStack();
-
         $message = get_class($form->getObject()) . ' has ' . count($errorStack) . " field" . (count($errorStack) > 1 ?  's' : null) . " with validation errors: ";
         foreach ($errorStack as $field => $errors) {
             $message .= "$field (" . implode(", ", $errors) . "), ";
@@ -20,14 +26,6 @@
 
         $this->getUser()->setFlash('error', $message);
         return sfView::SUCCESS;
-      }
-      
-      if($isNew){      
-	      // process any extra work on the object
-	      $this->processUpdates($<?php echo $this->getSingularName() ?>);
-
-		  // send the <?php echo $this->getSingularName() ?> emails      
-		  $this->processEmails($<?php echo $this->getSingularName() ?>);
       }
       
       $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $<?php echo $this->getSingularName() ?>)));
@@ -51,8 +49,8 @@
     }
   }
   
-  public function processEmails($object) {
+  public function processEmails($object, $values, sfWebRequest $request, $isNew) {
   }    
   
-  public function processUpdates($object){    	
+  public function processUpdates($object, $values, sfWebRequest $request, $isNew){    	
   }

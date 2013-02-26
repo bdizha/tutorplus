@@ -22,6 +22,7 @@
 	font-size: 15px;
 	font-weight: normal;
 	margin-bottom: 10px;
+	margin-top: 5px;
 }
 
 .right-block h3 {
@@ -167,7 +168,7 @@ ul.sf_admin_td_actions li.sf_admin_action_delete {
 	float: left;
 }
 
-#middle-column .error{
+#middle-column .error {
 	margin-top: 10px;
 }
 
@@ -187,13 +188,35 @@ ul.sf_admin_td_actions li.sf_admin_action_delete {
 	background-color: #FFF;
 }
 
-.notice {
+.normal-notice{
 	background-color: #a2df8e;
 	font-size: 12px;
 	padding: 5px 10px;
 	color: #037D52;
 	border: 1px solid #037D52;
-	margin-top: 5px;
+	width: 918px;
+}
+
+.ajax-success{
+	background-color: #a2df8e;
+	font-size: 12px;
+	padding: 5px 10px;
+	color: #037D52;
+	border: 1px solid #037D52;
+	width: 918px;
+	display: none;
+	z-index: 999999;
+}
+
+.ajax-failure{
+	background-color: #B94A48;
+	font-size: 12px;
+	padding: 5px 10px;
+	color: #fff;
+	border: 1px solid #B94A48;
+	width: 918px;
+	display: none;
+	z-index: 999999;
 }
 
 .sf_admin_td_actions img {

@@ -5,7 +5,7 @@
   text-decoration: none;
   font-size: 12px;
   text-shadow: none;
-  line-height: 22px;
+  line-height: 20px;
   font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
 }
 
@@ -15,7 +15,7 @@ html{
 }
 
 li {
-  line-height: 22px;
+  line-height: 20px;
   position: relative;
 }
 
@@ -76,4 +76,5 @@ h4{
 h5{
   color: #B5A072;
   font-weight: normal;
+  position: relative;
 }

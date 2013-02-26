@@ -60,20 +60,30 @@ class PeerTable extends Doctrine_Table {
     public function findByProfileIdAndIsInstructor($profileId, $isInstructor) {
         $q = $this->createQuery('p')
             ->where('(p.inviter_id <> ? AND p.invitee_id = ? AND p.Inviter.is_instructor = ?) OR (p.invitee_id <> ? AND p.inviter_id = ? AND p.Invitee.is_instructor = ?)', array($profileId, $profileId, $isInstructor, $profileId, $profileId, $isInstructor))
-            ->andwhere('(p.status = ? OR p.status = ?)', array(self::STATUS_PEERED, self::STATUS_REQUESTED));
+            ->addWhere('p.status = ?', self::STATUS_PEERED);
         return $q->execute();
     }
 
     public function findByProfileId($profileId) {
         $q = $this->createQuery('p')
             ->where('(p.inviter_id <> ? AND p.invitee_id = ?) OR (p.invitee_id <> ? AND p.inviter_id = ?)', array($profileId, $profileId, $profileId, $profileId))
-            ->andwhere('(p.status = ? OR p.status = ?)', array(self::STATUS_PEERED, self::STATUS_REQUESTED));
+            ->addWhere('p.status = ?', self::STATUS_PEERED);
         return $q->execute();
     }
     
     public function findByInviteeIdAndStatus($inviteeId, $status, $limit = null) {
         $q = $this->createQuery('p')
             ->where('p.invitee_id = ?',$inviteeId)
+            ->addWhere('p.status = ?', $status);
+        if ($limit) {
+            $q->limit($limit);
+        }
+        return $q->execute();
+    }
+    
+    public function findByInviterIdAndStatus($inviterId, $status, $limit = null) {
+        $q = $this->createQuery('p')
+            ->where('p.inviter_id = ?', $inviterId)
             ->addWhere('p.status = ?', $status);
         if ($limit) {
             $q->limit($limit);

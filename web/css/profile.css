@@ -78,10 +78,6 @@
   position: relative;
 }
 
-.peer a{
-  color: #6B6B6B !important;
-}
-
 .last{
   margin-right: 0 !important;
 }
@@ -144,10 +140,6 @@
     font-size: 13px !important;
 }
 
-.snapshot .heading{
-  border-bottom: 1px solid #F5F5F5;
-}
-
 .snapshot .name a, .snapshot .heading a{
   font-size: 13px !important;
 }
@@ -163,7 +155,6 @@
 }
 
 .snapshot .comments{
-  border: 1px solid #F5F5F5;
   border-bottom: none !important;
   margin-left: 43px;
 }

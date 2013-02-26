@@ -33,7 +33,10 @@ class profile_authActions extends sfActions
 				$this->getUser()->setFlash('notice', 'Greetings from the TutorPlus team, and we wish you a wonderful learning session.');
 				$this->getUser()->setFlash('error', false, false);
 
-				return $this->redirect('' != $logInUrl ? $logInUrl : '@dashboard');
+				return $this->redirect($logInUrl ? $logInUrl : '@dashboard');
+			}
+			else{
+				$this->getUser()->setFlash('error', true, false);
 			}
 		} else {
 			if ($request->isXmlHttpRequest()) {

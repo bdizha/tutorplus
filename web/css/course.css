@@ -1,292 +1,341 @@
 /* course form elements */
-.sf_admin_form_field_name, .sf_admin_form_field_code, .sf_admin_form_field_department_id,
-.sf_admin_form_field_academic_period_id,  .sf_admin_form_field_start_date,.sf_admin_form_field_end_date,
-.sf_admin_form_field_is_finalized, .sf_admin_form_field_credits, .sf_admin_form_field_hours,
-.sf_admin_form_field_max_enrolled{
-    display: inline-block;
-    width: 337px;
+.sf_admin_form_field_name,.sf_admin_form_field_code,.sf_admin_form_field_department_id,.sf_admin_form_field_academic_period_id,.sf_admin_form_field_start_date,.sf_admin_form_field_end_date,.sf_admin_form_field_is_finalized,.sf_admin_form_field_credits,.sf_admin_form_field_hours,.sf_admin_form_field_max_enrolled
+	{
+	display: inline-block;
+	width: 337px;
 }
 
-.sf_admin_form_field_description{
-    width: 100%;
+.sf_admin_form_field_description {
+	width: 100%;
 }
 
 .sf_admin_form_row {
-    clear: none !important;
+	clear: none !important;
 }
 
-#course_form_holder .sf_admin_form_row label{
-    float: none !important;
+#course_form_holder .sf_admin_form_row label {
+	float: none !important;
 }
 
-.sf_admin_form_field_description{
-    width: 699px;    
+.sf_admin_form_field_description {
+	width: 699px;
 }
 
-#course_description{
-    width: 687px;
-    height: 130px;
+#course_description {
+	width: 687px;
+	height: 130px;
 }
 
-select[size], select[multiple], select[size][multiple] {
-    -moz-appearance: listbox;
-    width: 378px !important;
+select[size],select[multiple],select[size][multiple] {
+	-moz-appearance: listbox;
+	width: 378px !important;
 }
 
-.day-time, .course-link, .course-reading-item{
-    padding-bottom: 5px;
-    position: relative;
+.day-time,.course-link,.course-reading-item {
+	padding-bottom: 5px;
+	position: relative;
 }
 
-.course-meeting-time .name{
-    width: 110px;
-    float: left;
+.course-meeting-time .name {
+	width: 110px;
+	float: left;
 }
 
-.course-meeting-time .value{
-    color: #666666;
-    float: left;
+.course-meeting-time .value {
+	color: #666666;
+	float: left;
 }
 
-.course-reading-item .author{
-    color: #666666;
+.course-reading-item .author {
+	color: #666666;
 }
 
-.course-meeting-time .day{    
-    padding-right: 10px;
+.course-meeting-time .day {
+	padding-right: 10px;
 }
 
-.course-meeting-time .time{
-    color: #666666;
+.course-meeting-time .time {
+	color: #666666;
 }
 
-.edit-link{
-    position: absolute;
-    right: 0;
-    top: 0;
+.edit-link {
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
-.edit-item{
-    float: right;
+.edit-item {
+	float: right;
 }
 
-.venue{
-    display: block;
-    border-bottom: 1px solid #F5F5F5DDD;
+.venue {
+	display: block;
+	border-bottom: 1px solid #F5F5F5DDD;
 }
 
-#campuses_list{
-    display: block;
-    padding: 10px;
+#campuses_list {
+	display: block;
+	padding: 10px;
 }
 
 #campuses_list li {
-    display: block;
-    float: left;
-    height: 20px;
-    line-height: 18px;
-    margin-bottom: 10px;
-    position: relative;
-    width: 400px;
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 18px;
+	margin-bottom: 10px;
+	position: relative;
+	width: 400px;
 }
 
-.campus-name{
-    height: 20px;
-    left: 20px;
-    position: absolute;
-    top: 0;
+.campus-name {
+	height: 20px;
+	left: 20px;
+	position: absolute;
+	top: 0;
 }
 
-.campus-image{
-    height: 20px;
-    left: 0;
-    position: absolute;
-    top: 2px;
-    width: 10px;    
+.campus-image {
+	height: 20px;
+	left: 0;
+	position: absolute;
+	top: 2px;
+	width: 10px;
 }
 
-.course-student, .course-instructor {
-    margin: 10px 0 0;
-    display: inline-block;
-    clear: both !important;
-    width: 265px;
+.course-student,.course-instructor {
+	margin: 10px 0 0;
+	display: inline-block;
+	clear: both !important;
+	width: 265px;
 }
 
 .course-participant {
-    margin: 10px 0 0;
-    display: inline-block;
-    clear: both !important;
-    width: 280px;
+	margin: 10px 0 0;
+	display: inline-block;
+	clear: both !important;
+	width: 280px;
 }
 
 .course-participant-name {
-    float: left;
-    width: 180px;
-    padding-left: 10px;
+	float: left;
+	width: 180px;
+	padding-left: 10px;
 }
 
 .course-participant-input {
-    float: left;
+	float: left;
 }
 
 .course-participant-image {
-    float: left;
+	float: left;
 }
 
-.course_info{
+.course_info {
+	
 }
-
-
 
 .course-item {
-    clear: both;
-    height: 80px;
-    border-bottom: 1px solid #FFFFFF;
+	clear: both;
+	height: 80px;
+	border-bottom: 1px solid #FFFFFF;
 }
 
 .course-item .image {
-    float: left;
-    width: 150px;
+	float: left;
+	width: 150px;
 }
 
 .course-item .image img {
-    padding: 10px;
-    width: 100px;
+	padding: 10px;
+	width: 100px;
 }
 
 .course-item .info {
-    float: left;
-    height: 60px;
-    padding: 10px;
-    position: relative;
-    width: 510px;
+	float: left;
+	height: 60px;
+	padding: 10px;
+	position: relative;
+	width: 510px;
 }
 
 .course-item .schedule {
-    float: left;
-    padding: 10px;
-    width: 130px;
+	float: left;
+	padding: 10px;
+	width: 130px;
 }
 
-.course-item .institution{
-    color: #90959A;
-    bottom: 10px;
-    font-size: 11px;
-    left: 10px;
-    position: absolute;
-    text-transform: uppercase;
+.course-item .institution {
+	color: #90959A;
+	bottom: 10px;
+	font-size: 11px;
+	left: 10px;
+	position: absolute;
+	text-transform: uppercase;
 }
 
-.course-item-year{
-    padding: 10px;
+.course-item-year {
+	padding: 10px;
 }
 
-.course-follower{
-    display: inline-block;
-    clear: both !important;
-    width: 350px;
-    border-bottom: 1px solid #F5F5F5;
-    padding: 5px 0;
+.course-follower {
+	display: inline-block;
+	clear: both !important;
+	width: 350px;
+	border-bottom: 1px solid #F5F5F5;
+	padding: 5px 0;
 }
 
 .course-follower .name {
-    float: left;
-    width: 250px;
-    padding-left: 10px;
+	float: left;
+	width: 250px;
+	padding-left: 10px;
 }
 
 .course-follower .input {
-    float: left;
-    margin-top: 5px;
+	float: left;
+	margin-top: 5px;
 }
 
-#choose_course_students_form fieldset,
-#choose_course_instructors_form fieldset{
-    overflow: auto;
-    display: block;
-    position: relative;
-    margin: 0 10px 0;
-    max-height: 346px;
+#choose_course_students_form fieldset,#choose_course_instructors_form fieldset
+	{
+	overflow: auto;
+	display: block;
+	position: relative;
+	margin: 0 10px 0;
+	max-height: 346px;
 }
 
-.student-course{
-    display: inline-block;
-    clear: both !important;
-    width: 614px;
-    border-top: 1px solid #F5F5F5;
-    padding: 5px 0;
-    margin-left: 10px;
+.student-course {
+	display: inline-block;
+	clear: both !important;
+	width: 614px;
+	border-top: 1px solid #F5F5F5;
+	padding: 5px 0;
+	margin-left: 10px;
 }
 
 .student-course .name {
-    float: left;
-    width: 560px;
-    padding-left: 10px;
+	float: left;
+	width: 560px;
+	padding-left: 10px;
 }
 
-#student_choose_course_form{
-    height: 330px;
-    overflow: auto;
-    padding-top: 10px;
-    display: block;
-    position: relative;
+#student_choose_course_form {
+	height: 330px;
+	overflow: auto;
+	padding-top: 10px;
+	display: block;
+	position: relative;
 }
 
-.course-catalog{
-    padding: 10px 10px 20px;
-    position: relative;
-    display: block;
-    border: 1px solid #F5F5F5;
-    margin: 0 0 10px 0;
-    vertical-align: top;
-    background-color: #F5F5F5;
-    min-height: 96px;
+.course-catalog {
+	padding: 10px 10px 0px;
+	position: relative;
+	display: block;
+	border: 1px solid #F5F5F5;
+	margin: 0 0 10px 0;
+	vertical-align: top;
+	background-color: #F5F5F5;
 }
 
-.course-catalog .icon{
-    display: inline-block;
-    width: 100px;
-    vertical-align: top;
+.course-catalog .icon {
+	display: inline-block;
+	width: 100px;
+	vertical-align: top;
 }
 
-.course-catalog .name {
-    height: 45px;
-    margin-left: 105px;
-    border-bottom: 1px solid #F5F5F5;
+.course-catalog input,.course-action-bottom input[type=text] {
+	width: 128px !important;
+	height: 20px !important
 }
 
-.course-catalog .body{
-    padding-top: 5px;
+.course-photo {
+	display: inline-block;
+	width: 105px;
+	height: 105px;
+	border-right: 1px solid #FFF;
 }
 
-.course-catalog input, .course-action-bottom input{
-    width: 128px !important;
-    height: 20px !important
+.course-description {
+	display: inline-block;
+	padding-left: 5px;
+	width: 415px;
+	height: 105px;
+	border-right: 1px solid #FFF;
 }
 
-.course-action{
-    position: absolute;
-    right: 0px;
-    top: 10px;
+.course-catalog .course-instructors {
+	display: inline-block;
+	width: 237px;
+	height: 105px;
+	border-right: 1px solid #FFF;
 }
 
-.course-info{
-    display: inline-block;
-    width: 477px;
+.course-catalog .peer {
+	width: 212px !important;
+	background-color: transparent !important;
 }
 
-.course-image{
-    display: inline-block;
-    width: 176px;  
+.course-actions {
+	display: inline-block;
+	width: 134px;
+	height: 105px;
+	padding-left: 7px;
 }
 
-.course-row{
-    padding: 0 0 5px;
+.course-status {
+	position: absolute;
+	top: 15px;
+	color: #FFF;
+	left: 10px;
+	display: block;
+	width: 96px;
+	text-align: center;
 }
 
-.course-action-bottom{
-    display: block;
-    position: relative;
-    height: 45px;
-    width: 140px;
+.course-info {
+	display: inline-block;
+	width: 477px;
+}
+
+.course-image {
+	display: inline-block;
+	width: 176px;
+}
+
+.course-row {
+	padding: 0;
+}
+
+.course-action-bottom {
+	display: block;
+	position: relative;
+	height: 45px;
+	width: 140px;
+}
+
+#course_instructors_form_holder fieldset {
+	overflow: auto;
+	display: block;
+	position: relative;
+	margin: 0 10px 0;
+	max-height: 346px;
+}
+
+#course_instructors_form_holder input[type="checkbox"] {
+	position: absolute;
+	left: 10px;
+	top: 20px;
+}
+
+#course_instructors_form_holder .description {
+	position: absolute;
+	left: 35px;
+	top: 10px;
+	width: 303px;
+}
+
+.courses-instructors {
+	margin: 10px 0;
 }

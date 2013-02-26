@@ -9,6 +9,15 @@
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class course_peerGeneratorHelper {
+	protected $profile = null;
+	
+	public function setProfile($profile){
+		$this->profile = $profile;
+	}
+	
+	protected function getProfile(){
+		return $this->profile;
+	}
 
 	public function indexBreadcrumbs($course) {
 		return array('breadcrumbs' => array(
@@ -26,11 +35,22 @@ class course_peerGeneratorHelper {
 		);
 	}
 
-	public function getIndexTabs($course) {
-		return array(
+	public function getIndexTabs($course, $activeTab = "info") {
+		$tabs = array(
 				"posts" => array(
 						"label" => "Course Info",
 						"href" => "/my/course/" . $course->getSlug()
+				),
+				"syllabus" => array(
+						"label" => "Syllabus",
+						"href" => "/course/syllabus",
+						"is_active" => $activeTab == "syllabus"
+				),
+				"videos" => array(
+						"label" => "Videos",
+						"href" => "/course/videos",
+						"count" => 0,
+						"is_active" => $activeTab == "videos"
 				),
 				"announcements" => array(
 						"label" => "Announcements",
@@ -46,8 +66,19 @@ class course_peerGeneratorHelper {
 						"label" => "Peers",
 						"href" => "/course/peer",
 						"count" => $course->getCourseProfiles()->count(),
-						"is_active" => true
+						"is_active" => $activeTab == "peers"
+				),
+				"instructors" => array(
+						"label" => "Instructors",
+						"href" => "/course/instructors",
+						"is_active" => $activeTab == "instructors"
 				)
 		);
+
+		if(!$this->getProfile()->getIsSuperAdmin()){
+			unset($tabs["instructors"]);
+		}
+
+		return $tabs;
 	}
 }

@@ -32,10 +32,12 @@ secure:
         credentials:                  [ Student, Instructor, Staff ]
         children:
           course_info:                { route: course_show, param: slug,  label: "Course Info" }
+          course_syllabus             { route: course_syllabus, label: "Syllabus" }
           announcements:              { route: course_announcement, label: "Announcements" }
           #course_calendar:            { route: course_calendar, label: "Calendar" }
           course_discussions:         { route: course_discussion, label: "Course Discussions" }
           course_peers:               { route: course_peer, label: "Course Peers" }
+          course_video:               { route: course_video, label: "Videos" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ Student, Instructor, Staff ]

@@ -469,9 +469,7 @@
 .course-description {
 	height: 80px;
 	clear: both;
-	background-color: #F5F5F5;
 	margin-bottom: 10px;
-	border-radius: 5px;
 }
 
 .course-description .image {
@@ -654,7 +652,6 @@
 .row-value {
 	display: inline-block;
 	color: #AAA;
-	width: 354px;
 }
 
 .row-column {
@@ -684,7 +681,6 @@ ul.nav-tabs li {
 	border-right: 1px solid #F5F5F5;
 	display: inline-block;
 	vertical-align: top;
-	z-index: 1;
 	list-style-type: none;
 	padding: 5px 10px;
 	font-weight: 500;
@@ -706,6 +702,12 @@ ul.nav-tabs li.active-tab {
 	border-top: 1px solid #F5F5F5;
 	border-left: 1px solid #F5F5F5;
 	border-right: 1px solid #F5F5F5;
+}
+
+.list-count-container {
+	position: absolute;
+	right: 7px;
+	top: 0;
 }
 
 .list-count {
@@ -804,11 +806,6 @@ textarea {
 
 .section-block {
 	margin: 10px 0px 20px;
-}
-
-.section-block img {
-	float: right;
-	margin-left: 10px;
 }
 
 .section-block h2 {
@@ -970,11 +967,8 @@ ul.department-course,.section-block ul {
 }
 
 .comments .statistics {
-	background-color: #F5F5F5;
 	border-top: none !important;
-	border-bottom: 1px solid #F5F5F5;
 	margin-left: 0 !important;
-	border-bottom: 1px solid #FFF;
 }
 
 .snapshot .comment .heading {
@@ -984,7 +978,6 @@ ul.department-course,.section-block ul {
 
 .underlined {
 	border-bottom: 1px solid #E5E5E5;
-	border-top: 1px solid #E5E5E5;
 	padding: 5px 0;
 }
 
@@ -1130,10 +1123,12 @@ ul.department-course,.section-block ul {
 }
 
 .timeline-row,.courses-row {
-	padding: 10px;
-	border-bottom: 1px solid #EEEEEF;
+	padding: 5px 10px;
+	border-top: 1px solid #EEEEEF;
+	margin-top: -1px
 }
 
+}
 .timeline-row .heading {
 	max-height: 24px;
 	height: 44px;
@@ -1146,4 +1141,14 @@ ul.department-course,.section-block ul {
 
 .tab-block .timeline-row {
 	padding: 10px 0 !important;
+}
+
+#notice {
+	position: fixed;
+	top: 44px;
+	z-index: 9999;
+}
+
+.current{
+	background-color: #DAEBCF !important;
 }

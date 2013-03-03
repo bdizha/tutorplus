@@ -1,175 +1,188 @@
 #middle-column {
-	padding-top: 0px !important;
+    padding-top: 0px !important;
 }
 
 #main-body {
-	padding-top: 70px !important;
+    padding-top: 70px !important;
 }
 
 .my-peer {
-	height: 38px !important;
-	width: 40px !important;
-	display: inline-block;
-	float: none;
+    height: 38px !important;
+    width: 40px !important;
+    display: inline-block;
+    float: none;
 }
 
 #notifications,#my_courses,#my_timeline,#news_items,#announcements {
-	padding: 0 0 12px 0 !important;
-	border: 1px solid #F5F5F5;
+    padding: 0 0 12px 0 !important;
+    border: 1px solid #F5F5F5;
 }
 
 #my_peers {
-	border: 1px solid #F5F5F5;
+    border: 1px solid #F5F5F5;
 }
 
 #my_messages {
-	text-align: center;
-	background-position: center 32px;
-	background-image: url("/images/icon_emails.png");
-	background-repeat: no-repeat;
-	height: 100px !important;
-	width: 438px;
-	border: 1px solid #F5F5F5;
+    text-align: center;
+    background-position: center 32px;
+    background-image: url("/images/icon_emails.png");
+    background-repeat: no-repeat;
+    height: 100px !important;
+    width: 438px;
+    border: 1px solid #F5F5F5;
 }
 
 #events {
-	text-align: center;
-	background-position: center 32px;
-	background-image: url("/images/icon_events.png");
-	background-repeat: no-repeat;
-	height: 100px !important;
-	width: 438px;
-	border: 1px solid #F5F5F5;
+    text-align: center;
+    background-position: center 32px;
+    background-image: url("/images/icon_events.png");
+    background-repeat: no-repeat;
+    height: 100px !important;
+    width: 438px;
+    border: 1px solid #F5F5F5;
 }
 
 .view-more {
-	height: 40px;
-	width: 80px;
-	position: absolute;
-	top: 5px;
-	right: 0px;
+    height: 40px;
+    width: 80px;
+    position: absolute;
+    top: 5px;
+    right: 0px;
 }
 
 .column-one,.column-two,.column-three {
-	display: inline-block;
-	vertical-align: top;
-}
-
-.column-one {
-	width: 186px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .column-one .row {
-	margin: 0 !important;
-	padding-top: 10px !important;
+    margin: 0 !important;
+    padding-top: 10px !important;
 }
 
 .column-two {
-	width: 353px;
+    width: 373px;
 }
 
 .column-three {
-	margin-left: 10px;
-	width: 353px;
+    margin-left: 10px;
+    width: 373px;
 }
 
 .messages,.events {
-	width: 130px;
-	color: #B5A072;
+    width: 130px;
+    color: #B5A072;
 }
 
 .messages .caption,.events .caption {
-	width: 86px;
-	height: 40px;
-	display: inline-block;
+    width: 86px;
+    height: 40px;
+    display: inline-block;
 }
 
 .messages a,.events a {
-	background: url(/images/messaging_events.png) no-repeat;
-	text-indent: -9999px;
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	overflow: hidden;
+    background: url(/images/messaging_events.png) no-repeat;
+    text-indent: -9999px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
 }
 
 .messages a {
-	background-position: 1px 0;
+    background-position: 1px 0;
 }
 
 .events a {
-	background-position: 1px -48px;
+    background-position: 1px -48px;
 }
 
 .dashboard-peers {
-	padding: 10px 0;
+    margin: 10px 0;
+    width: 140px;
+    height: 200px;
+    overflow: scroll;
 }
 
 a.jScrollArrowUp {
-	background: url(../images/basic_arrow_up.gif) repeat-x 0 0;
+    background: url(../images/basic_arrow_up.gif) repeat-x 0 0;
 }
+
 a.jScrollArrowUp:hover {
-	background-position: 0 -15px;
+    background-position: 0 -15px;
 }
+
 a.jScrollArrowDown {
-	background: url(../images/basic_arrow_down.gif) repeat-x 0 0;
+    background: url(../images/basic_arrow_down.gif) repeat-x 0 0;
 }
+
 a.jScrollArrowDown:hover {
-	background-position: 0 -15px;
+    background-position: 0 -15px;
 }
-a.jScrollActiveArrowButton, a.jScrollActiveArrowButton:hover {
-	background-position: 0 -30px;
+
+a.jScrollActiveArrowButton,a.jScrollActiveArrowButton:hover {
+    background-position: 0 -30px;
 }
 
 .dashboard-peers a {
-	margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .timeline-row .heading {
-	max-height: 24px;
-	overflow: hidden;
+    max-height: 40px;
+    height: 40px;
+    overflow: hidden;
 }
 
 #dashboard_suggested_peers .actions {
-	padding-top: 5px;
-	text-align: right;
+    padding-top: 5px;
+    text-align: right;
 }
 
 .suggested-peer {
-	clear: both;
-	position: relative;
+    clear: both;
+    position: relative;
 }
 
 .suggested-peer .button-box-open,.suggested-peer .button-box-invited,.button-box-accept,.button-box-peered
-	{
-	margin: 5px 0 0 0;
-	position: absolute;
-	right: 37px;
-	top: -5px;
+{
+    margin: 5px 0 0 0;
+    position: absolute;
+    right: 37px;
+    top: -5px;
 }
 
 .suggested-peer .button-box-decline {
-	margin: 5px 0 0 0;
-	position: absolute;
-	right: 7px;
-	top: -5px;
+    margin: 5px 0 0 0;
+    position: absolute;
+    right: 7px;
+    top: -5px;
 }
 
 #dashboard-feeds .heading {
-	max-height: 44px !important;
-	height: 44px;
+    max-height: 40px !important;
+    height: 40px;
 }
 
 .message-inbox {
-	position: relative;
+    position: relative;
 }
 
 .dashboard-photo {
-	margin-bottom: 10px;
-	height: 138px;
+    margin-bottom: 10px;
+    height: 138px;
 }
 
 .dashboard-photo .photo-link {
-	border: 1px solid #F1F1F1;
-	padding: 5px;
+    border: 1px solid #F1F1F1;
+    padding: 5px;
+}
+
+#left-column {
+    width: 148px !important;
+}
+
+#middle-column {
+    margin-left: 170px !important;
+    width: 770px !important;
 }

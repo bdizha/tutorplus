@@ -67,6 +67,7 @@ class course_peerActions extends sfActions {
 			}
 
 			$this->currentInstructorIds = $peers;
+			$this->getUser()->setFlash('notice', 'Course instructors have been updated successfully.');
 		}
 	}
 

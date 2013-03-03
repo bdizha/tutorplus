@@ -13,14 +13,16 @@ require_once dirname(__FILE__) . '/../lib/profileGeneratorHelper.class.php';
  */
 class profileActions extends autoProfileActions {
 
-    public function executeCheckLogIn() {
+    public function executeCheckLogIn()
+    {
         die(json_encode(array("status" => $this->getUser()->isAuthenticated() ? "200" : "401")));
     }
 
-    public function beforeExecute() {
+    public function beforeExecute()
+    {
         $this->profileId = $this->getUser()->getMyAttribute('profile_show_id', null);
         $this->profile = ProfileTable::getInstance()->findOneById($this->profileId);
-        $this->showActivityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profileId);
+        $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profileId);
         $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_GROUP_CREATED);
         $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_TOPIC_SUBMITTED);
         $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_POST_SUBMITTED);
@@ -31,43 +33,15 @@ class profileActions extends autoProfileActions {
      *
      * @param sfRequest $request A request object
      */
-    public function executeShow(sfWebRequest $request) {
+    public function executeShow(sfWebRequest $request)
+    {
         $slug = $request->getParameter("slug");
         $this->profile = ProfileTable::getInstance()->findOneBy("slug", $slug);
-
-        $this->forward404Unless($this->profile);        
+        $this->forward404Unless($this->profile);
         $this->getUser()->setMyAttribute('profile_show_id', $this->profile->getId());
-
-        $this->beforeExecute();
 
         // suggest this profile some peers
         $this->profile->suggestPeers();
-    }
-
-    /**
-     * Executes groups action
-     *
-     * @param sfRequest $request A request object
-     */
-    public function executeGroups(sfWebRequest $request) {
-        $this->beforeExecute();
-    }
-
-    /**
-     * Executes topics action
-     *
-     * @param sfRequest $request A request object
-     */
-    public function executeTopics(sfWebRequest $request) {
-        $this->beforeExecute();
-    }
-
-    /**
-     * Executes posts action
-     *
-     * @param sfRequest $request A request object
-     */
-    public function executePosts(sfWebRequest $request) {
         $this->beforeExecute();
 
         $primaryDiscussionGroup = DiscussionGroupTable::getInstance()->findOrCreatePrimaryDiscussionGroupByProfile($this->profile);
@@ -80,7 +54,38 @@ class profileActions extends autoProfileActions {
         ));
     }
 
-    public function executeShowPhoto(sfWebRequest $request) {
+    /**
+     * Executes groups action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeGroups(sfWebRequest $request)
+    {
+        $this->beforeExecute();
+    }
+
+    /**
+     * Executes topics action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeTopics(sfWebRequest $request)
+    {
+        $this->beforeExecute();
+    }
+
+    /**
+     * Executes posts action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executeActivityFeeds(sfWebRequest $request)
+    {
+        $this->beforeExecute();
+    }
+
+    public function executeShowPhoto(sfWebRequest $request)
+    {
         $photoExtentions = array("png", "gif", "jpg");
         $avatarFormat = sfConfig::get("sf_web_dir") . "/avatars/%s.png";
 
@@ -112,7 +117,8 @@ class profileActions extends autoProfileActions {
         exit;
     }
 
-    public function executeDeletePhoto(sfWebRequest $request) {
+    public function executeDeletePhoto(sfWebRequest $request)
+    {
         // this should delete all the files the user uploaded alongside all their thumbnails
         // replace the user files with the available avatars
         $filesystem = new sfFilesystem();

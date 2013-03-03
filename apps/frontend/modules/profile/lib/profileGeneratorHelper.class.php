@@ -55,12 +55,12 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
         );
     }
 
-    public function getTabs($activeTab, $profile, $showActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds) {
+    public function getTabs($activeTab, $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds) {
         $tabs = array(
-            "show" => array(
-                "label" => "Activity Feeds",
+            "posts" => array(
+                "label" => "Shared Posts",
                 "href" => "/" . $profile->getSlug(),
-                "count" => $showActivityFeeds->count()
+                "count" => $postActivityFeeds->count()
             ),
             "groups" => array(
                 "label" => "Groups",
@@ -72,10 +72,10 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
                 "href" => "/profile/topics",
                 "count" => $topicActivityFeeds->count()
             ),
-            "posts" => array(
-                "label" => "Posts",
-                "href" => "/profile/posts",
-                "count" => $postActivityFeeds->count()
+            "activity_feeds" => array(
+                "label" => "Activity Feeds",
+                "href" => "/profile/activity/feeds",
+                "count" => $activityFeeds->count()
             )
         );
 

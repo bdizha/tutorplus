@@ -47,7 +47,10 @@
             }
         });
 
-        $(".discussion_post_placeholder").live("focus",function(){
+        var redactorTextarea = $('.comment comment-details .redactor_editor');
+        redactorTextarea.live("focus",function(){
+            console.log("onFocus: " + $(this).parent().html());
+            var redactorPlaceholder = $(this).parent().parent().sibling(".discussion_comment_placeholder");
             var topicId = $(this).attr("topicid");
             if (topicId !== "" && topicId !== 'undefined') {
                 $(this).hide();
@@ -58,6 +61,15 @@
             }
             else{
                 alert("Oops, an error has occured!");
+            }
+        }).live("blur", function(){
+            console.log("onBlur: " + $(this).parent().parent().html());
+            var redactorPlaceholder = $(this).parent().parent().sibling(".discussion_comment_placeholder");
+            if (redactorTextarea.html() == redactorDefaultHtml) {
+                redactorPlaceholder.show();
+            }
+            else{
+                redactorPlaceholder.hide();
             }
         });
 

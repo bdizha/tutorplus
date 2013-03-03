@@ -41,7 +41,7 @@
 		<div class="peer">
 			<?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 36)) ?>
 			<div class="name">
-				<?php echo link_to($profile->getTitle() . " " . $profile->getName(), 'profile_show', $profile) ?>
+				<?php echo link_to($profile->getName(), 'profile_show', $profile) ?>
 			</div>
 			<div class="institution">Instructor</div>
 		</div>
@@ -57,6 +57,7 @@
 		</div>
 		<div class="button-box-unregister">
 			<input class="unregister" title="Enter Course!" action="unregister"
+				href="/my/course/<?php echo $course->getSlug() ?>"
 				courseid="<?php echo $course->getId() ?>" value="Unregister Course!"
 				type="button" />
 		</div>

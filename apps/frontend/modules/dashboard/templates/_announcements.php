@@ -4,7 +4,7 @@
 <?php foreach ($announcements as $announcement): ?>
   <div class="timeline-row">
     <div class="heading">
-      <?php include_partial('personal_info/photo', array('profile' => $announcement->getProfile(), "dimension" => 24)) ?>
+      <?php include_partial('personal_info/photo', array('profile' => $announcement->getProfile(), "dimension" => 36)) ?>
       <?php echo link_to($announcement->getSubject(), 'announcement') ?>
     </div>
     <div class="body">

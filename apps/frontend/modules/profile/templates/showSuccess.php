@@ -13,11 +13,18 @@
         </div>
     </div>
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs("show", $profile, $showActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
-        <div class="tab-block" id="activity_feeds">
-            <?php foreach ($showActivityFeeds as $key => $activityFeed): ?>
-                <?php include_partial('activity_feed/activity_feed', array('activityFeed' => $activityFeed)) ?>
-            <?php endforeach; ?>
+        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs("posts", $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
+        <div class="tab-block">
+            <div class="content-block" id="timeline">
+                <div id="discussion_post_form_container">
+                    <?php include_partial('discussion_post/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>
+                </div>
+                <div id="discussion-comments">
+                    <?php foreach ($postActivityFeeds as $key => $activityFeed): ?>
+                        <?php include_partial('activity_feed/post', array('activityFeed' => $activityFeed, "discussionCommentForm" => $discussionCommentForm)) ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
     </div>  
 </div>

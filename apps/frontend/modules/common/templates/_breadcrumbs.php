@@ -1,15 +1,15 @@
 <?php slot('breadcrumbs') ?>
 <?php if (count($breadcrumbs) > 0): ?>
-  <?php $counter = 0; ?>
-  <div id="breadcrumbs">
-    <ol>
-      <?php foreach ($breadcrumbs as $title => $routeSuffix): ?>
-        <?php $counter++; ?>
-        <li class="<?php echo ($counter == 1) ? 'first' : 'after'; ?>">
-          <a id="<?php echo ($counter == 1) ? 'first' : ''; ?>" href="/<?php echo $routeSuffix; ?>"><?php echo myToolkit::shortenString($title, 50); ?></a>          
-        </li>
-      <?php endforeach; ?>
-    </ol>
-  </div>
+    <?php $counter = 1; ?>
+    <?php $totalCount = count($breadcrumbs); ?>
+    <div id="breadcrumbs">
+        <?php foreach ($breadcrumbs as $title => $routeSuffix): ?>
+            <a href = "/<?php echo $routeSuffix; ?>"><?php echo myToolkit::shortenString($title, 50); ?></a>
+            <?php if ($counter != $totalCount): ?>
+                <span>/</span>
+            <?php endif; ?>
+            <?php $counter++; ?>
+        <?php endforeach; ?>
+    </div>
 <?php endif; ?>
 <?php end_slot() ?>

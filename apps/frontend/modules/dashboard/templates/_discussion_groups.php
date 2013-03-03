@@ -4,7 +4,7 @@
 <?php foreach ($discussionGroups as $discussionGroup): ?>
   <div class="timeline-row">
     <div class="heading">
-      <?php include_partial('personal_info/photo', array('profile' => $discussionGroup->getProfile(), "dimension" => 24)) ?>
+      <?php include_partial('personal_info/photo', array('profile' => $discussionGroup->getProfile(), "dimension" => 36)) ?>
       <?php echo link_to($discussionGroup->getName(), 'discussion_group_show', $discussionGroup) ?>
     </div>
     <div class="body">

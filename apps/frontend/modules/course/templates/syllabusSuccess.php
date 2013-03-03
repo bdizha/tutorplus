@@ -12,7 +12,7 @@
 	<div class="content-block">
 		<?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($course, "syllabus"))) ?>
 		<div class="tab-block">
-			<div class="no-result">The course syllabus is still under development.</div>
+			The course syllabus is still under development.
 		</div>
 		<?php include_partial('common/actions', $helper->getShowActions()) ?>
 	</div>

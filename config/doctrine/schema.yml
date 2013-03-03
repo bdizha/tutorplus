@@ -545,6 +545,15 @@ CourseReadingItem:
     course_id:                  { type: integer, notnull: true }
   relations:
     Course:                     { class: Course, local: course_id, foreign: id, onDelete: CASCADE }
+
+CourseSyllabus: 
+  actAs:
+  tableName:                    course_syllabus
+  columns:
+    content:                    { type: clob, notnull: true, default: "Edit me", }
+    course_id:                  { type: integer, notnull: true }
+  relations:
+    Course:                     { class: Course, local: course_id, foreign: id, onDelete: CASCADE, foreignType: one }
       
 CampusCourse:
   actAs:

@@ -5,7 +5,7 @@
   text-decoration: none;
   font-size: 12px;
   text-shadow: none;
-  line-height: 20px;
+  line-height: 1.45em;
   font-family: 'Gotham SSm 4r', 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Segoe, 'Segoe UI', 'Segoe WP', Calibri, Arial, clean, sans-serif;;
 }
 
@@ -15,7 +15,7 @@ html{
 }
 
 li {
-  line-height: 20px;
+  line-height: 1.45em;
   position: relative;
 }
 

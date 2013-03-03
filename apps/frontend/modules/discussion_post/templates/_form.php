@@ -7,7 +7,7 @@
         <div class="post_input_holder">
             <div class="value">
                 <div class="input" id="redactor_post_holder_<?php echo $discussionTopicId ?>">
-                    <span class="placeholder">What do you have to share with your peers?</span>
+                    <span class="placeholder">You could share something with your peers ...</span>
                     <?php echo $form["message"] ?>
                 </div>
             </div>
@@ -22,7 +22,7 @@
 <script type='text/javascript'>
     //<![CDATA[
     $(document).ready(function(){
-        $('#discussion_post_message').redactor();
+        $('#discussion_post_message').redactor({ toolbar: false });
 
         var redactorPlaceholder = $('#discussion_post_form .placeholder');
         var redactorTextarea = $('#discussion_post_form .redactor_editor');

@@ -19,7 +19,7 @@ class peerActions extends autoPeerActions {
 		$this->instructorPeers = PeerTable::getInstance()->findByProfileIdAndIsInstructor($this->profile->getId(), true);
 		$this->suggestedPeers = PeerTable::getInstance()->findByProfileIdAndStatus($this->profile->getId(), PeerTable::STATUS_SUGGESTED);
 		$this->requestingPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->profile->getId(), PeerTable::STATUS_REQUESTED);
-		$this->invitedPeers = PeerTable::getInstance()->findByInviteeIdAndStatus($this->profile->getId(), PeerTable::STATUS_REQUESTED);
+		$this->invitedPeers = PeerTable::getInstance()->findByInviterIdAndStatus($this->profile->getId(), PeerTable::STATUS_REQUESTED);
 		$this->potentialPeers = PeerTable::getInstance()->findByNotProfileId($this->profile->getId());
 		parent::preExecute();
 	}

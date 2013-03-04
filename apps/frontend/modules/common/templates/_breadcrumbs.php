@@ -4,9 +4,9 @@
     <?php $totalCount = count($breadcrumbs); ?>
     <div id="breadcrumbs">
         <?php foreach ($breadcrumbs as $title => $routeSuffix): ?>
-            <a href = "/<?php echo $routeSuffix; ?>"><?php echo myToolkit::shortenString($title, 50); ?></a>
+            <a href = "/<?php echo $routeSuffix; ?>"><?php echo $title; ?></a>
             <?php if ($counter != $totalCount): ?>
-                <span>/</span>
+                <span>&raquo;</span>
             <?php endif; ?>
             <?php $counter++; ?>
         <?php endforeach; ?>

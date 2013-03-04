@@ -65,38 +65,38 @@ class DiscussionPeerTable extends Doctrine_Table {
 		return self::$statuses;
 	}
 
-	public function retrievePeers($discussionGroupId, $isRemoved = 0) {
+	public function retrievePeers($discussionId, $isRemoved = 0) {
 		$q = Doctrine_Query::create()
 		->from('DiscussionPeer dp')
-		->addWhere('dp.discussion_group_id = ?', $discussionGroupId)
+		->addWhere('dp.discussion_id = ?', $discussionId)
 		->addWhere('dp.is_removed = ?', $isRemoved);
 
 		return $q->execute();
 	}
 
-	public function deleteByProfileIdsAndDiscussionGroupId($profileIds, $discussionGroupId) {
+	public function deleteByProfileIdsAndDiscussionId($profileIds, $discussionId) {
 		$q = $this->createQuery('dp')
 		->delete()
 		->whereIn('dp.profile_id', $profileIds)
-		->andWhere('dp.discussion_group_id = ?', $discussionGroupId)
+		->andWhere('dp.discussion_id = ?', $discussionId)
 		->execute();
 	}
 
-	public function getPeersByDiscussionGroupIdAndProfileId($discussionGroupId, $profileId) {
+	public function getPeersByDiscussionIdAndProfileId($discussionId, $profileId) {
 		$q = $this->createQuery('dp')
-		->addWhere('dp.discussion_group_id = ?', $discussionGroupId)
+		->addWhere('dp.discussion_id = ?', $discussionId)
 		->andWhere('dp.profile_id = ?', $profileId);
 
 		return $q->fetchOne();
 	}
 
-	public function retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $discussionGroupId, $limit = 2) {
+	public function retrieveSuggestionsByStudentIdAndProfileId($studentId, $profileId, $discussionId, $limit = 2) {
 		$randomizedSuggestions = array();
 
 		$where = "(id IN (SELECT st.profile_id FROM Student st WHERE st.id IN (SELECT sc.student_id FROM StudentCourse sc WHERE sc.course_id IN (SELECT sc2.course_id FROM Studentcourse sc2 WHERE sc2.student_id = $studentId))) ";
 		$where .= "OR (p.id IN (SELECT p1.inviter_id FROM peer p1 WHERE p1.invitee_id = $profileId)) ";
 		$where .= "OR (p.id IN (SELECT p2.invitee_id FROM peer p2 WHERE p2.inviter_id = $profileId))) ";
-		$where .= "AND (p.id NOT IN (SELECT dp.profile_id FROM DiscussionPeer dp WHERE dp.discussion_group_id = $discussionGroupId))";
+		$where .= "AND (p.id NOT IN (SELECT dp.profile_id FROM DiscussionPeer dp WHERE dp.discussion_id = $discussionId))";
 		$q = Doctrine_Query::create()
 		->select('p.id, p.first_name, p.last_name')
 		->from("Profile p")
@@ -122,9 +122,9 @@ class DiscussionPeerTable extends Doctrine_Table {
 		return $suggestedProfiles;
 	}
 
-	public function findOneByDiscussionGroupIdAndProfileId($discussionGroupId, $profileId) {
+	public function findOneByDiscussionIdAndProfileId($discussionId, $profileId) {
 		$q = $this->createQuery()
-		->where('discussion_group_id = ?', $discussionGroupId)
+		->where('discussion_id = ?', $discussionId)
 		->andWhere("profile_id = ?", $profileId);
 
 		return $q->fetchOne();

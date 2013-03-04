@@ -25,11 +25,11 @@
                         <span class="list-count"><?php echo $discussionTopic->getPosts()->count() ?></span> posts 
                         <span class="list-count"><?php echo $discussionTopic->getCommentCount() ?></span> comments
                         <span class="list-count"><?php echo $discussionTopic->getViewCount() ?></span> views
-                        <span class="list-count"><?php echo $discussionTopic->getDiscussionGroup()->getPeers()->count() ?></span> peers
+                        <span class="list-count"><?php echo $discussionTopic->getDiscussion()->getPeers()->count() ?></span> peers
                     </div>
                 </div>
             </div>
-            <?php include_partial('common/actions', array('actions' => $helper->getShowActions($discussionGroup, $discussionPeer, $discussionGroup->hasProfile($sf_user->getId())))) ?>
+            <?php include_partial('common/actions', array('actions' => $helper->getShowActions($discussion, $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
             <div id="discussion_post_form_container">
                 <div id="sf_admin_form_container">
                     <?php include_partial('discussion_post/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>
@@ -44,4 +44,4 @@
     </div>
 </div>
 <?php include_partial('discussion_comment/js') ?>
-<?php include_partial('discussion_group/js', array("helper" => $helper)) ?>
+<?php include_partial('discussion/js', array("helper" => $helper)) ?>

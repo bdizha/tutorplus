@@ -35,7 +35,7 @@ span.separator{
     font-size: 14px;
 }
 
-.discussion_group_message{
+.discussion_message{
     display: table;
     padding-top: 10px;
     width: 100%;
@@ -99,7 +99,7 @@ span.separator{
 
 #discussion_topic_subject,
 #discussion_peer_nickname,
-#discussion_group_name{
+#discussion_name{
     width: 687px !important;
 }
 
@@ -118,7 +118,7 @@ span.separator{
     height: 150px;
 }
 
-#discussion_group_description{
+#discussion_description{
     width: 687px !important;
     max-height: 100px;
     height: 100px;
@@ -259,7 +259,7 @@ span.separator{
     border-radius: 3px;
 }
 
-#discussion_group_container .left {
+#discussion_container .left {
     margin-right: 20px;
 }
 

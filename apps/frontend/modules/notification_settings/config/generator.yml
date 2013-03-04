@@ -21,7 +21,7 @@ generator:
         announcement_alerts:    { label: "There's any announcement alerts" }
         event_alerts:           { label: "There's any event alerts" }
         peer_activities:        { label: "There's any new peer activities" }
-        discussion_updates:     { label: "My DiscussionGroups or topics are updated" }
+        discussion_updates:     { label: "My Discussions or topics are updated" }
         course_updates:         { label: "There's any course material changes/uploads" }
         assignment_due:         { label: "Assignments are due for submissions" }
         system_updates:         { label: "New changes have been applied to the TutorPlus system" }

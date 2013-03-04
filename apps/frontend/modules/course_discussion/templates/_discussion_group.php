@@ -1,27 +1,27 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php if ($courseDiscussionGroup): ?>
+<?php if ($courseDiscussion): ?>
     <div class="heading">
-        <?php include_partial('personal_info/photo', array('profile' => $courseDiscussionGroup->getProfile(), "dimension" => 36)) ?>
+        <?php include_partial('personal_info/photo', array('profile' => $courseDiscussion->getProfile(), "dimension" => 36)) ?>
         <div class="name">
-            <?php echo link_to($courseDiscussionGroup->getName(), 'discussion_group_show', $courseDiscussionGroup) ?>
+            <?php echo link_to($courseDiscussion->getName(), 'discussion_show', $courseDiscussion) ?>
         </div>
     </div>
     <div class="body">
-        <?php echo $courseDiscussionGroup->getDescription() ?>
-        <div class="user-meta">Started by <?php echo link_to($courseDiscussionGroup->getProfile(), 'profile_show', $courseDiscussionGroup->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($courseDiscussionGroup->getCreatedAt()) ?></span></div>
+        <?php echo $courseDiscussion->getDescription() ?>
+        <div class="user-meta">Started by <?php echo link_to($courseDiscussion->getProfile(), 'profile_show', $courseDiscussion->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($courseDiscussion->getCreatedAt()) ?></span></div>
     </div>
-    <?php if ($courseDiscussionGroup->getProfileId() == $sf_user->getId() && !isset($getShowActions)): ?>
+    <?php if ($courseDiscussion->getProfileId() == $sf_user->getId() && !isset($getShowActions)): ?>
         <div class="inline-content-actions">
-            <?php echo $helper->linkToDiscussionGroupView($courseDiscussionGroup, array()) ?>
-            <?php echo $helper->linkToDiscussionGroupEdit($courseDiscussionGroup, array()) ?>
-            <?php echo $helper->linkToDiscussionGroupDelete($courseDiscussionGroup, array("confirm" => "Are you sure?")) ?>
+            <?php echo $helper->linkToDiscussionView($courseDiscussion, array()) ?>
+            <?php echo $helper->linkToDiscussionEdit($courseDiscussion, array()) ?>
+            <?php echo $helper->linkToDiscussionDelete($courseDiscussion, array("confirm" => "Are you sure?")) ?>
         </div>
     <?php endif; ?>
     <div class="statistics">
-        <span class="list-count"><?php echo $courseDiscussionGroup->getTopics()->count() ?></span> topics 
-        <span class="list-count"><?php echo $courseDiscussionGroup->getPostCount() ?></span> posts 
-        <span class="list-count"><?php echo $courseDiscussionGroup->getCommentCount() ?></span> comments
-        <span class="list-count"><?php echo $courseDiscussionGroup->getViewCount() ?></span> views
-        <span class="list-count"><?php echo $courseDiscussionGroup->getPeers()->count() ?></span> peers
+        <span class="list-count"><?php echo $courseDiscussion->getTopics()->count() ?></span> topics 
+        <span class="list-count"><?php echo $courseDiscussion->getPostCount() ?></span> posts 
+        <span class="list-count"><?php echo $courseDiscussion->getCommentCount() ?></span> comments
+        <span class="list-count"><?php echo $courseDiscussion->getViewCount() ?></span> views
+        <span class="list-count"><?php echo $courseDiscussion->getPeers()->count() ?></span> peers
     </div>
 <?php endif; ?>

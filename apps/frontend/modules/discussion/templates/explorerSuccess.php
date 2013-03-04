@@ -7,18 +7,18 @@
         <?php include_partial('common/tabs', array('tabs' => $helper->getTabs($myDiscussions, $exploreDiscussions, "explorer"))) ?>
         <div class="tab-block">
             <ul class="sf_admin_actions">
-                <?php include_partial('discussion_group/list_actions', array('helper' => $helper)) ?>
+                <?php include_partial('discussion/list_actions', array('helper' => $helper)) ?>
             </ul>
-            <?php include_partial('discussion_group/list', array('discussionGroups' => $exploreDiscussions, 'helper' => $helper)) ?>
+            <?php include_partial('discussion/list', array('discussionGroups' => $exploreDiscussions, 'helper' => $helper)) ?>
             <ul class="sf_admin_actions">
-                <?php include_partial('discussion_group/list_actions', array('helper' => $helper)) ?>
+                <?php include_partial('discussion/list_actions', array('helper' => $helper)) ?>
             </ul>
         </div>
     </div>
 </div>
 <script type='text/javascript'>
     $(document).ready(function(){    
-        $(".discussion_group").hover(function(){
+        $(".discussion").hover(function(){
             $(this).children(".inline-content-actions").show();
         },
         function(){

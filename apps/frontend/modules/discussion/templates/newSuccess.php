@@ -7,11 +7,11 @@
 		<div class="content-block">
 			<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($myDiscussions, $exploreDiscussions, "new"))) ?>
 			<div class="tab-block">
-				<?php include_partial('discussion_group/form', array('discussion_group' => $discussion_group, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
+				<?php include_partial('discussion/form', array('discussion' => $discussion, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
 			</div>
 		</div>
 		<div id="sf_admin_footer">
-			<?php include_partial('discussion_group/form_footer', array('discussion_group' => $discussion_group, 'form' => $form, 'configuration' => $configuration)) ?>
+			<?php include_partial('discussion/form_footer', array('discussion' => $discussion, 'form' => $form, 'configuration' => $configuration)) ?>
 		</div>
 	</div>
 </div>

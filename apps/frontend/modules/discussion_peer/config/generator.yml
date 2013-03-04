@@ -25,7 +25,7 @@ generator:
       filter:
         class:                         false
       list:
-        title:                         DiscussionGroup Members
+        title:                         Discussion Members
         display:                       [ =user, nickname, membership_type_display, status_display, is_removed ]
         sort:                          [ nickname, asc ]
         batch_actions:                 []
@@ -33,7 +33,7 @@ generator:
         object_actions:
           _edit:                       []
         actions:
-          listDiscussionGroup:         { label: < My Discussion }
+          listDiscussion:         { label: < My Discussion }
           _new:                        { label: + Invite Peers }
       edit:
         title:                         Edit Membership

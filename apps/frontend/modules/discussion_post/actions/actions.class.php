@@ -49,7 +49,7 @@ class discussion_postActions extends autoDiscussion_postActions {
                 //$this->sendEmail($discussion_post);
             }
 
-            // session the new created DiscussionGroup topic message id
+            // session the new created Discussion topic message id
             $this->getUser()->setMyAttribute('discussion_post_show_id', $discussion_post->getId());
 
             $this->getUser()->setFlash('notice', $notice);

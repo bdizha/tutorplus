@@ -16,10 +16,10 @@ class DiscussionPeerForm extends BaseDiscussionPeerForm {
         );
 
         $profile = sfContext::getInstance()->getUser()->getProfile();
-        $discussionGroupId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_group_show_id', "");
+        $discussionId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_show_id', "");
 
         $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema['discussion_group_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['discussion_id'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['subscription_type'] = new sfWidgetFormChoice(array(
             'choices' => DiscussionPeerTable::getInstance()->getSubscriptionTypes(),
             "expanded" => true, "multiple" => false
@@ -38,7 +38,7 @@ class DiscussionPeerForm extends BaseDiscussionPeerForm {
         $this->setDefaults(array(
             'profile_id' => $profile->getId(),
             'nickname' => $this->isNew() ? $profile->getFirstName() : $this->getObject()->getNickname(),
-            'discussion_group_id' => $discussionGroupId,
+            'discussion_id' => $discussionId,
         ));
     }
 

@@ -66,7 +66,7 @@ class course_peerGeneratorHelper {
             "groups" => array(
                 "label" => "Groups",
                 "href" => "/course/discussion",
-                "count" => $course->getCourseDiscussionGroups()->count()
+                "count" => $course->getCourseDiscussions()->count()
             ),
             "peers" => array(
                 "label" => "Peers",

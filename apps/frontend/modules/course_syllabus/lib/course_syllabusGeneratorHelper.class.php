@@ -11,6 +11,7 @@
 class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper {
 
     protected $profile = null;
+    protected $courseSyllabus = null;
 
     public function setProfile($profile)
     {
@@ -22,9 +23,22 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
         return $this->profile;
     }
 
-    public function getTabs($course, $activeTab = "show")
+    public function setCourseSyllabus($courseSyllabus)
     {
-        $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($course->getId());
+        $this->courseSyllabus = $courseSyllabus;
+    }
+
+    protected function getCourseSyllabus()
+    {
+        return $this->courseSyllabus;
+    }
+
+    public function getTabs($course, $activeTab = "show", $courseSyllabus = null)
+    {
+        if (!is_null($courseSyllabus)) {
+            $this->setCourseSyllabus($courseSyllabus);
+        }
+
         $tabs = array(
             "posts" => array(
                 "label" => "Course Info",
@@ -33,12 +47,12 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
             ),
             "syllabus_show" => array(
                 "label" => "Syllabus",
-                "href" => "/course/syllabus/" . $courseSyllabus->getId(),
+                "href" => "/course/syllabus/" . $this->getCourseSyllabus()->getId(),
                 "is_active" => $activeTab == "show"
             ),
             "syllabus_edit" => array(
                 "label" => "Edit Syllabus",
-                "href" => "/course/syllabus/" . $courseSyllabus->getId() . "/edit",
+                "href" => "/course/syllabus/" . $this->getCourseSyllabus()->getId() . "/edit",
                 "is_active" => $activeTab == "edit"
             ),
             "videos" => array(
@@ -55,7 +69,7 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
             "groups" => array(
                 "label" => "Groups",
                 "href" => "/course/discussion",
-                "count" => $course->getCourseDiscussionGroups()->count(),
+                "count" => $course->getCourseDiscussions()->count(),
             ),
             "peers" => array(
                 "label" => "Peers",
@@ -79,12 +93,17 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
         return $tabs;
     }
 
-    public function getBreadcrumbs($course)
+    public function getBreadcrumbs($course, $courseSyllabus = null)
     {
+        if (!is_null($courseSyllabus)) {
+            $this->setCourseSyllabus($courseSyllabus);
+        }
         return array(
             'breadcrumbs' => array(
-                "Course" => "course",
-                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
+                "Courses" => "/course/explorer",
+                "My Courses" => "/my/courses",
+                myToolkit::shortenString($course->getCode() . " ~ " . $course->getName(), 255) => "/my/course/" . $course->getSlug(),
+                "Syllabus" => "course/syllabus/" . $this->getCourseSyllabus()->getId()
             )
         );
     }
@@ -96,6 +115,16 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
             "current_child" => "courses",
             "current_link" => "my_courses"
         );
+    }
+
+    public function linkToCancel($object, $params)
+    {
+        return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/my/course/' . $object->getCourse()->getSlug() . '\'"/>';
+    }
+
+    public function linkToDone($object, $params)
+    {
+        return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/my/course/' . $object->getCourse()->getSlug() . '\'"/>';
     }
 
 }

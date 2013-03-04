@@ -10,7 +10,7 @@
 <div id="sf_admin_form_container">
 	<div id="sf_admin_content">
 		<div class="content-block">
-			<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($course, $courseDiscussionGroups, "new"))) ?>
+			<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($course, $courseDiscussions, "new"))) ?>
 			<div class="tab-block">
 				<?php include_partial('course_discussion/form', array('course' => $course, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
 				<div id="sf_admin_footer">

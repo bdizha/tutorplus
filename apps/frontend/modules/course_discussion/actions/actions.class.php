@@ -21,8 +21,8 @@ class course_discussionActions extends autoCourse_discussionActions {
         $this->forward404Unless($this->course, sprintf('The requested course does not exist (%s).', $courseId));
 
         // ensure there's a primary course discussion group
-        DiscussionGroupTable::getInstance()->findOrCreateOneByCourse($this->course, $this->getUser()->getId());
-    	$this->courseDiscussionGroups = DiscussionGroupTable::getInstance()->findByCourseId($courseId);
+        DiscussionTable::getInstance()->findOrCreateOneByCourse($this->course, $this->getUser()->getId());
+    	$this->courseDiscussions = DiscussionTable::getInstance()->findByCourseId($courseId);
     }
 
     public function executeIndex(sfWebRequest $request) {
@@ -31,11 +31,11 @@ class course_discussionActions extends autoCourse_discussionActions {
     public function executeShow(sfWebRequest $request) {
         $this->discussionGroup = $this->getRoute()->getObject();
         $this->forward404Unless($this->discussionGroup);
-        $this->getUser()->setMyAttribute('discussion_group_show_id', $this->discussionGroup->getId());
+        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussionGroup->getId());
 
-        $courseDiscussionGroup = $this->discussionGroup->getCourseDiscussionGroup();
-        if ($courseDiscussionGroup) {
-            $this->getUser()->setMyAttribute('course_show_id', $courseDiscussionGroup->getCourseId());
+        $courseDiscussion = $this->discussionGroup->getCourseDiscussion();
+        if ($courseDiscussion) {
+            $this->getUser()->setMyAttribute('course_show_id', $courseDiscussion->getCourseId());
         }
     }
 
@@ -44,14 +44,14 @@ class course_discussionActions extends autoCourse_discussionActions {
         if ($form->isValid()) {
             $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
             try {
-                // save the DiscussionGroup
-                $discussionGroup = $form->save();
+                // save the Discussion
+                $discussion = $form->save();
 
                 // save a course discussion
-                $courseDiscussionGroup = new CourseDiscussionGroup();
-                $courseDiscussionGroup->setCourse($this->course);
-                $courseDiscussionGroup->setDiscussionGroup($discussionGroup);
-                $courseDiscussionGroup->save();
+                $courseDiscussion = new CourseDiscussion();
+                $courseDiscussion->setCourse($this->course);
+                $courseDiscussion->setDiscussion($discussion);
+                $courseDiscussion->save();
             } catch (Doctrine_Validator_Exception $e) {
                 $errorStack = $form->getObject()->getErrorStack();
 
@@ -65,7 +65,7 @@ class course_discussionActions extends autoCourse_discussionActions {
                 return sfView::SUCCESS;
             }
 
-            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $discussionGroup)));
+            $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $discussion)));
 
             if ($request->hasParameter('_save_and_add')) {
                 $this->getUser()->setFlash('notice', $notice . ' You can add another one below.');
@@ -73,7 +73,7 @@ class course_discussionActions extends autoCourse_discussionActions {
                 $this->redirect('@course_discussion_new');
             } else {
                 $this->getUser()->setFlash('notice', $notice);
-                $this->redirect(array('sf_route' => 'course_discussion_edit', 'sf_subject' => $discussionGroup));
+                $this->redirect(array('sf_route' => 'course_discussion_edit', 'sf_subject' => $discussion));
             }
         } else {
             $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);

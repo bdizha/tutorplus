@@ -87,7 +87,8 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
     {
         return array(
             'breadcrumbs' => array(
-                "Course" => "course",
+                "Courses" => "/course/explorer",
+                "My Courses" => "/my/courses",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
             )
         );
@@ -182,14 +183,14 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function getShowTabs($course, $activeTab = "info")
+    public function getShowTabs($course, $activeTab = "show")
     {
         $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($course->getId());
         $tabs = array(
             "posts" => array(
                 "label" => "Course Info",
                 "href" => "/my/course/" . $course->getSlug(),
-                "is_active" => $activeTab == "info"
+                "is_active" => $activeTab == "show"
             ),
             "syllabus" => array(
                 "label" => "Syllabus",
@@ -210,7 +211,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
             "groups" => array(
                 "label" => "Groups",
                 "href" => "/course/discussion",
-                "count" => $course->getCourseDiscussionGroups()->count(),
+                "count" => $course->getCourseDiscussions()->count(),
             ),
             "peers" => array(
                 "label" => "Peers",

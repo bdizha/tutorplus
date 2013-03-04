@@ -1,14 +1,14 @@
 <?php
 
 switch ($activityFeed->getType()) {
-    case ActivityFeedTable::TYPE_DISCUSSION_GROUP_CREATED:
-        include_partial('activity_feed/group_created', array('activityFeed' => $activityFeed));
+    case ActivityFeedTable::TYPE_DISCUSSION_CREATED:
+        include_partial('activity_feed/discussion_created', array('activityFeed' => $activityFeed));
         break;
     case ActivityFeedTable::TYPE_DISCUSSION_PEER_SUBSCRIBED:
-        include_partial('activity_feed/group_subscribed', array('activityFeed' => $activityFeed));
+        include_partial('activity_feed/discussion_subscribed', array('activityFeed' => $activityFeed));
         break;
     case ActivityFeedTable::TYPE_DISCUSSION_PEER_UNSUBSCRIBED:
-        include_partial('activity_feed/group_unsubscribed', array('activityFeed' => $activityFeed));
+        include_partial('activity_feed/discussion_unsubscribed', array('activityFeed' => $activityFeed));
         break;
     case ActivityFeedTable::TYPE_DISCUSSION_TOPIC_SUBMITTED:
         include_partial('activity_feed/topic_started', array('activityFeed' => $activityFeed));

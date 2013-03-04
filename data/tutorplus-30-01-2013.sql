@@ -244,23 +244,23 @@ CREATE TABLE assignment (
 ALTER TABLE public.assignment OWNER TO tutorplus;
 
 --
--- Name: assignment_discussion_group; Type: TABLE; Schema: public; Owner: tutorplus; Tablespace: 
+-- Name: assignment_discussion; Type: TABLE; Schema: public; Owner: tutorplus; Tablespace: 
 --
 
-CREATE TABLE assignment_discussion_group (
+CREATE TABLE assignment_discussion (
     id bigint NOT NULL,
     assignment_id bigint NOT NULL,
-    discussion_group_id bigint NOT NULL
+    discussion_id bigint NOT NULL
 );
 
 
-ALTER TABLE public.assignment_discussion_group OWNER TO tutorplus;
+ALTER TABLE public.assignment_discussion OWNER TO tutorplus;
 
 --
--- Name: assignment_discussion_group_id_seq; Type: SEQUENCE; Schema: public; Owner: tutorplus
+-- Name: assignment_discussion_id_seq; Type: SEQUENCE; Schema: public; Owner: tutorplus
 --
 
-CREATE SEQUENCE assignment_discussion_group_id_seq
+CREATE SEQUENCE assignment_discussion_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -268,13 +268,13 @@ CREATE SEQUENCE assignment_discussion_group_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.assignment_discussion_group_id_seq OWNER TO tutorplus;
+ALTER TABLE public.assignment_discussion_id_seq OWNER TO tutorplus;
 
 --
--- Name: assignment_discussion_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: tutorplus
+-- Name: assignment_discussion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: tutorplus
 --
 
-ALTER SEQUENCE assignment_discussion_group_id_seq OWNED BY assignment_discussion_group.id;
+ALTER SEQUENCE assignment_discussion_id_seq OWNED BY assignment_discussion.id;
 
 
 --
@@ -318,7 +318,7 @@ ALTER SEQUENCE assignment_file_id_seq OWNED BY assignment_file.id;
 CREATE TABLE assignment_group (
     id bigint NOT NULL,
     assignment_id bigint NOT NULL,
-    discussion_group_id bigint NOT NULL
+    discussion_id bigint NOT NULL
 );
 
 
@@ -807,23 +807,23 @@ ALTER SEQUENCE course_announcement_id_seq OWNED BY course_announcement.id;
 
 
 --
--- Name: course_discussion_group; Type: TABLE; Schema: public; Owner: tutorplus; Tablespace: 
+-- Name: course_discussion; Type: TABLE; Schema: public; Owner: tutorplus; Tablespace: 
 --
 
-CREATE TABLE course_discussion_group (
+CREATE TABLE course_discussion (
     id bigint NOT NULL,
     course_id bigint NOT NULL,
-    discussion_group_id bigint NOT NULL
+    discussion_id bigint NOT NULL
 );
 
 
-ALTER TABLE public.course_discussion_group OWNER TO tutorplus;
+ALTER TABLE public.course_discussion OWNER TO tutorplus;
 
 --
--- Name: course_discussion_group_id_seq; Type: SEQUENCE; Schema: public; Owner: tutorplus
+-- Name: course_discussion_id_seq; Type: SEQUENCE; Schema: public; Owner: tutorplus
 --
 
-CREATE SEQUENCE course_discussion_group_id_seq
+CREATE SEQUENCE course_discussion_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -831,13 +831,13 @@ CREATE SEQUENCE course_discussion_group_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.course_discussion_group_id_seq OWNER TO tutorplus;
+ALTER TABLE public.course_discussion_id_seq OWNER TO tutorplus;
 
 --
--- Name: course_discussion_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: tutorplus
+-- Name: course_discussion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: tutorplus
 --
 
-ALTER SEQUENCE course_discussion_group_id_seq OWNED BY course_discussion_group.id;
+ALTER SEQUENCE course_discussion_id_seq OWNED BY course_discussion.id;
 
 
 --
@@ -915,7 +915,7 @@ ALTER SEQUENCE course_folder_id_seq OWNED BY course_folder.id;
 CREATE TABLE course_group (
     id bigint NOT NULL,
     course_id bigint NOT NULL,
-    discussion_group_id bigint NOT NULL
+    discussion_id bigint NOT NULL
 );
 
 
@@ -1178,10 +1178,10 @@ ALTER SEQUENCE discussion_comment_id_seq OWNED BY discussion_comment.id;
 
 
 --
--- Name: discussion_group; Type: TABLE; Schema: public; Owner: tutorplus; Tablespace: 
+-- Name: discussion; Type: TABLE; Schema: public; Owner: tutorplus; Tablespace: 
 --
 
-CREATE TABLE discussion_group (
+CREATE TABLE discussion (
     id bigint NOT NULL,
     name character varying(255) NOT NULL,
     profile_id bigint NOT NULL,
@@ -1200,13 +1200,13 @@ CREATE TABLE discussion_group (
 );
 
 
-ALTER TABLE public.discussion_group OWNER TO tutorplus;
+ALTER TABLE public.discussion OWNER TO tutorplus;
 
 --
--- Name: discussion_group_id_seq; Type: SEQUENCE; Schema: public; Owner: tutorplus
+-- Name: discussion_id_seq; Type: SEQUENCE; Schema: public; Owner: tutorplus
 --
 
-CREATE SEQUENCE discussion_group_id_seq
+CREATE SEQUENCE discussion_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1214,13 +1214,13 @@ CREATE SEQUENCE discussion_group_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.discussion_group_id_seq OWNER TO tutorplus;
+ALTER TABLE public.discussion_id_seq OWNER TO tutorplus;
 
 --
--- Name: discussion_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: tutorplus
+-- Name: discussion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: tutorplus
 --
 
-ALTER SEQUENCE discussion_group_id_seq OWNED BY discussion_group.id;
+ALTER SEQUENCE discussion_id_seq OWNED BY discussion.id;
 
 
 --
@@ -1233,7 +1233,7 @@ CREATE TABLE discussion_peer (
     subscription_type bigint DEFAULT 0 NOT NULL,
     membership_type bigint DEFAULT 0 NOT NULL,
     status bigint DEFAULT 0 NOT NULL,
-    discussion_group_id bigint NOT NULL,
+    discussion_id bigint NOT NULL,
     profile_id bigint NOT NULL,
     is_removed boolean DEFAULT false,
     created_at timestamp without time zone NOT NULL,
@@ -1310,7 +1310,7 @@ CREATE TABLE discussion_topic (
     subject character varying(255) NOT NULL,
     type character varying(255) DEFAULT 'General'::character varying NOT NULL,
     message text NOT NULL,
-    discussion_group_id bigint NOT NULL,
+    discussion_id bigint NOT NULL,
     profile_id bigint NOT NULL,
     latest_comment_id bigint,
     view_count bigint DEFAULT 0,
@@ -2918,7 +2918,7 @@ ALTER TABLE ONLY assignment ALTER COLUMN id SET DEFAULT nextval('assignment_id_s
 -- Name: id; Type: DEFAULT; Schema: public; Owner: tutorplus
 --
 
-ALTER TABLE ONLY assignment_discussion_group ALTER COLUMN id SET DEFAULT nextval('assignment_discussion_group_id_seq'::regclass);
+ALTER TABLE ONLY assignment_discussion ALTER COLUMN id SET DEFAULT nextval('assignment_discussion_id_seq'::regclass);
 
 
 --
@@ -3023,7 +3023,7 @@ ALTER TABLE ONLY course_announcement ALTER COLUMN id SET DEFAULT nextval('course
 -- Name: id; Type: DEFAULT; Schema: public; Owner: tutorplus
 --
 
-ALTER TABLE ONLY course_discussion_group ALTER COLUMN id SET DEFAULT nextval('course_discussion_group_id_seq'::regclass);
+ALTER TABLE ONLY course_discussion ALTER COLUMN id SET DEFAULT nextval('course_discussion_id_seq'::regclass);
 
 
 --
@@ -3093,7 +3093,7 @@ ALTER TABLE ONLY discussion_comment ALTER COLUMN id SET DEFAULT nextval('discuss
 -- Name: id; Type: DEFAULT; Schema: public; Owner: tutorplus
 --
 
-ALTER TABLE ONLY discussion_group ALTER COLUMN id SET DEFAULT nextval('discussion_group_id_seq'::regclass);
+ALTER TABLE ONLY discussion ALTER COLUMN id SET DEFAULT nextval('discussion_id_seq'::regclass);
 
 
 --
@@ -3591,18 +3591,18 @@ COPY assignment (id, title, assessment_type_id, description, submission, due_dat
 
 
 --
--- Data for Name: assignment_discussion_group; Type: TABLE DATA; Schema: public; Owner: tutorplus
+-- Data for Name: assignment_discussion; Type: TABLE DATA; Schema: public; Owner: tutorplus
 --
 
-COPY assignment_discussion_group (id, assignment_id, discussion_group_id) FROM stdin;
+COPY assignment_discussion (id, assignment_id, discussion_id) FROM stdin;
 \.
 
 
 --
--- Name: assignment_discussion_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tutorplus
+-- Name: assignment_discussion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tutorplus
 --
 
-SELECT pg_catalog.setval('assignment_discussion_group_id_seq', 1, false);
+SELECT pg_catalog.setval('assignment_discussion_id_seq', 1, false);
 
 
 --
@@ -3624,7 +3624,7 @@ SELECT pg_catalog.setval('assignment_file_id_seq', 1, false);
 -- Data for Name: assignment_group; Type: TABLE DATA; Schema: public; Owner: tutorplus
 --
 
-COPY assignment_group (id, assignment_id, discussion_group_id) FROM stdin;
+COPY assignment_group (id, assignment_id, discussion_id) FROM stdin;
 \.
 
 
@@ -3823,19 +3823,19 @@ SELECT pg_catalog.setval('course_announcement_id_seq', 1, false);
 
 
 --
--- Data for Name: course_discussion_group; Type: TABLE DATA; Schema: public; Owner: tutorplus
+-- Data for Name: course_discussion; Type: TABLE DATA; Schema: public; Owner: tutorplus
 --
 
-COPY course_discussion_group (id, course_id, discussion_group_id) FROM stdin;
+COPY course_discussion (id, course_id, discussion_id) FROM stdin;
 2	2	4
 \.
 
 
 --
--- Name: course_discussion_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tutorplus
+-- Name: course_discussion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tutorplus
 --
 
-SELECT pg_catalog.setval('course_discussion_group_id_seq', 2, true);
+SELECT pg_catalog.setval('course_discussion_id_seq', 2, true);
 
 
 --
@@ -3872,7 +3872,7 @@ SELECT pg_catalog.setval('course_folder_id_seq', 1, false);
 -- Data for Name: course_group; Type: TABLE DATA; Schema: public; Owner: tutorplus
 --
 
-COPY course_group (id, course_id, discussion_group_id) FROM stdin;
+COPY course_group (id, course_id, discussion_id) FROM stdin;
 \.
 
 
@@ -3993,10 +3993,10 @@ SELECT pg_catalog.setval('discussion_comment_id_seq', 11, true);
 
 
 --
--- Data for Name: discussion_group; Type: TABLE DATA; Schema: public; Owner: tutorplus
+-- Data for Name: discussion; Type: TABLE DATA; Schema: public; Owner: tutorplus
 --
 
-COPY discussion_group (id, name, profile_id, description, access_level, last_visit, latest_comment_id, comment_count, post_count, view_count, is_primary, is_removed, created_at, updated_at, slug) FROM stdin;
+COPY discussion (id, name, profile_id, description, access_level, last_visit, latest_comment_id, comment_count, post_count, view_count, is_primary, is_removed, created_at, updated_at, slug) FROM stdin;
 4	ABT1514 - main discussion	10	This is the main group for the "An Introduction to Interactive Programming in Python" course. Essentially, all the peers of this course are encouraged to participate and collaborate with each other in order for each one involved to fully benefit from the rest of their group.	1	\N	\N	0	0	0	f	f	2013-01-30 00:06:41	2013-01-30 00:06:41	abt1514-main-discussion
 2	Lufuno Sadiki's general group	10	This is Lufuno Sadiki's general group in which you can share anything with them.	1	\N	11	11	6	25	t	f	2013-01-28 23:23:28	2013-01-30 00:47:13	lufuno-sadiki-s-general-group
 5	Wallace Chigona's general group	19	This is Wallace Chigona's general group in which you can share anything with them.	1	\N	\N	0	0	0	t	f	2013-01-30 00:51:01	2013-01-30 00:51:01	wallace-chigona-s-general-group
@@ -4004,17 +4004,17 @@ COPY discussion_group (id, name, profile_id, description, access_level, last_vis
 
 
 --
--- Name: discussion_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tutorplus
+-- Name: discussion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tutorplus
 --
 
-SELECT pg_catalog.setval('discussion_group_id_seq', 5, true);
+SELECT pg_catalog.setval('discussion_id_seq', 5, true);
 
 
 --
 -- Data for Name: discussion_peer; Type: TABLE DATA; Schema: public; Owner: tutorplus
 --
 
-COPY discussion_peer (id, nickname, subscription_type, membership_type, status, discussion_group_id, profile_id, is_removed, created_at, updated_at) FROM stdin;
+COPY discussion_peer (id, nickname, subscription_type, membership_type, status, discussion_id, profile_id, is_removed, created_at, updated_at) FROM stdin;
 1	lufuno	0	2	4	1	10	f	2013-01-28 23:13:53	2013-01-28 23:13:53
 2	lufuno	0	2	4	2	10	f	2013-01-28 23:23:28	2013-01-28 23:23:28
 3	Tendayi	0	0	0	3	14	f	2013-01-29 23:59:28	2013-01-29 23:59:28
@@ -4083,7 +4083,7 @@ SELECT pg_catalog.setval('discussion_post_id_seq', 8, true);
 -- Data for Name: discussion_topic; Type: TABLE DATA; Schema: public; Owner: tutorplus
 --
 
-COPY discussion_topic (id, subject, type, message, discussion_group_id, profile_id, latest_comment_id, view_count, comment_count, is_primary, created_at, updated_at, slug) FROM stdin;
+COPY discussion_topic (id, subject, type, message, discussion_id, profile_id, latest_comment_id, view_count, comment_count, is_primary, created_at, updated_at, slug) FROM stdin;
 3	Welcome to TutorPlus!	General	Hi fellow participant, It's a great pleasure to have you as a part of this collaborative learning platform and we would like you to be readily available to share with your peers any relevant academic experiences we all have to endure in all our varied learning objectives. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!	2	10	11	50	11	t	2013-01-28 23:23:28	2013-01-29 22:51:06	welcome-to-tutorplus-2
 4	Welcome to TutorPlus!	General	Hi fellow participant, It's a great pleasure to have you as a part of this collaborative learning platform and we would like you to be readily available to share with your peers any relevant academic experiences we all have to endure in all our varied learning objectives. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!	5	19	\N	0	0	t	2013-01-30 00:51:01	2013-01-30 00:51:01	welcome-to-tutorplus-5
 \.
@@ -5052,11 +5052,11 @@ ALTER TABLE ONLY assessment_type
 
 
 --
--- Name: assignment_discussion_group_pkey; Type: CONSTRAINT; Schema: public; Owner: tutorplus; Tablespace: 
+-- Name: assignment_discussion_pkey; Type: CONSTRAINT; Schema: public; Owner: tutorplus; Tablespace: 
 --
 
-ALTER TABLE ONLY assignment_discussion_group
-    ADD CONSTRAINT assignment_discussion_group_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY assignment_discussion
+    ADD CONSTRAINT assignment_discussion_pkey PRIMARY KEY (id);
 
 
 --
@@ -5172,11 +5172,11 @@ ALTER TABLE ONLY course_announcement
 
 
 --
--- Name: course_discussion_group_pkey; Type: CONSTRAINT; Schema: public; Owner: tutorplus; Tablespace: 
+-- Name: course_discussion_pkey; Type: CONSTRAINT; Schema: public; Owner: tutorplus; Tablespace: 
 --
 
-ALTER TABLE ONLY course_discussion_group
-    ADD CONSTRAINT course_discussion_group_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY course_discussion
+    ADD CONSTRAINT course_discussion_pkey PRIMARY KEY (id);
 
 
 --
@@ -5260,11 +5260,11 @@ ALTER TABLE ONLY discussion_comment
 
 
 --
--- Name: discussion_group_pkey; Type: CONSTRAINT; Schema: public; Owner: tutorplus; Tablespace: 
+-- Name: discussion_pkey; Type: CONSTRAINT; Schema: public; Owner: tutorplus; Tablespace: 
 --
 
-ALTER TABLE ONLY discussion_group
-    ADD CONSTRAINT discussion_group_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY discussion
+    ADD CONSTRAINT discussion_pkey PRIMARY KEY (id);
 
 
 --
@@ -5656,10 +5656,10 @@ CREATE UNIQUE INDEX course_sluggable ON course USING btree (slug, code, name);
 
 
 --
--- Name: discussion_group_sluggable; Type: INDEX; Schema: public; Owner: tutorplus; Tablespace: 
+-- Name: discussion_sluggable; Type: INDEX; Schema: public; Owner: tutorplus; Tablespace: 
 --
 
-CREATE UNIQUE INDEX discussion_group_sluggable ON discussion_group USING btree (slug);
+CREATE UNIQUE INDEX discussion_sluggable ON discussion USING btree (slug);
 
 
 --
@@ -5731,8 +5731,8 @@ ALTER TABLE ONLY activity_feed
 -- Name: addi; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
 --
 
-ALTER TABLE ONLY assignment_discussion_group
-    ADD CONSTRAINT addi FOREIGN KEY (discussion_group_id) REFERENCES discussion_group(id) ON DELETE CASCADE;
+ALTER TABLE ONLY assignment_discussion
+    ADD CONSTRAINT addi FOREIGN KEY (discussion_id) REFERENCES discussion(id) ON DELETE CASCADE;
 
 
 --
@@ -5920,19 +5920,19 @@ ALTER TABLE ONLY course
 
 
 --
--- Name: course_discussion_group_course_id_course_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
+-- Name: course_discussion_course_id_course_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
 --
 
-ALTER TABLE ONLY course_discussion_group
-    ADD CONSTRAINT course_discussion_group_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE;
+ALTER TABLE ONLY course_discussion
+    ADD CONSTRAINT course_discussion_course_id_course_id FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE;
 
 
 --
--- Name: course_discussion_group_discussion_group_id_discussion_group_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
+-- Name: course_discussion_discussion_id_discussion_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
 --
 
-ALTER TABLE ONLY course_discussion_group
-    ADD CONSTRAINT course_discussion_group_discussion_group_id_discussion_group_id FOREIGN KEY (discussion_group_id) REFERENCES discussion_group(id) ON DELETE CASCADE;
+ALTER TABLE ONLY course_discussion
+    ADD CONSTRAINT course_discussion_discussion_id_discussion_id FOREIGN KEY (discussion_id) REFERENCES discussion(id) ON DELETE CASCADE;
 
 
 --
@@ -6048,27 +6048,27 @@ ALTER TABLE ONLY discussion_comment
 
 
 --
--- Name: discussion_group_latest_comment_id_discussion_comment_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
+-- Name: discussion_latest_comment_id_discussion_comment_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
 --
 
-ALTER TABLE ONLY discussion_group
-    ADD CONSTRAINT discussion_group_latest_comment_id_discussion_comment_id FOREIGN KEY (latest_comment_id) REFERENCES discussion_comment(id) ON DELETE CASCADE;
-
-
---
--- Name: discussion_group_profile_id_profile_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
---
-
-ALTER TABLE ONLY discussion_group
-    ADD CONSTRAINT discussion_group_profile_id_profile_id FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE;
+ALTER TABLE ONLY discussion
+    ADD CONSTRAINT discussion_latest_comment_id_discussion_comment_id FOREIGN KEY (latest_comment_id) REFERENCES discussion_comment(id) ON DELETE CASCADE;
 
 
 --
--- Name: discussion_topic_discussion_group_id_discussion_group_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
+-- Name: discussion_profile_id_profile_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
+--
+
+ALTER TABLE ONLY discussion
+    ADD CONSTRAINT discussion_profile_id_profile_id FOREIGN KEY (profile_id) REFERENCES profile(id) ON DELETE CASCADE;
+
+
+--
+-- Name: discussion_topic_discussion_id_discussion_id; Type: FK CONSTRAINT; Schema: public; Owner: tutorplus
 --
 
 ALTER TABLE ONLY discussion_topic
-    ADD CONSTRAINT discussion_topic_discussion_group_id_discussion_group_id FOREIGN KEY (discussion_group_id) REFERENCES discussion_group(id) ON DELETE CASCADE;
+    ADD CONSTRAINT discussion_topic_discussion_id_discussion_id FOREIGN KEY (discussion_id) REFERENCES discussion(id) ON DELETE CASCADE;
 
 
 --

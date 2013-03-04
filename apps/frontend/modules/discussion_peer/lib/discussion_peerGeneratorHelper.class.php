@@ -10,31 +10,31 @@
  */
 class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper {
 
-    public $discussionGroup = null;
+    public $discussion = null;
 
-    public function setDiscussionGroup($discussionGroup)
+    public function setDiscussion($discussion)
     {
-        $this->discussionGroup = $discussionGroup;
+        $this->discussionGroup = $discussion;
     }
 
-    public function getDiscussionGroup()
+    public function getDiscussion()
     {
         return $this->discussionGroup;
     }
 
-    public function getDiscussionGroupBreadcrumbs()
+    public function getDiscussionBreadcrumbs()
     {
         return array(
             'breadcrumbs' => array(
-                "DiscussionGroups" => "discussion_group",
-                "DiscussionGroup Explorer" => "discussion_group",
-                $this->getDiscussionGroup()->getName() => "discussion/group/" . $this->getDiscussionGroup()->getSlug(),
+                "Discussions" => "discussion",
+                "Discussion Explorer" => "discussion",
+                $this->getDiscussion()->getName() => "discussion/group/" . $this->getDiscussion()->getSlug(),
                 "Discussion Peers" => "discussion/peer"
             )
         );
     }
 
-    public function getDiscussionGroupLinks()
+    public function getDiscussionLinks()
     {
         return array(
             "currentParent" => "groups",
@@ -45,12 +45,12 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
 
     public function getCourseBreadcrumbs()
     {
-        $course = $this->getDiscussionGroup()->getCourse();
+        $course = $this->getDiscussion()->getCourse();
         return array('breadcrumbs' => array(
                 "Courses" => "course",
                 $course->getCode() . " ~ " . myToolkit::shortenString($course->getName(), 50) => "course/" . $course->getSlug(),
                 "Discussions" => "course_discussion",
-                myToolkit::shortenString($this->getDiscussionGroup()->getName(), 50) => "course/discussion/group/" . $this->getDiscussionGroup()->getSlug(),
+                myToolkit::shortenString($this->getDiscussion()->getName(), 50) => "course/discussion/group/" . $this->getDiscussion()->getSlug(),
                 "Peers" => "discussion_peer"
             )
         );
@@ -96,20 +96,20 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
 
     public function getEditBreadcrumbs($object)
     {
-        $discussionGroup = $object->getDiscussionGroup();
+        $discussion = $object->getDiscussion();
         return array('breadcrumbs' => array(
-                "Group Explorer" => "discussion_group",
-                myToolkit::shortenString($discussionGroup->getName(), 50) => "discussion/group/" . $discussionGroup->getSlug(),
+                "Group Explorer" => "discussion",
+                myToolkit::shortenString($discussion->getName(), 50) => "discussion/group/" . $discussion->getSlug(),
                 "Peers" => "discussion/peer",
                 "Edit Membership ~ " . $object->getNickname() => "discussion/peer/" . $object->getId() . "/edit"
             )
         );
     }
 
-    public function getIndexActions($discussionGroup, $discussionPeer, $hasProfile)
+    public function getIndexActions($discussion, $discussionPeer, $hasProfile)
     {
         $actions = array(
-            "my_discussion_group" => array("title" => "&lt; My Group", "url" => "/discussion/group/" . $discussionGroup->getSlug()),
+            "my_discussion" => array("title" => "&lt; My Group", "url" => "/discussion/group/" . $discussion->getSlug()),
             "invite_peers" => array("title" => "+ Invite Peers", "url" => "/discussion/peer/invite"),
             "new_topic" => array("title" => "+ New Topic", "href" => "/discussion/topic/new")
         );
@@ -122,17 +122,17 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
         return $actions;
     }
 
-    public function getTabs($discussionGroup, $myPeers, $activeTab)
+    public function getTabs($discussion, $myPeers, $activeTab)
     {
         return array(
             "group_info" => array(
                 "label" => "Group Info",
-                "href" => "/discussion/group/" . $discussionGroup->getSlug()
+                "href" => "/discussion/group/" . $discussion->getSlug()
             ),
             "topics" => array(
                 "label" => "Topics",
-                "href" => "/discussion/group/" . $discussionGroup->getSlug() . "/topics",
-                "count" => $discussionGroup->getTopics()->count()
+                "href" => "/discussion/group/" . $discussion->getSlug() . "/topics",
+                "count" => $discussion->getTopics()->count()
             ),
             "new_topic" => array(
                 "label" => "+ New Topic",
@@ -141,7 +141,7 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper 
             "peers" => array(
                 "label" => "Peers",
                 "href" => "/discussion/peer",
-                "count" => $discussionGroup->getPeers()->count(),
+                "count" => $discussion->getPeers()->count(),
                 "is_active" => $activeTab == "index"
             ),
             "invite_peers" => array(

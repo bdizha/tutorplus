@@ -10,11 +10,11 @@
 <div id="sf_admin_form_container">
 	<div id="sf_admin_content">
 		<div class="content-block">
-			<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($course, $courseDiscussionGroups, "edit", $discussion_group))) ?>
+			<?php include_partial('common/tabs', array('tabs' => $helper->getTabs($course, $courseDiscussions, "edit", $discussion))) ?>
 			<div class="tab-block">
-				<?php include_partial('course_discussion/form', array('discussion_group' => $discussion_group, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
+				<?php include_partial('course_discussion/form', array('discussion' => $discussion, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
 				<div id="sf_admin_footer">
-					<?php include_partial('course_discussion/form_footer', array('discussion_group' => $discussion_group, 'form' => $form, 'configuration' => $configuration)) ?>
+					<?php include_partial('course_discussion/form_footer', array('discussion' => $discussion, 'form' => $form, 'configuration' => $configuration)) ?>
 				</div>
 			</div>
 		</div>

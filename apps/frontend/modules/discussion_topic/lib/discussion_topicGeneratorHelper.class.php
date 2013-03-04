@@ -10,14 +10,14 @@
  */
 class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelper {
 
-	protected $discussionGroup = null;
+	protected $discussion = null;
 
-	public function getDiscussionGroup(){
+	public function getDiscussion(){
 		return $this->discussionGroup;
 	}
 
-	public function setDiscussionGroup($discussionGroup){
-		$this->discussionGroup = $discussionGroup;
+	public function setDiscussion($discussion){
+		$this->discussionGroup = $discussion;
 	}
 
 	public function newBreadcrumbs() {
@@ -45,13 +45,13 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 	}
 
 	public function getCourseBreadcrumbs($discussionTopic) {
-		$discussionGroup = $discussionTopic->getDiscussionGroup();
-		$course = $discussionTopic->getDiscussionGroup()->getCourse();
+		$discussion = $discussionTopic->getDiscussion();
+		$course = $discussionTopic->getDiscussion()->getCourse();
 		return array('breadcrumbs' => array(
 				"Courses" => "course",
 				$course->getCode() => "course/" . $course->getSlug(),
-				"DiscussionGroups" => "course_discussion",
-				$discussionGroup->getName() => "discussion/group/" . $discussionGroup->getId(),
+				"Discussions" => "course_discussion",
+				$discussion->getName() => "discussion/group/" . $discussion->getId(),
 				$discussionTopic->getSubject() => "discussion_topic/" . $discussionTopic->getSlug()
 		)
 		);
@@ -66,11 +66,11 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 	}
 
 	public function getShowBreadcrumbs($discussionTopic) {
-		$discussionGroup = $discussionTopic->getDiscussionGroup();
+		$discussion = $discussionTopic->getDiscussion();
 		return array('breadcrumbs' => array(
-				"DiscussionGroups" => "discussion_group",
-				"DiscussionGroup Explorer" => "discussion_group",
-				$discussionGroup->getName() => "discussion/group/" . $discussionGroup->getSlug(),
+				"Discussions" => "discussion",
+				"Discussion Explorer" => "discussion",
+				$discussion->getName() => "discussion/group/" . $discussion->getSlug(),
 				myToolkit::shortenString($discussionTopic->getSubject(), 40) => "discussion_topic/" . $discussionTopic->getSlug()
 		)
 		);
@@ -84,9 +84,9 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 		);
 	}
 
-	public function getShowActions($discussionGroup, $discussionPeer, $hasProfile) {
+	public function getShowActions($discussion, $discussionPeer, $hasProfile) {
 		$actions = array(
-				"my_discussion_group" => array("title" => "&lt; My Group", "url" => "/discussion/group/" . $discussionGroup->getSlug()),
+				"my_discussion" => array("title" => "&lt; My Group", "url" => "/discussion/group/" . $discussion->getSlug()),
 				"manage_peers" => array("title" => "Manage Peers", "url" => "/discussion/peer"),
 				"invite_peers" => array("title" => "+ Invite Peers", "href" => "/discussion/peer/invite")
 		);
@@ -100,7 +100,7 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 	}
 
 	public function getShowTabs($discussionTopic, $myPeers) {
-		$discussionGroup = $discussionTopic->getDiscussionGroup();
+		$discussion = $discussionTopic->getDiscussion();
 		return array(
 				"posts" => array(
 						"label" => "Posts",
@@ -111,7 +111,7 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 				"peers" => array(
 						"label" => "Peers",
 						"href" => "/discussion/peer",
-						"count" => $discussionGroup->getPeers()->count()
+						"count" => $discussion->getPeers()->count()
 				),
 				"invite_peers" => array(
 						"label" => "+ Invite Peers",
@@ -121,17 +121,17 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 		);
 	}
 
-	public function getTabs($discussionGroup, $myPeers, $activeTab, $discussionTopic = null) {
+	public function getTabs($discussion, $myPeers, $activeTab, $discussionTopic = null) {
 		$tabs = array(
 				"group_info" => array(
 						"label" => "Info",
-						"href" => "/discussion/group/" . $discussionGroup->getSlug(),
+						"href" => "/discussion/group/" . $discussion->getSlug(),
 						"is_active" => $activeTab == "show"
 				),
 				"topics" => array(
 						"label" => "Topics",
-						"href" => "/discussion/group/" . $discussionGroup->getSlug() . "/topics",
-						"count" => $discussionGroup->getTopics()->count()
+						"href" => "/discussion/group/" . $discussion->getSlug() . "/topics",
+						"count" => $discussion->getTopics()->count()
 				),
 				"new_topic" => array(
 						"label" => "+ New Topic",
@@ -141,7 +141,7 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 				"peers" => array(
 						"label" => "Peers",
 						"href" => "/discussion/peer",
-						"count" => $discussionGroup->getPeers()->count()
+						"count" => $discussion->getPeers()->count()
 				),
 				"invite_peers" => array(
 						"label" => "+ Invite Peers",
@@ -182,11 +182,11 @@ class discussion_topicGeneratorHelper extends Basediscussion_topicGeneratorHelpe
 	}
 
 	public function linkToCancel($object, $params) {
-		return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/discussion/group/' . $this->getDiscussionGroup()->getSlug() .'\'"/>';
+		return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/discussion/group/' . $this->getDiscussion()->getSlug() .'\'"/>';
 	}
 
 	public function linkToDone($object, $params) {
-		return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/discussion/group/' . $this->getDiscussionGroup()->getSlug() .'\'"/>';
+		return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/discussion/group/' . $this->getDiscussion()->getSlug() .'\'"/>';
 	}
 
 	public function linkToDelete($object, $params) {

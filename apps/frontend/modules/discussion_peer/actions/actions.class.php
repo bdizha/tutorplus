@@ -15,17 +15,17 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 
 	public function preExecute() {
 		parent::preExecute();
-		$discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
-		$this->redirectUnless($discussionGroupId, "@discussion_group");
-		$this->discussionGroup = DiscussionGroupTable::getInstance()->find($discussionGroupId);
-		$this->discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionGroupIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
+		$discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
+		$this->redirectUnless($discussionId, "@discussion");
+		$this->discussionGroup = DiscussionTable::getInstance()->find($discussionId);
+		$this->discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
 		$this->myPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
-		$this->helper->setDiscussionGroup($this->discussionGroup);
+		$this->helper->setDiscussion($this->discussionGroup);
 		$this->forward404Unless($this->discussionGroup);
 	}
 
 	public function beforeExecute() {
-		$course = $this->discussionGroup->getCourseDiscussionGroup()->getCourse();
+		$course = $this->discussionGroup->getCourseDiscussion()->getCourse();
 		if ($course->getId()) {
 			$this->course = $course;
 			$this->getUser()->setMyAttribute('course_show_id', $course->getId());
@@ -46,14 +46,14 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 	}
 
 	public function executeInvite(sfWebRequest $request) {
-		$discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
+		$discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
 		$this->discussionPeerIds = array();
 		if ($request->getMethod() == "POST") {
 			try {
 				$peers = $request->getParameter('peers');
 
 				// save peers
-				$this->discussionPeerIds = $this->savePeerInvitations($discussionGroupId, $peers);
+				$this->discussionPeerIds = $this->savePeerInvitations($discussionId, $peers);
 
 				// send invitation emails
 				// $this->sendPeerInvitations($form, $peers);
@@ -62,13 +62,13 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 			}
 		} else {
 			// fetch the current discussion peers
-			$this->discussionPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
+			$this->discussionPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionId($discussionId);
 		}
 	}
 
-	protected function savePeerInvitations($discussionGroupId, $postedPeerIds = array()) {
+	protected function savePeerInvitations($discussionId, $postedPeerIds = array()) {
 		// fetch the current discussion peers
-		$discussionPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionGroupId($discussionGroupId);
+		$discussionPeerIds = ProfileTable::getInstance()->retrieveProfileIdsByDiscussionId($discussionId);
 
 		// make sure a profile can only manage their own peers
 		$myDiscussionPeerIds = array();
@@ -87,7 +87,7 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 		// determine what do delete
 		$toDelete = array_diff($myDiscussionPeerIds, $postedPeerIds);
 		if (count($toDelete)) {
-			DiscussionPeerTable::getInstance()->deleteByProfileIdsAndDiscussionGroupId($toDelete, $discussionGroupId);
+			DiscussionPeerTable::getInstance()->deleteByProfileIdsAndDiscussionId($toDelete, $discussionId);
 			$this->getUser()->setFlash("notice", "Your discussion peers were managed successfully!");
 		}
 
@@ -100,14 +100,14 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 				if (!in_array($profile->getId(), $discussionPeerIds)) {
 					$profileId = $profile->getId();
 					if ($this->discussionGroup->hasProfile($profileId)) {
-						$discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionGroupIdAndProfileId($discussionGroupId, $profileId);
+						$discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($discussionId, $profileId);
 						$discussionPeer->setIsRemoved(false);
 						$discussionPeer->save();
 					} else {
 						$discussionPeer = new DiscussionPeer();
 						$discussionPeer->setNickname(strtolower($profile->getFirstName()));
 						$discussionPeer->setStatus(DiscussionPeerTable::MEMBERSHIP_TYPE_ORDINARY);
-						$discussionPeer->setDiscussionGroupId($discussionGroupId);
+						$discussionPeer->setDiscussionId($discussionId);
 						$discussionPeer->setProfileId($profile->getId());
 						$discussionPeer->save();
 					}
@@ -131,7 +131,7 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 				$discussionPeer = new DiscussionPeer();
 				$discussionPeer->setNickname(strtolower($profile->getFirstName()));
 				$discussionPeer->setProfileId($profileId);
-				$discussionPeer->setDiscussionGroupId($this->discussionGroup->getId());
+				$discussionPeer->setDiscussionId($this->discussionGroup->getId());
 				$discussionPeer->save();
 
 				echo "{$profile->getName()} has been added to this discussion successfully.";

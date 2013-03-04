@@ -34,7 +34,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
     public function getGroupsBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Profile" => "profile_timeline",
-                "DiscussionGroups" => "profile_timeline"
+                "Discussions" => "profile_timeline"
             )
         );
     }

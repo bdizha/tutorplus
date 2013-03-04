@@ -33,10 +33,10 @@ class DiscussionCommentTable extends Doctrine_Table
         $q = $this->createQuery('dc')
             ->innerJoin('dc.DiscussionPost dp')
             ->innerJoin('dp.DiscussionTopic dt')
-            ->innerJoin('dt.DiscussionGroup dg');
+            ->innerJoin('dt.Discussion dg');
         if ($courseId)
         {
-            $q->innerJoin('d.CourseDiscussionGroup cdg')
+            $q->innerJoin('d.CourseDiscussion cdg')
                 ->addWhere('cdg.course_id = ?', $courseId);
         }
         $q->addWhere('dc.created_at > ?', date('Y-m-d H:i:s', strtotime("NOW - 7 days")));

@@ -227,7 +227,7 @@ activity_feed_posts:
 course_discussion:
   class: sfDoctrineRouteCollection
   options:
-    model:                DiscussionGroup
+    model:                Discussion
     module:               course_discussion
     prefix_path:          /course/discussion
     column:               id
@@ -748,9 +748,9 @@ profile_qualifications:
   url: /profile/qualifications
   param: { module: achievement, action: qualifications }
   
-profile_groups:
-  url: /profile/groups
-  param: { module: profile, action: groups }
+profile_discussions:
+  url: /profile/discussions
+  param: { module: profile, action: discussions }
   
 profile_topics:
   url: /profile/topics
@@ -1115,19 +1115,19 @@ course_home:
   param: { module: course, action: info }
   
 discussion_my:
-  url:   /my/groups
-  param: { module: discussion_group, action: my }  
+  url:   /my/discussions
+  param: { module: discussion, action: my }  
   
 discussion_explorer:
-  url:   /group/explorer
-  param: { module: discussion_group, action: explorer }
+  url:   /discussion/explorer
+  param: { module: discussion, action: explorer }
 
-discussion_group:
+discussion:
   class: sfDoctrineRouteCollection
   options:
-    model:                DiscussionGroup
-    module:               discussion_group
-    prefix_path:          /discussion/group
+    model:                Discussion
+    module:               discussion
+    prefix_path:          /discussion
     column:               id
     with_wildcard_routes: true
     
@@ -1163,17 +1163,17 @@ news_item_show:
   requirements:
     sf_method: [get] 
     
-discussion_group_show:
+discussion_show:
   url:     /discussion/group/:slug
   class:   sfDoctrineRoute
-  options: { model: DiscussionGroup, type: object }
-  param:   { module: discussion_group, action: show }
+  options: { model: Discussion, type: object }
+  param:   { module: discussion, action: show }
   requirements:
     sf_method: [get]
   
-discussion_group_topics:
+discussion_topics:
   url:   /discussion/group/:slug/topics
-  param: { module: discussion_group, action: topics }
+  param: { module: discussion, action: topics }
     
 course_info:
   url:   /course/info

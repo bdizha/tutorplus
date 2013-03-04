@@ -33,57 +33,57 @@
         });
         $(".enroll").click(function(){
 <?php if (!$sf_user->isAuthenticated()): ?>
-                            document.location.href = $(this).attr("href");  
-                            return false;
+                document.location.href = $(this).attr("href");  
+                return false;
 <?php endif; ?>
-                        if ($(this).attr("value") !== 'Enrolling...') {
-                            $(this).attr("value", "Enrolling...");
-                            var $this = $(this);
-                            $.get($(this).attr("href"), {}, function(response){
-                                if (response == "success") {
-                                    $this.removeClass("enroll");
-                                    $this.addClass("unregister");
-                                    $this.parent().removeClass("button-box-enroll");
-                                    $this.parent().addClass("button-box-unregister");
+            if ($(this).attr("value") !== 'Enrolling...') {
+                $(this).attr("value", "Enrolling...");
+                var $this = $(this);
+                $.get($(this).attr("href"), {}, function(response){
+                    if (response == "success") {
+                        $this.removeClass("enroll");
+                        $this.addClass("unregister");
+                        $this.parent().removeClass("button-box-enroll");
+                        $this.parent().addClass("button-box-unregister");
 
-                                    $this.attr("value", "Unregister Course!");
-                                    reloadWindow();
-                                }
-                                else{
-                                    reloadWindow();
-                                }
-                            },'html');
-                        }
-                    });
+                        $this.attr("value", "Unregister Course!");
+                        reloadWindow();
+                    }
+                    else{
+                        reloadWindow();
+                    }
+                },'html');
+            }
+        });
 
-                    $(".unregister").click(function(){
-                        if ($(this).attr("value") !== 'Unregistering...') {
-                            $(this).attr("value", "Unregistering...");
-                            var $this = $(this);
-                            $.get($(this).attr("href"), {}, function(response){
-                                if (response == "success") {
-                                    $this.addClass("enroll");
-                                    $this.removeClass("unregister");
-                                    $this.parent().addClass("button-box-enroll");
-                                    $this.parent().removeClass("button-box-unregister");
+        $(".unregister").click(function(){
+            if ($(this).attr("value") !== 'Unregistering...') {
+                $(this).attr("value", "Unregistering...");
+                var $this = $(this);
+                $.get($(this).attr("href"), {}, function(response){
+                    if (response == "success") {
+                        $this.addClass("enroll");
+                        $this.removeClass("unregister");
+                        $this.parent().addClass("button-box-enroll");
+                        $this.parent().removeClass("button-box-unregister");
 
-                                    $this.attr("value", "+ Enroll Now!");
-                                    reloadWindow();
-                                }
-                                else{
-                                    reloadWindow();
-                                }
-                            },'html');
-                        }
-                    })
-                });
+                        $this.attr("value", "+ Enroll Now!");
+                        reloadWindow();
+                    }
+                    else{
+                        reloadWindow();
+                    }
+                },'html');
+            }
+        })
+    });
 
-                function fetchCourseInstructors(){
-                    $('#course_instructors').html(loadingHtml);
-                    $.get('/course/instructor',showCourseInstructors);
-                }
+    function fetchCourseInstructors(){
+        $('#course_instructors').html(loadingHtml);
+        $.get('/course/instructor',showCourseInstructors);
+    }
 
-                function showCourseInstructors(res){
-                    $('#course_instructors').html(res);
-                }
+    function showCourseInstructors(res){
+        $('#course_instructors').html(res);
+    }
 </script>

@@ -76,11 +76,11 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         );
     }
 
-    public function getShowBreadcrumbs($discussionGroup)
+    public function getShowBreadcrumbs($discussion)
     {
         return array('breadcrumbs' => array(
                 "Course Discussions" => "course_discussion",
-                $discussionGroup->getName() => "course/discussion/" . $discussionGroup->getSlug()
+                $discussion->getName() => "course/discussion/" . $discussion->getSlug()
             )
         );
     }
@@ -103,17 +103,17 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         }
     }
 
-    public function linkToDiscussionGroupView($object, $params)
+    public function linkToDiscussionView($object, $params)
     {
         return link_to(__('View Discussion', array(), 'sf_admin'), "/course/discussion/" . $object->getSlug(), array("class" => "button-view"));
     }
 
-    public function linkToDiscussionGroupEdit($object, $params)
+    public function linkToDiscussionEdit($object, $params)
     {
         return link_to(__('Edit', array(), 'sf_admin'), "/course/discussion/" . $object->getId() . "/edit", array("class" => "button-edit"));
     }
 
-    public function linkToDiscussionGroupDelete($object, $params)
+    public function linkToDiscussionDelete($object, $params)
     {
         if ($object->isNew()) {
             return '';
@@ -126,7 +126,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         }
     }
 
-    public function linkToDiscussionGroup()
+    public function linkToDiscussion()
     {
         return '<input type="button" class="button" onclick="document.location.href=\'/course/discussion\';" value="&lt; Course Discussions"/>';
     }
@@ -146,7 +146,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         return '<input id="edit_discussion_peership" type="button" class="button" onClick="document.location.href=\'/discussion/peer/' . $memberId . '/edit\'" value="Edit Membership">';
     }
 
-    public function linkToJoinDiscussionGroup()
+    public function linkToJoinDiscussion()
     {
         return '<input type="button" class="button" href="/discussion/peer/join" value="Join Discussion">';
     }
@@ -161,7 +161,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         return '<input type="button" class="button" value="+ New Topic"/>';
     }
 
-    public function getTabs($course, $courseDiscussionGroups, $activeTab, $courseDiscussionGroup = null)
+    public function getTabs($course, $courseDiscussions, $activeTab, $courseDiscussion = null)
     {
         $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($course->getId());
         $tabs = array(
@@ -186,7 +186,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
             "groups" => array(
                 "label" => "Groups",
                 "href" => "/course/discussion",
-                "count" => $courseDiscussionGroups->count(),
+                "count" => $courseDiscussions->count(),
                 "is_active" => $activeTab == "index"
             ),
             "peers" => array(
@@ -207,7 +207,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
             unset($tabs["peers"]);
             $tabs["edit_group"] = array(
                 "label" => "Edit Group",
-                "href" => "/course/discussion/" . $courseDiscussionGroup->getId() . "/edit",
+                "href" => "/course/discussion/" . $courseDiscussion->getId() . "/edit",
                 "is_active" => $activeTab == "edit"
             );
         }

@@ -1,13 +1,13 @@
 <h2>Discussion Peers</h2>
 <div id="discussion_peers" class="tab-block  padding-10">
-    <?php include_partial('discussion_peer/members', array('discussionGroup' => $discussionGroup)) ?>            
+    <?php include_partial('discussion_peer/members', array('discussionGroup' => $discussion)) ?>            
 </div> 
 <ul class="sf_admin_actions" style="clear:both">
-    <li class="sf_admin_action_my_DiscussionGroups">
-        <?php if ($discussionGroup->getCourseDiscussionGroup()->getCourseId()): ?>
-            <input type="button" class="button" onclick="document.location.href='/course/DiscussionGroup';" value="&lt; Course DiscussionGroups" />
+    <li class="sf_admin_action_my_Discussions">
+        <?php if ($discussion->getCourseDiscussion()->getCourseId()): ?>
+            <input type="button" class="button" onclick="document.location.href='/course/Discussion';" value="&lt; Course Discussions" />
         <?php else: ?>
-            <input type="button" class="button" onclick="document.location.href='/DiscussionGroup';" value="&lt; DiscussionGroups" />
+            <input type="button" class="button" onclick="document.location.href='/Discussion';" value="&lt; Discussions" />
         <?php endif; ?>                
     </li>
     <li class="sf_admin_action_member_new">
@@ -16,7 +16,7 @@
     <li class="sf_admin_action_member">
         <input type="button" class="button" onclick="document.location.href='/discussion/peer';" value="Manage Peers" />
     </li>
-    <?php $member = $discussionGroup->getMemberByProfileId($sf_user->getId()); ?>
+    <?php $member = $discussion->getMemberByProfileId($sf_user->getId()); ?>
     <?php if ($member): ?>
         <li class="sf_admin_action_edit_member">
             <input type="button" class="button" href="/discussion/peer/<?php echo $member->getId() ?>/edit" value="Edit Membership">

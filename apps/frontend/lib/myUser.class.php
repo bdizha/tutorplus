@@ -115,6 +115,7 @@ class myUser extends sfBasicSecurityUser {
 
         // signin
         $this->setAttribute('profile_id', $profile->getId(), 'ProfileSecurityUser');
+        $this->setMyAttribute('profile_show_id', $profile->getId());
         $this->setAuthenticated(true);
         $this->clearCredentials();
         $this->addCredentials($profile->getAllPermissionNames());
@@ -123,11 +124,11 @@ class myUser extends sfBasicSecurityUser {
         PeerTable::getInstance()->findOrCreateSelfPeerByProfileId($profile->getId());
 
         // create a default primary discussion group
-        $primaryDiscussionGroup = DiscussionGroupTable::getInstance()->findOrCreatePrimaryDiscussionGroupByProfile($profile);
+        $primaryDiscussion = DiscussionTable::getInstance()->findOrCreatePrimaryDiscussionByProfile($profile);
 
-        if ($primaryDiscussionGroup) {
+        if ($primaryDiscussion) {
             // create a default primary discussion topic
-            DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($profile->getId(), $primaryDiscussionGroup->getId());
+            DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($profile->getId(), $primaryDiscussion->getId());
         }
 
         // should we remember this profile
@@ -213,7 +214,7 @@ class myUser extends sfBasicSecurityUser {
      * @return integer
      */
     public function getId() {
-        return $this->getMyAttribute("profile_id", null);
+        return $this->getMyAttribute("show_profile_id", null);
     }
 
     /**

@@ -1,13 +1,13 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           DiscussionGroup
+    model_class:           Discussion
     theme:                 normal
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          discussion_group
+    route_prefix:          discussion
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
@@ -22,7 +22,7 @@ generator:
       filter:
         class: false
       list:
-        title:             My Groups
+        title:             My Discussions
         display:           [ =name, user, access_level, nb_topics, last_visit ]
         sort:              [ name, asc ]
         batch_actions:     [ ]
@@ -30,15 +30,15 @@ generator:
           _edit:           [ ]
         max_per_page:      10
         actions:
-          _new:            { label: "+ New Group" }
+          _new:            { label: "+ New Discussion" }
       edit:
-        title:             Edit Group
+        title:             Edit Discussion
         actions:
-          cancel:          []
-          done:            []
-          _save:           []
+          cancel:          [ ]
+          done:            [ ]
+          _save:           [ ]
       new:
-        title:             New Group
+        title:             New Discussion
         actions:
           cancel:          [ ]
           _save:           [ label: Proceed ]

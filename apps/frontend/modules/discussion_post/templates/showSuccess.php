@@ -24,7 +24,7 @@
             var postid = $(this).attr("id");
             var message = $("#discussion_post_form_" + postid + " textarea").val();
             if ($.trim(message) == "") {
-                alert("Please enter your DiscussionGroup post!");
+                alert("Please enter your Discussion post!");
                 return;
             }
 

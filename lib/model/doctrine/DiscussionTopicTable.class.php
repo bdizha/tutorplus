@@ -18,9 +18,9 @@ class DiscussionTopicTable extends Doctrine_Table {
 
     public function getNbNewTopics($courseId = null) {
         $q = $this->createQuery('dt')
-                ->innerJoin('dt.DiscussionGroup d');
+                ->innerJoin('dt.Discussion d');
         if ($courseId) {
-            $q->innerJoin('d.CourseDiscussionGroup cd')
+            $q->innerJoin('d.CourseDiscussion cd')
                     ->addWhere('cd.course_id = ?', $courseId);
         }
 
@@ -30,11 +30,11 @@ class DiscussionTopicTable extends Doctrine_Table {
 
     public function getTopicWithRecentActivity($courseId = null) {
         $q = $this->createQuery('dt')
-                ->innerJoin('dt.DiscussionGroup d')
+                ->innerJoin('dt.Discussion d')
                 ->leftJoin('dt.Messages dtm')
                 ->leftJoin('dtm.Replies dtms');
         if ($courseId) {
-            $q->innerJoin('d.CourseDiscussionGroup cd')
+            $q->innerJoin('d.CourseDiscussion cd')
                     ->addWhere('cd.course_id = ?', $courseId);
         }
         $q->orderBy('dtms.id DESC')
@@ -46,11 +46,11 @@ class DiscussionTopicTable extends Doctrine_Table {
 
     public function getTopicWithMostActivities($courseId = null) {
         $q = $this->createQuery('dt')
-                ->innerJoin('dt.DiscussionGroup d')
+                ->innerJoin('dt.Discussion d')
                 ->leftJoin('dt.Messages dtm')
                 ->leftJoin('dtm.Replies dtms');
         if ($courseId) {
-            $q->innerJoin('d.CourseDiscussionGroup cd')
+            $q->innerJoin('d.CourseDiscussion cd')
                     ->addWhere('cd.course_id = ?', $courseId);
         }
         $q->orderBy('dtms.id DESC')
@@ -60,13 +60,13 @@ class DiscussionTopicTable extends Doctrine_Table {
         return $q->fetchOne();
     }
 
-    public function findOrCreateOneByProfileId($profileId, $discussionGroupId) {
+    public function findOrCreateOneByProfileId($profileId, $discussionId) {
         $discussionTopic = self::getInstance()->findOneByProfileId($profileId);
         if (!is_object($discussionTopic)) {
             $discussionTopic = new DiscussionTopic();
             $discussionTopic->setSubject("Welcome to TutorPlus!");
             $discussionTopic->setMessage("Hi fellow participant, It's a great pleasure to have you as a part of this collaborative learning platform and we would like you to be readily available to share with your peers any relevant academic experiences we all have to endure in all our varied learning objectives. I hope we will all exhibit the same sincereness and sense of belonging in enganging with the learning materials and our peers. God bless!");
-            $discussionTopic->setDiscussionGroupId($discussionGroupId);
+            $discussionTopic->setDiscussionId($discussionId);
             $discussionTopic->setIsPrimary(true);
             $discussionTopic->setProfileId($profileId);
             $discussionTopic->save();

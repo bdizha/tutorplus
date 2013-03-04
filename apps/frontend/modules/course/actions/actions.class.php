@@ -26,7 +26,7 @@ class courseActions extends autoCourseActions {
         $this->forward404Unless($this->course);
         $this->courseInstructorProfiles = ProfileTable::getInstance()->findByCourseId($this->course->getId(), true);
         $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
-        $this->courseDiscussionGroups = DiscussionGroupTable::getInstance()->findByCourseId($this->course->getId());
+        $this->courseDiscussions = DiscussionTable::getInstance()->findByCourseId($this->course->getId());
     }
 
     public function executeExplorer(sfWebRequest $request)

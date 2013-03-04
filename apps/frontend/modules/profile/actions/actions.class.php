@@ -22,10 +22,10 @@ class profileActions extends autoProfileActions {
     {
         $this->profileId = $this->getUser()->getMyAttribute('profile_show_id', null);
         $this->profile = ProfileTable::getInstance()->findOneById($this->profileId);
-        $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profileId);
-        $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_GROUP_CREATED);
-        $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_TOPIC_SUBMITTED);
-        $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_POST_SUBMITTED);
+        $this->activityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profileId, 20);
+        $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_CREATED, 20);
+        $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_TOPIC_SUBMITTED, 20);
+        $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_POST_SUBMITTED, 20);
     }
 
     /**
@@ -44,8 +44,8 @@ class profileActions extends autoProfileActions {
         $this->profile->suggestPeers();
         $this->beforeExecute();
 
-        $primaryDiscussionGroup = DiscussionGroupTable::getInstance()->findOrCreatePrimaryDiscussionGroupByProfile($this->profile);
-        $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->profile->getId(), $primaryDiscussionGroup->getId());
+        $primaryDiscussion = DiscussionTable::getInstance()->findOrCreatePrimaryDiscussionByProfile($this->profile);
+        $this->primaryDiscussionTopic = DiscussionTopicTable::getInstance()->findOrCreateOneByProfileId($this->profile->getId(), $primaryDiscussion->getId());
         $this->discussionCommentForm = new DiscussionCommentForm();
         $this->discussionPostForm = new DiscussionPostForm();
         $this->discussionPostForm->setDefaults(array(

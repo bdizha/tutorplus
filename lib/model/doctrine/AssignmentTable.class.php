@@ -9,7 +9,7 @@ class AssignmentTable extends Doctrine_Table
 {
     static public $types = array(
         1 => 'Assignment',
-        2 => 'DiscussionGroup',
+        2 => 'Discussion',
         3 => 'Quiz',
         4 => 'Not Graded'
     );

@@ -1,6 +1,6 @@
 <script type='text/javascript'>
     $(document).ready(function(){	
-        $('#discussion_group_description').redactor();
+        $('#discussion_description').redactor();
     });
     
     $(".save").click(function(){

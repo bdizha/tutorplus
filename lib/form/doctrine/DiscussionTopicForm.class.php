@@ -16,9 +16,9 @@ class DiscussionTopicForm extends BaseDiscussionTopicForm {
         );
 
         $profileId = sfContext::getInstance()->getUser()->getId();
-        $discussionGroupId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_group_show_id', null);
+        $discussionId = sfContext::getInstance()->getUser()->getMyAttribute('discussion_show_id', null);
         $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
-        $this->widgetSchema['discussion_group_id'] = new sfWidgetFormInputHidden();
+        $this->widgetSchema['discussion_id'] = new sfWidgetFormInputHidden();
 
         $this->validatorSchema['type']->setMessage('required', 'The <b>Genre</b> field is required.');
         $this->validatorSchema['subject']->setMessage('required', 'The <b>Subject</b> field is required.');
@@ -26,7 +26,7 @@ class DiscussionTopicForm extends BaseDiscussionTopicForm {
 
         $this->setDefaults(array(
             'profile_id' => $profileId,
-            'discussion_group_id' => $discussionGroupId,
+            'discussion_id' => $discussionId,
         ));
     }
 

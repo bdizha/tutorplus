@@ -100,8 +100,8 @@
 }
 
 #breadcrumbs span{
-    font-size: 11px;
-    line-height: 20px;
+    font-size: 20px;
+    line-height: 15px;
 }
 
 #breadcrumbs ol {
@@ -1100,6 +1100,7 @@ ul.department-course,.section-block ul {
     height: 54px;
     position: fixed;
     padding-top: 10px;
+    z-index: 999;
 }
 
 #bottom-menu {

@@ -13,7 +13,7 @@ class ActivityFeedTable extends Doctrine_Table {
     const TYPE_EMAIL_SENT = 3;
     const TYPE_ANNOUNCEMENT_POSTED = 4;
     const TYPE_NEWS_ITEM_POSTED = 5;
-    const TYPE_DISCUSSION_GROUP_CREATED = 6;
+    const TYPE_DISCUSSION_CREATED = 6;
     const TYPE_DISCUSSION_TOPIC_SUBMITTED = 7;
     const TYPE_DISCUSSION_POST_SUBMITTED = 8;
     const TYPE_DISCUSSION_COMMENT_SUBMITTED = 9;

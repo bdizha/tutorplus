@@ -23,6 +23,8 @@ class course_syllabusActions extends autoCourse_syllabusActions {
     {
         $this->courseSyllabus = $this->getRoute()->getObject();
         $this->course = $this->courseSyllabus->getCourse();
+        $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($this->course->getId());
+        $this->helper->setCourseSyllabus($courseSyllabus);
         $this->forward404Unless($this->course);
     }
 

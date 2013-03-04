@@ -21,7 +21,7 @@ generator:
       filter:
         class: false
       list:
-        title:             My DiscussionGroup Topics
+        title:             My Discussion Topics
         display:           [type, message]
         sort:              [subject, asc]
         batch_actions:     []

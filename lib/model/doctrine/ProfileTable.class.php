@@ -42,11 +42,11 @@ class ProfileTable extends Doctrine_Table {
 		->execute();
 	}
 
-	public function retrieveProfileIdsByDiscussionGroupId($discussionGroupId = null, $isRemoved = 0) {
+	public function retrieveProfileIdsByDiscussionId($discussionId = null, $isRemoved = 0) {
 		$query = $this->createQuery('p')
 		->select('p.id')
 		->innerJoin('p.DiscussionPeer dp')
-		->where('dp.discussion_group_id = ?', $discussionGroupId);
+		->where('dp.discussion_id = ?', $discussionId);
 
 		return $query->execute()->getPrimaryKeys();
 	}

@@ -5,15 +5,15 @@ secure:
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:                         {}
   timeline:                          
-    details:                          { route: activity_feed, label: Timeline }
+    details:                          { route: activity_feed_posts, label: Timeline }
     type:                             One
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       timeline:                                     
-        details:                      { route: activity_feed, label: Timeline }
+        details:                      { route: activity_feed_posts, label: Timeline }
         credentials:                  [ Student, Instructor, Staff ]
         children:
-          activity_feeds:             { route: activity_feed, label: "Activity Feeds" }
+          activity_feeds:             { route: activity_feed_posts, label: "Activity Feeds" }
           news_items:                 { route: news_item, label: "News Items" }
           announcements:              { route: announcement, label: "Announcements" }
   courses:                          
@@ -32,7 +32,7 @@ secure:
         credentials:                  [ Student, Instructor, Staff ]
         children:
           course_info:                { route: course_show, param: slug,  label: "Course Info" }
-          course_syllabus             { route: course_syllabus, label: "Syllabus" }
+          course_syllabus:            { route: course_syllabus, label: "Syllabus" }
           announcements:              { route: course_announcement, label: "Announcements" }
           #course_calendar:            { route: course_calendar, label: "Calendar" }
           course_discussions:         { route: course_discussion, label: "Course Discussions" }
@@ -44,17 +44,17 @@ secure:
         children:
           assignment_info:            { route: assignment_show, label: "Assignment Info" }
           assignment_group:           { route: course_group, label: "groups" }
-  groups:                          
-    details:                          { route: discussion_explorer, label: Groups }
+  discussions:                          
+    details:                          { route: discussion_explorer, label: Discussions }
     type:                             One
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
-      groups:                                     
-        details:                      { route: discussion_explorer, label: "Groups" }
+      discussions:                                     
+        details:                      { route: discussion_explorer, label: "Discussions" }
         credentials:                  [ Student, Instructor, Staff ]
         children:
-          discussion_my:                  { route: discussion_my, label: "My Groups" }
-          discussion_explorer:             { route: discussion_explorer, label: "Group Explorer" }
+          discussion_my:              { route: discussion_my, label: "My Discussions" }
+          discussion_explorer:        { route: discussion_explorer, label: "Discussion Explorer" }
 #  calendar:                          
 #    details:                          { route: my_schedule, label: Calendar }
 #    type:                             One

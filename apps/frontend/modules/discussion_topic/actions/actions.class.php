@@ -17,28 +17,28 @@ class discussion_topicActions extends autoDiscussion_topicActions
     public function preExecute()
     {
         parent::preExecute();
-		$discussionGroupId = $this->getUser()->getMyAttribute('discussion_group_show_id', null);
-		$this->redirectUnless($discussionGroupId, "@discussion_group");
-		$this->discussionGroup = DiscussionGroupTable::getInstance()->find($discussionGroupId);
-		$this->helper->setDiscussionGroup($this->discussionGroup);
+		$discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
+		$this->redirectUnless($discussionId, "@discussion");
+		$this->discussionGroup = DiscussionTable::getInstance()->find($discussionId);
+		$this->helper->setDiscussion($this->discussionGroup);
         $this->myPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
     }
 
     public function executeShow(sfWebRequest $request)
     {
         $this->forward404Unless($this->discussionTopic = $this->getRoute()->getObject());        
-        $this->discussionGroup = $this->discussionTopic->getDiscussionGroup();
+        $this->discussionGroup = $this->discussionTopic->getDiscussion();
         $this->redirectUnless($this->discussionGroup, "@discussion_explorer");
         
         $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussionTopic->getId());
-        $this->getUser()->setMyAttribute('discussion_group_show_id', $this->discussionTopic->getDiscussionGroupId());
+        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussionTopic->getDiscussionId());
 
         $this->discussionTopic->setViewCount($this->discussionTopic->getViewCount() + 1);
         $this->discussionTopic->save();
 
-        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionGroupIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
+        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
 
-        $this->course = $this->discussionTopic->getDiscussionGroup()->getCourseDiscussionGroup()->getCourse();
+        $this->course = $this->discussionTopic->getDiscussion()->getCourseDiscussion()->getCourse();
         if (is_object($this->course) && $this->course->getId()) {
             $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
         }
@@ -59,7 +59,7 @@ class discussion_topicActions extends autoDiscussion_topicActions
             $this->getUser()->setFlash('notice', 'The topic was deleted successfully.');
         }
 
-        $this->redirect('@discussion_group_show?slug=' . $discussionTopic->getDiscussionGroup()->getSlug());
+        $this->redirect('@discussion_show?slug=' . $discussionTopic->getDiscussion()->getSlug());
     }
 
     public function sendEmail($object)

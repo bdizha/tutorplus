@@ -34,8 +34,8 @@ class activity_feedGeneratorHelper extends BaseActivity_feedGeneratorHelper {
                 "count" => $postActivityFeeds->count()
             ),
             "groups" => array(
-                "label" => "Groups",
-                "href" => "/activity/feed/groups",
+                "label" => "Discussions",
+                "href" => "/activity/feed/discussions",
                 "count" => $groupActivityFeeds->count()
             ),
             "topics" => array(

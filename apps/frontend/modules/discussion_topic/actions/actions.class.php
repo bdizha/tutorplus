@@ -19,16 +19,16 @@ class discussion_topicActions extends autoDiscussion_topicActions
         parent::preExecute();
 		$discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
 		$this->redirectUnless($discussionId, "@discussion");
-		$this->discussionGroup = DiscussionTable::getInstance()->find($discussionId);
-		$this->helper->setDiscussion($this->discussionGroup);
+		$this->discussion = DiscussionTable::getInstance()->find($discussionId);
+		$this->helper->setDiscussion($this->discussion);
         $this->myPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
     }
 
     public function executeShow(sfWebRequest $request)
     {
         $this->forward404Unless($this->discussionTopic = $this->getRoute()->getObject());        
-        $this->discussionGroup = $this->discussionTopic->getDiscussion();
-        $this->redirectUnless($this->discussionGroup, "@discussion_explorer");
+        $this->discussion = $this->discussionTopic->getDiscussion();
+        $this->redirectUnless($this->discussion, "@discussion_explorer");
         
         $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussionTopic->getId());
         $this->getUser()->setMyAttribute('discussion_show_id', $this->discussionTopic->getDiscussionId());
@@ -36,7 +36,7 @@ class discussion_topicActions extends autoDiscussion_topicActions
         $this->discussionTopic->setViewCount($this->discussionTopic->getViewCount() + 1);
         $this->discussionTopic->save();
 
-        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
+        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussion->getId(), $this->getUser()->getId());
 
         $this->course = $this->discussionTopic->getDiscussion()->getCourseDiscussion()->getCourse();
         if (is_object($this->course) && $this->course->getId()) {

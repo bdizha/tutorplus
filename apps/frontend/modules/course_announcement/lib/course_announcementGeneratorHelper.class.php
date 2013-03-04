@@ -144,7 +144,7 @@ class course_announcementGeneratorHelper extends BaseCourse_announcementGenerato
 						"is_active" => $activeTab == "index"
 				),
 				"groups" => array(
-						"label" => "Groups",
+						"label" => "Discussions",
 						"href" => "/course/discussion",
 						"count" => $course->getCourseDiscussions()->count(),
 						"is_active" => $activeTab == "groups"

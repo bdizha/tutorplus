@@ -19,9 +19,6 @@ class course_discussionActions extends autoCourse_discussionActions {
         $this->course = CourseTable::getInstance()->find(array($courseId));
         $this->helper->setCourse($this->course);
         $this->forward404Unless($this->course, sprintf('The requested course does not exist (%s).', $courseId));
-
-        // ensure there's a primary course discussion group
-        DiscussionTable::getInstance()->findOrCreateOneByCourse($this->course, $this->getUser()->getId());
     	$this->courseDiscussions = DiscussionTable::getInstance()->findByCourseId($courseId);
     }
 
@@ -29,11 +26,11 @@ class course_discussionActions extends autoCourse_discussionActions {
     }
 
     public function executeShow(sfWebRequest $request) {
-        $this->discussionGroup = $this->getRoute()->getObject();
-        $this->forward404Unless($this->discussionGroup);
-        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussionGroup->getId());
+        $this->discussion = $this->getRoute()->getObject();
+        $this->forward404Unless($this->discussion);
+        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussion->getId());
 
-        $courseDiscussion = $this->discussionGroup->getCourseDiscussion();
+        $courseDiscussion = $this->discussion->getCourseDiscussion();
         if ($courseDiscussion) {
             $this->getUser()->setMyAttribute('course_show_id', $courseDiscussion->getCourseId());
         }

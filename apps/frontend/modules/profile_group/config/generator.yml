@@ -19,7 +19,7 @@ generator:
         display:           
          "Details":        [ name, description, permissions_list ]
       list:
-        title:             Profile Groups
+        title:             Profile Discussions
         display:           [ =name, description ]
         batch_actions:     []
         max_per_page:      3

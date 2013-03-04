@@ -30,7 +30,7 @@ class activity_feedActions extends autoActivity_feedActions {
      *
      * @param sfRequest $request A request object
      */
-    public function executeGroups(sfWebRequest $request) {
+    public function executeDiscussions(sfWebRequest $request) {
     }
 
     /**

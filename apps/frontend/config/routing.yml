@@ -1164,7 +1164,7 @@ news_item_show:
     sf_method: [get] 
     
 discussion_show:
-  url:     /discussion/group/:slug
+  url:     /discussion/:slug
   class:   sfDoctrineRoute
   options: { model: Discussion, type: object }
   param:   { module: discussion, action: show }
@@ -1172,7 +1172,7 @@ discussion_show:
     sf_method: [get]
   
 discussion_topics:
-  url:   /discussion/group/:slug/topics
+  url:   /discussion/:slug/topics
   param: { module: discussion, action: topics }
     
 course_info:

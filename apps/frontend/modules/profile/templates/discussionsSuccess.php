@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_component('common', 'secureMenu', $helper->allLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->getGroupsBreadcrumbs()) ?>
+<?php include_partial('common/breadcrumbs', $helper->getDiscussionsBreadcrumbs()) ?>
 <div id="sf_admin_heading">
     <h3><?php echo $profile->getTitle() . " " . $profile->getName() ?></h3>
 </div>
@@ -16,7 +16,7 @@
         <?php include_partial('common/tabs', array('tabs' => $helper->getTabs("groups", $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
         <div class="tab-block">
             <?php foreach ($groupActivityFeeds as $key => $activityFeed): ?>
-                <?php include_partial('activity_feed/group', array('activityFeed' => $activityFeed)) ?>
+                <?php include_partial('activity_feed/discussion', array('activityFeed' => $activityFeed)) ?>
             <?php endforeach; ?>
         </div>
     </div>  

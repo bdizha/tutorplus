@@ -293,8 +293,8 @@ class myUser extends sfBasicSecurityUser {
      *
      * @return array|Doctrine_Collection
      */
-    public function getGroups() {
-        return $this->getProfile() ? $this->getProfile()->getGroups() : array();
+    public function getDiscussions() {
+        return $this->getProfile() ? $this->getProfile()->getDiscussions() : array();
     }
 
     /**

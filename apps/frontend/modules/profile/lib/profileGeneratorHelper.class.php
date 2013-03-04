@@ -31,7 +31,7 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
         );
     }
 
-    public function getGroupsBreadcrumbs() {
+    public function getDiscussionsBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Profile" => "profile_timeline",
                 "Discussions" => "profile_timeline"
@@ -62,9 +62,9 @@ class profileGeneratorHelper extends BaseProfileGeneratorHelper {
                 "href" => "/" . $profile->getSlug(),
                 "count" => $postActivityFeeds->count()
             ),
-            "groups" => array(
-                "label" => "Groups",
-                "href" => "/profile/groups",
+            "discussions" => array(
+                "label" => "Discussions",
+                "href" => "/profile/discussions",
                 "count" => $groupActivityFeeds->count()
             ),
             "topics" => array(

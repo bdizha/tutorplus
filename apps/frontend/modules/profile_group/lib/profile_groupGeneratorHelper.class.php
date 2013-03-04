@@ -15,7 +15,7 @@ class profile_groupGeneratorHelper extends BaseProfile_groupGeneratorHelper
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "course",
-                "Profile Groups" => "profile_permission"
+                "Profile Discussions" => "profile_permission"
             )
         );
     }
@@ -32,7 +32,7 @@ class profile_groupGeneratorHelper extends BaseProfile_groupGeneratorHelper
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "course",
-                "Profile Groups" => "profile_permission"
+                "Profile Discussions" => "profile_permission"
             )
         );
     }
@@ -49,7 +49,7 @@ class profile_groupGeneratorHelper extends BaseProfile_groupGeneratorHelper
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "course",
-                "Profile Groups" => "profile_permission"
+                "Profile Discussions" => "profile_permission"
             )
         );
     }

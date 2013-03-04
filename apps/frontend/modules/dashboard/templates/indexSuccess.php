@@ -75,9 +75,9 @@
                 </div>
             </div>
             <div class="row">
-                <h4>My Groups</h4>
+                <h4>My Discussions</h4>
                 <div id="dashboad_news_items">
-                    <?php //include_partial('discussions', array("discussions" => $discussions)) ?>
+                    <?php include_partial('discussions', array("discussions" => $discussions)) ?>
                 </div>
             </div>
         </div>

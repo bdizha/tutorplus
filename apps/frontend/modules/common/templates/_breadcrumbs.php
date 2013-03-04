@@ -4,9 +4,11 @@
     <?php $totalCount = count($breadcrumbs); ?>
     <div id="breadcrumbs">
         <?php foreach ($breadcrumbs as $title => $routeSuffix): ?>
-            <a href = "/<?php echo $routeSuffix; ?>"><?php echo $title; ?></a>
             <?php if ($counter != $totalCount): ?>
+                <a href = "/<?php echo $routeSuffix; ?>"><?php echo $title; ?></a>
                 <span>&raquo;</span>
+            <?php else: ?>
+                <?php echo $title; ?>
             <?php endif; ?>
             <?php $counter++; ?>
         <?php endforeach; ?>

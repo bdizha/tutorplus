@@ -33,7 +33,7 @@ class dashboardActions extends sfActions {
         
         
         $this->courses = CourseTable::getInstance()->findByPeerId($this->profile->getId(), 3);
-        $this->discussionGroups = DiscussionTable::getInstance()->findPopularDiscussionsByProfileId($this->profile->getId());
+        $this->discussions = DiscussionTable::getInstance()->findPopularDiscussionsByProfileId($this->profile->getId());
         $this->announcements = AnnouncementTable::getInstance()->findLatest(20);
         $this->newsItems = NewsItemTable::getInstance()->findLatest(3);
         $this->peers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());

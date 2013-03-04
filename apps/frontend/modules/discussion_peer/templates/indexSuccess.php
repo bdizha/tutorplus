@@ -7,10 +7,7 @@
     <?php include_partial('common/breadcrumbs', $helper->getDiscussionBreadcrumbs()) ?>
 <?php endif; ?>
 <div class="sf_admin_heading">
-    <h3>
-        Group ~
-        <?php echo $discussion->getName() ?>
-    </h3>
+    <h3>Discussion ~ <?php echo $discussion->getName() ?></h3>
 </div>
 <?php include_partial('common/flashes_normal') ?>
 <div id="sf_admin_content">

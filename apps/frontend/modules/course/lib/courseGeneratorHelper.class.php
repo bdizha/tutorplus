@@ -209,7 +209,7 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
                 "count" => $course->getCourseAnnouncements()->count(),
             ),
             "groups" => array(
-                "label" => "Groups",
+                "label" => "Discussions",
                 "href" => "/course/discussion",
                 "count" => $course->getCourseDiscussions()->count(),
             ),

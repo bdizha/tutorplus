@@ -42,7 +42,7 @@ generator:
           done:                        []
           _save:                       []
       new:
-        title:                         Join Group
+        title:                         Join Discussion
         actions:
           cancel:                      []
           _save:                       []

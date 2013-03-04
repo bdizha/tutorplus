@@ -8,7 +8,8 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
+class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper
+{
 
     public function explorerBreadcrumbs()
     {
@@ -50,7 +51,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
     {
         return array('breadcrumbs' => array(
                 "Discussions" => "/my/discussions",
-                $discussion->getName() => "/discussion/group/" . $discussion->getSlug()
+                $discussion->getName() => "/discussion/" . $discussion->getSlug()
             )
         );
     }
@@ -59,7 +60,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
     {
         return array('breadcrumbs' => array(
                 "Discussions" => "/my/discussions",
-                "New Group" => "/discussion/group/new"
+                "New Discussion" => "/discussion/new"
             )
         );
     }
@@ -77,7 +78,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
     {
         return array('breadcrumbs' => array(
                 "Discussions" => "/my/discussions",
-                "Edit Discussion" => "/discussion/group/" . $object->getId() . "/edit"
+                "Edit Discussion" => "/discussion/" . $object->getId() . "/edit"
             )
         );
     }
@@ -95,7 +96,8 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
     {
         return array('breadcrumbs' => array(
                 "Discussions" => "/my/discussions",
-                $discussion->getName() => "/discussion/" . $discussion->getSlug()
+                $discussion->getName() => "/discussion/" . $discussion->getSlug(),
+                "Topics" => "/discussion/" . $discussion->getSlug()
             )
         );
     }
@@ -130,12 +132,12 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
 
     public function linkToDiscussionView($object, $params)
     {
-        return link_to(__('View', array(), 'sf_admin'), "/discussion/group/" . $object->getSlug(), array("class" => "button-view"));
+        return link_to(__('View', array(), 'sf_admin'), "/discussion/" . $object->getSlug(), array("class" => "button-view"));
     }
 
     public function linkToDiscussionEdit($object, $params)
     {
-        return link_to(__('Edit', array(), 'sf_admin'), "/discussion/group/" . $object->getId() . "/edit", array("class" => "button-edit"));
+        return link_to(__('Edit', array(), 'sf_admin'), "/discussion/" . $object->getId() . "/edit", array("class" => "button-edit"));
     }
 
     public function linkToDiscussionDelete($object, $params)
@@ -150,7 +152,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
     public function getShowActions($discussion, $discussionPeer, $hasProfile)
     {
         $actions = array(
-            "my_discussion" => array("title" => "&lt; My Groups", "url" => "/my/discussions"),
+            "my_discussion" => array("title" => "&lt; My Discussions", "url" => "/my/discussions"),
             "manage_peers" => array("title" => "Manage Peers", "url" => "/discussion/peer"),
             "invite_peers" => array("title" => "+ Invite Peers", "url" => "/discussion/peer/invite"),
             "new_topic" => array("title" => "+ New Topic", "url" => "/discussion/topic/new")
@@ -169,12 +171,12 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
         return array(
             "discussion_info" => array(
                 "label" => "Discussion Info",
-                "href" => "/discussion/group/" . $discussion->getSlug(),
+                "href" => "/discussion/" . $discussion->getSlug(),
                 "is_active" => $activeTab == "show"
             ),
             "topics" => array(
                 "label" => "Topics",
-                "href" => "/discussion/group/" . $discussion->getSlug() . "/topics",
+                "href" => "/discussion/" . $discussion->getSlug() . "/topics",
                 "count" => $discussion->getTopics()->count(),
                 "is_active" => $activeTab == "topics"
             ),
@@ -212,7 +214,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
             ),
             "new_discussion" => array(
                 "label" => "+ New Discussion",
-                "href" => "/discussion/group/new",
+                "href" => "/discussion/new",
                 "is_active" => $activeTab == "new"
             ),
         );
@@ -235,12 +237,12 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper {
 
     public function linkToCancel($object, $params)
     {
-        return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/group/explorer\'"/>';
+        return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/discussion/explorer\'"/>';
     }
 
     public function linkToDone($object, $params)
     {
-        return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/group/explorer\'"/>';
+        return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/discussion/explorer\'"/>';
     }
 
 }

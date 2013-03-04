@@ -1,5 +1,5 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php if (is_object($course) && $course->getId()): ?>
+<?php if (isset($course) && $course->getId()): ?>
     <?php include_component('common', 'secureMenu', $helper->getCourseLinks($discussionTopic)) ?>
     <?php include_partial('common/breadcrumbs', $helper->getCourseBreadcrumbs($discussionTopic)) ?>
 <?php else: ?>

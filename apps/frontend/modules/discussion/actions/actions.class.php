@@ -27,28 +27,28 @@ class discussionActions extends autoDiscussionActions {
 
     public function executeShow(sfWebRequest $request)
     {
-        $this->discussionGroup = $this->getRoute()->getObject();
-        $this->forward404Unless($this->discussionGroup);
-        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussionGroup->getId());
+        $this->discussion = $this->getRoute()->getObject();
+        $this->forward404Unless($this->discussion);
+        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussion->getId());
 
-        $this->discussionGroup->setViewCount($this->discussionGroup->getViewCount() + 1);
-        $this->discussionGroup->save();
-        $course = $this->discussionGroup->getCourseDiscussion()->getCourse();
+        $this->discussion->setViewCount($this->discussion->getViewCount() + 1);
+        $this->discussion->save();
+        $course = $this->discussion->getCourseDiscussion()->getCourse();
         if ($course->getId()) {
             $this->course = $course;
             $this->getUser()->setMyAttribute('course_show_id', $course->getId());
         }
 
-        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
+        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussion->getId(), $this->getUser()->getId());
     }
 
     public function executeTopics(sfWebRequest $request)
     {
         $discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
-        $this->discussionGroup = DiscussionTable::getInstance()->find($discussionId);
-        $this->redirectUnless($this->discussionGroup, "@discussion_explorer");
+        $this->discussion = DiscussionTable::getInstance()->find($discussionId);
+        $this->redirectUnless($this->discussion, "@discussion_explorer");
 
-        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
+        $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussion->getId(), $this->getUser()->getId());
     }
 
     public function executeExplorer(sfWebRequest $request)
@@ -64,7 +64,7 @@ class discussionActions extends autoDiscussionActions {
     public function executePeers(sfWebRequest $request)
     {
         $discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
-        $this->discussionGroup = DiscussionTable::getInstance()->find($discussionId);
+        $this->discussion = DiscussionTable::getInstance()->find($discussionId);
     }
 
     public function sendEmail($object)

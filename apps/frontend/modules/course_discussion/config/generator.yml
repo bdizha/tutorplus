@@ -22,7 +22,7 @@ generator:
       filter:
         class: false
       list:
-        title:             Course Groups
+        title:             Course Discussions
         display:           [ =name, user, access_level, nb_topics, nb_members, last_visit ]
         sort:              [ name, asc ]
         batch_actions:     [ ]
@@ -30,7 +30,7 @@ generator:
         object_actions:
           _edit:           ~
         actions:
-          _new:            { label: "+ New Group" }
+          _new:            { label: "+ New Discussion" }
       edit:
         title:             Edit Group
         actions:
@@ -38,7 +38,7 @@ generator:
           done:            []
           _save:           []
       new:
-        title:             New Group
+        title:             New Discussion
         actions:
           cancel:          []
           _save:           ~

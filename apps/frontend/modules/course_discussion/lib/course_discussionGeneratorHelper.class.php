@@ -39,8 +39,8 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
     public function getNewLinks()
     {
         return array(
-            "currentParent" => "groups",
-            "current_child" => "groups",
+            "currentParent" => "discussions",
+            "current_child" => "discussions",
             "current_link" => "discussion_my"
         );
     }
@@ -48,8 +48,8 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
     public function getEditLinks()
     {
         return array(
-            "currentParent" => "groups",
-            "current_child" => "groups",
+            "currentParent" => "discussions",
+            "current_child" => "discussions",
             "current_link" => "discussion_my"
         );
     }
@@ -71,7 +71,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
                 "Discussions" => "course_discussion",
                 $object->getName() => "course/discussion/" . $object->getSlug(),
-                "Edit Discussion" => "course/discussion/group/" . $object->getId() . "/edit"
+                "Edit Discussion" => "course/discussion/" . $object->getId() . "/edit"
             )
         );
     }
@@ -184,7 +184,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
                 "count" => $course->getCourseAnnouncements()->count()
             ),
             "groups" => array(
-                "label" => "Groups",
+                "label" => "Discussions",
                 "href" => "/course/discussion",
                 "count" => $courseDiscussions->count(),
                 "is_active" => $activeTab == "index"
@@ -199,7 +199,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         if ($activeTab == "new") {
             unset($tabs["peers"]);
             $tabs["new_group"] = array(
-                "label" => "+ New Group",
+                "label" => "+ New Discussion",
                 "href" => "/course/discussion/new",
                 "is_active" => $activeTab == "new"
             );

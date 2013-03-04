@@ -55,11 +55,11 @@ class profileActions extends autoProfileActions {
     }
 
     /**
-     * Executes groups action
+     * Executes discussions action
      *
      * @param sfRequest $request A request object
      */
-    public function executeGroups(sfWebRequest $request)
+    public function executeDiscussions(sfWebRequest $request)
     {
         $this->beforeExecute();
     }

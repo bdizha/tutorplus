@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_component('common', 'secureMenu', $helper->allLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->getGroupsBreadcrumbs()) ?>
+<?php include_partial('common/breadcrumbs', $helper->getDiscussionsBreadcrumbs()) ?>
 <div id="sf_admin_heading">
     <h3><?php echo $profile->getTitle() . " " . $profile->getName() ?></h3>
 </div>

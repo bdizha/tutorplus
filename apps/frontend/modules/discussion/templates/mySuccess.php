@@ -4,12 +4,16 @@
 <?php include_partial('common/flashes_normal') ?>
 <div id="sf_admin_content">
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs($myDiscussions, $exploreDiscussions, "my"))) ?>
+        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs($myDiscussions, $myDiscussions, "my"))) ?>
         <div class="tab-block">
-            <ul class="sf_admin_actions">
-                <?php include_partial('discussion/list_actions', array('helper' => $helper)) ?>
-            </ul>
-            <?php include_partial('discussion/list', array('discussionGroups' => $myDiscussions, 'helper' => $helper)) ?>
+            <?php if (!$myDiscussions->count()): ?>
+                You don't have any started discussions yet.
+            <?php else: ?> 
+                <ul class="sf_admin_actions">
+                    <?php include_partial('discussion/list_actions', array('helper' => $helper)) ?>
+                </ul>
+                <?php include_partial('discussion/list', array('discussions' => $myDiscussions, 'helper' => $helper)) ?>
+            <?php endif; ?>
             <ul class="sf_admin_actions">
                 <?php include_partial('discussion/list_actions', array('helper' => $helper)) ?>
             </ul>

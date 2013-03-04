@@ -1,278 +1,278 @@
 .row {
-	clear: both;
-	color: #666666;
-	font-size: 12px;
-	margin-top: 10px;
-	position: relative;
+    clear: both;
+    color: #666666;
+    font-size: 12px;
+    margin-top: 10px;
+    position: relative;
 }
 
 textarea {
-	line-height: 23px !important;
-	color: #6B6B6B;
-	padding: 5px;
-	border: 1px solid #C0C0C0;
-	font-size: 12px;
-	resize: none !important;
+    line-height: 23px !important;
+    color: #6B6B6B;
+    padding: 5px;
+    border: 1px solid #C0C0C0;
+    font-size: 12px;
+    resize: none !important;
 }
 
 input[type=button],input[type=submit] {
-	outline: 0;
-	padding: 0px 4px;
-	cursor: pointer;
-	border: none;
-	height: 25px;
-	height: 25px;
-	font-size: 11px;
+    outline: 0;
+    padding: 0px 4px;
+    cursor: pointer;
+    border: none;
+    height: 25px;
+    height: 25px;
+    font-size: 11px;
 }
 
-.sf_admin_action_join_group input,.sf_admin_action_edit_membership input
-	{
-	background-color: #DDBA0C !important;
+.sf_admin_action_join_discussion input,.sf_admin_action_edit_membership input
+{
+    background-color: #DDBA0C !important;
 }
 
 .sf_admin_form_action_delete input[type=button],.delete {
-	background-color: #B5A072;
-	color: #FFF !important;
+    background-color: #B5A072;
+    color: #FFF !important;
 }
 
 input[type="text"],input[type="password"] {
-	color: #6B6B6B;
-	min-width: 325px;
-	border: 1px solid #DFDFDF;
-	background: white;
-	padding: 3px 5px;
-	outline: 0;
-	height: 20px;
+    color: #6B6B6B;
+    min-width: 325px;
+    border: 1px solid #DFDFDF;
+    background: white;
+    padding: 3px 5px;
+    outline: 0;
+    height: 20px;
     line-height: 20px !important;
 }
 
 input[type="password"]:focus,input[type="text"]:focus,textarea:focus {
-	border: 1px solid #B5A072;
-	outline: medium none;
+    border: 1px solid #B5A072;
+    outline: medium none;
 }
 
 .errors input,.errors textarea {
-	border: 1px solid #CD0A0A !important;
-	outline: medium none;
+    border: 1px solid #CD0A0A !important;
+    outline: medium none;
 }
 
 .button-edit,.button-remove,.button-view {
-	border-radius: 2px;
-	height: 20px !important;
-	cursor: pointer;
-	border: none !important;
-	font-size: 10px !important;
-	color: #FFF !important;
-	padding: 0px 3px !important;
-	text-align: center;
+    border-radius: 2px;
+    height: 20px !important;
+    cursor: pointer;
+    border: none !important;
+    font-size: 10px !important;
+    color: #FFF !important;
+    padding: 0px 3px !important;
+    text-align: center;
 }
 
 input.button-edit,input.button-remove,input.button-view {
-	line-height: 15px !important;
+    line-height: 15px !important;
 }
 
 a.button-edit,a.button-remove,a.button-view {
-	display: inline-block;
-	margin-top: 1px;
+    display: inline-block;
+    margin-top: 1px;
 }
 
 .button-edit,.button-view {
-	background: #B5A072;
-	width: 55px;
+    background: #B5A072;
+    width: 55px;
 }
 
 .button-remove {
-	background: #B94A48;
-	width: 55px;
+    background: #B94A48;
+    width: 55px;
 }
 
 .enroll-student {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .save,.new,.button {
-	background-color: #B5A072;
-	color: #FFF !important;
-	padding: 2px 10px 3px;
+    background-color: #B5A072;
+    color: #FFF !important;
+    padding: 2px 10px 3px;
 }
 
 .sign-up {
-	background-color: #DDBA0C !important;
+    background-color: #DDBA0C !important;
 }
 
 .cancel,.done,.fc-header .fc-button,#calnext,#calprev {
-	background-color: #B5A072;
-	color: #FFF !important;
-	padding: 2px 10px 3px;
+    background-color: #B5A072;
+    color: #FFF !important;
+    padding: 2px 10px 3px;
 }
 
 .delete {
-	background-color: #B94A48;
-	color: #FFF !important;
-	padding: 2px 10px 3px;
+    background-color: #B94A48;
+    color: #FFF !important;
+    padding: 2px 10px 3px;
 }
 
 .delete a{
-	color: #FFF !important;
-	font-size: 11px !important;
+    color: #FFF !important;
+    font-size: 11px !important;
 }
 
 select {
-	width: 337px;
-	height: 27px;
+    width: 337px;
+    height: 27px;
 }
 
 select[size],select[multiple],select[size][multiple] {
-	-moz-appearance: listbox;
-	appearance: listbox;
-	width: 240px;
-	height: 150px !important;
+    -moz-appearance: listbox;
+    appearance: listbox;
+    width: 240px;
+    height: 150px !important;
 }
 
 select>option {
-	padding: 3px;
+    padding: 3px;
 }
 
 .row label {
-	font-size: 13px;
+    font-size: 13px;
 }
 
 fieldset textarea {
-	width: 687px;
-	height: 60px;
+    width: 687px;
+    height: 60px;
 }
 
 #cboxLoadedContentInner textarea {
-	min-width: 300px;
-	width: 325px !important;
+    min-width: 300px;
+    width: 325px !important;
 }
 
 #cboxLoadedContentInner input[type="text"],#cboxLoadedContentInner input[type="password"]
-	{
-	min-width: 325px !important;
-	width: 325px;
+{
+    min-width: 325px !important;
+    width: 325px;
 }
 
 .date-field {
-	width: 103px !important;
+    width: 103px !important;
 }
 
 #profile_permission_form_holder .sf_admin_form_row label,#profile_group_form_holder .sf_admin_form_row label,#student_form_holder .sf_admin_form_row label,#instructor_form_holder .sf_admin_form_row label
-	{
-	float: none !important;
+{
+    float: none !important;
 }
 
 .checkbox_list {
-	margin-left: 10px;
+    margin-left: 10px;
 }
 
 .checkbox_list label {
-	position: absolute;
-	left: 20px;
-	top: -1px;
-	width: 341px !important;
+    position: absolute;
+    left: 20px;
+    top: -1px;
+    width: 341px !important;
 }
 
 .enroll {
-	color: #FFF !important;
-	cursor: pointer;
+    color: #FFF !important;
+    cursor: pointer;
 }
 
 .button-box-blue {
-	border: 1px solid #337883;
+    border: 1px solid #337883;
 }
 
 .button-box-brown {
-	border: 1px solid #B5A072;
+    border: 1px solid #B5A072;
 }
 
 .button-box-open {
-	border: 1px solid #B5A072;
+    border: 1px solid #B5A072;
 }
 
 .button-box-decline {
-	border: 1px solid #B94A48;
+    border: 1px solid #B94A48;
 }
 
 .button-box-peered,.button-box-enter {
-	border: 1px solid #037D52;
+    border: 1px solid #037D52;
 }
 
 .button-box-invited,.button-box-enroll {
-	border: 1px solid #DDBA0C;
+    border: 1px solid #DDBA0C;
 }
 
 .button-box-accept {
-	border: 1px solid #909;
+    border: 1px solid #909;
 }
 
 .enter {
-	background-color: #037D52
+    background-color: #037D52
 }
 
 .unregister {
-	background-color: #60A4E7;
+    background-color: #60A4E7;
 }
 
 .button-box-unregister {
-	border: 1px solid #60A4E7;
+    border: 1px solid #60A4E7;
 }
 
 .button-box-open,.button-box-invited,.button-box-enter,.button-box-blue,.button-box-decline,.button-box-brown,.button-box-peered,.button-box-enroll,.button-box-accept,.button-box-unregister
-	{
-	border-radius: 2px;
-	margin: 10px 10px 0 0;
-	padding: 1px;
-	height: 20px !important;
-	display: inline-block;
+{
+    border-radius: 2px;
+    margin: 10px 10px 0 0;
+    padding: 1px;
+    height: 20px !important;
+    display: inline-block;
 }
 
 .peer-peered,.peer-open,.peer-suggested,.enter,.peer-invited,.peer-accept,.unregister
-	{
-	height: 20px !important;
-	width: 70px !important;
-	color: #FFF !important;
-	font-size: 11px;
+{
+    height: 20px !important;
+    width: 70px !important;
+    color: #FFF !important;
+    font-size: 11px;
 }
 
 .peer-decline{	
-	height: 20px !important;
-	width: 20px !important;
-	color: #FFF !important;
-	font-size: 11px;
+    height: 20px !important;
+    width: 20px !important;
+    color: #FFF !important;
+    font-size: 11px;
 }
 
 .peer-open {
-	background-color: #B5A072;
+    background-color: #B5A072;
 }
 
 .peer-peered {
-	background-color: #037D52
+    background-color: #037D52
 }
 
 .peer-invited,.peer-accept,.enroll {
-	background-color: #DDBA0C;
+    background-color: #DDBA0C;
 }
 
 .peer-decline{
-	background-color: #B94A48;
-	color: #FFFFFF;
+    background-color: #B94A48;
+    color: #FFFFFF;
 }
 
 .peer-accept {
-	background-color: #909;
+    background-color: #909;
 }
 
 .peer-suggested {
-	background-color: #DDBA0C;
+    background-color: #DDBA0C;
 }
 
 .peer-invited,.peer-peered {
-	cursor: default !important;
+    cursor: default !important;
 }
 
 .peer-actions {
-	position: absolute;
-	top: 0px;
-	right: 0px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }

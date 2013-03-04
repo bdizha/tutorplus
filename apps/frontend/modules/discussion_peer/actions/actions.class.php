@@ -17,15 +17,15 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 		parent::preExecute();
 		$discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
 		$this->redirectUnless($discussionId, "@discussion");
-		$this->discussionGroup = DiscussionTable::getInstance()->find($discussionId);
-		$this->discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($this->discussionGroup->getId(), $this->getUser()->getId());
+		$this->discussion = DiscussionTable::getInstance()->find($discussionId);
+		$this->discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($this->discussion->getId(), $this->getUser()->getId());
 		$this->myPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
-		$this->helper->setDiscussion($this->discussionGroup);
-		$this->forward404Unless($this->discussionGroup);
+		$this->helper->setDiscussion($this->discussion);
+		$this->forward404Unless($this->discussion);
 	}
 
 	public function beforeExecute() {
-		$course = $this->discussionGroup->getCourseDiscussion()->getCourse();
+		$course = $this->discussion->getCourseDiscussion()->getCourse();
 		if ($course->getId()) {
 			$this->course = $course;
 			$this->getUser()->setMyAttribute('course_show_id', $course->getId());
@@ -38,7 +38,7 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 		$this->beforeExecute();
 
 		// get all discussion peers
-		$this->discussionPeers = $this->discussionGroup->getPeers();
+		$this->discussionPeers = $this->discussion->getPeers();
 	}
 
 	public function executePeers(sfWebRequest $request) {
@@ -99,7 +99,7 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 				// make sure we don't add a peer twice
 				if (!in_array($profile->getId(), $discussionPeerIds)) {
 					$profileId = $profile->getId();
-					if ($this->discussionGroup->hasProfile($profileId)) {
+					if ($this->discussion->hasProfile($profileId)) {
 						$discussionPeer = DiscussionPeerTable::getInstance()->findOneByDiscussionIdAndProfileId($discussionId, $profileId);
 						$discussionPeer->setIsRemoved(false);
 						$discussionPeer->save();
@@ -127,11 +127,11 @@ class discussion_peerActions extends autoDiscussion_peerActions {
 			$profileId = $request->getParameter("profile_id");
 			$profile = ProfileTable::getInstance()->find($profileId);
 
-			if (!$this->discussionGroup->hasProfile($profileId)) {
+			if (!$this->discussion->hasProfile($profileId)) {
 				$discussionPeer = new DiscussionPeer();
 				$discussionPeer->setNickname(strtolower($profile->getFirstName()));
 				$discussionPeer->setProfileId($profileId);
-				$discussionPeer->setDiscussionId($this->discussionGroup->getId());
+				$discussionPeer->setDiscussionId($this->discussion->getId());
 				$discussionPeer->save();
 
 				echo "{$profile->getName()} has been added to this discussion successfully.";

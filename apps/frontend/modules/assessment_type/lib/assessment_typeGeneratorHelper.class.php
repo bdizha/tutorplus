@@ -20,7 +20,7 @@ class assessment_typeGeneratorHelper extends BaseAssessment_typeGeneratorHelper
         return array('breadcrumbs' => array(
                 "Courses" => "my_courses",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug(),
-                "Assignment Groups" => "assignment_group"
+                "Assignment Discussions" => "assignment_group"
             )
         );
     }

@@ -140,7 +140,7 @@ secure:
           students:                   { route: student, label: "Students" }
           instructors:                { route: instructor, label: "Instructors" }
           staff:                      { route: staff, label: "Staff" }
-          groups:                     { route: profile_group, label: "Groups" }
+          groups:                     { route: profile_group, label: "Discussions" }
           permissions:                { route: profile_permission, label: "Permissions" }
       communication_settings:                    
         details:                      { route: email_template, label: "Communication Settings" }

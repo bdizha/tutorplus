@@ -43,7 +43,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
-            "current_link" => "announcements",
+            "current_link" => "discussions",
             "slug" => $this->course->getSlug()
         );
     }
@@ -53,7 +53,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
-            "current_link" => "announcements",
+            "current_link" => "discussions",
             "slug" => $this->course->getSlug()
         );
     }

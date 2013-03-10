@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->explorerLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->explorerBreadcrumbs()) ?>
+<?php include_component('common', 'secureMenu', $helper->getLinks("discussion_explorer")) ?>
+<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs("discussion_explorer", "Discussion Explorer", "discussion/explorer")) ?>
 <?php include_partial('common/flashes_normal') ?>
 <div id="sf_admin_content">
     <div class="content-block">

@@ -135,6 +135,10 @@
   vertical-align: top;
 }
 
+.snapshot .name{
+    color: #b5a072;
+}
+
 .snapshot h3{
     font-size: 13px !important;
 }

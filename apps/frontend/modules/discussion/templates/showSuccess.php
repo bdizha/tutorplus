@@ -1,23 +1,16 @@
-<?php use_helper('I18N', 'Date') ?>
-<?php if (isset($course) && $course->getId()): ?>
-    <?php include_partial('common/breadcrumbs', $helper->getCourseBreadcrumbs($discussion)) ?>
-<?php else: ?>
-    <?php include_partial('common/breadcrumbs', $helper->getShowBreadcrumbs($discussion)) ?>
-<?php endif; ?>
-<?php include_component('common', 'secureMenu', $helper->getShowLinks()) ?>
-<div class="sf_admin_heading">
-    <h3>Discussion ~ <?php echo $discussion->getName() ?></h3>
-</div>
+<?php use_helper('I18N', 'Date') ?>    
+<?php include_component('common', 'secureMenu', $helper->getLinks()) ?>
+<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs("discussion_info", $discussion->getName(), "/discussion/" . $discussion->getSlug(), $discussion)) ?>
 <div id="sf_admin_content">
     <?php include_partial('common/flashes_normal') ?>
     <div class="content-block">
         <?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($discussion, "show"))) ?>
         <div class="tab-block">
-            <?php include_partial('common/actions', array('actions' => $helper->getShowActions($discussion, $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
+            <?php include_partial('common/actions', array('actions' => $helper->getActions($discussion, $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
             <div class="snapshot">
                 <?php include_partial('personal_info/photo', array('profile' => $discussion->getProfile(), "dimension" => 36)) ?>
                 <div class="name">
-                    <?php echo link_to($discussion->getName(), 'discussion_show', $discussion) ?>
+                    <?php echo $discussion->getName() ?>
                 </div>
                 <div class="body">
                     <?php echo $discussion->getDescription() ?>

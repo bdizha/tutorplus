@@ -40,11 +40,6 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
         }
 
         $tabs = array(
-            "posts" => array(
-                "label" => "Course Info",
-                "href" => "/my/course/" . $course->getSlug(),
-                "is_active" => $activeTab == "info"
-            ),
             "syllabus_show" => array(
                 "label" => "Syllabus",
                 "href" => "/course/syllabus/" . $this->getCourseSyllabus()->getId(),
@@ -54,32 +49,6 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
                 "label" => "Edit Syllabus",
                 "href" => "/course/syllabus/" . $this->getCourseSyllabus()->getId() . "/edit",
                 "is_active" => $activeTab == "edit"
-            ),
-            "videos" => array(
-                "label" => "Videos",
-                "href" => "/course/videos",
-                "count" => 0,
-                "is_active" => $activeTab == "videos"
-            ),
-            "announcements" => array(
-                "label" => "Announcements",
-                "href" => "/course/announcement",
-                "count" => $course->getCourseAnnouncements()->count(),
-            ),
-            "groups" => array(
-                "label" => "Discussions",
-                "href" => "/course/discussion",
-                "count" => $course->getCourseDiscussions()->count(),
-            ),
-            "peers" => array(
-                "label" => "Peers",
-                "href" => "/course/peer",
-                "count" => $course->getCourseProfiles()->count(),
-            ),
-            "instructors" => array(
-                "label" => "Instructors",
-                "href" => "/course/instructors",
-                "is_active" => $activeTab == "instructors"
             )
         );
 
@@ -101,7 +70,6 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
         return array(
             'breadcrumbs' => array(
                 "Courses" => "/course/explorer",
-                "My Courses" => "/my/courses",
                 myToolkit::shortenString($course->getCode() . " ~ " . $course->getName(), 255) => "/my/course/" . $course->getSlug(),
                 "Syllabus" => "course/syllabus/" . $this->getCourseSyllabus()->getId()
             )
@@ -112,8 +80,9 @@ class course_syllabusGeneratorHelper extends BaseCourse_syllabusGeneratorHelper 
     {
         return array(
             "currentParent" => "courses",
-            "current_child" => "courses",
-            "current_link" => "my_courses"
+            "current_child" => "my_course",
+            "current_link" => "course_syllabus",
+            "slug" => $course->getSlug()
         );
     }
 

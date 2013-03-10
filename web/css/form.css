@@ -115,6 +115,9 @@ a.button-edit,a.button-remove,a.button-view {
 .delete a{
     color: #FFF !important;
     font-size: 11px !important;
+    height: 15px;
+    display: block;
+    padding: 2px;
 }
 
 select {

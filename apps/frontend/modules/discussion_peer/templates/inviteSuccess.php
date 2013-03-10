@@ -1,18 +1,10 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php if (isset($course) && $course->getId()): ?>
-    <?php include_component('common', 'secureMenu', $helper->getCourseLinks()) ?>
-    <?php include_partial('common/breadcrumbs', $helper->getCourseBreadcrumbs()) ?>
-<?php else: ?>
-    <?php include_component('common', 'secureMenu', $helper->getDiscussionLinks()) ?>
-    <?php include_partial('common/breadcrumbs', $helper->getDiscussionBreadcrumbs()) ?>
-<?php endif; ?>
-<div class="sf_admin_heading">
-    <h3>Discussion ~ <?php echo $discussion->getName() ?></h3>
-</div>
+<?php include_component('common', 'secureMenu', $helper->getLinks()) ?>
+<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs("discussion_peer_invite", "Invite Peers", "/discussion/peer/invite", $discussion)) ?>
 <?php include_partial('common/flashes_normal') ?>
 <div id="sf_admin_content">
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs($discussion, $myPeers, "invite"))) ?>
+        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs($discussion, $myPeers, "peer_invite", $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
         <div class="tab-block">
             <div id="discussion_peer_invite_form_holder">
                 <form id="discussion_peer_invite_form"

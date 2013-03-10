@@ -8,9 +8,21 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class course_peerGeneratorHelper {
+class course_peerGeneratorHelper
+{
 
     protected $profile = null;
+    protected $course = null;
+
+    public function setCourse($course)
+    {
+        $this->course = $course;
+    }
+
+    public function getCourse()
+    {
+        return $this->course;
+    }
 
     public function setProfile($profile)
     {
@@ -22,61 +34,40 @@ class course_peerGeneratorHelper {
         return $this->profile;
     }
 
-    public function indexBreadcrumbs($course)
+    public function getBreadcrumbs($currentTitle = "", $currentUrl = "")
     {
-        return array('breadcrumbs' => array(
+        $breadcrumbs = array('breadcrumbs' => array(
                 "Courses" => "course",
-                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
+                $this->getCourse()->getCode() . " ~ " . $this->getCourse()->getName() => "course/" . $this->getCourse()->getSlug()
             )
         );
+        $breadcrumbs["breadcrumbs"][$currentTitle] = $currentUrl;
+        return $breadcrumbs;
     }
 
-    public function indexLinks($course)
+    public function getLinks()
     {
         return array(
             "currentParent" => "courses",
-            "current_child" => "courses",
-            "current_link" => "my_courses"
+            "current_child" => "my_course",
+            "current_link" => "course_peers",
+            "slug" => $this->getCourse()->getSlug()
         );
     }
 
-    public function getIndexTabs($course, $activeTab = "info")
+    public function getTabs($activeTab = "peers")
     {
-        $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($course->getId());
         $tabs = array(
-            "posts" => array(
-                "label" => "Course Info",
-                "href" => "/my/course/" . $course->getSlug()
-            ),
-            "syllabus" => array(
-                "label" => "Syllabus",
-                "href" => "/course/syllabus/" . $courseSyllabus->getId()
-            ),
-            "videos" => array(
-                "label" => "Videos",
-                "href" => "/course/videos",
-                "count" => 0,
-                "is_active" => $activeTab == "videos"
-            ),
-            "announcements" => array(
-                "label" => "Announcements",
-                "href" => "/course/announcement",
-                "count" => $course->getCourseAnnouncements()->count()
-            ),
-            "groups" => array(
-                "label" => "Discussions",
-                "href" => "/course/discussion",
-                "count" => $course->getCourseDiscussions()->count()
-            ),
             "peers" => array(
                 "label" => "Peers",
                 "href" => "/course/peer",
-                "count" => $course->getCourseProfiles()->count(),
+                "count" => $this->getCourse()->getCourseProfiles()->count(),
                 "is_active" => $activeTab == "peers"
             ),
             "instructors" => array(
                 "label" => "Instructors",
                 "href" => "/course/instructors",
+                "count" =>  $this->getCourse()->getCourseInstructors()->count(),
                 "is_active" => $activeTab == "instructors"
             )
         );

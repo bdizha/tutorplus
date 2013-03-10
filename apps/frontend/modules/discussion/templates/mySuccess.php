@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->getMyLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->getMyBreadcrumbs()) ?>
+<?php include_component('common', 'secureMenu', $helper->getLinks("my_discussions")) ?>
+<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs("my_discussions", "My Discussion", "my/discussions")) ?>
 <?php include_partial('common/flashes_normal') ?>
 <div id="sf_admin_content">
     <div class="content-block">

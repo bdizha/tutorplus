@@ -16,6 +16,7 @@ class course_peerActions extends sfActions {
 		$this->forward404Unless($this->course, sprintf('Course does not exist (%s).', $courseId));
 		$this->helper = new course_peerGeneratorHelper();
 		$this->helper->setProfile($this->getUser()->getProfile());
+                $this->helper->setCourse($this->course);
 	}
 
 	/**

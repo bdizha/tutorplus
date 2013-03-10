@@ -1,5 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->getEditLinks($discussion_topic)) ?>
+<?php include_component('common', 'secureMenu', $helper->getLinks()) ?>
+<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs("discussion_topic_edit", $discussion_topic)) ?>
 <div class="sf_admin_heading">
     <h3>Discussion ~ <?php echo $discussion->getName() ?></h3>
 </div>

@@ -24,6 +24,7 @@ class courseActions extends autoCourseActions {
         $this->course = $this->getRoute()->getObject();
         $this->profile = $this->getUser()->getProfile();
         $this->forward404Unless($this->course);
+        $this->helper->setCourse($this->course);
         $this->courseInstructorProfiles = ProfileTable::getInstance()->findByCourseId($this->course->getId(), true);
         $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
         $this->courseDiscussions = DiscussionTable::getInstance()->findByCourseId($this->course->getId());
@@ -56,6 +57,7 @@ class courseActions extends autoCourseActions {
     {
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
         $this->course = CourseTable::getInstance()->find(array($courseId));
+        $this->helper->setCourse($this->course);
     }
 
     public function executeSyllabus(sfWebRequest $request)

@@ -11,7 +11,18 @@
 class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper
 {
 
-    public $discussion = null;
+    protected $discussion = null;
+    protected $course = null;
+
+    public function setCourse($course)
+    {
+        $this->course = $course;
+    }
+
+    public function getCourse()
+    {
+        return $this->course;
+    }
 
     public function setDiscussion($discussion)
     {
@@ -23,25 +34,42 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper
         return $this->discussion;
     }
 
-    public function getDiscussionBreadcrumbs()
+    public function getBreadcrumbs($activeIndex = "discussion_peers", $currentTitle = "My Discussions", $currentUrl = "/my/discussions", $discussion = null)
     {
-        return array(
-            'breadcrumbs' => array(
-                "Discussions" => "discussion",
-                "Discussion Explorer" => "discussion",
-                $this->getDiscussion()->getName() => "discussion/" . $this->getDiscussion()->getSlug(),
-                "Peers" => "discussion/peer"
-            )
-        );
+        if (in_array($activeIndex, array("discussion_peers", "discussion_peer_invite", "peer_follow", "peer_edit"))) {
+            $breadcrumbs = array("breadcrumbs");
+            if ($this->getCourse()) {
+                $breadcrumbs["breadcrumbs"] = array(
+                    "Courses" => "course/explorer",
+                    $this->getCourse()->getName() => "course/" . $this->getCourse()->getSlug()
+                );
+            }
+
+            $breadcrumbs["breadcrumbs"]["Discussions"] = "my/discussions";
+            $breadcrumbs["breadcrumbs"][$discussion->getName()] = "discussion/" . $discussion->getSlug();
+        } else {
+            $breadcrumbs = array("Discussions" => "my/discussions");
+        }
+        $breadcrumbs["breadcrumbs"][$currentTitle] = $currentUrl;
+        return $breadcrumbs;
     }
 
-    public function getDiscussionLinks()
+    public function getLinks()
     {
-        return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_my"
-        );
+        if ($this->getCourse()) {
+            return array(
+                "currentParent" => "courses",
+                "current_child" => "my_course",
+                "current_link" => "discussions",
+                "slug" => $this->getCourse()->getSlug()
+            );
+        } else {
+            return array(
+                "currentParent" => "discussions",
+                "current_child" => "discussions",
+                "current_link" => "discussion_explorer"
+            );
+        }
     }
 
     public function getCourseBreadcrumbs()
@@ -57,63 +85,9 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper
         );
     }
 
-    public function getCourseLinks()
+    public function getActions($discussionPeer, $hasProfile)
     {
-        return array(
-            "currentParent" => "courses",
-            "current_child" => "my_course",
-            "current_link" => "course_discussion"
-        );
-    }
-
-    public function newBreadcrumbs()
-    {
-        return array('breadcrumbs' => array(
-                "Discussion Explorer" => "discussion",
-                myToolkit::shortenString($this->discussion->getName(), 50) => "discussion/" . $this->discussion->getSlug(),
-                "Peers" => "discussion/peer",
-                "Join Discussion" => "discussion/peer/new"
-            )
-        );
-    }
-
-    public function getNewLinks()
-    {
-        return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_explorer"
-        );
-    }
-
-    public function getEditLinks()
-    {
-        return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_explorer"
-        );
-    }
-
-    public function getEditBreadcrumbs($object)
-    {
-        $discussion = $object->getDiscussion();
-        return array('breadcrumbs' => array(
-                "Group Explorer" => "discussion",
-                myToolkit::shortenString($discussion->getName(), 50) => "discussion/" . $discussion->getSlug(),
-                "Peers" => "discussion/peer",
-                "Edit Membership ~ " . $object->getNickname() => "discussion/peer/" . $object->getId() . "/edit"
-            )
-        );
-    }
-
-    public function getIndexActions($discussion, $discussionPeer, $hasProfile)
-    {
-        $actions = array(
-            "my_discussion" => array("title" => "&lt; My Discussion", "url" => "/discussion/" . $discussion->getSlug()),
-            "invite_peers" => array("title" => "+ Invite Peers", "url" => "/discussion/peer/invite"),
-            "new_topic" => array("title" => "+ New Topic", "href" => "/discussion/topic/new")
-        );
+        $actions = array();
         if ($hasProfile) {
             $actions["edit_membership"] = array("title" => "Edit Membership", "url" => "/discussion/peer/" . $discussionPeer->getId() . "/edit");
         } else {
@@ -123,11 +97,11 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper
         return $actions;
     }
 
-    public function getTabs($discussion, $myPeers, $activeTab)
+    public function getTabs($discussion, $myPeers, $activeTab, $discussionPeer = null, $hasProfile = false)
     {
-        return array(
-            "group_info" => array(
-                "label" => "Group Info",
+        $tabs = array(
+            "discussion_info" => array(
+                "label" => "Discussion Info",
                 "href" => "/discussion/" . $discussion->getSlug()
             ),
             "topics" => array(
@@ -143,15 +117,30 @@ class discussion_peerGeneratorHelper extends BaseDiscussion_peerGeneratorHelper
                 "label" => "Peers",
                 "href" => "/discussion/peer",
                 "count" => $discussion->getPeers()->count(),
-                "is_active" => $activeTab == "index"
+                "is_active" => $activeTab == "peers"
             ),
-            "invite_peers" => array(
+            "peer_invite" => array(
                 "label" => "+ Invite Peers",
                 "href" => "/discussion/peer/invite",
                 "count" => $myPeers->count(),
-                "is_active" => $activeTab == "invite"
+                "is_active" => $activeTab == "peer_invite"
             )
         );
+
+        if (!$hasProfile) {
+            $tabs["peer_follow"] = array(
+                "label" => "Follow Discussion",
+                "href" => "/discussion/peer/new",
+                "is_active" => $activeTab == "peer_follow"
+            );
+        } else {
+            $tabs["peer_edit"] = array(
+                "label" => "Edit Membership",
+                "href" => "/discussion/peer/" . $discussionPeer->getId() . "/edit",
+                "is_active" => $activeTab == "peer_edit"
+            );
+        }
+        return $tabs;
     }
 
 }

@@ -10,13 +10,16 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Course extends BaseCourse {
+class Course extends BaseCourse
+{
 
-    public function getAnnouncements() {
+    public function getAnnouncements()
+    {
         return Doctrine_Core::getTable('Announcement')->findByCourseId($this->getId());
     }
 
-    public function save(Doctrine_Connection $conn = null) {
+    public function save(Doctrine_Connection $conn = null)
+    {
         parent::save($conn);
 
         if (!$this->isNew()) {
@@ -69,7 +72,8 @@ class Course extends BaseCourse {
         }
     }
 
-    public function retrieveUpcomingAssignments() {
+    public function retrieveUpcomingAssignments()
+    {
         $q = Doctrine_Query::create()
                 ->from('Assignment a')
                 ->addWhere("a.course_id = ?", $this->get("id"))
@@ -79,11 +83,18 @@ class Course extends BaseCourse {
         return AssignmentTable::getInstance()->retrieveUpcomingAssignments($q);
     }
 
-    public function getDiscussion() {
+    public function getDiscussion()
+    {
         $courseDiscussion = CourseDiscussionTable::getInstance()->findOneByCourseId($this->getId());
         if (is_object($courseDiscussion)) {
             return $courseDiscussion->getDiscussion();
         }
         return null;
     }
+
+    public function getCourseInstructors()
+    {
+        return ProfileTable::getInstance()->findByCourseId($this->getId(), true);
+    }
+
 }

@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->indexLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
+<?php include_component('common', 'secureMenu', $helper->getIndexLinks()) ?>
+<?php include_partial('common/breadcrumbs', $helper->getIndexBreadcrumbs()) ?>
 <div class="sf_admin_heading">
     <h3>
         <?php include_partial('course/photo', array('course' => $course, "dimension" => 24)) ?>

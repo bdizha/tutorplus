@@ -469,10 +469,6 @@ discussion_peer_accept:
 discussion_peer_suggested:
   url:   /discussion/peer/suggested
   param: { module: discussion_peer, action: suggested }
-  
-discussion_post_show:
-  url:   /discussion/topic/show
-  param: { module: discussion_post, action: show }
 
 discussion_topic:
   class: sfDoctrineRouteCollection
@@ -1121,29 +1117,12 @@ discussion_my:
 discussion_explorer:
   url:   /discussion/explorer
   param: { module: discussion, action: explorer }
-
-discussion:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                Discussion
-    module:               discussion
-    prefix_path:          /discussion
-    column:               id
-    with_wildcard_routes: true
     
 course_discussion_show:
   url:     /course/discussion/:slug
   class:   sfDoctrineRoute
   options: { model: discussion, type: object }
   param:   { module: course_discussion, action: show }
-  requirements:
-    sf_method: [get]
-    
-discussion_topic_show:
-  url:     /discussion/topic/:slug
-  class:   sfDoctrineRoute
-  options: { model: DiscussionTopic, type: object }
-  param:   { module: discussion_topic, action: show }
   requirements:
     sf_method: [get]
     
@@ -1161,7 +1140,32 @@ news_item_show:
   options: { model: NewsItem, type: object }
   param:   { module: news_item, action: show }
   requirements:
+    sf_method: [get]
+    
+discussion_topic_show:
+  url:     /discussion/topic/:slug
+  class:   sfDoctrineRoute
+  options: { model: DiscussionTopic, type: object }
+  param:   { module: discussion_topic, action: show }
+  requirements:
     sf_method: [get] 
+  
+discussion_topics:
+  url:   /discussion/:slug/topics
+  param: { module: discussion, action: topics }
+  
+discussion_post_show:
+  url:   /discussion/topic/show
+  param: { module: discussion_post, action: show }
+
+discussion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Discussion
+    module:               discussion
+    prefix_path:          /discussion
+    column:               id
+    with_wildcard_routes: true
     
 discussion_show:
   url:     /discussion/:slug
@@ -1170,10 +1174,6 @@ discussion_show:
   param:   { module: discussion, action: show }
   requirements:
     sf_method: [get]
-  
-discussion_topics:
-  url:   /discussion/:slug/topics
-  param: { module: discussion, action: topics }
     
 course_info:
   url:   /course/info
@@ -1280,7 +1280,7 @@ pedagogy:
   param: { module: public, action: pedagogy }
   
 courses:
-  url:   /our/courses
+  url:   /courses
   param: { module: public, action: courses }
   
 instructors:

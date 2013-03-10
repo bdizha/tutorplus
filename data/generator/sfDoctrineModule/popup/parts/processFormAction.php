@@ -50,7 +50,8 @@
   }
   
   public function processEmails($object, $values, sfWebRequest $request, $isNew) {
-  }    
+  }      
   
-  public function processUpdates($object, $values, sfWebRequest $request, $isNew){    	
+  public function processUpdates($object = null, $values = null, sfWebRequest $request = null, $isNew = false){    	
   }
+

@@ -19,9 +19,7 @@ generator:
         membership_type:              { label: Membership }
 
       form:
-        display:            
-         "Parcipant Details":          [ nickname ]
-         "Membership Settings":        [ subscription_type ]
+        display:                       [ nickname, subscription_type ]
       filter:
         class:                         false
       list:
@@ -42,7 +40,7 @@ generator:
           done:                        []
           _save:                       []
       new:
-        title:                         Join Discussion
+        title:                         Follow Discussion
         actions:
           cancel:                      []
           _save:                       []

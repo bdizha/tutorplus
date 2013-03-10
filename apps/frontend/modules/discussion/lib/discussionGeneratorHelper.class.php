@@ -11,52 +11,57 @@
 class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper
 {
 
-    public function explorerBreadcrumbs()
+    protected $course = null;
+
+    public function setCourse($course)
     {
-        return array('breadcrumbs' => array(
-                "Discussions" => "/my/discussions",
-                "Discussion Explorer" => "/discussion/explorer"
-            )
-        );
+        $this->course = $course;
     }
 
-    public function explorerLinks()
+    public function getCourse()
     {
-        return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_explorer"
-        );
+        return $this->course;
     }
 
-    public function getMyBreadcrumbs()
+    public function getBreadcrumbs($activeIndex = "discussion_info", $currentTitle = "My Discussions", $currentUrl = "/my/discussions", $discussion = null)
     {
-        return array('breadcrumbs' => array(
-                "Discussions" => "/my/discussions",
-                "Group Explorer" => "/my/discussions"
-            )
-        );
+        if (in_array($activeIndex, array("discussion_info", "discussion_topics"))) {
+            $breadcrumbs = array("breadcrumbs");
+            if ($this->getCourse()) {
+                $breadcrumbs["breadcrumbs"] = array(
+                    "Courses" => "course/explorer",
+                    $this->getCourse()->getName() => "course/" . $this->getCourse()->getSlug()
+                );
+            }
+
+            $breadcrumbs["breadcrumbs"]["Discussions"] = "my/discussions";
+            $breadcrumbs["breadcrumbs"][$discussion->getName()] = "discussion/" . $discussion->getSlug();
+        } else {
+            $breadcrumbs["breadcrumbs"]["Discussions"] = "my/discussions";
+        }
+        $breadcrumbs["breadcrumbs"][$currentTitle] = $currentUrl;
+        return $breadcrumbs;
     }
 
-    public function getMyLinks()
+    public function getLinks($currentLink = "discussion_explorer")
     {
-        return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_my"
-        );
+        if ($this->getCourse()) {
+            return array(
+                "currentParent" => "courses",
+                "current_child" => "my_course",
+                "current_link" => "discussions",
+                "slug" => $this->getCourse()->getSlug()
+            );
+        } else {
+            return array(
+                "currentParent" => "discussions",
+                "current_child" => "discussions",
+                "current_link" => $currentLink
+            );
+        }
     }
 
-    public function getCourseBreadcrumbs($discussion)
-    {
-        return array('breadcrumbs' => array(
-                "Discussions" => "/my/discussions",
-                $discussion->getName() => "/discussion/" . $discussion->getSlug()
-            )
-        );
-    }
-
-    public function newBreadcrumbs()
+    public function getNewBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Discussions" => "/my/discussions",
@@ -67,11 +72,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper
 
     public function getNewLinks()
     {
-        return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_explorer"
-        );
+        return $this->getLinks();
     }
 
     public function getEditBreadcrumbs($object)
@@ -85,30 +86,7 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper
 
     public function getEditLinks()
     {
-        return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_explorer"
-        );
-    }
-
-    public function getShowBreadcrumbs($discussion)
-    {
-        return array('breadcrumbs' => array(
-                "Discussions" => "/my/discussions",
-                $discussion->getName() => "/discussion/" . $discussion->getSlug(),
-                "Topics" => "/discussion/" . $discussion->getSlug()
-            )
-        );
-    }
-
-    public function getShowLinks()
-    {
-        return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_explorer"
-        );
+        return $this->getLinks();
     }
 
     public function linkToDiscussionTopicEdit($object, $params)
@@ -149,14 +127,9 @@ class discussionGeneratorHelper extends BaseDiscussionGeneratorHelper
         }
     }
 
-    public function getShowActions($discussion, $discussionPeer, $hasProfile)
+    public function getActions($discussion, $discussionPeer, $hasProfile)
     {
-        $actions = array(
-            "my_discussion" => array("title" => "&lt; My Discussions", "url" => "/my/discussions"),
-            "manage_peers" => array("title" => "Manage Peers", "url" => "/discussion/peer"),
-            "invite_peers" => array("title" => "+ Invite Peers", "url" => "/discussion/peer/invite"),
-            "new_topic" => array("title" => "+ New Topic", "url" => "/discussion/topic/new")
-        );
+        $actions = array();
         if ($hasProfile) {
             $actions["edit_membership"] = array("title" => "Edit Membership", "url" => "/discussion/peer/" . $discussionPeer->getId() . "/edit");
         } else {

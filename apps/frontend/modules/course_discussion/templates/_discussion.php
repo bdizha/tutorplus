@@ -10,7 +10,7 @@
         <?php echo $courseDiscussion->getDescription() ?>
         <div class="user-meta">Started by <?php echo link_to($courseDiscussion->getProfile(), 'profile_show', $courseDiscussion->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($courseDiscussion->getCreatedAt()) ?></span></div>
     </div>
-    <?php if ($courseDiscussion->getProfileId() == $sf_user->getId() && !isset($getShowActions)): ?>
+    <?php if ($courseDiscussion->getProfileId() == $sf_user->getId() && !isset($showActions)): ?>
         <div class="inline-content-actions">
             <?php echo $helper->linkToDiscussionView($courseDiscussion, array()) ?>
             <?php echo $helper->linkToDiscussionEdit($courseDiscussion, array()) ?>

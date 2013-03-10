@@ -8,9 +8,21 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class courseGeneratorHelper extends BaseCourseGeneratorHelper {
+class courseGeneratorHelper extends BaseCourseGeneratorHelper
+{
 
     protected $profile = null;
+    protected $course = null;
+
+    public function setCourse($course)
+    {
+        $this->course = $course;
+    }
+
+    public function getCourse()
+    {
+        return $this->course;
+    }
 
     public function setProfile($profile)
     {
@@ -83,34 +95,34 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function getShowBreadcrumbs($course)
+    public function getBreadcrumbs($currentTitle = "", $currentUrl = "")
     {
-        return array(
-            'breadcrumbs' => array(
-                "Courses" => "/course/explorer",
-                "My Courses" => "/my/courses",
-                $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug()
-            )
-        );
+        $breadcrumbs = array("breadcrumbs");
+        $breadcrumbs["breadcrumbs"]["Courses"] = "course/explorer";
+        if ($this->getCourse()) {
+            $breadcrumbs["breadcrumbs"][$this->getCourse()->getCode() . " ~ " . $this->getCourse()->getName()] = "course/" . $this->getCourse()->getSlug();
+        }
+
+        $breadcrumbs["breadcrumbs"][$currentTitle] = $currentUrl;
+        return $breadcrumbs;
     }
 
-    public function getShowLinks($course)
+    public function getLinks($currentLink = "course_info")
     {
-        return array(
-            "currentParent" => "courses",
-            "current_child" => "courses",
-            "current_link" => "my_courses"
-        );
-    }
-
-    public function myCoursesBreadcrumbs()
-    {
-        return array(
-            'breadcrumbs' => array(
-                "Courses" => "courses",
-                "My Courses" => "my_courses"
-            )
-        );
+        if ($this->getCourse()) {
+            return array(
+                "currentParent" => "courses",
+                "current_child" => "my_course",
+                "current_link" => $currentLink,
+                "slug" => $this->getCourse()->getSlug()
+            );
+        } else {
+            return array(
+                "currentParent" => "courses",
+                "current_child" => "courses",
+                "current_link" => $currentLink
+            );
+        }
     }
 
     public function myCoursesLinks()
@@ -183,51 +195,16 @@ class courseGeneratorHelper extends BaseCourseGeneratorHelper {
         );
     }
 
-    public function getShowTabs($course, $activeTab = "show")
+    public function getVidoeTabs()
     {
-        $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($course->getId());
-        $tabs = array(
-            "posts" => array(
-                "label" => "Course Info",
-                "href" => "/my/course/" . $course->getSlug(),
-                "is_active" => $activeTab == "show"
-            ),
-            "syllabus" => array(
-                "label" => "Syllabus",
-                "href" => "/course/syllabus/" . $courseSyllabus->getId(),
-                "is_active" => $activeTab == "syllabus"
-            ),
+        return array(
             "videos" => array(
-                "label" => "Videos",
+                "label" => "Course Videos",
                 "href" => "/course/videos",
                 "count" => 0,
-                "is_active" => $activeTab == "videos"
-            ),
-            "announcements" => array(
-                "label" => "Announcements",
-                "href" => "/course/announcement",
-                "count" => $course->getCourseAnnouncements()->count(),
-            ),
-            "groups" => array(
-                "label" => "Discussions",
-                "href" => "/course/discussion",
-                "count" => $course->getCourseDiscussions()->count(),
-            ),
-            "peers" => array(
-                "label" => "Peers",
-                "href" => "/course/peer",
-                "count" => $course->getCourseProfiles()->count(),
-            ),
-            "instructors" => array(
-                "label" => "Instructors",
-                "href" => "/course/instructors",
-                "is_active" => $activeTab == "instructors"
+                "is_active" => true
             )
         );
-
-        if (!$this->getProfile()->getIsSuperAdmin()) {
-            unset($tabs["instructors"]);
-        }
 
         return $tabs;
     }

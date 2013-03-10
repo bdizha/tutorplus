@@ -8,7 +8,8 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHelper {
+class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHelper
+{
 
     public $course = null;
 
@@ -17,40 +18,43 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         $this->course = $course;
     }
 
-    public function indexBreadcrumbs()
+    public function getIndexBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
-                "Course Discussion" => "course_discussion"
+                "Discussions" => "course_discussion"
             )
         );
     }
 
-    public function indexLinks()
+    public function getIndexLinks()
     {
         return array(
             "currentParent" => "courses",
-            "current_child" => "courses",
-            "current_link" => "my_courses"
+            "current_child" => "my_course",
+            "current_link" => "discussions",
+            "slug" => $this->course->getSlug()
         );
     }
 
     public function getNewLinks()
     {
         return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_my"
+            "currentParent" => "courses",
+            "current_child" => "my_course",
+            "current_link" => "announcements",
+            "slug" => $this->course->getSlug()
         );
     }
 
     public function getEditLinks()
     {
         return array(
-            "currentParent" => "discussions",
-            "current_child" => "discussions",
-            "current_link" => "discussion_my"
+            "currentParent" => "courses",
+            "current_child" => "my_course",
+            "current_link" => "announcements",
+            "slug" => $this->course->getSlug()
         );
     }
 
@@ -59,7 +63,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         return array('breadcrumbs' => array(
                 "Courses" => "course",
                 $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
-                "+ New Discussion" => "course/discussion/new"
+                "New Discussion" => "course/discussion/new"
             )
         );
     }
@@ -163,50 +167,24 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
 
     public function getTabs($course, $courseDiscussions, $activeTab, $courseDiscussion = null)
     {
-        $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($course->getId());
         $tabs = array(
-            "course_info" => array(
-                "label" => "Course Info",
-                "href" => "/my/course/" . $course->getSlug()
-            ),
-            "syllabus" => array(
-                "label" => "Syllabus",
-                "href" => "/course/syllabus/" . $courseSyllabus->getId(),
-            ),
-            "videos" => array(
-                "label" => "Videos",
-                "href" => "/course/videos",
-                "count" => 0
-            ),
-            "announcements" => array(
-                "label" => "Announcements",
-                "href" => "/course/announcement",
-                "count" => $course->getCourseAnnouncements()->count()
-            ),
-            "groups" => array(
+            "discussions" => array(
                 "label" => "Discussions",
                 "href" => "/course/discussion",
                 "count" => $courseDiscussions->count(),
                 "is_active" => $activeTab == "index"
             ),
-            "peers" => array(
-                "label" => "Peers",
-                "href" => "/course/peer",
-                "count" => $course->getCourseProfiles()->count()
-            )
-        );
-
-        if ($activeTab == "new") {
-            unset($tabs["peers"]);
-            $tabs["new_group"] = array(
+            "new_discussion" => array(
                 "label" => "+ New Discussion",
                 "href" => "/course/discussion/new",
                 "is_active" => $activeTab == "new"
-            );
-        } elseif ($activeTab == "edit") {
+            )
+        );
+        
+        if ($activeTab == "edit") {
             unset($tabs["peers"]);
-            $tabs["edit_group"] = array(
-                "label" => "Edit Group",
+            $tabs["edit_discussion"] = array(
+                "label" => "Edit Discussion",
                 "href" => "/course/discussion/" . $courseDiscussion->getId() . "/edit",
                 "is_active" => $activeTab == "edit"
             );

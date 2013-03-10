@@ -129,8 +129,8 @@ a.jScrollActiveArrowButton,a.jScrollActiveArrowButton:hover {
 }
 
 .timeline-row .heading {
-    max-height: 40px;
-    height: 40px;
+    max-height: 37px;
+    height: 37px;
     overflow: hidden;
 }
 
@@ -160,8 +160,8 @@ a.jScrollActiveArrowButton,a.jScrollActiveArrowButton:hover {
 }
 
 #dashboard-feeds .heading {
-    max-height: 40px !important;
-    height: 40px;
+    max-height: 37px !important;
+    height: 37px;
 }
 
 .message-inbox {

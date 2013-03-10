@@ -113,8 +113,8 @@ class myUser extends sfBasicSecurityUser {
         $profile->setLastLogin(date('Y-m-d H:i:s'));
         $profile->save($con);
 
-        // signin
-        $this->setAttribute('profile_id', $profile->getId(), 'ProfileSecurityUser');
+        // sign in
+        $this->setMyAttribute('profile_id', $profile->getId());
         $this->setMyAttribute('profile_show_id', $profile->getId());
         $this->setAuthenticated(true);
         $this->clearCredentials();
@@ -214,7 +214,7 @@ class myUser extends sfBasicSecurityUser {
      * @return integer
      */
     public function getId() {
-        return $this->getMyAttribute("show_profile_id", null);
+        return $this->getMyAttribute("profile_id", null);
     }
 
     /**
@@ -389,7 +389,7 @@ class myUser extends sfBasicSecurityUser {
      * @param string $attribute key
      * @param string $attribute value
      */
-    public function getMyAttribute($key, $default) {
+    public function getMyAttribute($key, $default = null) {
         $attribute = $this->getAttribute($key, $default, $this->namespace);
         return $attribute;
     }

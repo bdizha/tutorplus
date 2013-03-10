@@ -2,7 +2,6 @@
 
 require_once dirname(__FILE__) . '/../lib/discussionGeneratorConfiguration.class.php';
 require_once dirname(__FILE__) . '/../lib/discussionGeneratorHelper.class.php';
-
 /**
  * discussion actions.
  *
@@ -11,7 +10,8 @@ require_once dirname(__FILE__) . '/../lib/discussionGeneratorHelper.class.php';
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class discussionActions extends autoDiscussionActions {
+class discussionActions extends autoDiscussionActions
+{
 
     public function preExecute()
     {
@@ -33,10 +33,10 @@ class discussionActions extends autoDiscussionActions {
 
         $this->discussion->setViewCount($this->discussion->getViewCount() + 1);
         $this->discussion->save();
-        $course = $this->discussion->getCourseDiscussion()->getCourse();
-        if ($course->getId()) {
-            $this->course = $course;
-            $this->getUser()->setMyAttribute('course_show_id', $course->getId());
+        $this->course = $this->discussion->getCourseDiscussion()->getCourse();
+        if ($this->course->getId()) {
+            $this->helper->setCourse($this->course);
+            $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
         }
 
         $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussion->getId(), $this->getUser()->getId());
@@ -47,6 +47,11 @@ class discussionActions extends autoDiscussionActions {
         $discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
         $this->discussion = DiscussionTable::getInstance()->find($discussionId);
         $this->redirectUnless($this->discussion, "@discussion_explorer");
+        $this->course = $this->discussion->getCourseDiscussion()->getCourse();
+        if ($this->course->getId()) {
+            $this->helper->setCourse($this->course);
+            $this->getUser()->setMyAttribute('course_show_id', $this->course->getId());
+        }
 
         $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussion->getId(), $this->getUser()->getId());
     }

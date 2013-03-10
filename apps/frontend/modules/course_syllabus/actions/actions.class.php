@@ -2,7 +2,6 @@
 
 require_once dirname(__FILE__) . '/../lib/course_syllabusGeneratorConfiguration.class.php';
 require_once dirname(__FILE__) . '/../lib/course_syllabusGeneratorHelper.class.php';
-
 /**
  * course_syllabus actions.
  *
@@ -11,7 +10,8 @@ require_once dirname(__FILE__) . '/../lib/course_syllabusGeneratorHelper.class.p
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class course_syllabusActions extends autoCourse_syllabusActions {
+class course_syllabusActions extends autoCourse_syllabusActions
+{
 
     public function preExecute()
     {
@@ -26,6 +26,13 @@ class course_syllabusActions extends autoCourse_syllabusActions {
         $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($this->course->getId());
         $this->helper->setCourseSyllabus($courseSyllabus);
         $this->forward404Unless($this->course);
+    }
+
+    public function executeIndex(sfWebRequest $request)
+    {
+        $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@my_courses");
+        $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($courseId);
+        $this->redirect("@course_syllabus_show?id=" . $courseSyllabus->getId());
     }
 
 }

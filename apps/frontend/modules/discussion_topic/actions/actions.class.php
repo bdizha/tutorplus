@@ -2,7 +2,6 @@
 
 require_once dirname(__FILE__) . '/../lib/discussion_topicGeneratorConfiguration.class.php';
 require_once dirname(__FILE__) . '/../lib/discussion_topicGeneratorHelper.class.php';
-
 /**
  * discussion_topic actions.
  *
@@ -17,24 +16,26 @@ class discussion_topicActions extends autoDiscussion_topicActions
     public function preExecute()
     {
         parent::preExecute();
-		$discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
-		$this->redirectUnless($discussionId, "@discussion");
-		$this->discussion = DiscussionTable::getInstance()->find($discussionId);
-		$this->helper->setDiscussion($this->discussion);
+        $discussionId = $this->getUser()->getMyAttribute('discussion_show_id', null);
+        $this->discussion = DiscussionTable::getInstance()->find($discussionId);
+        $this->redirectUnless($this->discussion, "@discussion_explorer");
+        
+        $this->helper->setDiscussion($this->discussion);        
+        $this->course = $this->discussion->getCourseDiscussion()->getCourse();
+        if ($this->course->getId()) {
+            $this->helper->setCourse($this->course);
+        }
         $this->myPeers = PeerTable::getInstance()->findByProfileId($this->getUser()->getId());
     }
 
     public function executeShow(sfWebRequest $request)
     {
-        $this->forward404Unless($this->discussionTopic = $this->getRoute()->getObject());        
-        $this->discussion = $this->discussionTopic->getDiscussion();
-        $this->redirectUnless($this->discussion, "@discussion_explorer");
-        
+        $this->forward404Unless($this->discussionTopic = $this->getRoute()->getObject());
         $this->getUser()->setMyAttribute('discussion_topic_show_id', $this->discussionTopic->getId());
-        $this->getUser()->setMyAttribute('discussion_show_id', $this->discussionTopic->getDiscussionId());
-
         $this->discussionTopic->setViewCount($this->discussionTopic->getViewCount() + 1);
         $this->discussionTopic->save();
+        
+        $this->helper->setDiscussionTopic($this->discussionTopic);  
 
         $this->discussionPeer = DiscussionPeerTable::getInstance()->getPeersByDiscussionIdAndProfileId($this->discussion->getId(), $this->getUser()->getId());
 
@@ -76,7 +77,6 @@ class discussion_topicActions extends autoDiscussion_topicActions
 //                     'title' => $this->generateUrl('discussion_topic_show', array("slug" => $object->getSlug()), 'absolute=true'),
 //                     'route' => "@discussion_topic_show?slug=" . $object->getSlug())
 //             )));
-
 //         $mailer->send();
     }
 

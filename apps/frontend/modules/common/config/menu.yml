@@ -31,13 +31,13 @@ secure:
         details:                      { route: course_show, label: "Course Home" }
         credentials:                  [ Student, Instructor, Staff ]
         children:
-          course_info:                { route: course_show, param: slug,  label: "Course Info" }
+          course_info:                { route: course_show, param: slug, label: "Course Info" }
           course_syllabus:            { route: course_syllabus, label: "Syllabus" }
           announcements:              { route: course_announcement, label: "Announcements" }
           #course_calendar:            { route: course_calendar, label: "Calendar" }
-          course_discussions:         { route: course_discussion, label: "Course Discussions" }
+          discussions:                { route: course_discussion, label: "Discussions" }
           course_peers:               { route: course_peer, label: "Course Peers" }
-          course_video:               { route: course_video, label: "Videos" }
+          course_videos:              { route: course_videos, label: "Course Videos" }
       my_assignment:                                        
         details:                      { route: assignment_show, label: "Assignment Home" }
         credentials:                  [ Student, Instructor, Staff ]
@@ -53,7 +53,7 @@ secure:
         details:                      { route: discussion_explorer, label: "Discussions" }
         credentials:                  [ Student, Instructor, Staff ]
         children:
-          discussion_my:              { route: discussion_my, label: "My Discussions" }
+          my_discussions:             { route: discussion_my, label: "My Discussions" }
           discussion_explorer:        { route: discussion_explorer, label: "Discussion Explorer" }
 #  calendar:                          
 #    details:                          { route: my_schedule, label: Calendar }

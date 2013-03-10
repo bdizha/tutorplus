@@ -38,6 +38,5 @@ generator:
       new:
         title:             New Topic
         actions:
-          _delete:         []
           cancel:          []
           _save:           { label: Post }

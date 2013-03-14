@@ -1,8 +1,0 @@
-all:
-  stylesheets: [ secure.css ]
-  
-chooseSuccess:
-  has_layout: false
-
-programmesSuccess:
-  has_layout: false

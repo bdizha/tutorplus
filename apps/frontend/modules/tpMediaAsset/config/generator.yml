@@ -1,0 +1,40 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MediaAsset
+    theme:                 normal
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          media_asset
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:                      ~
+      fields:                       ~   
+      form:
+        display:            
+          "Details":                [ name, type, is_default ]
+      filter:
+        class: false
+      list:
+        title:                      Media Assets
+        display:                    [ name, type, is_default ]
+        sort:                       [ type, asc ]
+        batch_actions:              []
+        max_per_page:			          10
+        actions:
+          _new:                     { label: "+ Add Asset" }
+      edit:
+        title:                      Edit Asset
+        actions:
+          cancel:                   []
+          done:                     []
+          _save:                    []
+      new:
+        title:                      New Asset
+        actions:
+          cancel:                   []
+          _save:                    ~

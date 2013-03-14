@@ -818,6 +818,16 @@ File:
     folderFile:
       fields:                   [ folder_id, original_name ]
       type:                     unique
+      
+MediaAsset:
+  options:
+    symfony:
+  actAs:
+    Timestampable:              ~
+  columns:
+    type:                       { type: integer, notnull: true }
+    name:                       { type: string(255), notnull: true }
+    is_default:                 { type: boolean, default: 0 }
     
 Profile:
   actAs:

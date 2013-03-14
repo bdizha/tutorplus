@@ -1,3 +1,561 @@
+profile_tpStudent:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpStudent
+    prefix_path:          /tpStudent
+    column:               id
+    with_wildcard_routes: true
+
+state_province_tpStateProvince:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                StateProvince
+    module:               tpStateProvince
+    prefix_path:          /tpStateProvince
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpStaff:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpStaff
+    prefix_path:          /tpStaff
+    column:               id
+    with_wildcard_routes: true
+
+room_tpRoom:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Room
+    module:               tpRoom
+    prefix_path:          /tpRoom
+    column:               id
+    with_wildcard_routes: true
+
+program_level_tpProgramLevel:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProgramLevel
+    module:               tpProgramLevel
+    prefix_path:          /tpProgramLevel
+    column:               id
+    with_wildcard_routes: true
+
+program_tpProgram:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Program
+    module:               tpProgram
+    prefix_path:          /tpProgram
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpProfile:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpProfile
+    prefix_path:          /tpProfile
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpProfileCredentials:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpProfileCredentials
+    prefix_path:          /tpProfileCredentials
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpProfileCredential:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpProfileCredential
+    prefix_path:          /tpProfileCredential
+    column:               id
+    with_wildcard_routes: true
+
+profile_permission_tpProfilePermission:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfilePermission
+    module:               tpProfilePermission
+    prefix_path:          /tpProfilePermission
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpProfileInfo:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpProfileInfo
+    prefix_path:          /tpProfileInfo
+    column:               id
+    with_wildcard_routes: true
+
+profile_group_tpProfileGroup:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileGroup
+    module:               tpProfileGroup
+    prefix_path:          /tpProfileGroup
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpProfileEnroll:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpProfileEnroll
+    prefix_path:          /tpProfileEnroll
+    column:               id
+    with_wildcard_routes: true
+
+profile_interest_tpProfileInterest:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileInterest
+    module:               tpProfileInterest
+    prefix_path:          /tpProfileInterest
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpProfileDetails:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpProfileDetails
+    prefix_path:          /tpProfileDetails
+    column:               id
+    with_wildcard_routes: true
+
+profile_book_tpProfileBook:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileBook
+    module:               tpProfileBook
+    prefix_path:          /tpProfileBook
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpProfileBiography:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpProfileBiography
+    prefix_path:          /tpProfileBiography
+    column:               id
+    with_wildcard_routes: true
+
+profile_award_tpProfileAward:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileAward
+    module:               tpProfileAward
+    prefix_path:          /tpProfileAward
+    column:               id
+    with_wildcard_routes: true
+
+profile_qualification_tpProfileQualification:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ProfileQualification
+    module:               tpProfileQualification
+    prefix_path:          /tpProfileQualification
+    column:               id
+    with_wildcard_routes: true
+
+peer_tpPeer:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Peer
+    module:               tpPeer
+    prefix_path:          /tpPeer
+    column:               id
+    with_wildcard_routes: true
+
+notification_settings_tpNotificationSettings:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NotificationSettings
+    module:               tpNotificationSettings
+    prefix_path:          /tpNotificationSettings
+    column:               id
+    with_wildcard_routes: true
+
+news_item_tpNewsItem:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NewsItem
+    module:               tpNewsItem
+    prefix_path:          /tpNewsItem
+    column:               id
+    with_wildcard_routes: true
+
+email_message_tpMessageTrash:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               tpMessageTrash
+    prefix_path:          /tpMessageTrash
+    column:               id
+    with_wildcard_routes: true
+
+email_message_tpMessageSent:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               tpMessageSent
+    prefix_path:          /tpMessageSent
+    column:               id
+    with_wildcard_routes: true
+
+email_message_tpMessageInbox:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               tpMessageInbox
+    prefix_path:          /tpMessageInbox
+    column:               id
+    with_wildcard_routes: true
+
+email_message_tpMessageDraft:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailMessage
+    module:               tpMessageDraft
+    prefix_path:          /tpMessageDraft
+    column:               id
+    with_wildcard_routes: true
+
+mailing_list_tpMailingList:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MailingList
+    module:               tpMailingList
+    prefix_path:          /tpMailingList
+    column:               id
+    with_wildcard_routes: true
+
+profile_tpInstructor:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Profile
+    module:               tpInstructor
+    prefix_path:          /tpInstructor
+    column:               id
+    with_wildcard_routes: true
+
+institution_tpInstitution:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Institution
+    module:               tpInstitution
+    prefix_path:          /tpInstitution
+    column:               id
+    with_wildcard_routes: true
+
+gradebook_scale_tpGradebookScale:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                GradebookScale
+    module:               tpGradebookScale
+    prefix_path:          /tpGradebookScale
+    column:               id
+    with_wildcard_routes: true
+
+gradebook_item_tpGradebookItem:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                GradebookItem
+    module:               tpGradebookItem
+    prefix_path:          /tpGradebookItem
+    column:               id
+    with_wildcard_routes: true
+
+gradebook_tpGradebook:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Gradebook
+    module:               tpGradebook
+    prefix_path:          /tpGradebook
+    column:               id
+    with_wildcard_routes: true
+
+folder_tpFolder:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Folder
+    module:               tpFolder
+    prefix_path:          /tpFolder
+    column:               id
+    with_wildcard_routes: true
+
+file_tpFile:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                File
+    module:               tpFile
+    prefix_path:          /tpFile
+    column:               id
+    with_wildcard_routes: true
+
+file_tpFile--theme=normal:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                File
+    module:               tpFile--theme=normal
+    prefix_path:          /tpFile--theme=normal
+    column:               id
+    with_wildcard_routes: true
+
+faq_tpFaq:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Faq
+    module:               tpFaq
+    prefix_path:          /tpFaq
+    column:               id
+    with_wildcard_routes: true
+
+faculty_tpFaculty:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Faculty
+    module:               tpFaculty
+    prefix_path:          /tpFaculty
+    column:               id
+    with_wildcard_routes: true
+
+email_template_tpEmailTemplate:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EmailTemplate
+    module:               tpEmailTemplate
+    prefix_path:          /tpEmailTemplate
+    column:               id
+    with_wildcard_routes: true
+
+discussion_topic_tpDiscussionTopic:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionTopic
+    module:               tpDiscussionTopic
+    prefix_path:          /tpDiscussionTopic
+    column:               id
+    with_wildcard_routes: true
+
+discussion_post_tpDiscussionPost:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionPost
+    module:               tpDiscussionPost
+    prefix_path:          /tpDiscussionPost
+    column:               id
+    with_wildcard_routes: true
+
+discussion_peer_tpDiscussionPeer:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionPeer
+    module:               tpDiscussionPeer
+    prefix_path:          /tpDiscussionPeer
+    column:               id
+    with_wildcard_routes: true
+
+discussion_comment_tpDiscussionComment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DiscussionComment
+    module:               tpDiscussionComment
+    prefix_path:          /tpDiscussionComment
+    column:               id
+    with_wildcard_routes: true
+
+discussion_tpDiscussion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Discussion
+    module:               tpDiscussion
+    prefix_path:          /tpDiscussion
+    column:               id
+    with_wildcard_routes: true
+
+department_tpDepartment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Department
+    module:               tpDepartment
+    prefix_path:          /tpDepartment
+    column:               id
+    with_wildcard_routes: true
+
+course_syllabus_tpCourseSyllabus:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CourseSyllabus
+    module:               tpCourseSyllabus
+    prefix_path:          /tpCourseSyllabus
+    column:               id
+    with_wildcard_routes: true
+
+course_link_tpCourseLink:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CourseLink
+    module:               tpCourseLink
+    prefix_path:          /tpCourseLink
+    column:               id
+    with_wildcard_routes: true
+
+course_announcement_tpCourseAnnouncement:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CourseAnnouncement
+    module:               tpCourseAnnouncement
+    prefix_path:          /tpCourseAnnouncement
+    column:               id
+    with_wildcard_routes: true
+
+course_tpCourse:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Course
+    module:               tpCourse
+    prefix_path:          /tpCourse
+    column:               id
+    with_wildcard_routes: true
+
+calendar_event_attendee_tpCalendarEventAttendee:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CalendarEventAttendee
+    module:               tpCalendarEventAttendee
+    prefix_path:          /tpCalendarEventAttendee
+    column:               id
+    with_wildcard_routes: true
+
+country_tpCountry:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Country
+    module:               tpCountry
+    prefix_path:          /tpCountry
+    column:               id
+    with_wildcard_routes: true
+
+campus_tpCampus:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Campus
+    module:               tpCampus
+    prefix_path:          /tpCampus
+    column:               id
+    with_wildcard_routes: true
+
+calendar_event_tpCalendarEvent:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CalendarEvent
+    module:               tpCalendarEvent
+    prefix_path:          /tpCalendarEvent
+    column:               id
+    with_wildcard_routes: true
+
+calendar_tpCalendar:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Calendar
+    module:               tpCalendar
+    prefix_path:          /tpCalendar
+    column:               id
+    with_wildcard_routes: true
+
+building_tpBuilding:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Building
+    module:               tpBuilding
+    prefix_path:          /tpBuilding
+    column:               id
+    with_wildcard_routes: true
+
+attendance_tpAttendance:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Attendance
+    module:               tpAttendance
+    prefix_path:          /tpAttendance
+    column:               id
+    with_wildcard_routes: true
+
+assignment_tpAssignment:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Assignment
+    module:               tpAssignment
+    prefix_path:          /tpAssignment
+    column:               id
+    with_wildcard_routes: true
+
+assessment_type_tpAssessmentType:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AssessmentType
+    module:               tpAssessmentType
+    prefix_path:          /tpAssessmentType
+    column:               id
+    with_wildcard_routes: true
+
+announcement_tpAnnouncement:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Announcement
+    module:               tpAnnouncement
+    prefix_path:          /tpAnnouncement
+    column:               id
+    with_wildcard_routes: true
+
+activity_feed_tpActivityFeed:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ActivityFeed
+    module:               tpActivityFeed
+    prefix_path:          /tpActivityFeed
+    column:               id
+    with_wildcard_routes: true
+
+academic_period_tpAcademicPeriod:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                AcademicPeriod
+    module:               tpAcademicPeriod
+    prefix_path:          /tpAcademicPeriod
+    column:               id
+    with_wildcard_routes: true
+
+media_asset:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MediaAsset
+    module:               tpMediaAsset
+    prefix_path:          /tpMediaAsset
+    column:               id
+    with_wildcard_routes: true
+
+gallery:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Gallery
+    module:               tpGallery
+    prefix_path:          /tpGallery
+    column:               id
+    with_wildcard_routes: true
+
 course_syllabus:
   class: sfDoctrineRouteCollection
   options:

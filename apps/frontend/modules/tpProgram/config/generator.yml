@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Program
+    theme:                 normal
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          program_tpProgram
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:                  ~
+      fields:                   ~
+      list:                     ~
+      filter:                   ~
+      form:                     ~
+      edit:
+        actions:
+          cancel:               []
+          done:                 []
+          _save:                []
+      new:
+        actions:
+          cancel:               []
+          save:                 []

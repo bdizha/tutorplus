@@ -12,7 +12,6 @@ require_once dirname(__FILE__) . '/../lib/tpProfileGeneratorHelper.class.php';
  */
 class tpProfileActions extends autoTpProfileActions
 {
-
     public function executeCheckLogIn()
     {
         die(json_encode(array("status" => $this->getUser()->isAuthenticated() ? "200" : "401")));

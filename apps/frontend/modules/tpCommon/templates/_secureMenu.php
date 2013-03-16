@@ -19,16 +19,16 @@
     <?php endif; ?>
 </ul>
 <?php if ($sf_user->isAuthenticated()): ?>
-    <?php include_partial('profile/overlay') ?>
+    <?php include_partial('tpProfile/overlay') ?>
     <div class="profile-identity">
         <div class="actions">
             <input type="button" class="button"
-                   onclick="document.location.href = '<?php echo url_for('@activity_feed') ?>';"
+                   onclick="document.location.href = '<?php echo url_for('@timeline') ?>';"
                    value="99+"></input> <input type="button" class="button"
-                   onclick="document.location.href = '<?php echo url_for('@activity_feed') ?>';"
+                   onclick="document.location.href = '<?php echo url_for('@timeline') ?>';"
                    value="+ Share"></input>
         </div>
-        <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 24, "cssClass" => "profile-photo")) ?>
+        <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 24, "cssClass" => "profile-photo")) ?>
         <span class="dropdown"></span>
     </div>
 <?php else: ?>

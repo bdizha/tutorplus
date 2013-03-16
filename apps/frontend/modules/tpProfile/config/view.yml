@@ -1,12 +1,3 @@
 all:
   stylesheets:    [ secure.css, profile.css, discussion.css, jquery.jcrop.css ]
   javascripts:    [ jquery.jcrop.min.js, jquery.color.js ]
-  
-newSuccess:
-  has_layout:     false
-  
-editSuccess:
-  has_layout:     false
- 
-showSuccess:
-  has_layout:     true

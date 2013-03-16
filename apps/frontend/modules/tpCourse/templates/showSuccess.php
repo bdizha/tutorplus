@@ -1,13 +1,13 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->getLinks("course_info")) ?>
-<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs($course->getCode() . " ~ " . $course->getName(), "my/course/" . $course->getSlug())) ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getLinks("course_info")) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs($course->getCode() . " ~ " . $course->getName(), "my/course/" . $course->getSlug())) ?>
 <div class="sf_admin_heading">
     <h3>
         <?php include_partial('course/photo', array('course' => $course, "dimension" => 24)) ?>
         <?php echo __('%%code%% ~ %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?>
     </h3>
 </div>
-<?php include_partial('common/flashes_normal') ?>
+<?php include_partial('tpCommon/flashes_normal') ?>
 <div id="sf_admin_content">
     <div class="content-block">
         <div class="tab-block">
@@ -21,7 +21,7 @@
                 <?php echo $course->getDescription() ?>
             </div>
         </div>
-        <?php include_partial('common/actions', $helper->getShowActions()) ?>
+        <?php include_partial('tpCommon/actions', $helper->getShowActions()) ?>
     </div>
 </div>
 <script type="text/javascript">

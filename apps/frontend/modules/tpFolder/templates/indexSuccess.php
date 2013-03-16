@@ -1,11 +1,11 @@
 <?php use_helper('I18N', 'Date') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_partial('common/nav_vertical', array("item_level_1" => "documents", "item_level_2" => "file_system", "current_route" => "folder")) ?>
+<?php include_partial('tpCommon/nav_vertical', array("item_level_1" => "documents", "item_level_2" => "file_system", "current_route" => "folder")) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("File System" => "folder", __('My Documents', array(), 'messages') => "folder"))) ?>
+<?php include_partial('tpCommon/breadcrumbs', array('breadcrumbs' => array("File System" => "folder", __('My Documents', array(), 'messages') => "folder"))) ?>
 <?php end_slot() ?>
 
 <div class="sf_admin_heading">

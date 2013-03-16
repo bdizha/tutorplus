@@ -34,7 +34,7 @@ class tpCourseGeneratorHelper extends BaseTpCourseGeneratorHelper
         return $this->profile;
     }
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array(
             'breadcrumbs' => array(
@@ -45,7 +45,7 @@ class tpCourseGeneratorHelper extends BaseTpCourseGeneratorHelper
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "settings",

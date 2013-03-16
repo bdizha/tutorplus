@@ -25,7 +25,7 @@
                   <?php foreach ($studentPeers as $peer): ?>
                     <?php $student = ($peer->getInviterId() == $sf_user->getId()) ? $peer->getInvitee() : $peer->getInviter() ?>
                     <div class="email-recipient">
-                      <?php include_partial('personal_info/photo', array('profile' => $student, "dimension" => 36)) ?>
+                      <?php include_partial('tpPersonalInfo/photo', array('profile' => $student, "dimension" => 36)) ?>
                       <div class="name"><?php echo $student->getName() ?></div>
                       <div class="input">
                         <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][student][]" value="<?php echo $student["id"] ?>" <?php echo (isset($recipient[$type]['student']) && is_array($recipient[$type]['student']) && in_array($student["id"], $recipient[$type]['student'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $student->getId() ?>" class="choose-input" />                
@@ -41,7 +41,7 @@
                   <?php foreach ($instructorPeers as $peer): ?>
                     <?php $instructor = ($peer->getInviterId() == $sf_user->getId()) ? $peer->getInvitee() : $peer->getInviter() ?>
                     <div class="email-recipient">
-                      <?php include_partial('personal_info/photo', array('profile' => $instructor, "dimension" => 36)) ?>
+                      <?php include_partial('tpPersonalInfo/photo', array('profile' => $instructor, "dimension" => 36)) ?>
                       <div class="name"><?php echo $instructor->getName() ?></div>
                       <div class="input">
                         <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][instructor][]" value="<?php echo $instructor["id"] ?>" <?php echo (isset($recipient[$type]['instructor']) && is_array($recipient[$type]['instructor']) && in_array($instructor["id"], $recipient[$type]['instructor'])) ? "checked='checked'" : "" ?> id="recipient_student_<?php echo $instructor->getId() ?>" class="choose-input" />                
@@ -56,7 +56,7 @@
                 <?php else: ?>
                   <?php foreach ($mailingLists as $mailingList): ?>
                     <div class="email-recipient">
-                      <?php include_partial('personal_info/photo', array('profile' => $mailingList->getProfile(), "dimension" => 36)) ?>
+                      <?php include_partial('tpPersonalInfo/photo', array('profile' => $mailingList->getProfile(), "dimension" => 36)) ?>
                       <div class="name"><?php echo $mailingList["name"] ?></div>
                       <div class="input">
                         <input type="checkbox" class="input-checkbox" name="recipient[<?php echo $type ?>][mailing_list][]" value="<?php echo $mailingList["id"] ?>" <?php echo (isset($recipient[$type]['mailing_list']) && is_array($recipient[$type]['mailing_list']) && in_array($mailingList["id"], $recipient[$type]['mailing_list'])) ? "checked='checked'" : "" ?> id="recipient_mailing_list_<?php echo $mailingList["id"] ?>" class="choose-input" />                
@@ -68,7 +68,7 @@
             </fieldset>
           </form>        
         </div>
-            <?php include_partial('common/form_actions') ?>
+            <?php include_partial('tpCommon/form_actions') ?>
       </div>
     </div>
   </div>

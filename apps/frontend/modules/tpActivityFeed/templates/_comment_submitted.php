@@ -4,7 +4,7 @@
     <?php $discussionTopic = $discussionComment->getDiscussionPost()->getDiscussionTopic() ?>
     <div class="timeline-row">
         <div class="heading">
-            <?php include_partial('personal_info/photo', array('profile' => $discussionComment->getProfile(), "dimension" => 36)) ?>
+            <?php include_partial('tpPersonalInfo/photo', array('profile' => $discussionComment->getProfile(), "dimension" => 36)) ?>
             <?php echo link_to($discussionComment->getProfile(), 'profile_show', $discussionComment->getProfile()) ?>
             has submitted a discussion comment on topic:
             <?php echo link_to($discussionTopic->getSubject(), 'discussion_topic_show', $discussionTopic) ?>

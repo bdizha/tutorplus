@@ -1,1 +1,1 @@
-<?php include_partial('profile/info', array('profile' => $profile)) ?>
+<?php include_partial('tpProfile/info', array('profile' => $profile)) ?>

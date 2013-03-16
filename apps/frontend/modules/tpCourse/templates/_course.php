@@ -38,7 +38,7 @@
             <?php $courseInstructorProfiles = ProfileTable::getInstance()->findByCourseId($course->getId(), true, 2); ?>
             <?php foreach ($courseInstructorProfiles as $profile): ?>
                 <div class="peer">
-                    <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 36)) ?>
+                    <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 36)) ?>
                     <div class="name">
                         <?php echo link_to($profile->getName(), 'profile_show', $profile) ?>
                     </div>

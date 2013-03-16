@@ -11,7 +11,7 @@
 class tpMediaAssetGeneratorHelper extends BaseTpMediaAssetGeneratorHelper
 {
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Settings" => "course/explorer",
@@ -21,7 +21,7 @@ class tpMediaAssetGeneratorHelper extends BaseTpMediaAssetGeneratorHelper
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "settings",
@@ -42,7 +42,7 @@ class tpMediaAssetGeneratorHelper extends BaseTpMediaAssetGeneratorHelper
 
     public function getNewLinks()
     {
-        return $this->indexLinks();
+        return $this->getLinks();
     }
 
     public function getEditBreadcrumbs($object)
@@ -58,7 +58,7 @@ class tpMediaAssetGeneratorHelper extends BaseTpMediaAssetGeneratorHelper
 
     public function getEditLinks()
     {
-        return $this->indexLinks();
+        return $this->getLinks();
     }
 
 }

@@ -1,5 +1,5 @@
-<?php include_partial('discussion_post/post', array('discussionPost' => $discussionPost, "discussionCommentForm" => $discussionCommentForm, "discussionPostForm" => new DiscussionPostForm($discussionPost), "helper" => new discussion_postGeneratorHelper())) ?>
-<?php include_partial('discussion_comment/js') ?>
+<?php include_partial('tpDiscussionPost/post', array('discussionPost' => $discussionPost, "discussionCommentForm" => $discussionCommentForm, "discussionPostForm" => new DiscussionPostForm($discussionPost), "helper" => new discussion_postGeneratorHelper())) ?>
+<?php include_partial('tpDiscussionComment/js') ?>
 <script type='text/javascript'>
     $(document).ready(function() {
         $('.message-edit textarea').redactor();

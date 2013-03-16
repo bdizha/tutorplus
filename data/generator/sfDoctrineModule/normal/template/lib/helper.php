@@ -47,11 +47,11 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
         return '<li class="sf_admin_action_save"><input class="save" type="submit" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }  
     
-    public function indexBreadcrumbs() {
+    public function getBreadcrumbs() {
         return array('breadcrumbs' => array());
     }
 
-    public function indexLinks() {
+    public function getLinks() {
         return array();
     }
 

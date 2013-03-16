@@ -18,7 +18,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         $this->course = $course;
     }
 
-    public function getIndexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
@@ -28,7 +28,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
         );
     }
 
-    public function getIndexLinks()
+    public function getgetLinks()
     {
         return array(
             "currentParent" => "courses",

@@ -1,14 +1,14 @@
 <?php
 
 /**
- * common actions.
+ * tpCommon actions.
  *
  * @package    tutorplus
- * @subpackage common
+ * @subpackage tpCommon
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class commonComponents extends sfComponents {
+class tpCommonComponents extends sfComponents {
 
   public function executePublicMenu(sfWebRequest $request) {
     $menu = sfYaml::load(dirname(__FILE__) . "/../config/menu.yml");

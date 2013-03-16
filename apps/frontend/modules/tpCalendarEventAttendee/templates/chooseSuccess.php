@@ -2,7 +2,7 @@
 <div id="cboxLoadedContentInner">
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
-            <?php include_partial('common/flashes_normal') ?>
+            <?php include_partial('tpCommon/flashes_normal') ?>
             <form id="event_attendees_choose_form" action="/event/attendees/choose" method="post">
                 <div class="choose-participants">
                     <?php foreach ($users as $user): ?>
@@ -10,7 +10,7 @@
                             <div class="participant-input">
                                 <input type="checkbox" class="input-checkbox" name="attendee[]" value="<?php echo $user->getId() ?>" <?php echo (isset($currentProfileIds) && is_array($currentProfileIds) && in_array($user["id"], $currentProfileIds)) ? "checked='checked'" : "" ?> id="attendee_<?php echo $user->getId() ?>" class="choose-input" />                
                             </div>
-                            <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 24)) ?>
+                            <?php include_partial('tpPersonalInfo/photo', array('profile' => $user, "dimension" => 24)) ?>
                             <div class="name"><?php echo link_to($user, 'profile_show', $user) ?></div>
                         </div> 
                     <?php endforeach; ?>

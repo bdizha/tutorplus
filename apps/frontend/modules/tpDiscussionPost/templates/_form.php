@@ -3,7 +3,7 @@
         <?php $discussionTopicId = $form->getDefault("discussion_topic_id") ?>
         <?php echo form_tag_for($form, '@discussion_post', array('id' => 'discussion_post_form')) ?>
         <?php echo $form->renderHiddenFields(false) ?>
-        <?php include_partial('personal_info/photo', array('profile' => $sf_user->getProfile(), "dimension" => 36)) ?>
+        <?php include_partial('tpPersonalInfo/photo', array('profile' => $sf_user->getProfile(), "dimension" => 36)) ?>
         <div class="post_input_holder">
             <div class="value">
                 <div class="input" id="redactor_post_holder_<?php echo $discussionTopicId ?>">

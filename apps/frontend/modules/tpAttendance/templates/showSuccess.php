@@ -2,11 +2,11 @@
 <?php include_partial('attendance/assets') ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_partial('common/nav_vertical_secondary', array("item_level_1" => "academics2", "item_level_2" => "course_home", "current_route" => "attendance")) ?>
+<?php include_partial('tpCommon/nav_vertical_secondary', array("item_level_1" => "academics2", "item_level_2" => "course_home", "current_route" => "attendance")) ?>
 <?php end_slot() ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("Academics" => "academics", "Courses" => "course", __('%%code%% - %%name%%', array('%%code%%' => $attendance->getCourse()->getCode(), '%%name%%' => $attendance->getCourse()->getName()), 'messages') => "course/" . $attendance->getCourse()->getId(), "Attendance" => "attendance", "Student Attendance" => "/attendance/" . $attendance->getId()))) ?>
+<?php include_partial('tpCommon/breadcrumbs', array('breadcrumbs' => array("Academics" => "academics", "Courses" => "course", __('%%code%% - %%name%%', array('%%code%%' => $attendance->getCourse()->getCode(), '%%name%%' => $attendance->getCourse()->getName()), 'messages') => "course/" . $attendance->getCourse()->getId(), "Attendance" => "attendance", "Student Attendance" => "/attendance/" . $attendance->getId()))) ?>
 <?php end_slot() ?>
 
 <div class="sf_admin_heading">

@@ -1,5 +1,5 @@
 <?php if (count($publications) == 0): ?>
-<div class="no-result">There's no publications added yet.</div>
+<div class="no-result">There isn't any publications added yet.</div>
 <?php else: ?>
     <ul>
         <?php foreach ($publications as $publication): ?>

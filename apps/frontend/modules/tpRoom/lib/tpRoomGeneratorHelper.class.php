@@ -11,7 +11,7 @@
 class tpRoomGeneratorHelper extends BaseTpRoomGeneratorHelper
 {
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
@@ -21,7 +21,7 @@ class tpRoomGeneratorHelper extends BaseTpRoomGeneratorHelper
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "settings",

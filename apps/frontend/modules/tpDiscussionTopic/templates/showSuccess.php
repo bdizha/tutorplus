@@ -1,13 +1,13 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->getLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs("discussion_topic_show", $discussionTopic)) ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getLinks()) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs("discussion_topic_show", $discussionTopic)) ?>
 <div id="sf_admin_content">
-    <?php include_partial('common/flashes_normal') ?>
+    <?php include_partial('tpCommon/flashes_normal') ?>
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($discussionTopic, $myPeers))) ?>
+        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getShowTabs($discussionTopic, $myPeers))) ?>
         <div class="tab-block">
             <div class="snapshot<?php echo $discussionTopic->getProfileId() == $sf_user->getId() ? " current" : "" ?>">
-                <?php include_partial('personal_info/photo', array('profile' => $discussionTopic->getProfile(), "dimension" => 36)) ?>
+                <?php include_partial('tpPersonalInfo/photo', array('profile' => $discussionTopic->getProfile(), "dimension" => 36)) ?>
                 <div class="name">
                     <?php echo$discussionTopic->getSubject() ?>
                 </div>
@@ -22,19 +22,19 @@
                     <span class="list-count"><?php echo $discussionTopic->getDiscussion()->getPeers()->count() ?></span> peers
                 </div>
             </div>
-            <?php include_partial('common/actions', array('actions' => $helper->getShowActions($discussion, $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
+            <?php include_partial('tpCommon/actions', array('actions' => $helper->getShowActions($discussion, $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
             <div id="discussion_post_form_container">
                 <div id="sf_admin_form_container">
-                    <?php include_partial('discussion_post/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>
+                    <?php include_partial('tpDiscussionPost/form', array('discussion_post' => new DiscussionPost(), 'form' => $discussionPostForm)) ?>
                 </div>
             </div>
             <div id="discussion-posts">
                 <?php foreach ($discussionTopic->getPosts() as $discussionPost): ?>
-                    <?php include_partial('discussion_post/post', array('discussionPost' => $discussionPost, "discussionCommentForm" => $discussionCommentForm, "discussionPostForm" => new DiscussionPostForm($discussionPost), "helper" => new discussion_topicGeneratorHelper())) ?>
+                    <?php include_partial('tpDiscussionPost/post', array('discussionPost' => $discussionPost, "discussionCommentForm" => $discussionCommentForm, "discussionPostForm" => new DiscussionPostForm($discussionPost), "helper" => new discussion_topicGeneratorHelper())) ?>
                 <?php endforeach; ?>
             </div>
         </div>
     </div>
 </div>
-<?php include_partial('discussion_comment/js') ?>
-<?php include_partial('discussion/js', array("helper" => $helper)) ?>
+<?php include_partial('tpDiscussionComment/js') ?>
+<?php include_partial('tpDiscussion/js', array("helper" => $helper)) ?>

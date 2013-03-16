@@ -1,7 +1,7 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php if ($courseDiscussion): ?>
     <div class="heading">
-        <?php include_partial('personal_info/photo', array('profile' => $courseDiscussion->getProfile(), "dimension" => 36)) ?>
+        <?php include_partial('tpPersonalInfo/photo', array('profile' => $courseDiscussion->getProfile(), "dimension" => 36)) ?>
         <div class="name">
             <?php echo link_to($courseDiscussion->getName(), 'discussion_show', $courseDiscussion) ?>
         </div>

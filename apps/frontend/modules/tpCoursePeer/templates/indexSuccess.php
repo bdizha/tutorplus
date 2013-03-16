@@ -1,10 +1,10 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->getLinks($course)) ?>
-<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs("Course Peers", "course/peer")) ?>
-<?php include_partial('common/flashes_normal') ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getLinks($course)) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs("Course Peers", "course/peer")) ?>
+<?php include_partial('tpCommon/flashes_normal') ?>
 <div id="sf_admin_content">
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs("peers"))) ?>
+        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs("peers"))) ?>
         <div class="tab-block">
             <?php if (!$courseInstructorProfiles->count() && !$courseStudentProfiles->count()): ?>
                 There isn't any course peers yet.

@@ -1,12 +1,12 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('common/assets') ?>
+<?php include_partial('tpCommon/assets') ?>
 
 <?php slot('breadcrumbs') ?>
-<?php include_partial('common/breadcrumbs', array('breadcrumbs' => array("Academics" => "academics", "Course ~ "  . $course->getCode() => "course/" . $course->getId(), "Course Extras" => "course_extra"))) ?>
+<?php include_partial('tpCommon/breadcrumbs', array('breadcrumbs' => array("Academics" => "academics", "Course ~ "  . $course->getCode() => "course/" . $course->getId(), "Course Extras" => "course_extra"))) ?>
 <?php end_slot() ?>
 
 <?php slot('nav_vertical') ?>
-<?php include_partial('common/nav_vertical_secondary', array("item_level_1" => "academics2", "item_level_2" => "course_home", "current_route" => "course_extra")) ?>
+<?php include_partial('tpCommon/nav_vertical_secondary', array("item_level_1" => "academics2", "item_level_2" => "course_home", "current_route" => "course_extra")) ?>
 
 <script type="text/javascript">
     $(document).ready(function(){

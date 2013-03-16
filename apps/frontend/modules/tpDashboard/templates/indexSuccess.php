@@ -1,10 +1,10 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->indexLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
-<?php include_partial('common/flashes_normal') ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getLinks()) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs()) ?>
+<?php include_partial('tpCommon/flashes_normal') ?>
 <div id="left-column">
     <div class="dashboard-photo">
-        <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 128)) ?>
+        <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 128)) ?>
     </div>
     <div class="row">
         <div class="message-inbox">
@@ -64,7 +64,7 @@
                 <h4>Activity Feeds</h4>
                 <div id="dashboard-feeds">
                     <?php foreach ($activityFeeds as $activityFeed): ?>
-                        <?php include_partial('activity_feed/activity_feed', array("activityFeed" => $activityFeed)) ?>
+                        <?php include_partial('tpActivityFeed/activity_feed', array("activityFeed" => $activityFeed)) ?>
                     <?php endforeach; ?>
                 </div>
             </div>

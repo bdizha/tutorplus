@@ -10,7 +10,7 @@
  */
 class academic_yearGeneratorHelper extends BaseAcademic_yearGeneratorHelper {
 
-    public function indexBreadcrumbs() {
+    public function getBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Academic Settings" => "academic_settings",
@@ -19,7 +19,7 @@ class academic_yearGeneratorHelper extends BaseAcademic_yearGeneratorHelper {
         );
     }
 
-    public function indexLinks() {
+    public function getLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "academic_settings",

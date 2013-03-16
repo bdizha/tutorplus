@@ -11,14 +11,14 @@
 class tpMessageSentGeneratorHelper extends BaseTpMessageSentGeneratorHelper
 {
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Messaging" => "message_inbox",
                 "Sent" => "message_sent"));
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "messaging",

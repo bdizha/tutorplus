@@ -4,7 +4,7 @@
         <?php foreach ($eventAttendees as $eventAttendee): ?>
             <?php $user = $eventAttendee->getProfile() ?>
             <div class="peer" id="event-attendee-<?php echo $eventAttendee->getId() ?>">
-                <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 36)) ?>
+                <?php include_partial('tpPersonalInfo/photo', array('profile' => $user, "dimension" => 36)) ?>
                 <div class="name"><?php echo link_to($user->getName(), 'profile_show', $user) ?></div>
                 <div class="type"><?php echo $user->getType() ?></h4>
                 </div>

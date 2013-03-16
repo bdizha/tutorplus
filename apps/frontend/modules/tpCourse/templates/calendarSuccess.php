@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->calendarLinks($course)) ?>
-<?php include_partial('common/breadcrumbs', $helper->calendarBreadcrumbs($course)) ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->calendarLinks($course)) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->calendarBreadcrumbs($course)) ?>
 <div id="sf_admin_heading">
     <h3><?php echo __('Calendar', array(), 'messages') ?></h3>
 </div>

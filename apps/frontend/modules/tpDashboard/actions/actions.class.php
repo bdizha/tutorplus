@@ -11,7 +11,7 @@
 class tpDashboardActions extends sfActions {
 
     public function preExecute() {
-        $this->helper = new dashboardGeneratorHelper();
+        $this->helper = new tpDashboardGeneratorHelper();
         $this->profile = $this->getUser()->getProfile();
         
         // suggest this profile some peers

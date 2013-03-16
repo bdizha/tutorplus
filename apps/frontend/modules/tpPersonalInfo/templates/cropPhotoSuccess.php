@@ -2,7 +2,7 @@
 <div id="cboxLoadedContentInner">
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
-            <?php include_partial('common/flashes_normal') ?>
+            <?php include_partial('tpCommon/flashes_normal') ?>
             <div id="crop_area">
                 <img src="/profile/show/photo/<?php echo $sf_user->getId() ?>/resized/<?php echo time() ?>" id="cropbox" />
                 <form action="/profile/crop/photo" method="post" id="crop_photo_form">

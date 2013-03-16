@@ -61,10 +61,6 @@ input[type="password"]:focus,input[type="text"]:focus,textarea:focus {
     height: 20px !important;
     cursor: pointer;
     border: none !important;
-    font-size: 10px !important;
-    color: #FFF !important;
-    padding: 0px 3px !important;
-    text-align: center;
 }
 
 input.button-edit,input.button-remove,input.button-view {
@@ -73,17 +69,14 @@ input.button-edit,input.button-remove,input.button-view {
 
 a.button-edit,a.button-remove,a.button-view {
     display: inline-block;
-    margin-top: 1px;
 }
 
 .button-edit,.button-view {
-    background: #B5A072;
-    width: 55px;
+/*    background: #B5A072;
+    width: 55px;*/
 }
 
 .button-remove {
-    background: #B94A48;
-    width: 55px;
 }
 
 .enroll-student {
@@ -152,8 +145,8 @@ fieldset textarea {
 
 #cboxLoadedContentInner input[type="text"],#cboxLoadedContentInner input[type="password"]
 {
-    min-width: 325px !important;
-    width: 325px;
+    min-width: 358px !important;
+    width: 358px;
 }
 
 .date-field {

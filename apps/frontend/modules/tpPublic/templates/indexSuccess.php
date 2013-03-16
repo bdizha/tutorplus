@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', array("hideMenu" => true)) ?>
-<?php include_component('common', 'publicMenu', array("currentParent" => "home")) ?>
+<?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
+<?php include_component('tpCommon', 'publicMenu', array("currentParent" => "home")) ?>
 <div class="home-top-row">
   <div class="testimonial">
     <a class="photo-link" style="width:50px;height:50px;" href="/batanayi-matuku">

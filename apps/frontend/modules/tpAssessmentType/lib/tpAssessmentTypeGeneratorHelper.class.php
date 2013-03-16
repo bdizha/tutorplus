@@ -16,7 +16,7 @@ class tpAssessmentTypeGeneratorHelper extends BaseTpAssessmentTypeGeneratorHelpe
         return '<input class="button" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" onclick="document.location.href=\'/course/' . sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null) . '\';return false"/>';
     }
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         $courseId = sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null);
         $course = CourseTable::getInstance()->findOneById($courseId);
@@ -28,7 +28,7 @@ class tpAssessmentTypeGeneratorHelper extends BaseTpAssessmentTypeGeneratorHelpe
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         $courseId = sfContext::getInstance()->getUser()->getMyAttribute('course_show_id', null);
         $course = CourseTable::getInstance()->findOneById($courseId);

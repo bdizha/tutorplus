@@ -10,7 +10,7 @@
     <?php if (isset($recipient[$type]['student']) && is_array($recipient[$type]['student'])): ?>
         <?php foreach ($students as $student): ?>
             <?php if (in_array($student["id"], $recipient[$type]['student'])): ?>
-                <?php include_partial('personal_info/photo', array('profile' => $student->getProfile(), "dimension" => 24)) ?>
+                <?php include_partial('tpPersonalInfo/photo', array('profile' => $student->getProfile(), "dimension" => 24)) ?>
                 <?php $recipientEmails .= $student->getProfile()->getEmail() . ";" ?>
             <?php endif; ?>
         <?php endforeach; ?>
@@ -18,7 +18,7 @@
     <?php if (isset($recipient[$type]['instructor']) && is_array($recipient[$type]['instructor'])): ?>
         <?php foreach ($instructors as $instructor): ?>
             <?php if (in_array($instructor["id"], $recipient[$type]['instructor'])): ?>
-                <?php include_partial('personal_info/photo', array('profile' => $instructor->getProfile(), "dimension" => 24)) ?>
+                <?php include_partial('tpPersonalInfo/photo', array('profile' => $instructor->getProfile(), "dimension" => 24)) ?>
                 <?php $recipientEmails .= $instructor->getProfile()->getEmail() . ";" ?>
             <?php endif; ?>
         <?php endforeach; ?>
@@ -26,7 +26,7 @@
     <?php if (isset($recipient[$type]['mailing_list']) && is_array($recipient[$type]['mailing_list'])): ?>
         <?php foreach ($mailingLists as $mailingList): ?>
             <?php if (in_array($mailingList["id"], $recipient[$type]['mailing_list'])): ?>
-                <?php include_partial('personal_info/photo', array('profile' => $mailingList->getProfile(), "dimension" => 24)) ?>
+                <?php include_partial('tpPersonalInfo/photo', array('profile' => $mailingList->getProfile(), "dimension" => 24)) ?>
             <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>

@@ -11,7 +11,7 @@
 class tpProfileDetailsGeneratorHelper extends BaseTpProfileDetailsGeneratorHelper
 {
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Profile" => "my_info",
@@ -21,7 +21,7 @@ class tpProfileDetailsGeneratorHelper extends BaseTpProfileDetailsGeneratorHelpe
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         $sfUser = sfContext::getInstance()->getUser();
         return array(

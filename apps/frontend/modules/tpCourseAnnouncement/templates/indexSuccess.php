@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->indexLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getLinks()) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs()) ?>
 <div class="sf_admin_heading">
     <h3>
         <?php include_partial('course/photo', array('course' => $course, "dimension" => 24)) ?>
@@ -8,9 +8,9 @@
     </h3>
 </div>
 <div id="sf_admin_content">
-    <?php include_partial('common/flashes_normal') ?>
+    <?php include_partial('tpCommon/flashes_normal') ?>
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getTabs($course, "index"))) ?>
+        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs($course, "index"))) ?>
         <div class="tab-block">
             <?php if (!$courseAnnouncements->count()): ?>
                 <?php echo __("There isn't any announcements made yet.", array(), 'sf_admin') ?>
@@ -19,7 +19,7 @@
                     <?php include_partial('course_announcement/list_actions', array('helper' => $helper)) ?>
                 </ul>
                 <div id="announcements">
-                    <?php include_partial('announcement/list', array('announcements' => $courseAnnouncements, 'helper' => $helper)) ?>
+                    <?php include_partial('tpAnnouncement/list', array('announcements' => $courseAnnouncements, 'helper' => $helper)) ?>
                 </div>
             <?php endif; ?>             
             <ul class="sf_admin_actions">

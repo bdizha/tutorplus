@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', array("hideMenu" => true)) ?>
-<?php include_component('common', 'publicMenu', array("currentParent" => "contact_us")) ?>
+<?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
+<?php include_component('tpCommon', 'publicMenu', array("currentParent" => "contact_us")) ?>
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
         <h1>Contact Us</h1>

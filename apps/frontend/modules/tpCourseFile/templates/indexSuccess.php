@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->indexLinks($course)) ?>
-<?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs($course)) ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getLinks($course)) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs($course)) ?>
 <div class="sf_admin_heading">
     <h3><?php echo __('Course Files', array(), 'messages') ?></h3>
 </div>
@@ -11,7 +11,7 @@
                 <?php include_partial('file/list', array('fileSystem' => $fileSystem, 'folderPath' => array(), 'addedFolderId' => 0, 'addedFileId' => 0)) ?>
             </div>
         </div>
-        <?php include_partial('common/actions', array('actions' => $helper->indexContentActions())) ?>
+        <?php include_partial('tpCommon/actions', array('actions' => $helper->indexContentActions())) ?>
     </div>
 </div>
 <script type='text/javascript'>

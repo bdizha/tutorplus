@@ -17,7 +17,7 @@ generator:
         permissions_list:           { label: Permissions }
       actions: ~
       form:
-        class:                      ProfileForm
+        class:                      InstructorForm
         display:            
          "Personal Details":        [ first_name, last_name, title, gender, birth_date ]
          "Access Details":          [ email, password, password_confirmation, is_active ]

@@ -23,7 +23,7 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
         return $this->course;
     }
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
@@ -33,7 +33,7 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "courses",

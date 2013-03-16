@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', array("hideMenu" => true)) ?>
-<?php include_component('common', 'publicMenu', array()) ?>
+<?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
+<?php include_component('tpCommon', 'publicMenu', array()) ?>
 <div id="tp_admin_container">
     <div id="tp_admin_heading">
         <h1>Privacy policy</h1>

@@ -10,7 +10,7 @@
  */
 class tpCourseFileGeneratorHelper extends BaseTpCourseFileGeneratorHelper {
 
-    public function indexBreadcrumbs($course) {
+    public function getBreadcrumbs($course) {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
                 $course->getCode() . " ~ " . $course->getName() => "course/" . $course->getSlug(),
@@ -19,7 +19,7 @@ class tpCourseFileGeneratorHelper extends BaseTpCourseFileGeneratorHelper {
         );
     }
 
-    public function indexLinks($course) {
+    public function getLinks($course) {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",

@@ -4,7 +4,7 @@
 <?php foreach ($courses as $course): ?>
     <div class="timeline-row">
         <div class="heading">
-            <?php include_partial('course/photo', array('course' => $course, "dimension" => 36)) ?>
+            <?php include_partial('tpCourse/photo', array('course' => $course, "dimension" => 36)) ?>
             <?php echo link_to($course->getName() . " ~ (" . $course->getCode() . ")", 'course_show', $course) ?>
         </div>
     </div>

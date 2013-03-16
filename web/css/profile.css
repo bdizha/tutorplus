@@ -1,138 +1,136 @@
 .profile-info {
-  margin-top: 5px;
-  display: inline-block;
-  width: 451px;
-  vertical-align: top;
+    margin-top: 5px;
+    display: inline-block;
+    width: 451px;
+    vertical-align: top;
 }
 
 .profile-image {
-  vertical-align: top;
-  display: inline-block;
-  width: 243px;
-  padding: 10px;
+    vertical-align: top;
+    display: inline-block;
+    width: 243px;
+    padding: 10px;
 }
 
 .profile-biography{
-  height: 130px;
-  padding: 10px;
-  display: inline-block;
-  width: 128px;
+    height: 98px;
+    padding: 10px;
+    display: inline-block;
+    width: 96px;
 }
 
 #profile_about_me{
-  vertical-align: top;
-  display: inline-block;
-  padding: 10px 10px 10px 0;
-  width: 556px;
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px 10px 10px 0;
+    width: 588px;
 }
 
 .account-settings-block {
-  margin-top: 5px;
-  padding-left: 10px;
-  display: inline-block;
-  width: 323px;
+    margin-top: 5px;
+    padding-left: 10px;
+    display: inline-block;
+    width: 323px;
 }
 
 .profile-row{
-  padding: 5px 0;
+    padding: 5px 0;
 }
 
 .odd .edit-qualification, .odd .edit-award{
-  position: absolute;
-  top: 2px;
-  right: 10px;
+    position: absolute;
+    top: 2px;
+    right: 10px;
 }
 
 .even .edit-qualification, .even .edit-award{
-  position: absolute;
-  top: 2px;
-  right: 45px;
+    position: absolute;
+    top: 2px;
+    right: 45px;
 }
 
 .odd .delete-qualification, .odd .delete-award{
-  position: absolute;
-  top: 2px;
-  right: -10px;
+    position: absolute;
+    top: 2px;
+    right: -10px;
 }
 
 .even .delete-qualification, .even .delete-award{
-  position: absolute;
-  top: 2px;
-  right: 25px;
+    position: absolute;
+    top: 2px;
+    right: 25px;
 }
 
 #crop_area{
-  padding: 10px;
-  height: 420px;
+    padding: 10px;
+    height: 420px;
 }
 
 .peer{
-  display: inline-block;
-  height: 45px;
-  margin: 1px -3px 0px 0px;
-  padding: 10px 10px 0px 10px;
-  width: 328px;
-  word-break: break-all;
-  background-color: #F5F5F5;
-  border-radius: 2px;
-  position: relative;
+    display: inline-block;
+    height: 45px;
+    margin: 1px -3px 0px 0px;
+    padding: 10px 10px 0px 10px;
+    width: 328px;
+    word-break: break-all;
+    background-color: #F5F5F5;
+    border-radius: 2px;
+    position: relative;
 }
 
 .last{
-  margin-right: 0 !important;
+    margin-right: 0 !important;
 }
 
 .peer-filter{
-  background-color: #F9F9F9;
-  border: 1px solid #FFFFFF;
-  border-bottom: 0 !important;
-  display: inline-block;
-  height: 19px;
-  margin-right: -1px;
-  padding: 5px;
+    background-color: #F9F9F9;
+    border: 1px solid #FFFFFF;
+    border-bottom: 0 !important;
+    display: inline-block;
+    height: 19px;
+    margin-right: -1px;
+    padding: 5px;
 }
 
 .peer .type, .author{
-  color: #90959A;
-  font-size: 11px;
-  text-transform: uppercase;
+    color: #90959A;
+    text-transform: uppercase;
 }
 
 .peer-filters .current{
-  background-color: #F1F1F1;
+    background-color: #F1F1F1;
 }
 
 #profile_publications ul,
 #profile_books ul, 
 #profile_interests ul{
-  list-style-type: disc !important;
-  padding-left: 25px;
+    list-style-type: disc !important;
+    padding-left: 25px;
 }
 
 #profile_publications li,
 #profile_books li, 
 #profile_interests li{
-  line-height: 25px !important;
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 #profile_publications,
 #profile_books,
 #profile_interests{
-  padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 #timeline_form_container{
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .snapshot{
-  padding: 10px 0;
-  position: relative;
-  display: block;
-  border-top: 1px solid #F5F5F5;
-  margin: 0;
-  vertical-align: top;
+    padding: 10px 0;
+    position: relative;
+    display: block;
+    border-top: 1px solid #F5F5F5;
+    margin: 0;
+    vertical-align: top;
 }
 
 .snapshot .name{
@@ -144,78 +142,96 @@
 }
 
 .snapshot .name a, .snapshot .heading a{
-  font-size: 13px !important;
+    font-size: 13px !important;
 }
 
 .snapshot .body{
-  margin: 0 0 0 43px !important;
+    margin: 0 0 0 43px !important;
 }
 
 .statistics{
-  padding-top: 5px;
-  height: 30px;
-  margin-left: 43px;
+    padding-top: 5px;
+    height: 30px;
+    margin-left: 43px;
 }
 
 .snapshot .comments{
-  border-bottom: none !important;
-  margin-left: 43px;
+    border-bottom: none !important;
+    margin-left: 43px;
 }
 
 .left-timeline, .right-timeline{
-  display: inline-block;
-  vertical-align: top;
-  width: 364px;    
+    display: inline-block;
+    vertical-align: top;
+    width: 364px;    
 }
 
 .qualification, .award{
-  padding: 10px 10px;
-  position: relative;
-  display: block;
-  border: 1px solid #F5F5F5;
-  vertical-align: top;
-  background-color: #F5F5F5;
-  min-height: 96px;
-  margin-top: 10px;
+    padding: 10px 10px;
+    position: relative;
+    display: block;
+    border: 1px solid #F5F5F5;
+    vertical-align: top;
+    background-color: #F5F5F5;
+    min-height: 96px;
+    margin-top: 10px;
 }
 
 .qualification-info, .award-info {
-  display: inline-block;
-  width: 477px;
+    display: inline-block;
+    width: 477px;
 }
 
 .qualification .body, .award .body {
-  padding-top: 5px;
+    padding-top: 5px;
 }
 
 .sf_admin_boolean label, .radio_list label{
-  position: absolute;
-  left: 30px;
-  top: 6px;
-  height: 22px;
+    position: absolute;
+    left: 30px;
+    top: 8px;
+    height: 22px;
 }
 
 .sf_admin_boolean .content, .radio_list input{
-  position: absolute;
-  left: 10px;
-  top: 10px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
 }
 
 #notification_settings_form .sf_admin_form_row{
-  height: 22px;
+    height: 22px;
 }
 
 #profile_biography_form_holder .redactor_editor {
-  max-height: 150px;
-  height: 200px;
+    max-height: 150px;
+    height: 200px;
 }
 
 .profile-image .button{
-  width: 100px;
-  margin-bottom: 5px;
+    width: 100px;
+    margin-bottom: 5px;
 }
 
 #profile_details .row-value,
 #profile_credentials .row-value{
     width: 226px !important;
+}
+
+.sf_admin_form_field_about_me label{
+    display: none;
+}
+
+#profile_biography_about_me{
+    height: 150px;
+}
+
+.sf_admin_form_field_first_name, .sf_admin_form_field_middle_name, .sf_admin_form_field_last_name,
+.sf_admin_form_field_title, .sf_admin_form_field_gender, .sf_admin_form_field_birth_date,
+.sf_admin_form_field_email, .sf_admin_form_field_password, .sf_admin_form_field_password_confirmation,
+.sf_admin_form_field_is_active, .sf_admin_form_field_high_school, .sf_admin_form_field_studied_at,
+.sf_admin_form_field_current_study, .sf_admin_form_field_institution_id
+{
+    width: 337px;
+    display: inline-block;	
 }

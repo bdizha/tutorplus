@@ -40,7 +40,7 @@
 				</div>
 			</div>
 			<div id="main-footer">
-				<?php include_partial('common/footer') ?>
+				<?php include_partial('tpCommon/footer') ?>
 			</div>
 		</div>
 	</div>

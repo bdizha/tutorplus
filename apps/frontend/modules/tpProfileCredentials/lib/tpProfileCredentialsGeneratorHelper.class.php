@@ -11,7 +11,7 @@
 class tpProfileCredentialsGeneratorHelper extends BaseTpProfileCredentialsGeneratorHelper
 {
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Profile" => "my_info",
@@ -21,12 +21,12 @@ class tpProfileCredentialsGeneratorHelper extends BaseTpProfileCredentialsGenera
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         $sfUser = sfContext::getInstance()->getUser();
         return array(
             "currentParent" => "profile",
-            "current_child" => "my_settings",
+            "current_child" => "profile_settings",
             "current_link" => "my_credentials",
             "slug" => $sfUser->getProfile()->getSlug(),
             "ignore" => !$sfUser->isCurrent($sfUser->getId())

@@ -4,7 +4,7 @@
     <?php $users = ProfileTable::getInstance()->retrieveByEmails($email_message->getToEmail()); ?>
     <?php foreach ($users as $user): ?>
         <?php $recipientsCounter++; ?>
-        <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 24)) ?>
+        <?php include_partial('tpPersonalInfo/photo', array('profile' => $user, "dimension" => 24)) ?>
         <?php if ($recipientsCounter == 4): ?>
             <?php echo (count($users) > 4) ? " ..." : ""; ?>
             <?php break; ?>

@@ -18,13 +18,13 @@ class message_draftGeneratorHelper extends BaseMessage_draftGeneratorHelper {
         return '<input class="cancel email" type="button" value="' . __($params['label'], array(), 'sf_admin') . '" />';
     }
 
-    public function indexBreadcrumbs() {
+    public function getBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Messaging" => "message_inbox",
                 "Drafts" => "message_draft"));
     }
 
-    public function indexLinks() {
+    public function getLinks() {
         return array(
             "currentParent" => "messaging",
             "current_child" => "my_messages",

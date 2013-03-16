@@ -47,7 +47,7 @@ class tpPeerGeneratorHelper extends BaseTpPeerGeneratorHelper
         );
     }
 
-    public function allLinks()
+    public function getLinks()
     {
         $sfUser = sfContext::getInstance()->getUser();
         $profileId = $sfUser->getMyAttribute('profile_show_id', null);

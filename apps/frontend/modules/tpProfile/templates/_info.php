@@ -1,5 +1,5 @@
 <div class="profile-image">
-    <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 128)) ?>
+    <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 128)) ?>
     <?php if ($sf_user->isCurrent($profile->getId())): ?>
         <?php if ($sf_user->hasPhoto()): ?>
             <input type="button" class="button" id="upload_photo" value="Change Photo"></input>

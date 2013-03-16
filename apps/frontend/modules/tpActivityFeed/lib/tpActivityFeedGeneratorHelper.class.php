@@ -11,16 +11,15 @@
 class tpActivityFeedGeneratorHelper extends BaseTpActivityFeedGeneratorHelper
 {
 
-    public function getIndexBreadcrumbs()
+    public function getBreadcrumbs($currentTitle = "Activity Feeds", $currentUrl = "timeline")
     {
-        return array('breadcrumbs' => array(
-                "Timeline" => "activity_feed",
-                "Activity Feeds" => "activity_feed"
-            )
-        );
+        $breadcrumbs = array("Timeline" => "/timeline");
+        $breadcrumbs[$currentTitle] = $currentUrl;
+
+        return array('breadcrumbs' => $breadcrumbs);
     }
 
-    public function getAllLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "timeline",
@@ -29,27 +28,27 @@ class tpActivityFeedGeneratorHelper extends BaseTpActivityFeedGeneratorHelper
         );
     }
 
-    public function getTabs($activeTab, $indexActivityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds)
+    public function getTabs($activeTab, $indexActivityFeeds, $discussionActivityFeeds, $topicActivityFeeds, $postActivityFeeds)
     {
         $tabs = array(
             "posts" => array(
                 "label" => "Posts",
-                "href" => "/activity/feed/posts",
+                "href" => "/timeline/posts",
                 "count" => $postActivityFeeds->count()
             ),
-            "groups" => array(
+            "discussions" => array(
                 "label" => "Discussions",
-                "href" => "/activity/feed/discussions",
-                "count" => $groupActivityFeeds->count()
+                "href" => "/timeline/discussions",
+                "count" => $discussionActivityFeeds->count()
             ),
             "topics" => array(
                 "label" => "Topics",
-                "href" => "/activity/feed/topics",
+                "href" => "/timeline/topics",
                 "count" => $topicActivityFeeds->count()
             ),
             "index" => array(
                 "label" => "Activity Feeds",
-                "href" => "/activity/feed",
+                "href" => "/timeline",
                 "count" => $indexActivityFeeds->count()
             )
         );
@@ -58,7 +57,7 @@ class tpActivityFeedGeneratorHelper extends BaseTpActivityFeedGeneratorHelper
             $tabs[$activeTab]["is_active"] = true;
         }
 
-        return $tabs;
+        return array("tabs" => $tabs);
     }
 
 }

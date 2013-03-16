@@ -2,13 +2,13 @@
 <div class="profile-overlap">
   <div class="profile-container">
     <div class="photo">
-      <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 96)) ?>
+      <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 96)) ?>
     </div>
     <div class="details">
       <div class="name"><?php echo $profile->getName() ?></div>  
       <div class="email"><?php echo $profile->getEmail() ?></div>
       <div class="actions">
-        <input type="button" class="button" onclick="document.location.href = '<?php echo url_for('@activity_feed') ?>';" value="+ Share"></input>
+        <input type="button" class="button" onclick="document.location.href = '<?php echo url_for('@timeline') ?>';" value="+ Share"></input>
         <input type="button" class="button" onclick="document.location.href = '/<?php echo $profile->getSlug() ?>';" value="Profile"></input>
         <input type="button" class="button" onclick="document.location.href = '<?php echo url_for('@profile_sign_out') ?>';" value="Sign Out"></input>
       </div>

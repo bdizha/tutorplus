@@ -26,7 +26,7 @@
         <?php endif; ?>
     <?php endif; ?>
     <div class="peer<?php echo fmod($key, 2) ? " last" : "" ?>"> 
-        <?php include_partial('personal_info/photo', array('profile' => $myPeer, "dimension" => 36)) ?>
+        <?php include_partial('tpPersonalInfo/photo', array('profile' => $myPeer, "dimension" => 36)) ?>
         <div class="name"><?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?></div>
         <div class="institution"><?php echo $myPeer->getInstitution() ?></div>
         <div class="peer-actions">

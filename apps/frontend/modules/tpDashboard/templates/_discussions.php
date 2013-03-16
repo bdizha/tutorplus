@@ -1,16 +1,11 @@
 <?php if (count($discussions) == 0): ?>
-  <div class="no-result">You haven't joined any discussions yet</div>
+    <div class="no-result">You aren't linked to any discussions yet</div>
 <?php endif; ?>
 <?php foreach ($discussions as $discussion): ?>
-  <div class="timeline-row">
-    <div class="heading">
-      <?php include_partial('personal_info/photo', array('profile' => $discussion->getProfile(), "dimension" => 36)) ?>
-      <?php echo link_to($discussion->getName(), 'discussion_show', $discussion) ?>
+    <div class="timeline-row">
+        <div class="heading">
+            <?php include_partial('tpPersonalInfo/photo', array('profile' => $discussion->getProfile(), "dimension" => 36)) ?>
+            <?php echo link_to($discussion->getName(), 'discussion_show', $discussion) ?>
+        </div>
     </div>
-    <div class="body">
-      <div class="user-meta">
-        Started by <?php echo link_to($discussion->getProfile(), 'profile_show', $discussion->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($discussion->getUpdatedAt()) ?></span>
-      </div>
-    </div>
-  </div> 
 <?php endforeach; ?>

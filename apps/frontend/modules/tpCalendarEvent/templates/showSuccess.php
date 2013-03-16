@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->getShowLinks($calendarEvent)) ?>
-<?php include_partial('common/breadcrumbs', $helper->getShowBreadcrumbs($calendarEvent)) ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getShowLinks($calendarEvent)) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getShowBreadcrumbs($calendarEvent)) ?>
 <div id="sf_admin_container">
     <div id="sf_admin_heading">
         <h3><?php echo $calendarEvent->getName() ?></h3>

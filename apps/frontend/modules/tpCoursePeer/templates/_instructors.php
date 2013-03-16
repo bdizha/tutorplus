@@ -1,7 +1,7 @@
 <?php if ($courseInstructorProfiles->count() > 0): ?>
   <?php foreach ($courseInstructorProfiles as $key => $profile): ?>
     <div class="peer<?php echo fmod($key, 2) ? " last" : "" ?>"> 
-      <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 36)) ?>
+      <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 36)) ?>
       <div class="name"><?php echo link_to($profile->getTitle() . " " . $profile->getName(), 'profile_show', $profile) ?></div>
       <div class="institution"><?php echo $profile->getInstitution() ?></div>
     </div>

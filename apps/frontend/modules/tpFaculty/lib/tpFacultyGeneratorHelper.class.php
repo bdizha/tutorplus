@@ -11,7 +11,7 @@
 class tpFacultyGeneratorHelper extends BaseTpFacultyGeneratorHelper
 {    
 
-    public function indexBreadcrumbs() {
+    public function getBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Academic Settings" => "academic_settings",
@@ -20,7 +20,7 @@ class tpFacultyGeneratorHelper extends BaseTpFacultyGeneratorHelper
         );
     }
 
-    public function indexLinks() {
+    public function getLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "academic_settings",

@@ -2,7 +2,7 @@
 <?php if ($discussion): ?>
     <div class="snapshot<?php echo $discussion->getProfileId() == $sf_user->getId() ? " current" : "" ?>">
         <div class="heading">
-            <?php include_partial('personal_info/photo', array('profile' => $discussion->getProfile(), "dimension" => 36)) ?>
+            <?php include_partial('tpPersonalInfo/photo', array('profile' => $discussion->getProfile(), "dimension" => 36)) ?>
             <div class="name">
                 <?php echo link_to($discussion->getName(), 'discussion_show', $discussion) ?>
             </div>

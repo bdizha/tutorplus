@@ -1,16 +1,13 @@
 <?php if (count($announcements) == 0): ?>
-  <div class="no-result">There's not any announcements yet.</div>
+    <div class="no-result">There isn't any announcements yet.</div>
 <?php endif; ?>
 <?php foreach ($announcements as $announcement): ?>
-  <div class="timeline-row">
-    <div class="heading">
-      <?php include_partial('personal_info/photo', array('profile' => $announcement->getProfile(), "dimension" => 36)) ?>
-      <?php echo link_to($announcement->getSubject(), 'announcement') ?>
+    <div class="timeline-row">
+        <div class="heading">
+            <?php include_partial('tpPersonalInfo/photo', array('profile' => $announcement->getProfile(), "dimension" => 36)) ?>
+            <?php echo link_to($announcement->getProfile(), 'profile_show', $announcement->getProfile()) ?> announced: 
+            <?php echo link_to($announcement->getSubject(), 'announcement') ?> -
+            <span class="datetime"><?php echo myToolkit::dateInWords($announcement->getCreatedAt()) ?></span>
+        </div>
     </div>
-    <div class="body">
-      <div class="user-meta">
-        By <?php echo link_to($announcement->getProfile(), 'profile_show', $announcement->getProfile()) ?> - <span class="datetime"><?php echo myToolkit::dateInWords($announcement->getUpdatedAt()) ?></span>
-      </div>
-    </div>
-  </div> 
 <?php endforeach; ?>

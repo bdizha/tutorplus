@@ -10,7 +10,7 @@
  */
 class tpAnnouncementGeneratorHelper extends BaseTpAnnouncementGeneratorHelper
 {    
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Timeline" => "activity_feed",
@@ -19,7 +19,7 @@ class tpAnnouncementGeneratorHelper extends BaseTpAnnouncementGeneratorHelper
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "timeline",
@@ -101,6 +101,6 @@ class tpAnnouncementGeneratorHelper extends BaseTpAnnouncementGeneratorHelper
             );
         }
 
-        return $tabs;
+        return array("tabs" => $tabs);
     }
 }

@@ -11,7 +11,7 @@
 class tpEmailTemplateGeneratorHelper extends BaseTpEmailTemplateGeneratorHelper
 {   
 
-    public function indexBreadcrumbs() {
+    public function getBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Setting" => "email_template",
                 "Communication Settings" => "communication_settings",
@@ -20,7 +20,7 @@ class tpEmailTemplateGeneratorHelper extends BaseTpEmailTemplateGeneratorHelper
         );
     }
 
-    public function indexLinks() {
+    public function getLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "communication_settings",

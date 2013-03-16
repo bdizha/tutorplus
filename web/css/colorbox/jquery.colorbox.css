@@ -45,7 +45,7 @@
     background-color: #B5A072;
 }
 #cboxTitle span{
-    margin: 5px 20px;
+    margin: 8px 20px;
     display: block;
     font-size: 14px;
 }
@@ -82,12 +82,16 @@
 .cboxIE6 #cboxMiddleRight{}
 
 #cboxLoadedContent .sf_admin_actions{
-    margin: 0 !important;
+    margin: 20px 0 0 !important;
 }
 
 #cboxLoadedContentInner{
-    padding: 20px 0px 40px;
-    min-height: 100px;
+    padding: 20px 10px 0;
+    min-height: 50px;
+}
+
+#cboxLoadedContentInner .sf_admin_form fieldset .sf_admin_form_row {
+    padding: 5px 0px !important;
 }
 
 #cboxLoadedActions{
@@ -97,8 +101,13 @@
     right: 20px;
 }
 
-#cboxLoadedContent .error, #cboxLoadedContent .notice{
-    margin: 0 10px;
+#cboxLoadedContent .notice{
+    background-color: #a2df8e;
+    font-size: 12px;
+    padding: 5px 10px;
+    color: #037D52;
+    border: 1px solid #037D52;
+    margin-bottom: 10px;
 }
 
 #cboxLoadedContentInner .right {

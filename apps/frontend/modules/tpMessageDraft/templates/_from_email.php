@@ -5,7 +5,7 @@
         <div class="content">
             <input type="hidden" name="email_message[from_email]" value="<?php echo $user->getEmail() ?>" id="email_message_from_email"/>
             <input type="hidden" name="email_message[reply_to]" value="<?php echo $user->getEmail() ?>" id="email_message_freply_to"/>
-            <?php include_partial('personal_info/photo', array('profile' => $user, "dimension" => 24)) ?>
+            <?php include_partial('tpPersonalInfo/photo', array('profile' => $user, "dimension" => 24)) ?>
             <?php echo $user->getName() . "&nbsp;&lt;" . $user->getEmail() . "&gt;" ?>
             <input class="choose-recipient button" id="to_email" title="To" type="button" value="To"/>
             <input class="choose-recipient button" id="cc_email" title="Cc" type="button" value="Cc"/>

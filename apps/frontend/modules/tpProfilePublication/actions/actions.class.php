@@ -1,24 +1,25 @@
 <?php
 
-require_once dirname(__FILE__) . '/../lib/profile_publicationGeneratorConfiguration.class.php';
-require_once dirname(__FILE__) . '/../lib/profile_publicationGeneratorHelper.class.php';
-
+require_once dirname(__FILE__) . '/../lib/tpProfilePublicationGeneratorConfiguration.class.php';
+require_once dirname(__FILE__) . '/../lib/tpProfilePublicationGeneratorHelper.class.php';
 /**
- * profile_publication actions.
+ * tpProfilePublication actions.
  *
  * @package    tutorplus.org
- * @subpackage profile_publication
+ * @subpackage tpProfilePublication
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class profile_publicationActions extends autoProfile_publicationActions {
+class tpProfilePublicationActions extends autoTpProfilePublicationActions
+{
 
     /**
      * Executes index action
      *
      * @param sfRequest $request A request object
      */
-    public function executeIndex(sfWebRequest $request) {
+    public function executeIndex(sfWebRequest $request)
+    {
         $this->profile = $this->getUser()->getProfile();
     }
 

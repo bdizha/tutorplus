@@ -5,15 +5,15 @@ secure:
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:                         {}
   timeline:                          
-    details:                          { route: activity_feed_posts, label: Timeline }
+    details:                          { route: timeline_posts, label: Timeline }
     type:                             One
     credentials:                      [ Student, Instructor, Staff, Administrator ]
     children:
       timeline:                                     
-        details:                      { route: activity_feed_posts, label: Timeline }
+        details:                      { route: timeline_posts, label: Timeline }
         credentials:                  [ Student, Instructor, Staff ]
         children:
-          activity_feeds:             { route: activity_feed_posts, label: "Activity Feeds" }
+          activity_feeds:             { route: timeline_posts, label: "Activity Feeds" }
           news_items:                 { route: news_item, label: "News Items" }
           announcements:              { route: announcement, label: "Announcements" }
   courses:                          
@@ -73,23 +73,22 @@ secure:
     param:                            slug
     children:
       my_profile:                   
-        details:                      { route: profile_show, param: slug, label: "Profile Info" }
+        details:                      { route: profile_show, param: slug, label: "Profile" }
         credentials:                  [ Student, Instructor, Staff ]
         param:                        slug
         children:                 
-          my_info:                    { route: profile_show, param: slug, label: "Timeline" }
+          my_info:                    { route: profile_show, param: slug, label: "Profile Info" }
           my_biography:               { route: profile_biography, label: "Biography" }   
           my_peers:                   { route: peer_students, label: "Peers" }
           my_awards:                  { route: profile_award, label: "Awards" }
           my_qualifications:          { route: profile_qualification, label: "Qualifications" }
       my_settings:                   
-        details:                      { route: profile_details, param: slug, ignore: true, label: "Settings" }
+        details:                      { route: profile_credentials, param: slug, ignore: true, label: "Settings" }
         credentials:                  [ Student, Instructor, Staff ]
         param:                        slug
-        children:                 
-          my_details:                 { route: profile_details, label: "Personal Details" }
-          my_credentials:             { route: profile_credentials, label: "Access Settings" }
-          my_email_settings:          { route: notification_settings, label: "Email Settings" }
+        children: 
+          account_settings:           { route: profile_edit, param: id, label: "Account Settings" }
+          notifications_settings:     { route: notification_settings, label: "Nofitication Settings" }
   peers:   
     details:                          { route:  peer_students, label: Peers }
     type:                             One

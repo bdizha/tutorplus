@@ -1,7 +1,7 @@
 <?php foreach ($peers as $peer): ?>
 <?php $profile = ($peer->getInviteeId() == $sf_user->getId()) ? $peer->getInviter() : $peer->getInvitee(); ?>
 <div class="suggested-peer" id="peer-<?php echo $peer->getId() ?>">
-	<?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 24)) ?>
+	<?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 24)) ?>
 	<div class="button-box-open button-box">
 		<input type="button" class="peer-open"
 			peerid="<?php echo $peer->getId() ?>"

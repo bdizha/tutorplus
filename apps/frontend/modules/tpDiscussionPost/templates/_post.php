@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
 <div class="thread discussion-group-post snapshot<?php echo $discussionPost->getProfileId() == $sf_user->getId() ? " current" : "" ?>" id="discussion-group-post-<?php echo $discussionPost->getId() ?>">
-    <?php include_partial('personal_info/photo', array('profile' => $discussionPost->getProfile(), "dimension" => 36)) ?>
+    <?php include_partial('tpPersonalInfo/photo', array('profile' => $discussionPost->getProfile(), "dimension" => 36)) ?>
     <div class="body" id="message-<?php echo $discussionPost->getId() ?>">
         <div class="view-mode">
             <?php echo $discussionPost->getMessage() ?>            
@@ -11,7 +11,7 @@
             </div>
             <div class="edit-mode">
                 <div class="message-edit" id="message-edit-<?php echo $discussionPost->getId() ?>">
-                    <?php include_partial('discussion_post/inline_form', array('discussionPost' => $discussionPost, 'form' => $discussionPostForm)) ?>
+                    <?php include_partial('tpDiscussionPost/inline_form', array('discussionPost' => $discussionPost, 'form' => $discussionPostForm)) ?>
                 </div>            
             </div>
         <?php endif; ?>
@@ -25,10 +25,10 @@
         </div>
         <div class="discussion-comment-holder-<?php echo $discussionPost->getId() ?>">
             <div id="discussion-comments-<?php echo $discussionPost->getId() ?>" class="hide">
-                <?php include_partial("discussion_comment/list", array("discussionComments" => $discussionPost->getComments())) ?>            
+                <?php include_partial("tpDiscussionComment/list", array("discussionComments" => $discussionPost->getComments())) ?>            
             </div>
             <div id="discussion-comment-form-holder-<?php echo $discussionPost->getId() ?>" class="comment comment-details">
-                <?php include_partial("discussion_comment/form", array("form" => $discussionCommentForm, "discussionPostId" => $discussionPost->getId())) ?>
+                <?php include_partial("tpDiscussionComment/form", array("form" => $discussionCommentForm, "discussionPostId" => $discussionPost->getId())) ?>
             </div>
         </div>
     </div>

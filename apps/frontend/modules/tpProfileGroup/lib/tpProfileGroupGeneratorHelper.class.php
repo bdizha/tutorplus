@@ -11,7 +11,7 @@
 class tpProfileGroupGeneratorHelper extends BaseTpProfileGroupGeneratorHelper
 {
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
@@ -21,7 +21,7 @@ class tpProfileGroupGeneratorHelper extends BaseTpProfileGroupGeneratorHelper
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "settings",

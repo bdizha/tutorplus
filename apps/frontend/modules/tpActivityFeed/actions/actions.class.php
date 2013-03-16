@@ -1,23 +1,23 @@
 <?php
 
-require_once dirname(__FILE__) . '/../lib/activity_feedGeneratorConfiguration.class.php';
-require_once dirname(__FILE__) . '/../lib/activity_feedGeneratorHelper.class.php';
+require_once dirname(__FILE__) . '/../lib/tpActivityFeedGeneratorConfiguration.class.php';
+require_once dirname(__FILE__) . '/../lib/tpActivityFeedGeneratorHelper.class.php';
 
 /**
- * activity_feed actions.
+ * tpActivityFeed actions.
  *
  * @package    tutorplus
- * @subpackage activity_feed
+ * @subpackage tpActivityFeed
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class activity_feedActions extends autoActivity_feedActions {
+class tpActivityFeedActions extends autoTpActivityFeedActions {
     
     public function preExecute() {
         parent::preExecute();
         $this->profile = $this->getUser()->getProfile();
         $this->indexActivityFeeds = ActivityFeedTable::getInstance()->findByProfileId($this->profile->getId(), 20);
-        $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profile->getId(), ActivityFeedTable::TYPE_DISCUSSION_CREATED, 20);
+        $this->discussionActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profile->getId(), ActivityFeedTable::TYPE_DISCUSSION_CREATED, 20);
         $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profile->getId(), ActivityFeedTable::TYPE_DISCUSSION_TOPIC_SUBMITTED, 20);
         $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profile->getId(), ActivityFeedTable::TYPE_DISCUSSION_POST_SUBMITTED, 20);
     }

@@ -11,7 +11,7 @@
 class tpNewsItemGeneratorHelper extends BaseTpNewsItemGeneratorHelper
 {
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Timeline" => "activity_feed",
@@ -20,7 +20,7 @@ class tpNewsItemGeneratorHelper extends BaseTpNewsItemGeneratorHelper
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "timeline",
@@ -114,8 +114,8 @@ class tpNewsItemGeneratorHelper extends BaseTpNewsItemGeneratorHelper
                 "is_active" => $activeTab == "edit"
             );
         }
-
-        return $tabs;
+        
+        return array("tabs" => $tabs);
     }
 
 }

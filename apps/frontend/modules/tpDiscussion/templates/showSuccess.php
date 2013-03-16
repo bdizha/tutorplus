@@ -1,14 +1,14 @@
 <?php use_helper('I18N', 'Date') ?>    
-<?php include_component('common', 'secureMenu', $helper->getLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->getBreadcrumbs("discussion_info", $discussion->getName(), "/discussion/" . $discussion->getSlug(), $discussion)) ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getLinks()) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs("discussion_info", $discussion->getName(), "/discussion/" . $discussion->getSlug(), $discussion)) ?>
 <div id="sf_admin_content">
-    <?php include_partial('common/flashes_normal') ?>
+    <?php include_partial('tpCommon/flashes_normal') ?>
     <div class="content-block">
-        <?php include_partial('common/tabs', array('tabs' => $helper->getShowTabs($discussion, "show"))) ?>
+        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getShowTabs($discussion, "show"))) ?>
         <div class="tab-block">
-            <?php include_partial('common/actions', array('actions' => $helper->getActions($discussion, $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
+            <?php include_partial('tpCommon/actions', array('actions' => $helper->getActions($discussion, $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
             <div class="snapshot">
-                <?php include_partial('personal_info/photo', array('profile' => $discussion->getProfile(), "dimension" => 36)) ?>
+                <?php include_partial('tpPersonalInfo/photo', array('profile' => $discussion->getProfile(), "dimension" => 36)) ?>
                 <div class="name">
                     <?php echo $discussion->getName() ?>
                 </div>
@@ -32,4 +32,4 @@
         </div>
     </div>
 </div>
-<?php include_partial('discussion/js', array("helper" => $helper)) ?>
+<?php include_partial('tpDiscussion/js', array("helper" => $helper)) ?>

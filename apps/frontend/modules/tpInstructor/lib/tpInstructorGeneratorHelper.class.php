@@ -21,7 +21,7 @@ class tpInstructorGeneratorHelper extends BaseTpInstructorGeneratorHelper
         return '<input class="save" type="button" value="Manage Contact Details" onclick="document.location.href=\'/instructor_contact/new\'"/>';
     }
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
@@ -31,7 +31,7 @@ class tpInstructorGeneratorHelper extends BaseTpInstructorGeneratorHelper
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "settings",

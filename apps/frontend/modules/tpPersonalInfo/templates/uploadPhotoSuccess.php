@@ -2,7 +2,7 @@
 <div id="cboxLoadedContentInner">
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
-            <?php include_partial('common/flashes_normal', array('form' => $form)) ?>
+            <?php include_partial('tpCommon/flashes_normal', array('form' => $form)) ?>
             <div id="sf_admin_form_content">
                 <div class="sf_admin_form">
                     <form id="upload_photo_form" enctype="multipart/form-data" action="/profile/upload/photo" method="post">

@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', array("hideMenu" => true)) ?>
-<?php include_component('common', 'publicMenu', array("hideMenu" => true)) ?>
+<?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
+<?php include_component('tpCommon', 'publicMenu', array("hideMenu" => true)) ?>
 <div id="tp_admin_container">
 	<div id="tp_admin_heading">
 		<h1>Forgot your password?</h1>
@@ -17,7 +17,7 @@
 				<form action="<?php echo url_for('@profile_request_password') ?>"
 					method="post">
 					<fieldset>
-						<?php include_partial('common/flashes_normal', array('form' => $form)) ?>
+						<?php include_partial('tpCommon/flashes_normal', array('form' => $form)) ?>
 						<?php echo $form->renderHiddenFields(false) ?>
 						<div class="row">
 							<div class="other-label">

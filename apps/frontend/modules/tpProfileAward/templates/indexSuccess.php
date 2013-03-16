@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', $helper->awardLinks()) ?>
-<?php include_partial('common/breadcrumbs', $helper->awardBreadcrumbs()) ?>
+<?php include_component('tpCommon', 'secureMenu', $helper->getLinks()) ?>
+<?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs()) ?>
 <div id="sf_admin_heading">
   <h3><?php echo $profile->getTitle() . " " . $profile->getName() ?>'s awards</h3>
 </div>

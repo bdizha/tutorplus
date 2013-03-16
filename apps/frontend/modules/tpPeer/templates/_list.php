@@ -29,7 +29,7 @@ There isn't any peers that are currently linked to your profile.
 <?php endif; ?>
 <?php endif; ?>
 <div class="peer<?php echo fmod($key, 2) ? " last" : "" ?>">
-	<?php include_partial('personal_info/photo', array('profile' => $myPeer, "dimension" => 36)) ?>
+	<?php include_partial('tpPersonalInfo/photo', array('profile' => $myPeer, "dimension" => 36)) ?>
 	<div class="name">
 		<?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?>
 	</div>
@@ -51,7 +51,7 @@ There isn't any peers that are currently linked to your profile.
 <?php $statusLabel = "+ Request"; ?>
 <?php $statusClass = "open"; ?>
 <div class="peer<?php echo fmod($key, 2) ? " last" : "" ?>">
-	<?php include_partial('personal_info/photo', array('profile' => $myPeer, "dimension" => 36)) ?>
+	<?php include_partial('tpPersonalInfo/photo', array('profile' => $myPeer, "dimension" => 36)) ?>
 	<div class="name">
 		<?php echo link_to($myPeer->getName(), 'profile_show', $myPeer) ?>
 	</div>

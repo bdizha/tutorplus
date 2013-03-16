@@ -1,10 +1,10 @@
 [?php use_helper('I18N', 'Date') ?]
-[?php include_component('common', 'secureMenu', $helper->indexLinks()) ?]
-[?php include_partial('common/breadcrumbs', $helper->indexBreadcrumbs()) ?]
+[?php include_component('tpCommon', 'secureMenu', $helper->getLinks()) ?]
+[?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs()) ?]
 <div class="sf_admin_heading">
   <h3>[?php echo <?php echo $this->getI18NString('list.title') ?> ?]</h3>
 </div>
-[?php include_partial('common/flashes_normal') ?]
+[?php include_partial('tpCommon/flashes_normal') ?]
 <?php if ($this->configuration->hasFilterForm()): ?>
   <!--
   <div id="sf_admin_bar">

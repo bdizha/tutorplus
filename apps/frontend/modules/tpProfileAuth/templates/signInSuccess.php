@@ -1,20 +1,20 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_component('common', 'secureMenu', array("hideMenu" => true)) ?>
-<?php include_component('common', 'publicMenu', array("hideMenu" => true)) ?>
+<?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
+<?php include_component('tpCommon', 'publicMenu', array("hideMenu" => true)) ?>
 <div id="tp_admin_container">
 	<div id="tp_admin_heading">
 		<h1>Sign In:</h1>
 	</div>
 	<div id="tp_admin_content">
 		<div class="left-block">
-			<?php include_partial('common/enroll_block') ?>
+			<?php include_partial('tpCommon/enroll_block') ?>
 		</div>
 		<div class="right-block">
 			<div id="profile_sign_in_form_holder">
 				<form action="<?php echo url_for('@profile_sign_in') ?>"
 					method="post">
 					<fieldset>
-						<?php include_partial('common/flashes_normal', array('form' => $form)) ?>
+						<?php include_partial('tpCommon/flashes_normal', array('form' => $form)) ?>
 						<?php echo $form->renderHiddenFields(false) ?>
 						<div class="row">
 							<div class="other-label">

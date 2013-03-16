@@ -5,5 +5,5 @@
         <?php $profile = $peer->getInvitee(); ?>
     <?php endif; ?>
     <?php $cssClass = fmod($key + 1, 3) == 0 ? "last-photo" : null; ?>
-    <?php include_partial('personal_info/photo', array('profile' => $profile, "dimension" => 36, "cssClass" => $cssClass)) ?>
+    <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 36, "cssClass" => $cssClass)) ?>
 <?php endforeach; ?>

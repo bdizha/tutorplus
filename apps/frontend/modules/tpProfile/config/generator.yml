@@ -12,17 +12,21 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
-      list:    ~
-      filter:  ~
-      form:    ~      
+      fields:                       ~
+      actions:                      ~
+      form:
+        class:                      ProfileForm
+        display:            
+         "Personal Details":        [ first_name, middle_name, last_name, title, gender, birth_date ]
+         "Academic Details":        [ high_school, studied_at, current_study, institution_id ]
+         "Access Details":          [ email, password, password_confirmation, is_active ]
+      filter:
+        class: false
+      list:                         ~
       edit:
+        title:                      Account Settings
         actions:
-          _cancel:              []
-          _save:                []
-          _done:                []
-      new:
-        actions:
-          _cancel:              []
-          _save:                []
+          cancel:                   []
+          done:                     []
+          _save:                    []
+      new:                          ~

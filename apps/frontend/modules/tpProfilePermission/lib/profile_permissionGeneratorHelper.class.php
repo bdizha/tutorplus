@@ -11,7 +11,7 @@
 class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorHelper
 {
 
-    public function indexBreadcrumbs() {
+    public function getBreadcrumbs() {
         return array('breadcrumbs' => array(
                 "Settings" => "course",
                 "Access Settings" => "course",
@@ -20,7 +20,7 @@ class profile_permissionGeneratorHelper extends BaseProfile_permissionGeneratorH
         );
     }
 
-    public function indexLinks() {
+    public function getLinks() {
         return array(
             "currentParent" => "settings",
             "current_child" => "profile_settings",

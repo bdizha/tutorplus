@@ -15,7 +15,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeIndex(sfWebRequest $request) {
+    public function executeIndex(sfWebRequest $request) {
         
     }
 
@@ -24,7 +24,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeFaq(sfWebRequest $request) {
+    public function executeFaq(sfWebRequest $request) {
         $this->faqs = FaqTable::getInstance()->findByIsPublishedAndSortedByPosition();
     }
 
@@ -33,7 +33,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeContactUs(sfWebRequest $request) {
+    public function executeContactUs(sfWebRequest $request) {
         
     }
 
@@ -42,7 +42,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeLeadership(sfWebRequest $request) {
+    public function executeLeadership(sfWebRequest $request) {
         
     }
 
@@ -51,7 +51,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeVision(sfWebRequest $request) {
+    public function executeVision(sfWebRequest $request) {
         
     }
 
@@ -60,7 +60,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeInstitutions(sfWebRequest $request) {
+    public function executeInstitutions(sfWebRequest $request) {
         $this->institutions = InstitutionTable::getInstance()->findAll();
     }
 
@@ -69,7 +69,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeCourses(sfWebRequest $request) {
+    public function executeCourses(sfWebRequest $request) {
         $this->courses = CourseTable::getInstance()->findByIsFinalized(true);
     }
 
@@ -78,7 +78,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeInstructors(sfWebRequest $request) {
+    public function executeInstructors(sfWebRequest $request) {
         $this->instructors = ProfileTable::getInstance()->findAll();
     }
 
@@ -87,7 +87,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeTos(sfWebRequest $request) {
+    public function executeTos(sfWebRequest $request) {
         
     }
 
@@ -96,7 +96,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executePrivacyPolicy(sfWebRequest $request) {
+    public function executePrivacyPolicy(sfWebRequest $request) {
         
     }
 
@@ -105,7 +105,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executePedagogy(sfWebRequest $request) {
+    public function executePedagogy(sfWebRequest $request) {
         
     }
 
@@ -114,7 +114,7 @@ class tpPublicActions extends sfActions {
      *
      * @param sfRequest $request A request object
      */
-    tpPublic function executeLifelongLearning(sfWebRequest $request) {
+    public function executeLifelongLearning(sfWebRequest $request) {
         
     }
 

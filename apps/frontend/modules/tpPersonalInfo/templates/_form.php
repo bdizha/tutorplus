@@ -5,7 +5,7 @@
             <?php foreach ($form->getWidgetSchema()->getFields() as $name => $field): ?>
                 <?php if ((isset($form[$name]) && $form[$name]->isHidden()) || (!isset($form[$name]) && $field->isReal())) continue ?>
                 <?php
-                include_partial('personal_info/form_field', array(
+                include_partial('tpPersonalInfo/form_field', array(
                     'name' => $name,
                     'form' => $form,
                     'field' => $field,
@@ -15,7 +15,7 @@
             <?php endforeach; ?>
         </fieldset>
         <?php echo $form->renderHiddenFields(true) ?>
-        <?php include_partial('personal_info/form_actions', array('form' => $form)) ?>
+        <?php include_partial('tpPersonalInfo/form_actions', array('form' => $form)) ?>
         </form>
     </div>
 </div>

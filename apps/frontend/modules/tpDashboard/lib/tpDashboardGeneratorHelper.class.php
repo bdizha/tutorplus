@@ -14,11 +14,11 @@ class tpDashboardGeneratorHelper extends sfModelGeneratorHelper {
         return 'list' == $action ? 'profile' : 'profile_' . $action;
     }
 
-    public function indexBreadcrumbs() {
+    public function getBreadcrumbs() {
         return array('breadcrumbs' => array());
     }
 
-    public function indexLinks() {
+    public function getLinks() {
         return array(
             "currentParent" => "dashboard",
             "current_child" => "my_dashboard",

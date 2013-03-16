@@ -4,7 +4,7 @@
     <div class="timeline-row">
         <div class="heading">
             <?php $otherPeer = ($sf_user->getId() == $peer->getInviterId()) ? $peer->getInvitee() : $peer->getInviter() ?>
-            <?php include_partial('personal_info/photo', array('profile' => $otherPeer, "dimension" => 36)) ?>
+            <?php include_partial('tpPersonalInfo/photo', array('profile' => $otherPeer, "dimension" => 36)) ?>
             <?php if ($sf_user->getId() == $peer->getInviterId()): ?>
                 <?php echo link_to($otherPeer, 'profile_show', $otherPeer) ?> has accepted your peer request
             <?php else: ?>

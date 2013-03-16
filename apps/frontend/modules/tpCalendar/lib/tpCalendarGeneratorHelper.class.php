@@ -11,7 +11,7 @@
 class tpCalendarGeneratorHelper extends BaseTpCalendarGeneratorHelper
 {
 
-    public function indexBreadcrumbs()
+    public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Calendar" => "calendar",
@@ -20,7 +20,7 @@ class tpCalendarGeneratorHelper extends BaseTpCalendarGeneratorHelper
         );
     }
 
-    public function indexLinks()
+    public function getLinks()
     {
         return array(
             "currentParent" => "calendar",

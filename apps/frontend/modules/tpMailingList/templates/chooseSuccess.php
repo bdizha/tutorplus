@@ -2,7 +2,7 @@
 <div id="cboxLoadedContentInner">
     <div id="sf_admin_form_container">
         <div id="sf_admin_form_content">
-            <?php include_partial('common/flashes_normal') ?>
+            <?php include_partial('tpCommon/flashes_normal') ?>
             <form id="<?php echo $module ?>_choose_mailing_list_form" action="<?php echo url_for2('choose_mailing_list', array("module_name" => $module, "object_id" => $objectId)) ?>" method="post">
                 <fieldset id="sf_fieldset_none">
                     <div class="sf_admin_form_row">

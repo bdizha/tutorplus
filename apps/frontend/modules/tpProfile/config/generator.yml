@@ -19,7 +19,7 @@ generator:
         display:            
          "Personal Details":        [ first_name, middle_name, last_name, title, gender, birth_date ]
          "Academic Details":        [ high_school, studied_at, current_study, institution_id ]
-         "Access Details":          [ email, password, password_confirmation, is_active ]
+         "Access Details":          [ email, password, password_confirmation, is_active, permissions_list, is_super_admin ]
       filter:
         class: false
       list:                         ~

@@ -10,7 +10,10 @@
  */
 class PublicHolidayForm extends BasePublicHolidayForm
 {
-  public function configure()
-  {
-  }
+
+    public function configure()
+    {
+        
+    }
+
 }

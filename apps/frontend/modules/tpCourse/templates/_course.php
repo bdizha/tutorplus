@@ -3,7 +3,7 @@
 <?php endif; ?>
 <div class="course-catalog">
     <div class="course-photo">
-        <?php include_partial('course/photo', array('course' => $course, "dimension" => 96)) ?>
+        <?php include_partial('tpCourse/photo', array('course' => $course, "dimension" => 96)) ?>
         <div class="course-status">
             <?php echo $course->getIsFinalized() ? "Active" : "Inactive" ?>
         </div>
@@ -51,19 +51,19 @@
         <?php if (!empty($isAuthenticated) && $profile->isEnrolled($course->getId())): ?>
             <div class="button-box-enter">
                 <input class="enter" title="Enter Course!"
-                       href="/my/course/<?php echo $course->getSlug() ?>"
+                       href="/course/<?php echo $course->getSlug() ?>"
                        value="Enter Course!" type="button" />
             </div>
             <div class="button-box-unregister">
                 <input class="unregister" title="Enter Course!" action="unregister"
-                       href="/my/course/<?php echo $course->getSlug() ?>"
+                       href="/course/<?php echo $course->getSlug() ?>"
                        courseid="<?php echo $course->getId() ?>" value="Unregister Course!"
                        type="button" />
             </div>
         <?php else: ?>
             <div class="button-box-enroll">
                 <input class="enroll" title="+ Enroll Now!" action="enroll"
-                       href="/my/course/<?php echo $course->getSlug() ?>"
+                       href="/course/<?php echo $course->getSlug() ?>"
                        courseid="<?php echo $course->getId() ?>" value="+ Enroll Now!"
                        type="button" />
             </div>

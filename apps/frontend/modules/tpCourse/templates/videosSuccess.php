@@ -3,7 +3,7 @@
 <?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs("Course Videos", "course/videos")) ?>
 <div class="sf_admin_heading">
     <h3>
-        <?php include_partial('course/photo', array('course' => $course, "dimension" => 24)) ?>
+        <?php include_partial('tpCourse/photo', array('course' => $course, "dimension" => 24)) ?>
         <?php echo __('%%code%% ~ %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?>
     </h3>
 </div>

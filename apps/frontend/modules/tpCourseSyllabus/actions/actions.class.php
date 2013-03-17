@@ -16,7 +16,11 @@ class tpCourseSyllabusActions extends autoTpCourseSyllabusActions
     public function preExecute()
     {
         parent::preExecute();
+        $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course_explorer");
+        $this->course = Doctrine_Core::getTable('Course')->find(array($courseId));
+        $this->forward404Unless($this->course, sprintf('Course does not exist (%s).', $courseId));
         $this->helper->setProfile($this->getUser()->getProfile());
+        $this->helper->setCourse($this->course);
     }
 
     public function executeShow(sfWebRequest $request)
@@ -32,7 +36,7 @@ class tpCourseSyllabusActions extends autoTpCourseSyllabusActions
     {
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@my_courses");
         $courseSyllabus = CourseSyllabusTable::getInstance()->findOrCreateOneByCourse($courseId);
-        $this->redirect("@tpCourseSyllabus_show?id=" . $courseSyllabus->getId());
+        $this->redirect("@course_syllabus_show?id=" . $courseSyllabus->getId());
     }
 
 }

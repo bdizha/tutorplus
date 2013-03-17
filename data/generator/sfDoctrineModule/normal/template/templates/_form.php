@@ -1,6 +1,6 @@
 <div class="sf_admin_form">
-    <div id="[?php echo $this->getModuleName() ?]_form_holder">
-        [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('id' => '<?php echo $this->getModuleName() ?>_form')) ?]
+    <div id="<?php echo $this->getSingularName() ?>_form_holder">
+        [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('id' => '<?php echo $this->getSingularName() ?>_form')) ?]
 
         [?php echo $form->renderHiddenFields(false) ?]
 

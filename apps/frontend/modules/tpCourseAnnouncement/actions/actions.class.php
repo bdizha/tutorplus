@@ -10,7 +10,7 @@ require_once dirname(__FILE__) . '/../lib/tpCourseAnnouncementGeneratorHelper.cl
  * @author     Batanayi Matuku
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class tpCourseAnnouncementcAtions extends autoTpCourseAnnouncementActions
+class tpCourseAnnouncementActions extends autoTpCourseAnnouncementActions
 {
 
     public function preExecute()

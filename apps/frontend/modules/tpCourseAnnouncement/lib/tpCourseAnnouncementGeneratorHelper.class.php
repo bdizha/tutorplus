@@ -27,8 +27,8 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
     {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
-                "Announcements" => "course_announcement"
+                $this->getCourse()->getCode() . " ~ " . $this->getCourse()->getName() => "course/" . $this->getCourse()->getSlug(),
+                "Announcements" => "course/announcement"
             )
         );
     }
@@ -39,7 +39,7 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
             "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "announcements",
-            "slug" => $this->course->getSlug()
+            "slug" => $this->getCourse()->getSlug()
         );
     }
 
@@ -47,8 +47,8 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
     {
         return array('breadcrumbs' => array(
                 "Modules" => "course",
-                $this->course->getCode() . " ~ " . myToolkit::shortenString($this->course->getName(), 30) => "course/" . $this->course->getSlug(),
-                "Announcements" => "course_announcement",
+                $this->getCourse()->getCode() . " ~ " . myToolkit::shortenString($this->getCourse()->getName(), 30) => "course/" . $this->getCourse()->getSlug(),
+                "Announcements" => "course/announcement",
                 "New Announcement" => "announcement/new"
             )
         );
@@ -60,7 +60,7 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
             "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "announcements",
-            "slug" => $this->course->getSlug()
+            "slug" => $this->getCourse()->getSlug()
         );
     }
 
@@ -68,7 +68,7 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
     {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $this->course->getCode() . " ~ " . myToolkit::shortenString($this->course->getName(), 30) => "course/" . $this->course->getSlug(),
+                $this->getCourse()->getCode() . " ~ " . myToolkit::shortenString($this->getCourse()->getName(), 30) => "course/" . $this->getCourse()->getSlug(),
                 "Announcements" => "course/announcement",
                 "Edit Announcement ~ " . $object->getSubject() => "announcement/" . $object->getId() . "/edit",
             )
@@ -82,32 +82,6 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
             "current_child" => "courses",
             "current_link" => "my_courses"
         );
-    }
-
-    public function getShowBreadcrumbs($object)
-    {
-        return array('breadcrumbs' => array(
-                "Courses" => "course",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getSlug(),
-                "Announcements" => "course_announcement",
-                myToolkit::shortenString($object->getSubject(), 45) => "announcement/" . $object->getSlug(),
-            )
-        );
-    }
-
-    public function getShowLinks()
-    {
-        return array(
-            "currentParent" => "courses",
-            "current_child" => "my_course",
-            "current_link" => "announcements",
-            "slug" => $this->course->getSlug()
-        );
-    }
-
-    public function showToEdit($object)
-    {
-        return '<span class="actions"><a id="edit_course" href="/course/announcement/' . $object->getId() . '/edit">Edit</a></span>';
     }
 
     public function linkToEdit($object, $params)
@@ -165,7 +139,7 @@ class tpCourseAnnouncementGeneratorHelper extends BaseTpCourseAnnouncementGenera
             );
         }
 
-        return $tabs;
+        return array("tabs" => $tabs);
     }
 
 }

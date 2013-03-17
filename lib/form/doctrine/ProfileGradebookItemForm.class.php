@@ -10,7 +10,10 @@
  */
 class ProfileGradebookItemForm extends BaseProfileGradebookItemForm
 {
-  public function configure()
-  {
-  }
+
+    public function configure()
+    {
+        
+    }
+
 }

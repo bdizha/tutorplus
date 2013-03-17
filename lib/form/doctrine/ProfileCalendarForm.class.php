@@ -10,7 +10,10 @@
  */
 class ProfileCalendarForm extends BaseProfileCalendarForm
 {
-  public function configure()
-  {
-  }
+
+    public function configure()
+    {
+        
+    }
+
 }

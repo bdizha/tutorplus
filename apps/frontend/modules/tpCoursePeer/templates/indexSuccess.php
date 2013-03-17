@@ -4,13 +4,13 @@
 <?php include_partial('tpCommon/flashes_normal') ?>
 <div id="sf_admin_content">
     <div class="content-block">
-        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs("peers"))) ?>
+        <?php include_partial('tpCommon/tabs', $helper->getTabs("peers")) ?>
         <div class="tab-block">
             <?php if (!$courseInstructorProfiles->count() && !$courseStudentProfiles->count()): ?>
                 There isn't any course peers yet.
             <?php endif; ?>
-            <?php include_partial('course_peer/list', array("profiles" => $courseInstructorProfiles)) ?>
-            <?php include_partial('course_peer/list', array("profiles" => $courseStudentProfiles)) ?>
+            <?php include_partial('tpCoursePeer/list', array("profiles" => $courseInstructorProfiles)) ?>
+            <?php include_partial('tpCoursePeer/list', array("profiles" => $courseStudentProfiles)) ?>
         </div>
     </div>
 </div>

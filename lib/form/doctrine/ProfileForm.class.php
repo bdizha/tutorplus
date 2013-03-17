@@ -18,7 +18,8 @@ class ProfileForm extends BaseProfileForm
         unset(
                 $this['created_at'], $this['updated_at'], $this['salt'], $this['algorithm']
         );
-
+        
+        $this->widgetSchema['is_super_admin'] = new sfWidgetFormInputHidden();
         $this->widgetSchema['first_name'] = new sfWidgetFormInputText();
         $this->widgetSchema['last_name'] = new sfWidgetFormInputText();
         $this->widgetSchema['birth_date'] = new tpWidgetFormDate(array("years" => $this->getYears()));
@@ -27,6 +28,11 @@ class ProfileForm extends BaseProfileForm
         $this->widgetSchema['password_confirmation'] = new sfWidgetFormInputPassword(array(), array("autocomplete" => "off"));
         $this->widgetSchema['is_active'] = new sfWidgetFormInputCheckbox();
         $this->widgetSchema->moveField('password_confirmation', 'after', 'password');
+
+        $this->widgetSchema['permissions_list'] = new sfWidgetFormSelectCheckbox(array(
+                    'choices' => ProfilePermissionTable::getInstance()->getChoices()
+                ));
+
         $this->validatorSchema['first_name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>First name</b> field is required.'));
         $this->validatorSchema['last_name'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Last name</b> field is required.'));
         $this->validatorSchema['email'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>Email address</b> field is required.'));
@@ -36,6 +42,11 @@ class ProfileForm extends BaseProfileForm
         $this->validatorSchema['permissions_list']->setMessage('required', 'At least a <b>Permissions</b> choice must be selected (0 values selected).');
         $this->validatorSchema['is_active'] = new sfValidatorBoolean(array('required' => false));
         $this->validatorSchema['birth_date'] = new sfValidatorDateTime(array('required' => true), array('required' => 'The <b>Date of birth</b> field is required.', 'invalid' => 'The <b>Date of birth</b> field is invalid.'));
+        $this->validatorSchema['permissions_list'] = new sfValidatorChoice(array(
+                    'choices' => array_keys(ProfilePermissionTable::getInstance()->getChoices()),
+                    'multiple' => true
+                        ), array('required' => 'The please choose at least a permission.')
+        );
         $this->mergePostValidator(new sfValidatorSchemaCompare('password', sfValidatorSchemaCompare::EQUAL, 'password_confirmation', array(), array('invalid' => 'The two passwords must be the same.')));
     }
 

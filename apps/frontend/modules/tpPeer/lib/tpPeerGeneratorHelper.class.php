@@ -56,6 +56,7 @@ class tpPeerGeneratorHelper extends BaseTpPeerGeneratorHelper
             "current_child" => "my_profile",
             "current_link" => "my_peers",
             "slug" => $sfUser->getProfile()->getSlug(),
+            "id" => $sfUser->getProfile()->getId(),
             "ignore" => !$sfUser->isCurrent($profileId)
         );
     }

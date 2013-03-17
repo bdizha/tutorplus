@@ -9,7 +9,7 @@
         <div class="section-block">
             <div id="courses_list">
                 <?php include_partial('tpCommon/flashes_normal') ?>
-                <?php include_partial('course/courses', array('courses' => $courses, "isPublic" => true)) ?>
+                <?php include_partial('tpCourse/courses', array('courses' => $courses, "isPublic" => true)) ?>
             </div>
         </div>
     </div>

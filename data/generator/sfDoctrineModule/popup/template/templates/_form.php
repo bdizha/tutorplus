@@ -2,8 +2,8 @@
 [?php use_javascripts_for_form($form) ?]
 
 <div class="sf_admin_form">
-    <div id="[?php echo $this->getModuleName() ?]_form_holder">
-        [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('id' => '<?php echo $this->getModuleName() ?>_form')) ?]
+    <div id="<?php echo $this->getSingularName() ?>_form_holder">
+        [?php echo form_tag_for($form, '@<?php echo $this->params['route_prefix'] ?>', array('id' => '<?php echo $this->getSingularName() ?>_form')) ?]
         [?php echo $form->renderHiddenFields(false) ?]
 
         [?php foreach ($configuration->getFormFields($form, $form->isNew() ? 'new' : 'edit') as $fieldset => $fields): ?]

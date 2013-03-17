@@ -8,9 +8,11 @@
  * @author     Batanayi Matuku
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class ProfileGroupForm extends BaseProfileGroupForm {
+class ProfileGroupForm extends BaseProfileGroupForm
+{
 
-    public function configure() {
+    public function configure()
+    {
         unset(
                 $this['created_at'], $this['updated_at']
         );
@@ -28,7 +30,8 @@ class ProfileGroupForm extends BaseProfileGroupForm {
         $this->validatorSchema['description']->setMessage('required', 'The <b>Description</b> field is required.');
     }
 
-    public function savePermissionsList($con = null) {
+    public function savePermissionsList($con = null)
+    {
 
         if (!$this->isValid()) {
             throw $this->getErrorSchema();

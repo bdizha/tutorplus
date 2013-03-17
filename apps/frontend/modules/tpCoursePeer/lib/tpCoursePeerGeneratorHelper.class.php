@@ -50,7 +50,7 @@ class tpCoursePeerGeneratorHelper
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
-            "current_link" => "tpCoursePeers",
+            "current_link" => "course_peers",
             "slug" => $this->getCourse()->getSlug()
         );
     }
@@ -67,7 +67,7 @@ class tpCoursePeerGeneratorHelper
             "instructors" => array(
                 "label" => "Instructors",
                 "href" => "/course/instructors",
-                "count" =>  $this->getCourse()->getCourseInstructors()->count(),
+                "count" => $this->getCourse()->getCourseInstructors()->count(),
                 "is_active" => $activeTab == "instructors"
             )
         );
@@ -76,7 +76,7 @@ class tpCoursePeerGeneratorHelper
             unset($tabs["instructors"]);
         }
 
-        return $tabs;
+        return array("tabs" => $tabs);
     }
 
 }

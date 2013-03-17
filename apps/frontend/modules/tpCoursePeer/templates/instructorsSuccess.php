@@ -4,7 +4,7 @@
 <?php include_partial('tpCommon/flashes_normal') ?>
 <div id="sf_admin_content">
     <div class="content-block">
-        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs("instructors"))) ?>
+        <?php include_partial('tpCommon/tabs', $helper->getTabs("instructors")) ?>
         <div class="tab-block">
             <div id="course_instructors_form_holder">
                 <form id="course_instructors_form"

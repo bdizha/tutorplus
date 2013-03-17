@@ -3,7 +3,7 @@
 <?php include_partial('tpCommon/breadcrumbs', $helper->getBreadcrumbs($course->getCode() . " ~ " . $course->getName(), "my/course/" . $course->getSlug())) ?>
 <div class="sf_admin_heading">
     <h3>
-        <?php include_partial('course/photo', array('course' => $course, "dimension" => 24)) ?>
+        <?php include_partial('tpCourse/photo', array('course' => $course, "dimension" => 24)) ?>
         <?php echo __('%%code%% ~ %%name%%', array('%%code%%' => $course->getCode(), '%%name%%' => $course->getName()), 'messages') ?>
     </h3>
 </div>
@@ -11,10 +11,10 @@
 <div id="sf_admin_content">
     <div class="content-block">
         <div class="tab-block">
-            <?php include_partial('course/course', array('course' => $course)) ?>
+            <?php include_partial('tpCourse/course', array('course' => $course)) ?>
             <h4>Instructors</h4>
             <div class="courses-instructors">
-                <?php include_partial('course_peer/instructors', array('courseInstructorProfiles' => $courseInstructorProfiles)) ?>
+                <?php include_partial('tpCoursePeer/instructors', array('courseInstructorProfiles' => $courseInstructorProfiles)) ?>
             </div>
             <h4>What is this course about?</h4>
             <div class="courses-row">

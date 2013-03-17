@@ -41,7 +41,7 @@
     //<![DATA[
     $(document).ready(function(){
         $("#edit_profile_biography").click(function(){
-            openPopup($(this).attr("href"),'377px',"600px","About Me");
+            openPopup($(this).attr("href"),'410px',"600px","About Me");
             return false;
         });
 
@@ -71,19 +71,19 @@
         });
     });
 
-    function fetchTpProfileBiographys(){
+    function fetchProfiles(){
         $('#profile_about_me').load('/profile/biography/ajax');
     }
 
-    function fetchTpProfilePublications(){
+    function fetchProfilePublications(){
         $('#profile_publications').load('/profile/publication');
     }
 
-    function fetchTpProfileBooks(){
+    function fetchProfileBooks(){
         $('#profile_books').load('/profile/book');
     }
 
-    function fetchTpProfileInterests(){
+    function fetchProfileInterests(){
         $('#profile_interests').load('/profile/interest');
     }
     //]]

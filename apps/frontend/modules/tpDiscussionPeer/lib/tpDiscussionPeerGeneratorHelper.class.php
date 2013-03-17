@@ -142,5 +142,15 @@ class tpDiscussionPeerGeneratorHelper extends BaseTpDiscussionPeerGeneratorHelpe
         }
         return $tabs;
     }
+    
+    
+
+    public function linkToCancel($object, $params) {
+        return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/discussion/peer\'"/>';
+    }
+
+    public function linkToDone($object, $params) {
+        return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/discussion/peer\'"/>';
+    }
 
 }

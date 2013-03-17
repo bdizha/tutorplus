@@ -34,17 +34,17 @@
 </ul>
 <script type='text/javascript'>
     $(document).ready(function(){        
-        $('#<?php echo $this->getModuleName() ?>_form_holder .save').click(function(){
+        $('#<?php echo $this->getSingularName() ?>_form_holder .save').click(function(){
             $(this).val("Loading...");
             
-            $("#<?php echo $this->getModuleName() ?>_form").ajaxSubmit(function(data){
+            $("#<?php echo $this->getSingularName() ?>_form").ajaxSubmit(function(data){
                 $("#cboxLoadedContent").html(data);
                 $.fn.colorbox.resize();
             });
         });
         
-        $("#<?php echo $this->getModuleName() ?>_form_holder .cancel, #<?php echo $this->getModuleName() ?>_form_holder .done").click(function(){
-            fetch<?php echo ucfirst(sfInflector::camelize($this->getModuleName())) ?>s();
+        $("#<?php echo $this->getSingularName() ?>_form_holder .cancel, #<?php echo $this->getSingularName() ?>_form_holder .done").click(function(){
+            fetch<?php echo ucfirst(sfInflector::camelize($this->getSingularName())) ?>s();
             $.fn.colorbox.close();
             return false;
         });

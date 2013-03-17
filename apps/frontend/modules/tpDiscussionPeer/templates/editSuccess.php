@@ -7,9 +7,9 @@
         <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs($discussion, $myPeers, "peer_edit", $discussion_peer, true))) ?>
         <div class="tab-block">
             <div id="sf_admin_form_container">	
-                <?php include_partial('tpDiscussion_peer/form', array('discussion_peer' => $discussion_peer, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>	
+                <?php include_partial('tpDiscussionPeer/form', array('discussion_peer' => $discussion_peer, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>	
                 <div id="sf_admin_footer">
-                    <?php include_partial('tpDiscussion_peer/form_footer', array('discussion_peer' => $discussion_peer, 'form' => $form, 'configuration' => $configuration)) ?>
+                    <?php include_partial('tpDiscussionPeer/form_footer', array('discussion_peer' => $discussion_peer, 'form' => $form, 'configuration' => $configuration)) ?>
                 </div>
             </div>
         </div>

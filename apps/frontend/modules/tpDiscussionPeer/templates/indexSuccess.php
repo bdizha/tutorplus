@@ -7,7 +7,7 @@
         <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs($discussion, $myPeers, "peers", $discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
         <div class="tab-block">
             <?php include_partial('tpCommon/actions', array('actions' => $helper->getActions($discussionPeer, $discussion->hasProfile($sf_user->getId())))) ?>
-            <?php include_partial('tpDiscussion_peer/list', array('discussionPeers' => $discussionPeers)) ?>
+            <?php include_partial('tpDiscussionPeer/list', array('discussionPeers' => $discussionPeers)) ?>
         </div>
     </div>
 </div>

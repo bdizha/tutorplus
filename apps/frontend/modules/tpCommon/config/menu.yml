@@ -53,7 +53,7 @@ secure:
         details:                      { route: discussion_explorer, label: "Discussions" }
         credentials:                  [ Student, Instructor, Staff ]
         children:
-          my_discussions:             { route: discussion_my, label: "My Discussions" }
+          my_discussions:             { route: my_discussions, label: "My Discussions" }
           discussion_explorer:        { route: discussion_explorer, label: "Discussion Explorer" }
 #  calendar:                          
 #    details:                          { route: my_schedule, label: Calendar }

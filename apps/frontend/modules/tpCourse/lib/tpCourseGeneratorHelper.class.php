@@ -34,25 +34,25 @@ class tpCourseGeneratorHelper extends BaseTpCourseGeneratorHelper
         return $this->profile;
     }
 
-    public function getBreadcrumbs()
-    {
-        return array(
-            'breadcrumbs' => array(
-                "Setting" => "course",
-                "Academic Settings" => "academic_settings",
-                "Courses" => "course"
-            )
-        );
-    }
+//    public function getBreadcrumbs()
+//    {
+//        return array(
+//            'breadcrumbs' => array(
+//                "Setting" => "course",
+//                "Academic Settings" => "academic_settings",
+//                "Courses" => "course"
+//            )
+//        );
+//    }
 
-    public function getLinks()
-    {
-        return array(
-            "currentParent" => "settings",
-            "current_child" => "academic_settings",
-            "current_link" => "courses"
-        );
-    }
+//    public function getLinks()
+//    {
+//        return array(
+//            "currentParent" => "settings",
+//            "current_child" => "academic_settings",
+//            "current_link" => "courses"
+//        );
+//    }
 
     public function newBreadcrumbs()
     {

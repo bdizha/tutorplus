@@ -1,19 +1,17 @@
 <?php $i = 0; ?>
 <?php foreach ($profile->getAwards() as $award): ?>
     <div class="award">
-        <div class="heading">
-            <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 96)) ?>
-            <div class="name"><?php echo $award->getDescription() ?></div>
+        <div class="icon">
+            <img src="/profile/show/photo/10/96/1363477432" class="image" alt="TutorPlus Team" title="TutorPlus Team">
         </div>
-        <div class="body">
-            <div class="award-info">
-                Year: 
-                <span class="datetime">
-                    <?php echo $award->getYear() ?>  
-                </span>
+        <div class="details">
+            <div class="award-row"><?php echo $award->getDescription() ?></div>
+            <div class="award-row">
+                <span class="label">Year:</span>
+                <span class="datetime"><?php echo $award->getYear() ?></span>
             </div>
-            <div class="course-info">
-                Institution:
+            <div class="award-row">
+                <span class="label">Institution:</span>
                 <span class="institution"><?php echo $award->getInstitution() ?></span>
             </div>
         </div>
@@ -25,7 +23,7 @@
     <?php $i++ ?>
 <?php endforeach; ?>
 <?php if ($i == 0): ?>
-    <div class="no-result">There's no awards yet.</div>
+    <div class="no-result">There isn't any awards added yet.</div>
 <?php endif; ?>      
 <div class="clear"></div>
 <script type='text/javascript'>

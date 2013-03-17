@@ -10,5 +10,11 @@
  */
 class ##MODULE_NAME##GeneratorHelper extends Base##UC_MODULE_NAME##GeneratorHelper
 {
-    
+    public function getBreadcrumbs() {
+        return array('breadcrumbs' => array());
+    }
+
+    public function getLinks() {
+        return array();
+    }
 }

@@ -1,1 +1,1 @@
-<?php include_partial('tpDiscussion_peer/list', array('discussion' => $discussion)) ?>
+<?php include_partial('tpDiscussionPeer/list', array('discussion' => $discussion)) ?>

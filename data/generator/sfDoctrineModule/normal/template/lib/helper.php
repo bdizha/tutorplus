@@ -46,14 +46,6 @@ abstract class Base<?php echo ucfirst($this->getModuleName()) ?>GeneratorHelper 
     public function linkToSave($object, $params) {
         return '<li class="sf_admin_action_save"><input class="save" type="submit" value="' . __($params['label'], array(), 'sf_admin') . '" /></li>';
     }  
-    
-    public function getBreadcrumbs() {
-        return array('breadcrumbs' => array());
-    }
-
-    public function getLinks() {
-        return array();
-    }
 
     public function newBreadcrumbs() {
         return array('breadcrumbs' => array());

@@ -1,3 +1,12 @@
+discussion_tpCourseDiscussion:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Discussion
+    module:               tpCourseDiscussion
+    prefix_path:          /tpCourseDiscussion
+    column:               id
+    with_wildcard_routes: true
+
 media_asset:
   class: sfDoctrineRouteCollection
   options:
@@ -175,6 +184,30 @@ timeline_topics:
 timeline_posts:
   url: /timeline/posts
   param: { module: tpActivityFeed, action: posts }
+    
+course_peer:
+  url:   /course/peer
+  param: { module: tpCoursePeer, action: index }
+  
+course_explorer:
+  url:   /course/explorer
+  param: { module: tpCourse, action: explorer }
+  
+course_enroll:
+  url:   /course/enroll/:course_id
+  param: { module: tpCourse, action: enroll }
+  
+course_unregister:
+  url:   /course/unregister/:course_id
+  param: { module: tpCourse, action: unregister }
+  
+course_videos:
+  url:   /course/videos
+  param: { module: tpCourse, action: videos }
+  
+course_instructors:
+  url:   /course/instructors
+  param: { module: tpCoursePeer, action: instructors }
 
 course_discussion:
   class: sfDoctrineRouteCollection
@@ -818,26 +851,10 @@ course_files:
 my_courses:
   url:   /my/courses
   param: { module: tpCourse, action: my }
-  
-course_explorer:
-  url:   /course/explorer
-  param: { module: tpCourse, action: explorer }
-  
-course_enroll:
-  url:   /course/enroll/:course_id
-  param: { module: tpCourse, action: enroll }
-  
-course_unregister:
-  url:   /course/unregister/:course_id
-  param: { module: tpCourse, action: unregister }
-  
-course_videos:
-  url:   /course/videos
-  param: { module: tpCourse, action: videos }
-  
-course_instructors:
-  url:   /course/instructors
-  param: { module: tpCoursePeer, action: instructors }
+
+my_discussions:
+  url:   /my/discussions
+  param: { module: tpDiscussion, action: my }
 
 message:
   url:   /message/inbox
@@ -924,10 +941,6 @@ calendar_home:
 calendar_events:
   url:   /calendar/events
   param: { module: tpCalendarEvent, action: calendarEvents }
-    
-course_peer:
-  url:   /course/peer
-  param: { module: tpCoursePeer, action: index }
   
 course_student:
   url:   /course/student
@@ -938,7 +951,7 @@ course_instructor:
   param: { module: tpCoursePeer, action: instructors }
     
 course_show:
-  url:     /my/course/:slug
+  url:     /course/:slug
   class:   sfDoctrineRoute
   options: { model: Course, type: object }
   param:   { module: tpCourse, action: show }
@@ -1009,8 +1022,8 @@ discussion:
   class: sfDoctrineRouteCollection
   options:
     model:                Discussion
-    module:               discussion
-    prefix_path:          /tpDiscussion
+    module:               tpDiscussion
+    prefix_path:          /discussion
     column:               id
     with_wildcard_routes: true
     

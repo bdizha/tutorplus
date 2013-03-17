@@ -138,13 +138,14 @@ fieldset textarea {
     height: 60px;
 }
 
-#cboxLoadedContentInner textarea {
-    min-width: 300px;
-    width: 325px !important;
+#cboxLoadedContentInner select{
+    width: 370px;
 }
 
-#cboxLoadedContentInner input[type="text"],#cboxLoadedContentInner input[type="password"]
-{
+
+#cboxLoadedContentInner input[type="text"],
+#cboxLoadedContentInner input[type="password"], 
+#cboxLoadedContentInner textarea{
     min-width: 358px !important;
     width: 358px;
 }
@@ -153,7 +154,10 @@ fieldset textarea {
     width: 103px !important;
 }
 
-#profile_permission_form_holder .sf_admin_form_row label,#profile_group_form_holder .sf_admin_form_row label,#student_form_holder .sf_admin_form_row label,#instructor_form_holder .sf_admin_form_row label
+#profile_permission_form_holder .sf_admin_form_row label,
+#profile_group_form_holder .sf_admin_form_row label,
+#student_form_holder .sf_admin_form_row label,
+#instructor_form_holder .sf_admin_form_row label
 {
     float: none !important;
 }

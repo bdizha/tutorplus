@@ -1,6 +1,6 @@
 <h2>Discussion Peers</h2>
 <div id="discussion_peers" class="tab-block  padding-10">
-    <?php include_partial('tpDiscussion_peer/members', array('discussion' => $discussion)) ?>            
+    <?php include_partial('tpDiscussionPeer/members', array('discussion' => $discussion)) ?>            
 </div> 
 <ul class="sf_admin_actions" style="clear:both">
     <li class="sf_admin_action_my_Discussions">

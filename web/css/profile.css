@@ -166,26 +166,6 @@
     width: 364px;    
 }
 
-.qualification, .award{
-    padding: 10px 10px;
-    position: relative;
-    display: block;
-    border: 1px solid #F5F5F5;
-    vertical-align: top;
-    background-color: #F5F5F5;
-    min-height: 96px;
-    margin-top: 10px;
-}
-
-.qualification-info, .award-info {
-    display: inline-block;
-    width: 477px;
-}
-
-.qualification .body, .award .body {
-    padding-top: 5px;
-}
-
 .sf_admin_boolean label, .radio_list label{
     position: absolute;
     left: 30px;
@@ -234,4 +214,8 @@
 {
     width: 337px;
     display: inline-block;	
+}
+
+.sf_admin_form_field_permissions_list{
+    display: none;
 }

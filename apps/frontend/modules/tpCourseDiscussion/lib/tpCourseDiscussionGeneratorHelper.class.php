@@ -1,14 +1,14 @@
 <?php
 
 /**
- * course_discussion module helper.
+ * tpCourseDiscussion module helper.
  *
- * @package    tutorplus
- * @subpackage course_discussion
+ * @package    tutorplus.org
+ * @subpackage tpCourseDiscussion
  * @author     Batanayi Matuku
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHelper
+class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorHelper
 {
 
     public $course = null;
@@ -180,7 +180,7 @@ class course_discussionGeneratorHelper extends BaseCourse_discussionGeneratorHel
                 "is_active" => $activeTab == "new"
             )
         );
-        
+
         if ($activeTab == "edit") {
             unset($tabs["peers"]);
             $tabs["edit_discussion"] = array(

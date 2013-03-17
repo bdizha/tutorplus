@@ -1,0 +1,22 @@
+.qualification{
+    padding: 10px 10px;
+    position: relative;
+    display: block;
+    border: 1px solid #F5F5F5;
+    vertical-align: top;
+    background-color: #F5F5F5;
+    min-height: 96px;
+    margin-top: 10px;
+}
+
+.qualification .icon{
+    width: 96px;
+    height: 96px;
+    display: inline-block;
+}
+
+.qualification .details{
+    display: inline-block;
+    width: 586px;
+    padding-left: 10px;
+}

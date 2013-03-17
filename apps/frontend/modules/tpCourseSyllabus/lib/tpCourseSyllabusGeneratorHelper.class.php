@@ -13,6 +13,17 @@ class tpCourseSyllabusGeneratorHelper extends BaseTpCourseSyllabusGeneratorHelpe
 
     protected $profile = null;
     protected $courseSyllabus = null;
+    protected $course = null;
+
+    public function setCourse($course)
+    {
+        $this->course = $course;
+    }
+
+    public function getCourse()
+    {
+        return $this->course;
+    }
 
     public function setProfile($profile)
     {
@@ -34,7 +45,7 @@ class tpCourseSyllabusGeneratorHelper extends BaseTpCourseSyllabusGeneratorHelpe
         return $this->courseSyllabus;
     }
 
-    public function getTabs($course, $activeTab = "show", $courseSyllabus = null)
+    public function getTabs($activeTab = "show", $courseSyllabus = null)
     {
         if (!is_null($courseSyllabus)) {
             $this->setCourseSyllabus($courseSyllabus);
@@ -60,30 +71,26 @@ class tpCourseSyllabusGeneratorHelper extends BaseTpCourseSyllabusGeneratorHelpe
         }
         unset($tabs["announcements"]);
 
-        return $tabs;
+        return array("tabs" => $tabs);
     }
 
-    public function getBreadcrumbs($course, $courseSyllabus = null)
+    public function getBreadcrumbs($currentTitle = "", $currentUrl = "")
     {
-        if (!is_null($courseSyllabus)) {
-            $this->setCourseSyllabus($courseSyllabus);
-        }
-        return array(
-            'breadcrumbs' => array(
-                "Courses" => "/course/explorer",
-                myToolkit::shortenString($course->getCode() . " ~ " . $course->getName(), 255) => "/my/course/" . $course->getSlug(),
-                "Syllabus" => "course/syllabus/" . $this->getCourseSyllabus()->getId()
-            )
+        $breadcrumbs["breadcrumbs"] = array(
+            "Courses" => "course/explorer",
+            myToolkit::shortenString($this->getCourse()->getCode() . " ~ " . $this->getCourse()->getName(), 255) => "/my/course/" . $this->getCourse()->getSlug(),
         );
+        $breadcrumbs["breadcrumbs"][$currentTitle] = $currentUrl;
+        return $breadcrumbs;
     }
 
-    public function getLinks($course)
+    public function getLinks()
     {
         return array(
             "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "course_syllabus",
-            "slug" => $course->getSlug()
+            "slug" => $this->getCourse()->getSlug()
         );
     }
 

@@ -17,8 +17,8 @@ class tpCourseDiscussionActions extends autoTpCourseDiscussionActions {
         parent::preExecute();
         $this->redirectUnless($courseId = $this->getUser()->getMyAttribute('course_show_id', null), "@course");
         $this->course = CourseTable::getInstance()->find(array($courseId));
-        $this->helper->setCourse($this->course);
         $this->forward404Unless($this->course, sprintf('The requested course does not exist (%s).', $courseId));
+        $this->helper->setCourse($this->course);
     	$this->courseDiscussions = DiscussionTable::getInstance()->findByCourseId($courseId);
     }
 

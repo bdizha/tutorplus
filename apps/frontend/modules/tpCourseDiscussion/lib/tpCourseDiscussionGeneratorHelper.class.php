@@ -17,12 +17,16 @@ class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorH
     {
         $this->course = $course;
     }
+    
+    public function getCourse(){
+        return $this->course;
+    }
 
     public function getBreadcrumbs()
     {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                $this->getCourse()->getCode() . " ~ " . $this->getCourse()->getName() => "course/" . $this->getCourse()->getId(),
                 "Discussions" => "course_discussion"
             )
         );
@@ -34,7 +38,7 @@ class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorH
             "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "discussions",
-            "slug" => $this->course->getSlug()
+            "slug" => $this->getCourse()->getSlug()
         );
     }
 
@@ -44,7 +48,7 @@ class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorH
             "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "discussions",
-            "slug" => $this->course->getSlug()
+            "slug" => $this->getCourse()->getSlug()
         );
     }
 
@@ -54,7 +58,7 @@ class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorH
             "currentParent" => "courses",
             "current_child" => "my_course",
             "current_link" => "discussions",
-            "slug" => $this->course->getSlug()
+            "slug" => $this->getCourse()->getSlug()
         );
     }
 
@@ -62,7 +66,7 @@ class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorH
     {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                $this->getCourse()->getCode() . " ~ " . $this->getCourse()->getName() => "course/" . $this->getCourse()->getId(),
                 "New Discussion" => "course/discussion/new"
             )
         );
@@ -72,7 +76,7 @@ class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorH
     {
         return array('breadcrumbs' => array(
                 "Courses" => "course",
-                $this->course->getCode() . " ~ " . $this->course->getName() => "course/" . $this->course->getId(),
+                $this->getCourse()->getCode() . " ~ " . $this->getCourse()->getName() => "course/" . $this->getCourse()->getId(),
                 "Discussions" => "course_discussion",
                 $object->getName() => "course/discussion/" . $object->getSlug(),
                 "Edit Discussion" => "course/discussion/" . $object->getId() . "/edit"
@@ -87,6 +91,34 @@ class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorH
                 $discussion->getName() => "course/discussion/" . $discussion->getSlug()
             )
         );
+    }
+
+    public function getTabs($courseDiscussions, $activeTab, $courseDiscussion = null)
+    {
+        $tabs = array(
+            "discussions" => array(
+                "label" => "Discussions",
+                "href" => "/course/discussion",
+                "count" => $courseDiscussions->count(),
+                "is_active" => $activeTab == "index"
+            ),
+            "new_discussion" => array(
+                "label" => "+ New Discussion",
+                "href" => "/course/discussion/new",
+                "is_active" => $activeTab == "new"
+            )
+        );
+
+        if ($activeTab == "edit") {
+            unset($tabs["peers"]);
+            $tabs["edit_discussion"] = array(
+                "label" => "Edit Discussion",
+                "href" => "/course/discussion/" . $courseDiscussion->getId() . "/edit",
+                "is_active" => $activeTab == "edit"
+            );
+        }
+
+        return array("tabs" => $tabs);
     }
 
     public function linkToDiscussionTopicEdit($object, $params)
@@ -163,34 +195,6 @@ class tpCourseDiscussionGeneratorHelper extends BaseTpCourseDiscussionGeneratorH
     public function linkToNewTopic()
     {
         return '<input type="button" class="button" value="+ New Topic"/>';
-    }
-
-    public function getTabs($course, $courseDiscussions, $activeTab, $courseDiscussion = null)
-    {
-        $tabs = array(
-            "discussions" => array(
-                "label" => "Discussions",
-                "href" => "/course/discussion",
-                "count" => $courseDiscussions->count(),
-                "is_active" => $activeTab == "index"
-            ),
-            "new_discussion" => array(
-                "label" => "+ New Discussion",
-                "href" => "/course/discussion/new",
-                "is_active" => $activeTab == "new"
-            )
-        );
-
-        if ($activeTab == "edit") {
-            unset($tabs["peers"]);
-            $tabs["edit_discussion"] = array(
-                "label" => "Edit Discussion",
-                "href" => "/course/discussion/" . $courseDiscussion->getId() . "/edit",
-                "is_active" => $activeTab == "edit"
-            );
-        }
-
-        return $tabs;
     }
 
 }

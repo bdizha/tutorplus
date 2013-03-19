@@ -11,7 +11,7 @@
 <div id="sf_admin_form_container">
     <div id="sf_admin_content">
         <div class="content-block">
-            <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs($course, $courseDiscussions, "edit", $discussion))) ?>
+            <?php include_partial('tpCommon/tabs', $helper->getTabs($courseDiscussions, "edit", $discussion)) ?>
             <div class="tab-block">
                 <?php include_partial('tpCourseDiscussion/form', array('discussion' => $discussion, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
                 <div id="sf_admin_footer">

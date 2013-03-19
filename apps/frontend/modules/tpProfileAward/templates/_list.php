@@ -2,7 +2,7 @@
 <?php foreach ($profile->getAwards() as $award): ?>
     <div class="award">
         <div class="icon">
-            <img src="/profile/show/photo/10/96/1363477432" class="image" alt="TutorPlus Team" title="TutorPlus Team">
+            <img src="/uploads/courses/4/48.png" class="image" alt="TutorPlus Team" title="TutorPlus Team">
         </div>
         <div class="details">
             <div class="award-row"><?php echo $award->getDescription() ?></div>

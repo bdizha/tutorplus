@@ -2,7 +2,7 @@
 <?php foreach ($profile->getQualifications() as $qualification): ?>
     <div class="qualification">
         <div class="icon">
-            <img src="/profile/show/photo/10/96/1363477432" class="image" alt="TutorPlus Team" title="TutorPlus Team">
+            <img src="/uploads/courses/2/48.png" class="image" alt="TutorPlus Team" title="TutorPlus Team">
         </div>
         <div class="details">
             <div class="qualification-row"><?php echo $qualification->getDescription() ?></div>

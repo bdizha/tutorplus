@@ -1,51 +1,62 @@
 #main-container {
-	padding-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 #tp_admin_container {
-	margin-top: 25px !important;
-	padding: 0 !important;
+    margin-top: 25px !important;
+    padding: 0 !important;
 }
 
 #main-body {
-	padding-top: 30px !important;
+    padding-top: 30px !important;
 }
 
 #tp_admin_content {
-	margin-bottom: 70px;
+    margin-bottom: 70px;
 }
 
 .left-block {
-	width: 510px !important;
-	display: inline-block;
-	vertical-align: top;
-	padding-top: 20px;
+    width: 510px !important;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .right-block {
-	padding: 5px 20px 15px !important;
-	width: 340px !important;
-	display: inline-block;
-	vertical-align: top;
-	background-color: #F1F1F1;
+    padding: 5px 20px 15px !important;
+    width: 340px !important;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #F1F1F1;
 }
 
 .sf_admin_boolean {
-	height: 32px;
+    height: 32px;
 }
 
 #profile_sign_in_form_holder .sf_admin_boolean label {
-	position: absolute;
-	left: 20px;
-	top: 7px;
+    position: absolute;
+    left: 20px;
+    top: 7px;
 }
 
 #profile_sign_in_form_holder .sf_admin_boolean .content {
-	position: absolute;
-	left: 0;
-	top: 10px;
+    position: absolute;
+    left: 0;
+    top: 10px;
 }
 
 #sign-in,#request-password {
-	float: right;
+    float: right;
+}
+
+.feature .icon{
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+}
+
+.feature .description{
+    margin-left: 10px;
+    width: 448px;
+    display: inline-block;
 }

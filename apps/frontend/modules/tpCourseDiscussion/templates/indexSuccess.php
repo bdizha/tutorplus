@@ -10,7 +10,7 @@
 <div id="sf_admin_content">
     <?php include_partial('tpCommon/flashes_normal') ?>
     <div class="content-block">
-        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs($course, $courseDiscussions, "index"))) ?>
+        <?php include_partial('tpCommon/tabs', $helper->getTabs($courseDiscussions, "index")) ?>
         <div class="tab-block">
             <?php if (!$courseDiscussions->count()): ?>
                 This course doesn't have any started discussions yet.

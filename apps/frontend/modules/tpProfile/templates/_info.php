@@ -1,15 +1,17 @@
 <div class="profile-image">
-    <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 128)) ?>
-    <?php if ($sf_user->isCurrent($profile->getId())): ?>
-        <?php if ($sf_user->hasPhoto()): ?>
-            <input type="button" class="button" id="upload_photo" value="Change Photo"></input>
-            <input type="button" class="button" id="crop_photo" value="Crop Photo"></input>
+    <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 96)) ?>
+    <div class="photo-action">
+        <?php if ($sf_user->isCurrent($profile->getId())): ?>
+            <?php if ($sf_user->hasPhoto()): ?>
+                <input type="button" class="button" id="upload_photo" value="Change Photo"></input>
+                <input type="button" class="button" id="crop_photo" value="Crop Photo"></input>
+            <?php else: ?>
+                <input type="button" class="button" id="upload_photo" value="Upload Photo"></input>
+            <?php endif; ?>
         <?php else: ?>
-            <input type="button" class="button" id="upload_photo" value="Upload Photo"></input>
+            <input type="button" class="button" id="send_email" value="Send Email"></input>
         <?php endif; ?>
-    <?php else: ?>
-        <input type="button" class="button" id="send_email" value="Send Email"></input>
-    <?php endif; ?>
+    </div>
 </div>
 <div class="profile-info" id="profile_info">
     <div class="profile-row">

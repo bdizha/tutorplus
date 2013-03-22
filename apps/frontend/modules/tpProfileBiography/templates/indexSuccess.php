@@ -18,6 +18,18 @@
             </div>
         </div>
         <div class="content-block">      
+            <h2>Qualifications <?php if ($sf_user->isCurrent($profile->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_qualification_new", array("id" => "add_profile_qualification")) ?></span><?php endif; ?></h2>
+            <div class="full-block" id="profile_qualifications">    
+                <?php include_partial('tpProfileQualification/list', array("profile" => $profile, "helper" => $helper)) ?>
+            </div>
+        </div>
+        <div class="content-block">      
+            <h2>Awards <?php if ($sf_user->isCurrent($profile->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_award_new", array("id" => "add_profile_award")) ?></span><?php endif; ?></h2>
+            <div class="full-block" id="profile_awards">    
+                <?php include_partial('tpProfileAward/list', array("profile" => $profile, "helper" => $helper)) ?>
+            </div>
+        </div>
+        <div class="content-block">      
             <h2>Publications <?php if ($sf_user->isCurrent($profile->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_publication_new", array("id" => "add_profile_publication")) ?></span><?php endif; ?></h2>
             <div class="full-block" id="profile_publications">  
                 <?php include_partial('tpProfilePublication/list', array('publications' => $profile->getPublications(), "helper" => $helper)) ?>
@@ -40,6 +52,11 @@
 <script type='text/javascript'>
     //<![DATA[
     $(document).ready(function(){
+        $("#add_profile_award").click(function(){
+            openPopup($(this).attr("href"),'410px',"480px","Add An Award");
+            return false;
+        });
+        
         $("#edit_profile_biography").click(function(){
             openPopup($(this).attr("href"),'410px',"600px","About Me");
             return false;
@@ -69,6 +86,11 @@
             openPopup("/profile/crop/photo","600px","600px",$(this).attr("value"));
             return false;
         });
+        
+        $("#add_profile_qualification").click(function(){
+            openPopup($(this).attr("href"),'410px',"480px","Add A Qualification");
+            return false;
+        });
     });
 
     function fetchProfiles(){
@@ -85,6 +107,14 @@
 
     function fetchProfileInterests(){
         $('#profile_interests').load('/profile/interest');
+    }
+
+    function fetchProfileAwards(){
+        $("#profile_awards").load("/profile/award/ajax");
+    }
+
+    function fetchProfileQualifications(){
+        $("#profile_qualifications").load("/profile/qualification/ajax");
     }
     //]]
 </script>

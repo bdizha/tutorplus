@@ -684,6 +684,7 @@
 .last-photo{
     float: left;
     display: block;
+    overflow: hidden;
 }
 
 ul.nav-tabs li {
@@ -1036,11 +1037,8 @@ ul.department-course,.section-block ul {
     position: absolute;
     right: 14px;
     top: 0;
-    border: 1px solid #B9B9B9;
     margin-right: 0 !important;
-    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
 }
 
 .profile-overlap {

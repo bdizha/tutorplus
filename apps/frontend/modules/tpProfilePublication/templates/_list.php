@@ -1,10 +1,13 @@
 <?php if (count($publications) == 0): ?>
-<div class="no-result">There isn't any publications added yet.</div>
+    <?php $key = 0; ?>
+    <div class="no-result">There isn't any publications added yet.</div>
 <?php else: ?>
     <ul>
         <?php foreach ($publications as $publication): ?>
-            <li>
-                <?php echo $publication->getTitle() ?> <?php echo ($publication->getYear()) ? " - " . $publication->getYear() : "" ?>
+            <?php $key++; ?>
+            <li<?php echo ($key == count($publications)) ? ' class="last"' : "" ?>>
+                <span class="icon">&nbsp;</span>
+                <span class="description"><?php echo $publication->getTitle() ?> <?php echo ($publication->getYear()) ? " - " . $publication->getYear() : "" ?></span>
                 <div class="inline-content-actions">
                     <?php echo $helper->linkToPublicationEdit($publication, array()) ?>
                 </div>

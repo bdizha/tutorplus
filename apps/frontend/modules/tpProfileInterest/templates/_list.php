@@ -1,10 +1,13 @@
 <?php if (count($interests) == 0): ?>
-    <div class="no-result">There's no interests added yet.</div>
+    <?php $key = 0; ?>
+    <div class="no-result">There isn't any interests added yet.</div>
 <?php else: ?>
     <ul>
         <?php foreach ($interests as $interest): ?>
-            <li>
-                <?php echo $interest->getName() ?>
+            <?php $key++; ?>
+            <li<?php echo ($key == count($interests)) ? ' class="last"' : "" ?>>
+                <span class="icon">&nbsp;</span>
+                <span class="description"><?php echo $interest->getName() ?></span>
                 <div class="inline-content-actions">
                     <?php echo $helper->linkToInterestEdit($interest, array()) ?>
                 </div>

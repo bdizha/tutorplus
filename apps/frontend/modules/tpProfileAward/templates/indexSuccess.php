@@ -9,7 +9,7 @@
     <div class="content-block">
       <h2>Awards <?php if ($sf_user->isCurrent($profile->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_award_new", array("id" => "add_profile_award")) ?></span><?php endif; ?></h2>
       <div id="profile_awards_list">    
-        <?php include_partial('list', array("profile" => $profile, "helper" => $helper)) ?>
+        <?php include_partial('tpProfileAward/list', array("profile" => $profile, "helper" => $helper)) ?>
       </div>
     </div>
   </div>

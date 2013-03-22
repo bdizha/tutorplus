@@ -2,9 +2,6 @@
 <?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
 <?php include_component('tpCommon', 'publicMenu', array("currentParent" => "vision")) ?>
 <div id="tp_admin_container">
-    <div id="tp_admin_heading">
-        <h1>Lifelong Learning</h1>
-    </div>
     <div id="tp_admin_content">
         <div class="public-left">
             <div id="secondary-menu">
@@ -35,7 +32,7 @@
                     As always been the case, every generation seeks to redefine itself in a natural pursuit to further exploit its full potential on the part of its individual and collective significance as a dominant species upon all creations. And on the one hand, historically, this natural and dispositional tendency has successfully created an objective reality and emergent meaning from which every subjective individual would rely on for unlimited sense of belonging and mutual support. Yet, on the other profound hand, learning seems to be an indispensable unifying process through which we are all systematically drawn much closer to a mutual grounding that then further facilitates our ever needed social, economical and cultural cohesion that we invariably and sorely depend upon as the dominant species.
                 </div>
                 <div class="section-block">
-                    This unending cyclic and collective endeavor has some remarkable capabilities to elevate the most hightened values of each constituting individual by affording us a much more predictable environment through which our myriad and distinct interests are fully realized. It appears that only through learning that an individual is able to meet and satisfy the needs of their culture and the reverse is also true.
+                    This unending cyclic and collective endeavor has some remarkable capabilities to elevate the most hightened values of each constituting individual by affording us a much more predictable environment through which our myriad and distinct interests are fully realized. It appears that, only through learning activities, an individual is able to meet and satisfy both their cultural and individual needs simultaneously.
                 </div>
             </div>
         </div>

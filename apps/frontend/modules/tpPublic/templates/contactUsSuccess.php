@@ -2,9 +2,6 @@
 <?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
 <?php include_component('tpCommon', 'publicMenu', array("currentParent" => "contact_us")) ?>
 <div id="tp_admin_container">
-    <div id="tp_admin_heading">
-        <h1>Contact Us</h1>
-    </div>
     <div id="tp_admin_content">
         <div class="section-block">
             <h2>Class Feedback</h2>

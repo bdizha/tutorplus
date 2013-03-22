@@ -2,9 +2,6 @@
 <?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
 <?php include_component('tpCommon', 'publicMenu', array("currentParent" => "vision")) ?>
 <div id="tp_admin_container">
-    <div id="tp_admin_heading">
-        <h1>Our Vision</h1>
-    </div>
   <div id="tp_admin_content">
     <div class="public-left">
       <div id="secondary-menu">

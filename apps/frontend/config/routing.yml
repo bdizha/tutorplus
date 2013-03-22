@@ -720,6 +720,10 @@ profile_qualifications:
   url: /profile/qualifications
   param: { module: tpProfileQualifications, action: qualifications }
   
+profile_peers:
+  url: /profile/peers
+  param: { module: tpProfile, action: peers }
+  
 profile_discussions:
   url: /profile/discussions
   param: { module: tpProfile, action: discussions }

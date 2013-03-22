@@ -2,9 +2,6 @@
 <?php include_component('tpCommon', 'secureMenu', array("hideMenu" => true)) ?>
 <?php include_component('tpCommon', 'publicMenu', array("currentParent" => "institutions")) ?>
 <div id="tp_admin_container">
-    <div id="tp_admin_heading">
-        <h1>Partnered Institutions</h1>
-    </div>
     <div id="tp_admin_content">
             Below is a list of our partnered institutions which are offering online courses from around different regions of the world on this platform:
         <?php foreach ($institutions as $institution): ?>

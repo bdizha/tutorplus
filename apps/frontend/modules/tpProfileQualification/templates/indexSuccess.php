@@ -9,7 +9,7 @@
     <div class="content-block">
       <h2>Qualifications <?php if ($sf_user->isCurrent($profile->getId())): ?><span class="actions"><?php echo link_to(__("+ Add"), "@profile_qualification_new", array("id" => "add_profile_qualification")) ?></span><?php endif; ?></h2>
       <div id="profile_qualifications">    
-        <?php include_partial('list', array("profile" => $profile, "helper" => $helper)) ?>
+        <?php include_partial('tpProfileQualification/list', array("profile" => $profile, "helper" => $helper)) ?>
       </div>
     </div>
   </div>

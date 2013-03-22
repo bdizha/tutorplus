@@ -4,7 +4,7 @@
 <?php include_partial('tpCommon/flashes_normal') ?>
 <div id="left-column">
     <div class="dashboard-photo">
-        <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 128)) ?>
+        <?php include_partial('tpPersonalInfo/photo', array('profile' => $profile, "dimension" => 96)) ?>
     </div>
     <div class="row">
         <div class="message-inbox">

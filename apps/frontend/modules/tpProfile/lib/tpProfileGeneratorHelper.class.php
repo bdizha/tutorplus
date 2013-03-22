@@ -85,7 +85,7 @@ class tpProfileGeneratorHelper extends BaseTpProfileGeneratorHelper
         );
     }
 
-    public function getTabs($activeTab, $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds)
+    public function getTabs($activeTab, $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds, $peers)
     {
         $tabs = array(
             "posts" => array(
@@ -93,15 +93,20 @@ class tpProfileGeneratorHelper extends BaseTpProfileGeneratorHelper
                 "href" => "/" . $profile->getSlug(),
                 "count" => $postActivityFeeds->count()
             ),
-            "discussions" => array(
-                "label" => "Discussions",
-                "href" => "/profile/discussions",
-                "count" => $groupActivityFeeds->count()
+            "peers" => array(
+                "label" => "Peers",
+                "href" => "/profile/peers",
+                "count" => $peers->count()
             ),
             "topics" => array(
                 "label" => "Topics",
                 "href" => "/profile/topics",
                 "count" => $topicActivityFeeds->count()
+            ),
+            "discussions" => array(
+                "label" => "Discussions",
+                "href" => "/profile/discussions",
+                "count" => $groupActivityFeeds->count()
             ),
             "activity_feeds" => array(
                 "label" => "Activity Feeds",
@@ -114,14 +119,17 @@ class tpProfileGeneratorHelper extends BaseTpProfileGeneratorHelper
             $tabs[$activeTab]["is_active"] = true;
         }
 
-        return $tabs;
+        return array("tabs" => $tabs);
     }
 
-    public function linkToCancel($object, $params) {
+    public function linkToCancel($object, $params)
+    {
         return '<input class="cancel" type="button" value="Cancel" onclick="document.location.href=\'/' . $object->getSlug() . '\'"/>';
     }
 
-    public function linkToDone($object, $params) {
+    public function linkToDone($object, $params)
+    {
         return '<input class="done" type="button" value="Done" onclick="document.location.href=\'/' . $object->getSlug() . '\'"/>';
     }
+
 }

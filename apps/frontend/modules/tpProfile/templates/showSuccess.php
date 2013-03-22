@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="content-block">
-        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs("posts", $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
+        <?php include_partial('tpCommon/tabs', $helper->getTabs("posts", $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds, $peers)) ?>
         <div class="tab-block">
             <div class="content-block" id="timeline">
                 <div id="discussion_post_form_container">

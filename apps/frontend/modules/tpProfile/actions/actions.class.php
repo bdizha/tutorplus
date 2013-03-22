@@ -12,6 +12,7 @@ require_once dirname(__FILE__) . '/../lib/tpProfileGeneratorHelper.class.php';
  */
 class tpProfileActions extends autoTpProfileActions
 {
+
     public function executeCheckLogIn()
     {
         die(json_encode(array("status" => $this->getUser()->isAuthenticated() ? "200" : "401")));
@@ -25,6 +26,7 @@ class tpProfileActions extends autoTpProfileActions
         $this->groupActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_CREATED, 20);
         $this->topicActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_TOPIC_SUBMITTED, 20);
         $this->postActivityFeeds = ActivityFeedTable::getInstance()->findByProfileIdAndType($this->profileId, ActivityFeedTable::TYPE_DISCUSSION_POST_SUBMITTED, 20);
+        $this->peers = PeerTable::getInstance()->findByProfileId($this->profileId);
     }
 
     /**
@@ -51,6 +53,16 @@ class tpProfileActions extends autoTpProfileActions
             "profile_id" => $this->getUser()->getId(),
             "discussion_topic_id" => $this->primaryDiscussionTopic->getId()
         ));
+    }
+
+    /**
+     * Executes peers action
+     *
+     * @param sfRequest $request A request object
+     */
+    public function executePeers(sfWebRequest $request)
+    {
+        $this->beforeExecute();
     }
 
     /**
@@ -86,10 +98,15 @@ class tpProfileActions extends autoTpProfileActions
     public function executeShowPhoto(sfWebRequest $request)
     {
         $photoExtentions = array("png", "gif", "jpg");
-        $avatarFormat = sfConfig::get("sf_web_dir") . "/avatars/%s.png";
+        $avatarFormat = sfConfig::get("sf_web_dir") . "/avatars/male_%s.png";
 
         if ($request->hasParameter("profile_id") && $request->hasParameter("size")) {
-            $photoName = sprintf(sfConfig::get("sf_web_dir") . "/uploads/users/" . $request->getParameter("profile_id") . "/normal-%s.", $request->getParameter("size"));
+            $profileId = $request->getParameter("profile_id");
+            $profile = ProfileTable::getInstance()->findOneById($profileId);
+            $gender = strtolower($profile->getGender() ? $profile->getGender() : "male");
+
+            $avatarFormat = sfConfig::get("sf_web_dir") . "/avatars/%s_%s.png";
+            $photoName = sprintf(sfConfig::get("sf_web_dir") . "/uploads/users/" . $profileId . "/normal-%s.", $request->getParameter("size"));
             $filename = "";
 
             foreach ($photoExtentions as $ext) {
@@ -99,7 +116,7 @@ class tpProfileActions extends autoTpProfileActions
                 }
             }
 
-            $filename = empty($filename) ? sprintf($avatarFormat, $request->getParameter("size")) : $filename;
+            $filename = empty($filename) ? sprintf($avatarFormat, $gender, $request->getParameter("size")) : $filename;
         }
 
         if (empty($filename) || !is_file($filename)) {

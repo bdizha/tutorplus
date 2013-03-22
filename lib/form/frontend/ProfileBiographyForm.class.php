@@ -14,7 +14,7 @@ class ProfileBiographyForm extends BaseProfileForm {
     parent::setup();
     $this->useFields(array('about_me'));
 
-    $this->validatorSchema['about_me'] = new sfValidatorString(array('max_length' => 255, 'required' => true), array('required' => 'The <b>About me</b> field is required.'));
+    $this->validatorSchema['about_me'] = new sfValidatorString(array('max_length' => 2500, 'required' => true), array('required' => 'The <b>About me</b> field is required.'));
     $this->widgetSchema->setNameFormat('profile_biography[%s]');
   }
 

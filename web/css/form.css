@@ -17,11 +17,9 @@ textarea {
 
 input[type=button],input[type=submit] {
     outline: 0;
-    padding: 0px 4px;
+    padding: 5px;
     cursor: pointer;
     border: none;
-    height: 25px;
-    height: 25px;
     font-size: 11px;
 }
 
@@ -223,20 +221,17 @@ fieldset textarea {
     border-radius: 2px;
     margin: 10px 10px 0 0;
     padding: 1px;
-    height: 20px !important;
     display: inline-block;
 }
 
 .peer-peered,.peer-open,.peer-suggested,.enter,.peer-invited,.peer-accept,.unregister
 {
-    height: 20px !important;
     width: 70px !important;
     color: #FFF !important;
     font-size: 11px;
 }
 
 .peer-decline{	
-    height: 20px !important;
     width: 20px !important;
     color: #FFF !important;
     font-size: 11px;

@@ -170,12 +170,8 @@ a.jScrollActiveArrowButton,a.jScrollActiveArrowButton:hover {
 
 .dashboard-photo {
     margin-bottom: 10px;
-    height: 138px;
-}
-
-.dashboard-photo .photo-link {
-    border: 1px solid #F1F1F1;
-    padding: 5px;
+    height: 106px;
+    padding-left: 20px;
 }
 
 #left-column {

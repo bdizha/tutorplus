@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="content-block">
-        <?php include_partial('tpCommon/tabs', array('tabs' => $helper->getTabs("discussions", $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds))) ?>
+        <?php include_partial('tpCommon/tabs', $helper->getTabs("discussions", $profile, $activityFeeds, $groupActivityFeeds, $topicActivityFeeds, $postActivityFeeds, $peers)) ?>
         <div class="tab-block">
             <?php foreach ($groupActivityFeeds as $key => $activityFeed): ?>
                 <?php include_partial('tpActivityFeed/discussion', array('activityFeed' => $activityFeed)) ?>

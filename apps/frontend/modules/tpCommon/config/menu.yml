@@ -80,8 +80,6 @@ secure:
           my_info:                    { route: profile_show, param: slug, label: "Profile Info" }
           my_biography:               { route: profile_biography, label: "Biography" }   
           my_peers:                   { route: peer_students, label: "Peers" }
-          my_awards:                  { route: profile_award, label: "Awards" }
-          my_qualifications:          { route: profile_qualification, label: "Qualifications" }
       my_settings:                   
         details:                      { route: profile_credentials, param: slug, ignore: true, label: "Settings" }
         credentials:                  [ Student, Instructor, Staff ]

@@ -101,23 +101,58 @@
     background-color: #F1F1F1;
 }
 
-#profile_publications ul,
-#profile_books ul, 
-#profile_interests ul{
-    list-style-type: disc !important;
-    padding-left: 25px;
+.full-block li span.icon{
+    background-image: url(/images/profile_icons.png);
+    background-attachment: scroll;
+    background-color: transparent;
+    background-repeat: no-repeat no-repeat;
+    height: 48px;
+    width: 43px;
+    display: inline-block;
+    margin-top: -10px;
 }
 
-#profile_publications li,
-#profile_books li, 
-#profile_interests li{
+#profile_awards li span.icon{
+    background-position: -155px -420px;
+}
+
+#profile_qualifications li span.icon{
+    background-position: -155px -542px;
+}
+
+#profile_publications li span.icon{
+    background-position: -155px -25px;
+}
+
+#profile_books li span.icon{
+    background-position: -155px -158px;
+}
+
+#profile_interests li span.icon{
+    background-position: -155px -291px;
+}
+
+.full-block li{
     padding-top: 10px;
+    min-height: 36px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.full-block li.last{
+    border: none !important;
 }
 
 #profile_publications,
 #profile_books,
-#profile_interests{
-    padding-bottom: 10px;
+#profile_interests,
+#profile_awards,
+#profile_qualifications{
+    padding: 10px;
+}
+
+.award .body, .qualification .body{
+    display: inline-block;
+    min-height: 36px;
 }
 
 #timeline_form_container{
@@ -218,4 +253,11 @@
 
 .sf_admin_form_field_permissions_list{
     display: none;
+}
+
+.photo-action{
+    display: inline-block;
+    width: 100px;
+    padding-top: 15px;
+    margin-left: 10px;
 }

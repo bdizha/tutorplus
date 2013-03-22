@@ -1,28 +1,24 @@
-<?php $i = 0; ?>
+<?php $key = 0; ?>
 <?php foreach ($profile->getQualifications() as $qualification): ?>
-    <div class="qualification">
-        <div class="icon">
-            <img src="/uploads/courses/2/48.png" class="image" alt="TutorPlus Team" title="TutorPlus Team">
-        </div>
-        <div class="details">
-            <div class="qualification-row"><?php echo $qualification->getDescription() ?></div>
-            <div class="qualification-row">
-                <span class="label">Year:</span>
-                <span class="datetime"><?php echo $qualification->getYear() ?></span>
-            </div>
-            <div class="qualification-row">
-                <span class="label">Institution:</span>
-                <span class="institution"><?php echo $qualification->getInstitution() ?></span>
-            </div>
-        </div>
-        <div class="inline-content-actions">
-            <?php echo $helper->linkToQualificationEdit($qualification, array()) ?>
-            <?php echo $helper->linkToQualificationDelete($qualification, array("confirm" => "Are you sure?")) ?>
-        </div>
-    </div>
-    <?php $i++ ?>
+    <ul>
+        <?php foreach ($profile->getQualifications() as $qualification): ?>
+            <?php $key++; ?>
+            <li class="qualification<?php echo ($key == $profile->getQualifications()->count()) ? ' last' : "" ?>">
+                <span class="icon">&nbsp;</span>
+                <div class="body">
+                    <span class="description"><?php echo $qualification->getDescription() ?>,</span>
+                    <span class="datetime"><?php echo $qualification->getYear() ?>,</span>
+                    <span class="institution"><?php echo $qualification->getInstitution() ?></span>                    
+                </div>
+                <div class="inline-content-actions">
+                    <?php echo $helper->linkToQualificationEdit($qualification, array()) ?>
+                    <?php echo $helper->linkToQualificationDelete($qualification, array("confirm" => "Are you sure?")) ?>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 <?php endforeach; ?>
-<?php if ($i == 0): ?>
+<?php if ($key == 0): ?>
     <div class="no-result">There isn't any qualifications added yet.</div>
 <?php endif; ?>
 <script type='text/javascript'>

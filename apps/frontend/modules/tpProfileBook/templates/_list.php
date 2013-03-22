@@ -1,10 +1,14 @@
 <?php if (count($books) == 0): ?>
-    <div class="no-result">There's no books added yet.</div>
+    <?php $key = 0; ?>
+    <div class="no-result">There isn't any favourite books added yet.</div>
 <?php else: ?>
     <ul>
         <?php foreach ($books as $book): ?>
-            <li>
-                <?php echo $book->getTitle() ?> by <span class="author"><?php echo $book->getAuthor() ?></span>
+            <?php $key++; ?>
+            <li<?php echo ($key == count($books)) ? ' class="last"' : "" ?>>
+                <span class="icon">&nbsp;</span>
+                <span class="description"><?php echo $book->getTitle() ?> by</span>
+                <span class="author"><?php echo $book->getAuthor() ?></span>
                 <div class="inline-content-actions">
                     <?php echo $helper->linkToBookEdit($book, array()) ?>
                 </div>

@@ -236,7 +236,6 @@ select[size],select[multiple],select[size][multiple] {
 	border: 1px solid #F5F5F5;
 	margin: 0 0 10px 0;
 	vertical-align: top;
-	background-color: #F5F5F5;
 }
 
 .course-catalog .icon {
@@ -247,7 +246,6 @@ select[size],select[multiple],select[size][multiple] {
 
 .course-catalog input,.course-action-bottom input[type=text] {
 	width: 128px !important;
-	height: 20px !important
 }
 
 .course-photo {
